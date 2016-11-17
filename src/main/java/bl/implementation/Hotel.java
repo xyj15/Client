@@ -14,18 +14,30 @@ public class Hotel extends User implements HotelBLService{
 	private HotelVO VO;
 	private String name;
 	private String address;
-	private String level;
+	private int level;
 	private String district;
+	//private HotelManager hotelManager;
 	
 	
-	public Hotel(String hotelID, String name, String address, String level, String district) {
+	public Hotel(String hotelID, String name, String address, int level, String district) {
 		setID(hotelID);
 		//VO = new HotelVO(hotelID, name, address, level, district);
-		this.setName(name);
-		this.setAddress(address);
-		this.setLevel(level);
-		this.setDistrict(district);
+		setName(name);
+		setAddress(address);
+		setLevel(level);
+		setDistrict(district);
 	}
+	
+	/**
+	 * 用String方式对hotelManager的处理
+	 * */
+	private String hotelManager;
+	private String hotelManagerID;
+	public void changeHotelManager(String hoMa,String hoMaID	){
+		setHotelManager(hoMa);
+		setHotelManagerID(hoMaID);
+	}
+	/***/
 	
 	public List<OrderVO> getOrderList (String hotelID,String time){
 		if(ID.equals(hotelID)){
@@ -65,7 +77,7 @@ public class Hotel extends User implements HotelBLService{
 		return true;
 	}
 	
-	@Override
+
 	public boolean delay(String orderID) {
 		for(int i=0;i<ordermanager.getOrderList().size();i++){
 			if(ordermanager.getOrderList().get(i).getOrderID().equals(orderID)){
@@ -104,11 +116,11 @@ public class Hotel extends User implements HotelBLService{
 		this.address = address;
 	}
 
-	public String getLevel() {
+	public int getLevel() {
 		return level;
 	}
 
-	public void setLevel(String level) {
+	public void setLevel(int level) {
 		this.level = level;
 	}
 
@@ -126,6 +138,22 @@ public class Hotel extends User implements HotelBLService{
 
 	public void setID(String iD) {
 		ID = iD;
+	}
+
+	public String getHotelManager() {
+		return hotelManager;
+	}
+
+	public void setHotelManager(String hotelManager) {
+		this.hotelManager = hotelManager;
+	}
+
+	public String getHotelManagerID() {
+		return hotelManagerID;
+	}
+
+	public void setHotelManagerID(String hotelManagerID) {
+		this.hotelManagerID = hotelManagerID;
 	}
 
 }
