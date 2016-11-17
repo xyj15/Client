@@ -27,7 +27,7 @@ public class HotelTest {
 	MockRoom room2;
 	@Before
 	public void setUp(){
-		hotel=new Hotel("123", null, null, null, null);
+		hotel=new Hotel("123", null, null, 1, null);
 		order1=new MockOrder("1100",2, null, 1, 2, 110	, "50% off", 251 );
 		order2=new MockOrder("1101",2, null, 3, 4, 120	, "40% off", 666);
 		
@@ -71,7 +71,7 @@ public class HotelTest {
 	
 	@Test
 	public void testUpdataHotelInformat(){
-		Hotel x=new Hotel("123", "155", null, null, null);
+		Hotel x=new Hotel("123", "155", null,1, null);
 		hotel.updataHotelInformat(hotel.getID(), x.getVO());
 		assertEquals(hotel.getHotelInformat(hotel.getID()),x.getVO());
 	}
