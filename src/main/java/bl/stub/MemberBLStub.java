@@ -13,11 +13,11 @@ public class MemberBLStub implements MemberBLService {
 	String name;
 	String level;
 	String pass;
-	double credit;
+	Double credit;
 	String phone;
 	String birth;
 
-	public MemberBLStub(String level,String memberID,String pass,String name,String birth,String phone,double credit) {
+	public MemberBLStub(String level,String memberID,String pass,String name,String birth,String phone,Double credit) {
 		this.memberID = memberID;
 		this.name = name;
 		this.level = level;
@@ -38,16 +38,16 @@ public class MemberBLStub implements MemberBLService {
 		return true;
 	}
 
-	public List<String> getCreditList(String memberID) {
+	public ArrayList<Double> getCreditList(String memberID) {
 		// TODO Auto-generated method stub
-		ArrayList<String> creditList = new ArrayList<String>();
-		creditList.add("2016-10-01			+100");
+		ArrayList<Double> creditList = new ArrayList<Double>();
+		creditList.add(100.0);
 		return creditList;
 	}
 
-	public String getCredit(String memberID) {
+	public Double getCredit(String memberID) {
 		// TODO Auto-generated method stub
-		return null;
+		return 0.0;
 	}
 
 	public boolean updateCredit(String memberID, double newCredit) {

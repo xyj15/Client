@@ -27,7 +27,7 @@ public class MemberTest {
 	
 	@Before
 	public void setUp(){
-		member=new Member("123", "321", null, null,null, 500);
+		member=new Member("123", "321", null, null,null, 500.0,null,null);
 		
 		order1=new MockOrder("1100",2, null, 1, 2, 110	, "50% off", 251 );
 		order2=new MockOrder("1101",2, null, 3, 4, 120	, "40% off", 666);
@@ -38,7 +38,7 @@ public class MemberTest {
 	}
 	@Test
 	public void testSaveMInformation(){
-		m=new Member("123", "321", null, "SS", null, 500);
+		m=new Member("123", "321", null, "SS", null, 500.0,null,null);
 		member.saveMInformation(member.getID(), m.getVo());
 		assertEquals(member.getMInformation(member.getID()),m.getVo());
 	}
@@ -48,12 +48,12 @@ public class MemberTest {
 	}
 	@Test
 	public void testGetCredit(){
-		assertEquals(member.getCredit(member.getID()),"500.0");
+		assertEquals(""+member.getCredit(member.getID()),"500.0");
 	}
 	@Test
 	public void testUpdateCredit(){
 		member.updateCredit(member.getID(), 800);
-		assertEquals(member.getCredit(member.getID()),"800.0");
+        assertEquals(""+member.getCredit(member.getID()), ""+800.0);
 	}
 	@Test
 	public void testCheckCredit(){

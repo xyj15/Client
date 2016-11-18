@@ -18,22 +18,22 @@ public class Member extends User implements MemberBLService {
 	private String name;
 	private Date birthday;
 	private String phone;
-	private double credit;
+	private Double credit;
 	private MemberVO vo;
-	private List<String> creditList;
+	private ArrayList<Double> creditList=new ArrayList<Double>();
 	private MemberType type;
 	private Enterprise enterprise;
 	
 	public Member(String ID,String password,Date birthday,String name,String phone,
-			double credit,MemberType type,Enterprise enterprise) {
+			Double credit,MemberType type,Enterprise enterprise) {
 		
 		setID(ID);
 		setPassword(password);
 		this.name=name;
 		this.birthday=birthday;
 		this.phone=phone;
-		this.credit=credit;
-		creditList.add(""+credit);
+		setCredit(credit);
+		creditList.add(credit);
 		setType(type);
 		setEnterprise(enterprise);
 	}
@@ -50,20 +50,20 @@ public class Member extends User implements MemberBLService {
 		return false;
 	}
 	
-	public List<String> getCreditList (String memberID) {
+	public ArrayList<Double> getCreditList (String memberID) {
 		return creditList;
 	}
 	
-	public String getCredit(String memberID) {
+	public Double getCredit(String memberID) {
 		// TODO Auto-generated method stub
-		return ""+credit;
+		return credit;
 	}
 	
 	public boolean updateCredit(String memberID, double newCredit) {
 		// TODO Auto-generated method stub
 		if(memberID.equals(ID)){
 			setCredit(newCredit);
-			creditList.add(""+credit);
+			creditList.add(credit);
 			return true;
 		}
 		return false;
@@ -167,7 +167,7 @@ public class Member extends User implements MemberBLService {
 		this.vo = vo;
 	}
 
-	public List<String> getCreditList() {
+	public List<Double> getCreditList() {
 		return creditList;
 	}
 

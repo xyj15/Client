@@ -10,8 +10,8 @@ public interface MemberBLService {
 
 	public MemberVO getMInformation (String memberID);
 	public boolean saveMInformation (String memberID,MemberVO M);
-	public List<String> getCreditList (String memberID);
-	public String getCredit(String memberID);
+	public ArrayList<Double> getCreditList (String memberID);
+	public Double getCredit(String memberID);
 	public boolean updateCredit(String memberID,double newCredit);
 	public boolean checkCredit(String memberID);
 	public OrderVO getOrder(String orderID);
