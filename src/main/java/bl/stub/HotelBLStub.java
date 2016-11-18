@@ -42,9 +42,7 @@ public class HotelBLStub implements HotelBLService{
 		this.district = district;
 		this.price = price;
 	}
-	
 
-	@Override
 	public ArrayList<OrderVO> getOrderList(String hotelID, String time) {
 		// TODO Auto-generated method stub
 		ArrayList<OrderVO> orderList = new ArrayList<OrderVO>();
@@ -53,34 +51,29 @@ public class HotelBLStub implements HotelBLService{
 		return orderList;
 	}
 
-	@Override
 	public OrderVO getOrder(String orderID) {
 		// TODO Auto-generated method stub
 		return new OrderVO(2, checkInTime, checkOutTime, roomType, roomNumber,
 				promotion, discount, price,"1100");
 	}
 
-	@Override
 	public HotelVO getHotelInformat(String hotelID) {
 		// TODO Auto-generated method stub
 		return new HotelVO(hotelID, name, address, level, district);
 	}
 
-	@Override
 	public boolean updataOrder(String orderID, OrderVO OR) {
 		// TODO Auto-generated method stub
 		System.out.println("订单更新成功");
 		return true;
 	}
 
-	@Override
 	public boolean updataHotelInformat(String hotelID, HotelVO HO) {
 		// TODO Auto-generated method stub
 		System.out.println("酒店信息更新成功");
 		return true;
 	}
 
-	@Override
 	public boolean check(String orderID, String memberID, String roomID, RoomVO RO, int mark) {
 		// TODO Auto-generated method stub
 		if(mark==1){
@@ -95,8 +88,6 @@ public class HotelBLStub implements HotelBLService{
 		}
 	}
 
-
-	@Override
 	public boolean delay(String orderID) {
 		// TODO Auto-generated method stub
 		return false;

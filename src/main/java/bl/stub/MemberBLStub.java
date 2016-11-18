@@ -13,11 +13,11 @@ public class MemberBLStub implements MemberBLService {
 	String name;
 	String level;
 	String pass;
-	double credit;
+	Double credit;
 	String phone;
 	String birth;
 
-	public MemberBLStub(String level,String memberID,String pass,String name,String birth,String phone,double credit) {
+	public MemberBLStub(String level,String memberID,String pass,String name,String birth,String phone,Double credit) {
 		this.memberID = memberID;
 		this.name = name;
 		this.level = level;
@@ -27,76 +27,64 @@ public class MemberBLStub implements MemberBLService {
 		this.birth = birth;
 	}
 	
-	@Override
 	public MemberVO getMInformation(String memberID) {
 		// TODO Auto-generated method stub
 		return new MemberVO(memberID,pass, name, birth, phone, credit);
 	}
 
-	@Override
 	public boolean saveMInformation(String memberID, MemberVO M) {
 		// TODO Auto-generated method stub
 		System.out.println("用户信息保存成功");
 		return true;
 	}
 
-	@Override
-	public List<String> getCreditList(String memberID) {
+	public ArrayList<Double> getCreditList(String memberID) {
 		// TODO Auto-generated method stub
-		ArrayList<String> creditList = new ArrayList<String>();
-		creditList.add("2016-10-01			+100");
+		ArrayList<Double> creditList = new ArrayList<Double>();
+		creditList.add(100.0);
 		return creditList;
 	}
 
-	@Override
-	public String getCredit(String memberID) {
+	public Double getCredit(String memberID) {
 		// TODO Auto-generated method stub
-		return null;
+		return 0.0;
 	}
 
-	@Override
 	public boolean updateCredit(String memberID, double newCredit) {
 		// TODO Auto-generated method stub
 		return false;
 	}
 
-	@Override
 	public boolean checkCredit(String memberID) {
 		// TODO Auto-generated method stub
 		return false;
 	}
 
-	@Override
 	public OrderVO getOrder(String orderID) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
-	@Override
 	public List<OrderVO> gerOrderList(String userID) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
-	@Override
 	public void cancelOrder(String orderID) {
 		// TODO Auto-generated method stub
 		
 	}
 
-	@Override
 	public List<OrderVO> getUnOrder(ArrayList<OrderVO> orderList) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
-	@Override
 	public List<OrderVO> getAlOrder(ArrayList<OrderVO> orderList) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
-	@Override
 	public List<OrderVO> getAandCOrder(ArrayList<OrderVO> orderList) {
 		// TODO Auto-generated method stub
 		return null;
