@@ -20,6 +20,19 @@ public class Manager extends User implements ManagerBLService {
 	private HotelData hot;
 	private MemberData mem;
 	private ManagerData user;
+
+
+	private ArrayList<User> userList = new ArrayList<User>();
+	private ArrayList<Saler> salerList = new ArrayList<Saler>();
+	//以下为单件模式改动
+	private Manager() {}
+
+	private static Manager manager= new Manager();
+
+	public static Manager getInstance(){
+		return manager;
+	}
+	//到此
 	
 	public HotelVO getHotel(String hotelID) {
 		// TODO Auto-generated method stub

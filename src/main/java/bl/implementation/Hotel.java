@@ -1,8 +1,11 @@
 package bl.implementation;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import bl.service.HotelBLService;
+import setup.Enterprise;
+import setup.HotelService;
 import vo.HotelVO;
 import vo.OrderVO;
 import vo.RoomVO;
@@ -11,13 +14,18 @@ public class Hotel extends User implements HotelBLService{
 
 	public Order ordermanager = new Order();
 	public Room roommanager = new Room();
+	public Promotion promotionmanager = new Promotion();
+
 	private HotelVO VO;
 	private String name;
 	private String address;
 	private int level;
 	private String district;
-	//private HotelManager hotelManager;
-	
+	private String production;
+	private HotelService service;
+
+	private ArrayList<Enterprise> enterpriseList = new ArrayList<Enterprise>();
+
 	
 	public Hotel(String hotelID, String name, String address, int level, String district) {
 		setID(hotelID);
@@ -28,16 +36,14 @@ public class Hotel extends User implements HotelBLService{
 		setDistrict(district);
 	}
 	
-	/**
-	 * 用String方式对hotelManager的处理
-	 * */
+
 	private String hotelManager;
 	private String hotelManagerID;
 	public void changeHotelManager(String hoMa,String hoMaID	){
 		setHotelManager(hoMa);
 		setHotelManagerID(hoMaID);
 	}
-	/***/
+
 	
 	public List<OrderVO> getOrderList (String hotelID,String time){
 		if(ID.equals(hotelID)){
@@ -156,4 +162,7 @@ public class Hotel extends User implements HotelBLService{
 		this.hotelManagerID = hotelManagerID;
 	}
 
+	public void setProduction(String production) {
+		this.production = production;
+	}
 }

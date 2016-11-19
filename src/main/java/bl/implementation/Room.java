@@ -2,6 +2,7 @@ package bl.implementation;
 
 import bl.dataservice.RoomData;
 import bl.service.RoomBLService;
+import po.RoomType;
 import po.roomPO;
 import vo.RoomVO;
 
@@ -9,6 +10,11 @@ public class Room implements RoomBLService {
 	
 	private RoomVO room;
 	private RoomData roomData;
+
+	private String roomID;
+	private RoomType type;
+	private  double price;
+	boolean available;
 	
 	/**
 	 * 根据房间号查找房间

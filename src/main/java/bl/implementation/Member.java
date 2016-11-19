@@ -18,22 +18,22 @@ public class Member extends User implements MemberBLService {
 	private String name;
 	private Date birthday;
 	private String phone;
-	private Double credit;
 	private MemberVO vo;
-	private ArrayList<Double> creditList=new ArrayList<Double>();
 	private MemberType type;
 	private Enterprise enterprise;
+	private  Credit credit;
+
+	private int level;
+	private double discount;
 	
 	public Member(String ID,String password,Date birthday,String name,String phone,
 			Double credit,MemberType type,Enterprise enterprise) {
-		
 		setID(ID);
 		setPassword(password);
-		this.name=name;
+		setName(name);
 		this.birthday=birthday;
-		this.phone=phone;
-		setCredit(credit);
-		creditList.add(credit);
+		setPhone(phone);
+		this.credit=new Credit(credit);
 		setType(type);
 		setEnterprise(enterprise);
 	}
@@ -45,33 +45,6 @@ public class Member extends User implements MemberBLService {
 	public boolean saveMInformation (String memberID, MemberVO M) {
 		if(memberID.equals(ID)){
 			setVo(vo);
-			return true;
-		}
-		return false;
-	}
-	
-	public ArrayList<Double> getCreditList (String memberID) {
-		return creditList;
-	}
-	
-	public Double getCredit(String memberID) {
-		// TODO Auto-generated method stub
-		return credit;
-	}
-	
-	public boolean updateCredit(String memberID, double newCredit) {
-		// TODO Auto-generated method stub
-		if(memberID.equals(ID)){
-			setCredit(newCredit);
-			creditList.add(credit);
-			return true;
-		}
-		return false;
-	}
-	
-	public boolean checkCredit(String memberID) {
-		// TODO Auto-generated method stub
-		if(credit>=0){
 			return true;
 		}
 		return false;
@@ -142,14 +115,6 @@ public class Member extends User implements MemberBLService {
 	public void setPhone(String phone) {
 		this.phone = phone;
 	}
-	
-	public double getCredit() {
-		return credit;
-	}
-	
-	public void setCredit(double credit) {
-		this.credit = credit;
-	}
 
 	public String getID() {
 		return ID;
@@ -167,9 +132,9 @@ public class Member extends User implements MemberBLService {
 		this.vo = vo;
 	}
 
-	public List<Double> getCreditList() {
-		return creditList;
-	}
+//	public List<Double> getCreditList() {
+//		return creditList;
+//	}
 
 	public MemberType getType() {
 		return type;
