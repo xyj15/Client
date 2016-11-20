@@ -21,6 +21,7 @@ public class Manager extends User implements ManagerBLService {
 	private MemberData mem;
 	private ManagerData user;
 	
+
 	public HotelVO getHotel(String hotelID) {
 		// TODO Auto-generated method stub
 		if(hotel.getHotelID().equals(hotelID))return hotel;
