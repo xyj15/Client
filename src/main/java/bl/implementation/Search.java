@@ -3,14 +3,23 @@ package bl.implementation;
 import java.util.ArrayList;
 
 import bl.service.SearchBLService;
+import setup.SearchInfomation;
+import setup.SortStratedy;
 import vo.*;
 
 public class Search implements SearchBLService {
 	
 	private String address;
 	private String district;
+	//这两个后期去掉，现避免报错而不改动
+
+
 	private ArrayList<HotelVO> hotelList;
-	
+
+	private SearchInfomation searchInfomation;				//搜索限制条件
+	private SortStratedy sortStratedy;						// 排序条件
+
+
 	public Search() {
 		address = null;
 		district = null;
