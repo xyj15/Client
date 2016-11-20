@@ -25,7 +25,6 @@ public class ManagerBLStub implements ManagerBLService {
 		hotelList.add(new HotelVO(ID,name,address,level,district));
 	}
 	
-	@Override
 	public MemberVO getMember(String userID) {
 		// TODO Auto-generated method stub
 		for(int i=0;i<memberList.size();i++){
@@ -38,7 +37,6 @@ public class ManagerBLStub implements ManagerBLService {
 		return null;
 	}
 
-	@Override
 	public boolean updateMember(MemberVO member) {
 		// TODO Auto-generated method stub
 		for(int i=0;i<memberList.size();i++){
@@ -51,7 +49,6 @@ public class ManagerBLStub implements ManagerBLService {
 		return true; 
 	}
 
-	@Override
 	public boolean addMember(MemberVO member) {
 		// TODO Auto-generated method stub
 //		ID=user.getID();
@@ -63,7 +60,6 @@ public class ManagerBLStub implements ManagerBLService {
 		return true;
 	}
 
-	@Override
 	public boolean deleteMember(MemberVO member) {
 		// TODO Auto-generated method stub
 		for(int i=0;i<memberList.size();i++){
@@ -75,13 +71,12 @@ public class ManagerBLStub implements ManagerBLService {
 		return true;
 	}
 
-	@Override
 	public ArrayList<MemberVO> getMemberList(String limit) {
 		// TODO Auto-generated method stub
 		System.out.println("----查看列表———");
 		return memberList;
 	}
-	@Override
+
 	public HotelVO getHotel(String hotelID) {
 		// TODO Auto-generated method stub
 		for(int i=0;i<hotelList.size();i++){
@@ -94,7 +89,6 @@ public class ManagerBLStub implements ManagerBLService {
 		return null;
 	}
 	
-	@Override
 	public boolean updateHotel(HotelVO hotel) {
 		// TODO Auto-generated method stub
 		for(int i=0;i<hotelList.size();i++){
@@ -107,7 +101,6 @@ public class ManagerBLStub implements ManagerBLService {
 		return true; 
 	}
 	
-	@Override
 	public boolean addHotel(HotelVO hotel) {
 		// TODO Auto-generated method stub
 		hotelList.add(hotel);
@@ -115,7 +108,6 @@ public class ManagerBLStub implements ManagerBLService {
 		return true;
 	}
 	
-	@Override
 	public boolean deleteHotel(HotelVO hotel) {
 		// TODO Auto-generated method stub
 		for(int i=0;i<hotelList.size();i++){
@@ -127,7 +119,6 @@ public class ManagerBLStub implements ManagerBLService {
 		return true;
 	}
 	
-	@Override
 	public ArrayList<HotelVO> getHotelList(String limit) {
 		// TODO Auto-generated method stub
 		System.out.println("----查看酒店列表———");
