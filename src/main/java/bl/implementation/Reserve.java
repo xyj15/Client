@@ -4,7 +4,11 @@ import bl.service.ReserveBLService;
 import vo.*;
 
 public class Reserve implements ReserveBLService {
-	
+
+	private MemberVO member;
+	private HotelVO hotel;
+
+
 	private DateVO date;
 	private int days;
 	private PromotionVO promotion;

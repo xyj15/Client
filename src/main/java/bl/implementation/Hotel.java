@@ -1,8 +1,11 @@
 package bl.implementation;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import bl.service.HotelBLService;
+import setup.Enterprise;
+import setup.HotelService;
 import vo.HotelVO;
 import vo.OrderVO;
 import vo.RoomVO;
@@ -11,34 +14,44 @@ public class Hotel extends User implements HotelBLService{
 
 	public Order ordermanager = new Order();
 	public Room roommanager = new Room();
+	public Promotion promotionmanager = new Promotion();
+
 	private HotelVO VO;
 	private String name;
 	private String address;
-	private int level;
+	private String level;
 	private String district;
-	//private HotelManager hotelManager;
+<<<<<<< HEAD
+	private String production;
+	private HotelService service;
+
+	private ArrayList<Enterprise> enterpriseList = new ArrayList<Enterprise>();
+
+=======
 	
+>>>>>>> parent of e8a2e22... 鏀瑰姩
 	
-	public Hotel(String hotelID, String name, String address, int level, String district) {
+	public Hotel(String hotelID, String name, String address, String level, String district) {
 		setID(hotelID);
 		//VO = new HotelVO(hotelID, name, address, level, district);
-		setName(name);
-		setAddress(address);
-		setLevel(level);
-		setDistrict(district);
+		this.setName(name);
+		this.setAddress(address);
+		this.setLevel(level);
+		this.setDistrict(district);
 	}
 	
-	/**
-	 * 用String方式对hotelManager的处理
-	 * */
+<<<<<<< HEAD
+
 	private String hotelManager;
 	private String hotelManagerID;
 	public void changeHotelManager(String hoMa,String hoMaID	){
 		setHotelManager(hoMa);
 		setHotelManagerID(hoMaID);
 	}
-	/***/
+
 	
+=======
+>>>>>>> parent of e8a2e22... 鏀瑰姩
 	public List<OrderVO> getOrderList (String hotelID,String time){
 		if(ID.equals(hotelID)){
 			return ordermanager.getOrderList();
@@ -77,7 +90,7 @@ public class Hotel extends User implements HotelBLService{
 		return true;
 	}
 	
-
+	@Override
 	public boolean delay(String orderID) {
 		for(int i=0;i<ordermanager.getOrderList().size();i++){
 			if(ordermanager.getOrderList().get(i).getOrderID().equals(orderID)){
@@ -116,11 +129,11 @@ public class Hotel extends User implements HotelBLService{
 		this.address = address;
 	}
 
-	public int getLevel() {
+	public String getLevel() {
 		return level;
 	}
 
-	public void setLevel(int level) {
+	public void setLevel(String level) {
 		this.level = level;
 	}
 
@@ -140,6 +153,7 @@ public class Hotel extends User implements HotelBLService{
 		ID = iD;
 	}
 
+<<<<<<< HEAD
 	public String getHotelManager() {
 		return hotelManager;
 	}
@@ -156,4 +170,9 @@ public class Hotel extends User implements HotelBLService{
 		this.hotelManagerID = hotelManagerID;
 	}
 
+	public void setProduction(String production) {
+		this.production = production;
+	}
+=======
+>>>>>>> parent of e8a2e22... 鏀瑰姩
 }
