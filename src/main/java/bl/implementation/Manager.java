@@ -34,7 +34,6 @@ public class Manager extends User implements ManagerBLService {
 	}
 	//到此
 	
-	@Override
 	public HotelVO getHotel(String hotelID) {
 		// TODO Auto-generated method stub
 		if(hotel.getHotelID().equals(hotelID))return hotel;
@@ -54,7 +53,6 @@ public class Manager extends User implements ManagerBLService {
 		return hotel;
 	}
 
-	@Override
 	public boolean updateHotel(HotelVO hotel) {
 		// TODO Auto-generated method stub
 		this.hotel=hotel;
@@ -64,7 +62,6 @@ public class Manager extends User implements ManagerBLService {
 		return true;
 	}
 
-	@Override
 	public boolean addHotel(HotelVO hotel) {
 		// TODO Auto-generated method stub
 		this.hotel=hotel;
@@ -74,7 +71,6 @@ public class Manager extends User implements ManagerBLService {
 		return true;
 	}
 
-	@Override
 	public boolean deleteHotel(HotelVO hotel) {
 		// TODO Auto-generated method stub
 		this.hotel=hotel;
@@ -85,7 +81,6 @@ public class Manager extends User implements ManagerBLService {
 		 return true;
 	}
 
-	@Override
 	public ArrayList<HotelVO> getHotelList(String limit) {
 		// TODO Auto-generated method stub
 		ArrayList<HotelPO> temp=user.getHotelList(limit);
@@ -95,7 +90,6 @@ public class Manager extends User implements ManagerBLService {
 		return hotels;
 	}
 
-	@Override
 	public MemberVO getMember(String memberID) {
 		// TODO Auto-generated method stub
 		if(member.getMemberID().equals(memberID))return member;
@@ -116,7 +110,6 @@ public class Manager extends User implements ManagerBLService {
 		return member;
 	}
 
-	@Override
 	public boolean updateMember(MemberVO member) {
 		// TODO Auto-generated method stub
 		this.member=member;
@@ -127,7 +120,6 @@ public class Manager extends User implements ManagerBLService {
 		return true;
 	}
 
-	@Override
 	public boolean addMember(MemberVO member) {
 		// TODO Auto-generated method stub
 		this.member=member;
@@ -137,7 +129,6 @@ public class Manager extends User implements ManagerBLService {
 		return true;
 	}
 
-	@Override
 	public boolean deleteMember(MemberVO member) {
 		// TODO Auto-generated method stub
 		this.member=member;
@@ -147,7 +138,6 @@ public class Manager extends User implements ManagerBLService {
 		return true;
 	}
 
-	@Override
 	public ArrayList<MemberVO> getMemberList(String limit) {
 		// TODO Auto-generated method stub
 		ArrayList<MemberPO> temp=user.getMemberList(limit);

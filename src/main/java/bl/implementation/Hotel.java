@@ -19,28 +19,23 @@ public class Hotel extends User implements HotelBLService{
 	private HotelVO VO;
 	private String name;
 	private String address;
-	private String level;
+	private int level;
 	private String district;
-<<<<<<< HEAD
 	private String production;
 	private HotelService service;
 
 	private ArrayList<Enterprise> enterpriseList = new ArrayList<Enterprise>();
 
-=======
 	
->>>>>>> parent of e8a2e22... 改动
-	
-	public Hotel(String hotelID, String name, String address, String level, String district) {
+	public Hotel(String hotelID, String name, String address, int level, String district) {
 		setID(hotelID);
 		//VO = new HotelVO(hotelID, name, address, level, district);
-		this.setName(name);
-		this.setAddress(address);
-		this.setLevel(level);
-		this.setDistrict(district);
+		setName(name);
+		setAddress(address);
+		setLevel(level);
+		setDistrict(district);
 	}
 	
-<<<<<<< HEAD
 
 	private String hotelManager;
 	private String hotelManagerID;
@@ -50,8 +45,6 @@ public class Hotel extends User implements HotelBLService{
 	}
 
 	
-=======
->>>>>>> parent of e8a2e22... 改动
 	public List<OrderVO> getOrderList (String hotelID,String time){
 		if(ID.equals(hotelID)){
 			return ordermanager.getOrderList();
@@ -90,7 +83,7 @@ public class Hotel extends User implements HotelBLService{
 		return true;
 	}
 	
-	@Override
+
 	public boolean delay(String orderID) {
 		for(int i=0;i<ordermanager.getOrderList().size();i++){
 			if(ordermanager.getOrderList().get(i).getOrderID().equals(orderID)){
@@ -129,11 +122,11 @@ public class Hotel extends User implements HotelBLService{
 		this.address = address;
 	}
 
-	public String getLevel() {
+	public int getLevel() {
 		return level;
 	}
 
-	public void setLevel(String level) {
+	public void setLevel(int level) {
 		this.level = level;
 	}
 
@@ -153,7 +146,6 @@ public class Hotel extends User implements HotelBLService{
 		ID = iD;
 	}
 
-<<<<<<< HEAD
 	public String getHotelManager() {
 		return hotelManager;
 	}
@@ -173,6 +165,4 @@ public class Hotel extends User implements HotelBLService{
 	public void setProduction(String production) {
 		this.production = production;
 	}
-=======
->>>>>>> parent of e8a2e22... 改动
 }
