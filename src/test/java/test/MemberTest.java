@@ -42,23 +42,23 @@ public class MemberTest {
 		member.saveMInformation(member.getID(), m.getVo());
 		assertEquals(member.getMInformation(member.getID()),m.getVo());
 	}
-	@Test
-	public void testGetCreditList(){
-		assertEquals(member.getCreditList(),member.getCreditList(member.getID()));
-	}
-	@Test
-	public void testGetCredit(){
-		assertEquals(""+member.getCredit(member.getID()),"500.0");
-	}
-	@Test
-	public void testUpdateCredit(){
-		member.updateCredit(member.getID(), 800);
-        assertEquals(""+member.getCredit(member.getID()), ""+800.0);
-	}
-	@Test
-	public void testCheckCredit(){
-		assertEquals(member.checkCredit(member.getID()),true);
-	}
+//	@Test
+//	public void testGetCreditList(){
+//		assertEquals(member.getCreditList(),member.getCreditList(member.getID()));
+//	}
+//	@Test
+//	public void testGetCredit(){
+//		assertEquals(""+member.getCredit(member.getID()),"500.0");
+//	}
+//	@Test
+//	public void testUpdateCredit(){
+//		member.updateCredit(member.getID(), 800);
+//        assertEquals(""+member.getCredit(member.getID()), ""+800.0);
+//	}
+//	@Test
+//	public void testCheckCredit(){
+//		assertEquals(member.checkCredit(member.getID()),true);
+//	}
 	@Test
 	public void testGetOrder(){
 		member.ordermanager.addOrder(order1);

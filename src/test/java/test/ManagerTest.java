@@ -24,7 +24,7 @@ public class ManagerTest {
 
 	@Before
 	public void setUp() {
-		user = new Manager();
+		user = Manager.getInstance();
 		hotel1 = new MockHotel("123", "kunkun", null, null, null, null);
 		hotel2 = new MockHotel("123", "zhuangzhuang", null, null, null, null);
 		member1 = new MockMember("541", null, null, null, null, 0);
