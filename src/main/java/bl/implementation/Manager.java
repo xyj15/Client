@@ -34,14 +34,7 @@ public class Manager extends User implements ManagerBLService {
 	}
 	//到此
 	
-<<<<<<< HEAD
-<<<<<<< HEAD
 
-=======
-	@Override
->>>>>>> origin/master
-=======
->>>>>>> origin/master
 	public HotelVO getHotel(String hotelID) {
 		// TODO Auto-generated method stub
 		if(hotel.getHotelID().equals(hotelID))return hotel;

@@ -19,7 +19,7 @@ public class MemberBLDriver {
 		MemberBLService memberBL = new MemberBLStub(level,memberID,pass, name, birth, phone, credit);
 		System.out.println(memberBL.saveMInformation(memberID, M));
 		System.out.println(memberBL.getMInformation(memberID));
-		System.out.println(memberBL.getCreditList(memberID));
+//		System.out.println(memberBL.getCreditList(memberID));
 	
 	}
 

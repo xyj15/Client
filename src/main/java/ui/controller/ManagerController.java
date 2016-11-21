@@ -1,4 +1,4 @@
-package ui.ui.controller;
+package ui.controller;
 
 import vo.HotelVO;
 import vo.MemberVO;
@@ -6,7 +6,7 @@ import vo.MemberVO;
 /**
  * Created by apple on 2016/11/18.
  */
-public interface UserController {
+public interface ManagerController {
     public HotelVO getHotel(String hotelID);
     public boolean addHotel(HotelVO hotel);
     public boolean updateHotel(HotelVO hotel);
