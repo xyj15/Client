@@ -43,6 +43,11 @@ public class Room implements RoomBLService {
 		return true;
 	}
 
+	@Override
+	public boolean deleteRoom(String roomNUM) {
+		return roomData.deleteRoom(roomNUM);
+	}
+
 	/**
 	 * 增加房间
 	 * @author 张新悦
