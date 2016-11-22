@@ -9,13 +9,13 @@ import vo.RoomVO;
  * 提供房间的基本信息（包括房间类型、单价和入住情况）,提供更改房间入住状态和单价的方法。
  * @author 张新悦
  * @version 2016-11-04 08:56
- * @param type
+ * @param int type
  *    房间类型
- * @param roomNUM 
+ * @param String roomNUM
  *    房间号
- * @param price
+ * @param double price
  *    房间单价
- * @param isValid
+ * @param boolean isValid
  *    房间入住状态       
  *
  */
