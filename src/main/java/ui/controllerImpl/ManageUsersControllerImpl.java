@@ -8,6 +8,7 @@ import ui.controller.ManagerController;
 import ui.presentation.ManagerUI;
 import vo.HotelVO;
 import vo.MemberVO;
+import vo.SalerVO;
 
 
 /**
@@ -65,5 +66,55 @@ public class ManageUsersControllerImpl implements ManagerController{
     @Override
     public boolean deleteMember(MemberVO member) {
         return deleteMember(member);
+    }
+
+    @Override
+    public SalerVO getSaler(String account) {
+        return manager.getSaler(account);
+    }
+
+    @Override
+    public boolean addSaler(SalerVO theSaler) {
+        return manager.addSaler(theSaler);
+    }
+
+    @Override
+    public boolean updateSaler(SalerVO theSaler) {
+        return manager.updateSaler(theSaler);
+    }
+
+    @Override
+    public boolean deleteSaler(SalerVO theSaler) {
+        return manager.deleteSaler(theSaler);
+    }
+
+    @Override
+    public void getHotelClicked() {
+        window.getHotelClicked();
+    }
+
+    @Override
+    public void getMemberClicked() {
+        window.getMemberClicked();
+    }
+
+    @Override
+    public void getSalerClicked() {
+        window.getSalerClicked();
+    }
+
+    @Override
+    public void addHotelClicked() {
+        window.addHotelClicked();
+    }
+
+    @Override
+    public void addMemberClicked() {
+        window.addMemberClicked();
+    }
+
+    @Override
+    public void addSalerClicked() {
+        window.addSalerClicked();
     }
 }

@@ -4,6 +4,7 @@ import java.util.ArrayList;
 
 import vo.HotelVO;
 import vo.MemberVO;
+import vo.SalerVO;
 
 public interface ManagerBLService {
 	public HotelVO getHotel(String hotelID);
@@ -16,4 +17,8 @@ public interface ManagerBLService {
 	public boolean addMember(MemberVO member);
 	public boolean deleteMember(MemberVO member);
 	public ArrayList<MemberVO> getMemberList(String limit);
+	public SalerVO getSaler(String account);
+	public boolean updateSaler(SalerVO saler);
+	public boolean addSaler(SalerVO saler);
+	public boolean deleteSaler(SalerVO saler);
 }

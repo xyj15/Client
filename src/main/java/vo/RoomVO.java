@@ -1,5 +1,7 @@
 package vo;
 
+import setup.Date;
+
 public class RoomVO {
 
 	private boolean isValid;

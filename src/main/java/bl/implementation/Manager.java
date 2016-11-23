@@ -5,11 +5,14 @@ import java.util.ArrayList;
 import bl.dataservice.HotelData;
 import bl.dataservice.MemberData;
 import bl.dataservice.ManagerData;
+import bl.dataservice.SalerData;
 import bl.service.ManagerBLService;
 import po.HotelPO;
 import po.MemberPO;
+import po.SalerPO;
 import vo.HotelVO;
 import vo.MemberVO;
+import vo.SalerVO;
 
 public class Manager extends User implements ManagerBLService {
 
@@ -20,6 +23,7 @@ public class Manager extends User implements ManagerBLService {
 	private HotelData hot;
 	private MemberData mem;
 	private ManagerData user;
+	private SalerData saler;
 
 
 	private ArrayList<User> userList = new ArrayList<User>();
@@ -147,5 +151,29 @@ public class Manager extends User implements ManagerBLService {
 		}
 		return members;
 	}
-	
+
+	@Override
+	public SalerVO getSaler(String account) {
+		SalerPO gotten = saler.getSaler(account);
+		SalerVO temp = new SalerVO(gotten.getAccount(),gotten.getPassword());
+		return temp;
+	}
+
+	@Override
+	public boolean updateSaler(SalerVO theSaler) {
+		SalerPO temp = new SalerPO(theSaler.getAccount(),theSaler.getPassword());
+		return saler.updateSaler(temp);
+	}
+
+	@Override
+	public boolean addSaler(SalerVO theSaler) {
+		SalerPO temp = new SalerPO(theSaler.getAccount(),theSaler.getPassword());
+		return saler.addSaler(temp);
+	}
+
+	@Override
+	public boolean deleteSaler(SalerVO theSaler) {
+		return saler.deleteSaler(theSaler.getAccount());
+	}
+
 }
