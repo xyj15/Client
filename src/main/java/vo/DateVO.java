@@ -9,7 +9,7 @@ public class DateVO {
 		this.month = month;
 		this.day = day;
 	}
-	
+
 	public int getYear() {
 		return year;
 	}
@@ -33,5 +33,5 @@ public class DateVO {
 	public void setDay(int day) {
 		this.day = day;
 	}
-	
+
 }
