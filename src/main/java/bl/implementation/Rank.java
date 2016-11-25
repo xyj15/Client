@@ -6,7 +6,7 @@ import java.util.ArrayList;
  * Created by 97147 on 2016/11/18.
  */
 public class Rank {
-    private  double creditPerLevel=1000;
+    private double creditPerLevel=1000;
     private ArrayList<Double> discountList = new ArrayList<Double>();
 
     private static Rank rank=new Rank();
