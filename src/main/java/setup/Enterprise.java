@@ -1,5 +1,5 @@
 package setup;
 
-public enum Enterprise {
+public class Enterprise {
 
 }

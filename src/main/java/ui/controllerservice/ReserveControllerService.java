@@ -7,5 +7,9 @@ package ui.controllerservice;
  */
 public interface ReserveControllerService {
 
+    public String getHotelName();
+    public String getHotelAddress();
+    public String getHotelLevel();
+    public String getHotelTel();
 
 }
