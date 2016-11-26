@@ -5,8 +5,8 @@ import java.util.Date;
 import java.util.List;
 
 import bl.service.HotelBLService;
-import setup.Enterprise;
-import setup.HotelService;
+import other.Enterprise;
+import other.HotelService;
 import vo.HotelVO;
 import vo.OrderVO;
 import vo.RoomVO;

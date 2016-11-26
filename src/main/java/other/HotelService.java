@@ -1,4 +1,4 @@
-package setup;
+package other;
 
 public class HotelService {
 

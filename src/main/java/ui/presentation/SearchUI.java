@@ -1,28 +1,79 @@
 package ui.presentation;
 
-public class SearchUI {
+import other.Date;
+import other.RoomType;
+import ui.controller.SearchController;
 
-	public void setAddress() {
-		
+/**
+ * Search的UI界面类
+ * @author CROFF
+ * @version 2016-11-27
+ */
+public class SearchUI {
+	
+	private SearchController searchController;
+	
+	public SearchUI() {
+		searchController = new SearchController(this);
 	}
 	
-	public void setDistrict() {
-		
+	public String getAddress() {
+		return null;
+	}
+	
+	public String getDistrict() {
+		return null;
+	}
+	
+	public String getHotelName() {
+		return null;
+	}
+	
+	public int getHotelLevel() {
+		return 0;
+	}
+	
+	public double getScore() {
+		return 0;
+	}
+	
+	public RoomType getRoomType() {
+		return null;
+	}
+	
+	public double getLowerPrice() {
+		return 0;
+	}
+	
+	public double getUpperPrice() {
+		return 0;
+	}
+	
+	public Date getCheckinTime() {
+		return null;
+	}
+	
+	public Date getCheckoutTime() {
+		return null;
+	}
+	
+	public boolean getOnlyReservationBefore() {
+		return false;
 	}
 	
 	public void getHotelList() {
 		
 	}
 	
-	public void getHotelDetail() {
+	public void newReservation() {
 		
 	}
-	
-	public void getRoomList() {
-		
+
+	public SearchController getSearchController() {
+		return searchController;
 	}
-	
-	public void getReservation() {
-		
+
+	public void setSearchController(SearchController searchController) {
+		this.searchController = searchController;
 	}
 }
