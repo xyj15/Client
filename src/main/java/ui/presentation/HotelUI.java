@@ -4,31 +4,56 @@ import vo.HotelVO;
 
 public class HotelUI {
 
-	private class hotel_main{
+
 		
-		protected void getOrderList () {
+    public void getOrderList () {
+
+    }
+    public void getOrder () {
 			
-		}
-		protected void getOrder () {
+    }
+    public void checkIn () {
 			
-		}
-		protected void checkIn () {
+    }
+    public void delay() {
 			
-		}
-		protected void delay() {
+    }
+    public void checkOut () {
 			
-		}
-		protected void checkOut () {
+    }
+    public void getHotelInformat () {
 			
-		}
-		protected void getHotelInformat () {
+    }
+    public void changeHotelInformat () {
 			
-		}
-		protected void changeHotelInformat () {
+    }
+    public void saveHotelInformat () {
 			
-		}
-		protected void saveHotelInformat () {
-			
-		}
-	}
+    }
+
+
+    public void getOrderListButtonClicked(){
+
+    }
+    public void getOrderButtonClicked(){
+
+    }
+     public void checkInButtonClicked(){
+
+    }
+    public void delayButtonClicked(){
+
+    }
+    public void checkOutButtonClicked(){
+
+    }
+    public void getHotelInformatButtonClicked(){
+
+    }
+    public void changeHotelInformatButtonClicked(){
+
+    }
+    public void saveHotelInformatButtonClicked(){
+
+    }
 }
