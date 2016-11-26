@@ -34,7 +34,7 @@ public class HotelBLDriver {
 		System.out.println(H.getHotelInformat(hotelID));
 		System.out.println(H.check(orderID, memberID, roomID, RO, 0));
 		System.out.println(H.getOrder(orderID));
-		System.out.println(H.getOrderList(hotelID, time));
+		System.out.println(H.getOrderList(hotelID, null));
 		//System.out.println(H.getMInformation(memberID));
 		System.out.println(H.updataHotelInformat(hotelID, new HotelVO(hotelID, name, address, level, district)));
 		System.out.println(H.updataOrder(orderID, new OrderVO(2, checkInTime, checkOutTime, roomType, roomNumber,

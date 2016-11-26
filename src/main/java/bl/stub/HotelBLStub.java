@@ -1,6 +1,8 @@
 package bl.stub;
 
 import java.util.ArrayList;
+import java.util.Date;
+import java.util.List;
 
 import bl.service.HotelBLService;
 import vo.HotelVO;
@@ -51,6 +53,11 @@ public class HotelBLStub implements HotelBLService{
 		return orderList;
 	}
 
+	@Override
+	public List<OrderVO> getOrderList(String hotelID, Date time) {
+		return null;
+	}
+
 	public OrderVO getOrder(String orderID) {
 		// TODO Auto-generated method stub
 		return new OrderVO(2, checkInTime, checkOutTime, roomType, roomNumber,
@@ -92,5 +99,20 @@ public class HotelBLStub implements HotelBLService{
 		// TODO Auto-generated method stub
 		return false;
 	}
-	
+
+	@Override
+	public ArrayList<OrderVO> getUnOrder(String userID) {
+		return null;
+	}
+
+	@Override
+	public ArrayList<OrderVO> getAlOrder(String userID) {
+		return null;
+	}
+
+	@Override
+	public ArrayList<OrderVO> getAandCOrder(String userID) {
+		return null;
+	}
+
 }
