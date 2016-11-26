@@ -1,8 +1,8 @@
 package ui.controllerservice;
 
 import bl.implementation.Hotel;
-import setup.Date;
-import setup.RoomType;
+import other.Date;
+import other.RoomType;
 import vo.HotelVO;
 import vo.RoomVO;
 
@@ -16,17 +16,31 @@ import java.util.ArrayList;
 public interface SearchControllerService {
 
     public void setAddress(String address);
+    
     public void setDistrict(String district);
+	
     public void setHotelName(String hotelName);
+	
     public void setLevel(int level);
+	
     public void setScore(double score);
+	
     public void setRoomType(RoomType roomType);
+	
     public void setLowerPrice(double lowerPrice);
+	
     public void setUpperPrice(double upperPrice);
+	
     public void setCheckinTime(Date checkinTime);
+	
     public void setCheckoutTime(Date checkoutTime);
+	
     public void setOnlyReservationBefore(boolean onlyReservationBefore);
+	
     public ArrayList<HotelVO> getHotelList();
+	
     public ArrayList<RoomVO> getRoomList(Hotel hotel);
+	
     public void newReservation();
+	
 }

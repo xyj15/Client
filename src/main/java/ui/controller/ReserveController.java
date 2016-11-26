@@ -1,8 +1,9 @@
 package ui.controller;
 
-import setup.Date;
-import setup.RoomType;
+import other.Date;
+import other.RoomType;
 import ui.controllerservice.ReserveControllerService;
+import ui.presentation.ReserveUI;
 
 /**
  * Created by CROFF on 2016/11/26.
@@ -10,6 +11,8 @@ import ui.controllerservice.ReserveControllerService;
  * @version 2016-11-26
  */
 public class ReserveController implements ReserveControllerService {
+	
+	private ReserveUI reserveUI;
 
     @Override
     public String getHotelName() {

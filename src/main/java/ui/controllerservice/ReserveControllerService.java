@@ -1,7 +1,7 @@
 package ui.controllerservice;
 
-import setup.Date;
-import setup.RoomType;
+import other.Date;
+import other.RoomType;
 
 /**
  * Created by CROFF on 2016/11/23.

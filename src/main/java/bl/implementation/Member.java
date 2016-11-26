@@ -2,12 +2,11 @@ package bl.implementation;
 
 import java.sql.Date;
 import java.util.ArrayList;
-import java.util.List;
 
 import bl.service.MemberBLService;
 import vo.MemberVO;
 import vo.OrderVO;
-import setup.*;
+import other.*;
 
 
 public class Member extends User implements MemberBLService {
