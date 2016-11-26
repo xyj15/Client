@@ -21,7 +21,8 @@ public class Hotel extends User implements HotelBLService{
 	private String address;
 	private int level;
 	private String district;
-	private String production;
+	private String introduction;
+	private String tel;
 	private HotelService service;
 
 	private ArrayList<Enterprise> enterpriseList = new ArrayList<Enterprise>();
@@ -162,7 +163,19 @@ public class Hotel extends User implements HotelBLService{
 		this.hotelManagerID = hotelManagerID;
 	}
 
-	public void setProduction(String production) {
-		this.production = production;
+	public String getTel() {
+		return tel;
+	}
+
+	public void setTel(String tel) {
+		this.tel = tel;
+	}
+
+	public String getIntroduction() {
+		return introduction;
+	}
+
+	public void setIntroduction(String introduction) {
+		this.introduction = introduction;
 	}
 }
