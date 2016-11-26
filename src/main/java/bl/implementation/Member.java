@@ -25,7 +25,8 @@ public class Member extends User implements MemberBLService {
 
 	private int level;
 	private double discount;
-	
+
+	public Member(){};
 	public Member(String ID,String password,Date birthday,String name,String phone,
 			Double credit,MemberType type,Enterprise enterprise) {
 		setID(ID);
@@ -131,10 +132,6 @@ public class Member extends User implements MemberBLService {
 	public void setVo(MemberVO vo) {
 		this.vo = vo;
 	}
-
-//	public List<Double> getCreditList() {
-//		return creditList;
-//	}
 
 	public MemberType getType() {
 		return type;
