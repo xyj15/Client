@@ -23,4 +23,9 @@ public class RoomBLStub implements RoomBLService {
 		return true;
 	}
 
+	@Override
+	public boolean deleteRoom(String roomNUM) {
+		return false;
+	}
+
 }

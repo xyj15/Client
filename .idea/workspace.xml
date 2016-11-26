@@ -2,10 +2,23 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="349d3ad1-916b-4813-b1c9-b3218daa0e95" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/bl/implementation/Member.java" afterPath="$PROJECT_DIR$/src/main/java/bl/implementation/Member.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/classes/bl/implementation/Manager.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/classes/bl/stub/HotelBLStub.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/classes/bl/stub/ManagerBLStub.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/classes/bl/stub/RoomBLStub.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/bl/implementation/Hotel.class" afterPath="$PROJECT_DIR$/target/classes/bl/implementation/Hotel.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/setup/Enterprise.class" afterPath="$PROJECT_DIR$/target/classes/setup/Enterprise.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/setup/SearchInfomation.class" afterPath="$PROJECT_DIR$/target/classes/setup/SearchInfomation.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/ui/controllerservice/ReserveControllerService.class" afterPath="$PROJECT_DIR$/target/classes/ui/controllerservice/ReserveControllerService.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/ui/controllerservice/SearchControllerService.class" afterPath="$PROJECT_DIR$/target/classes/ui/controllerservice/SearchControllerService.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/bl/implementation/Hotel.java" afterPath="$PROJECT_DIR$/src/main/java/bl/implementation/Hotel.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/bl/implementation/Order.java" afterPath="$PROJECT_DIR$/src/main/java/bl/implementation/Order.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/bl/service/MemberBLService.java" afterPath="$PROJECT_DIR$/src/main/java/bl/service/MemberBLService.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/ui/controller/MemberController.java" afterPath="$PROJECT_DIR$/src/main/java/ui/controller/MemberController.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/bl/stub/ManagerBLStub.java" afterPath="$PROJECT_DIR$/src/main/java/bl/stub/ManagerBLStub.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/bl/stub/RoomBLStub.java" afterPath="$PROJECT_DIR$/src/main/java/bl/stub/RoomBLStub.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/setup/Enterprise.java" afterPath="$PROJECT_DIR$/src/main/java/setup/Enterprise.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/setup/SearchInfomation.java" afterPath="$PROJECT_DIR$/src/main/java/setup/SearchInfomation.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/ui/controllerservice/ReserveControllerService.java" afterPath="$PROJECT_DIR$/src/main/java/ui/controllerservice/ReserveControllerService.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/ui/controllerservice/SearchControllerService.java" afterPath="$PROJECT_DIR$/src/main/java/ui/controllerservice/SearchControllerService.java" />
     </list>
     <ignored path="Client.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -1010,7 +1023,7 @@
       <workItem from="1479973910692" duration="1093000" />
       <workItem from="1480006514716" duration="150000" />
       <workItem from="1480053331339" duration="1164000" />
-      <workItem from="1480153058293" duration="5276000" />
+      <workItem from="1480153058293" duration="5398000" />
     </task>
     <servers />
   </component>
@@ -1020,11 +1033,11 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="27065000" />
+    <option name="totallyTimeSpent" value="27187000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="255" y="49" width="1680" height="947" extended-state="0" />
-    <editor active="true" />
+    <frame x="255" y="49" width="1680" height="947" extended-state="1" />
+    <editor active="false" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -1039,7 +1052,7 @@
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.23766546" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.14440434" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Hierarchy" active="true" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.14440434" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
