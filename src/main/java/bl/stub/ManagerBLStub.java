@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import bl.service.ManagerBLService;
 import vo.HotelVO;
 import vo.MemberVO;
+import vo.SalerVO;
 
 public class ManagerBLStub implements ManagerBLService {
 
@@ -75,6 +76,26 @@ public class ManagerBLStub implements ManagerBLService {
 		// TODO Auto-generated method stub
 		System.out.println("----查看列表———");
 		return memberList;
+	}
+
+	@Override
+	public SalerVO getSaler(String account) {
+		return null;
+	}
+
+	@Override
+	public boolean updateSaler(SalerVO saler) {
+		return false;
+	}
+
+	@Override
+	public boolean addSaler(SalerVO saler) {
+		return false;
+	}
+
+	@Override
+	public boolean deleteSaler(SalerVO saler) {
+		return false;
 	}
 
 	public HotelVO getHotel(String hotelID) {
