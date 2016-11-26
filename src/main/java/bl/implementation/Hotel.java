@@ -1,6 +1,7 @@
 package bl.implementation;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import bl.service.HotelBLService;
@@ -27,7 +28,7 @@ public class Hotel extends User implements HotelBLService{
 
 	private ArrayList<Enterprise> enterpriseList = new ArrayList<Enterprise>();
 
-	
+	public Hotel(){};
 	public Hotel(String hotelID, String name, String address, int level, String district) {
 		setID(hotelID);
 		//VO = new HotelVO(hotelID, name, address, level, district);
@@ -46,7 +47,7 @@ public class Hotel extends User implements HotelBLService{
 	}
 
 	
-	public List<OrderVO> getOrderList (String hotelID,String time){
+	public List<OrderVO> getOrderList (String hotelID,Date time){
 		if(ID.equals(hotelID)){
 			return ordermanager.getOrderList();
 		} else {
@@ -75,6 +76,7 @@ public class Hotel extends User implements HotelBLService{
 	public boolean updataHotelInformat (String hotelID,HotelVO HO){
 		if(getID().equals(hotelID)){
 			setVO(HO);
+			return true;
 		}
 		return false;
 	}
@@ -99,6 +101,21 @@ public class Hotel extends User implements HotelBLService{
 		
 		}
 		return false;
+	}
+
+	public ArrayList<OrderVO> getUnOrder(String userID) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public ArrayList<OrderVO> getAlOrder(String userID) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public ArrayList<OrderVO> getAandCOrder(String userID) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 	
 	public void setVO(HotelVO vO) {

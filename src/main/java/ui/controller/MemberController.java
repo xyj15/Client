@@ -16,7 +16,6 @@ import java.util.List;
 public class MemberController implements MemberControllerService{
 
     private MemberUI memberUI;
-//    private static MemberController memberController ;
     private MemberBLService memberBL = new Member();
 
     public   MemberController(MemberUI memberUI){
@@ -77,4 +76,24 @@ public class MemberController implements MemberControllerService{
         return memberBL.getAandCOrder(userID);
     }
 
+
+    public void getMInformationButtonClicked(){
+        memberUI.getMInformationButtonClicked();
+    }
+
+    public void saveMInformationButtonClicked(){
+        memberUI.saveMInformationButtonClicked();
+    }
+    public void getCreditInforButtonClicked(){
+        memberUI.getCreditInforButtonClicked();
+    }
+    public void getPastHotelButtonClicked(){
+        memberUI.getPastHotelButtonClicked();
+    }public void searchButtonClicked(){
+        memberUI.searchButtonClicked();
+    }public void searchPastButtonClicked(){
+        memberUI.searchPastButtonClicked();
+    }public void reserveButtonClicked(){
+        memberUI.reserveButtonClicked();
+    }
 }
