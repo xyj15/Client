@@ -65,7 +65,7 @@ public class MemberBLStub implements MemberBLService {
 		return null;
 	}
 
-	public List<OrderVO> gerOrderList(String userID) {
+	public ArrayList<OrderVO> gerOrderList(String userID) {
 		// TODO Auto-generated method stub
 		return null;
 	}
@@ -75,19 +75,19 @@ public class MemberBLStub implements MemberBLService {
 		
 	}
 
-	public List<OrderVO> getUnOrder(ArrayList<OrderVO> orderList) {
-		// TODO Auto-generated method stub
-		return null;
-	}
+    @Override
+    public ArrayList<OrderVO> getUnOrder(String userID) {
+        return null;
+    }
 
-	public List<OrderVO> getAlOrder(ArrayList<OrderVO> orderList) {
-		// TODO Auto-generated method stub
-		return null;
-	}
+    @Override
+    public ArrayList<OrderVO> getAlOrder(String userID) {
+        return null;
+    }
 
-	public List<OrderVO> getAandCOrder(ArrayList<OrderVO> orderList) {
-		// TODO Auto-generated method stub
-		return null;
-	}
+    @Override
+    public ArrayList<OrderVO> getAandCOrder(String userID) {
+        return null;
+    }
 
 }

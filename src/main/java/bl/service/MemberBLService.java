@@ -12,9 +12,9 @@ public interface MemberBLService {
 	public boolean saveMInformation (String memberID,MemberVO M);
 
 	public OrderVO getOrder(String orderID);
-	public List<OrderVO> gerOrderList(String userID);
+	public ArrayList<OrderVO> gerOrderList(String userID);
 	public void cancelOrder(String orderID);
-	public List<OrderVO> getUnOrder(ArrayList<OrderVO> orderList);
-	public List<OrderVO> getAlOrder (ArrayList<OrderVO> orderList);
-	public List<OrderVO> getAandCOrder(ArrayList<OrderVO> orderList);
+	public ArrayList<OrderVO> getUnOrder(String userID);
+	public ArrayList<OrderVO> getAlOrder (String userID);
+	public ArrayList<OrderVO> getAandCOrder(String userID);
 }
