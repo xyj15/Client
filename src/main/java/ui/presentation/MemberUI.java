@@ -4,21 +4,20 @@ import vo.MemberVO;
 
 public class MemberUI {
 
-	private class user_main{
-		protected void getMInformation(){
+		public void getMInformation(){
 			
 		}
-		protected void changeMInformation(){
+		public void changeMInformation(){
 			
 		}
-		protected void saveMInformation(){
+		public void saveMInformation(){
 			
 		}
-		protected void show (){
+		public void show (){
 			
 		}
-		protected void getCreditList (){
+		public void getCreditList (){
 			
 		}
-	}
+
 }

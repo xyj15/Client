@@ -76,7 +76,7 @@ public class Order {
     	return false;
 	}
     
-    public List<OrderVO> getOrderList() {
+    public ArrayList<OrderVO> getOrderList() {
 		return orderList;
     }
     
