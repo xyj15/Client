@@ -63,21 +63,18 @@ public class MemberController implements MemberControllerService{
     }
 
     @Override
-    public ArrayList<OrderVO> getUnOrder(String orderID) {
-        return null;
+    public ArrayList<OrderVO> getUnOrder(String userID) {
+        return memberBL.getUnOrder(userID);
     }
 
     @Override
-    public ArrayList<OrderVO> getAlOrder(String orderID) {
-        return null;
+    public ArrayList<OrderVO> getAlOrder(String userID) {
+        return memberBL.getAlOrder(userID);
     }
 
     @Override
-    public ArrayList<OrderVO> getAandCOrder(String orderID) {
-        return null;
+    public ArrayList<OrderVO> getAandCOrder(String userID) {
+        return memberBL.getAandCOrder(userID);
     }
-//    public static MemberController getInstance(){
-//        return  memberController;
-//    }
 
 }

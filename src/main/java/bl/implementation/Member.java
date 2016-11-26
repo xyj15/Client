@@ -14,7 +14,9 @@ public class Member extends User implements MemberBLService {
 	
 	public Order ordermanager = new Order();
 	public Search searchmanager =new Search();
-	
+
+	private ArrayList<OrderVO> orderList;
+
 	private String name;
 	private Date birthday;
 	private String phone;
@@ -56,7 +58,7 @@ public class Member extends User implements MemberBLService {
 		return ordermanager.getOrder(orderID);
 	}
 
-	public List<OrderVO> gerOrderList(String userID) {
+	public ArrayList<OrderVO> gerOrderList(String userID) {
 		// TODO Auto-generated method stub
 		if(ID.equals(userID)){
 			return ordermanager.getOrderList();
@@ -70,17 +72,17 @@ public class Member extends User implements MemberBLService {
 		
 	}
 
-	public ArrayList<OrderVO> getUnOrder(ArrayList<OrderVO> orderList) {
+	public ArrayList<OrderVO> getUnOrder(String userID) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
-	public ArrayList<OrderVO> getAlOrder(ArrayList<OrderVO> orderList) {
+	public ArrayList<OrderVO> getAlOrder(String userID) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
-	public ArrayList<OrderVO> getAandCOrder(ArrayList<OrderVO> orderList) {
+	public ArrayList<OrderVO> getAandCOrder(String userID) {
 		// TODO Auto-generated method stub
 		return null;
 	}
