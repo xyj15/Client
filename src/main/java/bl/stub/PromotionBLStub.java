@@ -3,14 +3,14 @@ package bl.stub;
 import java.util.ArrayList;
 
 import bl.service.PromotionBLService;
-import vo.DateVO;
+import other.Date;
 import vo.PromotionVO;
 
 
 public class PromotionBLStub implements PromotionBLService {
 	
 	public PromotionVO getPromotion(String promotionID) {
-		return new PromotionVO(new DateVO(1997, 3, 4), 1, false, new DateVO(2016, 2, 11), false, promotionID, 0.8, "0011");
+		return new PromotionVO(new Date(1997, 3, 4), 1, false, new Date(2016, 2, 11), false, promotionID, 0.8, "0011");
 	}
 	
     public boolean addPromotion(PromotionVO promotion) {

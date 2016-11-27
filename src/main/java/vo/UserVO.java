@@ -1,5 +1,7 @@
 package vo;
 
+import other.UserRole;
+
 public class UserVO {
 
 	private String ID;

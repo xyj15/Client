@@ -30,67 +30,67 @@ public class SearchController implements SearchControllerService {
 
     @Override
     public void setAddress(String address) {
-		
+        searchBL.setAddress(searchUI.getAddress());
     }
 
     @Override
     public void setDistrict(String district) {
-
+        searchBL.setDistrict(searchUI.getDistrict());
     }
 
     @Override
     public void setHotelName(String hotelName) {
-
+        searchBL.setHotelName(searchUI.getHotelName());
     }
 
     @Override
     public void setLevel(int level) {
-
+        searchBL.setLevel(searchUI.getHotelLevel());
     }
 
     @Override
     public void setScore(double score) {
-
+        searchBL.setScore(searchUI.getScore());
     }
 
     @Override
     public void setRoomType(RoomType roomType) {
-
+        searchBL.setRoomType(searchUI.getRoomType());
     }
 
     @Override
     public void setLowerPrice(double lowerPrice) {
-
+        searchBL.setLowerPrice(searchUI.getLowerPrice());
     }
 
     @Override
     public void setUpperPrice(double upperPrice) {
-
+        searchBL.setUpperPrice(searchUI.getUpperPrice());
     }
 
     @Override
     public void setCheckinTime(Date checkinTime) {
-
+        searchBL.setCheckinTime(searchUI.getCheckinTime());
     }
 
     @Override
     public void setCheckoutTime(Date checkoutTime) {
-
+        searchBL.setCheckoutTime(searchUI.getCheckoutTime());
     }
 
     @Override
     public void setOnlyReservationBefore(boolean onlyReservationBefore) {
-
+        searchBL.setOnlyReservationBefore(searchUI.getOnlyReservationBefore());
     }
 
     @Override
     public ArrayList<HotelVO> getHotelList() {
-        return null;
+        return searchBL.getHotelList();
     }
 
     @Override
-    public ArrayList<RoomVO> getRoomList(Hotel hotel) {
-        return null;
+    public ArrayList<RoomVO> getRoomList(String hotelID) {
+        return searchBL.getRoomList(hotelID);
     }
 
     @Override

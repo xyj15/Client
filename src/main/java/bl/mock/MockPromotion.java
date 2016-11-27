@@ -1,6 +1,6 @@
 package bl.mock;
 
-import vo.DateVO;
+import other.Date;
 import vo.PromotionVO;
 
 /**
@@ -10,10 +10,10 @@ import vo.PromotionVO;
  */
 public class MockPromotion extends PromotionVO {
 	
-	DateVO birthday;
+	Date birthday;
 	int roomNumber;
 	boolean isCoordinate;
-	DateVO date;
+	Date date;
 	boolean isVIP;
 	String district;
 	double discount;
@@ -28,7 +28,7 @@ public class MockPromotion extends PromotionVO {
 	 * @param district 目标酒店商圈
 	 * @param discount 折扣
 	 */
-	public MockPromotion(DateVO birthday, int roomNumber, boolean isCoordinate, DateVO date, boolean isVIP, String district, double discount, String id) {
+	public MockPromotion(Date birthday, int roomNumber, boolean isCoordinate, Date date, boolean isVIP, String district, double discount, String id) {
 		super(birthday, roomNumber, isCoordinate, date, isVIP, district, discount, id);
 	}
 	
@@ -36,7 +36,7 @@ public class MockPromotion extends PromotionVO {
 	 * 设置生日
 	 * @param birthday 生日
 	 */
-	public void setBirthday(DateVO birthday) {
+	public void setBirthday(Date birthday) {
 		this.birthday = birthday;
 	}
 	
@@ -44,7 +44,7 @@ public class MockPromotion extends PromotionVO {
 	 * 获取生日
 	 * @return 生日
 	 */
-	public DateVO getBirday(){
+	public Date getBirday(){
 		return birthday;
 	}
 	
@@ -84,7 +84,7 @@ public class MockPromotion extends PromotionVO {
 	 * 设置入住日期
 	 * @param date 入住日期
 	 */
-	public void setDate(DateVO date){
+	public void setDate(Date date){
 		this.date = date;
 	}
 	
@@ -92,7 +92,7 @@ public class MockPromotion extends PromotionVO {
 	 * 获取入住日期
 	 * @return 入住日期
 	 */
-	public DateVO getDate(){
+	public Date getDate(){
 		return date;
 	}
 	
@@ -130,7 +130,7 @@ public class MockPromotion extends PromotionVO {
 	
 	/**
 	 * 设置折扣
-	 * @param 折扣
+	 * @param discount 折扣
 	 */
 	public void setDiscount(double discount) {
 		this.discount = discount;

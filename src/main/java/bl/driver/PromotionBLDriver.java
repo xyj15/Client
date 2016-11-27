@@ -2,7 +2,7 @@ package bl.driver;
 
 import bl.service.PromotionBLService;
 import bl.stub.PromotionBLStub;
-import vo.DateVO;
+import other.Date;
 import vo.PromotionVO;
 
 public class PromotionBLDriver {
@@ -20,7 +20,7 @@ public class PromotionBLDriver {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		PromotionBLDriver driver =new PromotionBLDriver();
-		driver.drive(new PromotionVO(new DateVO(1997, 03, 04), 1, false, new DateVO(2015, 03, 21), false,"12345678", 0.8, null));
+		driver.drive(new PromotionVO(new Date(1997, 03, 04), 1, false, new Date(2015, 03, 21), false,"12345678", 0.8, null));
 	}
 	
 }

@@ -1,6 +1,6 @@
 package bl.mock;
 
-import vo.UserRole;
+import other.UserRole;
 import vo.UserVO;
 
 /**

@@ -39,7 +39,7 @@ public interface SearchControllerService {
 	
     public ArrayList<HotelVO> getHotelList();
 	
-    public ArrayList<RoomVO> getRoomList(Hotel hotel);
+    public ArrayList<RoomVO> getRoomList(String hotelID);
 	
     public void newReservation();
 	

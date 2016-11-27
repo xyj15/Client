@@ -1,17 +1,19 @@
 package vo;
 
+import other.Date;
+
 public class PromotionVO {
 	
-	DateVO birthday;
+	Date birthday;
 	int roomNumber;
 	boolean coordinate;
-	DateVO date;
+	Date date;
 	boolean VIP;
 	String district;
 	double discount;
 	String ID;
 	
-	public PromotionVO(DateVO b, int rn, boolean c, DateVO da, boolean v, String di, double dis, String id) {
+	public PromotionVO(Date b, int rn, boolean c, Date da, boolean v, String di, double dis, String id) {
 		birthday = b;
 		roomNumber = rn;
 		coordinate = c;
@@ -22,7 +24,7 @@ public class PromotionVO {
 		ID=id;
 	}
 	
-	public DateVO getBirthday() {
+	public Date getBirthday() {
 		return birthday;
 	}
 	
@@ -34,7 +36,7 @@ public class PromotionVO {
 		return coordinate;
 	}
 	
-	public DateVO getDate() {
+	public Date getDate() {
 		return date;
 	}
 	
@@ -46,7 +48,7 @@ public class PromotionVO {
 		return district;
 	}
 	
-	public void setBirthday(DateVO birthday) {
+	public void setBirthday(Date birthday) {
 		this.birthday = birthday;
 	}
 	
@@ -58,7 +60,7 @@ public class PromotionVO {
 		this.coordinate = coordinate;
 	}
 	
-	public void setDate(DateVO date) {
+	public void setDate(Date date) {
 		this.date = date;
 	}
 	
