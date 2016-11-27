@@ -3,6 +3,11 @@ package ui.presentation;
 import other.Date;
 import other.RoomType;
 import ui.controller.SearchController;
+import ui.controllerservice.SearchControllerService;
+import vo.HotelVO;
+import vo.RoomVO;
+
+import java.util.ArrayList;
 
 /**
  * Search的UI界面类
@@ -11,10 +16,12 @@ import ui.controller.SearchController;
  */
 public class SearchUI {
 	
-	private SearchController searchController;
+	private SearchControllerService searchController;
+	private ArrayList<HotelVO> hotelList;
 	
 	public SearchUI() {
 		searchController = new SearchController(this);
+		hotelList = new ArrayList<HotelVO>();
 	}
 	
 	public String getAddress() {
@@ -62,18 +69,26 @@ public class SearchUI {
 	}
 	
 	public void getHotelList() {
-		
+		this.hotelList = searchController.getHotelList();
+	}
+	
+	public ArrayList<RoomVO> getRoomList(String hotelID) {
+		return searchController.getRoomList(hotelID);
 	}
 	
 	public void newReservation() {
 		
 	}
 
-	public SearchController getSearchController() {
+	public SearchControllerService getSearchController() {
 		return searchController;
 	}
 
-	public void setSearchController(SearchController searchController) {
-		this.searchController = searchController;
+	public void setSearchController(SearchControllerService searchControllerService) {
+		this.searchController = searchControllerService;
+	}
+	
+	public void setHotelList(ArrayList<HotelVO> hotelList) {
+		this.hotelList = hotelList;
 	}
 }

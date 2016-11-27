@@ -2,7 +2,7 @@ package bl.implementation;
 
 import bl.dataservice.RoomData;
 import bl.service.RoomBLService;
-import po.RoomType;
+import other.RoomType;
 import po.roomPO;
 import vo.RoomVO;
 
