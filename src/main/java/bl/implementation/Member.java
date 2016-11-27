@@ -12,20 +12,21 @@ import other.*;
 public class Member extends User implements MemberBLService {
 	
 	public Order ordermanager = new Order();
-	public Search searchmanager =new Search();
 
 	private ArrayList<OrderVO> orderList;
 
 	private String name;
 	private Date birthday;
 	private String phone;
-	private MemberVO vo;
+	private MemberVO memberVO;
 	private MemberType type;
 	private Enterprise enterprise;
-	private  Credit credit;
+	private Credit credit;
 
 	private int level;
 	private double discount;
+	
+	private Search search;
 
 	public Member(){};
 	public Member(String ID,String password,Date birthday,String name,String phone,
@@ -41,12 +42,12 @@ public class Member extends User implements MemberBLService {
 	}
 
 	public MemberVO getMInformation (String memberID) {
-		return vo;
+		return memberVO;
 	}
 	
 	public boolean saveMInformation (String memberID, MemberVO M) {
 		if(memberID.equals(ID)){
-			setVo(vo);
+			setMemberVO(memberVO);
 			return true;
 		}
 		return false;
@@ -84,6 +85,11 @@ public class Member extends User implements MemberBLService {
 	public ArrayList<OrderVO> getAandCOrder(String userID) {
 		// TODO Auto-generated method stub
 		return null;
+	}
+	
+	@Override
+	public void startSearch() {
+		search = new Search(memberVO);
 	}
 	
 	public String getPassword() {
@@ -126,12 +132,12 @@ public class Member extends User implements MemberBLService {
 		ID = iD;
 	}
 
-	public MemberVO getVo() {
-		return vo;
+	public MemberVO getMemberVO() {
+		return memberVO;
 	}
 
-	public void setVo(MemberVO vo) {
-		this.vo = vo;
+	public void setMemberVO(MemberVO memberVO) {
+		this.memberVO = memberVO;
 	}
 
 	public MemberType getType() {
@@ -149,5 +155,12 @@ public class Member extends User implements MemberBLService {
 	public void setEnterprise(Enterprise enterprise) {
 		this.enterprise = enterprise;
 	}
-
+	
+	public Search getSearch() {
+		return search;
+	}
+	
+	public void setSearch(Search search) {
+		this.search = search;
+	}
 }

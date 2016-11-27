@@ -25,7 +25,7 @@ public class SearchController implements SearchControllerService {
 
     public SearchController(SearchUI searchUI) {
         this.searchUI = searchUI;
-        searchBL = new Search();
+        searchBL = new Search(null);
     }
 
     @Override
@@ -84,8 +84,8 @@ public class SearchController implements SearchControllerService {
     }
 
     @Override
-    public ArrayList<HotelVO> getHotelList() {
-        return searchBL.getHotelList();
+    public ArrayList<HotelVO> search() {
+        return searchBL.search();
     }
 
     @Override

@@ -19,9 +19,10 @@ public class Search implements SearchBLService {
 	private SortStratedy sortStratedy;	// 排序条件
 	private MemberVO memberVO;	//持有的客户信息
 	
-	public Search() {
+	public Search(MemberVO memberVO) {
 		hotelList = null;
 		searchInfomation = new SearchInfomation();
+		this.memberVO = memberVO;
 	}
 
 	@Override
@@ -80,7 +81,7 @@ public class Search implements SearchBLService {
 	}
 	
 	@Override
-	public ArrayList<HotelVO> getHotelList() {
+	public ArrayList<HotelVO> search() {
 		String address = searchInfomation.getAddress();
 		String district = searchInfomation.getDistrict();
 		ArrayList<HotelVO> resultList = new ArrayList<HotelVO>();
@@ -132,5 +133,13 @@ public class Search implements SearchBLService {
 	
 	public void setMemberVO(MemberVO memberVO) {
 		this.memberVO = memberVO;
+	}
+	
+	public SortStratedy getSortStratedy() {
+		return sortStratedy;
+	}
+	
+	public void setSortStratedy(SortStratedy sortStratedy) {
+		this.sortStratedy = sortStratedy;
 	}
 }

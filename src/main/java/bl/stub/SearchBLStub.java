@@ -66,11 +66,13 @@ public class SearchBLStub implements SearchBLService {
 		
 	}
 	
-	public ArrayList<HotelVO> getHotelList() {
+	@Override
+	public ArrayList<HotelVO> search() {
 		System.out.println("获取酒店列表");
 		return new ArrayList<HotelVO>();
 	}
 	
+	@Override
 	public ArrayList<RoomVO> getRoomList(String hotelID) {
 		System.out.println("获取客房列表");
 		return new ArrayList<RoomVO>();

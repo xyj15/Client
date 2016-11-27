@@ -34,13 +34,13 @@ public class MemberTest {
 	}
 	@Test
 	public void testGetMInformation(){
-		assertEquals(member.getMInformation(member.getID()),member.getVo());
+		assertEquals(member.getMInformation(member.getID()),member.getMemberVO());
 	}
 	@Test
 	public void testSaveMInformation(){
 		m=new Member("123", "321", null, "SS", null, 500.0,null,null);
-		member.saveMInformation(member.getID(), m.getVo());
-		assertEquals(member.getMInformation(member.getID()),m.getVo());
+		member.saveMInformation(member.getID(), m.getMemberVO());
+		assertEquals(member.getMInformation(member.getID()),m.getMemberVO());
 	}
 //	@Test
 //	public void testGetCreditList(){

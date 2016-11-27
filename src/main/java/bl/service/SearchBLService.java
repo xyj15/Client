@@ -32,7 +32,7 @@ public interface SearchBLService {
 	
 	public void setOnlyReservationBefore(boolean onlyReservationBefore);
 	
-	public ArrayList<HotelVO> getHotelList();
+	public ArrayList<HotelVO> search();
 	
 	public ArrayList<RoomVO> getRoomList(String hotelID);
 	
