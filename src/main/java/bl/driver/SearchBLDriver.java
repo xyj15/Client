@@ -11,13 +11,13 @@ public class SearchBLDriver {
 	public void drive(Search search) {
 		search.setAddress("XianLinBigRoad");
 		search.setDistrict("NanjingQixia");
-		search.getHotelList();
+		search.search();
 		search.getRoomList("88888888");
 	}
 	
 	public static void main(String[] args) {
 		SearchBLDriver driver = new SearchBLDriver();
-		driver.drive(new Search());
+		driver.drive(new Search(null));
 	}
 	
 }

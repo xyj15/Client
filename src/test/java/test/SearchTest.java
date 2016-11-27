@@ -34,7 +34,7 @@ public class SearchTest {
 	
 	@Before
 	public void setUp() {
-		s = new Search();
+		s = new Search(null);
 		ArrayList<HotelVO> hotelList = new ArrayList<HotelVO>();
 		hotelList.add(h1);
 		hotelList.add(h2);
@@ -64,24 +64,24 @@ public class SearchTest {
 		
 		s.setDistrict(district);
 		s.setAddress(null);
-		list = s.getHotelList();
+		list = s.search();
 		assertEquals(list.get(0), h1);
 		assertEquals(list.get(1), h2);
 		assertEquals(list.get(2), h3);
 		
 		s.setDistrict(null);
 		s.setAddress(address1);
-		list = s.getHotelList();
+		list = s.search();
 		assertEquals(list.get(0), h1);
 		
 		s.setDistrict(null);
 		s.setAddress(address2);
-		list = s.getHotelList();
+		list = s.search();
 		assertEquals(list.get(0), h2);
 		
 		s.setDistrict(null);
 		s.setAddress(address3);
-		list = s.getHotelList();
+		list = s.search();
 		assertEquals(list.get(0), h3);
 	}
 

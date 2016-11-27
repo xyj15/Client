@@ -3,6 +3,7 @@ package bl.stub;
 import java.util.ArrayList;
 import java.util.List;
 
+import bl.implementation.Search;
 import bl.service.MemberBLService;
 import vo.MemberVO;
 import vo.OrderVO;
@@ -89,5 +90,10 @@ public class MemberBLStub implements MemberBLService {
     public ArrayList<OrderVO> getAandCOrder(String userID) {
         return null;
     }
-
+	
+	@Override
+	public void startSearch() {
+		
+	}
+	
 }

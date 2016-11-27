@@ -69,7 +69,7 @@ public class SearchUI {
 	}
 	
 	public void getHotelList() {
-		this.hotelList = searchController.getHotelList();
+		this.hotelList = searchController.search();
 	}
 	
 	public ArrayList<RoomVO> getRoomList(String hotelID) {
