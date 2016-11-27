@@ -2,7 +2,7 @@ package po;
 
 import java.io.Serializable;
 
-public class roomPO implements Serializable{
+public class RoomPO implements Serializable{
 
 	/**
 	 * 
@@ -13,7 +13,7 @@ public class roomPO implements Serializable{
 	private int type;
 	private double price;
 	
-	public roomPO(boolean valid, String number,int type,double price){
+	public RoomPO(boolean valid, String number, int type, double price){
 		this.valid =valid;
 		this.number=number;
 		this.type=type;
