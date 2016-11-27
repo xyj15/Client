@@ -10,7 +10,7 @@ public class HotelPO {
 	private String address;
 	private String level;
 	private String district;
-	private ArrayList<roomPO> roomList;
+	private ArrayList<RoomPO> roomList;
 	
 	public HotelPO(String hotelID, String name, String address, String level, String district){
 		this.setHotelID(hotelID);
@@ -60,11 +60,11 @@ public class HotelPO {
 		this.district = district;
 	}
 	
-	public ArrayList<roomPO> getRoomList() {
+	public ArrayList<RoomPO> getRoomList() {
 		return roomList;
 	}
 	
-	public void setRoomList(ArrayList<roomPO> roomList) {
+	public void setRoomList(ArrayList<RoomPO> roomList) {
 		this.roomList = roomList;
 	}
 }

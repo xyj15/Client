@@ -1,12 +1,12 @@
 package bl.dataservice;
 
-import po.roomPO;
+import po.RoomPO;
 
 public interface RoomData {
 
-	public roomPO getRoom(String ID) ;
-	public boolean updateRoom(roomPO room);
-	public boolean addRoom(roomPO room);
+	public RoomPO getRoom(String ID) ;
+	public boolean updateRoom(RoomPO room);
+	public boolean addRoom(RoomPO room);
 	public boolean deleteRoom(String roomNUM);
 	
 }

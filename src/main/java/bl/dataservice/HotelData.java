@@ -5,7 +5,7 @@ import java.util.ArrayList;
 import po.HotelPO;
 import po.MemberPO;
 import po.OrderPO;
-import po.roomPO;
+import po.RoomPO;
 
 public interface HotelData {
 
@@ -15,6 +15,6 @@ public interface HotelData {
 	public HotelPO getHotelInformat(String hotelID);
 	public boolean updataOrder(String orderID, OrderPO OR);
 	public boolean updataHotelInformat(String hotelID, HotelPO po);
-	public boolean check(String orderID, String memberID, String roomID, roomPO RO, int mark);
+	public boolean check(String orderID, String memberID, String roomID, RoomPO RO, int mark);
 	
 }

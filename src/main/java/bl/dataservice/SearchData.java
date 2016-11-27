@@ -7,7 +7,7 @@ import po.*;
 public interface SearchData {
 
 	public ArrayList<HotelPO> getHotelList(String str, searchHotelInfo info);
-	public ArrayList<roomPO> getRoomList(String hotelID);
+	public ArrayList<RoomPO> getRoomList(String hotelID);
 	
 	enum searchHotelInfo {
 		DISTRICT, ADDRESS

@@ -3,7 +3,7 @@ package bl.implementation;
 import bl.dataservice.RoomData;
 import bl.service.RoomBLService;
 import other.RoomType;
-import po.roomPO;
+import po.RoomPO;
 import vo.RoomVO;
 
 public class Room implements RoomBLService {
@@ -24,7 +24,7 @@ public class Room implements RoomBLService {
 	 */
 	public RoomVO findRoom(String num){
 		if(room.getNumber().equals(num)) return room;
-		roomPO temp = roomData.getRoom(num);
+		RoomPO temp = roomData.getRoom(num);
 		room = new RoomVO(temp.getValid(), temp.getNumber(), temp.getRoomType(), temp.getPrice());
 		return room;
 	}
@@ -37,8 +37,8 @@ public class Room implements RoomBLService {
 	public boolean updateRoom(RoomVO room) {
 		// TODO Auto-generated method stub
 		this.room=room;
-		//roomPO temp = new roomPO(room.isValid(), room.getNumber(), room.getType(), room.getPrice());
-		new roomPO(room.isValid(), room.getNumber(), room.getType(), room.getPrice());
+		//RoomPO temp = new RoomPO(room.isValid(), room.getNumber(), room.getType(), room.getPrice());
+		new RoomPO(room.isValid(), room.getNumber(), room.getType(), room.getPrice());
 		//roomData.updateRoom(temp);
 		return true;
 	}
@@ -56,8 +56,8 @@ public class Room implements RoomBLService {
 	public boolean addRoom(RoomVO room) {
 		// TODO Auto-generated method stub
 		this.room=room;
-		//roomPO temp = new roomPO(room.isValid(), room.getNumber(), room.getType(), room.getPrice());
-		new roomPO(room.isValid(), room.getNumber(), room.getType(), room.getPrice());
+		//RoomPO temp = new RoomPO(room.isValid(), room.getNumber(), room.getType(), room.getPrice());
+		new RoomPO(room.isValid(), room.getNumber(), room.getType(), room.getPrice());
 		//roomData.addRoom(temp);
 		return true;
 	}
