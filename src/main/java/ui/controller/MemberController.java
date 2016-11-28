@@ -13,7 +13,7 @@ import java.util.List;
 /**
  * Created by 97147 on 2016/11/26.
  */
-public class MemberController implements MemberControllerService{
+public class MemberController implements MemberControllerService {
 
     private MemberUI memberUI;
     private MemberBLService memberBL = new Member();
@@ -24,9 +24,9 @@ public class MemberController implements MemberControllerService{
 
     @Override
     public MemberVO getMInformation(String memberID) {
-        return memberBL.getMInformation(memberID);
+        return null;
     }
-
+    
     @Override
     public boolean changeMInformation() {
         memberUI.changeMInformation();
@@ -35,7 +35,7 @@ public class MemberController implements MemberControllerService{
 
     @Override
     public boolean saveMInformation(String memberID, MemberVO M) {
-        memberBL.saveMInformation(memberID,M);
+        memberBL.setMemberInformation(M);
         return true;
     }
 
@@ -47,12 +47,12 @@ public class MemberController implements MemberControllerService{
 
     @Override
     public OrderVO getOrder(String orderID) {
-        return memberBL.getOrder(orderID);
+        return null;
     }
 
     @Override
     public List<OrderVO> gerOrderList(String userID) {
-        return memberBL.gerOrderList(userID);
+        return null;
     }
 
     @Override
@@ -63,17 +63,17 @@ public class MemberController implements MemberControllerService{
 
     @Override
     public ArrayList<OrderVO> getUnOrder(String userID) {
-        return memberBL.getUnOrder(userID);
+        return null;
     }
 
     @Override
     public ArrayList<OrderVO> getAlOrder(String userID) {
-        return memberBL.getAlOrder(userID);
+        return null;
     }
 
     @Override
     public ArrayList<OrderVO> getAandCOrder(String userID) {
-        return memberBL.getAandCOrder(userID);
+        return null;
     }
 
 

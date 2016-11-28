@@ -20,7 +20,7 @@ public class ManagerBLDriver {
 		// TODO Auto-generated method stub
 
 		ManagerBLDriver driver =new ManagerBLDriver();
-		driver.drive(new MemberVO("12545663","sdas asd ", "110", "110", "123456", 5000));
+		driver.drive(new MemberVO());
 	}
 
 }

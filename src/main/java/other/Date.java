@@ -1,5 +1,10 @@
 package other;
 
+/**
+ * 日期类，包含年月日
+ * @author CROFF
+ * @version 2016-11-29
+ */
 public class Date {
 
 	private int year, month, day;

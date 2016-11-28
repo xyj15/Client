@@ -1,6 +1,6 @@
 package bl.implementation;
 
-import bl.dataservice.RoomData;
+import bl.dataservice.RoomDataService;
 import bl.service.RoomBLService;
 import other.RoomType;
 import po.RoomPO;
@@ -9,12 +9,12 @@ import vo.RoomVO;
 public class Room implements RoomBLService {
 	
 	private RoomVO room;
-	private RoomData roomData;
+	private RoomDataService roomDataService;
 
 	private String roomID;
 	private RoomType type;
-	private  double price;
-	boolean available;
+	private double price;
+	private boolean available;
 	
 	/**
 	 * 根据房间号查找房间
@@ -24,7 +24,7 @@ public class Room implements RoomBLService {
 	 */
 	public RoomVO findRoom(String num){
 		if(room.getNumber().equals(num)) return room;
-		RoomPO temp = roomData.getRoom(num);
+		RoomPO temp = roomDataService.getRoom(num);
 		room = new RoomVO(temp.getValid(), temp.getNumber(), temp.getRoomType(), temp.getPrice());
 		return room;
 	}
@@ -39,13 +39,13 @@ public class Room implements RoomBLService {
 		this.room=room;
 		//RoomPO temp = new RoomPO(room.isValid(), room.getNumber(), room.getType(), room.getPrice());
 		new RoomPO(room.isValid(), room.getNumber(), room.getType(), room.getPrice());
-		//roomData.updateRoom(temp);
+		//roomDataService.updateRoom(temp);
 		return true;
 	}
 
 	@Override
 	public boolean deleteRoom(String roomNUM) {
-		return roomData.deleteRoom(roomNUM);
+		return roomDataService.deleteRoom(roomNUM);
 	}
 
 	/**
@@ -58,7 +58,7 @@ public class Room implements RoomBLService {
 		this.room=room;
 		//RoomPO temp = new RoomPO(room.isValid(), room.getNumber(), room.getType(), room.getPrice());
 		new RoomPO(room.isValid(), room.getNumber(), room.getType(), room.getPrice());
-		//roomData.addRoom(temp);
+		//roomDataService.addRoom(temp);
 		return true;
 	}
 	

@@ -2,11 +2,12 @@ package bl.implementation;
 
 import java.util.ArrayList;
 
-import bl.dataservice.HotelData;
-import bl.dataservice.MemberData;
-import bl.dataservice.ManagerData;
-import bl.dataservice.SalerData;
+import bl.dataservice.HotelDataService;
+import bl.dataservice.MemberDataService;
+import bl.dataservice.ManagerDataService;
+import bl.dataservice.SalerDataService;
 import bl.service.ManagerBLService;
+import other.User;
 import po.HotelPO;
 import po.MemberPO;
 import po.SalerPO;
@@ -20,10 +21,10 @@ public class Manager extends User implements ManagerBLService {
 	private MemberVO member;
 	private ArrayList<HotelVO> hotels;
 	private ArrayList<MemberVO> members;
-	private HotelData hot;
-	private MemberData mem;
-	private ManagerData user;
-	private SalerData saler;
+	private HotelDataService hot;
+	private MemberDataService mem;
+	private ManagerDataService user;
+	private SalerDataService saler;
 
 
 	private ArrayList<User> userList = new ArrayList<User>();
@@ -97,20 +98,20 @@ public class Manager extends User implements ManagerBLService {
 
 	public MemberVO getMember(String memberID) {
 		// TODO Auto-generated method stub
-		if(member.getMemberID().equals(memberID))return member;
-		for (MemberVO temp : members) {
-			if(temp.getMemberID().equals(memberID)){
-				member=temp;
-				return temp;
-			}
-		}
-		MemberPO temp=mem.getMInformation(memberID);
-		member.setCredit(temp.getCredit());
-		member.setBirthday(temp.getBirthday());
-		member.setMemberID(temp.getMemberID());
-		member.setName(temp.getName());
-		member.setPassword(temp.getPassword());
-		member.setTel(temp.getPhone());
+//		if(member.getMemberID().equals(memberID))return member;
+//		for (MemberVO temp : members) {
+//			if(temp.getMemberID().equals(memberID)){
+//				member=temp;
+//				return temp;
+//			}
+//		}
+//		MemberPO temp=mem.getMInformation(memberID);
+//		member.setCredit(temp.getCredit());
+//		member.setBirthday(temp.getBirthday());
+//		member.setMemberID(temp.getMemberID());
+//		member.setName(temp.getName());
+//		member.setPassword(temp.getPassword());
+//		member.setTel(temp.getPhone());
 		//hotel.setRoomList(temp.getRoomList());		
 		return member;
 	}
@@ -119,9 +120,9 @@ public class Manager extends User implements ManagerBLService {
 		// TODO Auto-generated method stub
 		this.member=member;
 		//HotelPO temp = new HotelPO(hotel.getHotelID(), hotel.getName(), hotel.getAddress(), hotel.getLevel(), hotel.getDistrict());
-		new MemberPO(member.getMemberID(),member.getName(), member.getPassword(), member.getBirthday(), member.getCredit(),member.getTel());
+		//new MemberPO(member.getMemberID(),member.getName(), member.getPassword(), member.getBirthday(), member.getCredit(),member.getTel());
 		//hot.updataHotelInformat(hotel.getHotelID(), temp);
-		System.out.println(this.member.getCredit());
+		//System.out.println(this.member.getCredit());
 		return true;
 	}
 
@@ -130,7 +131,7 @@ public class Manager extends User implements ManagerBLService {
 		this.member=member;
 		//MemberPO temp = new MemberPO(member.getMemberID(), member.getName(), member.getPassword(), member.getBirthday(), member.getCredit(), member.getTel());
 		//mem.saveMInformation(temp.getMemberID(), temp);
-		new MemberPO(member.getMemberID(), member.getName(), member.getPassword(), member.getBirthday(), member.getCredit(), member.getTel());
+		//new MemberPO(member.getMemberID(), member.getName(), member.getPassword(), member.getBirthday(), member.getCredit(), member.getTel());
 		return true;
 	}
 
@@ -146,9 +147,9 @@ public class Manager extends User implements ManagerBLService {
 	public ArrayList<MemberVO> getMemberList(String limit) {
 		// TODO Auto-generated method stub
 		ArrayList<MemberPO> temp=user.getMemberList(limit);
-		for (MemberPO m : temp) {
-			members.add(new MemberVO(m.getMemberID(), m.getPassword(), m.getName(), m.getBirthday(), m.getPhone(), m.getCredit()));
-		}
+//		for (MemberPO m : temp) {
+//			members.add(new MemberVO(m.getMemberID(), m.getPassword(), m.getName(), m.getBirthday(), m.getPhone(), m.getCredit()));
+//		}
 		return members;
 	}
 

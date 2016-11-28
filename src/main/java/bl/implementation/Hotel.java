@@ -7,6 +7,7 @@ import java.util.List;
 import bl.service.HotelBLService;
 import other.Enterprise;
 import other.HotelService;
+import other.User;
 import vo.HotelVO;
 import vo.OrderVO;
 import vo.RoomVO;
@@ -29,8 +30,7 @@ public class Hotel extends User implements HotelBLService{
 	private ArrayList<Enterprise> enterpriseList = new ArrayList<Enterprise>();
 
 	public Hotel(){};
-	public Hotel(String hotelID, String name, String address, int level, String district) {
-		setID(hotelID);
+	public Hotel(String name, String address, int level, String district) {
 		//VO = new HotelVO(hotelID, name, address, level, district);
 		setName(name);
 		setAddress(address);
@@ -48,7 +48,7 @@ public class Hotel extends User implements HotelBLService{
 
 	
 	public List<OrderVO> getOrderList (String hotelID,Date time){
-		if(ID.equals(hotelID)){
+		if(getUsername().equals(hotelID)){
 			return ordermanager.getOrderList();
 		} else {
 			return null;
@@ -74,7 +74,7 @@ public class Hotel extends User implements HotelBLService{
 	}
 	
 	public boolean updataHotelInformat (String hotelID,HotelVO HO){
-		if(getID().equals(hotelID)){
+		if(getUsername().equals(hotelID)){
 			setVO(HO);
 			return true;
 		}
@@ -154,14 +154,6 @@ public class Hotel extends User implements HotelBLService{
 
 	public void setDistrict(String district) {
 		this.district = district;
-	}
-
-	public String getID() {
-		return ID;
-	}
-
-	public void setID(String iD) {
-		ID = iD;
 	}
 
 	public String getHotelManager() {

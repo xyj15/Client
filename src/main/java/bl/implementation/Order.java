@@ -20,13 +20,7 @@ public class Order {
 	private boolean children; 				//有无儿童
 	private double score; 					//订单评分
 	private String evaluation; 				//订单评价
-
-
-
-
-
-
-
+	
 	public ArrayList<OrderVO> orderList;
 	public Order(){
 		orderList = new ArrayList<OrderVO>();
