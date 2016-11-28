@@ -1,10 +1,9 @@
 package ui.controller;
 
-import other.UserRole;
+import other.UserType;
 import ui.controllerservice.LoginControllerService;
 import bl.implementation.Login;
 import bl.service.LoginBLService;
-import ui.presentation.HotelUI;
 import ui.presentation.LoginUI;
 
 /**
@@ -33,7 +32,7 @@ public class LoginController implements LoginControllerService{
     }
 
     @Override
-    public UserRole getUserRole() {
+    public UserType getUserRole() {
         return null;
     }
 }

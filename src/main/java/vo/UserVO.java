@@ -1,34 +1,26 @@
 package vo;
 
-import other.UserRole;
+import other.UserType;
 
 public class UserVO {
 
-	private String ID;
+	private String username;
 	private String password;
-	private String name;
-	private UserRole role;
+	private UserType userType;
 	
-	public UserVO(String ID,String password,String name,UserRole role){
-		this.ID=ID;
-		this.password=password;
-		this.name =name;
-		this.role=role;
+	public UserVO() {
+		
 	}
 	
-	public String getID() {
-		return ID;
+	public String getUsername() {
+		return username;
 	}
 	
 	public String getPassword(){
 		return password;
 	}
 	
-	public String getName(){
-		return name;
-	}
-	
-	public UserRole getUserRole(){
-		return role;
+	public UserType getUserType() {
+		return userType;
 	}
 }

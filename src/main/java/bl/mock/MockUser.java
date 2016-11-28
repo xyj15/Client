@@ -1,6 +1,6 @@
 package bl.mock;
 
-import other.UserRole;
+import other.UserType;
 import vo.UserVO;
 
 /**
@@ -13,7 +13,7 @@ public class MockUser extends UserVO {
 	private String ID;
 	private String password;
 	private String name;
-	private UserRole role;
+	private UserType role;
 	
 	/**
 	 * 构造MockUser的方法
@@ -22,8 +22,8 @@ public class MockUser extends UserVO {
 	 * @param name 名称
 	 * @param role 角色
 	 */
-	public MockUser(String ID, String password, String name, UserRole role){
-		super(ID, password, name, role);
+	public MockUser(String ID, String password, String name, UserType role){
+		super();
 	}
 	
 	/**
@@ -54,7 +54,7 @@ public class MockUser extends UserVO {
 	 * 获取用户类型
 	 * @return 用户类型
 	 */
-	public UserRole getUserRole(){
+	public UserType getUserRole(){
 		return role;
 	}
 }

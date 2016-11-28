@@ -1,17 +1,32 @@
 package bl.stub;
 
 import bl.service.LoginBLService;
+import vo.MemberVO;
 
 public class LoginBLStub implements LoginBLService {
 
-	public boolean isCorrect(String ID, String password) {
-		// TODO Auto-generated method stub
-		return true;
+	@Override
+	public boolean checkNetwork() {
+		return false;
 	}
-
-	public boolean isValid(String ID, String password) {
-		// TODO Auto-generated method stub
-		return true;
+	
+	@Override
+	public boolean existUsername(String username) {
+		return false;
 	}
-
+	
+	@Override
+	public boolean validPassword(String password) {
+		return false;
+	}
+	
+	@Override
+	public boolean login(String username, String password) {
+		return false;
+	}
+	
+	@Override
+	public boolean register(MemberVO memberVO) {
+		return false;
+	}
 }

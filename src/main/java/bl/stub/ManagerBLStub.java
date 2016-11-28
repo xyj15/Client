@@ -22,17 +22,17 @@ public class ManagerBLStub implements ManagerBLService {
 	private ArrayList<HotelVO> hotelList = new ArrayList<HotelVO>();
 
 	public ManagerBLStub() {
-		memberList.add(new MemberVO(ID,password, name, birth, phone, credit));
+		memberList.add(new MemberVO());
 		hotelList.add(new HotelVO(ID,name,address,level,district));
 	}
 	
 	public MemberVO getMember(String userID) {
 		// TODO Auto-generated method stub
 		for(int i=0;i<memberList.size();i++){
-			if(memberList.get(i).getMemberID().equals(userID)){
-				System.out.println("----查找用户———");
-				return memberList.get(i);
-			}
+			//if(memberList.get(i).getUsername().equals(userID)){
+			//	System.out.println("----查找用户———");
+			//	return memberList.get(i);
+			//}
 		}
 		System.out.println("----未找到（查找用户）———");
 		return null;
@@ -41,10 +41,10 @@ public class ManagerBLStub implements ManagerBLService {
 	public boolean updateMember(MemberVO member) {
 		// TODO Auto-generated method stub
 		for(int i=0;i<memberList.size();i++){
-			if(memberList.get(i).getMemberID().equals(member.getMemberID())){
-				memberList.remove(i);
-				memberList.add(member);
-			}
+			//if(memberList.get(i).getMemberID().equals(member.getMemberID())){
+			//	memberList.remove(i);
+			//	memberList.add(member);
+			//}
 		}
 		System.out.println("----更新———");
 		return true; 
@@ -55,7 +55,7 @@ public class ManagerBLStub implements ManagerBLService {
 //		ID=user.getID();
 //		password=user.getPassword();
 //		name=user.getName();
-//		role=user.getUserRole();
+//		role=user.getUserType();
 		memberList.add(member);
 		System.out.println("----新添———");
 		return true;
@@ -64,9 +64,9 @@ public class ManagerBLStub implements ManagerBLService {
 	public boolean deleteMember(MemberVO member) {
 		// TODO Auto-generated method stub
 		for(int i=0;i<memberList.size();i++){
-			if(memberList.get(i).getMemberID().equals(member.getMemberID())){
-				memberList.remove(i);
-			}
+		//	if(memberList.get(i).getMemberID().equals(member.getMemberID())){
+		//		memberList.remove(i);
+		//	}
 		}
 		System.out.println("----删除———");
 		return true;
