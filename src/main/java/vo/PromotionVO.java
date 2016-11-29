@@ -1,6 +1,7 @@
 package vo;
 
 import other.Date;
+import other.District;
 import other.Enterprise;
 import other.PromotionType;
 
@@ -17,6 +18,7 @@ public class PromotionVO {
 	private Date birthday;
 	private Enterprise enterprise;
 	private double rankDiscount;
+	private District district;
 	
 	private double discount;
 	private ArrayList<Double> priceList;

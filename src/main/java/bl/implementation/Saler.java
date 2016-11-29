@@ -1,9 +1,11 @@
 package bl.implementation;
 
+import bl.dataservice.SalerDataService;
 import bl.service.SalerBLService;
 import other.User;
 import po.SalerPO;
 import vo.OrderVO;
+import vo.PromotionVO;
 import vo.SalerVO;
 
 import java.util.ArrayList;
@@ -15,9 +17,32 @@ public class Saler implements SalerBLService {
     
     private SalerVO salerVO;
     private SalerPO salerPO;
+	private SalerDataService salerDataService;
     
     private Rank rank = Rank.getInstance();
-//
-//    private ArrayList<OrderVO> dailyUndoneOrderList = new ArrayList<OrderVO>();
-//    private double returnCredit;
+	
+	@Override
+	public void createPromotion(PromotionVO promotionVO) {
+		
+	}
+	
+	@Override
+	public void setRankInformation(ArrayList<Double> creditList, ArrayList<Double> discountList) {
+		
+	}
+	
+	@Override
+	public ArrayList<OrderVO> getDailyUnexcutedOrderList() {
+		return null;
+	}
+	
+	@Override
+	public void cancelAbnormalOrder(String orderId, double recover) {
+		
+	}
+	
+	@Override
+	public void creditRecharge(String username, double money) {
+		
+	}
 }

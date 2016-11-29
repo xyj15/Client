@@ -15,15 +15,11 @@ public class Rank {
 	private RankDataService rankDataService;
     private ArrayList<Double> creditList;
     private ArrayList<Double> discountList;
-    private static Rank rank = new Rank();
 	
+    private static Rank rank = new Rank();
 	public static Rank getInstance(){
         return rank;
     }
-	
-	public Rank() {
-		
-	}
 	
 	public int getLevel(double credit){
         return 0;

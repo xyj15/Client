@@ -12,7 +12,7 @@ public class SalerPO extends User {
     private String name;
     private String tel;
     private ArrayList<PromotionPO> promotionList;	//网站促销策略列表
-    private ArrayList<OrderPO> abnormalOrderList;	//异常订单列表
+    private ArrayList<OrderPO> dailyOrderList;	//当天所有订单列表
 
     public SalerPO() {
         
