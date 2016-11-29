@@ -6,11 +6,8 @@ import po.*;
 
 public interface SearchDataService {
 
-	public ArrayList<HotelPO> getHotelList(String str, searchHotelInfo info);
-	public ArrayList<RoomPO> getRoomList(String hotelID);
-	
-	enum searchHotelInfo {
-		DISTRICT, ADDRESS
-	}
+	public ArrayList<HotelPO> getAllHotelList();	//获得所有酒店的列表
+	public ArrayList<RoomPO> getRoomList(String hotelID);	//获得某一酒店的房间列表
+	public ArrayList<HotelPO> getReservedHotelList(String username);	//获得某用户预定过的酒店列表
 }
 

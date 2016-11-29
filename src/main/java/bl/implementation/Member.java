@@ -113,4 +113,14 @@ public class Member extends User implements MemberBLService {
 	public void newReservation() {
 		reserve = new Reserve(memberVO);
 	}
+	
+	@Override
+	public void markHotel() {
+		
+	}
+	
+	@Override
+	public void CreateOrder() {
+		
+	}
 }

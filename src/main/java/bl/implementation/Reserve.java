@@ -74,6 +74,11 @@ public class Reserve implements ReserveBLService {
 	}
 	
 	@Override
+	public void setLatestArriveTime(Time time) {
+		
+	}
+	
+	@Override
 	public void setClientName(String clientName) {
 		this.clientName = clientName;
 	}
@@ -81,6 +86,21 @@ public class Reserve implements ReserveBLService {
 	@Override
 	public void setClientTel(String clientTel) {
 		this.clientTel = clientTel;
+	}
+	
+	@Override
+	public void setNumberOfClient(int numberOfClient) {
+		
+	}
+	
+	@Override
+	public void setHasKids(boolean hasKids) {
+		
+	}
+	
+	@Override
+	public void setNumberOfRoom(int numberOfRoom) {
+		
 	}
 	
 	@Override

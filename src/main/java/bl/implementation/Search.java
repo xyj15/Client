@@ -2,6 +2,7 @@ package bl.implementation;
 
 import java.util.ArrayList;
 
+import bl.dataservice.SearchDataService;
 import bl.service.SearchBLService;
 import other.*;
 import other.RoomType;
@@ -14,13 +15,16 @@ import vo.*;
  */
 public class Search implements SearchBLService {
 	
-	private ArrayList<HotelVO> hotelList;
+	private ArrayList<HotelVO> allHotelList;	//所有酒店的列表，暂时使用ArrayList存储
+	private ArrayList<HotelVO> searchHotelList;	//搜索出来的酒店列表，暂时使用ArrayList存储
+	private ArrayList<HotelVO> reservedHotelList;	//预定过的酒店列表，暂时使用ArrayList存储
 	private SearchInfomation searchInfomation;	//搜索限制条件
 	private SortStratedy sortStratedy;	// 排序条件
 	private MemberVO memberVO;	//持有的客户信息
+	private SearchDataService searchDataService;
 	
 	public Search(MemberVO memberVO) {
-		hotelList = null;
+		allHotelList = null;
 		searchInfomation = new SearchInfomation();
 		this.memberVO = memberVO;
 	}
@@ -89,16 +93,16 @@ public class Search implements SearchBLService {
 		if(address==null && district==null) {
 			return null;
 		} else if(address==null) {
-			for(int i=0; i<hotelList.size(); i++) {
-				if(district.equals(hotelList.get(i).getDistrict())) {
-					resultList.add(hotelList.get(i));
+			for(int i = 0; i< allHotelList.size(); i++) {
+				if(district.equals(allHotelList.get(i).getDistrict())) {
+					resultList.add(allHotelList.get(i));
 				}
 			}
 			return resultList;
 		} else {
-			for(int i=0; i<hotelList.size(); i++) {
-				if(address.equals(hotelList.get(i).getAddress())) {
-					resultList.add(hotelList.get(i));
+			for(int i = 0; i< allHotelList.size(); i++) {
+				if(address.equals(allHotelList.get(i).getAddress())) {
+					resultList.add(allHotelList.get(i));
 				}
 			}
 			return resultList;
@@ -107,16 +111,41 @@ public class Search implements SearchBLService {
 	
 	@Override
 	public ArrayList<RoomVO> getRoomList(String hotelID) {
-		for(int i=0; i<hotelList.size(); i++) {
-			if(hotelList.get(i).getHotelID().equals(hotelID)) {
-				return hotelList.get(i).getRoomList();
+		for(int i = 0; i< allHotelList.size(); i++) {
+			if(allHotelList.get(i).getHotelID().equals(hotelID)) {
+				return allHotelList.get(i).getRoomList();
 			}
 		}
 		return null;
 	}
-
-	public void setHotelList(ArrayList<HotelVO> hotelList) {
-		this.hotelList = hotelList;
+	
+	@Override
+	public void setSelectedHotel(HotelVO hotelVO) {
+		
+	}
+	
+	@Override
+	public void setSelectedRoom(RoomVO roomVO) {
+		
+	}
+	
+	@Override
+	public ArrayList<HotelVO> sortByPrice() {
+		return null;
+	}
+	
+	@Override
+	public ArrayList<HotelVO> sortByScore() {
+		return null;
+	}
+	
+	@Override
+	public ArrayList<HotelVO> sortByLevel() {
+		return null;
+	}
+	
+	public void setAllHotelList(ArrayList<HotelVO> allHotelList) {
+		this.allHotelList = allHotelList;
 	}
 
 	public String getAddress() {

@@ -39,7 +39,7 @@ public class SearchTest {
 		hotelList.add(h1);
 		hotelList.add(h2);
 		hotelList.add(h3);
-		s.setHotelList(hotelList);
+		s.setAllHotelList(hotelList);
 	}
 	
 	@Test
