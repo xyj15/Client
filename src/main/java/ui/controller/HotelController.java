@@ -24,59 +24,7 @@ public class HotelController implements HotelControllerService{
     public HotelController(HotelUI hotelUI){
         this.hotelUI=hotelUI;
     }
-
-
-    @Override
-    public List<OrderVO> getOrderList(String hotelID, Date time) {
-        return hotelBL.getOrderList(hotelID,time);
-    }
-
-    @Override
-    public OrderVO getOrder(String orderID) {
-        return hotelBL.getOrder(orderID);
-    }
-
-    @Override
-    public HotelVO getHotelInformat(String hotelID) {
-        return hotelBL.getHotelInformat(hotelID);
-    }
-
-    @Override
-    public boolean updataOrder(String orderID, OrderVO OR) {
-
-        return hotelBL.updataOrder(orderID,OR);
-    }
-
-    @Override
-    public boolean updataHotelInformat(String hotelID, HotelVO HO) {
-        return hotelBL.updataHotelInformat(hotelID,HO);
-    }
-
-    @Override
-    public boolean check(String orderID, String memberID, String roomID, RoomVO RO, int mark) {
-        return hotelBL.check(orderID,memberID,roomID,RO,mark);
-    }
-
-    @Override
-    public boolean delay(String orderID) {
-        return hotelBL.delay(orderID);
-    }
-
-    @Override
-    public ArrayList<OrderVO> getUnOrder(String userID) {
-        return hotelBL.getUnOrder(userID);
-    }
-
-    @Override
-    public ArrayList<OrderVO> getAlOrder(String userID) {
-        return hotelBL.getAlOrder(userID);
-    }
-
-    @Override
-    public ArrayList<OrderVO> getAandCOrder(String userID) {
-        return hotelBL.getAandCOrder(userID);
-    }
-
+    
     public void getOrderListButtonClicked(){
         hotelUI.getOrderListButtonClicked();
     }
@@ -100,5 +48,55 @@ public class HotelController implements HotelControllerService{
     }
     public void saveHotelInformatButtonClicked(){
         hotelUI.saveHotelInformatButtonClicked();
+    }
+    
+    @Override
+    public List<OrderVO> getOrderList(String hotelID, Date time) {
+        return null;
+    }
+    
+    @Override
+    public OrderVO getOrder(String orderID) {
+        return null;
+    }
+    
+    @Override
+    public HotelVO getHotelInformat(String hotelID) {
+        return null;
+    }
+    
+    @Override
+    public boolean updataOrder(String orderID, OrderVO OR) {
+        return false;
+    }
+    
+    @Override
+    public boolean updataHotelInformat(String hotelID, HotelVO HO) {
+        return false;
+    }
+    
+    @Override
+    public boolean check(String orderID, String memberID, String roomID, RoomVO RO, int mark) {
+        return false;
+    }
+    
+    @Override
+    public boolean delay(String orderID) {
+        return false;
+    }
+    
+    @Override
+    public ArrayList<OrderVO> getUnOrder(String hotelID) {
+        return null;
+    }
+    
+    @Override
+    public ArrayList<OrderVO> getAlOrder(String hotelID) {
+        return null;
+    }
+    
+    @Override
+    public ArrayList<OrderVO> getAandCOrder(String hotelID) {
+        return null;
     }
 }

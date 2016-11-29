@@ -1,18 +1,15 @@
 package bl.implementation;
 
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
-
 import bl.dataservice.HotelDataService;
 import bl.service.HotelBLService;
-import other.Enterprise;
 import other.HotelService;
-import other.User;
 import po.HotelPO;
 import vo.HotelVO;
 import vo.OrderVO;
+import vo.PromotionVO;
 import vo.RoomVO;
+
+import java.util.ArrayList;
 
 public class Hotel implements HotelBLService {
 
@@ -29,32 +26,102 @@ public class Hotel implements HotelBLService {
 	}
 	
 	@Override
-	public List<OrderVO> getOrderList(String hotelID, Date time) {
+	public String getHotelName() {
 		return null;
 	}
 	
 	@Override
-	public OrderVO getOrder(String orderID) {
+	public String getHotelAddress() {
 		return null;
 	}
 	
 	@Override
-	public HotelVO getHotelInformat(String hotelID) {
+	public int getHotelLevel() {
+		return 0;
+	}
+	
+	@Override
+	public String getDistrict() {
 		return null;
 	}
 	
 	@Override
-	public boolean updataOrder(String orderID, OrderVO OR) {
+	public double getHotelScore() {
+		return 0;
+	}
+	
+	@Override
+	public HotelService getHotelService() {
+		return null;
+	}
+	
+	@Override
+	public String getHotelIntroduction() {
+		return null;
+	}
+	
+	@Override
+	public String getHotelManagerName() {
+		return null;
+	}
+	
+	@Override
+	public String getHotelManagerTel() {
+		return null;
+	}
+	
+	@Override
+	public boolean setHotelInformation(HotelVO hotelInformation) {
 		return false;
 	}
 	
 	@Override
-	public boolean updataHotelInformat(String hotelID, HotelVO HO) {
+	public ArrayList<RoomVO> getRoomList() {
+		return null;
+	}
+	
+	@Override
+	public boolean addRoom(RoomVO roomVO) {
 		return false;
 	}
 	
 	@Override
-	public boolean check(String orderID, String memberID, String roomID, RoomVO RO, int mark) {
+	public boolean deleteRoom(String roomID) {
+		return false;
+	}
+	
+	@Override
+	public boolean updateRoom(String roomID, RoomVO roomVO) {
+		return false;
+	}
+	
+	@Override
+	public ArrayList<PromotionVO> getPromotionList() {
+		return null;
+	}
+	
+	@Override
+	public boolean createPromotion(PromotionVO promotionVO) {
+		return false;
+	}
+	
+	@Override
+	public boolean deletePromotion(String promotionID) {
+		return false;
+	}
+	
+	@Override
+	public boolean updatePromotion(String promotionID, PromotionVO promotionVO) {
+		return false;
+	}
+	
+	@Override
+	public boolean checkin(String orderID, String roomID) {
+		return false;
+	}
+	
+	@Override
+	public boolean checkout(String orderID, String roomID) {
 		return false;
 	}
 	
@@ -64,20 +131,25 @@ public class Hotel implements HotelBLService {
 	}
 	
 	@Override
-	public ArrayList<OrderVO> getUnOrder(String userID) {
+	public ArrayList<OrderVO> getUnexcutedOrderList() {
 		return null;
 	}
 	
 	@Override
-	public ArrayList<OrderVO> getAlOrder(String userID) {
+	public ArrayList<OrderVO> getExcutedOrderList() {
 		return null;
 	}
 	
 	@Override
-	public ArrayList<OrderVO> getAandCOrder(String userID) {
+	public ArrayList<OrderVO> getAbnormalOrderList() {
 		return null;
 	}
 	
+	@Override
+	public ArrayList<OrderVO> getCanceledOrderList() {
+		return null;
+	}
+
 //	public void changeHotelManager(String hoMa,String hoMaID){
 //		//setHotelManager(hoMa);
 //		//setHotelManagerID(hoMaID);

@@ -1,12 +1,12 @@
 package bl.service;
 
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
-
+import other.HotelService;
 import vo.HotelVO;
 import vo.OrderVO;
+import vo.PromotionVO;
 import vo.RoomVO;
+
+import java.util.ArrayList;
 
 /**
  * 
@@ -17,14 +17,34 @@ import vo.RoomVO;
 
 public interface HotelBLService {	
 
-	public List<OrderVO> getOrderList (String hotelID,Date time);
-	public OrderVO getOrder(String orderID);
-	public HotelVO getHotelInformat (String hotelID);
-	public boolean updataOrder (String orderID,OrderVO OR);
-	public boolean updataHotelInformat (String hotelID,HotelVO HO);
-	public boolean check (String orderID, String memberID, String roomID, RoomVO RO, int mark);
+	public String getHotelName();
+	public String getHotelAddress();
+	public int getHotelLevel();
+	public String getDistrict();
+	public double getHotelScore();
+	public HotelService getHotelService();
+	public String getHotelIntroduction();
+	public String getHotelManagerName();
+	public String getHotelManagerTel();
+	
+	public boolean setHotelInformation(HotelVO hotelInformation);
+	
+	public ArrayList<RoomVO> getRoomList();
+	public boolean addRoom(RoomVO roomVO);
+	public boolean deleteRoom(String roomID);
+	public boolean updateRoom(String roomID, RoomVO roomVO);
+	
+	public ArrayList<PromotionVO> getPromotionList();
+	public boolean createPromotion(PromotionVO promotionVO);
+	public boolean deletePromotion(String promotionID);
+	public boolean updatePromotion(String promotionID, PromotionVO promotionVO);
+	
+	public boolean checkin(String orderID, String roomID);
+	public boolean checkout(String orderID, String roomID);
 	public boolean delay(String orderID);
-	public ArrayList<OrderVO> getUnOrder(String userID);
-	public ArrayList<OrderVO> getAlOrder (String userID);
-	public ArrayList<OrderVO> getAandCOrder(String userID);
+	
+	public ArrayList<OrderVO> getUnexcutedOrderList();
+	public ArrayList<OrderVO> getExcutedOrderList();
+	public ArrayList<OrderVO> getAbnormalOrderList();
+	public ArrayList<OrderVO> getCanceledOrderList();
 }

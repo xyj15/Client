@@ -28,12 +28,12 @@ public class Promotion implements PromotionBLService {
 	}
 	
 	@Override
-	public boolean delPromotion(PromotionVO promotion) {
+	public boolean deletePromotion(String promotionID) {
 		return false;
 	}
 	
 	@Override
-	public boolean changePromotion(PromotionVO promotion) {
+	public boolean updatePromotion(String promotionID, PromotionVO promotion) {
 		return false;
 	}
 	
