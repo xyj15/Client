@@ -11,7 +11,7 @@ import vo.RoomVO;
 public interface RoomBLService {
 
 	public boolean addRoom(RoomVO room);
-	public RoomVO findRoom(String num);
+	public RoomVO getRoom(String num);
 	public boolean updateRoom(RoomVO room);
 	public boolean deleteRoom(String roomNUM);
 }

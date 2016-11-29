@@ -22,70 +22,69 @@ public class ManagerController implements ManagerControllerService {
     public ManagerController(ManagerUI view){
         window = view;
     }
-
-    @Override
-    public HotelVO getHotel(String hotelID){
-
-        return manager.getHotel(hotelID);
-    }
-
-    @Override
-    public boolean addHotel(HotelVO hotel){
-
-        return manager.addHotel(hotel);
-    }
-
-    @Override
-    public boolean deleteHotel(HotelVO hotel){
-        return manager.deleteHotel(hotel);
-    }
-
-    @Override
-    public boolean updateHotel(HotelVO hotel){
-        return manager.updateHotel(hotel);
-    }
-
-    @Override
-    public MemberVO getMember(String memberID) {
-        return manager.getMember(memberID);
-    }
-
-    @Override
-    public boolean addMember(MemberVO member) {
-        return addMember(member);
-    }
-
-    @Override
-    public boolean updateMember(MemberVO member) {
-        return manager.updateMember(member);
-    }
-
-    @Override
-    public boolean deleteMember(MemberVO member) {
-        return deleteMember(member);
-    }
-
-    @Override
-    public SalerVO getSaler(String account) {
-        return manager.getSaler(account);
-    }
-
-    @Override
-    public boolean addSaler(SalerVO theSaler) {
-        return manager.addSaler(theSaler);
-    }
-
-    @Override
-    public boolean updateSaler(SalerVO theSaler) {
-        return manager.updateSaler(theSaler);
-    }
-
-    @Override
-    public boolean deleteSaler(SalerVO theSaler) {
-        return manager.deleteSaler(theSaler);
-    }
-
-    @Override
+	
+	
+	@Override
+	public HotelVO getHotel(String hotelID) {
+		return null;
+	}
+	
+	@Override
+	public boolean addHotel(HotelVO hotel) {
+		return false;
+	}
+	
+	@Override
+	public boolean updateHotel(HotelVO hotel) {
+		return false;
+	}
+	
+	@Override
+	public boolean deleteHotel(HotelVO hotel) {
+		return false;
+	}
+	
+	@Override
+	public MemberVO getMember(String hotelID) {
+		return null;
+	}
+	
+	@Override
+	public boolean addMember(MemberVO member) {
+		return false;
+	}
+	
+	@Override
+	public boolean updateMember(MemberVO member) {
+		return false;
+	}
+	
+	@Override
+	public boolean deleteMember(MemberVO member) {
+		return false;
+	}
+	
+	@Override
+	public SalerVO getSaler(String account) {
+		return null;
+	}
+	
+	@Override
+	public boolean addSaler(SalerVO theSaler) {
+		return false;
+	}
+	
+	@Override
+	public boolean updateSaler(SalerVO theSaler) {
+		return false;
+	}
+	
+	@Override
+	public boolean deleteSaler(SalerVO theSaler) {
+		return false;
+	}
+	
+	@Override
     public void getHotelClicked() {
         window.getHotelClicked();
     }

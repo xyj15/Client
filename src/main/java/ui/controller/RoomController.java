@@ -31,12 +31,12 @@ public class RoomController implements RoomControllerService {
         if(result)result=updateRoom(room);
         return result;
     }
-
+    
     @Override
     public RoomVO getRoom(String RoomNUM) {
-        return roomManager.findRoom(RoomNUM);
+        return null;
     }
-
+    
     @Override
     public boolean updateRoom(RoomVO room) {
         return roomManager.updateRoom(room);

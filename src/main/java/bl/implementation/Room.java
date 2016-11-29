@@ -21,7 +21,8 @@ public class Room implements RoomBLService {
 	 * @author 张新悦
 	 * @version 2016-11-13 16:17
 	 */
-	public RoomVO findRoom(String num){
+	@Override
+	public RoomVO getRoom(String num){
 		if(room.getNumber().equals(num)) return room;
 		RoomPO temp = roomDataService.getRoom(num);
 		//room = new RoomVO(temp.getValid(), temp.getNumber(), temp.getRoomType(), temp.getPrice());
@@ -33,6 +34,7 @@ public class Room implements RoomBLService {
 	 * @author 张新悦
 	 * @version 2016-11-13 17:23
 	 */
+	@Override
 	public boolean updateRoom(RoomVO room) {
 		// TODO Auto-generated method stub
 		this.room=room;
@@ -52,6 +54,7 @@ public class Room implements RoomBLService {
 	 * @author 张新悦
 	 * @version 2016-11-13 17:33
 	 */
+	@Override
 	public boolean addRoom(RoomVO room) {
 		// TODO Auto-generated method stub
 		this.room=room;
