@@ -2,6 +2,7 @@ package bl.service;
 
 import java.util.ArrayList;
 
+import other.CreditChange;
 import other.Date;
 import other.Enterprise;
 import other.MemberType;
@@ -18,6 +19,7 @@ public interface MemberBLService {
 	public String getName();
 	public String getTel();
 	public double getCredit();
+	public ArrayList<CreditChange> getCreditChangeList();
 	public int getLevel();
 	public double getDiscount();
 	public MemberType getMemberType();

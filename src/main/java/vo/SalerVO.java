@@ -1,38 +1,21 @@
 package vo;
 
+import po.PromotionPO;
+
+import java.util.ArrayList;
+
 /**
  * Created by apple on 2016/11/22.
  */
 public class SalerVO {
-    private String account;
-    private String password;
+	
+	private String salerID;
+	private String name;
+	private String tel;
+	private ArrayList<PromotionVO> promotionList;	//网站促销策略列表
+	private ArrayList<OrderVO> abnormalOrderList;	//异常订单列表
 
-    public SalerVO(String acc,String pass){
-        account = acc;
-        password = pass;
-    }
-
-    public SalerVO(){}
-
-    public boolean check(String pass){
-        if(password.equals(pass))return true;
-        return false;
-    }
-
-    public boolean setPassword(String pass,String newPass){
-        if(check(pass)){
-            password=newPass;
-            return true;
-        }
-        return false;
-    }
-
-    public String getAccount(){
-        return account;
-    }
-
-    public String getPassword(){
-        return password;
-    }
-
+    public SalerVO() {
+		
+	}
 }

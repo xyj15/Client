@@ -9,6 +9,7 @@ import java.util.ArrayList;
 
 public class MemberVO {
 
+	private String memberID;
 	private String name;
 	private String tel;
 	private Credit credit;
@@ -17,6 +18,8 @@ public class MemberVO {
 	private MemberType memberType;
 	private Date birthday;
 	private Enterprise enterprise;
+	private ArrayList<OrderVO> orderList;
+	private ArrayList<HotelVO> reservedHotelList;
 	
 	public MemberVO() {
 		

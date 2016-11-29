@@ -1,42 +1,17 @@
 package po;
 
-import java.io.Serializable;
+import other.RoomType;
 
-public class RoomPO implements Serializable{
-
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = 1L;
-	private boolean valid;
-	private String number;
-	private int type;
-	private double price;
+public class RoomPO {
 	
-	public RoomPO(boolean valid, String number, int type, double price){
-		this.valid =valid;
-		this.number=number;
-		this.type=type;
-		this.price =price;
+	private boolean isReserved;	//客房是否被预定
+	private boolean available;	//客房是否可使用
+	private String roomID;	//客房号
+	private RoomType roomType;	//客房类型
+	private double price;	//客房单价
+	private HotelPO hotelPO;	//所属酒店
+	
+	public RoomPO() {
+		
 	}
-	
-	public boolean getValid(){
-		return valid;
-	}
-	
-	public String getNumber(){
-		return number;
-	}
-	
-	public int getRoomType(){
-		return type;
-	}
-	
-	public double getPrice(){
-		return price;
-	}
-	
-	
-
-	
 }

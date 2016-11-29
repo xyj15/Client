@@ -12,38 +12,29 @@ import vo.HotelVO;
 import vo.OrderVO;
 import vo.RoomVO;
 
-public class Hotel extends User implements HotelBLService{
+public class Hotel extends User implements HotelBLService {
 
 	public Order ordermanager = new Order();
 	public Room roommanager = new Room();
 	public Promotion promotionmanager = new Promotion();
 
-	private HotelVO VO;
-	private String name;
-	private String address;
-	private int level;
-	private String district;
-	private String introduction;
-	private String tel;
-	private HotelService service;
-
-	private ArrayList<Enterprise> enterpriseList = new ArrayList<Enterprise>();
+	private HotelVO hotelVO;
 
 	public Hotel(){};
 	public Hotel(String name, String address, int level, String district) {
 		//VO = new HotelVO(hotelID, name, address, level, district);
-		setName(name);
-		setAddress(address);
-		setLevel(level);
-		setDistrict(district);
+		//setName(name);
+		//setAddress(address);
+		//setLevel(level);
+		//setDistrict(district);
 	}
 	
 
 	private String hotelManager;
 	private String hotelManagerID;
 	public void changeHotelManager(String hoMa,String hoMaID	){
-		setHotelManager(hoMa);
-		setHotelManagerID(hoMaID);
+		//setHotelManager(hoMa);
+		//setHotelManagerID(hoMaID);
 	}
 
 	
@@ -60,7 +51,7 @@ public class Hotel extends User implements HotelBLService{
 	}
 	
 	public HotelVO getHotelInformat (String hotelID){
-		return VO;
+		return hotelVO;
 	}
 	
 	public boolean updataOrder (String orderID,OrderVO OR){
@@ -75,7 +66,7 @@ public class Hotel extends User implements HotelBLService{
 	
 	public boolean updataHotelInformat (String hotelID,HotelVO HO){
 		if(getUsername().equals(hotelID)){
-			setVO(HO);
+			//setVO(HO);
 			return true;
 		}
 		return false;
@@ -116,75 +107,5 @@ public class Hotel extends User implements HotelBLService{
 	public ArrayList<OrderVO> getAandCOrder(String userID) {
 		// TODO Auto-generated method stub
 		return null;
-	}
-	
-	public void setVO(HotelVO vO) {
-		VO = vO;
-	}
-	public HotelVO getVO() {
-		return VO;
-	}
-	public String getName() {
-		return name;
-	}
-
-	public void setName(String name) {
-		this.name = name;
-	}
-
-	public String getAddress() {
-		return address;
-	}
-
-	public void setAddress(String address) {
-		this.address = address;
-	}
-
-	public int getLevel() {
-		return level;
-	}
-
-	public void setLevel(int level) {
-		this.level = level;
-	}
-
-	public String getDistrict() {
-		return district;
-	}
-
-	public void setDistrict(String district) {
-		this.district = district;
-	}
-
-	public String getHotelManager() {
-		return hotelManager;
-	}
-
-	public void setHotelManager(String hotelManager) {
-		this.hotelManager = hotelManager;
-	}
-
-	public String getHotelManagerID() {
-		return hotelManagerID;
-	}
-
-	public void setHotelManagerID(String hotelManagerID) {
-		this.hotelManagerID = hotelManagerID;
-	}
-
-	public String getTel() {
-		return tel;
-	}
-
-	public void setTel(String tel) {
-		this.tel = tel;
-	}
-
-	public String getIntroduction() {
-		return introduction;
-	}
-
-	public void setIntroduction(String introduction) {
-		this.introduction = introduction;
 	}
 }

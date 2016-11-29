@@ -40,9 +40,15 @@ public interface SearchBLService {
 	
 	public void setSelectedRoom(RoomVO roomVO);
 	
-	public ArrayList<HotelVO> sortByPrice();
+	public ArrayList<HotelVO> sortByPriceHighToLow();
 	
-	public ArrayList<HotelVO> sortByScore();
+	public ArrayList<HotelVO> sortByPriceLowToHigh();
 	
-	public ArrayList<HotelVO> sortByLevel();
+	public ArrayList<HotelVO> sortByScoreHighToLow();
+	
+	public ArrayList<HotelVO> sortByScoreLowToHigh();
+	
+	public ArrayList<HotelVO> sortByLevelHighToLow();
+	
+	public ArrayList<HotelVO> sortByLevelLowToHigh();
 }

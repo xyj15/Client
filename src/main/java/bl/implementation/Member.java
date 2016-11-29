@@ -2,10 +2,7 @@ package bl.implementation;
 
 import bl.dataservice.MemberDataService;
 import bl.service.MemberBLService;
-import other.Date;
-import other.Enterprise;
-import other.MemberType;
-import other.User;
+import other.*;
 import vo.MemberVO;
 import vo.OrderVO;
 
@@ -15,7 +12,6 @@ import java.util.ArrayList;
 public class Member extends User implements MemberBLService {
 	
 	private MemberVO memberVO;
-	private ArrayList<OrderVO> orderList;
 	private MemberDataService memberDataService;
 	private Search search;
 	private Reserve reserve;
@@ -37,6 +33,11 @@ public class Member extends User implements MemberBLService {
 	@Override
 	public double getCredit() {
 		return 0;
+	}
+	
+	@Override
+	public ArrayList<CreditChange> getCreditChangeList() {
+		return null;
 	}
 	
 	@Override

@@ -5,8 +5,11 @@ import other.Date;
 import other.Enterprise;
 import other.MemberType;
 
+import java.util.ArrayList;
+
 public class MemberPO {
 	
+	private String memberID;
 	private String name;
 	private String tel;
 	private Credit credit;
@@ -15,6 +18,8 @@ public class MemberPO {
 	private MemberType memberType;
 	private Date birthday;
 	private Enterprise enterprise;
+	private ArrayList<OrderPO> orderList;
+	private ArrayList<HotelPO> reservedHotelList;
 	
 	public MemberPO() {
 		

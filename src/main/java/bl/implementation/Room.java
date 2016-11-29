@@ -37,8 +37,8 @@ public class Room implements RoomBLService {
 	public boolean updateRoom(RoomVO room) {
 		// TODO Auto-generated method stub
 		this.room=room;
-		//RoomPO temp = new RoomPO(room.isValid(), room.getNumber(), room.getType(), room.getPrice());
-		new RoomPO(room.isValid(), room.getNumber(), room.getType(), room.getPrice());
+		//RoomPO temp = new RoomPO(room.isAvailable(), room.getNumber(), room.getType(), room.getPrice());
+		new RoomPO(room.isAvailable(), room.getNumber(), room.getType(), room.getPrice());
 		//roomDataService.updateRoom(temp);
 		return true;
 	}
@@ -56,8 +56,8 @@ public class Room implements RoomBLService {
 	public boolean addRoom(RoomVO room) {
 		// TODO Auto-generated method stub
 		this.room=room;
-		//RoomPO temp = new RoomPO(room.isValid(), room.getNumber(), room.getType(), room.getPrice());
-		new RoomPO(room.isValid(), room.getNumber(), room.getType(), room.getPrice());
+		//RoomPO temp = new RoomPO(room.isAvailable(), room.getNumber(), room.getType(), room.getPrice());
+		new RoomPO(room.isAvailable(), room.getNumber(), room.getType(), room.getPrice());
 		//roomDataService.addRoom(temp);
 		return true;
 	}

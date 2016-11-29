@@ -1,58 +1,36 @@
 package po;
 
+import other.Date;
+import other.Enterprise;
+import other.PromotionType;
+
+import java.util.ArrayList;
+
 public class PromotionPO {
-	String birthday;
-	int roomNumber;
-	boolean coordinate;
-	String date;
-	boolean VIP;
-	String district;
 	
-	public PromotionPO(String b, int rn, boolean c, String da, boolean v, String di) {
-		birthday=b;
-		roomNumber=rn;
-		coordinate=c;
-		date=da;
-		VIP=v;
-		district=di;
-	}
-	public String getBirday(){
-		return birthday;
-	}
-	public int getRoomNumber(){
-		return roomNumber;
-	}
-	public boolean getCoordinate(){
-		return coordinate;
-	}
-	public String getDate(){
-		return date;
-	}
-	public boolean getVIP(){
-		return VIP;
-	}
-	public String getDistrict(){
-		return district;
+	private String promotionID;
+	private String promotionName;
+	private PromotionType promotionType;
+	private Date startDate;
+	private Date endDate;
+	
+	private Date birthday;
+	private Enterprise enterprise;
+	private double rankDiscount;
+	
+	private double discount;
+	private ArrayList<Double> priceList;
+	private ArrayList<Double> reduceList;
+	
+	public PromotionPO() {
+		
 	}
 	
+	public boolean checkAvailable(MemberPO memberPO) {
+		return false;
+	}
 	
-	
-	public void setBirthday(String birthday){
-		this.birthday=birthday;
-	}
-	public void setRoomNumber(int roomNumber){
-		this.roomNumber=roomNumber;
-	}
-	public void setCoodinate(boolean coordinate){
-		this.coordinate=coordinate;
-	}
-	public void setDate(String date){
-		this.date=date;
-	}
-	public void setVIP(boolean VIP){
-		this.VIP=VIP;
-	}
-	public void setDistrict(String district){
-		this.district=district;
+	public double calculatePrice(double originalPrice) {
+		return 0;
 	}
 }
