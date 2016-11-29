@@ -4,40 +4,84 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
+import bl.dataservice.HotelDataService;
 import bl.service.HotelBLService;
 import other.Enterprise;
 import other.HotelService;
 import other.User;
+import po.HotelPO;
 import vo.HotelVO;
 import vo.OrderVO;
 import vo.RoomVO;
 
 public class Hotel implements HotelBLService {
 
-	public Order ordermanager = new Order();
-	public Room roommanager = new Room();
-	public Promotion promotionmanager = new Promotion();
+	public Order order;
+	public Room room;
+	public Promotion promotion;
 
 	private HotelVO hotelVO;
+	private HotelPO hotelPO;
+	private HotelDataService hotelDataService;
 
-	public Hotel(){};
-	public Hotel(String name, String address, int level, String district) {
-		//VO = new HotelVO(hotelID, name, address, level, district);
-		//setName(name);
-		//setAddress(address);
-		//setLevel(level);
-		//setDistrict(district);
+	public Hotel() {
+		
 	}
 	
-
-	private String hotelManager;
-	private String hotelManagerID;
-	public void changeHotelManager(String hoMa,String hoMaID){
-		//setHotelManager(hoMa);
-		//setHotelManagerID(hoMaID);
+	@Override
+	public List<OrderVO> getOrderList(String hotelID, Date time) {
+		return null;
 	}
-
 	
+	@Override
+	public OrderVO getOrder(String orderID) {
+		return null;
+	}
+	
+	@Override
+	public HotelVO getHotelInformat(String hotelID) {
+		return null;
+	}
+	
+	@Override
+	public boolean updataOrder(String orderID, OrderVO OR) {
+		return false;
+	}
+	
+	@Override
+	public boolean updataHotelInformat(String hotelID, HotelVO HO) {
+		return false;
+	}
+	
+	@Override
+	public boolean check(String orderID, String memberID, String roomID, RoomVO RO, int mark) {
+		return false;
+	}
+	
+	@Override
+	public boolean delay(String orderID) {
+		return false;
+	}
+	
+	@Override
+	public ArrayList<OrderVO> getUnOrder(String userID) {
+		return null;
+	}
+	
+	@Override
+	public ArrayList<OrderVO> getAlOrder(String userID) {
+		return null;
+	}
+	
+	@Override
+	public ArrayList<OrderVO> getAandCOrder(String userID) {
+		return null;
+	}
+	
+//	public void changeHotelManager(String hoMa,String hoMaID){
+//		//setHotelManager(hoMa);
+//		//setHotelManagerID(hoMaID);
+//	}
 //	public List<OrderVO> getOrderList (String hotelID,Date time){
 //		if(getUsername().equals(hotelID)){
 //			return ordermanager.getOrderList();
@@ -93,19 +137,4 @@ public class Hotel implements HotelBLService {
 //		}
 //		return false;
 //	}
-
-	public ArrayList<OrderVO> getUnOrder(String userID) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	public ArrayList<OrderVO> getAlOrder(String userID) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	public ArrayList<OrderVO> getAandCOrder(String userID) {
-		// TODO Auto-generated method stub
-		return null;
-	}
 }

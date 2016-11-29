@@ -11,10 +11,9 @@ public class Room implements RoomBLService {
 	private RoomVO room;
 	private RoomDataService roomDataService;
 
-	private String roomID;
-	private RoomType type;
-	private double price;
-	private boolean available;
+	public Room() {
+		
+	}
 	
 	/**
 	 * 根据房间号查找房间
@@ -25,7 +24,7 @@ public class Room implements RoomBLService {
 	public RoomVO findRoom(String num){
 		if(room.getNumber().equals(num)) return room;
 		RoomPO temp = roomDataService.getRoom(num);
-		room = new RoomVO(temp.getValid(), temp.getNumber(), temp.getRoomType(), temp.getPrice());
+		//room = new RoomVO(temp.getValid(), temp.getNumber(), temp.getRoomType(), temp.getPrice());
 		return room;
 	}
 
@@ -38,7 +37,7 @@ public class Room implements RoomBLService {
 		// TODO Auto-generated method stub
 		this.room=room;
 		//RoomPO temp = new RoomPO(room.isAvailable(), room.getNumber(), room.getType(), room.getPrice());
-		new RoomPO(room.isAvailable(), room.getNumber(), room.getType(), room.getPrice());
+		//new RoomPO(room.isAvailable(), room.getNumber(), room.getType(), room.getPrice());
 		//roomDataService.updateRoom(temp);
 		return true;
 	}
@@ -57,7 +56,7 @@ public class Room implements RoomBLService {
 		// TODO Auto-generated method stub
 		this.room=room;
 		//RoomPO temp = new RoomPO(room.isAvailable(), room.getNumber(), room.getType(), room.getPrice());
-		new RoomPO(room.isAvailable(), room.getNumber(), room.getType(), room.getPrice());
+		//new RoomPO(room.isAvailable(), room.getNumber(), room.getType(), room.getPrice());
 		//roomDataService.addRoom(temp);
 		return true;
 	}

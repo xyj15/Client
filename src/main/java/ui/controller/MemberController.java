@@ -57,7 +57,7 @@ public class MemberController implements MemberControllerService {
 
     @Override
     public boolean cancelOrder(String orderID) {
-        memberBL.cancelOrder(orderID);
+//        memberBL.cancelOrder(orderID);
         return true;
     }
 

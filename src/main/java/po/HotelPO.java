@@ -17,6 +17,7 @@ public class HotelPO extends User {
 	private HotelService hotelService;	//酒店设施服务
 	private String introduction;	//酒店简介
 	private String managerID;	//酒店管理人员的ID
+	private String managerName;	//酒店管理人员的姓名
 	
 	private ArrayList<RoomPO> roomList;
 	private ArrayList<Enterprise> enterpriseArrayList;	//合作企业列表
