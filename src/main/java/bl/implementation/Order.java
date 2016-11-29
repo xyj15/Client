@@ -2,6 +2,7 @@ package bl.implementation;
 
 import bl.dataservice.OrderDataService;
 import bl.service.OrderBLService;
+import other.User;
 import po.OrderPO;
 import vo.OrderVO;
 
@@ -12,10 +13,10 @@ public class Order implements OrderBLService {
 	private ArrayList<OrderVO> orderVOList;
 	private ArrayList<OrderPO> orderPOList;
 	private OrderDataService orderDataService;
-	private UserVO userVO;
+	private User user;
 	
-	public Order() {
-		
+	public Order(User user) {
+		this.user = user;
 	}
 	
 	@Override

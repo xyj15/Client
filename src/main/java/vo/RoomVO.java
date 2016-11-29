@@ -11,7 +11,7 @@ public class RoomVO {
 	private double price;	//客房单价
 	private HotelVO hotelVO;	//所属酒店
 	
-	public RoomVO() {
+	public RoomVO(RoomType normal, String number, int i, int price) {
 		
 	}
 	

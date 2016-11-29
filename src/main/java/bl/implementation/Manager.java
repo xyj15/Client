@@ -40,6 +40,76 @@ public class Manager implements ManagerBLService {
 	public static Manager getInstance(){
 		return manager;
 	}
+	
+	@Override
+	public HotelVO getHotel(String hotelID) {
+		return null;
+	}
+	
+	@Override
+	public boolean updateHotel(HotelVO hotel) {
+		return false;
+	}
+	
+	@Override
+	public boolean addHotel(HotelVO hotel) {
+		return false;
+	}
+	
+	@Override
+	public boolean deleteHotel(HotelVO hotel) {
+		return false;
+	}
+	
+	@Override
+	public ArrayList<HotelVO> getHotelList(String limit) {
+		return null;
+	}
+	
+	@Override
+	public MemberVO getMember(String memberID) {
+		return null;
+	}
+	
+	@Override
+	public boolean updateMember(MemberVO member) {
+		return false;
+	}
+	
+	@Override
+	public boolean addMember(MemberVO member) {
+		return false;
+	}
+	
+	@Override
+	public boolean deleteMember(MemberVO member) {
+		return false;
+	}
+	
+	@Override
+	public ArrayList<MemberVO> getMemberList(String limit) {
+		return null;
+	}
+	
+	@Override
+	public SalerVO getSaler(String account) {
+		return null;
+	}
+	
+	@Override
+	public boolean updateSaler(SalerVO saler) {
+		return false;
+	}
+	
+	@Override
+	public boolean addSaler(SalerVO saler) {
+		return false;
+	}
+	
+	@Override
+	public boolean deleteSaler(SalerVO saler) {
+		return false;
+	}
 	//到此
 	
 

@@ -2,49 +2,75 @@ package bl.implementation;
 
 import java.util.ArrayList;
 
+import bl.dataservice.PromotionDataService;
 import bl.service.PromotionBLService;
+import po.PromotionPO;
 import vo.PromotionVO;
 
 public class Promotion implements PromotionBLService {
-	private String ID;
-	private ArrayList<PromotionVO> promotionList=new ArrayList<PromotionVO>();
 	
-	public PromotionVO getPromotion(String promotionID){
-		for(int i=0;i<promotionList.size();i++){
-			if(promotionList.get(i).getID().equals(promotionID)){
-				return promotionList.get(i);
-			}
-		}
+	private PromotionDataService promotionDataService;
+	private ArrayList<PromotionVO> promotionVOList;
+	private ArrayList<PromotionPO> promotionPOList;
+	
+	public Promotion() {
+		
+	}
+	
+	@Override
+	public PromotionVO getPromotion(String promotionID) {
 		return null;
 	}
 	
-    public boolean addPromotion(PromotionVO promotion) {
-    	promotionList.add(promotion);
-		return true;
+	@Override
+	public boolean addPromotion(PromotionVO promotion) {
+		return false;
 	}
-    
-    public boolean delPromotion(PromotionVO promotion) {
-    	promotionList.remove(promotion);
-		return true;
+	
+	@Override
+	public boolean delPromotion(PromotionVO promotion) {
+		return false;
 	}
-    
-    public boolean changePromotion(PromotionVO promotion) {
-    	for(int i=0;i<promotionList.size();i++){
-			if(promotionList.get(i).getID().equals(promotion.getID())){
-				promotionList.set(i,promotion);
-			}
-		}
-		return true;
+	
+	@Override
+	public boolean changePromotion(PromotionVO promotion) {
+		return false;
 	}
-    
-    public ArrayList<PromotionVO> getPromotionList() {
-		return promotionList;
-    }
-    
-    public String getID() {
-		return ID;
+	
+	@Override
+	public ArrayList<PromotionVO> getPromotionList() {
+		return null;
 	}
-	public void setID(String iD) {
-		ID = iD;
-	}
+
+//	public PromotionVO getPromotion(String promotionID){
+//		for(int i=0;i<promotionList.size();i++){
+//			if(promotionList.get(i).getID().equals(promotionID)){
+//				return promotionList.get(i);
+//			}
+//		}
+//		return null;
+//	}
+//
+//    public boolean addPromotion(PromotionVO promotion) {
+//    	promotionList.add(promotion);
+//		return true;
+//	}
+//
+//    public boolean delPromotion(PromotionVO promotion) {
+//    	promotionList.remove(promotion);
+//		return true;
+//	}
+//
+//    public boolean changePromotion(PromotionVO promotion) {
+//    	for(int i=0;i<promotionList.size();i++){
+//			if(promotionList.get(i).getID().equals(promotion.getID())){
+//				promotionList.set(i,promotion);
+//			}
+//		}
+//		return true;
+//	}
+//
+//    public ArrayList<PromotionVO> getPromotionList() {
+//		return promotionList;
+//    }
 }
