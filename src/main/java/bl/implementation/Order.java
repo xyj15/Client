@@ -12,11 +12,47 @@ public class Order implements OrderBLService {
 	private ArrayList<OrderVO> orderVOList;
 	private ArrayList<OrderPO> orderPOList;
 	private OrderDataService orderDataService;
+	private UserVO userVO;
 	
 	public Order() {
 		
 	}
 	
+	@Override
+	public ArrayList<OrderVO> getOrderList() {
+		return null;
+	}
+	
+	@Override
+	public ArrayList<OrderVO> getAllOrder() {
+		return null;
+	}
+	
+	@Override
+	public ArrayList<OrderVO> getExcutedOrders() {
+		return null;
+	}
+	
+	@Override
+	public ArrayList<OrderVO> getAbnormalOrders() {
+		return null;
+	}
+	
+	@Override
+	public ArrayList<OrderVO> getCanceledOrders() {
+		return null;
+	}
+	
+	@Override
+	public void cancelOrder(String orderID) {
+		
+	}
+	
+	@Override
+	public void evaluateOrder(double score, String comment) {
+		
+	}
+
 //	public OrderVO getOrder(String orderID) {
 //		for(int i=0; i<orderList.size(); i++) {
 //			if(orderList.get(i).getOrderID().equals(orderID)){

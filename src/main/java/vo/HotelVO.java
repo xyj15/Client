@@ -3,12 +3,12 @@ package vo;
 import other.District;
 import other.Enterprise;
 import other.HotelService;
+import other.User;
 
 import java.util.ArrayList;
 
-public class HotelVO {
+public class HotelVO extends User {
 
-	private String hotelID;
 	private String name;
 	private String address;
 	private int level;

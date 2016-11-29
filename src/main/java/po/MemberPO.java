@@ -4,12 +4,12 @@ import bl.implementation.Credit;
 import other.Date;
 import other.Enterprise;
 import other.MemberType;
+import other.User;
 
 import java.util.ArrayList;
 
-public class MemberPO {
+public class MemberPO extends User {
 	
-	private String memberID;
 	private String name;
 	private String tel;
 	private Credit credit;
