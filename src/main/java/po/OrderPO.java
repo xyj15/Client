@@ -1,61 +1,34 @@
 package po;
 
+import other.OrderStatus;
+
+import java.util.ArrayList;
+import java.util.Date;
+
 public class OrderPO {
-	String checkInTime;
-	String checkOutTime;
-	String roomType;
-	int roomNumber;
-	String promotion;
-	double price;
-	boolean isCancel;
-	boolean isAbnormal;
 	
-	public OrderPO(String ci, String co, String rt, int rn, String pro, double pri,boolean ic,boolean ia) {
-		checkInTime=ci;
-		checkOutTime=co;
-		roomType=rt;
-		roomNumber=rn;
-		promotion=pro;
-		price=pri;
-		isCancel=ic;
-		isAbnormal=ia;
-	}
+	private MemberPO memberVO;	//订单相关客户
+	private HotelPO hotelVO;	//订单相关酒店
 	
-	public String getCheckInTime(){
-		return checkInTime;
-	}
-	public String getCheckOutTime(){
-		return checkOutTime;
-	}
-	public String getRoomType(){
-		return roomType;
-	}
-	public int getRoomNumber(){
-		return roomNumber;
-	}
-	public String getPromotion(){
-		return promotion;
-	}
-	public double getPrice(){
-		return price;
-	}
+	private String orderID;	//订单编号
+	private OrderStatus orderStatus;	//订单状态
+	private Date createTime;	//订单创建时间
+	private Date checkinTime; 	//预计入住时间
+	private Date actualCheckinTime;	//实际入住时间
+	private Date latestCheckinTime;	//最晚入住时间
+	private Date checkoutTime;	//预计退房时间
+	private Date actualCheckoutTime;	//实际退房时间
+	private ArrayList<RoomPO> roomList;	//订单中房间类型及数量
 	
-	public void setCheckInTime(String checkInTime){
-		this.checkInTime=checkInTime;
-	}
-	public void setCheckOutTime(String checkOutTime){
-		this.checkOutTime=checkOutTime;
-	}
-	public void setRoomType(String roomType){
-		this.roomType=roomType;
-	}
-	public void setRoomNumber(int roomNumber){
-		this.roomNumber=roomNumber;
-	}
-	public void setPromotion(String promotion){
-		this.promotion=promotion;
-	}
-	public void setPrice(double price){
-		this.price=price;
+	private int numberOfClient;	//预计入住人数
+	private boolean hasKids;	//有无儿童
+	private double score;	//订单评分
+	private String evaluation;	//订单评价
+	
+	private PromotionPO promotion;	//使用的促销策略
+	private double price;	//订单价值
+	
+	public OrderPO() {
+		
 	}
 }

@@ -1,77 +1,104 @@
 package bl.implementation;
 
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
-
+import bl.dataservice.OrderDataService;
+import bl.service.OrderBLService;
+import po.OrderPO;
 import vo.OrderVO;
 
-public class Order {
+import java.util.ArrayList;
 
-	private String orderID; 				//订单编号
-	private Date createTime; 				//订单创建时间
-	private Date checkinTime; 				//	预计入住时间
-	private Date actualCheckinTime;			// 实际入住时间
-	private Date latestCheckinTime; 		//最晚入住时间
-	private Date checkoutTime; 				//预计退房时间
-	private Date actualCheckoutTime; 		//实际退房时间
-	private ArrayList<Room> roomList; 		//订单中房间类型及数量
-	private int numberOfClient; 			//预计入住人数
-	private boolean children; 				//有无儿童
-	private double score; 					//订单评分
-	private String evaluation; 				//订单评价
+public class Order implements OrderBLService {
+
+	private ArrayList<OrderVO> orderVOList;
+	private ArrayList<OrderPO> orderPOList;
+	private OrderDataService orderDataService;
+	private UserVO userVO;
 	
-	public ArrayList<OrderVO> orderList;
-	public Order(){
-		orderList = new ArrayList<OrderVO>();
+	public Order() {
+		
 	}
 	
-	public OrderVO getOrder(String orderID) {
-		for(int i=0; i<orderList.size(); i++) {
-			if(orderList.get(i).getOrderID().equals(orderID)){
-				return orderList.get(i);
-			}
-		}
+	@Override
+	public ArrayList<OrderVO> getOrderList() {
 		return null;
 	}
 	
-    public boolean addOrder(OrderVO order) {
-    	orderList.add(order);
-		return true;
+	@Override
+	public ArrayList<OrderVO> getAllOrder() {
+		return null;
 	}
-    
-    public boolean cancelOrder(String orderID) {
-    	for(int i=0; i<orderList.size(); i++) {
-			if(orderList.get(i).getOrderID().equals(orderID)){
-				orderList.get(i).setState(4);
-				return true;
-			}
-    	}
-    	return false;
+	
+	@Override
+	public ArrayList<OrderVO> getExcutedOrders() {
+		return null;
 	}
-    
-    public boolean abnormalOrder(String orderID) {
-    	for(int i=0; i<orderList.size(); i++) {
-			if(orderList.get(i).getOrderID().equals(orderID)){
-				orderList.get(i).setState(3);
-				return true;
-			}
-    	}
-    	return false;
+	
+	@Override
+	public ArrayList<OrderVO> getAbnormalOrders() {
+		return null;
 	}
-    
-    public boolean cancelAbnormalOrder(String orderID) {
-    	for(int i=0; i<orderList.size(); i++) {
-			if(orderList.get(i).getOrderID().equals(orderID)){
-				orderList.get(i).setState(4);
-				return true;
-			}
-    	}
-    	return false;
+	
+	@Override
+	public ArrayList<OrderVO> getCanceledOrders() {
+		return null;
 	}
+	
+	@Override
+	public void cancelOrder(String orderID) {
+		
+	}
+	
+	@Override
+	public void evaluateOrder(double score, String comment) {
+		
+	}
+
+//	public OrderVO getOrder(String orderID) {
+//		for(int i=0; i<orderList.size(); i++) {
+//			if(orderList.get(i).getOrderID().equals(orderID)){
+//				return orderList.get(i);
+//			}
+//		}
+//		return null;
+//	}
+//
+//    public boolean addOrder(OrderVO order) {
+//    	orderList.add(order);
+//		return true;
+//	}
+//
+//    public boolean cancelOrder(String orderID) {
+//    	for(int i=0; i<orderList.size(); i++) {
+//			if(orderList.get(i).getOrderID().equals(orderID)){
+//				orderList.get(i).setState(4);
+//				return true;
+//			}
+//    	}
+//    	return false;
+//	}
     
-    public ArrayList<OrderVO> getOrderList() {
-		return orderList;
-    }
+//    public boolean abnormalOrder(String orderID) {
+//    	for(int i=0; i<orderList.size(); i++) {
+//			if(orderList.get(i).getOrderID().equals(orderID)){
+//				orderList.get(i).setState(3);
+//				return true;
+//			}
+//    	}
+//    	return false;
+//	}
+//
+//    public boolean cancelAbnormalOrder(String orderID) {
+//    	for(int i=0; i<orderList.size(); i++) {
+//			if(orderList.get(i).getOrderID().equals(orderID)){
+//				orderList.get(i).setState(4);
+//				return true;
+//			}
+//    	}
+//    	return false;
+//	}
+//
+//    public ArrayList<OrderVO> getOrderList() {
+//		return orderList;
+//    }
     
 }

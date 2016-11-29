@@ -5,6 +5,7 @@ import java.util.List;
 
 import bl.implementation.Search;
 import bl.service.MemberBLService;
+import other.CreditChange;
 import other.Date;
 import other.Enterprise;
 import other.MemberType;
@@ -87,6 +88,11 @@ public class MemberBLStub implements MemberBLService {
 	@Override
 	public double getCredit() {
 		return 0;
+	}
+	
+	@Override
+	public ArrayList<CreditChange> getCreditChangeList() {
+		return null;
 	}
 	
 	@Override

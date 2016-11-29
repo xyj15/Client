@@ -4,8 +4,11 @@ import bl.implementation.Credit;
 import other.Date;
 import other.Enterprise;
 import other.MemberType;
+import other.User;
 
-public class MemberPO {
+import java.util.ArrayList;
+
+public class MemberPO extends User {
 	
 	private String name;
 	private String tel;
@@ -15,6 +18,8 @@ public class MemberPO {
 	private MemberType memberType;
 	private Date birthday;
 	private Enterprise enterprise;
+	private ArrayList<OrderPO> orderList;
+	private ArrayList<HotelPO> reservedHotelList;
 	
 	public MemberPO() {
 		

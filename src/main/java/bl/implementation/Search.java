@@ -86,36 +86,37 @@ public class Search implements SearchBLService {
 	
 	@Override
 	public ArrayList<HotelVO> search() {
-		String address = searchInfomation.getAddress();
-		String district = searchInfomation.getDistrict();
-		ArrayList<HotelVO> resultList = new ArrayList<HotelVO>();
-		
-		if(address==null && district==null) {
-			return null;
-		} else if(address==null) {
-			for(int i = 0; i< allHotelList.size(); i++) {
-				if(district.equals(allHotelList.get(i).getDistrict())) {
-					resultList.add(allHotelList.get(i));
-				}
-			}
-			return resultList;
-		} else {
-			for(int i = 0; i< allHotelList.size(); i++) {
-				if(address.equals(allHotelList.get(i).getAddress())) {
-					resultList.add(allHotelList.get(i));
-				}
-			}
-			return resultList;
-		}
+//		String address = searchInfomation.getAddress();
+//		String district = searchInfomation.getDistrict();
+//		ArrayList<HotelVO> resultList = new ArrayList<HotelVO>();
+//
+//		if(address==null && district==null) {
+//			return null;
+//		} else if(address==null) {
+//			for(int i = 0; i< allHotelList.size(); i++) {
+//				if(district.equals(allHotelList.get(i).getDistrict())) {
+//					resultList.add(allHotelList.get(i));
+//				}
+//			}
+//			return resultList;
+//		} else {
+//			for(int i = 0; i< allHotelList.size(); i++) {
+//				if(address.equals(allHotelList.get(i).getAddress())) {
+//					resultList.add(allHotelList.get(i));
+//				}
+//			}
+//			return resultList;
+//		}
+		return null;
 	}
 	
 	@Override
 	public ArrayList<RoomVO> getRoomList(String hotelID) {
-		for(int i = 0; i< allHotelList.size(); i++) {
-			if(allHotelList.get(i).getHotelID().equals(hotelID)) {
-				return allHotelList.get(i).getRoomList();
-			}
-		}
+//		for(int i = 0; i< allHotelList.size(); i++) {
+//			if(allHotelList.get(i).getHotelID().equals(hotelID)) {
+//				return allHotelList.get(i).getRoomList();
+//			}
+//		}
 		return null;
 	}
 	
@@ -130,17 +131,32 @@ public class Search implements SearchBLService {
 	}
 	
 	@Override
-	public ArrayList<HotelVO> sortByPrice() {
+	public ArrayList<HotelVO> sortByPriceHighToLow() {
 		return null;
 	}
 	
 	@Override
-	public ArrayList<HotelVO> sortByScore() {
+	public ArrayList<HotelVO> sortByPriceLowToHigh() {
 		return null;
 	}
 	
 	@Override
-	public ArrayList<HotelVO> sortByLevel() {
+	public ArrayList<HotelVO> sortByScoreHighToLow() {
+		return null;
+	}
+	
+	@Override
+	public ArrayList<HotelVO> sortByScoreLowToHigh() {
+		return null;
+	}
+	
+	@Override
+	public ArrayList<HotelVO> sortByLevelHighToLow() {
+		return null;
+	}
+	
+	@Override
+	public ArrayList<HotelVO> sortByLevelLowToHigh() {
 		return null;
 	}
 	

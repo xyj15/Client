@@ -1,11 +1,15 @@
 package bl.service;
 import vo.OrderVO;
 
+import java.util.ArrayList;
+
 public interface OrderBLService {
-	public OrderVO getOrder();
-	public boolean addOrder(OrderVO order);
-	public boolean cancelOrder(OrderVO order) ;
-	public boolean abnormalOrder(OrderVO order);
-	public boolean cancelAbnormalOrder(OrderVO order);
-	public OrderVO[] getOrderList();
+	
+	public ArrayList<OrderVO> getOrderList();
+	public ArrayList<OrderVO> getAllOrder();
+	public ArrayList<OrderVO> getExcutedOrders();
+	public ArrayList<OrderVO> getAbnormalOrders();
+	public ArrayList<OrderVO> getCanceledOrders();
+	public void cancelOrder(String orderID);
+	public void evaluateOrder(double score, String comment);
 }

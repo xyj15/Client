@@ -2,11 +2,11 @@ package bl.service;
 
 import java.util.ArrayList;
 
+import other.CreditChange;
 import other.Date;
 import other.Enterprise;
 import other.MemberType;
 import vo.MemberVO;
-import vo.OrderVO;
 
 /**
  * member模块的bl提供给ui的接口类
@@ -18,6 +18,7 @@ public interface MemberBLService {
 	public String getName();
 	public String getTel();
 	public double getCredit();
+	public ArrayList<CreditChange> getCreditChangeList();
 	public int getLevel();
 	public double getDiscount();
 	public MemberType getMemberType();
@@ -27,15 +28,9 @@ public interface MemberBLService {
 	public MemberVO getMemberInformation();
 	public boolean setMemberInformation(MemberVO memberVO);
 
-	public ArrayList<OrderVO> getAllOrder();
-	public ArrayList<OrderVO> getExcutedOrder();
-	public ArrayList<OrderVO> getAbnormalOrder ();
-	public ArrayList<OrderVO> getCanceledOrder();
-	
-	public void cancelOrder(String orderID);
-	public void evaluateOrder(double score, String comment);	//评价酒店，包括评分和评论
 	public void startSearch();
 	public void newReservation();
+	public void showOrder();	//查看订单
 	public void markHotel();	//收藏（标记）酒店
-	public void CreateOrder();
+	public void CreateOrder();	//创建订单
 }

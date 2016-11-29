@@ -1,70 +1,28 @@
 package po;
 
+import other.District;
+import other.Enterprise;
+import other.HotelService;
+import other.User;
+
 import java.util.ArrayList;
 
-public class HotelPO {
-
+public class HotelPO extends User {
 	
-	private String hotelID;
 	private String name;
 	private String address;
-	private String level;
-	private String district;
+	private int level;
+	private District district;
+	private double score;	//酒店评分
+	private HotelService hotelService;	//酒店设施服务
+	private String introduction;	//酒店简介
+	private String managerID;	//酒店管理人员的ID
+	
 	private ArrayList<RoomPO> roomList;
+	private ArrayList<Enterprise> enterpriseArrayList;	//合作企业列表
+	private ArrayList<OrderPO> orderList;
 	
-	public HotelPO(String hotelID, String name, String address, String level, String district){
-		this.setHotelID(hotelID);
-		this.setName(name);
-		this.setAddress(address);
-		this.setLevel(level);
-		this.setDistrict(district);
-	}
-	
-	public String getHotelID() {
-		return hotelID;
-	}
-	
-	public void setHotelID(String hotelID) {
-		this.hotelID = hotelID;
-	}
-	
-	public String getName() {
-		return name;
-	}
-	
-	public void setName(String name) {
-		this.name = name;
-	}
-	
-	public String getAddress() {
-		return address;
-	}
-	
-	public void setAddress(String address) {
-		this.address = address;
-	}
-	
-	public String getLevel() {
-		return level;
-	}
-	
-	public void setLevel(String level) {
-		this.level = level;
-	}
-	
-	public String getDistrict() {
-		return district;
-	}
-	
-	public void setDistrict(String district) {
-		this.district = district;
-	}
-	
-	public ArrayList<RoomPO> getRoomList() {
-		return roomList;
-	}
-	
-	public void setRoomList(ArrayList<RoomPO> roomList) {
-		this.roomList = roomList;
+	public HotelPO() {
+		
 	}
 }

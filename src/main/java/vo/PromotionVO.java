@@ -1,87 +1,36 @@
 package vo;
 
 import other.Date;
+import other.Enterprise;
+import other.PromotionType;
+
+import java.util.ArrayList;
 
 public class PromotionVO {
 	
-	Date birthday;
-	int roomNumber;
-	boolean coordinate;
-	Date date;
-	boolean VIP;
-	String district;
-	double discount;
-	String ID;
+	private String promotionID;
+	private String promotionName;
+	private PromotionType promotionType;
+	private Date startDate;
+	private Date endDate;
 	
-	public PromotionVO(Date b, int rn, boolean c, Date da, boolean v, String di, double dis, String id) {
-		birthday = b;
-		roomNumber = rn;
-		coordinate = c;
-		date = da;
-		VIP = v;
-		district = di;
-		discount = dis;
-		ID=id;
+	private Date birthday;
+	private Enterprise enterprise;
+	private double rankDiscount;
+	
+	private double discount;
+	private ArrayList<Double> priceList;
+	private ArrayList<Double> reduceList;
+	
+	public PromotionVO() {
+		
 	}
 	
-	public Date getBirthday() {
-		return birthday;
+	public boolean checkAvailable(MemberVO memberVO) {
+		return false;
 	}
 	
-	public int getRoomNumber() {
-		return roomNumber;
+	public double calculatePrice(double originalPrice) {
+		return 0;
 	}
-	
-	public boolean getCoordinate() {
-		return coordinate;
-	}
-	
-	public Date getDate() {
-		return date;
-	}
-	
-	public boolean getVIP() {
-		return VIP;
-	}
-	
-	public String getDistrict() {
-		return district;
-	}
-	
-	public void setBirthday(Date birthday) {
-		this.birthday = birthday;
-	}
-	
-	public void setRoomNumber(int roomNumber) {
-		this.roomNumber = roomNumber;
-	}
-	
-	public void setCoodinate(boolean coordinate) {
-		this.coordinate = coordinate;
-	}
-	
-	public void setDate(Date date) {
-		this.date = date;
-	}
-	
-	public void setVIP(boolean VIP) {
-		this.VIP = VIP;
-	}
-	
-	public void setDistrict(String district) {
-		this.district = district;
-	}
-	
-	public void setDiscount(double discount) {
-		this.discount = discount;
-	}
-	
-	public double getDiscount() {
-		return discount;
-	}
-	
-	public String getID() {
-		return ID;
-	}
-	
 }

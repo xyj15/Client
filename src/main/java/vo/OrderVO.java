@@ -1,101 +1,34 @@
 package vo;
 
+import other.OrderStatus;
+
+import java.util.ArrayList;
+import java.util.Date;
+
 public class OrderVO {
-	private String orderID;
-	String checkInTime;
-	String checkOutTime;
-	int roomType;
-	int roomNumber;
-	String promotion;
-	double discount;
-	double price;
-	private int state;
-	//1，已经执行；2，未执行；3，异常；4，已经取消
-	public OrderVO(){}
-	public OrderVO(int state,String ci,String co,int rt,int rn,String pro,double d,double pri,String orID){
-		checkInTime=ci;
-		checkOutTime=co;
-		roomType=rt;
-		roomNumber=rn;
-		promotion=pro;
-		discount=d;
-		price=pri;
-		setOrderID(orID);
-		this.setState(state);
-	}
 	
-	public String getCheckInTime(){
-		return checkInTime;
-	}
-	public String getCheckOutTime(){
-		return checkOutTime;
-	}
-	public int getRoomType(){
-		return roomType;
-	}
-	public int getRoomNumber(){
-		return roomNumber;
-	}
-	public String getPromotion(){
-		return promotion;
-	}
-	public double getDiscount(){
-		return discount;
-	}
-	public double getPrice(){
-		return price;
-	}
+	private MemberVO memberVO;	//订单相关客户
+	private HotelVO hotelVO;	//订单相关酒店
 	
+	private String orderID;	//订单编号
+	private OrderStatus orderStatus;	//订单状态
+	private Date createTime;	//订单创建时间
+	private Date checkinTime; 	//预计入住时间
+	private Date actualCheckinTime;	//实际入住时间
+	private Date latestCheckinTime;	//最晚入住时间
+	private Date checkoutTime;	//预计退房时间
+	private Date actualCheckoutTime;	//实际退房时间
+	private ArrayList<RoomVO> roomList;	//订单中房间类型及数量
 	
-	public void setCheckInTime(String checkInTime){
-		this.checkInTime=checkInTime;
-	}
-	public void setCheckOutTime(String checkOutTime){
-		this.checkOutTime=checkOutTime;
-	}
-	public void setRoomType(int roomType){
-		this.roomType=roomType;
-	}
-	public void setRoomNumber(int roomNumber){
-		this.roomNumber=roomNumber;
-	}
-	public void setPromotion(String promotion){
-		this.promotion=promotion;
-	}
-	public void setDiscount(double discount){
-		this.discount=discount;
-	}
-	public void setPrice(double price){
-		this.price=price;
-	}
-	public String getOrderID() {
-		return orderID;
-	}
-	public void setOrderID(String orderID) {
-		this.orderID = orderID;
-	}
-//	public boolean isCancel() {
-//		return isCancel;
-//	}
-//	public void setCancel(boolean isCancel) {
-//		this.isCancel = isCancel;
-//	}
-//	public boolean isAbnormal() {
-//		return isAbnormal;
-//	}
-//	public void setAbnormal(boolean isAbnormal) {
-//		this.isAbnormal = isAbnormal;
-//	}
-//	public boolean isExcute() {
-//		return isExcute;
-//	}
-//	public void setExcute(boolean isExcute) {
-//		this.isExcute = isExcute;
-//	}
-	public int getState() {
-		return state;
-	}
-	public void setState(int state) {
-		this.state = state;
+	private int numberOfClient;	//预计入住人数
+	private boolean hasKids;	//有无儿童
+	private double score;	//订单评分
+	private String evaluation;	//订单评价
+	
+	private PromotionVO promotion;	//使用的促销策略
+	private double price;	//订单价值
+	
+	public OrderVO() {
+		
 	}
 }

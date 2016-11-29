@@ -2,23 +2,21 @@ package bl.implementation;
 
 import bl.dataservice.MemberDataService;
 import bl.service.MemberBLService;
-import other.Date;
-import other.Enterprise;
-import other.MemberType;
-import other.User;
+import other.*;
+import po.MemberPO;
 import vo.MemberVO;
-import vo.OrderVO;
 
 import java.util.ArrayList;
 
 
-public class Member extends User implements MemberBLService {
+public class Member implements MemberBLService {
 	
 	private MemberVO memberVO;
-	private ArrayList<OrderVO> orderList;
+	private MemberPO memberPO;
 	private MemberDataService memberDataService;
 	private Search search;
 	private Reserve reserve;
+	private Order order;
 
 	public Member(){
 		
@@ -37,6 +35,11 @@ public class Member extends User implements MemberBLService {
 	@Override
 	public double getCredit() {
 		return 0;
+	}
+	
+	@Override
+	public ArrayList<CreditChange> getCreditChangeList() {
+		return null;
 	}
 	
 	@Override
@@ -75,36 +78,6 @@ public class Member extends User implements MemberBLService {
 	}
 	
 	@Override
-	public ArrayList<OrderVO> getAllOrder() {
-		return null;
-	}
-	
-	@Override
-	public ArrayList<OrderVO> getExcutedOrder() {
-		return null;
-	}
-	
-	@Override
-	public ArrayList<OrderVO> getAbnormalOrder() {
-		return null;
-	}
-	
-	@Override
-	public ArrayList<OrderVO> getCanceledOrder() {
-		return null;
-	}
-	
-	@Override
-	public void cancelOrder(String orderID) {
-		
-	}
-	
-	@Override
-	public void evaluateOrder(double score, String comment) {
-		
-	}
-	
-	@Override
 	public void startSearch() {
 		search = new Search(memberVO);
 	}
@@ -112,6 +85,11 @@ public class Member extends User implements MemberBLService {
 	@Override
 	public void newReservation() {
 		reserve = new Reserve(memberVO);
+	}
+	
+	@Override
+	public void showOrder() {
+		
 	}
 	
 	@Override

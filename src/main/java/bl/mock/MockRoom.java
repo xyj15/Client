@@ -15,7 +15,7 @@ import vo.RoomVO;
  *    房间号
  * @param double price
  *    房间单价
- * @param boolean isValid
+ * @param boolean isAvailable
  *    房间入住状态       
  *
  */
@@ -77,7 +77,7 @@ public class MockRoom extends RoomVO {
 	 * @author 张新悦
 	 * @version 2016-11-04 09:50
 	 */
-	public boolean isValid() {
+	public boolean isAvailable() {
 		return isValid;
 	}
 	

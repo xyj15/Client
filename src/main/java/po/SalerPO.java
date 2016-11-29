@@ -1,23 +1,20 @@
 package po;
 
+import other.User;
+
+import java.util.ArrayList;
+
 /**
  * Created by apple on 2016/11/22.
  */
-public class SalerPO {
-    private String account;
-    private String password;
+public class SalerPO extends User {
+    
+    private String name;
+    private String tel;
+    private ArrayList<PromotionPO> promotionList;	//网站促销策略列表
+    private ArrayList<OrderPO> abnormalOrderList;	//异常订单列表
 
-    public SalerPO(String acc,String pass){
-        account = acc;
-        password = pass;
+    public SalerPO() {
+        
     }
-
-    public String getAccount(){
-        return account;
-    }
-
-    public String getPassword(){
-        return password;
-    }
-
 }

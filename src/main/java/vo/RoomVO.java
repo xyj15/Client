@@ -1,20 +1,24 @@
 package vo;
 
+import other.RoomType;
+
 public class RoomVO {
 
-	private boolean isValid;
-	private String roomNUM;
-	private int type;
-	private double price;
+	private boolean isReserved;	//客房是否被预定
+	private boolean available;	//客房是否可使用
+	private String roomID;	//客房号
+	private RoomType roomType;	//客房类型
+	private double price;	//客房单价
+	private HotelVO hotelVO;	//所属酒店
 	
 	public RoomVO() {
 		
 	}
 	
-	public RoomVO(boolean valid, String number,int type,double price){
-		this.isValid =valid;
-		this.roomNUM=number;
-		this.type=type;
+	public RoomVO(boolean valid, String number,RoomType type,double price){
+		this.available =valid;
+		this.roomID =number;
+		this.roomType=type;
 		this.price =price;
 	}
 	
@@ -24,8 +28,8 @@ public class RoomVO {
 	 * @author 张新悦
 	 * @version 2016-11-04 09:50
 	 */
-	public int getType() {
-		return type;
+	public RoomType getType() {
+		return roomType;
 	}
 	
 	/**
@@ -35,7 +39,7 @@ public class RoomVO {
 	 * @version 2016-11-04 09:50
 	 */
 	public String getNumber() {
-		return roomNUM;
+		return roomID;
 	}
 	
 	/**
@@ -54,8 +58,8 @@ public class RoomVO {
 	 * @author 张新悦
 	 * @version 2016-11-04 09:50
 	 */
-	public boolean isValid() {
-		return isValid;
+	public boolean isAvailable() {
+		return available;
 	}
 	
 	/**
@@ -77,8 +81,8 @@ public class RoomVO {
 	 * @version 2016-11-04 09:59
 	 */
 	public boolean checkIn() {
-		if(!isValid) return false;
-		isValid = false;
+		if(!available) return false;
+		available = false;
 		return true;
 	}
 	
@@ -89,8 +93,8 @@ public class RoomVO {
 	 * @version 2016-11-04 10:04
 	 */
 	public boolean checkOut() {
-		if(isValid) return false;
-		isValid = true;
+		if(available) return false;
+		available = true;
 		return true;
 	}
 }
