@@ -2,11 +2,13 @@ package bl.dataservice;
 
 import po.RoomPO;
 
+import java.util.ArrayList;
+
 public interface RoomDataService {
 
-	public RoomPO getRoom(String ID) ;
-	public boolean updateRoom(RoomPO room);
-	public boolean addRoom(RoomPO room);
-	public boolean deleteRoom(String roomNUM);
-	
+	public RoomPO getRoomInformation(String roomID);	//获得客房信息
+	public ArrayList<RoomPO> getRoomList(String hotelID);	//获得酒店的客房列表
+	public boolean updateRoom(String roomID, RoomPO roomPO);	//更新客房状态
+	public boolean addRoom(RoomPO roomPO);	//添加客房
+	public boolean deleteRoom(String roomID, RoomPO roomPO);	//删除客房
 }

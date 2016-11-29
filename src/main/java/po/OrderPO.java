@@ -25,6 +25,8 @@ public class OrderPO {
 	private double score;	//订单评分
 	private String evaluation;	//订单评价
 	
+	private double recover;	//撤销异常时返回的信用比例，若无则为0
+	
 	private PromotionPO promotion;	//使用的促销策略
 	private double price;	//订单价值
 	

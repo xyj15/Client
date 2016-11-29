@@ -2,6 +2,8 @@ package bl.service;
 
 import vo.RoomVO;
 
+import java.util.ArrayList;
+
 /**
  * 
  * @author 张新悦
@@ -9,9 +11,10 @@ import vo.RoomVO;
  *
  */
 public interface RoomBLService {
-
-	public boolean addRoom(RoomVO room);
-	public RoomVO getRoom(String num);
-	public boolean updateRoom(RoomVO room);
-	public boolean deleteRoom(String roomNUM);
+	
+	public ArrayList<RoomVO> getRoomList();
+	public RoomVO getRoomInformation(String roomID);
+	public boolean addRoom(RoomVO roomVO);
+	public boolean deleteRoom(String roomID);
+	public boolean updateRoom(String roomID, RoomVO roomVO);
 }

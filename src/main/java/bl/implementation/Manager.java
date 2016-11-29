@@ -2,25 +2,15 @@ package bl.implementation;
 
 import java.util.ArrayList;
 
-import bl.dataservice.HotelDataService;
-import bl.dataservice.MemberDataService;
 import bl.dataservice.ManagerDataService;
-import bl.dataservice.SalerDataService;
 import bl.service.ManagerBLService;
 import other.User;
-import po.HotelPO;
-import po.ManagerPO;
-import po.MemberPO;
-import po.SalerPO;
 import vo.HotelVO;
-import vo.ManagerVO;
 import vo.MemberVO;
 import vo.SalerVO;
 
 public class Manager implements ManagerBLService {
 
-	private ManagerVO managerVO;
-	private ManagerPO managerPO;
 	private ManagerDataService managerDataService;
 	
 	private ArrayList<HotelVO> hotelList;

@@ -6,10 +6,9 @@ import po.PromotionPO;
 
 public interface PromotionDataService {
 	
-	public boolean insert(PromotionPO user);
-	public boolean delete(PromotionPO user);
-	public boolean update(PromotionPO user);
 	public PromotionPO getPromotion(String promotionID);
-	public ArrayList<PromotionPO> getPromotionList(String userID);
-	
+	public boolean addPromotion(PromotionPO promotion);
+	public boolean deletePromotion(String promotionID);
+	public boolean updatePromotion(String promotionID, PromotionPO promotion);
+	public ArrayList<PromotionPO> getPromotionList();
 }
