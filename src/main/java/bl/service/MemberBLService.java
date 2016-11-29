@@ -36,4 +36,6 @@ public interface MemberBLService {
 	public void evaluateOrder(double score, String comment);	//评价酒店，包括评分和评论
 	public void startSearch();
 	public void newReservation();
+	public void markHotel();	//收藏（标记）酒店
+	public void CreateOrder();
 }

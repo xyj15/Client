@@ -13,7 +13,6 @@ import vo.MemberVO;
 public class Login implements LoginBLService {
 	
 	private LoginDataService loginDataService;
-	private User user;
 	
 	public Login() {
 		
