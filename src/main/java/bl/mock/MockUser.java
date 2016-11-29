@@ -1,14 +1,14 @@
 package bl.mock;
 
+import other.User;
 import other.UserType;
-import vo.UserVO;
 
 /**
  * User的Mock类
  * @author CROFF
  * @version 2016-11-05 16:33
  */
-public class MockUser extends UserVO {
+public class MockUser extends User {
 
 	private String ID;
 	private String password;

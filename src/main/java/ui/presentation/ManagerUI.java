@@ -1,17 +1,17 @@
 package ui.presentation;
 
-import vo.UserVO;
+import other.User;
 
 public class ManagerUI {
 
 
 		protected void getUser(String ID){
 		}
-	    protected void addUser(UserVO user) {
+	    protected void addUser(User user) {
 		}
-	    protected void deleteUser(UserVO user) {
+	    protected void deleteUser(User user) {
 		}
-	    protected void updateUser(UserVO user) {
+	    protected void updateUser(User user) {
 		}
 	    protected void getUserList() {
 		}
