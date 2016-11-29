@@ -77,7 +77,32 @@ public class SearchBLStub implements SearchBLService {
 		System.out.println("获取客房列表");
 		return new ArrayList<RoomVO>();
 	}
-
+	
+	@Override
+	public void setSelectedHotel(HotelVO hotelVO) {
+		
+	}
+	
+	@Override
+	public void setSelectedRoom(RoomVO roomVO) {
+		
+	}
+	
+	@Override
+	public ArrayList<HotelVO> sortByPrice() {
+		return null;
+	}
+	
+	@Override
+	public ArrayList<HotelVO> sortByScore() {
+		return null;
+	}
+	
+	@Override
+	public ArrayList<HotelVO> sortByLevel() {
+		return null;
+	}
+	
 	public String getAddress() {
 		System.out.println("获取地址");
 		return null;

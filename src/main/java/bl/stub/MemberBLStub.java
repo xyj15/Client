@@ -164,4 +164,14 @@ public class MemberBLStub implements MemberBLService {
 		
 	}
 	
+	@Override
+	public void markHotel() {
+		
+	}
+	
+	@Override
+	public void CreateOrder() {
+		
+	}
+	
 }

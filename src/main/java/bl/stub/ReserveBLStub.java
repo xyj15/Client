@@ -3,9 +3,15 @@ package bl.stub;
 import bl.service.ReserveBLService;
 import other.Date;
 import other.RoomType;
+import other.Time;
 import vo.PromotionVO;
 
 public class ReserveBLStub implements ReserveBLService {
+	
+	@Override
+	public PromotionVO getPromotion() {
+		return null;
+	}
 	
 	public void setPromotion(PromotionVO promotion) {
 		// TODO Auto-generated method stub
@@ -54,12 +60,32 @@ public class ReserveBLStub implements ReserveBLService {
 	}
 	
 	@Override
+	public void setLatestArriveTime(Time time) {
+		
+	}
+	
+	@Override
 	public void setClientName(String clientName) {
 		
 	}
 	
 	@Override
 	public void setClientTel(String clientTel) {
+		
+	}
+	
+	@Override
+	public void setNumberOfClient(int numberOfClient) {
+		
+	}
+	
+	@Override
+	public void setHasKids(boolean hasKids) {
+		
+	}
+	
+	@Override
+	public void setNumberOfRoom(int numberOfRoom) {
 		
 	}
 	
