@@ -5,7 +5,7 @@ import po.MemberPO;
 
 /**
  * Created by CROFF on 2016/11/28.
- * login模块需要的数据接口
+ * login模块bl层与data层之间的接口
  * @author CROFF
  * @version 2016-11-28
  */

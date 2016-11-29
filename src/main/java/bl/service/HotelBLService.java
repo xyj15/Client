@@ -30,6 +30,7 @@ public interface HotelBLService {
 	public boolean setHotelInformation(HotelVO hotelInformation);
 	
 	public ArrayList<RoomVO> getRoomList();
+	public RoomVO getRoomInformation(String roomID);
 	public boolean addRoom(RoomVO roomVO);
 	public boolean deleteRoom(String roomID);
 	public boolean updateRoom(String roomID, RoomVO roomVO);
