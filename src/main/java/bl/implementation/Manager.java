@@ -21,59 +21,15 @@ public class Manager implements ManagerBLService {
 
 	private ManagerVO managerVO;
 	private ManagerPO managerPO;
+	private ManagerDataService managerDataService;
 	
-	private ArrayList<HotelVO> hotels;
-	private ArrayList<MemberVO> members;
-	private HotelDataService hot;
-	private MemberDataService mem;
-	private ManagerDataService user;
-	private SalerDataService saler;
-
-
-	private ArrayList<User> userList = new ArrayList<User>();
-	private ArrayList<Saler> salerList = new ArrayList<Saler>();
-	//以下为单件模式改动
-	private Manager() {}
-
-	private static Manager manager= new Manager();
-
-	public static Manager getInstance(){
-		return manager;
-	}
+	private ArrayList<HotelVO> hotelList;
+	private ArrayList<MemberVO> memberList;
+	private ArrayList<SalerVO> salerList;
+	private ArrayList<User> userList;
 	
-	@Override
-	public HotelVO getHotel(String hotelID) {
-		return null;
-	}
-	
-	@Override
-	public boolean updateHotel(HotelVO hotel) {
-		return false;
-	}
-	
-	@Override
-	public boolean addHotel(HotelVO hotel) {
-		return false;
-	}
-	
-	@Override
-	public boolean deleteHotel(HotelVO hotel) {
-		return false;
-	}
-	
-	@Override
-	public ArrayList<HotelVO> getHotelList(String limit) {
-		return null;
-	}
-	
-	@Override
-	public MemberVO getMember(String memberID) {
-		return null;
-	}
-	
-	@Override
-	public boolean updateMember(MemberVO member) {
-		return false;
+	public Manager() {
+		
 	}
 	
 	@Override
@@ -87,18 +43,48 @@ public class Manager implements ManagerBLService {
 	}
 	
 	@Override
-	public ArrayList<MemberVO> getMemberList(String limit) {
+	public ArrayList<MemberVO> getMemberList() {
 		return null;
 	}
 	
 	@Override
-	public SalerVO getSaler(String account) {
+	public void updateMemberInformation(MemberVO memberVO) {
+		
+	}
+	
+	@Override
+	public MemberVO getMemberInfomation(String username) {
 		return null;
 	}
 	
 	@Override
-	public boolean updateSaler(SalerVO saler) {
-		return false;
+	public void addHotel(HotelVO hotelVO) {
+		
+	}
+	
+	@Override
+	public void addHotelManager(String hotelId, String name, String tel) {
+		
+	}
+	
+	@Override
+	public void deleteHotel(HotelVO hotel) {
+		
+	}
+	
+	@Override
+	public void updateHotelManagerInformation(String hotelId, String name, String tel) {
+		
+	}
+	
+	@Override
+	public ArrayList<HotelVO> getHotelList() {
+		return null;
+	}
+	
+	@Override
+	public HotelVO getHotelInformation(String username) {
+		return null;
 	}
 	
 	@Override
@@ -110,8 +96,22 @@ public class Manager implements ManagerBLService {
 	public boolean deleteSaler(SalerVO saler) {
 		return false;
 	}
-	//到此
 	
+	@Override
+	public void updateSalerInformation(SalerVO salerVO) {
+		
+	}
+	
+	@Override
+	public ArrayList<SalerVO> getSalerList() {
+		return null;
+	}
+	
+	@Override
+	public SalerVO getSalerInformation(String username) {
+		return null;
+	}
+
 
 //	public HotelVO getHotel(String hotelID) {
 //		// TODO Auto-generated method stub

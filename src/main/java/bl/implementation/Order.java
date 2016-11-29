@@ -53,6 +53,11 @@ public class Order implements OrderBLService {
 	public void evaluateOrder(double score, String comment) {
 		
 	}
+	
+	@Override
+	public void cancelAbnormalOrder(String orderID, double recover) {
+		
+	}
 
 //	public OrderVO getOrder(String orderID) {
 //		for(int i=0; i<orderList.size(); i++) {
