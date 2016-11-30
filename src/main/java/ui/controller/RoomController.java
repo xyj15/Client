@@ -39,9 +39,9 @@ public class RoomController implements RoomControllerService {
     
     @Override
     public boolean updateRoom(RoomVO room) {
-        return roomManager.updateRoom(room);
+        return false;
     }
-
+    
     @Override
     public boolean addRoom(RoomVO room) {
         return roomManager.addRoom(room);

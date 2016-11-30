@@ -25,11 +25,6 @@ public class Order implements OrderBLService {
 	}
 	
 	@Override
-	public ArrayList<OrderVO> getAllOrder() {
-		return null;
-	}
-	
-	@Override
 	public ArrayList<OrderVO> getExcutedOrders() {
 		return null;
 	}
