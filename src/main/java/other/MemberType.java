@@ -10,4 +10,10 @@ package other;
 public enum MemberType {
 	
 	Orinary, Bussiness;
+	
+	private int value;
+	
+	public int getValue() {
+		return value;
+	}
 }
