@@ -13,7 +13,7 @@ public class Promotion implements PromotionBLService {
 	private ArrayList<PromotionVO> promotionVOList;
 	private ArrayList<PromotionPO> promotionPOList;
 	
-	public Promotion() {
+	public Promotion(String userID) {
 		
 	}
 	

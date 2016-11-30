@@ -5,8 +5,6 @@ import other.Date;
 import other.RoomType;
 import vo.*;
 
-import java.util.*;
-
 public class Reserve implements ReserveBLService {
 
 	private MemberVO member;
@@ -26,8 +24,8 @@ public class Reserve implements ReserveBLService {
 	private String clientTel;
 	private String otherReq;
 	
-	public Reserve(MemberVO member) {
-		this.member = member;
+	public Reserve(String memberID) {
+		
 	}
 	
 	@Override

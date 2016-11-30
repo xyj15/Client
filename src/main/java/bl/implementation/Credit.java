@@ -15,7 +15,7 @@ public class Credit implements CreditBLService {
     private double credit;
     private ArrayList<Double> creditChangeList;
 
-    public Credit(MemberVO memberVO) {
+    public Credit(String memberID) {
         this.memberVO = memberVO;
         creditChangeList = new ArrayList<Double>();
     }
