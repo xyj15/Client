@@ -1,11 +1,11 @@
 package po;
 
-import other.Date;
 import other.District;
 import other.Enterprise;
 import other.PromotionType;
 
 import java.util.ArrayList;
+import java.util.Date;
 
 public class PromotionPO {
 	

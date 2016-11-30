@@ -1,9 +1,8 @@
 package bl.service;
 
 import java.util.ArrayList;
+import java.util.Date;
 
-import bl.implementation.Hotel;
-import other.Date;
 import other.RoomType;
 import vo.HotelVO;
 import vo.RoomVO;
