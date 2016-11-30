@@ -1,4 +1,4 @@
-package bl.implementation;
+package other;
 
 import bl.dataservice.RankDataService;
 

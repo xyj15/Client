@@ -31,7 +31,6 @@ public interface MemberBLService {
 
 	public boolean startSearch();	//开始搜索酒店
 	public boolean newReservation(String hotelID, String roomID);	//预定酒店
-	public boolean showOrder();	//查看订单
 	public boolean markHotel();	//收藏（标记）酒店
 	public boolean CreateOrder(OrderVO orderVO);	//创建订单
 }

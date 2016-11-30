@@ -95,11 +95,6 @@ public class Member implements MemberBLService {
 	}
 	
 	@Override
-	public boolean showOrder() {
-		return false;
-	}
-	
-	@Override
 	public boolean markHotel() {
 		return false;
 	}
