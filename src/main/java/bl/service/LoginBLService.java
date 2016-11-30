@@ -1,5 +1,6 @@
 package bl.service;
 
+import other.UserType;
 import vo.MemberVO;
 
 /**
@@ -14,4 +15,5 @@ public interface LoginBLService {
 	public boolean validPassword(String password);	//注册时判断密码是否可以使用
 	public boolean login(String username, String password);	//登陆
 	public boolean register(MemberVO memberVO);	//注册
+	public UserType getUserType(String memberID);	//登录时获得用户类型（客户、酒店工作人员、网站营销人员、网站管理人员）
 }

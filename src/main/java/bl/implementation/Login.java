@@ -3,6 +3,7 @@ package bl.implementation;
 import bl.dataservice.LoginDataService;
 import bl.service.LoginBLService;
 import other.User;
+import other.UserType;
 import vo.MemberVO;
 
 /**
@@ -41,5 +42,10 @@ public class Login implements LoginBLService {
 	@Override
 	public boolean register(MemberVO memberVO) {
 		return false;
+	}
+	
+	@Override
+	public UserType getUserType(String memberID) {
+		return null;
 	}
 }
