@@ -1,5 +1,5 @@
 /**
- * 每个模块bl层与data层之间的接口
+ * bl层与data层之间的接口
  * @author CROFF
  * @version 2016-11-29
  */

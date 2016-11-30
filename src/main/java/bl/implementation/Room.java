@@ -6,19 +6,22 @@ import other.RoomType;
 import po.RoomPO;
 import vo.RoomVO;
 
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 
 public class Room implements RoomBLService {
 	
-	private RoomVO room;
+	private ArrayList<RoomVO> roomVOList;
+	private ArrayList<RoomPO> roomPOList;
 	private RoomDataService roomDataService;
+	private RoomVO room;
 
 	public Room() {
 		
 	}
 	
 	@Override
-	public ArrayList<RoomVO> getRoomList() {
+	public ArrayList<RoomVO> getRoomList(String hotelID) {
 		return null;
 	}
 	

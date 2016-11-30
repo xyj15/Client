@@ -38,8 +38,8 @@ public class Manager implements ManagerBLService {
 	}
 	
 	@Override
-	public void updateMemberInformation(String memberID, MemberVO memberVO) {
-		
+	public boolean updateMemberInformation(String memberID, MemberVO memberVO) {
+		return false;
 	}
 	
 	@Override
@@ -48,23 +48,23 @@ public class Manager implements ManagerBLService {
 	}
 	
 	@Override
-	public void addHotel(HotelVO hotelVO) {
-		
+	public boolean addHotel(HotelVO hotelVO) {
+		return false;
 	}
 	
 	@Override
-	public void addHotelManager(String hotelId, String name, String tel) {
-		
+	public boolean addHotelManager(String hotelId, String name, String tel) {
+		return false;
 	}
 	
 	@Override
-	public void deleteHotel(String hotelID) {
-		
+	public boolean deleteHotel(String hotelID) {
+		return false;
 	}
 	
 	@Override
-	public void updateHotelManagerInformation(String hotelId, String name, String tel) {
-		
+	public boolean updateHotelManagerInformation(String hotelId, String name, String tel) {
+		return false;
 	}
 	
 	@Override
@@ -88,8 +88,8 @@ public class Manager implements ManagerBLService {
 	}
 	
 	@Override
-	public void updateSalerInformation(String salerID, SalerVO salerVO) {
-		
+	public boolean updateSalerInformation(String salerID, SalerVO salerVO) {
+		return false;
 	}
 	
 	@Override

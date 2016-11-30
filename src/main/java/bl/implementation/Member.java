@@ -5,6 +5,7 @@ import bl.service.MemberBLService;
 import other.*;
 import po.MemberPO;
 import vo.MemberVO;
+import vo.OrderVO;
 
 import java.util.ArrayList;
 
@@ -73,32 +74,34 @@ public class Member implements MemberBLService {
 	}
 	
 	@Override
-	public boolean setMemberInformation(MemberVO memberVO) {
+	public boolean updateMemberInformation(MemberVO memberVO) {
 		return false;
 	}
 	
 	@Override
-	public void startSearch() {
+	public boolean startSearch() {
 		search = new Search(memberVO);
+		return false;
 	}
 	
 	@Override
-	public void newReservation() {
+	public boolean newReservation(String hotelID, String roomID) {
 		reserve = new Reserve(memberVO);
+		return false;
 	}
 	
 	@Override
-	public void showOrder() {
-		
+	public boolean showOrder() {
+		return false;
 	}
 	
 	@Override
-	public void markHotel() {
-		
+	public boolean markHotel() {
+		return false;
 	}
 	
 	@Override
-	public void CreateOrder() {
-		
+	public boolean CreateOrder(OrderVO orderVO) {
+		return false;
 	}
 }

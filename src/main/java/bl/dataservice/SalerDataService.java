@@ -8,14 +8,11 @@ import java.util.ArrayList;
 
 /**
  * Created by apple on 2016/11/22.
+ * Saler模块bl层和data层之间的接口
+ * @author CROFF
+ * @version 2016-11-30
  */
 public interface SalerDataService {
-	
-	public ArrayList<PromotionPO> getPromotionList();
-	public PromotionPO getPromotion(String promotionID);
-	public void createPromotion(PromotionPO promotionPO);
-	public boolean deletePromotion(String promotionID);
-	public boolean updatePromotion(String promotionID, PromotionPO promotionPO);
 	
 	public void setRankInformation(ArrayList<Double> creditList, ArrayList<Double> discountList);	//设置客户升级所需信用表和每个等级的折扣表
 	public ArrayList<OrderPO> getOrderList();	//返回所有订单列表

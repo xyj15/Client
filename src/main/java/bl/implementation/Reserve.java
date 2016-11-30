@@ -29,8 +29,9 @@ public class Reserve implements ReserveBLService {
 	}
 	
 	@Override
-	public void setPromotion(PromotionVO promotion) {
+	public boolean setPromotion(PromotionVO promotion) {
 		this.promotion = promotion;
+		return false;
 	}
 	
 	@Override
@@ -64,53 +65,58 @@ public class Reserve implements ReserveBLService {
 	}
 	
 	@Override
-	public void setCheckinTime(Date checkinTime) {
+	public boolean setCheckinTime(Date checkinTime) {
 		this.checkinTime = checkinTime;
+		return false;
 	}
 	
 	@Override
-	public void setChekckoutTime(Date chekckoutTime) {
+	public boolean setChekckoutTime(Date chekckoutTime) {
 		this.checkoutTime = chekckoutTime;
+		return false;
 	}
 	
 	@Override
-	public void setLatestArriveTime(Time time) {
-		
+	public boolean setLatestArriveTime(Time time) {
+		return false;
 	}
 	
 	@Override
-	public void setClientName(String clientName) {
+	public boolean setClientName(String clientName) {
 		this.clientName = clientName;
+		return false;
 	}
 	
 	@Override
-	public void setClientTel(String clientTel) {
+	public boolean setClientTel(String clientTel) {
 		this.clientTel = clientTel;
+		return false;
 	}
 	
 	@Override
-	public void setNumberOfClient(int numberOfClient) {
-		
+	public boolean setNumberOfClient(int numberOfClient) {
+		return false;
 	}
 	
 	@Override
-	public void setHasKids(boolean hasKids) {
-		
+	public boolean setHasKids(boolean hasKids) {
+		return false;
 	}
 	
 	@Override
-	public void setNumberOfRoom(int numberOfRoom) {
-		
+	public boolean setNumberOfRoom(int numberOfRoom) {
+		return false;
 	}
 	
 	@Override
-	public void setOtherReq(String otherReq) {
+	public boolean setOtherReq(String otherReq) {
 		this.otherReq = otherReq;
+		return false;
 	}
 	
 	@Override
-	public void createOrder() {
-		
+	public boolean createOrder() {
+		return false;
 	}
 	
 	public MemberVO getMember() {

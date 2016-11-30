@@ -2,7 +2,6 @@ package bl.implementation;
 
 import bl.dataservice.SalerDataService;
 import bl.service.SalerBLService;
-import other.User;
 import po.SalerPO;
 import vo.OrderVO;
 import vo.PromotionVO;
@@ -18,6 +17,7 @@ public class Saler implements SalerBLService {
     private SalerVO salerVO;
     private SalerPO salerPO;
 	private SalerDataService salerDataService;
+	private Promotion promotion;
     
     private Rank rank = Rank.getInstance();
 	
@@ -32,8 +32,8 @@ public class Saler implements SalerBLService {
 	}
 	
 	@Override
-	public void createPromotion(PromotionVO promotionVO) {
-		
+	public boolean createPromotion(PromotionVO promotionVO) {
+		return false;
 	}
 	
 	@Override
@@ -47,8 +47,8 @@ public class Saler implements SalerBLService {
 	}
 	
 	@Override
-	public void setRankInformation(ArrayList<Double> creditList, ArrayList<Double> discountList) {
-		
+	public boolean setRankInformation(ArrayList<Double> creditList, ArrayList<Double> discountList) {
+		return false;
 	}
 	
 	@Override
@@ -57,12 +57,12 @@ public class Saler implements SalerBLService {
 	}
 	
 	@Override
-	public void cancelAbnormalOrder(String orderId, double recover) {
-		
+	public boolean cancelAbnormalOrder(String orderId, double recover) {
+		return false;
 	}
 	
 	@Override
-	public void creditRecharge(String username, double money) {
-		
+	public boolean creditRecharge(String username, double money) {
+		return false;
 	}
 }

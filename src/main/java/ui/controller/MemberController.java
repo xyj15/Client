@@ -35,8 +35,7 @@ public class MemberController implements MemberControllerService {
 
     @Override
     public boolean saveMInformation(String memberID, MemberVO M) {
-        memberBL.setMemberInformation(M);
-        return true;
+        return false;
     }
 
     @Override
