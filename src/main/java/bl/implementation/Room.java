@@ -16,7 +16,7 @@ public class Room implements RoomBLService {
 	private RoomDataService roomDataService;
 	private RoomVO room;
 
-	public Room() {
+	public Room(String hotelID) {
 		
 	}
 	

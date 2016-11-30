@@ -22,6 +22,10 @@ public class Saler implements SalerBLService {
     
     private Rank rank = Rank.getInstance();
 	
+	public Saler(String salerID) {
+		
+	}
+	
 	@Override
 	public ArrayList<PromotionVO> getPromotionList() {
 		return null;

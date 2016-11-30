@@ -22,10 +22,8 @@ public class Search implements SearchBLService {
 	private MemberVO memberVO;	//持有的客户信息
 	private SearchDataService searchDataService;
 	
-	public Search(MemberVO memberVO) {
-		allHotelList = null;
+	public Search(String memberID) {
 		searchInfomation = new SearchInfomation();
-		this.memberVO = memberVO;
 	}
 
 	@Override

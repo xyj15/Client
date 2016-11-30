@@ -23,7 +23,7 @@ public class Member implements MemberBLService {
 	private Reserve reserve;
 	private Order order;
 
-	public Member(){
+	public Member(String memberID) {
 		
 	}
 	
