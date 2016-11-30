@@ -2,8 +2,10 @@ package ui.controller;
 
 import bl.implementation.Member;
 import bl.service.MemberBLService;
+import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
+import javafx.stage.Stage;
 import ui.controllerservice.MemberControllerService;
-import ui.presentation.MemberUI;
 import vo.MemberVO;
 import vo.OrderVO;
 
@@ -13,86 +15,17 @@ import java.util.List;
 /**
  * Created by 97147 on 2016/11/26.
  */
-public class MemberController implements MemberControllerService {
+public class MemberController{
 
-    private MemberUI memberUI;
     private MemberBLService memberBL = new Member();
+    private Stage primaryStage;
 
-    public   MemberController(MemberUI memberUI){
-        this.memberUI=memberUI;
-    }
+    @FXML
+    private void onReserve(ActionEvent E)throws Exception {
 
-    @Override
-    public MemberVO getMInformation(String memberID) {
-        return null;
-    }
-    
-    @Override
-    public boolean changeMInformation() {
-        memberUI.changeMInformation();
-        return true;
     }
 
-    @Override
-    public boolean saveMInformation(String memberID, MemberVO M) {
-        return false;
-    }
-
-    @Override
-    public boolean show() {
-        memberUI.show();
-        return true;
-    }
-
-    @Override
-    public OrderVO getOrder(String orderID) {
-        return null;
-    }
-
-    @Override
-    public List<OrderVO> gerOrderList(String userID) {
-        return null;
-    }
-
-    @Override
-    public boolean cancelOrder(String orderID) {
-//        memberBL.cancelOrder(orderID);
-        return true;
-    }
-
-    @Override
-    public ArrayList<OrderVO> getUnOrder(String userID) {
-        return null;
-    }
-
-    @Override
-    public ArrayList<OrderVO> getAlOrder(String userID) {
-        return null;
-    }
-
-    @Override
-    public ArrayList<OrderVO> getAandCOrder(String userID) {
-        return null;
-    }
-
-
-    public void getMInformationButtonClicked(){
-        memberUI.getMInformationButtonClicked();
-    }
-
-    public void saveMInformationButtonClicked(){
-        memberUI.saveMInformationButtonClicked();
-    }
-    public void getCreditInforButtonClicked(){
-        memberUI.getCreditInforButtonClicked();
-    }
-    public void getPastHotelButtonClicked(){
-        memberUI.getPastHotelButtonClicked();
-    }public void searchButtonClicked(){
-        memberUI.searchButtonClicked();
-    }public void searchPastButtonClicked(){
-        memberUI.searchPastButtonClicked();
-    }public void reserveButtonClicked(){
-        memberUI.reserveButtonClicked();
+    public void setPrimaryStage(Stage primaryStage) {
+        this.primaryStage = primaryStage;
     }
 }
