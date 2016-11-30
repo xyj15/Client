@@ -4,6 +4,11 @@ import po.RoomPO;
 
 import java.util.ArrayList;
 
+/**
+ * Room模块bl层和data层之间的接口
+ * @author CROFF
+ * @version 2016-11-30
+ */
 public interface RoomDataService {
 
 	public RoomPO getRoomInformation(String roomID);	//获得客房信息

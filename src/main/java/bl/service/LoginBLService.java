@@ -3,7 +3,7 @@ package bl.service;
 import vo.MemberVO;
 
 /**
- * login模块的bl提供给ui的接口类
+ * login模块bl层和ui层之间的接口
  * @author CROFF
  * @version 2016-11-28
  */

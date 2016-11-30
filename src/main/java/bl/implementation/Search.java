@@ -30,58 +30,69 @@ public class Search implements SearchBLService {
 	}
 
 	@Override
-	public void setAddress(String address) {
+	public boolean setAddress(String address) {
 		searchInfomation.setAddress(address);
+		return false;
 	}
 	
 	@Override
-	public void setDistrict(String district) {
+	public boolean setDistrict(String district) {
 		searchInfomation.setDistrict(district);
+		return false;
 	}
 	
 	@Override
-	public void setHotelName(String hotelName) {
+	public boolean setHotelName(String hotelName) {
 		searchInfomation.setHotelName(hotelName);
+		return false;
 	}
 	
 	@Override
-	public void setLevel(int level) {
+	public boolean setLevel(int level) {
 		searchInfomation.setLevel(level);
+		return false;
 	}
 	
 	@Override
-	public void setScore(double score) {
+	public boolean setScore(double score) {
 		searchInfomation.setScore(score);
+		return false;
 	}
 	
 	@Override
-	public void setRoomType(RoomType roomType) {
+	public boolean setRoomType(RoomType roomType) {
 		searchInfomation.setRoomType(roomType);
+		return false;
 	}
 	
 	@Override
-	public void setLowerPrice(double lowerPrice) {
+	public boolean setLowerPrice(double lowerPrice) {
 		searchInfomation.setLowerPrice(lowerPrice);
+		return false;
 	}
 	
 	@Override
-	public void setUpperPrice(double upperPrice) {
+	public boolean setUpperPrice(double upperPrice) {
 		searchInfomation.setUpperPrice(upperPrice);
+		return false;
 	}
 	
 	@Override
-	public void setCheckinTime(Date checkinTime) {
+	public boolean setCheckinTime(Date checkinTime) {
 		searchInfomation.setCheckinTime(checkinTime);
+		return false;
 	}
 	
 	@Override
-	public void setCheckoutTime(Date checkoutTime) {
+	public boolean setCheckoutTime(Date checkoutTime) {
 		searchInfomation.setCheckoutTime(checkoutTime);
+		return false;
 	}
 	
 	@Override
-	public void setOnlyReservationBefore(boolean onlyReservationBefore) {
+	public boolean setOnlyReservationBefore(boolean onlyReservationBefore) {
 		searchInfomation.setOnlyReservationBefore(onlyReservationBefore);
+		return onlyReservationBefore;
 	}
 	
 	@Override
@@ -121,13 +132,15 @@ public class Search implements SearchBLService {
 	}
 	
 	@Override
-	public void setSelectedHotel(HotelVO hotelVO) {
+	public boolean setSelectedHotel(HotelVO hotelVO) {
 		
+		return false;
 	}
 	
 	@Override
-	public void setSelectedRoom(RoomVO roomVO) {
+	public boolean setSelectedRoom(RoomVO roomVO) {
 		
+		return false;
 	}
 	
 	@Override

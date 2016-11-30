@@ -1,6 +1,7 @@
 package bl.implementation;
 
 import bl.dataservice.HotelDataService;
+import bl.dataservice.RoomDataService;
 import bl.service.HotelBLService;
 import other.HotelService;
 import po.HotelPO;
@@ -20,6 +21,7 @@ public class Hotel implements HotelBLService {
 	private HotelVO hotelVO;
 	private HotelPO hotelPO;
 	private HotelDataService hotelDataService;
+	private RoomDataService roomDataService;
 
 	public Hotel() {
 		
