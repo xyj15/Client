@@ -81,6 +81,11 @@ public class Hotel implements HotelBLService {
 	}
 	
 	@Override
+	public RoomVO getRoomInformation(String roomID) {
+		return null;
+	}
+	
+	@Override
 	public boolean addRoom(RoomVO roomVO) {
 		return false;
 	}

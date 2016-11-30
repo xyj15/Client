@@ -28,7 +28,7 @@ public class Manager implements ManagerBLService {
 	}
 	
 	@Override
-	public boolean deleteMember(MemberVO member) {
+	public boolean deleteMember(String memberID) {
 		return false;
 	}
 	
@@ -38,7 +38,7 @@ public class Manager implements ManagerBLService {
 	}
 	
 	@Override
-	public void updateMemberInformation(MemberVO memberVO) {
+	public void updateMemberInformation(String memberID, MemberVO memberVO) {
 		
 	}
 	
@@ -58,7 +58,7 @@ public class Manager implements ManagerBLService {
 	}
 	
 	@Override
-	public void deleteHotel(HotelVO hotel) {
+	public void deleteHotel(String hotelID) {
 		
 	}
 	
@@ -83,12 +83,12 @@ public class Manager implements ManagerBLService {
 	}
 	
 	@Override
-	public boolean deleteSaler(SalerVO saler) {
+	public boolean deleteSaler(String salerID) {
 		return false;
 	}
 	
 	@Override
-	public void updateSalerInformation(SalerVO salerVO) {
+	public void updateSalerInformation(String salerID, SalerVO salerVO) {
 		
 	}
 	
