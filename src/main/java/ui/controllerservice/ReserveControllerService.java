@@ -1,8 +1,9 @@
 package ui.controllerservice;
 
-import other.Date;
 import other.RoomType;
 import vo.PromotionVO;
+
+import java.util.Date;
 
 /**
  * Created by CROFF on 2016/11/23.

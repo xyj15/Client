@@ -1,9 +1,9 @@
 package bl.service;
 
-import other.Date;
 import other.RoomType;
-import other.Time;
 import vo.PromotionVO;
+
+import java.util.Date;
 
 /**
  * Reserve模块bl层和ui层之间的接口
@@ -24,7 +24,7 @@ public interface ReserveBLService {
 	
 	public boolean setCheckinTime(Date checkinTime);	//设置入住时间
 	public boolean setChekckoutTime(Date chekckoutTime);	//设置离店时间
-	public boolean setLatestArriveTime(Time time);	//设置最晚到店时间
+	public boolean setLatestArriveTime(Date date);	//设置最晚到店时间
 	public boolean setClientName(String clientName);	//设置客户姓名
 	public boolean setClientTel(String clientTel);	//设置客户联系方式
 	public boolean setNumberOfClient(int numberOfClient);	//设置预计入住人数

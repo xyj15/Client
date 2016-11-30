@@ -1,9 +1,11 @@
 package bl.implementation;
 
 import bl.service.ReserveBLService;
-import other.*;
+import other.Date;
 import other.RoomType;
 import vo.*;
+
+import java.util.*;
 
 public class Reserve implements ReserveBLService {
 
@@ -65,19 +67,17 @@ public class Reserve implements ReserveBLService {
 	}
 	
 	@Override
-	public boolean setCheckinTime(Date checkinTime) {
-		this.checkinTime = checkinTime;
+	public boolean setCheckinTime(java.util.Date checkinTime) {
 		return false;
 	}
 	
 	@Override
-	public boolean setChekckoutTime(Date chekckoutTime) {
-		this.checkoutTime = chekckoutTime;
+	public boolean setChekckoutTime(java.util.Date chekckoutTime) {
 		return false;
 	}
 	
 	@Override
-	public boolean setLatestArriveTime(Time time) {
+	public boolean setLatestArriveTime(java.util.Date date) {
 		return false;
 	}
 	

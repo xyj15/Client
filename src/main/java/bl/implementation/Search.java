@@ -1,11 +1,10 @@
 package bl.implementation;
 
-import java.util.ArrayList;
+import java.util.*;
 
 import bl.dataservice.SearchDataService;
 import bl.service.SearchBLService;
 import other.*;
-import other.RoomType;
 import vo.*;
 
 /**
@@ -78,14 +77,12 @@ public class Search implements SearchBLService {
 	}
 	
 	@Override
-	public boolean setCheckinTime(Date checkinTime) {
-		searchInfomation.setCheckinTime(checkinTime);
+	public boolean setCheckinTime(java.util.Date checkinTime) {
 		return false;
 	}
 	
 	@Override
-	public boolean setCheckoutTime(Date checkoutTime) {
-		searchInfomation.setCheckoutTime(checkoutTime);
+	public boolean setCheckoutTime(java.util.Date checkoutTime) {
 		return false;
 	}
 	
