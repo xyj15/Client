@@ -1,8 +1,11 @@
 package ui.controller;
 
 import bl.service.ManagerBLService;
+import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
+import javafx.stage.Stage;
 import ui.controllerservice.ManagerControllerService;
-import ui.presentation.ManagerUI;
+import ui.presentation.ManagerSearchUserUI;
 import vo.HotelVO;
 import vo.MemberVO;
 import vo.SalerVO;
@@ -15,102 +18,18 @@ import vo.SalerVO;
  * @version 2016-11-18 17：18
  * @param
  */
-public class ManagerController implements ManagerControllerService {
-    ManagerUI window ;
+public class ManagerController{
     ManagerBLService manager;
 
-    public ManagerController(ManagerUI view){
-        window = view;
-    }
-	
-	
-	@Override
-	public HotelVO getHotel(String hotelID) {
-		return null;
-	}
-	
-	@Override
-	public boolean addHotel(HotelVO hotel) {
-		return false;
-	}
-	
-	@Override
-	public boolean updateHotel(HotelVO hotel) {
-		return false;
-	}
-	
-	@Override
-	public boolean deleteHotel(HotelVO hotel) {
-		return false;
-	}
-	
-	@Override
-	public MemberVO getMember(String hotelID) {
-		return null;
-	}
-	
-	@Override
-	public boolean addMember(MemberVO member) {
-		return false;
-	}
-	
-	@Override
-	public boolean updateMember(MemberVO member) {
-		return false;
-	}
-	
-	@Override
-	public boolean deleteMember(MemberVO member) {
-		return false;
-	}
-	
-	@Override
-	public SalerVO getSaler(String account) {
-		return null;
-	}
-	
-	@Override
-	public boolean addSaler(SalerVO theSaler) {
-		return false;
-	}
-	
-	@Override
-	public boolean updateSaler(SalerVO theSaler) {
-		return false;
-	}
-	
-	@Override
-	public boolean deleteSaler(SalerVO theSaler) {
-		return false;
-	}
-	
-	@Override
-    public void getHotelClicked() {
-        window.getHotelClicked();
-    }
 
-    @Override
-    public void getMemberClicked() {
-        window.getMemberClicked();
-    }
+	private Stage primaryStage;
+	public void setPrimaryStage(Stage in){
+		primaryStage=in;
+	}
 
-    @Override
-    public void getSalerClicked() {
-        window.getSalerClicked();
-    }
+	@FXML
+	private void onSearchUser(ActionEvent E)throws Exception {
+		new ManagerSearchUserUI().start(primaryStage);
+	}
 
-    @Override
-    public void addHotelClicked() {
-        window.addHotelClicked();
-    }
-
-    @Override
-    public void addMemberClicked() {
-        window.addMemberClicked();
-    }
-
-    @Override
-    public void addSalerClicked() {
-        window.addSalerClicked();
-    }
 }

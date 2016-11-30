@@ -2,8 +2,18 @@ package ui.controller;
 
 import bl.implementation.Hotel;
 import bl.service.HotelBLService;
+import javafx.application.Application;
+import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.stage.Stage;
 import ui.controllerservice.HotelControllerService;
-import ui.presentation.HotelUI;
+import ui.presentation.CompanyRegisterUI;
+import ui.presentation.HotelFirstUI;
+import ui.presentation.HotelInformationUI;
+import ui.presentation.HotelUpdateInformationUI;
 import vo.HotelVO;
 import vo.OrderVO;
 import vo.RoomVO;
@@ -16,87 +26,67 @@ import java.util.List;
  *
  * Created by 庄刚轻 on 2016/11/26.
  */
-public class HotelController implements HotelControllerService{
+public class HotelController{
 
-    private HotelUI hotelUI;
+
     private HotelBLService hotelBL = new Hotel();
 
-    public HotelController(HotelUI hotelUI){
-        this.hotelUI=hotelUI;
+    private static Stage primaryStage;
+    private Stage updateStage;
+    public static void setPrimaryStage(Stage in){
+        primaryStage=in;
     }
-    
-    public void getOrderListButtonClicked(){
-        hotelUI.getOrderListButtonClicked();
+
+    @FXML
+    private void onInfor(ActionEvent E) throws Exception{
+//        try{
+            new CompanyRegisterUI().start(primaryStage);
+//        }catch (Exception e) {
+//            e.printStackTrace();
+//        }
+//        new HotelInformationUI().start(primaryStage);
     }
-    public void getOrderButtonClicked(){
-        hotelUI.getOrderButtonClicked();
+    @FXML
+    private void onInforChange(ActionEvent E)throws Exception {
+        new HotelUpdateInformationUI().start(updateStage);                 //酒店基本信息改变
     }
-    public void checkInButtonClicked(){
-        hotelUI.checkInButtonClicked();
+
+
+
+
+    @FXML
+    private void onOrderManager(ActionEvent E)throws Exception {
+        new HotelFirstUI().start(primaryStage);
     }
-    public void delayButtonClicked(){
-        hotelUI.delayButtonClicked();
+    @FXML
+    private void onUnExecuteOrder(ActionEvent E)throws Exception {
+        new HotelFirstUI().start(primaryStage);
     }
-    public void checkOutButtonClicked(){
-        hotelUI.checkOutButtonClicked();
+    @FXML
+    private void onExecuteOrder(ActionEvent E)throws Exception {
+        new HotelFirstUI().start(primaryStage);
     }
-    public void getHotelInformatButtonClicked(){
-        hotelUI.getHotelInformatButtonClicked();
+    @FXML
+    private void onCancelOrder(ActionEvent E)throws Exception {
+        new HotelFirstUI().start(primaryStage);
     }
-    public void changeHotelInformatButtonClicked(){
-        hotelUI.changeHotelInformatButtonClicked();
+    @FXML
+    private void onAbnormalOrder(ActionEvent E)throws Exception {
+        new HotelFirstUI().start(primaryStage);
     }
-    public void saveHotelInformatButtonClicked(){
-        hotelUI.saveHotelInformatButtonClicked();
+
+
+    @FXML
+    private void onPromotionManager(ActionEvent E)throws Exception {
+        new HotelFirstUI().start(primaryStage);
     }
-    
-    @Override
-    public List<OrderVO> getOrderList(String hotelID, Date time) {
-        return null;
+    @FXML
+    private void onRoomManager(ActionEvent E)throws Exception {
+        new HotelFirstUI().start(primaryStage);
     }
-    
-    @Override
-    public OrderVO getOrder(String orderID) {
-        return null;
+    @FXML
+    private void onLogOut(ActionEvent E)throws Exception {
+        new HotelFirstUI().start(primaryStage);
     }
-    
-    @Override
-    public HotelVO getHotelInformat(String hotelID) {
-        return null;
-    }
-    
-    @Override
-    public boolean updataOrder(String orderID, OrderVO OR) {
-        return false;
-    }
-    
-    @Override
-    public boolean updataHotelInformat(String hotelID, HotelVO HO) {
-        return false;
-    }
-    
-    @Override
-    public boolean check(String orderID, String memberID, String roomID, RoomVO RO, int mark) {
-        return false;
-    }
-    
-    @Override
-    public boolean delay(String orderID) {
-        return false;
-    }
-    
-    @Override
-    public ArrayList<OrderVO> getUnOrder(String hotelID) {
-        return null;
-    }
-    
-    @Override
-    public ArrayList<OrderVO> getAlOrder(String hotelID) {
-        return null;
-    }
-    
-    @Override
-    public ArrayList<OrderVO> getAandCOrder(String hotelID) {
-        return null;
-    }
+
 }
