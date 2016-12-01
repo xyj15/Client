@@ -14,7 +14,7 @@ public class MemberInformationUI extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception {
-        Parent root = FXMLLoader.load(getClass().getResource("MemberInformation.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("MemberInformat.fxml"));
         MemberController.setPrimaryStage(primaryStage);
         Scene myScene = new Scene(root,960,540);
         primaryStage.setResizable(false);
