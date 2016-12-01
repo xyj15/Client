@@ -10,10 +10,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 import ui.controllerservice.HotelControllerService;
-import ui.presentation.CompanyRegisterUI;
-import ui.presentation.HotelFirstUI;
-import ui.presentation.HotelInformationUI;
-import ui.presentation.HotelUpdateInformationUI;
+import ui.presentation.*;
 import vo.HotelVO;
 import vo.OrderVO;
 import vo.RoomVO;
@@ -38,55 +35,45 @@ public class HotelController {
     }
 
     @FXML
-    private void onInfor(ActionEvent E) throws Exception{
-//        try{
-            new CompanyRegisterUI().start(primaryStage);
-//        }catch (Exception e) {
-//            e.printStackTrace();
-//        }
-//        new HotelInformationUI().start(primaryStage);
+    private void onInfor(ActionEvent E) throws Exception {
+        new HotelInformationUI().start(primaryStage);
     }
     @FXML
-    private void onInforChange(ActionEvent E)throws Exception {
+    private void onUpdateInfor(ActionEvent E)throws Exception {
         new HotelUpdateInformationUI().start(updateStage);                 //酒店基本信息改变
     }
 
-
-
-
     @FXML
     private void onOrderManager(ActionEvent E)throws Exception {
-        new HotelFirstUI().start(primaryStage);
+        new HotelUnprocessedOrderUI().start(primaryStage);
     }
     @FXML
-    private void onUnExecuteOrder(ActionEvent E)throws Exception {
-        new HotelFirstUI().start(primaryStage);
-    }
-    @FXML
-    private void onExecuteOrder(ActionEvent E)throws Exception {
-        new HotelFirstUI().start(primaryStage);
+    private void onProcessedOrder(ActionEvent E)throws Exception {
+        new HotelProcessedOrderUI().start(primaryStage);
     }
     @FXML
     private void onCancelOrder(ActionEvent E)throws Exception {
-        new HotelFirstUI().start(primaryStage);
+        new HotelOrderUI().start(primaryStage);
     }
     @FXML
     private void onAbnormalOrder(ActionEvent E)throws Exception {
-        new HotelFirstUI().start(primaryStage);
+        new HotelAbnormalOrderUI().start(primaryStage);
     }
-
-
+    @FXML
+    private void onDelayOrder(ActionEvent E)throws Exception {
+        new HotelDelayOrderUI().start(primaryStage);
+    }
     @FXML
     private void onPromotionManager(ActionEvent E)throws Exception {
-        new HotelFirstUI().start(primaryStage);
+        new HotelDatePromotionUI().start(primaryStage);
     }
     @FXML
     private void onRoomManager(ActionEvent E)throws Exception {
-        new HotelFirstUI().start(primaryStage);
+        new HotelRoomUI().start(primaryStage);
     }
     @FXML
     private void onLogOut(ActionEvent E)throws Exception {
-        new HotelFirstUI().start(primaryStage);
+        new LoginUI().start(primaryStage);
     }
 
 }
