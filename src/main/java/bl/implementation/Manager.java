@@ -2,7 +2,7 @@ package bl.implementation;
 
 import java.util.ArrayList;
 
-import bl.dataservice.ManagerDataService;
+import data.service.ManagerDataService;
 import bl.service.ManagerBLService;
 import other.User;
 import vo.HotelVO;

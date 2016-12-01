@@ -1,4 +1,4 @@
-package bl.dataservice;
+package data.service;
 
 import po.HotelPO;
 

@@ -1,6 +1,6 @@
 package bl.implementation;
 
-import bl.dataservice.SalerDataService;
+import data.service.SalerDataService;
 import bl.service.SalerBLService;
 import other.Rank;
 import po.SalerPO;
