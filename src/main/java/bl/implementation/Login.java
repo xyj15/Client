@@ -1,9 +1,8 @@
 package bl.implementation;
 
-import bl.dataservice.MemberDataService;
+import data.service.MemberDataService;
 import bl.service.LoginBLService;
 import other.MemberType;
-import other.Rank;
 import other.UserType;
 import po.MemberPO;
 import vo.MemberVO;

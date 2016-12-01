@@ -1,6 +1,6 @@
 package other;
 
-import bl.dataservice.RankDataService;
+import data.service.RankDataService;
 
 import java.util.ArrayList;
 
