@@ -39,7 +39,7 @@ public class HotelController {
         new HotelInformationUI().start(primaryStage);
     }
     @FXML
-    private void onUpdateInfor(ActionEvent E)throws Exception {
+    private void onInforChange(ActionEvent E)throws Exception {
         new HotelUpdateInformationUI().start(updateStage);                 //酒店基本信息改变
     }
 
