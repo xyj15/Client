@@ -81,7 +81,7 @@
 //	}
 //
 //	@Override
-//	public String getTel() {
+//	public String getPhone() {
 //		return null;
 //	}
 //

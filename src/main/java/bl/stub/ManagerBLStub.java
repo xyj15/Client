@@ -29,7 +29,7 @@
 //	public MemberVO getMember(String userID) {
 //		// TODO Auto-generated method stub
 //		for(int i=0;i<memberList.size();i++){
-//			//if(memberList.get(i).getUsername().equals(userID)){
+//			//if(memberList.get(i).getUserID().equals(userID)){
 //			//	System.out.println("----查找用户———");
 //			//	return memberList.get(i);
 //			//}

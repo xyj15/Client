@@ -19,8 +19,8 @@ public class ManagerPO extends User {
 		this.tel = tel;
 	}
 	
-	public ManagerPO(String username, String password, String name, String tel) {
-		super(username, password, UserType.Manager);
+	public ManagerPO(String userID, String password, String name, String tel) {
+		super(userID, password, UserType.Manager);
 		this.name = name;
 		this.tel = tel;
 	}

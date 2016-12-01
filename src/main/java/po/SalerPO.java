@@ -18,8 +18,8 @@ public class SalerPO extends User {
         this.tel = tel;
     }
     
-    public SalerPO(String username, String password, String name, String tel) {
-		super(username, password, UserType.Saler);
+    public SalerPO(String userID, String password, String name, String tel) {
+		super(userID, password, UserType.Saler);
 		this.name = name;
 		this.tel = tel;
 	}
@@ -38,5 +38,13 @@ public class SalerPO extends User {
 	
 	public void setTel(String tel) {
 		this.tel = tel;
+	}
+
+	public String getAccount(){
+		return super.getUserID();
+	}
+
+	public String getPassword(){
+		return super.getPassword();
 	}
 }

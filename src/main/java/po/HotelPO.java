@@ -38,10 +38,10 @@ public class HotelPO extends User {
 		this.enterpriseList = enterpriseList;
 	}
 	
-	public HotelPO(String username, String password, String name, String address, String district, String city,
+	public HotelPO(String userID, String password, String name, String address, String district, String city,
 				   int level, double score, String service, String introduction, String managerName,
 				   String managerTel, ArrayList<String> enterpriseList) {
-		super(username, password, UserType.Hotel);
+		super(userID, password, UserType.Hotel);
 		this.name = name;
 		this.address = address;
 		this.district = district;
