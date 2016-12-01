@@ -37,7 +37,7 @@ public class Room implements RoomBLService {
 	 */
 	@Override
 	public RoomVO getRoomInformation(String num){
-		if(room.getNumber().equals(num)) return room;
+		if(room.getRoomNumber().equals(num)) return room;
 		RoomPO temp = roomDataService.getRoomInformation(num);
 		//room = new RoomVO(temp.getValid(), temp.getNumber(), temp.getRoomType(), temp.getPrice());
 		return room;
