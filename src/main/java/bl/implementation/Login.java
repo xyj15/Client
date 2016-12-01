@@ -1,8 +1,6 @@
 package bl.implementation;
 
-import bl.dataservice.LoginDataService;
 import bl.service.LoginBLService;
-import other.User;
 import other.UserType;
 import vo.MemberVO;
 
@@ -13,7 +11,7 @@ import vo.MemberVO;
  */
 public class Login implements LoginBLService {
 	
-	private LoginDataService loginDataService;
+	
 	
 	public Login() {
 		
