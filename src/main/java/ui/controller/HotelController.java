@@ -26,7 +26,7 @@ import java.util.List;
  *
  * Created by 庄刚轻 on 2016/11/26.
  */
-public class HotelController{
+public class HotelController {
 
 
     private HotelBLService hotelBL = new Hotel();

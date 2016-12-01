@@ -28,6 +28,10 @@ public class Reserve implements ReserveBLService {
 		
 	}
 	
+	public Reserve() {
+		
+	}
+	
 	@Override
 	public boolean setPromotion(PromotionVO promotion) {
 		this.promotion = promotion;

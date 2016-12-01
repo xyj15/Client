@@ -26,6 +26,10 @@ public class Saler implements SalerBLService {
 		
 	}
 	
+	public Saler() {
+		
+	}
+	
 	@Override
 	public ArrayList<PromotionVO> getPromotionList() {
 		return null;

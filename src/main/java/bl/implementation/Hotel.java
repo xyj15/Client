@@ -23,6 +23,10 @@ public class Hotel implements HotelBLService {
 	private HotelDataService hotelDataService;
 	private RoomDataService roomDataService;
 
+	public Hotel() {
+		
+	}
+	
 	public Hotel(String hotelID) {
 		
 	}

@@ -23,6 +23,10 @@ public class Member implements MemberBLService {
 	private Reserve reserve;
 	private Order order;
 
+	public Member() {
+		
+	}
+	
 	public Member(String memberID) {
 		
 	}
@@ -84,13 +88,13 @@ public class Member implements MemberBLService {
 	
 	@Override
 	public boolean startSearch() {
-		search = new Search(memberVO);
+		search = new Search(memberVO.getUsername());
 		return false;
 	}
 	
 	@Override
 	public boolean newReservation(String hotelID, String roomID) {
-		reserve = new Reserve(memberVO);
+		reserve = new Reserve(memberVO.getUsername());
 		return false;
 	}
 	

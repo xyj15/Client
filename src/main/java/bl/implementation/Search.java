@@ -25,6 +25,10 @@ public class Search implements SearchBLService {
 	public Search(String memberID) {
 		searchInfomation = new SearchInfomation();
 	}
+	
+	public Search() {
+		
+	}
 
 	@Override
 	public boolean setAddress(String address) {
