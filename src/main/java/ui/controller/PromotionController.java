@@ -10,7 +10,7 @@ import ui.presentation.*;
  * Created by 97147 on 2016/11/30.
  */
 public class PromotionController {
-    private ReserveBLService reserveBL;
+    //private ReserveBLService reserveBL;
 
     private static Stage primaryStage;
     public static void setPrimaryStage(Stage in){

@@ -15,7 +15,7 @@ import vo.PromotionVO;
  */
 public class ReserveController{
 
-    private ReserveBLService reserveBL;
+    //private ReserveBLService reserveBL;
 
     private Stage primaryStage;
     public void setPrimaryStage(Stage in){

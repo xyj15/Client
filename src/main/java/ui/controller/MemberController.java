@@ -17,7 +17,7 @@ import java.util.List;
  */
 public class MemberController{
 
-    private MemberBLService memberBL = new Member();
+   // private MemberBLService memberBL = new Member();
     private Stage primaryStage;
 
     @FXML
