@@ -5,13 +5,18 @@ import other.UserType;
 
 import java.util.ArrayList;
 
+/**
+ * 存储Hotel信息的VO类
+ * @author CROFF
+ * @version 2016-12-1
+ */
 public class HotelVO extends User {
 
-	private String name;
-	private String address;
-	private int level;
-	private String city;
-	private String district;
+	private String name;	//
+	private String address;	//
+	private int level;	//
+	private String city;	//
+	private String district;	//
 	private double score;	//酒店评分
 	private String service;	//酒店设施服务
 	private String introduction;	//酒店简介
@@ -19,15 +24,33 @@ public class HotelVO extends User {
 	private String managerTel;	//酒店管理人员的联系方式
 	
 	private ArrayList<String> enterpriseList;	//合作企业列表
-	private ArrayList<RoomVO> roomList;
-	private ArrayList<OrderVO> orderList;
+	private ArrayList<RoomVO> roomList;	//
+	private ArrayList<OrderVO> orderList;	//
 	
+	/**
+	 * 空构造方法
+	 */
 	public HotelVO() {
 		enterpriseList = new ArrayList<String>();
 		roomList = new ArrayList<RoomVO>();
 		orderList = new ArrayList<OrderVO>();
 	}
 	
+	/**
+	 * 无用户名和密码的构造方法
+	 * @param name
+	 * @param address
+	 * @param district
+	 * @param level
+	 * @param score
+	 * @param service
+	 * @param introduction
+	 * @param managerName
+	 * @param managerTel
+	 * @param enterpriseList
+	 * @param roomList
+	 * @param orderList
+	 */
 	public HotelVO(String name, String address, String district, int level, double score, String service,
 				   String introduction, String managerName, String managerTel, ArrayList<String> enterpriseList,
 				   ArrayList<RoomVO> roomList, ArrayList<OrderVO> orderList) {
@@ -45,6 +68,23 @@ public class HotelVO extends User {
 		this.orderList = orderList;
 	}
 	
+	/**
+	 * 有用户名和密码的构造方法
+	 * @param username
+	 * @param password
+	 * @param name
+	 * @param address
+	 * @param district
+	 * @param level
+	 * @param score
+	 * @param service
+	 * @param introduction
+	 * @param managerName
+	 * @param managerTel
+	 * @param enterpriseList
+	 * @param roomList
+	 * @param orderList
+	 */
 	public HotelVO(String username, String password, String name, String address, String district,
 				   int level, double score, String service, String introduction, String managerName,
 				   String managerTel, ArrayList<String> enterpriseList, ArrayList<RoomVO> roomList, ArrayList<OrderVO> orderList) {
@@ -157,5 +197,13 @@ public class HotelVO extends User {
 	
 	public void setService(String service) {
 		this.service = service;
+	}
+	
+	public String getCity() {
+		return city;
+	}
+	
+	public void setCity(String city) {
+		this.city = city;
 	}
 }

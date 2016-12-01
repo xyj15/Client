@@ -5,12 +5,17 @@ import other.SaleType;
 
 import java.util.Date;
 
+/**
+ * 存储Promotion信息的VO类
+ * @author CROFF
+ * @version 2016-12-1
+ */
 public class PromotionVO {
 	
-	private String promotionID;
-	private String promotionName;
-	private PromotionType promotionType;
-	private SaleType saleType;
+	private String promotionID;	//
+	private String promotionName;	//
+	private PromotionType promotionType;	//
+	private SaleType saleType;	//
 	
 	private Date startDate;
 	private Date endDate;
@@ -41,38 +46,71 @@ public class PromotionVO {
 		this.promotionType = promotionType;
 	}
 	
+	/**
+	 *
+	 */
 	public void setRankPromotion() {
 		saleType = SaleType.Rank;
 	}
 	
+	/**
+	 *
+	 * @param startDate
+	 * @param endDate
+	 */
 	public void setDatePromotion(Date startDate, Date endDate) {
 		saleType = SaleType.Date;
 		this.startDate = startDate;
 		this.endDate = endDate;
 	}
 	
+	/**
+	 *
+	 * @param birthday
+	 */
 	public void setBirthdayPromotion(Date birthday) {
 		saleType = SaleType.Birthday;
 		this.birthday = birthday;
 	}
 	
+	/**
+	 *
+	 */
 	public void setRoomNumberPromotion() {
 		saleType = SaleType.RoomNumber;
 	}
 	
+	/**
+	 *
+	 * @param enterprise
+	 */
 	public void setEnterprisePromotion(String enterprise) {
 		saleType = SaleType.Enterprise;
 		this.enterprise = enterprise;
 	}
 	
+	/**
+	 *
+	 * @param district
+	 */
 	public void setDistrictPromotion(String district) {
 		saleType = SaleType.District;
 	}
 	
+	/**
+	 *
+	 * @param memberVO
+	 * @return
+	 */
 	public boolean checkAvailable(MemberVO memberVO) {
 		return false;
 	}
 	
+	/**
+	 *
+	 * @param originalPrice
+	 * @return
+	 */
 	public double calculatePrice(double originalPrice) {
 		return 0;
 	}

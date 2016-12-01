@@ -4,6 +4,11 @@ import other.OrderStatus;
 
 import java.util.Date;
 
+/**
+ * 存储Order信息的VO类
+ * @author CROFF
+ * @version 2016-12-1
+ */
 public class OrderVO {
 	
 	private String memberID;	//订单相关客户
@@ -26,10 +31,35 @@ public class OrderVO {
 	private PromotionVO promotionVO;	//使用的促销策略
 	private double price;	//订单价值
 	
+	/**
+	 * 空构造方法
+	 */
 	public OrderVO() {
 		
 	}
 	
+	/**
+	 *
+	 * @param memberID
+	 * @param hotelID
+	 * @param orderID
+	 * @param orderStatus
+	 * @param createTime
+	 * @param checkinTime
+	 * @param actualCheckinTime
+	 * @param latestCheckinTime
+	 * @param checkoutTime
+	 * @param actualCheckoutTime
+	 * @param numberOfRoom
+	 * @param roomName
+	 * @param numberOfClient
+	 * @param hasKids
+	 * @param score
+	 * @param evaluation
+	 * @param recover
+	 * @param promotionVO
+	 * @param price
+	 */
 	public OrderVO(String memberID, String hotelID, String orderID, OrderStatus orderStatus, Date createTime,
 				   Date checkinTime, Date actualCheckinTime, Date latestCheckinTime, Date checkoutTime,
 				   Date actualCheckoutTime, int numberOfRoom, String roomName, int numberOfClient, boolean hasKids,
