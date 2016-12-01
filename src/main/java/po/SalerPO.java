@@ -7,17 +7,40 @@ import java.util.ArrayList;
 
 /**
  * Created by apple on 2016/11/22.
+ * 存储Saler信息的PO类
+ * @author CROFF
+ * @version 2016-12-1
  */
 public class SalerPO extends User {
-    
-    private String name;
-    private String tel;
-
+	
+	private String name;	//姓名或名称
+	private String tel;	//联系方式
+	
+	/**
+	 * 空构造方法
+	 */
+	public SalerPO() {
+		super.setUserType(UserType.Saler);
+	}
+	
+	/**
+	 * 无用户名和密码的构造方法
+	 * @param name 姓名或名称
+	 * @param tel 联系方式
+	 */
     public SalerPO(String name, String tel) {
         this.name = name;
         this.tel = tel;
+		super.setUserType(UserType.Saler);
     }
-    
+	
+	/**
+	 * 有用户名和密码的构造方法
+	 * @param userID 用户名
+	 * @param password 密码
+	 * @param name 姓名或名称
+	 * @param tel 联系方式
+	 */
     public SalerPO(String userID, String password, String name, String tel) {
 		super(userID, password, UserType.Saler);
 		this.name = name;

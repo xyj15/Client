@@ -69,7 +69,7 @@ public class MemberVO extends User {
 	
 	/**
 	 * 有用户名和密码的构造方法
-	 * @param username 用户名
+	 * @param userID 用户名
 	 * @param password 密码
 	 * @param name 姓名或名称
 	 * @param tel 联系方式
@@ -82,10 +82,10 @@ public class MemberVO extends User {
 	 * @param orderList 订单列表
 	 * @param reservedHotelList 预定过的酒店列表
 	 */
-	public MemberVO(String username, String password, String name, String tel, Credit credit,
+	public MemberVO(String userID, String password, String name, String tel, Credit credit,
 					int level, double discount, MemberType memberType, Date birthday, String enterprise,
 					ArrayList<OrderVO> orderList, ArrayList<HotelVO> reservedHotelList) {
-		super(username, password, UserType.Member);
+		super(userID, password, UserType.Member);
 		this.name = name;
 		this.tel = tel;
 		this.credit = credit;

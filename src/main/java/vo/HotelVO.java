@@ -74,7 +74,7 @@ public class HotelVO extends User {
 	
 	/**
 	 * 有用户名和密码的构造方法
-	 * @param username 酒店ID
+	 * @param userID 酒店ID
 	 * @param password 酒店登陆的密码
 	 * @param name 酒店名称
 	 * @param address 酒店地址
@@ -90,10 +90,10 @@ public class HotelVO extends User {
 	 * @param roomList 客房列表
 	 * @param orderList 订单列表
 	 */
-	public HotelVO(String username, String password, String name, String address, String district, String city,
+	public HotelVO(String userID, String password, String name, String address, String district, String city,
 				   int level, double score, String service, String introduction, String managerName,
 				   String managerTel, ArrayList<String> enterpriseList, ArrayList<RoomVO> roomList, ArrayList<OrderVO> orderList) {
-		super(username, password, UserType.Hotel);
+		super(userID, password, UserType.Hotel);
 		this.name = name;
 		this.address = address;
 		this.district = district;
