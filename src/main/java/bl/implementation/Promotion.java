@@ -17,6 +17,10 @@ public class Promotion implements PromotionBLService {
 		
 	}
 	
+	public Promotion() {
+		
+	}
+	
 	@Override
 	public PromotionVO getPromotion(String promotionID) {
 		return null;

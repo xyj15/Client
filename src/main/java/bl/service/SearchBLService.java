@@ -17,6 +17,8 @@ public interface SearchBLService {
 	public boolean setRoomType(RoomType roomType);
 	public boolean setLowerPrice(double lowerPrice);
 	public boolean setUpperPrice(double upperPrice);
+	public boolean setLowerScore(double lowerScore);
+	public boolean setUpperScore(double upperScore);
 	public boolean setCheckinTime(Date checkinTime);
 	public boolean setCheckoutTime(Date checkoutTime);
 	public boolean setOnlyReservationBefore(boolean onlyReservationBefore);

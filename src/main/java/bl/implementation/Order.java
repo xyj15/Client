@@ -14,6 +14,10 @@ public class Order implements OrderBLService {
 	private ArrayList<OrderPO> orderPOList;
 	private OrderDataService orderDataService;
 	
+	public Order() {
+		
+	}
+	
 	public Order(String userID) {
 		
 	}

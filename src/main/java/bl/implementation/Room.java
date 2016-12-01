@@ -20,6 +20,10 @@ public class Room implements RoomBLService {
 		
 	}
 	
+	public Room() {
+		
+	}
+	
 	@Override
 	public ArrayList<RoomVO> getRoomList(String hotelID) {
 		return null;
