@@ -8,19 +8,27 @@ import other.UserType;
 import java.util.ArrayList;
 import java.util.Date;
 
+/**
+ * 存储Member信息的VO类
+ * @author CROFF
+ * @version 2016-12-1
+ */
 public class MemberVO extends User {
 
-	private String name;
-	private String tel;
-	private Credit credit;
-	private int level;
-	private double discount;
-	private MemberType memberType;
-	private Date birthday;
-	private String enterprise;
-	private ArrayList<OrderVO> orderList;
-	private ArrayList<HotelVO> reservedHotelList;
+	private String name;	//姓名或名称
+	private String tel;	//联系方式
+	private Credit credit;	//信用和信用变化情况
+	private int level;	//会员等级
+	private double discount;	//当前会员等级享受折扣
+	private MemberType memberType;	//客户类型
+	private Date birthday;	//生日
+	private String enterprise;	//合作企业名称
+	private ArrayList<OrderVO> orderList;	//订单列表
+	private ArrayList<HotelVO> reservedHotelList;	//预定过的酒店列表
 	
+	/**
+	 * 空构造方法
+	 */
 	public MemberVO() {
 		credit = null;
 		memberType = null;
@@ -30,6 +38,19 @@ public class MemberVO extends User {
 		reservedHotelList = new ArrayList<HotelVO>();
 	}
 	
+	/**
+	 * 无用户名和密码的构造方法
+	 * @param name 姓名或名称
+	 * @param tel 联系方式
+	 * @param credit 信用和信用变化情况
+	 * @param level 会员等级
+	 * @param discount 当前会员等级享受折扣
+	 * @param memberType 客户类型
+	 * @param birthday 生日
+	 * @param enterprise 合作企业名称
+	 * @param orderList 订单列表
+	 * @param reservedHotelList 预定过的酒店列表
+	 */
 	public MemberVO(String name, String tel, Credit credit, int level, double discount, MemberType memberType,
 					Date birthday, String enterprise, ArrayList<OrderVO> orderList, ArrayList<HotelVO> reservedHotelList) {
 		this.name = name;
@@ -44,6 +65,21 @@ public class MemberVO extends User {
 		this.reservedHotelList = reservedHotelList;
 	}
 	
+	/**
+	 * 有用户名和密码的构造方法
+	 * @param username 用户名
+	 * @param password 密码
+	 * @param name 姓名或名称
+	 * @param tel 联系方式
+	 * @param credit 信用和信用变化情况
+	 * @param level 会员等级
+	 * @param discount 当前会员等级享受折扣
+	 * @param memberType 客户类型
+	 * @param birthday 生日
+	 * @param enterprise 合作企业名称
+	 * @param orderList 订单列表
+	 * @param reservedHotelList 预定过的酒店列表
+	 */
 	public MemberVO(String username, String password, String name, String tel, Credit credit,
 					int level, double discount, MemberType memberType, Date birthday, String enterprise,
 					ArrayList<OrderVO> orderList, ArrayList<HotelVO> reservedHotelList) {
