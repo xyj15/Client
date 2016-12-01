@@ -21,12 +21,12 @@
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="540.0" prefWidth="960.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ui.controller.MemberController">
    <children>
       <Button layoutX="455.0" layoutY="65.0" mnemonicParsing="false" opacity="0.0" prefHeight="23.0" prefWidth="24.0" text="营销人员" textFill="WHITE" />
-      <ImageView fitHeight="540.0" fitWidth="975.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="0.0">
+      <ImageView fitHeight="540.0" fitWidth="960.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="0.0">
          <image>
             <Image url="@background.jpg" />
          </image>
       </ImageView>
-      <Button layoutX="43.0" layoutY="200.0" mnemonicParsing="false" onAction="#onReserve" opacity="0.67" prefHeight="23.0" prefWidth="181.0" style="-fx-background-color: #000f32;" text="预定酒店" textFill="WHITE">
+      <Button layoutX="43.0" layoutY="200.0" mnemonicParsing="false" onAction="#onSearch" opacity="0.67" prefHeight="23.0" prefWidth="181.0" style="-fx-background-color: #000f32;" text="搜索酒店" textFill="WHITE">
          <font>
             <Font name="Microsoft YaHei Bold" size="16.0" />
          </font>
@@ -57,7 +57,7 @@
             <Font name="Microsoft YaHei Bold" size="16.0" />
          </font>
       </Label>
-      <Button layoutX="878.0" layoutY="34.0" mnemonicParsing="false" opacity="0.0" prefHeight="34.0" prefWidth="70.0" text="Button" />
+      <Button layoutX="878.0" layoutY="34.0" mnemonicParsing="false" onAction="#onLogOut" opacity="0.0" prefHeight="34.0" prefWidth="70.0" text="Button" />
       <ImageView fitHeight="21.0" fitWidth="17.0" layoutX="885.0" layoutY="37.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@key.png" />
