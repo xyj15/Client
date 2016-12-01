@@ -11,7 +11,7 @@ import vo.RoomVO;
  * @version 2016-11-22
  */
 public class RoomController {
-    Room roomManager;
+    //Room roomManager;
 
     private Stage primaryStage;
 
