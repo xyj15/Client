@@ -4,6 +4,7 @@ import bl.implementation.Credit;
 import other.Enterprise;
 import other.MemberType;
 import other.User;
+import other.UserType;
 
 import java.util.ArrayList;
 import java.util.Date;
@@ -17,19 +18,16 @@ public class MemberPO extends User {
 	private double discount;
 	private MemberType memberType;
 	private Date birthday;
-	private Enterprise enterprise;
-	private ArrayList<HotelPO> reservedHotelList;
+	private String enterprise;
 	
 	public MemberPO() {
 		credit = null;
 		memberType = null;
 		birthday = null;
-		enterprise = null;
-		reservedHotelList = new ArrayList<HotelPO>();
 	}
 	
-	public MemberPO(String name, String tel, Credit credit, int level, double discount, MemberType memberType,
-					Date birthday, Enterprise enterprise, ArrayList<HotelPO> reservedHotelList) {
+	public MemberPO(String name, String tel, Credit credit, int level, double discount,
+					MemberType memberType, Date birthday, String enterprise) {
 		this.name = name;
 		this.tel = tel;
 		this.credit = credit;
@@ -38,7 +36,19 @@ public class MemberPO extends User {
 		this.memberType = memberType;
 		this.birthday = birthday;
 		this.enterprise = enterprise;
-		this.reservedHotelList = reservedHotelList;
+	}
+	
+	public MemberPO(String userID, String password, String name, String tel, Credit credit,
+					int level, double discount, MemberType memberType, Date birthday, String enterprise) {
+		super(userID, password, UserType.Member);
+		this.name = name;
+		this.tel = tel;
+		this.credit = credit;
+		this.level = level;
+		this.discount = discount;
+		this.memberType = memberType;
+		this.birthday = birthday;
+		this.enterprise = enterprise;
 	}
 	
 	public String getName() {
@@ -97,19 +107,11 @@ public class MemberPO extends User {
 		this.birthday = birthday;
 	}
 	
-	public Enterprise getEnterprise() {
+	public String getEnterprise() {
 		return enterprise;
 	}
 	
-	public void setEnterprise(Enterprise enterprise) {
+	public void setEnterprise(String enterprise) {
 		this.enterprise = enterprise;
-	}
-	
-	public ArrayList<HotelPO> getReservedHotelList() {
-		return reservedHotelList;
-	}
-	
-	public void setReservedHotelList(ArrayList<HotelPO> reservedHotelList) {
-		this.reservedHotelList = reservedHotelList;
 	}
 }

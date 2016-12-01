@@ -1,8 +1,7 @@
 package po;
 
-import other.Enterprise;
-import other.HotelService;
 import other.User;
+import other.UserType;
 
 import java.util.ArrayList;
 
@@ -14,26 +13,42 @@ public class HotelPO extends User {
 	private String address;
 	private String district;
 	private double score;	//酒店评分
-	private HotelService hotelService;	//酒店设施服务
+	private String service;	//酒店设施服务
 	private String introduction;	//酒店简介
 	private String managerName;	//酒店管理人员的姓名
 	private String managerTel;	//酒店管理人员的联系方式
 	
-	private ArrayList<Enterprise> enterpriseList;	//合作企业列表
+	private ArrayList<String> enterpriseList;	//合作企业列表
 	
 	public HotelPO() {
-		hotelService = null;
-		enterpriseList = new ArrayList<Enterprise>();
+		enterpriseList = new ArrayList<String>();
 	}
 	
-	public HotelPO(String name, String address, String district, int level, double score, HotelService hotelService,
-				   String introduction, String managerName, String managerTel, ArrayList<Enterprise> enterpriseList) {
+	public HotelPO(String name, String address, String district, String city, int level, double score, String service,
+				   String introduction, String managerName, String managerTel, ArrayList<String> enterpriseList) {
 		this.name = name;
 		this.address = address;
 		this.district = district;
+		this.city = city;
 		this.level = level;
 		this.score = score;
-		this.hotelService = hotelService;
+		this.introduction = introduction;
+		this.managerName = managerName;
+		this.managerTel = managerTel;
+		this.enterpriseList = enterpriseList;
+	}
+	
+	public HotelPO(String userID, String password, String name, String address, String district, String city,
+				   int level, double score, String service, String introduction, String managerName,
+				   String managerTel, ArrayList<String> enterpriseList) {
+		super(userID, password, UserType.Hotel);
+		this.name = name;
+		this.address = address;
+		this.district = district;
+		this.city = city;
+		this.level = level;
+		this.score = score;
+		this.service = service;
 		this.introduction = introduction;
 		this.managerName = managerName;
 		this.managerTel = managerTel;
@@ -80,14 +95,6 @@ public class HotelPO extends User {
 		this.score = score;
 	}
 	
-	public HotelService getHotelService() {
-		return hotelService;
-	}
-	
-	public void setHotelService(HotelService hotelService) {
-		this.hotelService = hotelService;
-	}
-	
 	public String getIntroduction() {
 		return introduction;
 	}
@@ -112,11 +119,11 @@ public class HotelPO extends User {
 		this.managerTel = managerTel;
 	}
 	
-	public ArrayList<Enterprise> getEnterpriseList() {
+	public ArrayList<String> getEnterpriseList() {
 		return enterpriseList;
 	}
 	
-	public void setEnterpriseList(ArrayList<Enterprise> enterpriseList) {
+	public void setEnterpriseList(ArrayList<String> enterpriseList) {
 		this.enterpriseList = enterpriseList;
 	}
 	
@@ -126,5 +133,13 @@ public class HotelPO extends User {
 	
 	public void setCity(String city) {
 		this.city = city;
+	}
+	
+	public String getService() {
+		return service;
+	}
+	
+	public void setService(String service) {
+		this.service = service;
 	}
 }
