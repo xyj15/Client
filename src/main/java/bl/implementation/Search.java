@@ -79,6 +79,16 @@ public class Search implements SearchBLService {
 	}
 	
 	@Override
+	public boolean setLowerScore(double lowerScore) {
+		return false;
+	}
+	
+	@Override
+	public boolean setUpperScore(double upperScore) {
+		return false;
+	}
+	
+	@Override
 	public boolean setCheckinTime(java.util.Date checkinTime) {
 		return false;
 	}
