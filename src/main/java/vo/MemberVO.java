@@ -1,11 +1,9 @@
 package vo;
 
 import bl.implementation.Credit;
-import other.Enterprise;
 import other.MemberType;
 import other.User;
 import other.UserType;
-import po.OrderPO;
 
 import java.util.ArrayList;
 import java.util.Date;

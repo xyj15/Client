@@ -1,11 +1,8 @@
 package vo;
 
-import other.District;
-import other.Enterprise;
 import other.PromotionType;
 import other.SaleType;
 
-import java.util.ArrayList;
 import java.util.Date;
 
 public class PromotionVO {
@@ -22,110 +19,54 @@ public class PromotionVO {
 	
 	private int numberOfRoom;
 	
-	private Enterprise enterprise;
+	private String enterprise;
 	
 	private int level;
 	
-	private District district;
+	private String district;
 	
 	private double discount;
 	private double neededPrice;
 	private double reducePrice;
 	
-	
 	/**
-	 * 会员等级折扣（一般营销策略的构造方法）
+	 * 一般营销策略的构造方法
 	 * @param promotionID
 	 * @param promotionName
 	 * @param promotionType
-	 * @param discount
-	 * @param neededPrice
-	 * @param reducePrice
 	 */
-	public PromotionVO(String promotionID, String promotionName, PromotionType promotionType,
-					   double discount, double neededPrice, double reducePrice) {
+	public PromotionVO(String promotionID, String promotionName, PromotionType promotionType) {
 		this.promotionID = promotionID;
 		this.promotionName = promotionName;
 		this.promotionType = promotionType;
-		this.discount = discount;
-		this.neededPrice = neededPrice;
-		this.reducePrice = reducePrice;
 	}
 	
-	/**
-	 * 特定日期营销策略
-	 * @param promotionID
-	 * @param promotionName
-	 * @param promotionType
-	 * @param startDate
-	 * @param endDate
-	 * @param discount
-	 * @param neededPrice
-	 * @param reducePrice
-	 */
-	public PromotionVO(String promotionID, String promotionName, PromotionType promotionType,
-					   Date startDate, Date endDate, double discount, double neededPrice, double reducePrice) {
-		this(promotionID, promotionName, promotionType, discount, neededPrice, reducePrice);
+	public void setRankPromotion() {
+		saleType = SaleType.Rank;
 	}
 	
-	/**
-	 * 生日特惠
-	 * @param promotionID
-	 * @param promotionName
-	 * @param promotionType
-	 * @param birthday
-	 * @param discount
-	 * @param neededPrice
-	 * @param reducePrice
-	 */
-	public PromotionVO(String promotionID, String promotionName, PromotionType promotionType,
-					   Date birthday, double discount, double neededPrice, double reducePrice) {
-		this(promotionID, promotionName, promotionType, discount, neededPrice, reducePrice);
+	public void setDatePromotion(Date startDate, Date endDate) {
+		saleType = SaleType.Date;
+		this.startDate = startDate;
+		this.endDate = endDate;
 	}
 	
-	/**
-	 * 预订房间数营销策略
-	 * @param promotionID
-	 * @param promotionName
-	 * @param promotionType
-	 * @param numberOfRoom
-	 * @param discount
-	 * @param neededPrice
-	 * @param reducePrice
-	 */
-	public PromotionVO(String promotionID, String promotionName, PromotionType promotionType,
-					   int numberOfRoom, double discount, double neededPrice, double reducePrice) {
-		this(promotionID, promotionName, promotionType, discount, neededPrice, reducePrice);
+	public void setBirthdayPromotion(Date birthday) {
+		saleType = SaleType.Birthday;
+		this.birthday = birthday;
 	}
 	
-	/**
-	 * 合作企业客户折扣
-	 * @param promotionID
-	 * @param promotionName
-	 * @param promotionType
-	 * @param enterprise
-	 * @param discount
-	 * @param neededPrice
-	 * @param reducePrice
-	 */
-	public PromotionVO(String promotionID, String promotionName, PromotionType promotionType,
-					   Enterprise enterprise, double discount, double neededPrice, double reducePrice) {
-		this(promotionID, promotionName, promotionType, discount, neededPrice, reducePrice);
+	public void setRoomNumberPromotion() {
+		saleType = SaleType.RoomNumber;
 	}
 	
-	/**
-	 * 特定商圈折扣
-	 * @param promotionID
-	 * @param promotionName
-	 * @param promotionType
-	 * @param district
-	 * @param discount
-	 * @param neededPrice
-	 * @param reducePrice
-	 */
-	public PromotionVO(String promotionID, String promotionName, PromotionType promotionType,
-					   String district, double discount, double neededPrice, double reducePrice) {
-		this(promotionID, promotionName, promotionType, discount, neededPrice, reducePrice);
+	public void setEnterprisePromotion(String enterprise) {
+		saleType = SaleType.Enterprise;
+		this.enterprise = enterprise;
+	}
+	
+	public void setDistrictPromotion(String district) {
+		saleType = SaleType.District;
 	}
 	
 	public boolean checkAvailable(MemberVO memberVO) {
@@ -134,5 +75,117 @@ public class PromotionVO {
 	
 	public double calculatePrice(double originalPrice) {
 		return 0;
+	}
+	
+	public String getPromotionID() {
+		return promotionID;
+	}
+	
+	public void setPromotionID(String promotionID) {
+		this.promotionID = promotionID;
+	}
+	
+	public String getPromotionName() {
+		return promotionName;
+	}
+	
+	public void setPromotionName(String promotionName) {
+		this.promotionName = promotionName;
+	}
+	
+	public PromotionType getPromotionType() {
+		return promotionType;
+	}
+	
+	public void setPromotionType(PromotionType promotionType) {
+		this.promotionType = promotionType;
+	}
+	
+	public SaleType getSaleType() {
+		return saleType;
+	}
+	
+	public void setSaleType(SaleType saleType) {
+		this.saleType = saleType;
+	}
+	
+	public Date getStartDate() {
+		return startDate;
+	}
+	
+	public void setStartDate(Date startDate) {
+		this.startDate = startDate;
+	}
+	
+	public Date getEndDate() {
+		return endDate;
+	}
+	
+	public void setEndDate(Date endDate) {
+		this.endDate = endDate;
+	}
+	
+	public Date getBirthday() {
+		return birthday;
+	}
+	
+	public void setBirthday(Date birthday) {
+		this.birthday = birthday;
+	}
+	
+	public int getNumberOfRoom() {
+		return numberOfRoom;
+	}
+	
+	public void setNumberOfRoom(int numberOfRoom) {
+		this.numberOfRoom = numberOfRoom;
+	}
+	
+	public String getEnterprise() {
+		return enterprise;
+	}
+	
+	public void setEnterprise(String enterprise) {
+		this.enterprise = enterprise;
+	}
+	
+	public int getLevel() {
+		return level;
+	}
+	
+	public void setLevel(int level) {
+		this.level = level;
+	}
+	
+	public String getDistrict() {
+		return district;
+	}
+	
+	public void setDistrict(String district) {
+		this.district = district;
+	}
+	
+	public double getDiscount() {
+		return discount;
+	}
+	
+	public void setDiscount(double discount) {
+		this.discount = discount;
+	}
+	
+	public double getNeededPrice() {
+		return neededPrice;
+	}
+	
+	public void setNeededPrice(double neededPrice) {
+		this.neededPrice = neededPrice;
+	}
+	
+	public double getReducePrice() {
+		return reducePrice;
+	}
+	
+	public void setReducePrice(double reducePrice) {
+		this.reducePrice = reducePrice;
 	}
 }

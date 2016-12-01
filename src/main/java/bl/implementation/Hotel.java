@@ -3,14 +3,8 @@ package bl.implementation;
 import bl.dataservice.HotelDataService;
 import bl.dataservice.RoomDataService;
 import bl.service.HotelBLService;
-import other.HotelService;
 import po.HotelPO;
 import vo.HotelVO;
-import vo.OrderVO;
-import vo.PromotionVO;
-import vo.RoomVO;
-
-import java.util.ArrayList;
 
 public class Hotel implements HotelBLService {
 
@@ -57,7 +51,7 @@ public class Hotel implements HotelBLService {
 	}
 	
 	@Override
-	public HotelService getHotelService() {
+	public String getHotelService() {
 		return null;
 	}
 	
