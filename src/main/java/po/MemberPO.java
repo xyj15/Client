@@ -38,9 +38,9 @@ public class MemberPO extends User {
 		this.enterprise = enterprise;
 	}
 	
-	public MemberPO(String username, String password, String name, String tel, Credit credit,
+	public MemberPO(String userID, String password, String name, String tel, Credit credit,
 					int level, double discount, MemberType memberType, Date birthday, String enterprise) {
-		super(username, password, UserType.Member);
+		super(userID, password, UserType.Member);
 		this.name = name;
 		this.tel = tel;
 		this.credit = credit;
