@@ -8,14 +8,14 @@ import javafx.stage.Stage;
 import ui.controller.PromotionController;
 
 /**
- * Created by 婧婧 on 2016/11/30.
+ * Created by 婧婧 on 2016/12/1.
  */
-public class SalerCompanyPromotionUI extends Application {
+public class SalerAddPromotionUI extends Application {
     @Override
     public void start(Stage primaryStage)throws Exception{
-        Parent root = FXMLLoader.load(getClass().getResource("SalerCompanyPromotionList.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("HotelAddDatePromotion.fxml"));
         PromotionController.setPrimaryStage(primaryStage);
-        Scene myScene = new Scene(root,960,540);
+        Scene myScene = new Scene(root,318,538);
         primaryStage.setScene(myScene);
         primaryStage.show();
     }

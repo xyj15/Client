@@ -10,10 +10,10 @@ import ui.controller.PromotionController;
 /**
  * Created by 婧婧 on 2016/11/30.
  */
-public class SalerDatePromotionUI extends Application {
+public class SalerPromotionUI extends Application {
     @Override
     public void start(Stage primaryStage)throws Exception{
-        Parent root = FXMLLoader.load(getClass().getResource("SalerDatePromotionList.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("SalerPromotion.fxml"));
         PromotionController.setPrimaryStage(primaryStage);
         Scene myScene = new Scene(root,960,540);
         primaryStage.setScene(myScene);

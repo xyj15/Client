@@ -13,7 +13,7 @@ import ui.controller.PromotionController;
 public class SalerVIPUI extends Application {
     @Override
     public void start(Stage primaryStage)throws Exception{
-        Parent root = FXMLLoader.load(getClass().getResource("SalerVIPList.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("SalerVIP.fxml"));
         PromotionController.setPrimaryStage(primaryStage);
         Scene myScene = new Scene(root,960,540);
         primaryStage.setScene(myScene);
