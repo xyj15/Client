@@ -36,6 +36,11 @@ public class Hotel implements HotelBLService {
 	}
 	
 	@Override
+	public String getCity() {
+		return null;
+	}
+	
+	@Override
 	public int getHotelLevel() {
 		return 0;
 	}

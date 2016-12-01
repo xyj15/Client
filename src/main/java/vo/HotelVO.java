@@ -10,6 +10,7 @@ public class HotelVO extends User {
 	private String name;
 	private String address;
 	private int level;
+	private String city;
 	private String district;
 	private double score;	//酒店评分
 	private String service;	//酒店设施服务

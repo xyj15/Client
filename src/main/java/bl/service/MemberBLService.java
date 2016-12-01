@@ -3,8 +3,8 @@ package bl.service;
 import java.util.ArrayList;
 import java.util.Date;
 
-import vo.CreditChange;
 import other.MemberType;
+import vo.CreditChangeVO;
 import vo.MemberVO;
 import vo.OrderVO;
 
@@ -18,7 +18,7 @@ public interface MemberBLService {
 	public String getName();	//获得客户名称
 	public String getTel();	//获得客户联系方式
 	public double getCredit();	//获得客户信用
-	public ArrayList<CreditChange> getCreditChangeList();	//获得客户信用变化列表
+	public ArrayList<CreditChangeVO> getCreditChangeList();	//获得客户信用变化列表
 	public int getLevel();	//获得客户会员等级
 	public double getDiscount();	//获得客户当前等级享受折扣
 	public MemberType getMemberType();	//获得客户的类型（普通客户、企业客户）

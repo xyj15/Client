@@ -2,7 +2,7 @@ package bl.implementation;
 
 import bl.dataservice.CreditDataService;
 import bl.service.CreditBLService;
-import vo.CreditChange;
+import vo.CreditChangeVO;
 
 import java.util.ArrayList;
 
@@ -15,7 +15,7 @@ import java.util.ArrayList;
 public class Credit implements CreditBLService {
 
 	private double credit;
-    private ArrayList<CreditChange> creditChangeList;
+    private ArrayList<CreditChangeVO> creditChangeList;
 	private CreditDataService creditDataService;
 
 	public Credit() {
@@ -27,7 +27,7 @@ public class Credit implements CreditBLService {
     }
 	
 	@Override
-	public ArrayList<CreditChange> getCreditChangeList() {
+	public ArrayList<CreditChangeVO> getCreditChangeList() {
 		return creditChangeList;
 	}
 	
@@ -36,7 +36,7 @@ public class Credit implements CreditBLService {
 		return credit;
 	}
 	
-	public void creditChange(CreditChange creditChange) {
+	public void creditChange(CreditChangeVO creditChange) {
 		
 	}
 

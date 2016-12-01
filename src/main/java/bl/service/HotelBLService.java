@@ -11,6 +11,7 @@ public interface HotelBLService {
 
 	public String getHotelName();	//获得酒店名称
 	public String getHotelAddress();	//获得酒店地址
+	public String getCity();	//获得酒店所在城市名称
 	public int getHotelLevel();	//获得酒店星级
 	public String getDistrict();	//获得酒店所属商圈
 	public double getHotelScore();	//获得酒店评分

@@ -1,6 +1,6 @@
 package bl.service;
 
-import vo.CreditChange;
+import vo.CreditChangeVO;
 
 import java.util.ArrayList;
 
@@ -12,6 +12,6 @@ import java.util.ArrayList;
  */
 public interface CreditBLService {
 	
-	public ArrayList<CreditChange> getCreditChangeList();
+	public ArrayList<CreditChangeVO> getCreditChangeList();
 	public double getCredit();
 }

@@ -3,9 +3,9 @@ package bl.implementation;
 import bl.dataservice.MemberDataService;
 import bl.service.MemberBLService;
 
-import vo.CreditChange;
 import other.MemberType;
 import po.MemberPO;
+import vo.CreditChangeVO;
 import vo.MemberVO;
 import vo.OrderVO;
 
@@ -46,7 +46,7 @@ public class Member implements MemberBLService {
 	}
 	
 	@Override
-	public ArrayList<CreditChange> getCreditChangeList() {
+	public ArrayList<CreditChangeVO> getCreditChangeList() {
 		return null;
 	}
 	
