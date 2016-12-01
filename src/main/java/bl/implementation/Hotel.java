@@ -101,7 +101,7 @@ public class Hotel implements HotelBLService {
 //		//setHotelManagerID(hoMaID);
 //	}
 //	public List<OrderVO> getOrderList (String hotelID,Date time){
-//		if(getUsername().equals(hotelID)){
+//		if(getUserID().equals(hotelID)){
 //			return ordermanager.getOrderList();
 //		} else {
 //			return null;
@@ -127,7 +127,7 @@ public class Hotel implements HotelBLService {
 //	}
 	
 //	public boolean updataHotelInformat (String hotelID,HotelVO HO){
-//		if(getUsername().equals(hotelID)){
+//		if(getUserID().equals(hotelID)){
 //			//setVO(HO);
 //			return true;
 //		}
