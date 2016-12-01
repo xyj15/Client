@@ -25,6 +25,7 @@ public class SalerVO extends User {
 	public SalerVO() {
 		promotionList = new ArrayList<PromotionVO>();
 		dailyOrderList = new ArrayList<OrderVO>();
+		super.setUserType(UserType.Saler);
 	}
 	
 	/**
@@ -39,6 +40,7 @@ public class SalerVO extends User {
 		this.tel = tel;
 		this.promotionList = promotionList;
 		this.dailyOrderList = dailyOrderList;
+		super.setUserType(UserType.Saler);
 	}
 	
 	/**

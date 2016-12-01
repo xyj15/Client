@@ -11,32 +11,33 @@ import other.UserType;
  */
 public class ManagerVO extends User {
 	
-	private String name;	//
-	private String tel;	//
+	private String name;	//姓名或名称
+	private String tel;	//联系方式
 	
 	/**
-	 *
+	 * 空构造方法
 	 */
 	public ManagerVO() {
-		
+		super.setUserType(UserType.Manager);
 	}
 	
 	/**
 	 * 无用户名和密码的构造方法
-	 * @param name
-	 * @param tel
+	 * @param name 姓名或名称
+	 * @param tel 联系方式
 	 */
 	public ManagerVO(String name, String tel) {
 		this.name = name;
 		this.tel = tel;
+		super.setUserType(UserType.Manager);
 	}
 	
 	/**
 	 * 有用户名和密码的构造方法
-	 * @param username
-	 * @param password
-	 * @param name
-	 * @param tel
+	 * @param username 用户名
+	 * @param password 密码
+	 * @param name 姓名或名称
+	 * @param tel 联系方式
 	 */
 	public ManagerVO(String username, String password, String name, String tel) {
 		super(username, password, UserType.Manager);

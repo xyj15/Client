@@ -12,11 +12,11 @@ import java.util.ArrayList;
  */
 public class HotelVO extends User {
 
-	private String name;	//
-	private String address;	//
-	private int level;	//
-	private String city;	//
-	private String district;	//
+	private String name;	//酒店名称
+	private String address;	//酒店地址
+	private int level;	//酒店星级
+	private String city;	//酒店所在城市名
+	private String district;	//酒店所属商圈
 	private double score;	//酒店评分
 	private String service;	//酒店设施服务
 	private String introduction;	//酒店简介
@@ -24,8 +24,8 @@ public class HotelVO extends User {
 	private String managerTel;	//酒店管理人员的联系方式
 	
 	private ArrayList<String> enterpriseList;	//合作企业列表
-	private ArrayList<RoomVO> roomList;	//
-	private ArrayList<OrderVO> orderList;	//
+	private ArrayList<RoomVO> roomList;	//酒店客房列表
+	private ArrayList<OrderVO> orderList;	//酒店订单列表
 	
 	/**
 	 * 空构造方法
@@ -34,29 +34,32 @@ public class HotelVO extends User {
 		enterpriseList = new ArrayList<String>();
 		roomList = new ArrayList<RoomVO>();
 		orderList = new ArrayList<OrderVO>();
+		super.setUserType(UserType.Hotel);
 	}
 	
 	/**
 	 * 无用户名和密码的构造方法
-	 * @param name
-	 * @param address
-	 * @param district
-	 * @param level
-	 * @param score
-	 * @param service
-	 * @param introduction
-	 * @param managerName
-	 * @param managerTel
-	 * @param enterpriseList
-	 * @param roomList
-	 * @param orderList
+	 * @param name 酒店名称
+	 * @param address 酒店地址
+	 * @param district 酒店所属商圈
+	 * @param city 酒店所在城市名
+	 * @param level 酒店星级
+	 * @param score 酒店评分
+	 * @param service 酒店设施服务
+	 * @param introduction 酒店简介
+	 * @param managerName 酒店工作人员姓名
+	 * @param managerTel 酒店工作人员联系方式
+	 * @param enterpriseList 合作企业列表
+	 * @param roomList 客房列表
+	 * @param orderList 订单列表
 	 */
-	public HotelVO(String name, String address, String district, int level, double score, String service,
+	public HotelVO(String name, String address, String district, String city, int level, double score, String service,
 				   String introduction, String managerName, String managerTel, ArrayList<String> enterpriseList,
 				   ArrayList<RoomVO> roomList, ArrayList<OrderVO> orderList) {
 		this.name = name;
 		this.address = address;
 		this.district = district;
+		this.city = city;
 		this.level = level;
 		this.score = score;
 		this.service = service;
@@ -66,32 +69,35 @@ public class HotelVO extends User {
 		this.enterpriseList = enterpriseList;
 		this.roomList = roomList;
 		this.orderList = orderList;
+		super.setUserType(UserType.Hotel);
 	}
 	
 	/**
 	 * 有用户名和密码的构造方法
-	 * @param username
-	 * @param password
-	 * @param name
-	 * @param address
-	 * @param district
-	 * @param level
-	 * @param score
-	 * @param service
-	 * @param introduction
-	 * @param managerName
-	 * @param managerTel
-	 * @param enterpriseList
-	 * @param roomList
-	 * @param orderList
+	 * @param username 酒店ID
+	 * @param password 酒店登陆的密码
+	 * @param name 酒店名称
+	 * @param address 酒店地址
+	 * @param district 酒店所属商圈
+	 * @param city 酒店所在城市名
+	 * @param level 酒店星级
+	 * @param score 酒店评分
+	 * @param service 酒店设施服务
+	 * @param introduction 酒店简介
+	 * @param managerName 酒店工作人员姓名
+	 * @param managerTel 酒店工作人员联系方式
+	 * @param enterpriseList 合作企业列表
+	 * @param roomList 客房列表
+	 * @param orderList 订单列表
 	 */
-	public HotelVO(String username, String password, String name, String address, String district,
+	public HotelVO(String username, String password, String name, String address, String district, String city,
 				   int level, double score, String service, String introduction, String managerName,
 				   String managerTel, ArrayList<String> enterpriseList, ArrayList<RoomVO> roomList, ArrayList<OrderVO> orderList) {
 		super(username, password, UserType.Hotel);
 		this.name = name;
 		this.address = address;
 		this.district = district;
+		this.city = city;
 		this.level = level;
 		this.score = score;
 		this.service = service;

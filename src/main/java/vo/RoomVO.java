@@ -10,11 +10,11 @@ import other.RoomType;
 public class RoomVO {
 	
 	private boolean available;	//客房是否可使用
-	private String roomNumber;	//客房号
+	private String roomNumber;	//客房号码
 	private String roomName;	//客房名称
 	private RoomType roomType;	//客房类型
 	private double price;	//客房单价
-	private String hotelID;	//所属酒店
+	private String hotelID;	//所属酒店ID
 	
 	/**
 	 * 空构造方法
@@ -24,13 +24,13 @@ public class RoomVO {
 	}
 	
 	/**
-	 *
-	 * @param available
-	 * @param roomNumber
-	 * @param roomName
-	 * @param roomType
-	 * @param price
-	 * @param hotelID
+	 * 带参数的构造方法
+	 * @param available 客房是否可使用
+	 * @param roomNumber 客房号码
+	 * @param roomName 客房名称
+	 * @param roomType 客房类型
+	 * @param price 客房单价
+	 * @param hotelID 所属酒店ID
 	 */
 	public RoomVO(boolean available, String roomNumber, String roomName, RoomType roomType, double price, String hotelID) {
 		this.available = available;
