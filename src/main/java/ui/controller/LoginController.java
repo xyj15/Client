@@ -20,7 +20,7 @@ import ui.presentation.*;
  */
 public class LoginController{
     private LoginUI loginUI;
-    private LoginBLService loginBL = new Login();
+    //private LoginBLService loginBL = new Login();
 
     private static Stage primaryStage;
     public static void setPrimaryStage(Stage in){
