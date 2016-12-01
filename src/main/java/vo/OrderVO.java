@@ -28,7 +28,7 @@ public class OrderVO {
 	private double score;	//订单评分
 	private String evaluation;	//订单评价
 	private double recover;	//撤销异常时返回的信用比例，若无则为0
-	private PromotionVO promotionVO;	//使用的促销策略
+	private String promotionID;	//使用的促销策略ID
 	private double price;	//订单价值
 	
 	/**
@@ -57,13 +57,13 @@ public class OrderVO {
 	 * @param score 订单评分
 	 * @param evaluation 订单评价
 	 * @param recover 撤销异常时返回的信用比例，若无则为0
-	 * @param promotionVO 使用的促销策略
+	 * @param promotionID 使用的促销策略ID
 	 * @param price 订单价值
 	 */
 	public OrderVO(String memberID, String hotelID, String orderID, OrderStatus orderStatus, Date createTime,
 				   Date checkinTime, Date actualCheckinTime, Date latestCheckinTime, Date checkoutTime,
 				   Date actualCheckoutTime, int numberOfRoom, String roomName, int numberOfClient, boolean hasKids,
-				   double score, String evaluation, double recover, PromotionVO promotionVO, double price) {
+				   double score, String evaluation, double recover, String promotionID, double price) {
 		this.memberID = memberID;
 		this.hotelID = hotelID;
 		this.orderID = orderID;
@@ -81,7 +81,7 @@ public class OrderVO {
 		this.score = score;
 		this.evaluation = evaluation;
 		this.recover = recover;
-		this.promotionVO = promotionVO;
+		this.promotionID = promotionID;
 		this.price = price;
 	}
 	
@@ -205,14 +205,6 @@ public class OrderVO {
 		this.recover = recover;
 	}
 	
-	public PromotionVO getPromotionVO() {
-		return promotionVO;
-	}
-	
-	public void setPromotionVO(PromotionVO promotionVO) {
-		this.promotionVO = promotionVO;
-	}
-	
 	public double getPrice() {
 		return price;
 	}
@@ -235,5 +227,13 @@ public class OrderVO {
 	
 	public void setRoomName(String roomName) {
 		this.roomName = roomName;
+	}
+	
+	public String getPromotionID() {
+		return promotionID;
+	}
+	
+	public void setPromotionID(String promotionID) {
+		this.promotionID = promotionID;
 	}
 }

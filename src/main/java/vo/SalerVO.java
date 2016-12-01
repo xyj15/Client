@@ -45,16 +45,16 @@ public class SalerVO extends User {
 	
 	/**
 	 * 有用户名和密码的构造方法
-	 * @param username 用户名
+	 * @param userID 用户名
 	 * @param password 密码
 	 * @param name 姓名或名称
 	 * @param tel 联系方式
 	 * @param promotionList 网站营销策略列表
 	 * @param dailyOrderList 当天所有订单列表
 	 */
-	public SalerVO(String username, String password, String name, String tel,
+	public SalerVO(String userID, String password, String name, String tel,
 				   ArrayList<PromotionVO> promotionList, ArrayList<OrderVO> dailyOrderList) {
-		super(username, password, UserType.Saler);
+		super(userID, password, UserType.Saler);
 		this.name = name;
 		this.tel = tel;
 		this.promotionList = promotionList;

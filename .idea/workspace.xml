@@ -1,16 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="349d3ad1-916b-4813-b1c9-b3218daa0e95" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/vo/HotelVO.java" afterPath="$PROJECT_DIR$/src/main/java/vo/HotelVO.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/vo/ManagerVO.java" afterPath="$PROJECT_DIR$/src/main/java/vo/ManagerVO.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/vo/MemberVO.java" afterPath="$PROJECT_DIR$/src/main/java/vo/MemberVO.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/vo/PromotionVO.java" afterPath="$PROJECT_DIR$/src/main/java/vo/PromotionVO.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/vo/RoomVO.java" afterPath="$PROJECT_DIR$/src/main/java/vo/RoomVO.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/vo/SalerVO.java" afterPath="$PROJECT_DIR$/src/main/java/vo/SalerVO.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/vo/package-info.java" afterPath="$PROJECT_DIR$/src/main/java/vo/package-info.java" />
-    </list>
+    <list default="true" id="349d3ad1-916b-4813-b1c9-b3218daa0e95" name="Default" comment="" />
     <ignored path="Client.iws" />
     <ignored path=".idea/workspace.xml" />
     <ignored path="$PROJECT_DIR$/out/" />
@@ -172,7 +163,6 @@
     <panes>
       <pane id="Scratches" />
       <pane id="PackagesPane" />
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -247,6 +237,7 @@
           </PATH>
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -972,6 +963,7 @@
       <workItem from="1480594165345" duration="2881000" />
       <workItem from="1480599599424" duration="1060000" />
       <workItem from="1480600684785" duration="73000" />
+      <workItem from="1480602410073" duration="3000" />
     </task>
     <servers />
   </component>
@@ -1008,7 +1000,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="130325000" />
+    <option name="totallyTimeSpent" value="130328000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">

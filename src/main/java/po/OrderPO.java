@@ -4,6 +4,11 @@ import other.OrderStatus;
 
 import java.util.Date;
 
+/**
+ * 存储Order信息的PO类
+ * @author CROFF
+ * @version 2016-12-1
+ */
 public class OrderPO {
 	
 	private String memberID;	//订单相关客户
@@ -26,6 +31,35 @@ public class OrderPO {
 	private String promotionID;	//使用的促销策略
 	private double price;	//订单价值
 	
+	/**
+	 * 空构造方法
+	 */
+	public OrderPO() {
+		
+	}
+	
+	/**
+	 * 带参数的构造方法
+	 * @param memberID 订单相关客户
+	 * @param hotelID 订单相关酒店
+	 * @param orderID 订单编号
+	 * @param orderStatus 订单状态
+	 * @param createTime 订单创建时间
+	 * @param checkinTime 预计入住时间
+	 * @param actualCheckinTime 实际入住时间
+	 * @param latestCheckinTime 最晚入住时间
+	 * @param checkoutTime 预计退房时间
+	 * @param actualCheckoutTime 实际退房时间
+	 * @param numberOfRoom 订单中客房名称高
+	 * @param roomName 订单中客房数量
+	 * @param numberOfClient 预计入住人数
+	 * @param hasKids 有无儿童
+	 * @param score 订单评分
+	 * @param evaluation 订单评价
+	 * @param recover 撤销异常时返回的信用比例，若无则为0
+	 * @param promotionID 使用的促销策略ID
+	 * @param price 订单价值
+	 */
 	public OrderPO(String memberID, String hotelID, String orderID, OrderStatus orderStatus, Date createTime,
 				   Date checkinTime, Date actualCheckinTime, Date latestCheckinTime, Date checkoutTime,
 				   Date actualCheckoutTime, int numberOfRoom, String roomName, int numberOfClient, boolean hasKids,

@@ -33,7 +33,7 @@ public class PromotionVO {
 	private double reducePrice;	//减少的价格
 	
 	/**
-	 * 一般营销策略的构造方法
+	 * 营销策略的构造方法
 	 * @param promotionID 营销策略编号
 	 * @param promotionName 营销策略名称
 	 * @param promotionType 营销策略的价格优惠类型，分为满减和折扣
