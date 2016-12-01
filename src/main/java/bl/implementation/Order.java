@@ -10,20 +10,26 @@ import java.util.ArrayList;
 
 public class Order implements OrderBLService {
 
-	private ArrayList<OrderVO> orderVOList;
-	private ArrayList<OrderPO> orderPOList;
+	private ArrayList<OrderPO> orderList;
 	private OrderDataService orderDataService;
-	
-	public Order() {
-		
-	}
+	private String userID;
 	
 	public Order(String userID) {
-		
+		this.userID = userID;
+		orderList = orderDataService.getOrderList(userID);
 	}
 	
 	@Override
 	public ArrayList<OrderVO> getOrderList() {
+		orderList = orderDataService.getOrderList(userID);
+		
+		ArrayList<OrderVO> orderVOList = new ArrayList<OrderVO>();
+		OrderPO orderPO;
+		OrderVO orderVO;
+		for(int i=0; i<orderList.size(); i++) {
+			orderPO = orderList.get(i);
+			
+		}
 		return null;
 	}
 	
@@ -60,6 +66,14 @@ public class Order implements OrderBLService {
 	@Override
 	public boolean cancelAbnormalOrder(String orderID, double recover) {
 		return false;
+	}
+	
+	public String getUserID() {
+		return userID;
+	}
+	
+	public void setUserID(String userID) {
+		this.userID = userID;
 	}
 
 //	public OrderVO getOrder(String orderID) {
