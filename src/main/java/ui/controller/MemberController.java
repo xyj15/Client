@@ -45,9 +45,11 @@ public class MemberController{
  }
  @FXML
  private void onCancelOrder(ActionEvent E)throws Exception {
+     new MemberCancelOrder().start(primaryStage);
  }
  @FXML
  private void onAbnormalOrder(ActionEvent E)throws Exception {
+     new MemberAbnormalOrder().start(primaryStage);
  }
  @FXML//实现撤销
  private void onCancel(ActionEvent E)throws Exception {
