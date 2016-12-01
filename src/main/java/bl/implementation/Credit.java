@@ -1,5 +1,6 @@
 package bl.implementation;
 
+import bl.dataservice.CreditDataService;
 import bl.service.CreditBLService;
 import other.CreditChange;
 import vo.MemberVO;
@@ -8,24 +9,27 @@ import java.util.ArrayList;
 
 /**
  * Created by 97147 on 2016/11/18.
+ * Credit模块的bl实现类
+ * @author CROFF
+ * @version 2016-12-1
  */
 public class Credit implements CreditBLService {
 
-	private MemberVO memberVO;
-    private double credit;
-    private ArrayList<Double> creditChangeList;
+	private double credit;
+    private ArrayList<CreditChange> creditChangeList;
+	private CreditDataService creditDataService;
 
 	public Credit() {
 		
 	}
 	
     public Credit(String memberID) {
-        creditChangeList = new ArrayList<Double>();
+        
     }
 	
 	@Override
 	public ArrayList<CreditChange> getCreditChangeList() {
-		return null;
+		return creditChangeList;
 	}
 	
 	@Override
@@ -38,9 +42,10 @@ public class Credit implements CreditBLService {
 	}
 
     public boolean checkCredit() {
-        if(credit>=0){
+        if(credit>=0) {
             return true;
-        }
-        return false;
+        } else {
+			return false;
+		}
     }
 }
