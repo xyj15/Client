@@ -2,6 +2,11 @@ package vo;
 
 import other.RoomType;
 
+/**
+ * 存储Room信息的VO类
+ * @author CROFF
+ * @version 2016-12-1
+ */
 public class RoomVO {
 	
 	private boolean available;	//客房是否可使用
@@ -11,10 +16,22 @@ public class RoomVO {
 	private double price;	//客房单价
 	private String hotelID;	//所属酒店
 	
+	/**
+	 * 空构造方法
+	 */
 	public RoomVO() {
 		
 	}
 	
+	/**
+	 *
+	 * @param available
+	 * @param roomNumber
+	 * @param roomName
+	 * @param roomType
+	 * @param price
+	 * @param hotelID
+	 */
 	public RoomVO(boolean available, String roomNumber, String roomName, RoomType roomType, double price, String hotelID) {
 		this.available = available;
 		this.roomNumber = roomNumber;

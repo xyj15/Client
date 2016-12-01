@@ -11,14 +11,33 @@ import other.UserType;
  */
 public class ManagerVO extends User {
 	
-	private String name;
-	private String tel;
+	private String name;	//
+	private String tel;	//
 	
+	/**
+	 *
+	 */
+	public ManagerVO() {
+		
+	}
+	
+	/**
+	 * 无用户名和密码的构造方法
+	 * @param name
+	 * @param tel
+	 */
 	public ManagerVO(String name, String tel) {
 		this.name = name;
 		this.tel = tel;
 	}
 	
+	/**
+	 * 有用户名和密码的构造方法
+	 * @param username
+	 * @param password
+	 * @param name
+	 * @param tel
+	 */
 	public ManagerVO(String username, String password, String name, String tel) {
 		super(username, password, UserType.Manager);
 		this.name = name;
