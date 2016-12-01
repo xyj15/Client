@@ -19,7 +19,7 @@ import vo.SalerVO;
  * @param
  */
 public class ManagerController{
-    ManagerBLService manager;
+    //ManagerBLService manager;
 
 
 	private Stage primaryStage;

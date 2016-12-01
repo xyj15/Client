@@ -19,7 +19,7 @@ import java.util.ArrayList;
  */
 public class SearchController{
 
-    private SearchBLService searchBL;
+   // private SearchBLService searchBL;
     private Stage primaryStage;
     public void setPrimaryStage(Stage in){
         primaryStage=in;

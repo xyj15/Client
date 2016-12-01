@@ -36,7 +36,7 @@ public class LoginUI extends Application {/*
            primaryStage.setTitle("食宿");
            Parent root =FXMLLoader.load(getClass().getResource("login.fxml"));
            LoginController.setPrimaryStage(primaryStage);
-           Scene myScene = new Scene(root,315,520);
+           Scene myScene = new Scene(root,318,538);
            primaryStage.setResizable(false);
            primaryStage.setScene(myScene);
            primaryStage.show();
