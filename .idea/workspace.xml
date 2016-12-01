@@ -2,14 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="349d3ad1-916b-4813-b1c9-b3218daa0e95" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/vo/CreditChangeVO.java" afterPath="$PROJECT_DIR$/src/main/java/vo/CreditChangeVO.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/vo/HotelVO.java" afterPath="$PROJECT_DIR$/src/main/java/vo/HotelVO.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/vo/ManagerVO.java" afterPath="$PROJECT_DIR$/src/main/java/vo/ManagerVO.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/vo/MemberVO.java" afterPath="$PROJECT_DIR$/src/main/java/vo/MemberVO.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/vo/OrderVO.java" afterPath="$PROJECT_DIR$/src/main/java/vo/OrderVO.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/vo/PromotionVO.java" afterPath="$PROJECT_DIR$/src/main/java/vo/PromotionVO.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/vo/RoomVO.java" afterPath="$PROJECT_DIR$/src/main/java/vo/RoomVO.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/vo/SalerVO.java" afterPath="$PROJECT_DIR$/src/main/java/vo/SalerVO.java" />
     </list>
     <ignored path="Client.iws" />
@@ -35,39 +28,7 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="MemberVO.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/java/vo/MemberVO.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="420">
-              <caret line="69" column="26" selection-start-line="69" selection-start-column="26" selection-end-line="69" selection-end-column="26" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="SalerVO.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/vo/SalerVO.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="600">
-              <caret line="44" column="19" selection-start-line="44" selection-start-column="19" selection-end-line="44" selection-end-column="19" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="OrderVO.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/vo/OrderVO.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="195">
-              <caret line="34" column="12" selection-start-line="34" selection-start-column="12" selection-end-line="34" selection-end-column="12" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="PromotionVO.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="PromotionVO.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/vo/PromotionVO.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="75">
@@ -182,12 +143,12 @@
         <option value="$PROJECT_DIR$/src/main/java/bl/implementation/Hotel.java" />
         <option value="$PROJECT_DIR$/src/main/java/vo/CreditChangeVO.java" />
         <option value="$PROJECT_DIR$/src/main/java/vo/PromotionVO.java" />
-        <option value="$PROJECT_DIR$/src/main/java/vo/SalerVO.java" />
-        <option value="$PROJECT_DIR$/src/main/java/vo/OrderVO.java" />
         <option value="$PROJECT_DIR$/src/main/java/vo/RoomVO.java" />
         <option value="$PROJECT_DIR$/src/main/java/vo/ManagerVO.java" />
         <option value="$PROJECT_DIR$/src/main/java/vo/HotelVO.java" />
         <option value="$PROJECT_DIR$/src/main/java/vo/MemberVO.java" />
+        <option value="$PROJECT_DIR$/src/main/java/vo/SalerVO.java" />
+        <option value="$PROJECT_DIR$/src/main/java/vo/OrderVO.java" />
       </list>
     </option>
   </component>
@@ -1077,7 +1038,7 @@
       <workItem from="1480557732802" duration="6050000" />
       <workItem from="1480573953318" duration="8200000" />
       <workItem from="1480583428711" duration="588000" />
-      <workItem from="1480594165345" duration="2562000" />
+      <workItem from="1480594165345" duration="2881000" />
     </task>
     <servers />
   </component>
@@ -1114,7 +1075,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="128873000" />
+    <option name="totallyTimeSpent" value="129192000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1127,7 +1088,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1680" height="1050" extended-state="0" />
-    <editor active="true" />
+    <editor active="false" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32959184" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -1620,32 +1581,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/vo/SalerVO.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="600">
-          <caret line="44" column="19" selection-start-line="44" selection-start-column="19" selection-end-line="44" selection-end-column="19" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/vo/OrderVO.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="195">
-          <caret line="34" column="12" selection-start-line="34" selection-start-column="12" selection-end-line="34" selection-end-column="12" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/vo/PromotionVO.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
-          <caret line="8" column="14" selection-start-line="8" selection-start-column="14" selection-end-line="8" selection-end-column="14" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/vo/RoomVO.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="390">
@@ -1680,8 +1615,34 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/vo/MemberVO.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="420">
+        <state relative-caret-position="945">
           <caret line="69" column="26" selection-start-line="69" selection-start-column="26" selection-end-line="69" selection-end-column="26" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/vo/SalerVO.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="630">
+          <caret line="46" column="25" selection-start-line="46" selection-start-column="25" selection-end-line="46" selection-end-column="25" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/vo/OrderVO.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="900">
+          <caret line="60" column="24" selection-start-line="60" selection-start-column="24" selection-end-line="60" selection-end-column="24" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/vo/PromotionVO.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="75">
+          <caret line="8" column="14" selection-start-line="8" selection-start-column="14" selection-end-line="8" selection-end-column="14" />
           <folding />
         </state>
       </provider>

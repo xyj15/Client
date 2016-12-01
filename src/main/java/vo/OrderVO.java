@@ -39,26 +39,26 @@ public class OrderVO {
 	}
 	
 	/**
-	 *
-	 * @param memberID
-	 * @param hotelID
-	 * @param orderID
-	 * @param orderStatus
-	 * @param createTime
-	 * @param checkinTime
-	 * @param actualCheckinTime
-	 * @param latestCheckinTime
-	 * @param checkoutTime
-	 * @param actualCheckoutTime
-	 * @param numberOfRoom
-	 * @param roomName
-	 * @param numberOfClient
-	 * @param hasKids
-	 * @param score
-	 * @param evaluation
-	 * @param recover
-	 * @param promotionVO
-	 * @param price
+	 * 带参数的构造方法
+	 * @param memberID 订单相关客户
+	 * @param hotelID 订单相关酒店
+	 * @param orderID 订单编号
+	 * @param orderStatus 订单状态
+	 * @param createTime 订单创建时间
+	 * @param checkinTime 预计入住时间
+	 * @param actualCheckinTime 实际入住时间
+	 * @param latestCheckinTime 最晚入住时间
+	 * @param checkoutTime 预计退房时间
+	 * @param actualCheckoutTime 实际退房时间
+	 * @param numberOfRoom 订单中客房名称高
+	 * @param roomName 订单中客房数量
+	 * @param numberOfClient 预计入住人数
+	 * @param hasKids 有无儿童
+	 * @param score 订单评分
+	 * @param evaluation 订单评价
+	 * @param recover 撤销异常时返回的信用比例，若无则为0
+	 * @param promotionVO 使用的促销策略
+	 * @param price 订单价值
 	 */
 	public OrderVO(String memberID, String hotelID, String orderID, OrderStatus orderStatus, Date createTime,
 				   Date checkinTime, Date actualCheckinTime, Date latestCheckinTime, Date checkoutTime,
