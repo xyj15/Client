@@ -34,12 +34,12 @@
          <font>
             <Font name="Microsoft YaHei Bold" size="16.0" />
          </font></Label>
-      <Button layoutX="629.0" layoutY="459.0" mnemonicParsing="false" prefHeight="23.0" prefWidth="65.0" style="-fx-background-color: #6B6BCF;" text="增加" textFill="WHITE">
+      <Button layoutX="629.0" layoutY="459.0" mnemonicParsing="false" onAction="#onAddRoom" prefHeight="23.0" prefWidth="65.0" style="-fx-background-color: #6B6BCF;" text="增加" textFill="WHITE">
          <font>
             <Font name="Microsoft YaHei Bold" size="16.0" />
          </font>
       </Button>
-      <Button layoutX="703.0" layoutY="459.0" mnemonicParsing="false" prefHeight="23.0" prefWidth="65.0" style="-fx-background-color: #6B6BCF;" text="修改" textFill="WHITE">
+      <Button layoutX="703.0" layoutY="459.0" mnemonicParsing="false" onAction="#onAddRoom" prefHeight="23.0" prefWidth="65.0" style="-fx-background-color: #6B6BCF;" text="修改" textFill="WHITE">
          <font>
             <Font name="Microsoft YaHei Bold" size="16.0" />
          </font>
@@ -63,19 +63,6 @@
             </TableView>
          </content>
       </ScrollPane>
-      <Button layoutX="703.0" layoutY="94.0" mnemonicParsing="false" opacity="0.0" text="Button" />
-      <Label layoutX="703.0" layoutY="96.0" text="日期策略" textFill="WHITE">
-         <font>
-            <Font name="Microsoft YaHei Bold" size="14.0" />
-         </font>
-      </Label>
-      <Line endX="10.0" endY="200.0" layoutX="758.0" layoutY="-109.0" startX="10.0" startY="230.0" stroke="WHITE" strokeWidth="2.0" />
-      <Button layoutX="779.0" layoutY="95.0" mnemonicParsing="false" opacity="0.0" prefHeight="23.0" prefWidth="84.0" text="Button" />
-      <Label layoutX="779.0" layoutY="97.0" text="合作企业策略" textFill="WHITE">
-         <font>
-            <Font name="Microsoft YaHei Bold" size="14.0" />
-         </font>
-      </Label>
       <Button layoutX="53.0" layoutY="173.0" mnemonicParsing="false" onAction="#onInfor" opacity="0.67" prefHeight="32.0" prefWidth="181.0" style="-fx-background-color: #000f32;" text="基本信息" textFill="WHITE">
          <font>
             <Font name="Microsoft YaHei Bold" size="16.0" />
