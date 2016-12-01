@@ -21,4 +21,7 @@ public class HotelFirstUI extends Application {
             primaryStage.setScene(myScene);
             primaryStage.show();
     }
+    public static void main(String[] args) {
+        launch(args);
+    }
 }
