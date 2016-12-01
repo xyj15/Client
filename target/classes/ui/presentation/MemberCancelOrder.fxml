@@ -63,11 +63,6 @@
             </TableView>
          </content>
       </ScrollPane>
-      <Button layoutX="798.0" layoutY="491.0" mnemonicParsing="false" onAction="#onCancel" prefHeight="29.0" prefWidth="89.0" style="-fx-background-color: #6B6BCF;" text="撤销" textFill="WHITE">
-         <font>
-            <Font name="Microsoft YaHei Bold" size="14.0" />
-         </font>
-      </Button>
       <Label layoutX="639.0" layoutY="83.0" text="已执行订单" textFill="WHITE">
          <font>
             <Font name="Microsoft YaHei Bold" size="14.0" />
