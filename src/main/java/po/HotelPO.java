@@ -1,7 +1,5 @@
 package po;
 
-import bl.implementation.Room;
-import other.District;
 import other.Enterprise;
 import other.HotelService;
 import other.User;
@@ -11,8 +9,9 @@ import java.util.ArrayList;
 public class HotelPO extends User {
 	
 	private String name;
-	private String address;
 	private int level;
+	private String city;
+	private String address;
 	private String district;
 	private double score;	//酒店评分
 	private HotelService hotelService;	//酒店设施服务
@@ -119,5 +118,13 @@ public class HotelPO extends User {
 	
 	public void setEnterpriseList(ArrayList<Enterprise> enterpriseList) {
 		this.enterpriseList = enterpriseList;
+	}
+	
+	public String getCity() {
+		return city;
+	}
+	
+	public void setCity(String city) {
+		this.city = city;
 	}
 }
