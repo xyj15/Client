@@ -1,5 +1,7 @@
 package other;
 
+import java.util.Date;
+
 /**
  * Created by 97147 on 2016/11/19.
  * @author CROFF
@@ -7,17 +9,26 @@ package other;
  */
 public class SearchInfomation {
 
-    private String address;  // 地址，若未设置则为null
-    private String district;  // 商圈，若未设置则为null
-    private String hotelName;  // 酒店名称，若未设置则为null
-    private int level;  // 星级
-    private double score;  // 评分，若未设置则为0
-    private RoomType roomType;  // 房间类型，若未设置则为null
-    private double lowerPrice;  // 价格区间下限，若未设置则为0
-    private double upperPrice;  // 价格区间上限，若未设置则为0
-    private Date checkinTime;  // 入住日期，若未设置则为null
-    private Date checkoutTime;  // 退房日期，若未设置则为null
-    private boolean onlyReservationBefore;  // 是否只搜索自己预定过的酒店，若未设置则为false
+    private String city;	//城市，若未设置则为null
+    private String address;	// 地址，若未设置则为null
+    private String district;	// 商圈，若未设置则为null
+    private String hotelName;	// 酒店名称，若未设置则为null
+    private int level;	// 星级，若未设置则为0
+    private double score;	//评分，若未设置则为0
+    private RoomType roomType;	//房间类型，若未设置则为null
+    private double lowerPrice;	//价格区间下限，若未设置则为0
+    private double upperPrice;	//价格区间上限，若未设置则为0
+    private Date checkinTime;	//入住日期，若未设置则为null
+    private Date checkoutTime;	//退房日期，若未设置则为null
+    private boolean onlyReservationBefore;	//是否只搜索自己预定过的酒店
+	
+	public String getCity() {
+		return city;
+	}
+	
+	public void setCity(String city) {
+		this.city = city;
+	}
 
     public String getAddress() {
         return address;

@@ -1,9 +1,10 @@
 package bl.implementation;
 
 import bl.service.ReserveBLService;
-import other.Date;
 import other.RoomType;
 import vo.*;
+
+import java.util.Date;
 
 public class Reserve implements ReserveBLService {
 

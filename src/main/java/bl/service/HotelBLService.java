@@ -1,12 +1,6 @@
 package bl.service;
 
-import other.HotelService;
 import vo.HotelVO;
-import vo.OrderVO;
-import vo.PromotionVO;
-import vo.RoomVO;
-
-import java.util.ArrayList;
 
 /**
  * Hotel模块bl层和ui层之间的接口
@@ -20,7 +14,7 @@ public interface HotelBLService {
 	public int getHotelLevel();	//获得酒店星级
 	public String getDistrict();	//获得酒店所属商圈
 	public double getHotelScore();	//获得酒店评分
-	public HotelService getHotelService();	//获得酒店服务设施情况
+	public String getHotelService();	//获得酒店服务设施情况
 	public String getHotelIntroduction();	//获得酒店简介
 	public String getHotelManagerName();	//获得酒店工作人员名称
 	public String getHotelManagerTel();	//获得酒店工作人员联系方式
