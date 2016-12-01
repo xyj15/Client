@@ -1,6 +1,7 @@
 package vo;
 
 import other.User;
+import other.UserType;
 import po.PromotionPO;
 
 import java.util.ArrayList;
@@ -16,6 +17,15 @@ public class SalerVO extends User {
 	private ArrayList<OrderVO> dailyOrderList;	//当天所有订单列表
 
     public SalerVO(String name, String tel, ArrayList<PromotionVO> promotionList, ArrayList<OrderVO> dailyOrderList) {
+		this.name = name;
+		this.tel = tel;
+		this.promotionList = promotionList;
+		this.dailyOrderList = dailyOrderList;
+	}
+	
+	public SalerVO(String username, String password, String name, String tel,
+				   ArrayList<PromotionVO> promotionList, ArrayList<OrderVO> dailyOrderList) {
+		super(username, password, UserType.Saler);
 		this.name = name;
 		this.tel = tel;
 		this.promotionList = promotionList;

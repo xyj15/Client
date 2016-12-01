@@ -1,6 +1,7 @@
 package po;
 
 import other.User;
+import other.UserType;
 
 import java.util.ArrayList;
 
@@ -11,13 +12,17 @@ public class SalerPO extends User {
     
     private String name;
     private String tel;
-    private ArrayList<OrderPO> dailyOrderList;	//当天所有订单列表
 
-    public SalerPO(String name, String tel, ArrayList<OrderPO> dailyOrderList) {
+    public SalerPO(String name, String tel) {
         this.name = name;
         this.tel = tel;
-        this.dailyOrderList = dailyOrderList;
     }
+    
+    public SalerPO(String username, String password, String name, String tel) {
+		super(username, password, UserType.Saler);
+		this.name = name;
+		this.tel = tel;
+	}
 	
 	public String getName() {
 		return name;
@@ -33,13 +38,5 @@ public class SalerPO extends User {
 	
 	public void setTel(String tel) {
 		this.tel = tel;
-	}
-	
-	public ArrayList<OrderPO> getDailyOrderList() {
-		return dailyOrderList;
-	}
-	
-	public void setDailyOrderList(ArrayList<OrderPO> dailyOrderList) {
-		this.dailyOrderList = dailyOrderList;
 	}
 }
