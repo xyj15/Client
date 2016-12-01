@@ -80,7 +80,7 @@
 //	}
 //
 //	@Override
-//	public void setHasKids(boolean hasKids) {
+//	public void setHaveKids(boolean hasKids) {
 //
 //	}
 //
