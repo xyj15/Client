@@ -1,6 +1,6 @@
 package bl.service;
 
-import other.CreditChange;
+import vo.CreditChange;
 
 import java.util.ArrayList;
 

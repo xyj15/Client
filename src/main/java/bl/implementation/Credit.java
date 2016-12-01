@@ -2,8 +2,7 @@ package bl.implementation;
 
 import bl.dataservice.CreditDataService;
 import bl.service.CreditBLService;
-import other.CreditChange;
-import vo.MemberVO;
+import vo.CreditChange;
 
 import java.util.ArrayList;
 

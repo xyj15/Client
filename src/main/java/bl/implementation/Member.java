@@ -3,7 +3,7 @@ package bl.implementation;
 import bl.dataservice.MemberDataService;
 import bl.service.MemberBLService;
 
-import other.CreditChange;
+import vo.CreditChange;
 import other.MemberType;
 import po.MemberPO;
 import vo.MemberVO;

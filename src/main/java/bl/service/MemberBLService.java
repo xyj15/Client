@@ -3,7 +3,7 @@ package bl.service;
 import java.util.ArrayList;
 import java.util.Date;
 
-import other.CreditChange;
+import vo.CreditChange;
 import other.MemberType;
 import vo.MemberVO;
 import vo.OrderVO;

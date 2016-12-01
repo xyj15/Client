@@ -2,7 +2,6 @@ package bl.implementation;
 
 import java.util.*;
 
-import bl.dataservice.SearchDataService;
 import bl.service.SearchBLService;
 import other.*;
 import vo.*;
@@ -20,7 +19,6 @@ public class Search implements SearchBLService {
 	private SearchInfomation searchInfomation;	//搜索限制条件
 	private SortStratedy sortStratedy;	//排序条件
 	private MemberVO memberVO;	//持有的客户信息
-	private SearchDataService searchDataService;
 	
 	public Search(String memberID) {
 		searchInfomation = new SearchInfomation();
