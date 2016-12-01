@@ -1,20 +1,20 @@
 package bl.dataservice;
 
+import po.HotelPO;
+
 import java.util.ArrayList;
 
-import po.HotelPO;
-import po.MemberPO;
-import po.OrderPO;
-import po.RoomPO;
-
+/**
+ * Created by zhangxinyue on 2016/12/1.
+ */
 public interface HotelDataService {
-
-	public MemberPO getMInformation(String memberID);
-	public ArrayList<OrderPO> getOrderList(String hotelID,String time);
-	public OrderPO getOrder(String orderID);
-	public HotelPO getHotelInformat(String hotelID);
-	public boolean updataOrder(String orderID, OrderPO OR);
-	public boolean updataHotelInformat(String hotelID, HotelPO po);
-	public boolean check(String orderID, String memberID, String roomID, RoomPO RO, int mark);
-	
+	public boolean addHotel(HotelPO hotel);
+	public boolean deleteHotel(String hotelID);
+	public boolean updateHotel(HotelPO hotel);
+	public HotelPO getHotelByID(String hotelID);
+	public HotelPO getHotelByName(String hotelName);
+	public ArrayList<HotelPO> getHotelListByCityDistrict(String city, String district);
+	public ArrayList<HotelPO> getHotelListSortedByScore(double lowScore, double highScore, String hotelScope);
+	public ArrayList<HotelPO> getHotelListFilteredByLevel(int level, String hotelScope);
+	public ArrayList<HotelPO> getHotelListFilteredByPrice(double lowPrice, double highPrice, String hotelScope);
 }

@@ -1,17 +1,13 @@
 package bl.dataservice;
 
-import java.util.ArrayList;
+import po.ManagerPO;
 
-import po.HotelPO;
-import po.MemberPO;
-
+/**
+ * Created by apple on 2016/12/1.
+ * @author  张新悦
+ * @version 2016-12-01
+ */
 public interface ManagerDataService {
-	
-	public boolean addMember(MemberPO member);
-	public boolean deleteMember(MemberPO member);
-	public ArrayList<MemberPO> getMemberList(String limit);	
-	public boolean addHotel(HotelPO hotel);
-	public boolean deleteHotel(HotelPO hotel);
-	public ArrayList<HotelPO> getHotelList(String limit);
-	
+	public boolean updateManager(ManagerPO manager);
+	public ManagerPO getManager();
 }

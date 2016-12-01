@@ -2,11 +2,15 @@ package bl.implementation;
 
 import bl.dataservice.MemberDataService;
 import bl.service.MemberBLService;
-import other.*;
+
+import other.MemberType;
 import po.MemberPO;
+import vo.CreditChangeVO;
 import vo.MemberVO;
+import vo.OrderVO;
 
 import java.util.ArrayList;
+import java.util.Date;
 
 
 public class Member implements MemberBLService {
@@ -18,7 +22,11 @@ public class Member implements MemberBLService {
 	private Reserve reserve;
 	private Order order;
 
-	public Member(){
+	public Member() {
+		
+	}
+	
+	public Member(String memberID) {
 		
 	}
 	
@@ -38,7 +46,7 @@ public class Member implements MemberBLService {
 	}
 	
 	@Override
-	public ArrayList<CreditChange> getCreditChangeList() {
+	public ArrayList<CreditChangeVO> getCreditChangeList() {
 		return null;
 	}
 	
@@ -63,7 +71,7 @@ public class Member implements MemberBLService {
 	}
 	
 	@Override
-	public Enterprise getEnterprise() {
+	public String getEnterprise() {
 		return null;
 	}
 	
@@ -73,32 +81,29 @@ public class Member implements MemberBLService {
 	}
 	
 	@Override
-	public boolean setMemberInformation(MemberVO memberVO) {
+	public boolean updateMemberInformation(MemberVO memberVO) {
 		return false;
 	}
 	
 	@Override
-	public void startSearch() {
-		search = new Search(memberVO);
+	public boolean startSearch() {
+		search = new Search(memberVO.getUserID());
+		return false;
 	}
 	
 	@Override
-	public void newReservation() {
-		reserve = new Reserve(memberVO);
+	public boolean newReservation(String hotelID, String roomID) {
+		reserve = new Reserve(memberVO.getUserID());
+		return false;
 	}
 	
 	@Override
-	public void showOrder() {
-		
+	public boolean markHotel() {
+		return false;
 	}
 	
 	@Override
-	public void markHotel() {
-		
-	}
-	
-	@Override
-	public void CreateOrder() {
-		
+	public boolean CreateOrder(OrderVO orderVO) {
+		return false;
 	}
 }

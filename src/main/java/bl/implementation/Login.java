@@ -1,9 +1,14 @@
 package bl.implementation;
 
-import bl.dataservice.LoginDataService;
+import bl.dataservice.MemberDataService;
 import bl.service.LoginBLService;
-import other.User;
+import other.MemberType;
+import other.Rank;
+import other.UserType;
+import po.MemberPO;
 import vo.MemberVO;
+
+import java.util.Date;
 
 /**
  * login模块bl的实现类
@@ -12,7 +17,7 @@ import vo.MemberVO;
  */
 public class Login implements LoginBLService {
 	
-	private LoginDataService loginDataService;
+	private MemberDataService memberDataService;
 	
 	public Login() {
 		
@@ -20,7 +25,7 @@ public class Login implements LoginBLService {
 	
 	@Override
 	public boolean checkNetwork() {
-		return false;
+		return true;
 	}
 	
 	@Override
@@ -30,7 +35,7 @@ public class Login implements LoginBLService {
 	
 	@Override
 	public boolean validPassword(String password) {
-		return false;
+		return true;
 	}
 	
 	@Override
@@ -40,6 +45,22 @@ public class Login implements LoginBLService {
 	
 	@Override
 	public boolean register(MemberVO memberVO) {
-		return false;
+		String userID = memberVO.getUserID();
+		String password = memberVO.getPassword();
+		String name = memberVO.getName();
+		String tel = memberVO.getTel();
+		int level = 1;
+		double discount = 1;
+		MemberType memberType = memberVO.getMemberType();
+		Date birthday = memberVO.getBirthday();
+		String enterprise = memberVO.getEnterprise();
+		MemberPO memberPO = new MemberPO(userID, password, name, tel,
+				level, discount, memberType, birthday, enterprise);
+		return memberDataService.addMember(memberPO);
+	}
+	
+	@Override
+	public UserType getUserType(String userID) {
+		return null;
 	}
 }

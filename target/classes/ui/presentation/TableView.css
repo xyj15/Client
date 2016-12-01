@@ -1,0 +1,6 @@
+.table-view .column-header .label {
+    -fx-font-size: 14pt;
+    -fx-font-family: "Microsoft YaHei";
+    -fx-text-fill: white;
+    -fx-opacity: 1;
+}

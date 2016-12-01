@@ -6,13 +6,27 @@ import other.RoomType;
 import po.RoomPO;
 import vo.RoomVO;
 
+import java.lang.reflect.Array;
+import java.util.ArrayList;
+
 public class Room implements RoomBLService {
 	
-	private RoomVO room;
+	private ArrayList<RoomVO> roomVOList;
+	private ArrayList<RoomPO> roomPOList;
 	private RoomDataService roomDataService;
+	private RoomVO room;
 
+	public Room(String hotelID) {
+		
+	}
+	
 	public Room() {
 		
+	}
+	
+	@Override
+	public ArrayList<RoomVO> getRoomList(String hotelID) {
+		return null;
 	}
 	
 	/**
@@ -22,9 +36,9 @@ public class Room implements RoomBLService {
 	 * @version 2016-11-13 16:17
 	 */
 	@Override
-	public RoomVO getRoom(String num){
-		if(room.getNumber().equals(num)) return room;
-		RoomPO temp = roomDataService.getRoom(num);
+	public RoomVO getRoomInformation(String num){
+		if(room.getRoomNumber().equals(num)) return room;
+		//RoomPO temp = roomDataService.getRoomInformation(num);
 		//room = new RoomVO(temp.getValid(), temp.getNumber(), temp.getRoomType(), temp.getPrice());
 		return room;
 	}
@@ -35,7 +49,7 @@ public class Room implements RoomBLService {
 	 * @version 2016-11-13 17:23
 	 */
 	@Override
-	public boolean updateRoom(RoomVO room) {
+	public boolean updateRoom(String roomID, RoomVO room) {
 		// TODO Auto-generated method stub
 		this.room=room;
 		//RoomPO temp = new RoomPO(room.isAvailable(), room.getNumber(), room.getType(), room.getPrice());
@@ -46,7 +60,7 @@ public class Room implements RoomBLService {
 
 	@Override
 	public boolean deleteRoom(String roomNUM) {
-		return roomDataService.deleteRoom(roomNUM);
+		return false;
 	}
 
 	/**

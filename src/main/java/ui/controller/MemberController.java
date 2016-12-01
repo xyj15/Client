@@ -2,8 +2,11 @@ package ui.controller;
 
 import bl.implementation.Member;
 import bl.service.MemberBLService;
+import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
+import javafx.stage.Stage;
 import ui.controllerservice.MemberControllerService;
-import ui.presentation.MemberUI;
+import ui.presentation.*;
 import vo.MemberVO;
 import vo.OrderVO;
 
@@ -13,87 +16,83 @@ import java.util.List;
 /**
  * Created by 97147 on 2016/11/26.
  */
-public class MemberController implements MemberControllerService {
+public class MemberController{
 
-    private MemberUI memberUI;
-    private MemberBLService memberBL = new Member();
+   // private MemberBLService memberBL = new Member();
+    private static Stage primaryStage;
 
-    public   MemberController(MemberUI memberUI){
-        this.memberUI=memberUI;
-    }
 
-    @Override
-    public MemberVO getMInformation(String memberID) {
-        return null;
-    }
-    
-    @Override
-    public boolean changeMInformation() {
-        memberUI.changeMInformation();
-        return true;
-    }
-
-    @Override
-    public boolean saveMInformation(String memberID, MemberVO M) {
-        memberBL.setMemberInformation(M);
-        return true;
-    }
-
-    @Override
-    public boolean show() {
-        memberUI.show();
-        return true;
-    }
-
-    @Override
-    public OrderVO getOrder(String orderID) {
-        return null;
-    }
-
-    @Override
-    public List<OrderVO> gerOrderList(String userID) {
-        return null;
-    }
-
-    @Override
-    public boolean cancelOrder(String orderID) {
-//        memberBL.cancelOrder(orderID);
-        return true;
-    }
-
-    @Override
-    public ArrayList<OrderVO> getUnOrder(String userID) {
-        return null;
-    }
-
-    @Override
-    public ArrayList<OrderVO> getAlOrder(String userID) {
-        return null;
-    }
-
-    @Override
-    public ArrayList<OrderVO> getAandCOrder(String userID) {
-        return null;
+    public static void setPrimaryStage(Stage in) {
+        primaryStage = in;
     }
 
 
-    public void getMInformationButtonClicked(){
-        memberUI.getMInformationButtonClicked();
+    @FXML
+    private void onSearch(ActionEvent E)throws Exception {
+        new MemberSearchUI().start(primaryStage);
+    }
+    @FXML
+    private void onMenberInfor(ActionEvent E)throws Exception {
+        new MemberInformationUI().start(primaryStage);
+    }
+    @FXML
+    private void onOrderInfor(ActionEvent E)throws Exception {
+        new MemberUnprocessedOrderUI().start(primaryStage);
+    }
+    @FXML
+ private void onExecuteOrder(ActionEvent E)throws Exception {
+     new MemberProcessedOrderUI().start(primaryStage);
+ }
+ @FXML
+ private void onCancelOrder(ActionEvent E)throws Exception {
+     new MemberCancelOrder().start(primaryStage);
+ }
+ @FXML
+ private void onAbnormalOrder(ActionEvent E)throws Exception {
+     new MemberAbnormalOrder().start(primaryStage);
+ }
+ @FXML//实现撤销
+ private void onCancel(ActionEvent E)throws Exception {
+ }
+ @FXML//实现评价
+ private void onComment(ActionEvent E)throws Exception {
+ }
+    @FXML
+    private void onPastHotel(ActionEvent E)throws Exception {
+        new MemberHisitoryHotelUI().start(primaryStage);
+    }
+    @FXML
+    private void onLogOut(ActionEvent E)throws Exception {
+        new LoginUI().start(primaryStage);
+    }
+    @FXML
+    private void onLookingInfor(ActionEvent E)throws Exception {
+      new MemberHotelInformationUI().start(primaryStage);
+    }
+    @FXML
+    private void onChangeInfor(ActionEvent E)throws Exception {
+
+    }
+    @FXML
+    private void onSearchLimited(ActionEvent E)throws Exception {
+     new MemberSearchListUI().start(primaryStage);
+    }
+    @FXML
+    private void onSearchAll(ActionEvent E)throws Exception {
+     new MemberSearchListUI().start(primaryStage);
     }
 
-    public void saveMInformationButtonClicked(){
-        memberUI.saveMInformationButtonClicked();
+    //排序，暂时为空
+    @FXML
+    private void onSortWithLevel(ActionEvent E)throws Exception {
+
     }
-    public void getCreditInforButtonClicked(){
-        memberUI.getCreditInforButtonClicked();
+    @FXML
+    private void onSortWithPrice(ActionEvent E)throws Exception {
+
     }
-    public void getPastHotelButtonClicked(){
-        memberUI.getPastHotelButtonClicked();
-    }public void searchButtonClicked(){
-        memberUI.searchButtonClicked();
-    }public void searchPastButtonClicked(){
-        memberUI.searchPastButtonClicked();
-    }public void reserveButtonClicked(){
-        memberUI.reserveButtonClicked();
+    @FXML
+    private void onSortWithComment(ActionEvent E)throws Exception {
+
     }
 }

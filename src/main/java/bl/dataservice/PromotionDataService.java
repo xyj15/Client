@@ -4,12 +4,16 @@ import java.util.ArrayList;
 
 import po.PromotionPO;
 
+/**
+ * Promotion模块bl层和data层之间的接口
+ * @author CROFF
+ * @version 2016-11-30
+ */
 public interface PromotionDataService {
 	
-	public boolean insert(PromotionPO user);
-	public boolean delete(PromotionPO user);
-	public boolean update(PromotionPO user);
-	public PromotionPO getPromotion(String promotionID);
-	public ArrayList<PromotionPO> getPromotionList(String userID);
-	
+	public PromotionPO getPromotion(String promotionID);	//获得促销策略信息
+	public boolean addPromotion(PromotionPO promotion);	//添加促销策略
+	public boolean deletePromotion(String promotionID);	//删除促销策略
+	public boolean updatePromotion(String promotionID, PromotionPO promotion);	//更新促销策略信息
+	public ArrayList<PromotionPO> getPromotionList();	//获得促销策略列表
 }

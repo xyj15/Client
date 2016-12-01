@@ -1,11 +1,13 @@
 package bl.implementation;
 
-import java.util.ArrayList;
+import java.util.*;
 
-import bl.dataservice.SearchDataService;
+import bl.dataservice.HotelDataService;
+import bl.dataservice.MemberDataService;
+import bl.dataservice.OrderDataService;
 import bl.service.SearchBLService;
 import other.*;
-import other.RoomType;
+import po.MemberPO;
 import vo.*;
 
 /**
@@ -19,115 +21,113 @@ public class Search implements SearchBLService {
 	private ArrayList<HotelVO> searchHotelList;	//搜索出来的酒店列表，暂时使用ArrayList存储
 	private ArrayList<HotelVO> reservedHotelList;	//预定过的酒店列表，暂时使用ArrayList存储
 	private SearchInfomation searchInfomation;	//搜索限制条件
-	private SortStratedy sortStratedy;	// 排序条件
-	private MemberVO memberVO;	//持有的客户信息
-	private SearchDataService searchDataService;
+	private MemberPO memberPO;	//持有的客户信息
 	
-	public Search(MemberVO memberVO) {
-		allHotelList = null;
+	private HotelDataService hotelDataService;
+	private MemberDataService memberDataService;
+	private OrderDataService orderDataService;
+	
+	public Search(String memberID) {
 		searchInfomation = new SearchInfomation();
-		this.memberVO = memberVO;
+		memberPO = memberDataService.getMember(memberID);
+	}
+	
+	public Search() {
+		
 	}
 
 	@Override
-	public void setAddress(String address) {
+	public boolean setAddress(String address) {
 		searchInfomation.setAddress(address);
+		return true;
 	}
 	
 	@Override
-	public void setDistrict(String district) {
+	public boolean setDistrict(String district) {
 		searchInfomation.setDistrict(district);
+		return true;
 	}
 	
 	@Override
-	public void setHotelName(String hotelName) {
+	public boolean setHotelName(String hotelName) {
 		searchInfomation.setHotelName(hotelName);
+		return true;
 	}
 	
 	@Override
-	public void setLevel(int level) {
+	public boolean setLevel(int level) {
 		searchInfomation.setLevel(level);
+		return true;
 	}
 	
 	@Override
-	public void setScore(double score) {
-		searchInfomation.setScore(score);
-	}
-	
-	@Override
-	public void setRoomType(RoomType roomType) {
+	public boolean setRoomType(RoomType roomType) {
 		searchInfomation.setRoomType(roomType);
+		return true;
 	}
 	
 	@Override
-	public void setLowerPrice(double lowerPrice) {
+	public boolean setLowerPrice(double lowerPrice) {
 		searchInfomation.setLowerPrice(lowerPrice);
+		return true;
 	}
 	
 	@Override
-	public void setUpperPrice(double upperPrice) {
+	public boolean setUpperPrice(double upperPrice) {
 		searchInfomation.setUpperPrice(upperPrice);
+		return true;
 	}
 	
 	@Override
-	public void setCheckinTime(Date checkinTime) {
+	public boolean setLowerScore(double lowerScore) {
+		searchInfomation.setLowerScore(lowerScore);
+		return true;
+	}
+	
+	@Override
+	public boolean setUpperScore(double upperScore) {
+		searchInfomation.setUpperScore(upperScore);
+		return true;
+	}
+	
+	@Override
+	public boolean setCheckinTime(Date checkinTime) {
 		searchInfomation.setCheckinTime(checkinTime);
+		return true;
 	}
 	
 	@Override
-	public void setCheckoutTime(Date checkoutTime) {
+	public boolean setCheckoutTime(Date checkoutTime) {
 		searchInfomation.setCheckoutTime(checkoutTime);
+		return true;
 	}
 	
 	@Override
-	public void setOnlyReservationBefore(boolean onlyReservationBefore) {
+	public boolean setOnlyReservationBefore(boolean onlyReservationBefore) {
 		searchInfomation.setOnlyReservationBefore(onlyReservationBefore);
+		return true;
 	}
 	
 	@Override
 	public ArrayList<HotelVO> search() {
-//		String address = searchInfomation.getAddress();
-//		String district = searchInfomation.getDistrict();
-//		ArrayList<HotelVO> resultList = new ArrayList<HotelVO>();
-//
-//		if(address==null && district==null) {
-//			return null;
-//		} else if(address==null) {
-//			for(int i = 0; i< allHotelList.size(); i++) {
-//				if(district.equals(allHotelList.get(i).getDistrict())) {
-//					resultList.add(allHotelList.get(i));
-//				}
-//			}
-//			return resultList;
-//		} else {
-//			for(int i = 0; i< allHotelList.size(); i++) {
-//				if(address.equals(allHotelList.get(i).getAddress())) {
-//					resultList.add(allHotelList.get(i));
-//				}
-//			}
-//			return resultList;
-//		}
 		return null;
 	}
 	
 	@Override
 	public ArrayList<RoomVO> getRoomList(String hotelID) {
-//		for(int i = 0; i< allHotelList.size(); i++) {
-//			if(allHotelList.get(i).getHotelID().equals(hotelID)) {
-//				return allHotelList.get(i).getRoomList();
-//			}
-//		}
 		return null;
 	}
 	
 	@Override
-	public void setSelectedHotel(HotelVO hotelVO) {
+	public boolean setSelectedHotel(HotelVO hotelVO) {
 		
+		return false;
 	}
 	
 	@Override
-	public void setSelectedRoom(RoomVO roomVO) {
+	public boolean setSelectedRoom(RoomVO roomVO) {
 		
+		return false;
 	}
 	
 	@Override
@@ -160,31 +160,39 @@ public class Search implements SearchBLService {
 		return null;
 	}
 	
+	public MemberPO getMemberPO() {
+		return memberPO;
+	}
+	
+	public void setMemberPO(MemberPO memberPO) {
+		this.memberPO = memberPO;
+	}
+	
+	public SearchInfomation getSearchInfomation() {
+		return searchInfomation;
+	}
+	
+	public ArrayList<HotelVO> getAllHotelList() {
+		return allHotelList;
+	}
+	
 	public void setAllHotelList(ArrayList<HotelVO> allHotelList) {
 		this.allHotelList = allHotelList;
 	}
-
-	public String getAddress() {
-		return searchInfomation.getAddress();
-	}
-
-	public String getDistrict() {
-		return searchInfomation.getDistrict();
+	
+	public ArrayList<HotelVO> getSearchHotelList() {
+		return searchHotelList;
 	}
 	
-	public MemberVO getMemberVO() {
-		return memberVO;
+	public void setSearchHotelList(ArrayList<HotelVO> searchHotelList) {
+		this.searchHotelList = searchHotelList;
 	}
 	
-	public void setMemberVO(MemberVO memberVO) {
-		this.memberVO = memberVO;
+	public ArrayList<HotelVO> getReservedHotelList() {
+		return reservedHotelList;
 	}
 	
-	public SortStratedy getSortStratedy() {
-		return sortStratedy;
-	}
-	
-	public void setSortStratedy(SortStratedy sortStratedy) {
-		this.sortStratedy = sortStratedy;
+	public void setReservedHotelList(ArrayList<HotelVO> reservedHotelList) {
+		this.reservedHotelList = reservedHotelList;
 	}
 }

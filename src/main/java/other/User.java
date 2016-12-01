@@ -6,39 +6,75 @@ package other;
  * @version 2016-11-28
  */
 public class User {
+
+	private String userID;	//用户ID
+	private String password;	//密码
+	private UserType userType;	//用户类型
 	
-	private String username;
-	private String password;
-	private UserType userType;
-	
+	/**
+	 * 空构造方法
+	 */
 	public User() {
-		
+
 	}
 	
-	public User(String username, String password) {
-		this.username = username;
+	/**
+	 * 不带用户类型的构造方法
+	 * @param userID 用户ID
+	 * @param password 密码
+	 */
+	public User(String userID, String password) {
+		this.userID = userID;
 		this.password = password;
 	}
 	
-	public User(String username, String password, UserType userType) {
-		this.username = username;
+	/**
+	 * 带用户类型的构造方法
+	 * @param userID 用户ID
+	 * @param password 密码
+	 * @param userType 用户类型
+	 */
+	public User(String userID, String password, UserType userType) {
+		this.userID = userID;
 		this.password = password;
-		this.username = username;
+		this.userType = userType;
 	}
 	
-	public boolean checkIdentity(String username, String password) {
-		if(this.username.equals(username) && this.password.equals(password)) {
+	/**
+	 * 检查用户名和密码
+	 * @param userID 用户ID
+	 * @param password 密码
+	 * @return 正确则true，否则false
+	 */
+	public boolean checkIdentity(String userID, String password) {
+		if(this.userID.equals(userID) && this.password.equals(password)) {
 			return true;
 		} else {
 			return false;
 		}
 	}
-	
+
+	public String getUserID() {
+		return userID;
+	}
+
+	public void setUserID(String userID) {
+		this.userID = userID;
+	}
+
+	public String getPassword() {
+		return password;
+	}
+
+	public void setPassword(String password) {
+		this.password = password;
+	}
+
 	public UserType getUserType() {
 		return userType;
 	}
-	
-	public String getUsername() {
-		return username;
+
+	public void setUserType(UserType userType) {
+		this.userType = userType;
 	}
 }

@@ -2,25 +2,15 @@ package bl.implementation;
 
 import java.util.ArrayList;
 
-import bl.dataservice.HotelDataService;
-import bl.dataservice.MemberDataService;
 import bl.dataservice.ManagerDataService;
-import bl.dataservice.SalerDataService;
 import bl.service.ManagerBLService;
 import other.User;
-import po.HotelPO;
-import po.ManagerPO;
-import po.MemberPO;
-import po.SalerPO;
 import vo.HotelVO;
-import vo.ManagerVO;
 import vo.MemberVO;
 import vo.SalerVO;
 
 public class Manager implements ManagerBLService {
 
-	private ManagerVO managerVO;
-	private ManagerPO managerPO;
 	private ManagerDataService managerDataService;
 	
 	private ArrayList<HotelVO> hotelList;
@@ -38,7 +28,7 @@ public class Manager implements ManagerBLService {
 	}
 	
 	@Override
-	public boolean deleteMember(MemberVO member) {
+	public boolean deleteMember(String memberID) {
 		return false;
 	}
 	
@@ -48,8 +38,8 @@ public class Manager implements ManagerBLService {
 	}
 	
 	@Override
-	public void updateMemberInformation(MemberVO memberVO) {
-		
+	public boolean updateMemberInformation(String memberID, MemberVO memberVO) {
+		return false;
 	}
 	
 	@Override
@@ -58,23 +48,23 @@ public class Manager implements ManagerBLService {
 	}
 	
 	@Override
-	public void addHotel(HotelVO hotelVO) {
-		
+	public boolean addHotel(HotelVO hotelVO) {
+		return false;
 	}
 	
 	@Override
-	public void addHotelManager(String hotelId, String name, String tel) {
-		
+	public boolean addHotelManager(String hotelId, String name, String tel) {
+		return false;
 	}
 	
 	@Override
-	public void deleteHotel(HotelVO hotel) {
-		
+	public boolean deleteHotel(String hotelID) {
+		return false;
 	}
 	
 	@Override
-	public void updateHotelManagerInformation(String hotelId, String name, String tel) {
-		
+	public boolean updateHotelManagerInformation(String hotelId, String name, String tel) {
+		return false;
 	}
 	
 	@Override
@@ -93,13 +83,13 @@ public class Manager implements ManagerBLService {
 	}
 	
 	@Override
-	public boolean deleteSaler(SalerVO saler) {
+	public boolean deleteSaler(String salerID) {
 		return false;
 	}
 	
 	@Override
-	public void updateSalerInformation(SalerVO salerVO) {
-		
+	public boolean updateSalerInformation(String salerID, SalerVO salerVO) {
+		return false;
 	}
 	
 	@Override
@@ -184,7 +174,7 @@ public class Manager implements ManagerBLService {
 //		member.setMemberID(temp.getMemberID());
 //		member.setName(temp.getName());
 //		member.setPassword(temp.getPassword());
-//		member.setTel(temp.getPhone());
+//		member.setPhone(temp.getPhone());
 //		//hotel.setRoomList(temp.getRoomList());
 //		return member;
 //	}
@@ -193,7 +183,7 @@ public class Manager implements ManagerBLService {
 //		// TODO Auto-generated method stub
 //		this.member=member;
 //		//HotelPO temp = new HotelPO(hotel.getHotelID(), hotel.getName(), hotel.getAddress(), hotel.getLevel(), hotel.getDistrict());
-//		//new MemberPO(member.getMemberID(),member.getName(), member.getPassword(), member.getBirthday(), member.getCredit(),member.getTel());
+//		//new MemberPO(member.getMemberID(),member.getName(), member.getPassword(), member.getBirthday(), member.getCredit(),member.getPhone());
 //		//hot.updataHotelInformat(hotel.getHotelID(), temp);
 //		//System.out.println(this.member.getCredit());
 //		return true;
@@ -202,16 +192,16 @@ public class Manager implements ManagerBLService {
 //	public boolean addMember(MemberVO member) {
 //		// TODO Auto-generated method stub
 //		this.member=member;
-//		//MemberPO temp = new MemberPO(member.getMemberID(), member.getName(), member.getPassword(), member.getBirthday(), member.getCredit(), member.getTel());
+//		//MemberPO temp = new MemberPO(member.getMemberID(), member.getName(), member.getPassword(), member.getBirthday(), member.getCredit(), member.getPhone());
 //		//mem.saveMInformation(temp.getMemberID(), temp);
-//		//new MemberPO(member.getMemberID(), member.getName(), member.getPassword(), member.getBirthday(), member.getCredit(), member.getTel());
+//		//new MemberPO(member.getMemberID(), member.getName(), member.getPassword(), member.getBirthday(), member.getCredit(), member.getPhone());
 //		return true;
 //	}
 //
 //	public boolean deleteMember(MemberVO member) {
 //		// TODO Auto-generated method stub
 //		this.member=member;
-//		//MemberPO temp = new MemberPO(member.getMemberID(), member.getName(), member.getPassword(), member.getBirthday(), member.getCredit(), member.getTel());
+//		//MemberPO temp = new MemberPO(member.getMemberID(), member.getName(), member.getPassword(), member.getBirthday(), member.getCredit(), member.getPhone());
 //		//user.deleteMember(temp);
 //		member=null;
 //		return true;

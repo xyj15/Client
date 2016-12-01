@@ -1,34 +1,50 @@
 package bl.implementation;
 
-import other.CreditChange;
+import bl.dataservice.CreditDataService;
+import bl.service.CreditBLService;
+import vo.CreditChangeVO;
 
 import java.util.ArrayList;
 
 /**
  * Created by 97147 on 2016/11/18.
+ * Credit模块的bl实现类
+ * @author CROFF
+ * @version 2016-12-1
  */
-public class Credit {
+public class Credit implements CreditBLService {
 
-    private double credit;
-    private ArrayList<Double> creditChangeList;
+	private double credit;
+    private ArrayList<CreditChangeVO> creditChangeList;
+	private CreditDataService creditDataService;
 
-    public  Credit(double credit){
-        this.credit = credit;
-        creditChangeList = new ArrayList<Double>();
+	public Credit() {
+		
+	}
+	
+    public Credit(String memberID) {
+        
     }
-    
-    public double getCredit() {
+	
+	@Override
+	public ArrayList<CreditChangeVO> getCreditChangeList() {
+		return creditChangeList;
+	}
+	
+	@Override
+	public double getCredit() {
 		return credit;
 	}
 	
-	public void creditChange(CreditChange creditChange) {
+	public void creditChange(CreditChangeVO creditChange) {
 		
 	}
 
     public boolean checkCredit() {
-        if(credit>=0){
+        if(credit>=0) {
             return true;
-        }
-        return false;
+        } else {
+			return false;
+		}
     }
 }

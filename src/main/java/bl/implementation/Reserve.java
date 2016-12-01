@@ -1,9 +1,10 @@
 package bl.implementation;
 
 import bl.service.ReserveBLService;
-import other.*;
 import other.RoomType;
 import vo.*;
+
+import java.util.Date;
 
 public class Reserve implements ReserveBLService {
 
@@ -24,13 +25,18 @@ public class Reserve implements ReserveBLService {
 	private String clientTel;
 	private String otherReq;
 	
-	public Reserve(MemberVO member) {
-		this.member = member;
+	public Reserve(String memberID) {
+		
+	}
+	
+	public Reserve() {
+		
 	}
 	
 	@Override
-	public void setPromotion(PromotionVO promotion) {
+	public boolean setPromotion(PromotionVO promotion) {
 		this.promotion = promotion;
+		return false;
 	}
 	
 	@Override
@@ -64,53 +70,56 @@ public class Reserve implements ReserveBLService {
 	}
 	
 	@Override
-	public void setCheckinTime(Date checkinTime) {
-		this.checkinTime = checkinTime;
+	public boolean setCheckinTime(java.util.Date checkinTime) {
+		return false;
 	}
 	
 	@Override
-	public void setChekckoutTime(Date chekckoutTime) {
-		this.checkoutTime = chekckoutTime;
+	public boolean setChekckoutTime(java.util.Date chekckoutTime) {
+		return false;
 	}
 	
 	@Override
-	public void setLatestArriveTime(Time time) {
-		
+	public boolean setLatestArriveTime(java.util.Date date) {
+		return false;
 	}
 	
 	@Override
-	public void setClientName(String clientName) {
+	public boolean setClientName(String clientName) {
 		this.clientName = clientName;
+		return false;
 	}
 	
 	@Override
-	public void setClientTel(String clientTel) {
+	public boolean setClientTel(String clientTel) {
 		this.clientTel = clientTel;
+		return false;
 	}
 	
 	@Override
-	public void setNumberOfClient(int numberOfClient) {
-		
+	public boolean setNumberOfClient(int numberOfClient) {
+		return false;
 	}
 	
 	@Override
-	public void setHasKids(boolean hasKids) {
-		
+	public boolean setHasKids(boolean hasKids) {
+		return false;
 	}
 	
 	@Override
-	public void setNumberOfRoom(int numberOfRoom) {
-		
+	public boolean setNumberOfRoom(int numberOfRoom) {
+		return false;
 	}
 	
 	@Override
-	public void setOtherReq(String otherReq) {
+	public boolean setOtherReq(String otherReq) {
 		this.otherReq = otherReq;
+		return false;
 	}
 	
 	@Override
-	public void createOrder() {
-		
+	public boolean createOrder() {
+		return false;
 	}
 	
 	public MemberVO getMember() {

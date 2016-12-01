@@ -13,6 +13,10 @@ public class Promotion implements PromotionBLService {
 	private ArrayList<PromotionVO> promotionVOList;
 	private ArrayList<PromotionPO> promotionPOList;
 	
+	public Promotion(String userID) {
+		
+	}
+	
 	public Promotion() {
 		
 	}
@@ -38,7 +42,12 @@ public class Promotion implements PromotionBLService {
 	}
 	
 	@Override
-	public ArrayList<PromotionVO> getPromotionList() {
+	public ArrayList<PromotionVO> getHotelPromotionList(String hotelID) {
+		return null;
+	}
+	
+	@Override
+	public ArrayList<PromotionVO> getAllPromotionList() {
 		return null;
 	}
 

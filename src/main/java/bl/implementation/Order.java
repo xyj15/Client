@@ -10,27 +10,36 @@ import java.util.ArrayList;
 
 public class Order implements OrderBLService {
 
-	private ArrayList<OrderVO> orderVOList;
-	private ArrayList<OrderPO> orderPOList;
+	private ArrayList<OrderPO> orderList;
 	private OrderDataService orderDataService;
-	private User user;
+	private String userID;
 	
-	public Order(User user) {
-		this.user = user;
+	public Order(String userID) {
+		this.userID = userID;
+		orderList = orderDataService.getOrderList(userID);
 	}
 	
 	@Override
 	public ArrayList<OrderVO> getOrderList() {
-		return null;
-	}
-	
-	@Override
-	public ArrayList<OrderVO> getAllOrder() {
+		orderList = orderDataService.getOrderList(userID);
+		
+		ArrayList<OrderVO> orderVOList = new ArrayList<OrderVO>();
+		OrderPO orderPO;
+		OrderVO orderVO;
+		for(int i=0; i<orderList.size(); i++) {
+			orderPO = orderList.get(i);
+			
+		}
 		return null;
 	}
 	
 	@Override
 	public ArrayList<OrderVO> getExcutedOrders() {
+		return null;
+	}
+	
+	@Override
+	public ArrayList<OrderVO> getUnexcutedOrders() {
 		return null;
 	}
 	
@@ -45,18 +54,26 @@ public class Order implements OrderBLService {
 	}
 	
 	@Override
-	public void cancelOrder(String orderID) {
-		
+	public boolean cancelOrder(String orderID) {
+		return false;
 	}
 	
 	@Override
-	public void evaluateOrder(double score, String comment) {
-		
+	public boolean evaluateOrder(double score, String comment) {
+		return false;
 	}
 	
 	@Override
-	public void cancelAbnormalOrder(String orderID, double recover) {
-		
+	public boolean cancelAbnormalOrder(String orderID, double recover) {
+		return false;
+	}
+	
+	public String getUserID() {
+		return userID;
+	}
+	
+	public void setUserID(String userID) {
+		this.userID = userID;
 	}
 
 //	public OrderVO getOrder(String orderID) {
