@@ -4,7 +4,6 @@ import bl.dataservice.MemberDataService;
 import bl.service.MemberBLService;
 
 import other.CreditChange;
-import other.Enterprise;
 import other.MemberType;
 import po.MemberPO;
 import vo.MemberVO;
@@ -72,7 +71,7 @@ public class Member implements MemberBLService {
 	}
 	
 	@Override
-	public Enterprise getEnterprise() {
+	public String getEnterprise() {
 		return null;
 	}
 	

@@ -25,12 +25,12 @@
             <Image url="@background.jpg" />
          </image>
       </ImageView>
-      <Button layoutX="43.0" layoutY="200.0" mnemonicParsing="false" opacity="0.67" prefHeight="23.0" prefWidth="181.0" style="-fx-background-color: #000f32;" text="预定酒店" textFill="WHITE">
+      <Button layoutX="43.0" layoutY="200.0" mnemonicParsing="false" onAction="#onSearch" opacity="0.67" prefHeight="23.0" prefWidth="181.0" style="-fx-background-color: #000f32;" text="搜索酒店" textFill="WHITE">
          <font>
             <Font name="Microsoft YaHei Bold" size="16.0" />
          </font>
       </Button>
-      <Button layoutX="43.0" layoutY="270.0" mnemonicParsing="false" opacity="0.66" prefHeight="23.0" prefWidth="181.0" style="-fx-background-color: #000f32;" text="查看个人信息" textFill="WHITE">
+      <Button layoutX="43.0" layoutY="270.0" mnemonicParsing="false" onAction="#onMenberInfor" opacity="0.66" prefHeight="23.0" prefWidth="181.0" style="-fx-background-color: #000f32;" text="查看个人信息" textFill="WHITE">
          <font>
             <Font name="Microsoft YaHei Bold" size="16.0" />
          </font>
@@ -41,12 +41,12 @@
             <Image url="@logo.png" />
          </image>
       </ImageView>
-      <Button layoutX="43.0" layoutY="340.0" mnemonicParsing="false" opacity="0.66" prefHeight="23.0" prefWidth="181.0" style="-fx-background-color: #000f32;" text="查看订单信息" textFill="WHITE">
+      <Button layoutX="43.0" layoutY="340.0" mnemonicParsing="false" onAction="#onOrderInfor" opacity="0.66" prefHeight="23.0" prefWidth="181.0" style="-fx-background-color: #000f32;" text="查看订单信息" textFill="WHITE">
          <font>
             <Font name="Microsoft YaHei Bold" size="16.0" />
          </font>
       </Button>
-      <Button layoutX="43.0" layoutY="410.0" mnemonicParsing="false" opacity="0.66" prefHeight="23.0" prefWidth="181.0" style="-fx-background-color: #000f32;" text="查看预定过的酒店" textFill="WHITE">
+      <Button layoutX="43.0" layoutY="410.0" mnemonicParsing="false" onAction="#onPastHotel" opacity="0.66" prefHeight="23.0" prefWidth="181.0" style="-fx-background-color: #000f32;" text="查看预定过的酒店" textFill="WHITE">
          <font>
             <Font name="Microsoft YaHei Bold" size="16.0" />
          </font>
@@ -84,7 +84,7 @@
             <Font name="Microsoft YaHei Bold" size="14.0" />
          </font>
       </Label>
-      <Button layoutX="697.0" layoutY="492.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="181.0" style="-fx-background-color: #6B6BCF;" text="查看酒店详细信息" textFill="WHITE">
+      <Button layoutX="697.0" layoutY="492.0" mnemonicParsing="false" onAction="#onLookingInfor" prefHeight="34.0" prefWidth="181.0" style="-fx-background-color: #6B6BCF;" text="查看酒店详细信息" textFill="WHITE">
          <font>
             <Font name="Microsoft YaHei Bold" size="16.0" />
          </font>
@@ -94,7 +94,7 @@
             <Font name="Microsoft YaHei Bold" size="16.0" />
          </font>
       </Label>
-      <Button layoutX="878.0" layoutY="34.0" mnemonicParsing="false" opacity="0.0" prefHeight="34.0" prefWidth="70.0" text="Button" />
+      <Button layoutX="878.0" layoutY="34.0" mnemonicParsing="false" onAction="#onLogOut" opacity="0.0" prefHeight="34.0" prefWidth="70.0" text="Button" />
       <ImageView fitHeight="21.0" fitWidth="17.0" layoutX="885.0" layoutY="37.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@key.png" />

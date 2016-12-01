@@ -155,7 +155,7 @@
 //	 * @version 2016-11-04 14:45
 //	 * @return 以String为表示的客户联系方式
 //	 */
-//	public String getTel(){
+//	public String getPhone(){
 //		return phone;
 //	}
 //

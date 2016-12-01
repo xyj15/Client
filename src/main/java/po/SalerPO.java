@@ -39,4 +39,12 @@ public class SalerPO extends User {
 	public void setTel(String tel) {
 		this.tel = tel;
 	}
+
+	public String getAccount(){
+		return super.getUserID();
+	}
+
+	public String getPassword(){
+		return super.getPassword();
+	}
 }

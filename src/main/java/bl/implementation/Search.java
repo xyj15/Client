@@ -18,7 +18,7 @@ public class Search implements SearchBLService {
 	private ArrayList<HotelVO> searchHotelList;	//搜索出来的酒店列表，暂时使用ArrayList存储
 	private ArrayList<HotelVO> reservedHotelList;	//预定过的酒店列表，暂时使用ArrayList存储
 	private SearchInfomation searchInfomation;	//搜索限制条件
-	private SortStratedy sortStratedy;	// 排序条件
+	private SortStratedy sortStratedy;	//排序条件
 	private MemberVO memberVO;	//持有的客户信息
 	private SearchDataService searchDataService;
 	

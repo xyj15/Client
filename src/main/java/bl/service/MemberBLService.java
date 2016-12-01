@@ -4,7 +4,6 @@ import java.util.ArrayList;
 import java.util.Date;
 
 import other.CreditChange;
-import other.Enterprise;
 import other.MemberType;
 import vo.MemberVO;
 import vo.OrderVO;
@@ -24,7 +23,7 @@ public interface MemberBLService {
 	public double getDiscount();	//获得客户当前等级享受折扣
 	public MemberType getMemberType();	//获得客户的类型（普通客户、企业客户）
 	public Date getBirthday();	//获得客户生日，企业客户此项为null
-	public Enterprise getEnterprise();	//获得客户所属的合作企业，普通客户此项为null
+	public String getEnterprise();	//获得客户所属的合作企业，普通客户此项为null
 	
 	public MemberVO getMemberInformation();	//获得客户信息
 	public boolean updateMemberInformation(MemberVO memberVO);	//更新客户信息

@@ -1,19 +1,15 @@
 package po;
 
-import bl.implementation.Credit;
-import other.Enterprise;
 import other.MemberType;
 import other.User;
 import other.UserType;
 
-import java.util.ArrayList;
 import java.util.Date;
 
 public class MemberPO extends User {
 	
 	private String name;
-	private String tel;
-	private Credit credit;
+	private String phone;
 	private int level;
 	private double discount;
 	private MemberType memberType;
@@ -21,16 +17,14 @@ public class MemberPO extends User {
 	private String enterprise;
 	
 	public MemberPO() {
-		credit = null;
 		memberType = null;
 		birthday = null;
 	}
 	
-	public MemberPO(String name, String tel, Credit credit, int level, double discount,
-					MemberType memberType, Date birthday, String enterprise) {
+	public MemberPO(String name, String phone, int level, double discount,
+	                MemberType memberType, Date birthday, String enterprise) {
 		this.name = name;
-		this.tel = tel;
-		this.credit = credit;
+		this.phone = phone;
 		this.level = level;
 		this.discount = discount;
 		this.memberType = memberType;
@@ -38,17 +32,24 @@ public class MemberPO extends User {
 		this.enterprise = enterprise;
 	}
 	
-	public MemberPO(String userID, String password, String name, String tel, Credit credit,
+	public MemberPO(String userID, String password, String name, String phone,
 					int level, double discount, MemberType memberType, Date birthday, String enterprise) {
 		super(userID, password, UserType.Member);
 		this.name = name;
-		this.tel = tel;
-		this.credit = credit;
+		this.phone = phone;
 		this.level = level;
 		this.discount = discount;
 		this.memberType = memberType;
 		this.birthday = birthday;
 		this.enterprise = enterprise;
+	}
+
+	public String getMemberID() {
+		return super.getUserID();
+	}
+
+	public void setMemberID(String memberID) {
+		super.setUserID(memberID);
 	}
 	
 	public String getName() {
@@ -59,20 +60,12 @@ public class MemberPO extends User {
 		this.name = name;
 	}
 	
-	public String getTel() {
-		return tel;
+	public String getPhone() {
+		return phone;
 	}
 	
-	public void setTel(String tel) {
-		this.tel = tel;
-	}
-	
-	public Credit getCredit() {
-		return credit;
-	}
-	
-	public void setCredit(Credit credit) {
-		this.credit = credit;
+	public void setPhone(String phone) {
+		this.phone = phone;
 	}
 	
 	public int getLevel() {

@@ -174,7 +174,7 @@ public class Manager implements ManagerBLService {
 //		member.setMemberID(temp.getMemberID());
 //		member.setName(temp.getName());
 //		member.setPassword(temp.getPassword());
-//		member.setTel(temp.getPhone());
+//		member.setPhone(temp.getPhone());
 //		//hotel.setRoomList(temp.getRoomList());
 //		return member;
 //	}
@@ -183,7 +183,7 @@ public class Manager implements ManagerBLService {
 //		// TODO Auto-generated method stub
 //		this.member=member;
 //		//HotelPO temp = new HotelPO(hotel.getHotelID(), hotel.getName(), hotel.getAddress(), hotel.getLevel(), hotel.getDistrict());
-//		//new MemberPO(member.getMemberID(),member.getName(), member.getPassword(), member.getBirthday(), member.getCredit(),member.getTel());
+//		//new MemberPO(member.getMemberID(),member.getName(), member.getPassword(), member.getBirthday(), member.getCredit(),member.getPhone());
 //		//hot.updataHotelInformat(hotel.getHotelID(), temp);
 //		//System.out.println(this.member.getCredit());
 //		return true;
@@ -192,16 +192,16 @@ public class Manager implements ManagerBLService {
 //	public boolean addMember(MemberVO member) {
 //		// TODO Auto-generated method stub
 //		this.member=member;
-//		//MemberPO temp = new MemberPO(member.getMemberID(), member.getName(), member.getPassword(), member.getBirthday(), member.getCredit(), member.getTel());
+//		//MemberPO temp = new MemberPO(member.getMemberID(), member.getName(), member.getPassword(), member.getBirthday(), member.getCredit(), member.getPhone());
 //		//mem.saveMInformation(temp.getMemberID(), temp);
-//		//new MemberPO(member.getMemberID(), member.getName(), member.getPassword(), member.getBirthday(), member.getCredit(), member.getTel());
+//		//new MemberPO(member.getMemberID(), member.getName(), member.getPassword(), member.getBirthday(), member.getCredit(), member.getPhone());
 //		return true;
 //	}
 //
 //	public boolean deleteMember(MemberVO member) {
 //		// TODO Auto-generated method stub
 //		this.member=member;
-//		//MemberPO temp = new MemberPO(member.getMemberID(), member.getName(), member.getPassword(), member.getBirthday(), member.getCredit(), member.getTel());
+//		//MemberPO temp = new MemberPO(member.getMemberID(), member.getName(), member.getPassword(), member.getBirthday(), member.getCredit(), member.getPhone());
 //		//user.deleteMember(temp);
 //		member=null;
 //		return true;
