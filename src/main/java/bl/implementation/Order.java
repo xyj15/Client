@@ -13,10 +13,9 @@ public class Order implements OrderBLService {
 	private ArrayList<OrderVO> orderVOList;
 	private ArrayList<OrderPO> orderPOList;
 	private OrderDataService orderDataService;
-	private User user;
 	
-	public Order(User user) {
-		this.user = user;
+	public Order(String userID) {
+		
 	}
 	
 	@Override

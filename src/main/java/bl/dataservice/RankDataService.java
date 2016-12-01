@@ -6,7 +6,7 @@ import java.util.ArrayList;
  * Created by CROFF on 2016/11/29.
  * Rank模块bl层和data层之间的接口
  * @author CROFF
- * @version 2016-11-30
+ * @version 2016-12-1
  */
 public interface RankDataService {
 	

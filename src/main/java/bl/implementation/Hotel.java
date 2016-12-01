@@ -23,7 +23,7 @@ public class Hotel implements HotelBLService {
 	private HotelDataService hotelDataService;
 	private RoomDataService roomDataService;
 
-	public Hotel() {
+	public Hotel(String hotelID) {
 		
 	}
 	
@@ -78,51 +78,6 @@ public class Hotel implements HotelBLService {
 	}
 	
 	@Override
-	public ArrayList<RoomVO> getRoomList() {
-		return null;
-	}
-	
-	@Override
-	public RoomVO getRoomInformation(String roomID) {
-		return null;
-	}
-	
-	@Override
-	public boolean addRoom(RoomVO roomVO) {
-		return false;
-	}
-	
-	@Override
-	public boolean deleteRoom(String roomID) {
-		return false;
-	}
-	
-	@Override
-	public boolean updateRoom(String roomID, RoomVO roomVO) {
-		return false;
-	}
-	
-	@Override
-	public ArrayList<PromotionVO> getPromotionList() {
-		return null;
-	}
-	
-	@Override
-	public boolean createPromotion(PromotionVO promotionVO) {
-		return false;
-	}
-	
-	@Override
-	public boolean deletePromotion(String promotionID) {
-		return false;
-	}
-	
-	@Override
-	public boolean updatePromotion(String promotionID, PromotionVO promotionVO) {
-		return false;
-	}
-	
-	@Override
 	public boolean checkin(String orderID, String roomID) {
 		return false;
 	}
@@ -135,26 +90,6 @@ public class Hotel implements HotelBLService {
 	@Override
 	public boolean delay(String orderID) {
 		return false;
-	}
-	
-	@Override
-	public ArrayList<OrderVO> getUnexcutedOrderList() {
-		return null;
-	}
-	
-	@Override
-	public ArrayList<OrderVO> getExcutedOrderList() {
-		return null;
-	}
-	
-	@Override
-	public ArrayList<OrderVO> getAbnormalOrderList() {
-		return null;
-	}
-	
-	@Override
-	public ArrayList<OrderVO> getCanceledOrderList() {
-		return null;
 	}
 
 //	public void changeHotelManager(String hoMa,String hoMaID){

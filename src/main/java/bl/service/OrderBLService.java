@@ -10,7 +10,7 @@ import java.util.ArrayList;
  */
 public interface OrderBLService {
 	
-	public ArrayList<OrderVO> getOrderList();	//获得订单列表
+	public ArrayList<OrderVO> getOrderList();	//获得全部订单列表
 	public ArrayList<OrderVO> getExcutedOrders();	//获得已执行订单列表
 	public ArrayList<OrderVO> getUnexcutedOrders();	//获得未执行订单列表
 	public ArrayList<OrderVO> getAbnormalOrders();	//获得异常订单列表

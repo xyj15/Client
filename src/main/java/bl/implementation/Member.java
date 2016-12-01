@@ -23,7 +23,7 @@ public class Member implements MemberBLService {
 	private Reserve reserve;
 	private Order order;
 
-	public Member(){
+	public Member(String memberID) {
 		
 	}
 	
@@ -91,11 +91,6 @@ public class Member implements MemberBLService {
 	@Override
 	public boolean newReservation(String hotelID, String roomID) {
 		reserve = new Reserve(memberVO);
-		return false;
-	}
-	
-	@Override
-	public boolean showOrder() {
 		return false;
 	}
 	

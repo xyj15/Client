@@ -8,13 +8,13 @@ import po.OrderPO;
 /**
  * Member模块bl层与data层之间的接口
  * @author CROFF
- * @version 2016-11-30
+ * @version 2016-12-1
  */
 public interface MemberDataService {
-
-	public MemberPO getMemberInformation(String memberID);	//获得用户信息
-	public boolean updateMemberInformation(MemberPO memberPO);	//更新用户信息
-	public ArrayList<OrderPO> getOrderList(String memberID);	//获得用户订单列表
-	public boolean updateOrder(String orderID, OrderPO orderPO);	//更新订单状态（撤销、评价等）
-	public boolean createOrder(OrderPO orderPO);	//创建新订单
+	
+	public boolean addMember(MemberPO memberPO);	//添加客户
+	public boolean deleteMember(String memberID);	//删除客户
+	public ArrayList<MemberPO> getMemberList();	//获得客户列表
+	public void updateMemberInformation(String memberID, MemberPO memberPO);	//更新客户信息
+	public MemberPO getMemberInfomation(String memberID);	//获得客户信息
 }
