@@ -36,6 +36,7 @@ public class MemberVO extends User {
 		enterprise = null;
 		orderList = new ArrayList<OrderVO>();
 		reservedHotelList = new ArrayList<HotelVO>();
+		super.setUserType(UserType.Member);
 	}
 	
 	/**
@@ -63,6 +64,7 @@ public class MemberVO extends User {
 		this.enterprise = enterprise;
 		this.orderList = orderList;
 		this.reservedHotelList = reservedHotelList;
+		super.setUserType(UserType.Member);
 	}
 	
 	/**
