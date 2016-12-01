@@ -24,7 +24,7 @@ public class OrderPO {
 	private int numberOfRoom;	//订单中客房名称
 	private String roomName;	//订单中客房数量
 	private int numberOfClient;	//预计入住人数
-	private boolean hasKids;	//有无儿童
+	private boolean haveKids;	//有无儿童
 	private double score;	//订单评分
 	private String evaluation;	//订单评价
 	private double recover;	//撤销异常时返回的信用比例，若无则为0
@@ -53,7 +53,7 @@ public class OrderPO {
 	 * @param numberOfRoom 订单中客房名称高
 	 * @param roomName 订单中客房数量
 	 * @param numberOfClient 预计入住人数
-	 * @param hasKids 有无儿童
+	 * @param haveKids 有无儿童
 	 * @param score 订单评分
 	 * @param evaluation 订单评价
 	 * @param recover 撤销异常时返回的信用比例，若无则为0
@@ -62,7 +62,7 @@ public class OrderPO {
 	 */
 	public OrderPO(String memberID, String hotelID, String orderID, OrderStatus orderStatus, Date createTime,
 				   Date checkinTime, Date actualCheckinTime, Date latestCheckinTime, Date checkoutTime,
-				   Date actualCheckoutTime, int numberOfRoom, String roomName, int numberOfClient, boolean hasKids,
+				   Date actualCheckoutTime, int numberOfRoom, String roomName, int numberOfClient, boolean haveKids,
 				   double score, String evaluation, double recover, String promotionID, double price) {
 		this.memberID = memberID;
 		this.hotelID = hotelID;
@@ -77,7 +77,7 @@ public class OrderPO {
 		this.numberOfRoom = numberOfRoom;
 		this.roomName = roomName;
 		this.numberOfClient = numberOfClient;
-		this.hasKids = hasKids;
+		this.haveKids = haveKids;
 		this.score = score;
 		this.evaluation = evaluation;
 		this.recover = recover;
@@ -173,12 +173,12 @@ public class OrderPO {
 		this.numberOfClient = numberOfClient;
 	}
 	
-	public boolean isHasKids() {
-		return hasKids;
+	public boolean getHaveKids() {
+		return haveKids;
 	}
 	
-	public void setHasKids(boolean hasKids) {
-		this.hasKids = hasKids;
+	public void setHaveKids(boolean haveKids) {
+		this.haveKids = haveKids;
 	}
 	
 	public double getScore() {

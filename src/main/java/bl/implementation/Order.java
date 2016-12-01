@@ -2,11 +2,13 @@ package bl.implementation;
 
 import bl.dataservice.OrderDataService;
 import bl.service.OrderBLService;
+import other.OrderStatus;
 import other.User;
 import po.OrderPO;
 import vo.OrderVO;
 
 import java.util.ArrayList;
+import java.util.Date;
 
 public class Order implements OrderBLService {
 
@@ -28,9 +30,32 @@ public class Order implements OrderBLService {
 		OrderVO orderVO;
 		for(int i=0; i<orderList.size(); i++) {
 			orderPO = orderList.get(i);
-			
+			String memberID = orderPO.getMemberID();
+			String hotelID = orderPO.getHotelID();
+			String orderID = orderPO.getOrderID();
+			OrderStatus orderStatus = orderPO.getOrderStatus();
+			Date createTime = orderPO.getCreateTime();
+			Date checkinTime = orderPO.getCheckinTime();
+			Date actualCheckinTime = orderPO.getActualCheckinTime();
+			Date latestCheckinTime = orderPO.getLatestCheckinTime();
+			Date checkoutTime = orderPO.getCheckoutTime();
+			Date actualCheckoutTime = orderPO.getActualCheckoutTime();
+			int numberOfRoom = orderPO.getNumberOfRoom();
+			String roomName = orderPO.getRoomName();
+			int numberOfClient = orderPO.getNumberOfClient();
+			boolean hasKids = orderPO.getHasKids();
+			double score = orderPO.getScore();
+			String evaluation = orderPO.getEvaluation();
+			double recover = orderPO.getRecover();
+			String promotionID = orderPO.getPromotionID();
+			double price = orderPO.getPrice();
+			orderVO = new OrderVO(memberID, hotelID, orderID, orderStatus, createTime,
+					checkinTime, actualCheckinTime, latestCheckinTime, checkoutTime,
+					actualCheckoutTime, numberOfRoom, roomName, numberOfClient, hasKids,
+					score, evaluation, recover, promotionID, price);
+			orderVOList.add(orderVO);
 		}
-		return null;
+		return orderVOList;
 	}
 	
 	@Override

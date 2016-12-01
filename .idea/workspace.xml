@@ -2,35 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="349d3ad1-916b-4813-b1c9-b3218daa0e95" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/other/SortStratedy.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/other/SortStratedy.class" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/bl/implementation/Search.class" afterPath="$PROJECT_DIR$/target/classes/bl/implementation/Search.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/bl/service/SearchBLService.class" afterPath="$PROJECT_DIR$/target/classes/bl/service/SearchBLService.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/other/Rank.class" afterPath="$PROJECT_DIR$/target/classes/other/Rank.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/other/SearchInfomation.class" afterPath="$PROJECT_DIR$/target/classes/other/SearchInfomation.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/other/User.class" afterPath="$PROJECT_DIR$/target/classes/other/User.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/po/CreditChangePO.class" afterPath="$PROJECT_DIR$/target/classes/po/CreditChangePO.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/po/HotelPO.class" afterPath="$PROJECT_DIR$/target/classes/po/HotelPO.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/po/ManagerPO.class" afterPath="$PROJECT_DIR$/target/classes/po/ManagerPO.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/po/MemberPO.class" afterPath="$PROJECT_DIR$/target/classes/po/MemberPO.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/po/OrderPO.class" afterPath="$PROJECT_DIR$/target/classes/po/OrderPO.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/po/PromotionPO.class" afterPath="$PROJECT_DIR$/target/classes/po/PromotionPO.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/po/RoomPO.class" afterPath="$PROJECT_DIR$/target/classes/po/RoomPO.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/po/SalerPO.class" afterPath="$PROJECT_DIR$/target/classes/po/SalerPO.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/ui/controller/MemberController.class" afterPath="$PROJECT_DIR$/target/classes/ui/controller/MemberController.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/vo/CreditChangeVO.class" afterPath="$PROJECT_DIR$/target/classes/vo/CreditChangeVO.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/vo/HotelVO.class" afterPath="$PROJECT_DIR$/target/classes/vo/HotelVO.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/vo/ManagerVO.class" afterPath="$PROJECT_DIR$/target/classes/vo/ManagerVO.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/vo/MemberVO.class" afterPath="$PROJECT_DIR$/target/classes/vo/MemberVO.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/vo/OrderVO.class" afterPath="$PROJECT_DIR$/target/classes/vo/OrderVO.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/vo/PromotionVO.class" afterPath="$PROJECT_DIR$/target/classes/vo/PromotionVO.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/vo/RoomVO.class" afterPath="$PROJECT_DIR$/target/classes/vo/RoomVO.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/vo/SalerVO.class" afterPath="$PROJECT_DIR$/target/classes/vo/SalerVO.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/bl/implementation/Login.java" afterPath="$PROJECT_DIR$/src/main/java/bl/implementation/Login.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/bl/implementation/Order.java" afterPath="$PROJECT_DIR$/src/main/java/bl/implementation/Order.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/bl/implementation/Search.java" afterPath="$PROJECT_DIR$/src/main/java/bl/implementation/Search.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/bl/service/LoginBLService.java" afterPath="$PROJECT_DIR$/src/main/java/bl/service/LoginBLService.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/bl/stub/ReserveBLStub.java" afterPath="$PROJECT_DIR$/src/main/java/bl/stub/ReserveBLStub.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/po/OrderPO.java" afterPath="$PROJECT_DIR$/src/main/java/po/OrderPO.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/vo/OrderVO.java" afterPath="$PROJECT_DIR$/src/main/java/vo/OrderVO.java" />
     </list>
     <ignored path="Client.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -55,18 +30,28 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="Order.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="Order.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/bl/implementation/Order.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="390">
-              <caret line="32" column="20" selection-start-line="32" selection-start-column="20" selection-end-line="32" selection-end-column="20" />
+            <state relative-caret-position="720">
+              <caret line="57" column="26" selection-start-line="57" selection-start-column="26" selection-end-line="57" selection-end-column="26" />
               <folding>
-                <element signature="e#618#627#0" expanded="true" />
-                <element signature="e#1391#1392#0" expanded="true" />
-                <element signature="e#1411#1412#0" expanded="true" />
-                <element signature="e#1453#1454#0" expanded="true" />
-                <element signature="e#1480#1481#0" expanded="true" />
+                <element signature="e#667#676#0" expanded="true" />
+                <element signature="e#2662#2663#0" expanded="true" />
+                <element signature="e#2682#2683#0" expanded="true" />
+                <element signature="e#2724#2725#0" expanded="true" />
+                <element signature="e#2751#2752#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="HotelBLStub.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/java/bl/stub/HotelBLStub.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="135">
+              <caret line="9" column="19" selection-start-line="9" selection-start-column="19" selection-end-line="9" selection-end-column="19" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -117,7 +102,6 @@
         <option value="$PROJECT_DIR$/src/main/java/bl/implementation/Promotion.java" />
         <option value="$PROJECT_DIR$/src/main/java/bl/implementation/Saler.java" />
         <option value="$PROJECT_DIR$/src/main/java/bl/implementation/Reserve.java" />
-        <option value="$PROJECT_DIR$/src/main/java/po/OrderPO.java" />
         <option value="$PROJECT_DIR$/src/main/java/po/RoomPO.java" />
         <option value="$PROJECT_DIR$/src/main/java/other/SaleType.java" />
         <option value="$PROJECT_DIR$/src/main/java/bl/implementation/Room.java" />
@@ -136,7 +120,6 @@
         <option value="$PROJECT_DIR$/src/main/java/bl/service/HotelBLService.java" />
         <option value="$PROJECT_DIR$/src/main/java/bl/implementation/Hotel.java" />
         <option value="$PROJECT_DIR$/src/main/java/vo/CreditChangeVO.java" />
-        <option value="$PROJECT_DIR$/src/main/java/vo/OrderVO.java" />
         <option value="$PROJECT_DIR$/src/main/java/vo/PromotionVO.java" />
         <option value="$PROJECT_DIR$/src/main/java/vo/RoomVO.java" />
         <option value="$PROJECT_DIR$/src/main/java/vo/HotelVO.java" />
@@ -154,6 +137,8 @@
         <option value="$PROJECT_DIR$/src/main/java/bl/service/LoginBLService.java" />
         <option value="$PROJECT_DIR$/src/main/java/bl/implementation/Login.java" />
         <option value="$PROJECT_DIR$/src/main/java/bl/implementation/Order.java" />
+        <option value="$PROJECT_DIR$/src/main/java/po/OrderPO.java" />
+        <option value="$PROJECT_DIR$/src/main/java/vo/OrderVO.java" />
       </list>
     </option>
   </component>
@@ -290,6 +275,32 @@
               <option name="myItemId" value="java" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="vo" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Client" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Client" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
           </PATH>
           <PATH>
             <PATH_ELEMENT>
@@ -313,7 +324,11 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="po" />
+              <option name="myItemId" value="bl" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="stub" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -369,7 +384,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="implementation" />
+              <option name="myItemId" value="driver" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -1134,7 +1149,7 @@
       <workItem from="1480600684785" duration="73000" />
       <workItem from="1480602410073" duration="1083000" />
       <workItem from="1480604178391" duration="534000" />
-      <workItem from="1480607380126" duration="3379000" />
+      <workItem from="1480607380126" duration="4237000" />
     </task>
     <servers />
   </component>
@@ -1171,7 +1186,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="135321000" />
+    <option name="totallyTimeSpent" value="136179000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1200,6 +1215,7 @@
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.23687424" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.327551" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -1210,7 +1226,6 @@
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="true" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.14440434" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.327551" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
   <component name="Vcs.Log.UiProperties">
@@ -1240,20 +1255,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/java/po/RoomPO.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="165">
-          <caret line="11" column="19" selection-start-line="11" selection-start-column="19" selection-end-line="11" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/po/PromotionPO.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="9" column="13" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/other/RoomType.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -1272,13 +1273,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="405">
           <caret line="36" column="7" selection-start-line="36" selection-start-column="7" selection-end-line="36" selection-end-column="7" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/po/OrderPO.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="6" column="13" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
         </state>
       </provider>
     </entry>
@@ -1425,13 +1419,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="45">
           <caret line="3" column="21" selection-start-line="3" selection-start-column="21" selection-end-line="3" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/vo/OrderVO.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="525">
-          <caret line="37" column="8" selection-start-line="37" selection-start-column="8" selection-end-line="37" selection-end-column="8" />
         </state>
       </provider>
     </entry>
@@ -1619,14 +1606,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/po/MemberPO.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="40" column="33" selection-start-line="40" selection-start-column="33" selection-end-line="40" selection-end-column="33" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/bl/implementation/Login.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="165">
@@ -1635,17 +1614,59 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/po/MemberPO.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="40" column="33" selection-start-line="40" selection-start-column="33" selection-end-line="40" selection-end-column="33" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/bl/driver/HotelBLDriver.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#1802#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/bl/implementation/Order.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="390">
-          <caret line="32" column="20" selection-start-line="32" selection-start-column="20" selection-end-line="32" selection-end-column="20" />
+        <state relative-caret-position="720">
+          <caret line="57" column="26" selection-start-line="57" selection-start-column="26" selection-end-line="57" selection-end-column="26" />
           <folding>
-            <element signature="e#618#627#0" expanded="true" />
-            <element signature="e#1391#1392#0" expanded="true" />
-            <element signature="e#1411#1412#0" expanded="true" />
-            <element signature="e#1453#1454#0" expanded="true" />
-            <element signature="e#1480#1481#0" expanded="true" />
+            <element signature="e#667#676#0" expanded="true" />
+            <element signature="e#2662#2663#0" expanded="true" />
+            <element signature="e#2682#2683#0" expanded="true" />
+            <element signature="e#2724#2725#0" expanded="true" />
+            <element signature="e#2751#2752#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/po/OrderPO.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-542">
+          <caret line="67" column="31" selection-start-line="67" selection-start-column="31" selection-end-line="67" selection-end-column="31" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/vo/OrderVO.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="358">
+          <caret line="175" column="22" selection-start-line="175" selection-start-column="22" selection-end-line="175" selection-end-column="22" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/bl/stub/HotelBLStub.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="135">
+          <caret line="9" column="19" selection-start-line="9" selection-start-column="19" selection-end-line="9" selection-end-column="19" />
+          <folding />
         </state>
       </provider>
     </entry>
