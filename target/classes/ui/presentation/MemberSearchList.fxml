@@ -17,7 +17,7 @@
 <?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="540.0" prefWidth="960.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ui.controller.SearchController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="540.0" prefWidth="960.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ui.controller.MemberController">
    <children>
       <Button layoutX="455.0" layoutY="65.0" mnemonicParsing="false" opacity="0.0" prefHeight="23.0" prefWidth="24.0" text="营销人员" textFill="WHITE" />
       <ImageView fitHeight="540.0" fitWidth="975.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="0.0">
@@ -30,7 +30,7 @@
             <Font name="Microsoft YaHei Bold" size="16.0" />
          </font>
       </Button>
-      <Button layoutX="43.0" layoutY="270.0" mnemonicParsing="false" onAction="#onMenberInfor" opacity="0.66" prefHeight="23.0" prefWidth="181.0" style="-fx-background-color: #000f32;" text="查看个人信息" textFill="WHITE">
+      <Button layoutX="43.0" layoutY="270.0" mnemonicParsing="false" onAction="#onMenberInfor" opacity="0.66" prefHeight="23.0" prefWidth="181.0" style="-fx-background-color: #000f32;" text="个人信息" textFill="WHITE">
          <font>
             <Font name="Microsoft YaHei Bold" size="16.0" />
          </font>
@@ -41,12 +41,12 @@
             <Image url="@logo.png" />
          </image>
       </ImageView>
-      <Button layoutX="43.0" layoutY="340.0" mnemonicParsing="false" onAction="#onOrderInfor" opacity="0.66" prefHeight="23.0" prefWidth="181.0" style="-fx-background-color: #000f32;" text="查看订单信息" textFill="WHITE">
+      <Button layoutX="43.0" layoutY="340.0" mnemonicParsing="false" onAction="#onOrderInfor" opacity="0.66" prefHeight="23.0" prefWidth="181.0" style="-fx-background-color: #000f32;" text="订单信息" textFill="WHITE">
          <font>
             <Font name="Microsoft YaHei Bold" size="16.0" />
          </font>
       </Button>
-      <Button layoutX="43.0" layoutY="410.0" mnemonicParsing="false" onAction="#onPastHotel" opacity="0.66" prefHeight="23.0" prefWidth="181.0" style="-fx-background-color: #000f32;" text="查看预定过的酒店" textFill="WHITE">
+      <Button layoutX="43.0" layoutY="410.0" mnemonicParsing="false" onAction="#onPastHotel" opacity="0.66" prefHeight="23.0" prefWidth="181.0" style="-fx-background-color: #000f32;" text="预定过的酒店" textFill="WHITE">
          <font>
             <Font name="Microsoft YaHei Bold" size="16.0" />
          </font>
@@ -64,21 +64,18 @@
             </TableView>
          </content>
       </ScrollPane>
-      <Button layoutX="603.0" layoutY="106.0" mnemonicParsing="false" opacity="0.0" text="Button" />
       <Label layoutX="603.0" layoutY="108.0" text="星级排序" textFill="WHITE">
          <font>
             <Font name="Microsoft YaHei Bold" size="14.0" />
          </font>
       </Label>
       <Line endX="10.0" endY="200.0" layoutX="658.0" layoutY="-97.0" startX="10.0" startY="230.0" stroke="WHITE" strokeWidth="2.0" />
-      <Button layoutX="679.0" layoutY="107.0" mnemonicParsing="false" opacity="0.0" prefHeight="23.0" prefWidth="112.0" text="Button" />
       <Label layoutX="679.0" layoutY="109.0" text="价格从低到高排序" textFill="WHITE">
          <font>
             <Font name="Microsoft YaHei Bold" size="14.0" />
          </font>
       </Label>
       <Line endX="10.0" endY="200.0" layoutX="791.0" layoutY="-97.0" startX="10.0" startY="230.0" stroke="WHITE" strokeWidth="2.0" />
-      <Button layoutX="813.0" layoutY="107.0" mnemonicParsing="false" opacity="0.0" prefHeight="23.0" prefWidth="56.0" text="Button" />
       <Label layoutX="813.0" layoutY="109.0" text="评分排序" textFill="WHITE">
          <font>
             <Font name="Microsoft YaHei Bold" size="14.0" />
@@ -100,5 +97,8 @@
             <Image url="@key.png" />
          </image>
       </ImageView>
+      <Button layoutX="597.0" layoutY="104.0" mnemonicParsing="false" onAction="#onSortWithLevel" opacity="0.0" text="Button" />
+      <Button layoutX="679.0" layoutY="105.0" mnemonicParsing="false" onAction="#onSortWithPrice" opacity="0.0" prefHeight="32.0" prefWidth="112.0" text="Button" />
+      <Button layoutX="807.0" layoutY="105.0" mnemonicParsing="false" onAction="#onSortWithComment" opacity="0.0" prefHeight="32.0" prefWidth="62.0" text="Button" />
    </children>
 </AnchorPane>

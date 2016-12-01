@@ -6,10 +6,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.stage.Stage;
 import ui.controllerservice.MemberControllerService;
-import ui.presentation.LoginUI;
-import ui.presentation.MemberHisitoryHotelUI;
-import ui.presentation.MemberInformationUI;
-import ui.presentation.MemberSearchUI;
+import ui.presentation.*;
 import vo.MemberVO;
 import vo.OrderVO;
 
@@ -40,8 +37,26 @@ public class MemberController{
     }
     @FXML
     private void onOrderInfor(ActionEvent E)throws Exception {
-
+        new MemberUnprocessedOrderUI().start(primaryStage);
     }
+    @FXML
+ private void onExecuteOrder(ActionEvent E)throws Exception {
+     new MemberProcessedOrderUI().start(primaryStage);
+ }
+ @FXML
+ private void onCancelOrder(ActionEvent E)throws Exception {
+     new MemberCancelOrder().start(primaryStage);
+ }
+ @FXML
+ private void onAbnormalOrder(ActionEvent E)throws Exception {
+     new MemberAbnormalOrder().start(primaryStage);
+ }
+ @FXML//实现撤销
+ private void onCancel(ActionEvent E)throws Exception {
+ }
+ @FXML//实现评价
+ private void onComment(ActionEvent E)throws Exception {
+ }
     @FXML
     private void onPastHotel(ActionEvent E)throws Exception {
         new MemberHisitoryHotelUI().start(primaryStage);
@@ -52,7 +67,7 @@ public class MemberController{
     }
     @FXML
     private void onLookingInfor(ActionEvent E)throws Exception {
-
+      new MemberHotelInformationUI().start(primaryStage);
     }
     @FXML
     private void onChangeInfor(ActionEvent E)throws Exception {
@@ -60,10 +75,24 @@ public class MemberController{
     }
     @FXML
     private void onSearchLimited(ActionEvent E)throws Exception {
-
+     new MemberSearchListUI().start(primaryStage);
     }
     @FXML
     private void onSearchAll(ActionEvent E)throws Exception {
+     new MemberSearchListUI().start(primaryStage);
+    }
+
+    //排序，暂时为空
+    @FXML
+    private void onSortWithLevel(ActionEvent E)throws Exception {
+
+    }
+    @FXML
+    private void onSortWithPrice(ActionEvent E)throws Exception {
+
+    }
+    @FXML
+    private void onSortWithComment(ActionEvent E)throws Exception {
 
     }
 }
