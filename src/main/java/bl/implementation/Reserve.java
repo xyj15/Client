@@ -5,6 +5,11 @@ import vo.*;
 
 import java.util.Date;
 
+/**
+ * Reserve模块bl的实现类
+ * @author CROFF
+ * @version 2016-12-2
+ */
 public class Reserve implements ReserveBLService {
 
 	private MemberVO member;

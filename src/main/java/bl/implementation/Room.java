@@ -7,6 +7,11 @@ import vo.RoomVO;
 
 import java.util.ArrayList;
 
+/**
+ * Room模块bl的实现类
+ * @author CROFF
+ * @version 2016-12-2
+ */
 public class Room implements RoomBLService {
 	
 	private ArrayList<RoomVO> roomVOList;
