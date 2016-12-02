@@ -16,7 +16,7 @@
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="540.0" prefWidth="960.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="540.0" prefWidth="960.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ui.controller.ManagerController">
    <children>
       <Button layoutX="455.0" layoutY="65.0" mnemonicParsing="false" opacity="0.0" prefHeight="23.0" prefWidth="24.0" text="营销人员" textFill="WHITE" />
       <ImageView fitHeight="540.0" fitWidth="975.0" pickOnBounds="true" preserveRatio="true">
@@ -41,7 +41,7 @@
             <Image url="@search.png" />
          </image>
       </ImageView>
-      <Button layoutX="707.0" layoutY="281.0" mnemonicParsing="false" prefHeight="29.0" prefWidth="80.0" style="-fx-background-color: #6B6BCF;" text="查询" textFill="WHITE">
+      <Button layoutX="707.0" layoutY="281.0" mnemonicParsing="false" onAction="#onSearchAction" prefHeight="29.0" prefWidth="80.0" style="-fx-background-color: #6B6BCF;" text="查询" textFill="WHITE">
          <font>
             <Font name="Microsoft YaHei Bold" size="16.0" />
          </font>
@@ -56,14 +56,14 @@
             <Image url="@key.png" />
          </image>
       </ImageView>
-      <Button layoutX="51.0" layoutY="342.0" mnemonicParsing="false" opacity="0.66" prefHeight="23.0" prefWidth="181.0" style="-fx-background-color: #000f32;" text="新增用户" textFill="WHITE">
+      <Button layoutX="51.0" layoutY="342.0" mnemonicParsing="false" onAction="#onAddUser" opacity="0.66" prefHeight="23.0" prefWidth="181.0" style="-fx-background-color: #000f32;" text="新增用户" textFill="WHITE">
          <font>
-            <Font name="YouYuan" size="16.0" />
+            <Font name="Microsoft YaHei Bold" size="16.0" />
          </font>
       </Button>
       <Button layoutX="53.0" layoutY="235.0" mnemonicParsing="false" onAction="#onSearchUser" opacity="0.67" prefHeight="32.0" prefWidth="181.0" style="-fx-background-color: #000f32;" text="查询用户" textFill="WHITE">
          <font>
-            <Font name="YouYuan" size="16.0" />
+            <Font name="Microsoft YaHei Bold" size="16.0" />
          </font>
       </Button>
       <Button layoutX="878.0" layoutY="34.0" mnemonicParsing="false" onAction="#onLogOut" opacity="0.0" prefHeight="34.0" prefWidth="70.0" text="Button" />
