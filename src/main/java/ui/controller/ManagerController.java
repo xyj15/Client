@@ -4,6 +4,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.stage.Stage;
 import ui.presentation.LoginUI;
+import ui.presentation.ManagerAddUserUI;
 import ui.presentation.ManagerSearchUserUI;
 
 
@@ -29,7 +30,7 @@ public class ManagerController{
 	}
 	@FXML
 	private void onAddUser(ActionEvent E)throws Exception {
-		new ManagerSearchUserUI().start(primaryStage);
+		new ManagerAddUserUI().start(primaryStage);
 	}
 	@FXML
 	private void onLogOut(ActionEvent E)throws Exception {
