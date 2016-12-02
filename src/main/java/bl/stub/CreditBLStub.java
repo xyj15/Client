@@ -16,9 +16,9 @@ public class CreditBLStub implements CreditBLService {
 	public ArrayList<CreditChangeVO> getCreditChangeList() {
 		System.out.println("获取信用变化列表成功");
 		ArrayList<CreditChangeVO> creditChangeList = new ArrayList<CreditChangeVO>();
-		CreditChangeVO creditChange = new CreditChangeVO(new Date(116, 11, 1), "20161101000000", OrderAction.ExecuteOrder, 100, 100);
+		CreditChangeVO creditChange = new CreditChangeVO(new Date(), "20161101000000", OrderAction.ExecuteOrder, 100, 100);
 		creditChangeList.add(creditChange);
-		creditChange = new CreditChangeVO(new Date(116, 11, 2), "20161102000000", OrderAction.ExecuteOrder, 100, 200);
+		creditChange = new CreditChangeVO(new Date(), "20161102000000", OrderAction.ExecuteOrder, 100, 200);
 		creditChangeList.add(creditChange);
 		return creditChangeList;
 	}

@@ -14,22 +14,22 @@ import java.util.ArrayList;
  */
 public class Room implements RoomBLService {
 	
-	private ArrayList<RoomVO> roomVOList;
-	private ArrayList<RoomPO> roomPOList;
-	private RoomDataService roomDataService;
+	private String hotelID;
 	private RoomVO room;
-
+	
+	private RoomDataService roomDataService;
+	
+	/**
+	 *
+	 * @param hotelID
+	 */
 	public Room(String hotelID) {
-		
+		this.hotelID = hotelID;
+		updateDataFromFile();
 	}
 	
-	public Room() {
+	public void updateDataFromFile() {
 		
-	}
-	
-	@Override
-	public ArrayList<RoomVO> getRoomList(String hotelID) {
-		return null;
 	}
 	
 	/**
@@ -46,26 +46,7 @@ public class Room implements RoomBLService {
 		return room;
 	}
 
-	/**
-	 * 更新房间信息
-	 * @author 张新悦
-	 * @version 2016-11-13 17:23
-	 */
-	@Override
-	public boolean updateRoom(String roomID, RoomVO room) {
-		// TODO Auto-generated method stub
-		this.room=room;
-		//RoomPO temp = new RoomPO(room.isAvailable(), room.getNumber(), room.getType(), room.getPrice());
-		//new RoomPO(room.isAvailable(), room.getNumber(), room.getType(), room.getPrice());
-		//roomDataService.updateRoom(temp);
-		return true;
-	}
-
-	@Override
-	public boolean deleteRoom(String roomNUM) {
-		return false;
-	}
-
+	
 	/**
 	 * 增加房间
 	 * @author 张新悦
@@ -73,12 +54,33 @@ public class Room implements RoomBLService {
 	 */
 	@Override
 	public boolean addRoom(RoomVO room) {
-		// TODO Auto-generated method stub
-		this.room=room;
 		//RoomPO temp = new RoomPO(room.isAvailable(), room.getNumber(), room.getType(), room.getPrice());
 		//new RoomPO(room.isAvailable(), room.getNumber(), room.getType(), room.getPrice());
 		//roomDataService.addRoom(temp);
 		return true;
 	}
 	
+	/**
+	 *
+	 * @param roomID
+	 * @return
+	 */
+	@Override
+	public boolean deleteRoom(String roomID) {
+		return false;
+	}
+	
+	/**
+	 * 更新房间信息
+	 * @author 张新悦
+	 * @version 2016-11-13 17:23
+	 */
+	@Override
+	public boolean updateRoom(String roomID, RoomVO roomVO) {
+		//RoomPO temp = new RoomPO(room.isAvailable(), room.getNumber(), room.getType(), room.getPrice());
+		//new RoomPO(room.isAvailable(), room.getNumber(), room.getType(), room.getPrice());
+		//roomDataService.updateRoom(temp);
+		return true;
+	}
 }
+

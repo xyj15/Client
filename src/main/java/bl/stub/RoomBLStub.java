@@ -21,14 +21,6 @@ public class RoomBLStub implements RoomBLService {
 	}
 	
 	@Override
-	public ArrayList<RoomVO> getRoomList(String hotelID) {
-		System.out.println("获取客房列表成功");
-		ArrayList<RoomVO> roomList = new ArrayList<RoomVO>();
-		roomList.add(roomVO);
-		return roomList;
-	}
-	
-	@Override
 	public RoomVO getRoomInformation(String roomID) {
 		System.out.println("获取客房信息成功");
 		return roomVO;
