@@ -11,7 +11,7 @@
 //	}
 //
 //	@Override
-//	public boolean existUsername(String username) {
+//	public boolean existUserID(String username) {
 //		return false;
 //	}
 //
