@@ -1,7 +1,6 @@
 package bl.implementation;
 
 import bl.service.ReserveBLService;
-import other.RoomType;
 import vo.*;
 
 import java.util.Date;

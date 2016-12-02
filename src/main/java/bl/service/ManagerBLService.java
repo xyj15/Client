@@ -2,7 +2,6 @@ package bl.service;
 
 import java.util.ArrayList;
 
-import bl.implementation.Hotel;
 import vo.HotelVO;
 import vo.ManagerVO;
 import vo.MemberVO;
