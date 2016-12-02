@@ -1,6 +1,5 @@
 package bl.service;
 
-import other.RoomType;
 import vo.OrderVO;
 import vo.PromotionVO;
 
