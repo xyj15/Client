@@ -32,7 +32,8 @@ public class RoomVO {
 	 * @param price 客房单价
 	 * @param hotelID 所属酒店ID
 	 */
-	public RoomVO(boolean available, String roomNumber, String roomName, RoomType roomType, double price, String hotelID) {
+	public RoomVO(boolean available, String roomNumber, String roomName,
+				  RoomType roomType, double price, String hotelID) {
 		this.available = available;
 		this.roomNumber = roomNumber;
 		this.roomName = roomName;

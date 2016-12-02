@@ -28,8 +28,7 @@ public interface MemberBLService {
 	public MemberVO getMemberInformation();	//获得客户信息
 	public boolean updateMemberInformation(MemberVO memberVO);	//更新客户信息
 
-	public boolean startSearch();	//开始搜索酒店
 	public boolean newReservation(String hotelID, String roomID);	//预定酒店
-	public boolean markHotel();	//收藏（标记）酒店
+	public boolean markHotel(String hotelID);	//收藏（标记）酒店
 	public boolean CreateOrder(OrderVO orderVO);	//创建订单
 }

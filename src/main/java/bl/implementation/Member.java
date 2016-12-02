@@ -86,21 +86,15 @@ public class Member implements MemberBLService {
 	}
 	
 	@Override
-	public boolean startSearch() {
-		search = new Search(memberVO.getUserID());
-		return false;
-	}
-	
-	@Override
 	public boolean newReservation(String hotelID, String roomID) {
 		reserve = new Reserve(memberVO.getUserID());
 		return false;
 	}
 	
 	@Override
-	public boolean markHotel() {
+	public boolean markHotel(String hotelID) {
 		return false;
-	}
+	};
 	
 	@Override
 	public boolean CreateOrder(OrderVO orderVO) {

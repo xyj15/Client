@@ -90,9 +90,10 @@ public class HotelVO extends User {
 	 * @param roomList 客房列表
 	 * @param orderList 订单列表
 	 */
-	public HotelVO(String userID, String password, String name, String address, String district, String city,
-				   int level, double score, String service, String introduction, String managerName,
-				   String managerTel, ArrayList<String> enterpriseList, ArrayList<RoomVO> roomList, ArrayList<OrderVO> orderList) {
+	public HotelVO(String userID, String password, String name, String address,
+				   String district, String city, int level, double score, String service,
+				   String introduction, String managerName, String managerTel, ArrayList<String> enterpriseList,
+				   ArrayList<RoomVO> roomList, ArrayList<OrderVO> orderList) {
 		super(userID, password, UserType.Hotel);
 		this.name = name;
 		this.address = address;

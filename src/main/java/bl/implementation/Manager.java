@@ -6,6 +6,7 @@ import data.service.ManagerDataService;
 import bl.service.ManagerBLService;
 import other.User;
 import vo.HotelVO;
+import vo.ManagerVO;
 import vo.MemberVO;
 import vo.SalerVO;
 
@@ -99,6 +100,16 @@ public class Manager implements ManagerBLService {
 	
 	@Override
 	public SalerVO getSalerInformation(String username) {
+		return null;
+	}
+	
+	@Override
+	public boolean updateManagerInformation(ManagerVO managerVO) {
+		return false;
+	}
+	
+	@Override
+	public ManagerVO getManagerInformation() {
 		return null;
 	}
 

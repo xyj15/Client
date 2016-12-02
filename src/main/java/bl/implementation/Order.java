@@ -42,7 +42,7 @@ public class Order implements OrderBLService {
 			int numberOfRoom = orderPO.getNumberOfRoom();
 			String roomName = orderPO.getRoomName();
 			int numberOfClient = orderPO.getNumberOfClient();
-			boolean hasKids = orderPO.getHasKids();
+			boolean hasKids = orderPO.getHaveKids();
 			double score = orderPO.getScore();
 			String evaluation = orderPO.getEvaluation();
 			double recover = orderPO.getRecover();

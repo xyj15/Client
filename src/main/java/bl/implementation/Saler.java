@@ -1,5 +1,7 @@
 package bl.implementation;
 
+import data.service.OrderDataService;
+import data.service.PromotionDataService;
 import data.service.SalerDataService;
 import bl.service.SalerBLService;
 import other.Rank;
@@ -15,14 +17,17 @@ import java.util.ArrayList;
  */
 public class Saler implements SalerBLService {
     
-    private SalerVO salerVO;
     private SalerPO salerPO;
-	private SalerDataService salerDataService;
 	private Promotion promotion;
-    
-    private Rank rank = Rank.getInstance();
+	private Order order;
+	private Rank rank;
+	
+	private SalerDataService salerDataService;
+	private PromotionDataService promotionDataService;
+	private OrderDataService orderDataService;
 	
 	public Saler(String salerID) {
+		salerPO = salerDataService.getSaler(salerID);
 		
 	}
 	
