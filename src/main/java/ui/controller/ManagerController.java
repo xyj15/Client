@@ -5,7 +5,6 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.stage.Stage;
 import ui.controllerservice.ManagerControllerService;
-import ui.presentation.LoginUI;
 import ui.presentation.ManagerSearchUserUI;
 import vo.HotelVO;
 import vo.MemberVO;
@@ -23,8 +22,8 @@ public class ManagerController{
     //ManagerBLService manager;
 
 
-	private static Stage primaryStage;
-	public static void setPrimaryStage(Stage in){
+	private Stage primaryStage;
+	public void setPrimaryStage(Stage in){
 		primaryStage=in;
 	}
 
@@ -32,16 +31,5 @@ public class ManagerController{
 	private void onSearchUser(ActionEvent E)throws Exception {
 		new ManagerSearchUserUI().start(primaryStage);
 	}
-	@FXML
-	private void onAddUser(ActionEvent E)throws Exception {
-		new ManagerSearchUserUI().start(primaryStage);
-	}
-	@FXML
-	private void onLogOut(ActionEvent E)throws Exception {
-		new LoginUI().start(primaryStage);
-	}
-	@FXML
-	private void onSearchAction(ActionEvent E)throws Exception {
-		new LoginUI().start(primaryStage);
-	}
+
 }
