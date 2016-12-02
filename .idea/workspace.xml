@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
+<<<<<<< HEAD
     <list default="true" id="349d3ad1-916b-4813-b1c9-b3218daa0e95" name="Default" comment="">
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/bl/stub/CreditBLStub.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
@@ -27,6 +28,14 @@
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/vo/MemberVO.java" afterPath="$PROJECT_DIR$/src/main/java/vo/MemberVO.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/vo/RoomVO.java" afterPath="$PROJECT_DIR$/src/main/java/vo/RoomVO.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/vo/SalerVO.java" afterPath="$PROJECT_DIR$/src/main/java/vo/SalerVO.java" />
+=======
+    <list default="true" id="a9f0de73-1128-483a-bbb9-a1105de32882" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/bl/stub/SalerBLStub.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/bl/implementation/Credit.java" afterPath="$PROJECT_DIR$/src/main/java/bl/implementation/Credit.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/bl/implementation/Order.java" afterPath="$PROJECT_DIR$/src/main/java/bl/implementation/Order.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/other/OrderAction.java" afterPath="$PROJECT_DIR$/src/main/java/other/OrderAction.java" />
+>>>>>>> master
     </list>
     <ignored path="Client.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -61,6 +70,13 @@
       </list>
     </option>
   </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
@@ -91,6 +107,7 @@
         <option value="$PROJECT_DIR$/src/main/java/other/SortStratedy.java" />
         <option value="$PROJECT_DIR$/src/main/java/bl/implementation/Search.java" />
         <option value="$PROJECT_DIR$/src/main/java/po/OrderPO.java" />
+<<<<<<< HEAD
         <option value="$PROJECT_DIR$/src/main/java/vo/OrderVO.java" />
         <option value="$PROJECT_DIR$/src/main/java/data/stub/CreditDataStub.java" />
         <option value="$PROJECT_DIR$/src/main/java/data/service/loginDataService.java" />
@@ -123,6 +140,14 @@
         <option value="$PROJECT_DIR$/src/main/java/bl/implementation/Reserve.java" />
         <option value="$PROJECT_DIR$/src/main/java/bl/stub/ReserveBLStub.java" />
         <option value="$PROJECT_DIR$/src/main/java/bl/stub/package-info.java" />
+=======
+        <option value="$PROJECT_DIR$/src/main/java/bl/service/OrderBLService.java" />
+        <option value="$PROJECT_DIR$/src/main/java/bl/stub/OrderBLStub.java" />
+        <option value="$PROJECT_DIR$/src/main/java/bl/stub/SalerBLStub.java" />
+        <option value="$PROJECT_DIR$/src/main/java/other/OrderAction.java" />
+        <option value="$PROJECT_DIR$/src/main/java/bl/implementation/Credit.java" />
+        <option value="$PROJECT_DIR$/src/main/java/bl/implementation/Order.java" />
+>>>>>>> master
       </list>
     </option>
   </component>
@@ -260,7 +285,11 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
+<<<<<<< HEAD
               <option name="myItemId" value="vo" />
+=======
+              <option name="myItemId" value="bl" />
+>>>>>>> master
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -285,6 +314,17 @@
               <option name="myItemId" value="java" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
+<<<<<<< HEAD
+=======
+            <PATH_ELEMENT>
+              <option name="myItemId" value="bl" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="service" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+>>>>>>> master
           </PATH>
           <PATH>
             <PATH_ELEMENT>
@@ -1008,6 +1048,7 @@
       <created>1479382793939</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
+<<<<<<< HEAD
       <updated>1479382793939</updated>
       <workItem from="1479382795112" duration="119000" />
       <workItem from="1479383026229" duration="45000" />
@@ -1047,6 +1088,11 @@
       <workItem from="1480607380126" duration="4237000" />
       <workItem from="1480612941839" duration="485000" />
       <workItem from="1480643863089" duration="15394000" />
+=======
+      <updated>1480669285403</updated>
+      <workItem from="1480669287931" duration="434000" />
+      <workItem from="1480675082108" duration="7027000" />
+>>>>>>> master
     </task>
     <servers />
   </component>
@@ -1057,6 +1103,7 @@
     <history-entry file="All_in_Client - 2016.12.02 at 15h 23m 05s.xml">
       <configuration name="All in Client" configurationId="JUnit" />
     </history-entry>
+<<<<<<< HEAD
     <history-entry file="All_in_Client - 2016.12.02 at 15h 27m 10s.xml">
       <configuration name="All in Client" configurationId="JUnit" />
     </history-entry>
@@ -1093,6 +1140,14 @@
       <are-packages-shown value="true" />
       <is-autoscroll-to-source value="true" />
     </todo-panel>
+=======
+    <history-entry file="All_in_Client - 2016.12.02 at 20h 51m 18s.xml">
+      <configuration name="All in Client" configurationId="JUnit" />
+    </history-entry>
+  </component>
+  <component name="TimeTrackingManager">
+    <option name="totallyTimeSpent" value="7461000" />
+>>>>>>> master
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1680" height="1050" extended-state="0" />
@@ -1162,6 +1217,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/data/stub/ManagerDataStub.java">
       <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
         <state relative-caret-position="75">
           <caret line="5" column="28" selection-start-line="5" selection-start-column="28" selection-end-line="5" selection-end-column="28" />
           <folding />
@@ -1212,6 +1268,10 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="75">
           <caret line="5" column="26" selection-start-line="5" selection-start-column="26" selection-end-line="5" selection-end-column="26" />
+=======
+        <state relative-caret-position="135">
+          <caret line="20" column="13" selection-start-line="20" selection-start-column="13" selection-end-line="20" selection-end-column="13" />
+>>>>>>> master
           <folding />
         </state>
       </provider>
@@ -1275,6 +1335,7 @@
     <entry file="file://$PROJECT_DIR$/src/main/java/data/service/ManagerDataService.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="135">
+<<<<<<< HEAD
           <caret line="9" column="17" selection-start-line="9" selection-start-column="17" selection-end-line="9" selection-end-column="17" />
           <folding />
         </state>
@@ -1292,6 +1353,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="165">
           <caret line="11" column="12" selection-start-line="11" selection-start-column="12" selection-end-line="11" selection-end-column="12" />
+=======
+          <caret line="17" column="13" selection-start-line="17" selection-start-column="13" selection-end-line="17" selection-end-column="13" />
+>>>>>>> master
           <folding />
         </state>
       </provider>
@@ -1339,7 +1403,11 @@
     <entry file="file://$PROJECT_DIR$/src/main/java/vo/CreditChangeVO.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="150">
+<<<<<<< HEAD
           <caret line="12" column="13" selection-start-line="12" selection-start-column="13" selection-end-line="12" selection-end-column="13" />
+=======
+          <caret line="10" column="17" selection-start-line="10" selection-start-column="17" selection-end-line="10" selection-end-column="17" />
+>>>>>>> master
           <folding />
         </state>
       </provider>
@@ -1535,6 +1603,7 @@
         <state relative-caret-position="283">
           <caret line="58" column="32" selection-start-line="58" selection-start-column="32" selection-end-line="58" selection-end-column="32" />
           <folding>
+<<<<<<< HEAD
             <element signature="imports" expanded="true" />
             <element signature="e#668#677#0" expanded="true" />
             <element signature="e#727#736#0" expanded="true" />
@@ -1558,12 +1627,59 @@
             <element signature="e#709#718#0" expanded="true" />
             <element signature="e#768#777#0" expanded="true" />
             <element signature="e#1390#1406#0" expanded="true" />
+=======
+            <element signature="e#5421#5422#0" expanded="false" />
+            <element signature="e#5445#5446#0" expanded="false" />
+            <element signature="e#5493#5494#0" expanded="false" />
+            <element signature="e#5528#5529#0" expanded="false" />
+>>>>>>> master
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/bl/service/PromotionBLService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="135">
+          <caret line="11" column="17" selection-start-line="11" selection-start-column="17" selection-end-line="11" selection-end-column="17" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/bl/stub/RoomBLStub.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="8" column="13" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/bl/service/OrderBLService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="19" column="49" selection-start-line="19" selection-start-column="49" selection-end-line="19" selection-end-column="49" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/data/service/OrderDataService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="6" column="17" selection-start-line="6" selection-start-column="17" selection-end-line="6" selection-end-column="17" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/bl/stub/PromotionBLStub.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="150">
+          <caret line="14" column="8" selection-start-line="14" selection-start-column="8" selection-end-line="18" selection-end-column="39" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/bl/stub/OrderBLStub.java">
       <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
         <state relative-caret-position="268">
           <caret line="55" column="52" selection-start-line="55" selection-start-column="52" selection-end-line="55" selection-end-column="52" />
           <folding>
@@ -1580,10 +1696,27 @@
             <element signature="imports" expanded="true" />
             <element signature="e#1178#1191#0" expanded="true" />
             <element signature="e#1416#1429#0" expanded="true" />
+=======
+        <state relative-caret-position="150">
+          <caret line="15" column="8" selection-start-line="15" selection-start-column="8" selection-end-line="38" selection-end-column="48" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/bl/stub/SalerBLStub.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1440">
+          <caret line="96" column="24" selection-start-line="96" selection-start-column="24" selection-end-line="96" selection-end-column="24" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#1687#1700#0" expanded="true" />
+            <element signature="e#2605#2614#0" expanded="true" />
+>>>>>>> master
           </folding>
         </state>
       </provider>
     </entry>
+<<<<<<< HEAD
     <entry file="file://$PROJECT_DIR$/src/main/java/bl/stub/ReserveBLStub.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-1112">
@@ -1614,18 +1747,82 @@
             <element signature="e#791#799#0" expanded="true" />
             <element signature="e#847#855#0" expanded="true" />
             <element signature="e#905#914#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/bl/stub/package-info.java">
+=======
+    <entry file="file://$PROJECT_DIR$/src/main/java/bl/service/SalerBLService.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="45">
-          <caret line="3" column="21" selection-start-line="3" selection-start-column="21" selection-end-line="3" selection-end-column="21" />
+        <state relative-caret-position="300">
+          <caret line="23" column="49" selection-start-line="23" selection-start-column="49" selection-end-line="23" selection-end-column="49" />
           <folding />
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/other/OrderStatus.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="12" column="12" selection-start-line="12" selection-start-column="12" selection-end-line="12" selection-end-column="12" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/other/OrderAction.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="210">
+          <caret line="14" column="90" selection-start-line="14" selection-start-column="90" selection-end-line="14" selection-end-column="90" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/vo/CreditChangeVO.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="150">
+          <caret line="12" column="13" selection-start-line="12" selection-start-column="13" selection-end-line="12" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/bl/service/HotelBLService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="135">
+          <caret line="9" column="17" selection-start-line="9" selection-start-column="17" selection-end-line="9" selection-end-column="17" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/bl/service/CreditBLService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="14" column="22" selection-start-line="14" selection-start-column="22" selection-end-line="14" selection-end-column="22" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/bl/implementation/Order.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="30">
+          <caret line="2" column="33" selection-start-line="2" selection-start-column="33" selection-end-line="2" selection-end-column="33" />
+          <folding>
+            <element signature="e#5354#5363#0" expanded="true" />
+>>>>>>> master
+          </folding>
+        </state>
+      </provider>
+    </entry>
+<<<<<<< HEAD
+    <entry file="file://$PROJECT_DIR$/src/main/java/bl/stub/package-info.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="45">
+          <caret line="3" column="21" selection-start-line="3" selection-start-column="21" selection-end-line="3" selection-end-column="21" />
+=======
+    <entry file="file://$PROJECT_DIR$/src/main/java/bl/implementation/Credit.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="405">
+          <caret line="80" column="8" selection-start-line="80" selection-start-column="8" selection-end-line="80" selection-end-column="8" />
+>>>>>>> master
+          <folding />
+        </state>
+      </provider>
+    </entry>
+<<<<<<< HEAD
   </component>
   <component name="masterDetails">
     <states>
@@ -1713,5 +1910,7 @@
         </settings>
       </state>
     </states>
+=======
+>>>>>>> master
   </component>
 </project>
