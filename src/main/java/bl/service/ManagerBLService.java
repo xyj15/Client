@@ -4,6 +4,7 @@ import java.util.ArrayList;
 
 import bl.implementation.Hotel;
 import vo.HotelVO;
+import vo.ManagerVO;
 import vo.MemberVO;
 import vo.SalerVO;
 
@@ -32,4 +33,7 @@ public interface ManagerBLService {
 	public boolean updateSalerInformation(String salerID, SalerVO salerVO);	//更新网站营销人员信息
 	public ArrayList<SalerVO> getSalerList();	//获得网站营销人员列表
 	public SalerVO getSalerInformation(String salerID);	//获得网站营销人员信息
+	
+	public boolean updateManagerInformation(ManagerVO managerVO);	//更新网站管理人员信息
+	public ManagerVO getManagerInformation();	//获得网站管理人员信息
 }

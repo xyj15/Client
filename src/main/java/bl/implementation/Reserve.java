@@ -16,9 +16,9 @@ public class Reserve implements ReserveBLService {
 	
 	private String hotelName;
 	private String hotelAddress;
-	private String hotelLevel;
+	private int hotelLevel;
 	private String hotelTel;
-	private RoomType roomType;
+	private String roomName;
 	private Date checkinTime;
 	private Date checkoutTime;
 	private String clientName;
@@ -55,7 +55,7 @@ public class Reserve implements ReserveBLService {
 	}
 	
 	@Override
-	public String getHotelLevel() {
+	public int getHotelLevel() {
 		return hotelLevel;
 	}
 	
@@ -65,8 +65,8 @@ public class Reserve implements ReserveBLService {
 	}
 	
 	@Override
-	public RoomType getRoomType() {
-		return roomType;
+	public String getRoomName() {
+		return roomName;
 	}
 	
 	@Override
@@ -102,7 +102,7 @@ public class Reserve implements ReserveBLService {
 	}
 	
 	@Override
-	public boolean setHasKids(boolean hasKids) {
+	public boolean setHaveKids(boolean haveKids) {
 		return false;
 	}
 	
@@ -118,7 +118,7 @@ public class Reserve implements ReserveBLService {
 	}
 	
 	@Override
-	public boolean createOrder() {
+	public boolean createOrder(OrderVO orderVO) {
 		return false;
 	}
 	
