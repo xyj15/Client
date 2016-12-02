@@ -5,17 +5,16 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
-import ui.controller.MemberController;
+import ui.controller.ManagerController;
 
 /**
- * Created by 97147 on 2016/12/1.
+ * Created by 婧婧 on 2016/12/2.
  */
-public class MemberHisitoryHotelUI extends Application {
-
+public class ManagerAddUserUI extends Application {
     @Override
-    public void start(Stage primaryStage) throws Exception {
-        Parent root = FXMLLoader.load(getClass().getResource("MemberHisitoryHotel.fxml"));
-        MemberController.setPrimaryStage(primaryStage);
+    public void start (Stage primaryStage) throws Exception {
+        Parent root = FXMLLoader.load(getClass().getResource("ManagerAddHotel.fxml"));
+        ManagerController.setPrimaryStage(primaryStage);
         Scene myScene = new Scene(root,960,540);
         primaryStage.setResizable(false);
         primaryStage.setScene(myScene);

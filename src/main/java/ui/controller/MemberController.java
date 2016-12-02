@@ -10,7 +10,6 @@ import ui.presentation.*;
  */
 public class MemberController{
 
-   // private MemberBLService memberBL = new Member();
     private static Stage primaryStage;
 
 
