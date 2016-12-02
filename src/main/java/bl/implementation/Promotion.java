@@ -47,7 +47,7 @@ public class Promotion implements PromotionBLService {
 	}
 	
 	@Override
-	public ArrayList<PromotionVO> getAllPromotionList() {
+	public ArrayList<PromotionVO> getWebPromotionList() {
 		return null;
 	}
 

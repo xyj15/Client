@@ -35,7 +35,8 @@ public class SalerVO extends User {
 	 * @param promotionList 网站营销策略列表
 	 * @param dailyOrderList 当天所有订单列表
 	 */
-    public SalerVO(String name, String tel, ArrayList<PromotionVO> promotionList, ArrayList<OrderVO> dailyOrderList) {
+    public SalerVO(String name, String tel, ArrayList<PromotionVO> promotionList,
+				   ArrayList<OrderVO> dailyOrderList) {
 		this.name = name;
 		this.tel = tel;
 		this.promotionList = promotionList;
@@ -58,7 +59,7 @@ public class SalerVO extends User {
 		this.name = name;
 		this.tel = tel;
 		this.promotionList = promotionList;
-		this.dailyOrderList =dailyOrderList;
+		this.dailyOrderList = dailyOrderList;
 	}
 	
 	public String getName() {
