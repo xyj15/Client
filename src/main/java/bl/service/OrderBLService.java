@@ -17,6 +17,6 @@ public interface OrderBLService {
 	public ArrayList<OrderVO> getCanceledOrders();	//获得已撤销订单列表
 	
 	public boolean cancelOrder(String orderID);	//撤销订单
-	public boolean evaluateOrder(double score, String comment);	//评价订单
+	public boolean evaluateOrder(String orderID, double score, String comment);	//评价订单
 	public boolean cancelAbnormalOrder(String orderID, double recover);	//撤销异常订单，recover为恢复信用的比例，全部或一半
 }

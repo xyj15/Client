@@ -58,25 +58,24 @@ public class Order implements OrderBLService {
 	@Override
 	public boolean cancelOrder(String orderID) {
 		updateDataFromFile();
-		OrderVO orderVO;
-		boolean foundOrder = false;
-		for(int i=0; i<orderList.size(); i++) {
-			orderVO = orderList.get(i);
-			if(orderVO.getOrderID().equals(orderID)) {
-				foundOrder = true;
-				break;
-			}
-		}
-		if(!foundOrder) {
+		int index = getOrderIndex(orderID);
+		if(index==-1) {
 			return false;
-		} else {
-			
-			return true;
 		}
+		
+		OrderVO orderVO = orderList.get(index);
+		orderVO.setOrderStatus(OrderStatus.Canceled);
+		orderVO.setCancelTime(new Date());
+		orderList.set(index, orderVO);
+		OrderPO orderPO = orderVOTransferToPO(orderVO);
+		return orderDataService.updateOrder(orderPO);
 	}
 	
 	@Override
-	public boolean evaluateOrder(double score, String comment) {
+	public boolean evaluateOrder(String orderID, double score, String comment) {
+		updateDataFromFile();
+		OrderVO orderVO = null;
+		
 		return false;
 	}
 	
@@ -85,12 +84,15 @@ public class Order implements OrderBLService {
 		return false;
 	}
 	
+	/**
+	 *
+	 */
 	public void updateDataFromFile() {
 		ArrayList<OrderPO> orderPOArrayList = orderDataService.getOrderList(userID);
 		orderList = new ArrayList<OrderVO>();
 		OrderPO orderPO;
 		OrderVO orderVO;
-		for (int i = 0; i < orderList.size(); i++) {
+		for(int i = 0; i < orderList.size(); i++) {
 			orderPO = orderPOArrayList.get(i);
 			String memberID = orderPO.getMemberID();
 			String hotelID = orderPO.getHotelID();
@@ -120,6 +122,12 @@ public class Order implements OrderBLService {
 		}
 	}
 	
+	/**
+	 *
+	 * @param orderList
+	 * @param orderStatus
+	 * @return
+	 */
 	public ArrayList<OrderVO> filterList(ArrayList<OrderVO> orderList, OrderStatus orderStatus) {
 		ArrayList<OrderVO> orderVOArrayList = new ArrayList<OrderVO>();
 		OrderVO orderVO;
@@ -130,5 +138,53 @@ public class Order implements OrderBLService {
 			}
 		}
 		return orderVOArrayList;
+	}
+	
+	/**
+	 *
+	 * @param orderID
+	 * @return
+	 */
+	public int getOrderIndex(String orderID) {
+		int i;
+		for(i=0; i<orderList.size(); i++) {
+			if(orderList.get(i).getOrderID().equals(orderID)) {
+				return i;
+			}
+		}
+		return -1;
+	}
+	
+	/**
+	 *
+	 * @param orderVO
+	 * @return
+	 */
+	public OrderPO orderVOTransferToPO(OrderVO orderVO) {
+		String memberID = orderVO.getMemberID();
+		String hotelID = orderVO.getHotelID();
+		String orderID = orderVO.getOrderID();
+		OrderStatus orderStatus = orderVO.getOrderStatus();
+		Date createTime = orderVO.getCreateTime();
+		Date checkinTime = orderVO.getCheckinTime();
+		Date actualCheckinTime = orderVO.getActualCheckinTime();
+		Date latestCheckinTime = orderVO.getLatestCheckinTime();
+		Date checkoutTime = orderVO.getCheckoutTime();
+		Date actualCheckoutTime = orderVO.getActualCheckoutTime();
+		int numberOfRoom = orderVO.getNumberOfRoom();
+		String roomName = orderVO.getRoomName();
+		int numberOfClient = orderVO.getNumberOfClient();
+		boolean haveKids = orderVO.getHaveKids();
+		double score = orderVO.getScore();
+		String evaluation = orderVO.getEvaluation();
+		double recover = orderVO.getRecover();
+		String promotionID = orderVO.getPromotionID();
+		double price = orderVO.getPrice();
+		Date cancelTime = orderVO.getCancelTime();
+		OrderPO orderPO = new OrderPO(memberID, hotelID, orderID, orderStatus, createTime,
+				checkinTime, actualCheckinTime, latestCheckinTime, checkoutTime,
+				actualCheckoutTime, numberOfRoom, roomName, numberOfClient, haveKids,
+				score, evaluation, recover, promotionID, price, cancelTime);
+		return orderPO;
 	}
 }

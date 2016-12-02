@@ -81,7 +81,7 @@ public class OrderBLStub implements OrderBLService {
 	}
 	
 	@Override
-	public boolean evaluateOrder(double score, String comment) {
+	public boolean evaluateOrder(String orderID, double score, String comment) {
 		System.out.println("评价订单成功");
 		return true;
 	}
