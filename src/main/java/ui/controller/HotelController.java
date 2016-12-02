@@ -40,7 +40,7 @@ public class HotelController {
     }
     @FXML
     private void onInforChange(ActionEvent E)throws Exception {
-        new HotelUpdateInformationUI().start(updateStage);                 //酒店基本信息改变
+        new HotelUpdateInformationUI().start(primaryStage);                 //酒店基本信息改变
     }
 
     @FXML
@@ -68,8 +68,24 @@ public class HotelController {
         new HotelDatePromotionUI().start(primaryStage);
     }
     @FXML
+    private void onAddDatePromotion(ActionEvent E)throws Exception {
+        new SalerAddPromotionUI().start(primaryStage);
+    }
+    @FXML
+    private void onAddCompanyPromotion(ActionEvent E)throws Exception {
+        new SalerAddPromotionUI().start(primaryStage);
+    }
+    @FXML
+    private void onCompanyPromotion(ActionEvent E)throws Exception {
+        new HotelCompanyPromotionUI().start(primaryStage);
+    }
+    @FXML
     private void onRoomManager(ActionEvent E)throws Exception {
         new HotelRoomUI().start(primaryStage);
+    }
+    @FXML
+    private void onAddRoom(ActionEvent E)throws Exception {
+        new HotelAddRoomUI().start(primaryStage);
     }
     @FXML
     private void onLogOut(ActionEvent E)throws Exception {
