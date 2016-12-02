@@ -24,13 +24,6 @@ public class Credit implements CreditBLService {
 	private CreditDataService creditDataService;
 	
 	/**
-	 * 空构造方法
-	 */
-	public Credit() {
-		
-	}
-	
-	/**
 	 * 带memberID的构造方法
 	 * @param memberID
 	 */
@@ -76,7 +69,7 @@ public class Credit implements CreditBLService {
 	 * 添加新的信用变化情况
 	 * @param creditChangeVO 信用变化情况
 	 */
-	public void addCreditChange(CreditChangeVO creditChangeVO) {
+	public boolean addCreditChange(CreditChangeVO creditChangeVO) {
 		creditChangeList.add(creditChangeVO);
 	
 		Date date = creditChangeVO.getDate();
@@ -84,9 +77,11 @@ public class Credit implements CreditBLService {
 		OrderAction orderAction = creditChangeVO.getOrderAction();
 		double change = creditChangeVO.getChange();
 		double result = creditChangeVO.getResult();
+		this.credit = result;
+		
 		CreditChangePO creditChangePO = new CreditChangePO(date, orderID, orderAction,
 				change, result);
-		creditDataService.addCreditChange(memberID, creditChangePO);
+		return creditDataService.addCreditChange(memberID, creditChangePO);
 	}
 	
 	/**
