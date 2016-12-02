@@ -18,7 +18,6 @@ import java.util.List;
  */
 public class MemberController{
 
-   // private MemberBLService memberBL = new Member();
     private static Stage primaryStage;
 
 

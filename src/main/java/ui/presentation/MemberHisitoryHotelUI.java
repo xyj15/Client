@@ -21,4 +21,5 @@ public class MemberHisitoryHotelUI extends Application {
         primaryStage.setScene(myScene);
         primaryStage.show();
     }
+
 }
