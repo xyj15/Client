@@ -132,18 +132,6 @@ public class SearchBLStub implements SearchBLService {
 	}
 	
 	@Override
-	public boolean setSelectedHotel(HotelVO hotelVO) {
-		System.out.println("设置选择的酒店成功");
-		return true;
-	}
-	
-	@Override
-	public boolean setSelectedRoom(RoomVO roomVO) {
-		System.out.println("设置选择的客房成功");
-		return true;
-	}
-	
-	@Override
 	public ArrayList<HotelVO> sortByPriceHighToLow() {
 		System.out.println("设置价格从高到低排序");
 		return hotelList;

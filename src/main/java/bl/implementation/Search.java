@@ -119,18 +119,6 @@ public class Search implements SearchBLService {
 	}
 	
 	@Override
-	public boolean setSelectedHotel(HotelVO hotelVO) {
-		
-		return false;
-	}
-	
-	@Override
-	public boolean setSelectedRoom(RoomVO roomVO) {
-		
-		return false;
-	}
-	
-	@Override
 	public ArrayList<HotelVO> sortByPriceHighToLow() {
 		return null;
 	}
