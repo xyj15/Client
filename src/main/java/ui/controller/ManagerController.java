@@ -1,15 +1,10 @@
 package ui.controller;
 
-import bl.service.ManagerBLService;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.stage.Stage;
-import ui.controllerservice.ManagerControllerService;
 import ui.presentation.LoginUI;
 import ui.presentation.ManagerSearchUserUI;
-import vo.HotelVO;
-import vo.MemberVO;
-import vo.SalerVO;
 
 
 /**

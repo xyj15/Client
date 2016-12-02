@@ -2,16 +2,9 @@ package ui.controller;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
-import other.UserType;
-import ui.controllerservice.LoginControllerService;
-import bl.implementation.Login;
-import bl.service.LoginBLService;
 import ui.presentation.*;
 
 

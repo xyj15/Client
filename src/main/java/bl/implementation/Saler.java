@@ -8,7 +8,6 @@ import other.Rank;
 import po.SalerPO;
 import vo.OrderVO;
 import vo.PromotionVO;
-import vo.SalerVO;
 
 import java.util.ArrayList;
 
