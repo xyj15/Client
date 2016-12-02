@@ -12,7 +12,9 @@ import vo.PromotionVO;
 import java.util.ArrayList;
 
 /**
- * Created by 97147 on 2016/11/19.
+ * Saler模块bl的实现类
+ * @author CROFF
+ * @version 2016-12-2
  */
 public class Saler implements SalerBLService {
     

@@ -12,7 +12,11 @@ import vo.OrderVO;
 import java.util.ArrayList;
 import java.util.Date;
 
-
+/**
+ * Member模块bl的实现类
+ * @author CROFF
+ * @version 2016-12-2
+ */
 public class Member implements MemberBLService {
 	
 	private MemberVO memberVO;

@@ -10,6 +10,11 @@ import vo.ManagerVO;
 import vo.MemberVO;
 import vo.SalerVO;
 
+/**
+ * Manager模块bl的实现类
+ * @author CROFF
+ * @version 2016-12-2
+ */
 public class Manager implements ManagerBLService {
 
 	private ManagerDataService managerDataService;

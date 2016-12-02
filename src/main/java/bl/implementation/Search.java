@@ -11,9 +11,9 @@ import po.MemberPO;
 import vo.*;
 
 /**
- * Search功能的实现类
+ * Search模块bl的实现类
  * @author CROFF
- * @version 2016-11-27
+ * @version 2016-12-2
  */
 public class Search implements SearchBLService {
 	

@@ -14,7 +14,7 @@ import vo.MemberVO;
 import java.util.Date;
 
 /**
- * login模块bl的实现类
+ * Login模块bl的实现类
  * @author CROFF
  * @version 2016-12-2
  */

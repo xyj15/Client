@@ -12,11 +12,12 @@ import java.util.ArrayList;
  */
 public class Rank {
     
-	private RankDataService rankDataService;
-    private ArrayList<Double> creditList;	//会员升级所需信用表
+	private ArrayList<Double> creditList;	//会员升级所需信用表
     private ArrayList<Double> discountList;	//会员各等级享受折扣表
 	
-    private static Rank rank = new Rank();
+	private RankDataService rankDataService;
+	
+	private static Rank rank = new Rank();
 	public static Rank getInstance(){
         return rank;
     }
@@ -60,11 +61,18 @@ public class Rank {
 		return updateDataToFile();
 	}
 	
+	/**
+	 * 从数据层更新数据
+	 */
 	public void updateDataFromFile() {
 		creditList = rankDataService.getCreditList();
 		discountList = rankDataService.getDiscountList();
 	}
 	
+	/**
+	 * 将数据更新到数据层
+	 * @return 更新成功则返回true，否则false
+	 */
 	public boolean updateDataToFile() {
 		if(rankDataService.updateCreditList(creditList) && rankDataService.updateDiscountList(discountList)) {
 			return true;

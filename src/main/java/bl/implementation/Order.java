@@ -7,6 +7,11 @@ import vo.OrderVO;
 
 import java.util.ArrayList;
 
+/**
+ * Order模块bl的实现类
+ * @author CROFF
+ * @version 2016-12-2
+ */
 public class Order implements OrderBLService {
 	
 	private ArrayList<OrderPO> orderList;
