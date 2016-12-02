@@ -14,11 +14,10 @@ public class ManagerSearchUserUI extends Application {
     private ManagerController controller ;
     @Override
     public void start (Stage primaryStage) throws Exception {
-        FXMLLoader loader=new FXMLLoader(getClass().getResource("ManagerSearchUser.fxml"));
-        Parent root =loader.load();
-        controller=loader.getController();
-        controller.setPrimaryStage(primaryStage);
-        Scene myScene = new Scene(root);
+        Parent root =FXMLLoader.load(getClass().getResource("ManagerSearchUser.fxml"));
+        ManagerController.setPrimaryStage(primaryStage);
+        Scene myScene = new Scene(root,960,540);
+        primaryStage.setResizable(false);
         primaryStage.setScene(myScene);
         primaryStage.show();
     }
