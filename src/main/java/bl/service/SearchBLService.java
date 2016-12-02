@@ -13,7 +13,6 @@ public interface SearchBLService {
 	public boolean setDistrict(String district);
 	public boolean setHotelName(String hotelName);
 	public boolean setLevel(int level);
-	public boolean setScore(double score);
 	public boolean setRoomType(RoomType roomType);
 	public boolean setLowerPrice(double lowerPrice);
 	public boolean setUpperPrice(double upperPrice);

@@ -1,7 +1,7 @@
 package bl.implementation;
 
-import bl.dataservice.HotelDataService;
-import bl.dataservice.RoomDataService;
+import data.service.HotelDataService;
+import data.service.RoomDataService;
 import bl.service.HotelBLService;
 import po.HotelPO;
 import vo.HotelVO;

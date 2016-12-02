@@ -1,6 +1,6 @@
 package bl.implementation;
 
-import bl.dataservice.MemberDataService;
+import data.service.MemberDataService;
 import bl.service.MemberBLService;
 
 import other.MemberType;
