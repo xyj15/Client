@@ -8,16 +8,17 @@ import javafx.stage.Stage;
 import ui.controller.ManagerController;
 
 /**
- * Created by 97147 on 2016/11/30.
+ * Created by 婧婧 on 2016/12/2.
  */
-public class ManagerSearchUserUI extends Application {
+public class ManagerAddUserUI extends Application {
     @Override
     public void start (Stage primaryStage) throws Exception {
-        Parent root =FXMLLoader.load(getClass().getResource("ManagerSearchUser.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("ManagerAddHotel.fxml"));
         ManagerController.setPrimaryStage(primaryStage);
         Scene myScene = new Scene(root,960,540);
         primaryStage.setResizable(false);
         primaryStage.setScene(myScene);
         primaryStage.show();
     }
+
 }

@@ -15,7 +15,6 @@ public class HotelController {
     //private HotelBLService hotelBL = new Hotel();
 
     private static Stage primaryStage;
-    private Stage updateStage;
     public static void setPrimaryStage(Stage in){
         primaryStage=in;
     }
