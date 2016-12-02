@@ -6,6 +6,12 @@ import bl.service.HotelBLService;
 import po.HotelPO;
 import vo.HotelVO;
 
+/**
+ * Created by 97147 on 2016/11/18.
+ * Hotel模块的bl实现类
+ * @author CROFF
+ * @version 2016-12-2
+ */
 public class Hotel implements HotelBLService {
 
 	public Order order;

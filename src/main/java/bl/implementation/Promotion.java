@@ -7,6 +7,11 @@ import bl.service.PromotionBLService;
 import po.PromotionPO;
 import vo.PromotionVO;
 
+/**
+ * Promotion模块bl的实现类
+ * @author CROFF
+ * @version 2016-12-2
+ */
 public class Promotion implements PromotionBLService {
 	
 	private PromotionDataService promotionDataService;

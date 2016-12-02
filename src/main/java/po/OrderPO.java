@@ -30,6 +30,7 @@ public class OrderPO {
 	private double recover;	//撤销异常时返回的信用比例，若无则为0
 	private String promotionID;	//使用的促销策略
 	private double price;	//订单价值
+	private Date cancelTime;	//订单撤销时间
 	
 	/**
 	 * 空构造方法
@@ -59,11 +60,12 @@ public class OrderPO {
 	 * @param recover 撤销异常时返回的信用比例，若无则为0
 	 * @param promotionID 使用的促销策略ID
 	 * @param price 订单价值
+	 * @param cancelTime 订单撤销时间
 	 */
 	public OrderPO(String memberID, String hotelID, String orderID, OrderStatus orderStatus, Date createTime,
 				   Date checkinTime, Date actualCheckinTime, Date latestCheckinTime, Date checkoutTime,
 				   Date actualCheckoutTime, int numberOfRoom, String roomName, int numberOfClient, boolean haveKids,
-				   double score, String evaluation, double recover, String promotionID, double price) {
+				   double score, String evaluation, double recover, String promotionID, double price, Date cancelTime) {
 		this.memberID = memberID;
 		this.hotelID = hotelID;
 		this.orderID = orderID;
@@ -83,6 +85,7 @@ public class OrderPO {
 		this.recover = recover;
 		this.promotionID = promotionID;
 		this.price = price;
+		this.cancelTime = cancelTime;
 	}
 	
 	public String getMemberID() {
@@ -235,5 +238,13 @@ public class OrderPO {
 	
 	public void setRoomName(String roomName) {
 		this.roomName = roomName;
+	}
+	
+	public Date getCancelTime() {
+		return cancelTime;
+	}
+	
+	public void setCancelTime(Date cancelTime) {
+		this.cancelTime = cancelTime;
 	}
 }

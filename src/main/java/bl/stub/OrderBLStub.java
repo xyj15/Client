@@ -24,18 +24,19 @@ public class OrderBLStub implements OrderBLService {
 		Date checkoutTime = new Date();
 		Date actualCheckoutTime = new Date();
 		int numberOfRoom = 4;
-		String roomName = "";
+		String roomName = "商务大床房";
 		int numberOfClient = 4;
 		boolean haveKids = false;
 		double score = 5;
-		String evaluation = "";
+		String evaluation = "床太硬了不酥服555555";
 		double recover = 0.5;
 		String promotionID = "00000";
 		double price = 99999;
+		Date cancelTime = new Date();
 		OrderVO orderVO = new OrderVO(memberID, hotelID, orderID, orderStatus, createTime,
 				checkinTime, actualCheckinTime, latestCheckinTime, checkoutTime, actualCheckoutTime,
 				numberOfRoom, roomName, numberOfClient, haveKids, score, evaluation, recover,
-				promotionID, price);
+				promotionID, price, cancelTime);
 		orderList.add(orderVO);
 	}
 	
