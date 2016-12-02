@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.paint.*?>
+<?import javafx.geometry.*?>
 <?import java.lang.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.image.*?>
@@ -21,7 +21,7 @@
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="540.0" prefWidth="960.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ui.controller.MemberController">
    <children>
       <Button layoutX="455.0" layoutY="65.0" mnemonicParsing="false" opacity="0.0" prefHeight="23.0" prefWidth="24.0" text="营销人员" textFill="WHITE" />
-      <ImageView fitHeight="540.0" fitWidth="960.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="0.0">
+      <ImageView fitHeight="540.0" fitWidth="975.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="0.0">
          <image>
             <Image url="@background.jpg" />
          </image>
@@ -31,7 +31,7 @@
             <Font name="Microsoft YaHei Bold" size="16.0" />
          </font>
       </Button>
-      <Button layoutX="43.0" layoutY="270.0" mnemonicParsing="false" onAction="#onMenberInfor" opacity="0.66" prefHeight="23.0" prefWidth="181.0" style="-fx-background-color: #000f32;" text="查看个人信息" textFill="WHITE">
+      <Button layoutX="43.0" layoutY="270.0" mnemonicParsing="false" onAction="#onMenberInfor" opacity="0.66" prefHeight="23.0" prefWidth="181.0" style="-fx-background-color: #000f32;" text="个人信息" textFill="WHITE">
          <font>
             <Font name="Microsoft YaHei Bold" size="16.0" />
          </font>
@@ -42,12 +42,12 @@
             <Image url="@logo.png" />
          </image>
       </ImageView>
-      <Button layoutX="43.0" layoutY="340.0" mnemonicParsing="false" onAction="#onOrderInfor" opacity="0.66" prefHeight="23.0" prefWidth="181.0" style="-fx-background-color: #000f32;" text="查看订单信息" textFill="WHITE">
+      <Button layoutX="43.0" layoutY="340.0" mnemonicParsing="false" onAction="#onOrderInfor" opacity="0.66" prefHeight="23.0" prefWidth="181.0" style="-fx-background-color: #000f32;" text="订单信息" textFill="WHITE">
          <font>
             <Font name="Microsoft YaHei Bold" size="16.0" />
          </font>
       </Button>
-      <Button layoutX="43.0" layoutY="410.0" mnemonicParsing="false" onAction="#onPastHotel" opacity="0.66" prefHeight="23.0" prefWidth="181.0" style="-fx-background-color: #000f32;" text="查看预定过的酒店" textFill="WHITE">
+      <Button layoutX="43.0" layoutY="410.0" mnemonicParsing="false" onAction="#onPastHotel" opacity="0.66" prefHeight="23.0" prefWidth="181.0" style="-fx-background-color: #000f32;" text="预定过的酒店" textFill="WHITE">
          <font>
             <Font name="Microsoft YaHei Bold" size="16.0" />
          </font>

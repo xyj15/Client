@@ -2,7 +2,7 @@ package bl.implementation;
 
 import java.util.ArrayList;
 
-import bl.dataservice.PromotionDataService;
+import data.service.PromotionDataService;
 import bl.service.PromotionBLService;
 import po.PromotionPO;
 import vo.PromotionVO;

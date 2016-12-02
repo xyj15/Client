@@ -1,30 +1,60 @@
 package bl.implementation;
 
-import bl.dataservice.OrderDataService;
+import data.service.OrderDataService;
 import bl.service.OrderBLService;
-import other.User;
+import other.OrderStatus;
 import po.OrderPO;
 import vo.OrderVO;
 
 import java.util.ArrayList;
+import java.util.Date;
 
 public class Order implements OrderBLService {
 
-	private ArrayList<OrderVO> orderVOList;
-	private ArrayList<OrderPO> orderPOList;
+	private ArrayList<OrderPO> orderList;
 	private OrderDataService orderDataService;
-	
-	public Order() {
-		
-	}
+	private String userID;
 	
 	public Order(String userID) {
-		
+		this.userID = userID;
+		orderList = orderDataService.getOrderList(userID);
 	}
 	
 	@Override
 	public ArrayList<OrderVO> getOrderList() {
-		return null;
+		orderList = orderDataService.getOrderList(userID);
+		
+		ArrayList<OrderVO> orderVOList = new ArrayList<OrderVO>();
+		OrderPO orderPO;
+		OrderVO orderVO;
+		for(int i=0; i<orderList.size(); i++) {
+			orderPO = orderList.get(i);
+			String memberID = orderPO.getMemberID();
+			String hotelID = orderPO.getHotelID();
+			String orderID = orderPO.getOrderID();
+			OrderStatus orderStatus = orderPO.getOrderStatus();
+			Date createTime = orderPO.getCreateTime();
+			Date checkinTime = orderPO.getCheckinTime();
+			Date actualCheckinTime = orderPO.getActualCheckinTime();
+			Date latestCheckinTime = orderPO.getLatestCheckinTime();
+			Date checkoutTime = orderPO.getCheckoutTime();
+			Date actualCheckoutTime = orderPO.getActualCheckoutTime();
+			int numberOfRoom = orderPO.getNumberOfRoom();
+			String roomName = orderPO.getRoomName();
+			int numberOfClient = orderPO.getNumberOfClient();
+			boolean hasKids = orderPO.getHasKids();
+			double score = orderPO.getScore();
+			String evaluation = orderPO.getEvaluation();
+			double recover = orderPO.getRecover();
+			String promotionID = orderPO.getPromotionID();
+			double price = orderPO.getPrice();
+			orderVO = new OrderVO(memberID, hotelID, orderID, orderStatus, createTime,
+					checkinTime, actualCheckinTime, latestCheckinTime, checkoutTime,
+					actualCheckoutTime, numberOfRoom, roomName, numberOfClient, hasKids,
+					score, evaluation, recover, promotionID, price);
+			orderVOList.add(orderVO);
+		}
+		return orderVOList;
 	}
 	
 	@Override
@@ -60,6 +90,14 @@ public class Order implements OrderBLService {
 	@Override
 	public boolean cancelAbnormalOrder(String orderID, double recover) {
 		return false;
+	}
+	
+	public String getUserID() {
+		return userID;
+	}
+	
+	public void setUserID(String userID) {
+		this.userID = userID;
 	}
 
 //	public OrderVO getOrder(String orderID) {

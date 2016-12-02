@@ -15,6 +15,7 @@ public class MemberFirstUI extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception {
+
         Parent root =FXMLLoader.load(getClass().getResource("MemberFirst.fxml"));
         MemberController.setPrimaryStage(primaryStage);
         Scene myScene = new Scene(root,960,540);
