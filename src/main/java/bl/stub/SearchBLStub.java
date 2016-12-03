@@ -38,13 +38,14 @@ public class SearchBLStub implements SearchBLService {
 		hotelList.add(hotelVO);
 		
 		roomList = new ArrayList<RoomVO>();
+		boolean reserved = false;
 		boolean available = false;
 		String roomNumber = "3304";
 		String roomName = "总统专用豪华研讨间";
 		RoomType roomType = RoomType.Suite;
 		double price = 99999;
 		hotelID = "123456";
-		RoomVO roomVO = new RoomVO(available, roomNumber, roomName, roomType, price, hotelID);
+		RoomVO roomVO = new RoomVO(reserved, available, roomNumber, roomName, roomType, price, hotelID);
 		roomList.add(roomVO);
 	}
 	

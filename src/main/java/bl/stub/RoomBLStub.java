@@ -11,13 +11,14 @@ public class RoomBLStub implements RoomBLService {
 	private RoomVO roomVO;
 	
 	public RoomBLStub() {
+		boolean reserved = false;
 		boolean available = false;
 		String roomNumber = "3304";
 		String roomName = "总统专用豪华研讨间";
 		RoomType roomType = RoomType.Suite;
 		double price = 99999;
 		String hotelID = "123456";
-		roomVO = new RoomVO(available, roomNumber, roomName, roomType, price, hotelID);
+		roomVO = new RoomVO(reserved, available, roomNumber, roomName, roomType, price, hotelID);
 	}
 	
 	@Override
@@ -39,7 +40,7 @@ public class RoomBLStub implements RoomBLService {
 	}
 	
 	@Override
-	public boolean updateRoom(String roomID, RoomVO roomVO) {
+	public boolean updateRoom(RoomVO roomVO) {
 		System.out.println("更新客房信息成功");
 		return true;
 	}
