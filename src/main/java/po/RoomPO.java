@@ -8,7 +8,8 @@ import other.RoomType;
  * @version 2016-12-1
  */
 public class RoomPO {
-	
+
+	private boolean reserved;   //客房是否被预定
 	private boolean available;	//客房是否可使用
 	private String roomNumber;	//客房号码
 	private String roomName;	//客房名称
@@ -25,6 +26,7 @@ public class RoomPO {
 	
 	/**
 	 * 带参数的构造方法
+	 * @param reserved  客房是否被预定
 	 * @param available 客房是否可使用
 	 * @param roomNumber 客房号码
 	 * @param roomName 客房名称
@@ -32,8 +34,9 @@ public class RoomPO {
 	 * @param price 客房单价
 	 * @param hotelID 所属酒店ID
 	 */
-	public RoomPO(boolean available, String roomNumber, String roomName,
-				  RoomType roomType, double price, String hotelID) {
+	public RoomPO(boolean reserved, boolean available, String roomNumber, String roomName,
+	              RoomType roomType, double price, String hotelID) {
+		this.reserved = reserved;
 		this.available = available;
 		this.roomNumber = roomNumber;
 		this.roomName = roomName;
@@ -88,5 +91,13 @@ public class RoomPO {
 	
 	public void setHotelID(String hotelID) {
 		this.hotelID = hotelID;
+	}
+
+	public boolean isReserved() {
+		return reserved;
+	}
+
+	public void setReserved(boolean reserved) {
+		this.reserved = reserved;
 	}
 }
