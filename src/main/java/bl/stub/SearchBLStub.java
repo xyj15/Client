@@ -3,6 +3,7 @@ package bl.stub;
 import java.util.ArrayList;
 import java.util.Date;
 
+import bl.implementation.Promotion;
 import bl.service.SearchBLService;
 import other.RoomType;
 import vo.HotelVO;
