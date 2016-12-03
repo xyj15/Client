@@ -26,6 +26,7 @@ public class HotelVO extends User {
 	private ArrayList<String> enterpriseList;	//合作企业列表
 	private ArrayList<RoomVO> roomList;	//酒店客房列表
 	private ArrayList<OrderVO> orderList;	//酒店订单列表
+	private ArrayList<PromotionVO> promotionList;   //酒店营销策略列表
 	
 	/**
 	 * 空构造方法
@@ -52,10 +53,11 @@ public class HotelVO extends User {
 	 * @param enterpriseList 合作企业列表
 	 * @param roomList 客房列表
 	 * @param orderList 订单列表
+	 * @param promotionList 营销策略列表
 	 */
 	public HotelVO(String name, String address, String district, String city, int level, double score, String service,
 				   String introduction, String managerName, String managerTel, ArrayList<String> enterpriseList,
-				   ArrayList<RoomVO> roomList, ArrayList<OrderVO> orderList) {
+				   ArrayList<RoomVO> roomList, ArrayList<OrderVO> orderList, ArrayList<PromotionVO> promotionList) {
 		this.name = name;
 		this.address = address;
 		this.district = district;
@@ -69,6 +71,7 @@ public class HotelVO extends User {
 		this.enterpriseList = enterpriseList;
 		this.roomList = roomList;
 		this.orderList = orderList;
+		this.promotionList = promotionList;
 		super.setUserType(UserType.Hotel);
 	}
 	
@@ -89,11 +92,12 @@ public class HotelVO extends User {
 	 * @param enterpriseList 合作企业列表
 	 * @param roomList 客房列表
 	 * @param orderList 订单列表
+	 * @param promotionList 营销策略列表
 	 */
 	public HotelVO(String userID, String password, String name, String address,
 				   String district, String city, int level, double score, String service,
 				   String introduction, String managerName, String managerTel, ArrayList<String> enterpriseList,
-				   ArrayList<RoomVO> roomList, ArrayList<OrderVO> orderList) {
+				   ArrayList<RoomVO> roomList, ArrayList<OrderVO> orderList, ArrayList<PromotionVO> promotionList) {
 		super(userID, password, UserType.Hotel);
 		this.name = name;
 		this.address = address;
@@ -108,6 +112,8 @@ public class HotelVO extends User {
 		this.enterpriseList = enterpriseList;
 		this.roomList = roomList;
 		this.orderList = orderList;
+		this.promotionList = promotionList;
+		super.setUserType(UserType.Hotel);
 	}
 	
 	public String getName() {
@@ -212,5 +218,13 @@ public class HotelVO extends User {
 	
 	public void setCity(String city) {
 		this.city = city;
+	}
+	
+	public ArrayList<PromotionVO> getPromotionList() {
+		return promotionList;
+	}
+	
+	public void setPromotionList(ArrayList<PromotionVO> promotionList) {
+		this.promotionList = promotionList;
 	}
 }

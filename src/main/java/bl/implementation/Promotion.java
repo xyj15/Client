@@ -14,12 +14,13 @@ import vo.PromotionVO;
  */
 public class Promotion implements PromotionBLService {
 	
-	private PromotionDataService promotionDataService;
-	private ArrayList<PromotionVO> promotionVOList;
-	private ArrayList<PromotionPO> promotionPOList;
+	private String hotelID;
+	private ArrayList<PromotionVO> promotionList;
 	
-	public Promotion(String userID) {
-		
+	private PromotionDataService promotionDataService;
+	
+	public Promotion(String hotelID) {
+		this.hotelID = hotelID;
 	}
 	
 	public Promotion() {
