@@ -22,7 +22,7 @@ public class ManagerBLStub implements ManagerBLService {
 		int level = 1;
 		double discount = 1;
 		MemberType memberType = MemberType.Orinary;
-		Date birthday = new Date(96, 11, 11);
+		Date birthday = new Date();
 		String enterprise = "南京大学有限公司";
 		ArrayList<OrderVO> orderList = new ArrayList<OrderVO>();
 		ArrayList<HotelVO> hotelList = new ArrayList<HotelVO>();
@@ -76,17 +76,9 @@ public class ManagerBLStub implements ManagerBLService {
 	}
 	
 	@Override
-	public boolean updateMemberInformation(String memberID, MemberVO memberVO) {
+	public boolean updateMemberInformation(MemberVO memberVO) {
 		System.out.println("更新客户信息成功");
 		return true;
-	}
-	
-	@Override
-	public ArrayList<MemberVO> getMemberList() {
-		System.out.println("获取客户列表成功");
-		ArrayList<MemberVO> memberList = new ArrayList<MemberVO>();
-		memberList.add(memberVO);
-		return memberList;
 	}
 	
 	@Override
@@ -102,12 +94,6 @@ public class ManagerBLStub implements ManagerBLService {
 	}
 	
 	@Override
-	public boolean addHotelManager(String hotelID, String name, String tel) {
-		System.out.println("添加酒店工作人员成功");
-		return true;
-	}
-	
-	@Override
 	public boolean deleteHotel(String hotelID) {
 		System.out.println("删除酒店成功");
 		return true;
@@ -117,14 +103,6 @@ public class ManagerBLStub implements ManagerBLService {
 	public boolean updateHotelManagerInformation(String hotelID, String name, String tel) {
 		System.out.println("更新酒店工作人员信息成功");
 		return true;
-	}
-	
-	@Override
-	public ArrayList<HotelVO> getHotelList() {
-		System.out.println("获取酒店列表成功");
-		ArrayList<HotelVO> hotelList = new ArrayList<HotelVO>();
-		hotelList.add(hotelVO);
-		return hotelList;
 	}
 	
 	@Override
@@ -146,17 +124,9 @@ public class ManagerBLStub implements ManagerBLService {
 	}
 	
 	@Override
-	public boolean updateSalerInformation(String salerID, SalerVO salerVO) {
+	public boolean updateSalerInformation(SalerVO salerVO) {
 		System.out.println("更新营销人员信息成功");
 		return true;
-	}
-	
-	@Override
-	public ArrayList<SalerVO> getSalerList() {
-		System.out.println("获取营销人员列表成功");
-		ArrayList<SalerVO> salerList = new ArrayList<SalerVO>();
-		salerList.add(salerVO);
-		return salerList;
 	}
 	
 	@Override
