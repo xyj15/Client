@@ -70,7 +70,6 @@ public class Login implements LoginBLService {
 		
 		char c;
 		for(int i=0; i<password.length(); i++) {
-			boolean valid = false;
 			c = password.charAt(i);
 			if(!isCharAndNum(c)) {
 				return false;
