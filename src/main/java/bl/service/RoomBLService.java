@@ -14,5 +14,5 @@ public interface RoomBLService {
 	public RoomVO getRoomInformation(String roomID);	//获得客房信息
 	public boolean addRoom(RoomVO roomVO);	//添加客房
 	public boolean deleteRoom(String roomID);	//删除客房
-	public boolean updateRoom(String roomID, RoomVO roomVO);	//更新客房信息
+	public boolean updateRoom(RoomVO roomVO);	//更新客房信息
 }
