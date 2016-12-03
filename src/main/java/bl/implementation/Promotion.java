@@ -13,44 +13,34 @@ import vo.PromotionVO;
 /**
  * Promotion模块bl的实现类
  * @author CROFF
- * @version 2016-12-2
+ * @version 2016-12-4
  */
 public class Promotion implements PromotionBLService {
 	
-	private String hotelID; //
-	private ArrayList<PromotionVO> promotionList;   //
+	private String hotelID; //酒店ID
+	private ArrayList<PromotionVO> promotionList;   //促销策略列表
 	
 	private PromotionDataService promotionDataService;
 	
 	/**
-	 * 酒店营销策略的构造方法
+	 * 酒店营销策略的构造方法，默认酒店存在
 	 * @param hotelID
 	 */
 	public Promotion(String hotelID) {
-		this.hotelID = hotelID;
-		updateDataFromFile();
-		ArrayList<PromotionVO> promotionVOs = new ArrayList<PromotionVO>();
-		PromotionVO promotionVO;
-		for(int i=0; i<promotionList.size(); i++) {
-			promotionVO = promotionList.get(i);
-			if(promotionVO.getRelatedHotelID().equals(hotelID)) {
-				promotionVOs.add(promotionVO);
-			}
-		}
-		promotionList = promotionVOs;
+		promotionList = getHotelPromotionList(hotelID);
 	}
 	
 	/**
-	 * 网站营销策略的构造方法
+	 * 网站营销策略的构造方法，获取所有营销策略
 	 */
 	public Promotion() {
-		updateDataFromFile();
+		promotionList = getWebPromotionList();
 	}
 	
 	/**
-	 *
-	 * @param promotionID
-	 * @return
+	 * 根据营销策略ID获取营销策略信息，若营销策略不存在则返回null
+	 * @param promotionID 营销策略ID
+	 * @return 营销策略信息
 	 */
 	@Override
 	public PromotionVO getPromotion(String promotionID) {
@@ -66,57 +56,93 @@ public class Promotion implements PromotionBLService {
 	}
 	
 	/**
-	 *
-	 * @param promotion
-	 * @return
+	 * 添加营销策略
+	 * @param promotionVO 营销策略信息
+	 * @return 添加成功则返回true，否则返回false
 	 */
 	@Override
-	public boolean addPromotion(PromotionVO promotion) {
-		return false;
+	public boolean addPromotion(PromotionVO promotionVO) {
+		updateDataFromFile();
+		promotionVO.setPromotionID(promotionDataService.getAvailableID());
+		promotionList.add(promotionVO);
+		PromotionPO promotionPO = promotionVOtoPO(promotionVO);
+		return promotionDataService.addPromotion(promotionPO);
 	}
 	
 	/**
-	 *
-	 * @param promotionID
-	 * @return
+	 * 删除营销策略
+	 * @param promotionID 营销策略ID
+	 * @return 删除成功则返回true，否则返回false
 	 */
 	@Override
 	public boolean deletePromotion(String promotionID) {
-		return false;
+		updateDataFromFile();
+		int index = -1;
+		PromotionVO promotionVO;
+		for(int i=0; i<promotionList.size(); i++) {
+			promotionVO = promotionList.get(i);
+			if(promotionVO.getPromotionID().equals(promotionID)) {
+				index = i;
+				break;
+			}
+		}
+		if(index==-1) {
+			return false;
+		} else {
+			promotionList.remove(index);
+			return promotionDataService.deletePromotion(promotionID);
+		}
 	}
 	
 	/**
-	 *
-	 * @param promotionID
-	 * @param promotion
-	 * @return
+	 * 更新营销策略信息
+	 * @param promotionVO 营销策略信息
+	 * @return 更新成功则返回true，否则返回false
 	 */
 	@Override
-	public boolean updatePromotion(String promotionID, PromotionVO promotion) {
-		return false;
+	public boolean updatePromotion(PromotionVO promotionVO) {
+		String updatePromotionID = promotionVO.getPromotionID();
+		int index = -1;
+		for(int i=0; i<promotionList.size(); i++) {
+			if(promotionList.get(i).getPromotionID().equals(updatePromotionID)) {
+				index = i;
+				break;
+			}
+		}
+		if(index==-1) {
+			return false;
+		} else {
+			promotionList.set(index, promotionVO);
+			PromotionPO promotionPO = promotionVOtoPO(promotionVO);
+			return promotionDataService.updatePromotion(promotionPO);
+		}
 	}
 	
 	/**
-	 *
-	 * @param hotelID
-	 * @return
+	 * 根据酒店ID获取酒店营销策略列表
+	 * @param hotelID 酒店ID
+	 * @return 酒店营销策略列表
 	 */
 	@Override
 	public ArrayList<PromotionVO> getHotelPromotionList(String hotelID) {
-		return null;
+		this.hotelID = hotelID;
+		updateDataFromFile();
+		return promotionList;
 	}
 	
 	/**
-	 *
-	 * @return
+	 * 获取网站营销策略列表
+	 * @return 网站营销策略列表
 	 */
 	@Override
 	public ArrayList<PromotionVO> getWebPromotionList() {
-		return null;
+		this.hotelID = null;
+		updateDataFromFile();
+		return promotionList;
 	}
 	
 	/**
-	 *
+	 * 从Data层更新数据，hotelID为null时更新网站营销策略列表，hotelID不为null时更新酒店营销策略列表
 	 */
 	public void updateDataFromFile() {
 		promotionList = new ArrayList<PromotionVO>();
@@ -126,14 +152,20 @@ public class Promotion implements PromotionBLService {
 		for(int i=0; i<promotionPOList.size(); i++) {
 			promotionPO = promotionPOList.get(i);
 			promotionVO = promotionPOtoVO(promotionPO);
-			promotionList.add(promotionVO);
+			if(hotelID==null) {
+				promotionList.add(promotionVO);
+			} else {
+				if(promotionPO.getRelatedHotelID().equals(hotelID)) {
+					promotionList.add(promotionVO);
+				}
+			}
 		}
 	}
 	
 	/**
-	 *
-	 * @param promotionVO
-	 * @return
+	 * 将promotion从VO转换成PO
+	 * @param promotionVO VO
+	 * @return PO
 	 */
 	public PromotionPO promotionVOtoPO(PromotionVO promotionVO) {
 		String promotionID = promotionVO.getPromotionID();
@@ -171,9 +203,9 @@ public class Promotion implements PromotionBLService {
 	}
 	
 	/**
-	 *
-	 * @param promotionPO
-	 * @return
+	 * 将promotion从PO转换成VO
+	 * @param promotionPO PO
+	 * @return VO
 	 */
 	public PromotionVO promotionPOtoVO(PromotionPO promotionPO) {
 		String promotionID = promotionPO.getPromotionID();

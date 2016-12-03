@@ -26,7 +26,7 @@ public class PromotionBLStub implements PromotionBLService {
 	}
 	
 	@Override
-	public boolean addPromotion(PromotionVO promotion) {
+	public boolean addPromotion(PromotionVO promotionVO) {
 		System.out.println("添加促销策略成功");
 		return true;
 	}
@@ -38,7 +38,7 @@ public class PromotionBLStub implements PromotionBLService {
 	}
 	
 	@Override
-	public boolean updatePromotion(String promotionID, PromotionVO promotion) {
+	public boolean updatePromotion(PromotionVO promotionVO) {
 		System.out.println("更新促销策略成功");
 		return true;
 	}
