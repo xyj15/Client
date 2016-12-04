@@ -3,6 +3,7 @@ package bl.service;
 import vo.RoomVO;
 
 import java.util.ArrayList;
+import java.util.Date;
 
 /**
  * Room模块bl层和ui层之间的接口
@@ -11,8 +12,8 @@ import java.util.ArrayList;
  */
 public interface RoomBLService {
 	
-	public RoomVO getRoomInformation(String roomID);	//获得客房信息
+	public RoomVO getRoomInformation(Date date, String roomID);	//获得某天的客房信息
 	public boolean addRoom(RoomVO roomVO);	//添加客房
 	public boolean deleteRoom(String roomID);	//删除客房
-	public boolean updateRoom(RoomVO roomVO);	//更新客房信息
+	public boolean updateRoom(Date date, RoomVO roomVO);	//更新某天的客房信息
 }

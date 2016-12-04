@@ -1,11 +1,13 @@
 package bl.stub;
 
-import java.util.ArrayList;
-import java.util.Date;
-
 import bl.service.ManagerBLService;
 import other.MemberType;
-import vo.*;
+import vo.HotelVO;
+import vo.ManagerVO;
+import vo.MemberVO;
+import vo.SalerVO;
+
+import java.util.Date;
 
 public class ManagerBLStub implements ManagerBLService {
 	
@@ -24,10 +26,8 @@ public class ManagerBLStub implements ManagerBLService {
 		MemberType memberType = MemberType.Orinary;
 		Date birthday = new Date();
 		String enterprise = "南京大学有限公司";
-		ArrayList<OrderVO> orderList = new ArrayList<OrderVO>();
-		ArrayList<HotelVO> hotelList = new ArrayList<HotelVO>();
 		memberVO = new MemberVO(memberID, password, name, tel, level, discount,
-				memberType, birthday, enterprise, orderList, hotelList);
+				memberType, birthday, enterprise);
 		
 		String hotelID = "123456";
 		password = "12345678910";
@@ -41,9 +41,6 @@ public class ManagerBLStub implements ManagerBLService {
 		String introduction = "这个酒店是全世界坠吼的";
 		String managerName = "张新悦";
 		String managerTel = "12345678910";
-		ArrayList<String> enterpriseList = new ArrayList<String>();
-		ArrayList<RoomVO> roomList = new ArrayList<RoomVO>();
-		orderList = new ArrayList<OrderVO>();
 		hotelVO = new HotelVO(hotelID, password, name, address, district,
 				city, level, score, service, introduction, managerName, managerTel);
 		
@@ -51,8 +48,6 @@ public class ManagerBLStub implements ManagerBLService {
 		password = "12345678910";
 		name = "传销人员";
 		tel = "12345678910";
-		ArrayList<PromotionVO> promotionList = new ArrayList<PromotionVO>();
-		ArrayList<OrderVO> dailyOrderList = new ArrayList<OrderVO>();
 		salerVO = new SalerVO(salerID, password, name, tel);
 		
 		String managerID = "12";
