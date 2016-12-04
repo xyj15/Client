@@ -6,7 +6,7 @@ import other.RoomType;
 import po.RoomPO;
 import vo.RoomVO;
 
-import java.util.ArrayList;
+import java.util.Date;
 
 /**
  * Room模块bl的实现类
@@ -28,13 +28,14 @@ public class Room implements RoomBLService {
 	}
 	
 	/**
-	 * 根据客房号码获取房间信息
+	 * 根据客房号码获取某天的房间信息
+	 * @param date 日期
 	 * @param roomNumber 客房号码
 	 * @return 房间信息
 	 */
 	@Override
-	public RoomVO getRoomInformation(String roomNumber){
-		RoomPO roomPO = roomDataService.getSingleRoom(roomNumber, hotelID);
+	public RoomVO getRoomInformation(Date date, String roomNumber){
+		RoomPO roomPO = roomDataService.getSingleRoom(date, roomNumber, hotelID);
 		RoomVO roomVO = roomPOtoVO(roomPO);
 		return roomVO;
 	}
@@ -62,14 +63,15 @@ public class Room implements RoomBLService {
 	}
 	
 	/**
-	 * 更新客房信息
+	 * 更新某天的客房信息
+	 * @param date 日期
 	 * @param roomVO 客房信息
 	 * @return 更新成功则返回true，否则返回false
 	 */
 	@Override
-	public boolean updateRoom(RoomVO roomVO) {
+	public boolean updateRoom(Date date, RoomVO roomVO) {
 		RoomPO roomPO = roomVOtoPO(roomVO);
-		return roomDataService.updateSingleRoom(roomPO, hotelID);
+		return roomDataService.updateSingleRoom(date, roomPO, hotelID);
 	}
 	
 	/**

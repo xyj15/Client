@@ -7,7 +7,6 @@ import bl.service.MemberBLService;
 import other.MemberType;
 import other.OrderAction;
 import vo.CreditChangeVO;
-import vo.HotelVO;
 import vo.MemberVO;
 import vo.OrderVO;
 
@@ -26,10 +25,8 @@ public class MemberBLStub implements MemberBLService {
 		MemberType memberType = MemberType.Orinary;
 		Date birthday = new Date();
 		String enterprise = "南京大学有限公司";
-		ArrayList<OrderVO> orderList = new ArrayList<OrderVO>();
-		ArrayList<HotelVO> hotelList = new ArrayList<HotelVO>();
 		memberVO = new MemberVO(memberID, password, name, tel, level, discount,
-				memberType, birthday, enterprise, orderList, hotelList);
+				memberType, birthday, enterprise);
 	}
 	
 	@Override
