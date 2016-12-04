@@ -24,12 +24,12 @@
       </ImageView>
       <Pane layoutX="32.0" layoutY="188.0" opacity="0.65" prefHeight="230.0" prefWidth="275.0" style="-fx-background-color: #000f32;">
          <children>
-            <PasswordField fx:id="password" layoutX="52.0" layoutY="98.0" opacity="0.76" prefHeight="32.0" prefWidth="190.0" promptText="密码">
+            <PasswordField fx:id="passwordForCR" layoutX="52.0" layoutY="98.0" opacity="0.76" prefHeight="32.0" prefWidth="190.0" promptText="密码">
                <font>
                   <Font name="Microsoft YaHei Bold" size="16.0" />
                </font>
             </PasswordField>
-            <TextField fx:id="username1" layoutX="52.0" layoutY="154.0" opacity="0.66" prefHeight="34.0" prefWidth="190.0" promptText="企业名称">
+            <TextField fx:id="companyName" layoutX="52.0" layoutY="154.0" opacity="0.66" prefHeight="34.0" prefWidth="190.0" promptText="企业名称">
                <font>
                   <Font name="Microsoft YaHei Bold" size="16.0" />
                </font>
@@ -46,12 +46,12 @@
             <Image url="@logo.png" />
          </image>
       </ImageView>
-      <TextField fx:id="username" layoutX="84.0" layoutY="227.0" opacity="0.66" prefHeight="34.0" prefWidth="190.0" promptText="用户名">
+      <TextField fx:id="usernameForCR" layoutX="84.0" layoutY="227.0" opacity="0.66" prefHeight="34.0" prefWidth="190.0" promptText="用户名">
          <font>
             <Font name="Microsoft YaHei Bold" size="16.0" />
          </font>
       </TextField>
-      <Button fx:id="signInButton" layoutX="188.0" layoutY="462.0" mnemonicParsing="false" prefHeight="29.0" prefWidth="102.0" style="-fx-background-color: #6B6BCF;" text="注册" textAlignment="CENTER" textFill="WHITE">
+      <Button fx:id="signInButton" layoutX="188.0" layoutY="462.0" mnemonicParsing="false" onAction="#onRegister" prefHeight="29.0" prefWidth="102.0" style="-fx-background-color: #6B6BCF;" text="注册" textAlignment="CENTER" textFill="WHITE">
          <font>
             <Font name="Microsoft YaHei Bold" size="14.0" />
          </font>

@@ -81,7 +81,7 @@
             <Font name="Microsoft YaHei Bold" size="14.0" />
          </font>
       </Label>
-      <Button layoutX="697.0" layoutY="492.0" mnemonicParsing="false" onAction="#onLookingInfor" prefHeight="34.0" prefWidth="181.0" style="-fx-background-color: #6B6BCF;" text="查看酒店详细信息" textFill="WHITE">
+      <Button layoutX="697.0" layoutY="492.0" mnemonicParsing="false" onAction="#onLookingInforInSearch" prefHeight="34.0" prefWidth="181.0" style="-fx-background-color: #6B6BCF;" text="查看酒店详细信息" textFill="WHITE">
          <font>
             <Font name="Microsoft YaHei Bold" size="16.0" />
          </font>

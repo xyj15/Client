@@ -49,7 +49,7 @@
       <Button layoutX="705.0" layoutY="115.0" mnemonicParsing="false" opacity="0.0" prefHeight="23.0" prefWidth="32.0" text="Button" textFill="WHITE" />
       <Button layoutX="767.0" layoutY="115.0" mnemonicParsing="false" opacity="0.0" prefHeight="23.0" prefWidth="64.0" text="Button" />
       <Button layoutX="856.0" layoutY="115.0" mnemonicParsing="false" opacity="0.0" prefHeight="23.0" prefWidth="28.0" text="Button" />
-      <Button layoutX="43.0" layoutY="340.0" mnemonicParsing="false" onAction="#onOrderInfor" opacity="0.66" prefHeight="23.0" prefWidth="181.0" style="-fx-background-color: #000f32;" text="查看订单" textFill="WHITE">
+      <Button layoutX="43.0" layoutY="340.0" mnemonicParsing="false" onAction="#onOrderInfor" opacity="0.66" prefHeight="23.0" prefWidth="181.0" style="-fx-background-color: #000f32;" text="订单信息" textFill="WHITE">
          <font>
             <Font name="Microsoft YaHei Bold" size="16.0" />
          </font>

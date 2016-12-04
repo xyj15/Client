@@ -93,7 +93,7 @@
                   <Font name="Microsoft YaHei Bold" size="16.0" />
                </font>
             </Label>
-            <Label prefHeight="19.0" prefWidth="277.0" textFill="WHITE" GridPane.columnIndex="1">
+            <Label fx:id="userNameLable" prefHeight="19.0" prefWidth="277.0" textFill="WHITE" GridPane.columnIndex="1">
                <font>
                   <Font name="Microsoft YaHei Bold" size="14.0" />
                </font>
@@ -101,7 +101,7 @@
                   <Insets right="15.0" />
                </GridPane.margin>
             </Label>
-            <Label prefHeight="19.0" prefWidth="262.0" textFill="WHITE" GridPane.columnIndex="1" GridPane.rowIndex="1">
+            <Label fx:id="telLable" prefHeight="19.0" prefWidth="262.0" textFill="WHITE" GridPane.columnIndex="1" GridPane.rowIndex="1">
                <font>
                   <Font name="Microsoft YaHei Bold" size="14.0" />
                </font>
@@ -109,7 +109,7 @@
                   <Insets right="15.0" />
                </GridPane.margin>
             </Label>
-            <Label prefHeight="19.0" prefWidth="258.0" textFill="WHITE" GridPane.columnIndex="1" GridPane.rowIndex="2">
+            <Label fx:id="creditLable" prefHeight="19.0" prefWidth="258.0" textFill="WHITE" GridPane.columnIndex="1" GridPane.rowIndex="2">
                <font>
                   <Font name="Microsoft YaHei Bold" size="14.0" />
                </font>
@@ -128,7 +128,7 @@
             <RowConstraints maxHeight="79.0" minHeight="10.0" prefHeight="37.0" vgrow="SOMETIMES" />
          </rowConstraints>
       </GridPane>
-      <Button layoutX="796.0" layoutY="181.0" mnemonicParsing="false" prefHeight="29.0" prefWidth="89.0" style="-fx-background-color: #6B6BCF;" text="修改信息" textFill="WHITE">
+      <Button layoutX="796.0" layoutY="181.0" mnemonicParsing="false" onAction="#onChangeInfor" prefHeight="29.0" prefWidth="89.0" style="-fx-background-color: #6B6BCF;" text="修改信息" textFill="WHITE">
          <font>
             <Font name="Microsoft YaHei Bold" size="14.0" />
          </font>
