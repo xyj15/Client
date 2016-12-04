@@ -13,7 +13,7 @@ import vo.*;
 /**
  * Search模块bl的实现类
  * @author CROFF
- * @version 2016-12-2
+ * @version 2016-12-4
  */
 public class Search implements SearchBLService {
 	
@@ -178,12 +178,12 @@ public class Search implements SearchBLService {
 	}
 	
 	/**
-	 * 根据酒店ID获取
+	 * 根据酒店ID和日期获取
 	 * @param hotelID
 	 * @return
 	 */
 	@Override
-	public ArrayList<RoomVO> getRoomList(String hotelID) {
+	public ArrayList<RoomVO> getRoomList(String hotelID, Date date) {
 		return null;
 	}
 	
