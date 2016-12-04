@@ -2,6 +2,7 @@ package bl.stub;
 
 import bl.service.ManagerBLService;
 import other.MemberType;
+import other.UserType;
 import vo.HotelVO;
 import vo.ManagerVO;
 import vo.MemberVO;
@@ -139,5 +140,10 @@ public class ManagerBLStub implements ManagerBLService {
 	public ManagerVO getManagerInformation() {
 		System.out.println("获取网站管理人员信息成功");
 		return managerVO;
+	}
+	
+	@Override
+	public UserType getUserType(String userID) {
+		return null;
 	}
 }
