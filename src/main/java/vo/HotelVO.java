@@ -8,7 +8,7 @@ import java.util.ArrayList;
 /**
  * 存储Hotel信息的VO类
  * @author CROFF
- * @version 2016-12-1
+ * @version 2016-12-4
  */
 public class HotelVO extends User {
 
@@ -22,6 +22,8 @@ public class HotelVO extends User {
 	private String introduction;	//酒店简介
 	private String managerName;	//酒店管理人员的姓名
 	private String managerTel;	//酒店管理人员的联系方式
+	
+	private double lowestPrice;	//酒店当天客房最低价
 	
 	/**
 	 * 空构造方法
@@ -168,5 +170,13 @@ public class HotelVO extends User {
 	
 	public void setCity(String city) {
 		this.city = city;
+	}
+	
+	public double getLowestPrice() {
+		return lowestPrice;
+	}
+	
+	public void setLowestPrice(double lowestPrice) {
+		this.lowestPrice = lowestPrice;
 	}
 }

@@ -33,10 +33,6 @@ public class Search implements SearchBLService {
 	private Date checkoutTime;	//退房日期，若未设置则为一天后
 	private boolean onlyReservationBefore;	//是否只搜索自己预定过的酒店，默认为false
 	
-	private HotelDataService hotelDataService;
-	private MemberDataService memberDataService;
-	private OrderDataService orderDataService;
-	
 	/**
 	 * 构造方法，提供客户ID
 	 * @param memberID 客户ID
@@ -208,8 +204,8 @@ public class Search implements SearchBLService {
 	 */
 	@Override
 	public ArrayList<RoomVO> getRoomList(String hotelID, Date date) {
-		
-		return null;
+		Room room = new Room(hotelID);
+		return room.getDailyRoomList(date);
 	}
 	
 	/**
@@ -218,8 +214,9 @@ public class Search implements SearchBLService {
 	 */
 	@Override
 	public ArrayList<HotelVO> sortByPriceHighToLow() {
-		ArrayList<HotelVO> resultList = new ArrayList<HotelVO>();
-		return null;
+		ArrayList<HotelVO> hotelList = search();
+		HotelQuickSort.quickSort(hotelList, SortValueOrder.priceHtoL);
+		return hotelList;
 	}
 	
 	/**
@@ -228,8 +225,9 @@ public class Search implements SearchBLService {
 	 */
 	@Override
 	public ArrayList<HotelVO> sortByPriceLowToHigh() {
-		ArrayList<HotelVO> resultList = new ArrayList<HotelVO>();
-		return null;
+		ArrayList<HotelVO> hotelList = search();
+		HotelQuickSort.quickSort(hotelList, SortValueOrder.priceLtoH);
+		return hotelList;
 	}
 	
 	/**
@@ -238,8 +236,9 @@ public class Search implements SearchBLService {
 	 */
 	@Override
 	public ArrayList<HotelVO> sortByScoreHighToLow() {
-		ArrayList<HotelVO> resultList = new ArrayList<HotelVO>();
-		return null;
+		ArrayList<HotelVO> hotelList = search();
+		HotelQuickSort.quickSort(hotelList, SortValueOrder.scoreHtoL);
+		return hotelList;
 	}
 	
 	/**
@@ -248,8 +247,9 @@ public class Search implements SearchBLService {
 	 */
 	@Override
 	public ArrayList<HotelVO> sortByScoreLowToHigh() {
-		ArrayList<HotelVO> resultList = new ArrayList<HotelVO>();
-		return null;
+		ArrayList<HotelVO> hotelList = search();
+		HotelQuickSort.quickSort(hotelList, SortValueOrder.scoreLtoH);
+		return hotelList;
 	}
 	
 	/**
@@ -258,8 +258,9 @@ public class Search implements SearchBLService {
 	 */
 	@Override
 	public ArrayList<HotelVO> sortByLevelHighToLow() {
-		ArrayList<HotelVO> resultList = new ArrayList<HotelVO>();
-		return null;
+		ArrayList<HotelVO> hotelList = search();
+		HotelQuickSort.quickSort(hotelList, SortValueOrder.levelHtoL);
+		return hotelList;
 	}
 	
 	/**
@@ -268,7 +269,8 @@ public class Search implements SearchBLService {
 	 */
 	@Override
 	public ArrayList<HotelVO> sortByLevelLowToHigh() {
-		ArrayList<HotelVO> resultList = new ArrayList<HotelVO>();
-		return null;
+		ArrayList<HotelVO> hotelList = search();
+		HotelQuickSort.quickSort(hotelList, SortValueOrder.levelLtoH);
+		return hotelList;
 	}
 }

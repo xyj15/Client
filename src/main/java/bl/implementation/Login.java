@@ -118,7 +118,7 @@ public class Login implements LoginBLService {
 	}
 	
 	/**
-	 * 获得用户类型
+	 * 根据用户ID获得用户类型，不存在则返回null
 	 * @param userID 用户ID
 	 * @return 用户类型：Member、Hotel、Saler、Manager
 	 */

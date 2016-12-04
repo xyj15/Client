@@ -5,6 +5,10 @@ import data.service.RoomDataService;
 import bl.service.HotelBLService;
 import po.HotelPO;
 import vo.HotelVO;
+import vo.RoomVO;
+
+import java.util.ArrayList;
+import java.util.Date;
 
 /**
  * Created by 97147 on 2016/11/18.
@@ -19,14 +23,8 @@ public class Hotel implements HotelBLService {
 	public Promotion promotion;
 
 	private HotelVO hotelVO;
-	private HotelPO hotelPO;
 	private HotelDataService hotelDataService;
-	private RoomDataService roomDataService;
 
-	public Hotel() {
-		
-	}
-	
 	public Hotel(String hotelID) {
 		
 	}
@@ -99,6 +97,21 @@ public class Hotel implements HotelBLService {
 	@Override
 	public boolean delay(String orderID) {
 		return false;
+	}
+	
+	public double getLowestPrice(Date date) {
+		ArrayList<RoomVO> dailyRoomList = room.getDailyRoomList(date);
+		double lowestPrice = 10000;
+		RoomVO roomVO;
+		double price;
+		for(int i=0; i<dailyRoomList.size(); i++) {
+			roomVO = dailyRoomList.get(i);
+			price = roomVO.getPrice();
+			if(price < lowestPrice) {
+				lowestPrice = price;
+			}
+		}
+		return lowestPrice;
 	}
 
 //	public void changeHotelManager(String hoMa,String hoMaID){
