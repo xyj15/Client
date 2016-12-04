@@ -19,19 +19,19 @@ public class Search implements SearchBLService {
 	
 	private MemberVO memberVO;	//持有的客户信息
 	
-	private String city;	//城市，若未设置则为null
-	private String district;	//商圈，若未设置则为null
-	private String hotelName;	//酒店名称，若未设置则为null
-	private int level;	//星级，若未设置则为0
-	private RoomType roomType;	//房间类型，若未设置则为null
-	private int numberOfRooms;  //可用空房数量，若未设置则为0
-	private double lowerPrice;	//价格区间下限，若未设置则为0
-	private double upperPrice;	//价格区间上限，若未设置则为0
-	private double lowerScore;	//评分区间下限，若未设置则为0
-	private double upperScore;	//评分区间上限，若未设置则为0
+	private String city;	//城市，若未设置则为""
+	private String district;	//商圈，若未设置则为""
+	private String hotelName;	//酒店名称，若未设置则为""
+	private int level;	//星级，若未设置则为-1
+	private RoomType roomType;	//房间类型，若未设置则为""
+	private int numberOfRooms;  //可用空房数量，若未设置则为1
+	private double lowerPrice;	//价格区间下限，若未设置则为-1
+	private double upperPrice;	//价格区间上限，若未设置则为-1
+	private double lowerScore;	//评分区间下限，若未设置则为-1
+	private double upperScore;	//评分区间上限，若未设置则为-1
 	private Date checkinTime;	//入住日期，若未设置则为当天
 	private Date checkoutTime;	//退房日期，若未设置则为一天后
-	private boolean onlyReservationBefore;	//是否只搜索自己预定过的酒店
+	private boolean onlyReservationBefore;	//是否只搜索自己预定过的酒店，默认为false
 	
 	private HotelDataService hotelDataService;
 	private MemberDataService memberDataService;
@@ -110,7 +110,8 @@ public class Search implements SearchBLService {
 	
 	@Override
 	public boolean setNumberOfRooms(int numberOfRooms) {
-		return false;
+		this.numberOfRooms = numberOfRooms;
+		return true;
 	}
 	
 	/**

@@ -2,6 +2,7 @@ package bl.service;
 
 import java.util.ArrayList;
 
+import other.UserType;
 import vo.HotelVO;
 import vo.ManagerVO;
 import vo.MemberVO;
@@ -31,4 +32,5 @@ public interface ManagerBLService {
 	
 	public boolean updateManagerInformation(ManagerVO managerVO);	//更新网站管理人员信息
 	public ManagerVO getManagerInformation();	//获得网站管理人员信息
+	public UserType getUserType(String userID);	//根据ID获得用户类型
 }

@@ -10,6 +10,7 @@ import data.service.MemberDataService;
 import data.service.SalerDataService;
 import other.MemberType;
 import other.User;
+import other.UserType;
 import po.HotelPO;
 import po.ManagerPO;
 import po.MemberPO;
@@ -177,6 +178,11 @@ public class Manager implements ManagerBLService {
 	@Override
 	public ManagerVO getManagerInformation() {
 		return managerPOtoVO(managerDataService.getManager());
+	}
+	
+	@Override
+	public UserType getUserType(String userID) {
+		return null;
 	}
 	
 	/**

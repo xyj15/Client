@@ -12,22 +12,22 @@ import java.util.Date;
  */
 public class Reserve implements ReserveBLService {
 
-	private MemberVO member;
-	private HotelVO hotel;
+	private MemberVO member;	//
+	private HotelVO hotel;	//
 
-	private PromotionVO promotion;
-	private double singlePrice;
+	private PromotionVO promotion;	//
+	private double singlePrice;	//
 	
-	private String hotelName;
-	private String hotelAddress;
-	private int hotelLevel;
-	private String hotelTel;
-	private String roomName;
-	private Date checkinTime;
-	private Date checkoutTime;
-	private String clientName;
-	private String clientTel;
-	private String otherReq;
+	private String hotelName;	//
+	private String hotelAddress;	//
+	private int hotelLevel;	//
+	private String hotelTel;	//
+	private String roomName;	//
+	private Date checkinTime;	//
+	private Date checkoutTime;	//
+	private String clientName;	//
+	private String clientTel;	//
+	private String otherReq;	//
 	
 	public Reserve(String memberID) {
 		
