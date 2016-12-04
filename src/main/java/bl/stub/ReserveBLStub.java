@@ -132,7 +132,7 @@ public class ReserveBLStub implements ReserveBLService {
 	}
 	
 	@Override
-	public boolean createOrder(OrderVO orderVO) {
+	public boolean createOrder() {
 		System.out.println("创建订单成功");
 		return true;
 	}
