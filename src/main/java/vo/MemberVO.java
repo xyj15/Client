@@ -1,11 +1,9 @@
 package vo;
 
-import bl.implementation.Credit;
 import other.MemberType;
 import other.User;
 import other.UserType;
 
-import java.util.ArrayList;
 import java.util.Date;
 
 /**
@@ -22,8 +20,6 @@ public class MemberVO extends User {
 	private MemberType memberType;	//客户类型
 	private Date birthday;	//生日
 	private String enterprise;	//合作企业名称
-	private ArrayList<OrderVO> orderList;	//订单列表
-	private ArrayList<HotelVO> reservedHotelList;	//预定过的酒店列表
 	
 	/**
 	 * 空构造方法
@@ -32,8 +28,6 @@ public class MemberVO extends User {
 		memberType = null;
 		birthday = null;
 		enterprise = null;
-		orderList = new ArrayList<OrderVO>();
-		reservedHotelList = new ArrayList<HotelVO>();
 		super.setUserType(UserType.Member);
 	}
 	
@@ -46,12 +40,9 @@ public class MemberVO extends User {
 	 * @param memberType 客户类型
 	 * @param birthday 生日
 	 * @param enterprise 合作企业名称
-	 * @param orderList 订单列表
-	 * @param reservedHotelList 预定过的酒店列表
 	 */
 	public MemberVO(String name, String tel, int level, double discount,
-					MemberType memberType, Date birthday, String enterprise,
-					ArrayList<OrderVO> orderList, ArrayList<HotelVO> reservedHotelList) {
+					MemberType memberType, Date birthday, String enterprise) {
 		this.name = name;
 		this.tel = tel;
 		this.level = level;
@@ -59,8 +50,6 @@ public class MemberVO extends User {
 		this.memberType = memberType;
 		this.birthday = birthday;
 		this.enterprise = enterprise;
-		this.orderList = orderList;
-		this.reservedHotelList = reservedHotelList;
 		super.setUserType(UserType.Member);
 	}
 	
@@ -75,12 +64,9 @@ public class MemberVO extends User {
 	 * @param memberType 客户类型
 	 * @param birthday 生日
 	 * @param enterprise 合作企业名称
-	 * @param orderList 订单列表
-	 * @param reservedHotelList 预定过的酒店列表
 	 */
 	public MemberVO(String userID, String password, String name, String tel, int level,
-					double discount, MemberType memberType, Date birthday, String enterprise,
-					ArrayList<OrderVO> orderList, ArrayList<HotelVO> reservedHotelList) {
+					double discount, MemberType memberType, Date birthday, String enterprise) {
 		super(userID, password, UserType.Member);
 		this.name = name;
 		this.tel = tel;
@@ -89,8 +75,6 @@ public class MemberVO extends User {
 		this.memberType = memberType;
 		this.birthday = birthday;
 		this.enterprise = enterprise;
-		this.orderList = orderList;
-		this.reservedHotelList = reservedHotelList;
 	}
 	
 	public String getName() {
@@ -147,21 +131,5 @@ public class MemberVO extends User {
 	
 	public void setEnterprise(String enterprise) {
 		this.enterprise = enterprise;
-	}
-	
-	public ArrayList<OrderVO> getOrderList() {
-		return orderList;
-	}
-	
-	public void setOrderList(ArrayList<OrderVO> orderList) {
-		this.orderList = orderList;
-	}
-	
-	public ArrayList<HotelVO> getReservedHotelList() {
-		return reservedHotelList;
-	}
-	
-	public void setReservedHotelList(ArrayList<HotelVO> reservedHotelList) {
-		this.reservedHotelList = reservedHotelList;
 	}
 }
