@@ -16,7 +16,7 @@ public class MemberReserveInSearUI extends Application {
     public void start(Stage primaryStage) throws Exception {
         Parent root = FXMLLoader.load(getClass().getResource("MemberReserveInSear.fxml"));
         MemberController.setMidprimaryStage(primaryStage);
-        MemberController.setRoot(root);
+        MemberController.setMidroot(root);
         Scene myScene = new Scene(root,528,528);
         primaryStage.setResizable(false);
         primaryStage.setScene(myScene);

@@ -22,13 +22,23 @@ import java.util.Date;
  */
 public class MemberController{
 
+    private Date in;
+    private Date out;
+    private String[] tem;
+
+
     private static Stage primaryStage;
     private static Stage midprimaryStage;
+    private static Parent midroot;
     private static Parent root;
     private SearchBLService search = new SearchBLStub();
     private MemberBLService member = new MemberBLStub();
     private HotelBLService hotel = new HotelBLStub();
     private ReserveBLService reserve = new ReserveBLStub();
+
+    public static void setMidroot(Parent midroot) {
+        MemberController.midroot = midroot;
+    }
 
     public static void setRoot(Parent root) {
         MemberController.root = root;
@@ -90,14 +100,14 @@ public class MemberController{
     private void onLookingInforInHistory(ActionEvent E)throws Exception {
         midprimaryStage = new Stage();
         new MemberHotelInformationInhisUI().start(midprimaryStage);
-        TextField hotelAddress = (TextField)root.lookup("#hotelAddress");
-        TextArea serviceStub = (TextArea)root.lookup("#serviceStub");
+        TextField hotelAddress = (TextField)midroot.lookup("#hotelAddress");
+        TextArea serviceStub = (TextArea)midroot.lookup("#serviceStub");
         serviceStub.setWrapText(true);
-        TextArea introduction = (TextArea)root.lookup("#introduct");
+        TextArea introduction = (TextArea)midroot.lookup("#introduct");
         introduction.setWrapText(true);
-        TextField hotelName = (TextField)root.lookup("#hotelName");
-        TextField hotelLevel = (TextField)root.lookup("#hotelLevel");
-        TextField hotelScore = (TextField)root.lookup("#hotelScore");
+        TextField hotelName = (TextField)midroot.lookup("#hotelName");
+        TextField hotelLevel = (TextField)midroot.lookup("#hotelLevel");
+        TextField hotelScore = (TextField)midroot.lookup("#hotelScore");
         hotelName.setText(hotel.getHotelName());
         hotelLevel.setText(""+hotel.getHotelLevel());
         hotelScore.setText(""+hotel.getHotelScore());
@@ -108,19 +118,37 @@ public class MemberController{
     @FXML
     private void onReserveInHis(ActionEvent E)throws Exception {
         new MemberReserveInHisUI().start(midprimaryStage);
-        DatePicker inTime = (DatePicker)root.lookup("#inTime");
+    }
+    @FXML
+    private void onReserveRoomInhis(ActionEvent E)throws Exception {
+        DatePicker inTime = (DatePicker)midroot.lookup("#inTime");
         DatePicker outTime = (DatePicker)root.lookup("#outTime");
         TextField expectNum = (TextField)root.lookup("#expectNum");
         RadioButton has = (RadioButton)root.lookup("#has");
         RadioButton hasnot = (RadioButton)root.lookup("#hasnot");
         Label totalPrice = (Label)root.lookup("#totalPrice");
-//        reserve.setCheckinTime(inTime);
-//        reserve.setChekckoutTime(outTime);
+        tem = inTime.getEditor().getText().split("-");
+        in = new Date(Integer.parseInt(tem[0])-1900,Integer.parseInt(tem[1])-1,Integer.parseInt(tem[2]));
+        tem = outTime.getEditor().getText().split("-");
+        out = new Date(Integer.parseInt(tem[0])-1900,Integer.parseInt(tem[1])-1,Integer.parseInt(tem[2]));
+        reserve.setCheckinTime(in);
+        reserve.setChekckoutTime(out);
 
     }
+
+
+
+
     @FXML
-    private void onReserveRoomInhis(ActionEvent E)throws Exception {
+    private void onReserveRoomInsear(ActionEvent E)throws Exception {
+//        DatePicker inTime = (DatePicker)root.lookup("#inTime");
+//        System.out.print(inTime.getEditor().getText());
         new MemberReserveInHisUI().start(midprimaryStage);
+    }
+    @FXML
+    private void onTotalPrice(ActionEvent E)throws Exception {
+            Label totalPrice = (Label)root.lookup("#totalPrice");
+            totalPrice.setText(""+reserve.getPrice());
     }
     @FXML
     private void onReserveInSear(ActionEvent E)throws Exception {
