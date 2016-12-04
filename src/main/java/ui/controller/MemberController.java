@@ -28,7 +28,9 @@ public class MemberController{
 
 
     private static Stage primaryStage;
+    private static Stage minprimaryStage;
     private static Stage midprimaryStage;
+    private static Parent minroot;
     private static Parent midroot;
     private static Parent root;
     private SearchBLService search = new SearchBLStub();
@@ -40,12 +42,20 @@ public class MemberController{
         MemberController.midroot = midroot;
     }
 
+    public static void setMinroot(Parent minroot) {
+        MemberController.minroot = minroot;
+    }
+
     public static void setRoot(Parent root) {
         MemberController.root = root;
     }
 
     public static void setPrimaryStage(Stage in) {
         primaryStage = in;
+    }
+
+    public static void setMinprimaryStage(Stage minprimaryStage) {
+        MemberController.minprimaryStage = minprimaryStage;
     }
 
     public static void setMidprimaryStage(Stage midprimaryStage) {
@@ -67,17 +77,18 @@ public class MemberController{
         TextField hotelName = (TextField)root.lookup("#hotelName");
         DatePicker inTime = (DatePicker)root.lookup("#inTime");
         DatePicker outTime = (DatePicker)root.lookup("#outTime");
-        city.setText(null);
-        district.setText(null);
-        roomType.setText(null);
-        numOfRoom.setText(null);
-        lowPrice.setText(null);
-        highPrice.setText(null);
-        lowScore.setText(null);
-        highScore.setText(null);
-        level.setText(null);
-        hotelName.setText(null);
-        inTime.setChronology();
+        city.setText("");
+        district.setText("");
+        roomType.setText("");
+        numOfRoom.setText("1");
+        lowPrice.setText("");
+        highPrice.setText("");
+        lowScore.setText("");
+        highScore.setText("");
+        level.setText("");
+        hotelName.setText("");
+//        Date d = new Date();
+//        inTime.setValue(LocalDate.of(d.getYear(),d.getMonth(),d.getDay()));
     }
     @FXML
     private void onMenberInfor(ActionEvent E)throws Exception {
@@ -139,10 +150,6 @@ public class MemberController{
         introduction.setText(hotel.getHotelIntroduction());
     }
     @FXML
-    private void onReserveInHis(ActionEvent E)throws Exception {
-        new MemberReserveInHisUI().start(midprimaryStage);
-    }
-    @FXML
     private void onReserveRoomInhis(ActionEvent E)throws Exception {
         DatePicker inTime = (DatePicker)midroot.lookup("#inTime");
         DatePicker outTime = (DatePicker)midroot.lookup("#outTime");
@@ -181,7 +188,8 @@ public class MemberController{
         reserve.setClientTel(member.getTel());
         reserve.setHaveKids(has.selectedProperty().getValue());
         //生成订单
-        midprimaryStage.close();
+
+         midprimaryStage.close();
         new MemberSearchListUI().start(primaryStage);
     }
     @FXML
@@ -190,18 +198,46 @@ public class MemberController{
             totalPrice.setText(""+reserve.getPrice());
     }
     @FXML
+    private void onReserveInHis(ActionEvent E)throws Exception {
+        new MemberReserveInHisUI().start(midprimaryStage);
+    }
+    @FXML
     private void onReserveInSear(ActionEvent E)throws Exception {
-        midprimaryStage.close();
-        new MemberHisitoryHotelUI().start(primaryStage);
+        new MemberReserveInSearUI().start(midprimaryStage);
     }
     @FXML
     private void onLookingInforInSearch(ActionEvent E)throws Exception {
-        midprimaryStage.close();
-        new MemberHisitoryHotelUI().start(primaryStage);
+        midprimaryStage = new Stage();
+        new MemberHotelInformationInSearUI().start(midprimaryStage);
+        TextField hotelAddress = (TextField)midroot.lookup("#hotelAddress");
+        TextArea serviceStub = (TextArea)midroot.lookup("#serviceStub");
+        serviceStub.setWrapText(true);
+        TextArea introduction = (TextArea)midroot.lookup("#introduct");
+        introduction.setWrapText(true);
+        TextField hotelName = (TextField)midroot.lookup("#hotelName");
+        TextField hotelLevel = (TextField)midroot.lookup("#hotelLevel");
+        TextField hotelScore = (TextField)midroot.lookup("#hotelScore");
+        hotelName.setText(hotel.getHotelName());
+        hotelLevel.setText(""+hotel.getHotelLevel());
+        hotelScore.setText(""+hotel.getHotelScore());
+        hotelAddress.setText(hotel.getHotelAddress());
+        serviceStub.setText(hotel.getHotelService());
+        introduction.setText(hotel.getHotelIntroduction());
     }
     @FXML
     private void onChangeInfor(ActionEvent E)throws Exception {
-
+        minprimaryStage = new Stage();
+        new MemberUpdateInformationUI().start(minprimaryStage);
+    }
+    @FXML
+    private void onMakeChange(ActionEvent E)throws Exception {
+        TextField name = (TextField)minroot.lookup("#name");
+        TextField tel = (TextField)minroot.lookup("#tel");
+        member.getMemberInformation().setName(name.getText().toString());
+        member.getMemberInformation().setTel(tel.getText().toString());
+        member.updateMemberInformation(member.getMemberInformation());
+        minprimaryStage.close();
+        onMenberInfor(null);
     }
     @FXML
     private void onSearchLimited(ActionEvent E)throws Exception {
@@ -217,9 +253,40 @@ public class MemberController{
         TextField hotelName = (TextField)root.lookup("#hotelName");
         DatePicker inTime = (DatePicker)root.lookup("#inTime");
         DatePicker outTime = (DatePicker)root.lookup("#outTime");
+        search.setCity(city.getText().toString());
+        search.setDistrict(district.getText().toString());
+//        search.setRoomType()
+        search.setNumberOfRooms(Integer.parseInt(numOfRoom.getText().toString()));
+        search.setHotelName(hotelName.getText().toString());
 
-        System.out.print(city.getText());
-//     new MemberSearchListUI().start(primaryStage);
+        if(lowPrice.getText().toString().equals("")){
+            search.setLowerPrice(-1);
+        }else {
+            search.setLowerPrice(Double.parseDouble(lowPrice.getText().toString()));
+        }
+        if(highPrice.getText().toString().equals("")){
+            search.setUpperPrice(-1);
+        }else{
+            search.setUpperPrice(Double.parseDouble(highPrice.getText().toString()));
+        }
+        if(lowScore.getText().toString().equals("")){
+            search.setLowerScore(-1);
+        }else {
+            search.setLowerScore(Double.parseDouble(lowScore.getText().toString()));
+        }
+        if(highScore.getText().toString().equals("")){
+            search.setUpperScore(-1);
+        }else {
+            search.setUpperScore(Double.parseDouble(highScore.getText().toString()));
+        }
+        if(level.getText().toString().equals("")){
+            search.setLevel(-1);
+        }else {
+            search.setLevel(Integer.parseInt(level.getText().toString()));
+        }
+        search.setOnlyReservationBefore(true);
+
+     new MemberSearchListUI().start(primaryStage);
     }
     @FXML
     private void onSearchAll(ActionEvent E)throws Exception {
