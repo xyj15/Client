@@ -14,6 +14,7 @@ public interface SearchBLService {
 	public boolean setHotelName(String hotelName);	//设置搜索酒店名称
 	public boolean setLevel(int level);	//设置搜索酒店星级
 	public boolean setRoomType(RoomType roomType);	//设置搜索房型
+	public boolean setNumberOfRooms(int numberOfRooms); //设置可用空房数量
 	public boolean setLowerPrice(double lowerPrice);	//设置搜索价格下限
 	public boolean setUpperPrice(double upperPrice);	//设置搜索价格上限
 	public boolean setLowerScore(double lowerScore);	//设置搜索评分下限

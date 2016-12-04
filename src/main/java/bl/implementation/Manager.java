@@ -214,10 +214,8 @@ public class Manager implements ManagerBLService {
 		MemberType memberType = memberPO.getMemberType();
 		Date birthday = memberPO.getBirthday();
 		String enterprise = memberPO.getEnterprise();
-		ArrayList<OrderVO> orderList = new ArrayList<OrderVO>();
-		ArrayList<HotelVO> hotelList = new ArrayList<HotelVO>();
 		MemberVO memberVO = new MemberVO(memberID, password, name, tel, level, discount,
-				memberType, birthday, enterprise, orderList, hotelList);
+				memberType, birthday, enterprise);
 		return memberVO;
 	}
 	

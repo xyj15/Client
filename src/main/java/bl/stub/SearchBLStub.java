@@ -79,6 +79,11 @@ public class SearchBLStub implements SearchBLService {
 	}
 	
 	@Override
+	public boolean setNumberOfRooms(int numberOfRooms) {
+		return false;
+	}
+	
+	@Override
 	public boolean setLowerPrice(double lowerPrice) {
 		System.out.println("设置价格下限成功");
 		return true;

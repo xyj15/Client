@@ -5,6 +5,7 @@ import other.RoomType;
 import vo.RoomVO;
 
 import java.util.ArrayList;
+import java.util.Date;
 
 public class RoomBLStub implements RoomBLService {
 	
@@ -22,7 +23,7 @@ public class RoomBLStub implements RoomBLService {
 	}
 	
 	@Override
-	public RoomVO getRoomInformation(String roomID) {
+	public RoomVO getRoomInformation(Date date, String roomID) {
 		System.out.println("获取客房信息成功");
 		return roomVO;
 	}
@@ -40,7 +41,7 @@ public class RoomBLStub implements RoomBLService {
 	}
 	
 	@Override
-	public boolean updateRoom(RoomVO roomVO) {
+	public boolean updateRoom(Date date, RoomVO roomVO) {
 		System.out.println("更新客房信息成功");
 		return true;
 	}
