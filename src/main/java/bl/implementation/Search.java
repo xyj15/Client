@@ -110,7 +110,8 @@ public class Search implements SearchBLService {
 	
 	@Override
 	public boolean setNumberOfRooms(int numberOfRooms) {
-		return false;
+		this.numberOfRooms = numberOfRooms;
+		return true;
 	}
 	
 	/**
