@@ -44,11 +44,11 @@
 //
 //	@Test
 //	public void testSetAddress() {
-//		s.setAddress(address1);
+//		s.setCity(address1);
 //		assertEquals(s.getAddress(), address1);
-//		s.setAddress(address2);
+//		s.setCity(address2);
 //		assertEquals(s.getAddress(), address2);
-//		s.setAddress(address3);
+//		s.setCity(address3);
 //		assertEquals(s.getAddress(), address3);
 //	}
 //
@@ -63,24 +63,24 @@
 //		ArrayList<HotelVO> list;
 //
 //		s.setDistrict(district);
-//		s.setAddress(null);
+//		s.setCity(null);
 //		list = s.search();
 //		assertEquals(list.get(0), h1);
 //		assertEquals(list.get(1), h2);
 //		assertEquals(list.get(2), h3);
 //
 //		s.setDistrict(null);
-//		s.setAddress(address1);
+//		s.setCity(address1);
 //		list = s.search();
 //		assertEquals(list.get(0), h1);
 //
 //		s.setDistrict(null);
-//		s.setAddress(address2);
+//		s.setCity(address2);
 //		list = s.search();
 //		assertEquals(list.get(0), h2);
 //
 //		s.setDistrict(null);
-//		s.setAddress(address3);
+//		s.setCity(address3);
 //		list = s.search();
 //		assertEquals(list.get(0), h3);
 //	}

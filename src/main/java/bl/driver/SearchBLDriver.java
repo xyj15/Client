@@ -9,7 +9,7 @@
 //	SearchBLService searchbl = new SearchBLStub();
 //
 //	public void drive(Search search) {
-//		search.setAddress("XianLinBigRoad");
+//		search.setCity("XianLinBigRoad");
 //		search.setDistrict("NanjingQixia");
 //		search.search();
 //		search.getRoomList("88888888");
