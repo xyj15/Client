@@ -10,17 +10,16 @@ import ui.controller.MemberController;
 /**
  * Created by 97147 on 2016/12/1.
  */
-public class MemberSearchUI  extends Application {
+public class MemberHotelInformationInhisUI extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception {
-        Parent root = FXMLLoader.load(getClass().getResource("MemberSearch.fxml"));
-        MemberController.setPrimaryStage(primaryStage);
-        MemberController.setRoot(root);
-        Scene myScene = new Scene(root,960,540);
+        Parent root = FXMLLoader.load(getClass().getResource("MemberHotelInformationInhis.fxml"));
+        MemberController.setMidprimaryStage(primaryStage);
+        MemberController.setMidroot(root);
+        Scene myScene = new Scene(root,528,528);
         primaryStage.setResizable(false);
         primaryStage.setScene(myScene);
         primaryStage.show();
     }
-
 }

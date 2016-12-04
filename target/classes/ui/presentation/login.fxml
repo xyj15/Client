@@ -29,12 +29,12 @@
             <Image url="@logo.png" />
          </image>
       </ImageView>
-      <TextField fx:id="username" layoutX="84.0" layoutY="227.0" opacity="0.67" prefHeight="34.0" prefWidth="190.0" style="-fx-background-color: #000f32;">
+      <TextField fx:id="usernameForLog" layoutX="84.0" layoutY="227.0" opacity="0.67" prefHeight="34.0" prefWidth="190.0" style="-fx-background-color: #000f32;">
          <font>
             <Font name="Microsoft YaHei Bold" size="16.0" />
          </font>
       </TextField>
-      <PasswordField fx:id="password" layoutX="84.0" layoutY="292.0" opacity="0.66" prefHeight="32.0" prefWidth="190.0" style="-fx-background-color: #000f32;">
+      <PasswordField fx:id="passwordForLog" layoutX="84.0" layoutY="292.0" opacity="0.66" prefHeight="32.0" prefWidth="190.0" style="-fx-background-color: #000f32;">
          <font>
             <Font size="16.0" />
          </font>

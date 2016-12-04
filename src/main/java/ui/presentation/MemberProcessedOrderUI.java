@@ -16,6 +16,7 @@ public class MemberProcessedOrderUI extends Application {
     public void start(Stage primaryStage) throws Exception {
         Parent root = FXMLLoader.load(getClass().getResource("MemberProcessedOrder.fxml"));
         MemberController.setPrimaryStage(primaryStage);
+        MemberController.setRoot(root);
         Scene myScene = new Scene(root,960,540);
         primaryStage.setResizable(false);
         primaryStage.setScene(myScene);
