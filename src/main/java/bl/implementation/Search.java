@@ -17,7 +17,7 @@ import vo.*;
  */
 public class Search implements SearchBLService {
 	
-	private MemberVO memberVO;	//持有的客户信息
+	private String memberID;	//持有的客户ID
 	
 	private String city;	//城市，若未设置则为""
 	private String district;	//商圈，若未设置则为""
@@ -38,15 +38,7 @@ public class Search implements SearchBLService {
 	 * @param memberID 客户ID
 	 */
 	public Search(String memberID) {
-		MemberPO memberPO = memberDataService.getMember(memberID);
-		String name = memberPO.getName();
-		String tel = memberPO.getPhone();
-		int level = memberPO.getLevel();
-		double discount = memberPO.getDiscount();
-		MemberType memberType = memberPO.getMemberType();
-		Date birthday = memberPO.getBirthday();
-		String enterprise = memberPO.getEnterprise();
-		memberVO = new MemberVO(name, tel, level, discount, memberType, birthday, enterprise);
+		this.memberID = memberID;
 	}
 	
 	/**

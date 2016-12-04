@@ -113,6 +113,10 @@ public class Hotel implements HotelBLService {
 		}
 		return lowestPrice;
 	}
+	
+	public HotelVO getHotelInformation() {
+		return null;
+	}
 
 //	public void changeHotelManager(String hoMa,String hoMaID){
 //		//setHotelManager(hoMa);

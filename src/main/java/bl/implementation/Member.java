@@ -20,11 +20,20 @@ import java.util.Date;
 public class Member implements MemberBLService {
 	
 	private MemberVO memberVO;
-	private MemberPO memberPO;
-	private MemberDataService memberDataService;
+	
 	private Search search;
 	private Reserve reserve;
 	private Order order;
+	
+	private MemberDataService memberDataService;
+	
+	/**
+	 * 注册用户时使用这个构造方法，分配一个可用的ID
+	 */
+	public Member() {
+		memberVO = new MemberVO();
+		memberVO.setUserID(memberDataService.getAvailableID());
+	}
 
 	public Member(String memberID) {
 		
@@ -99,5 +108,31 @@ public class Member implements MemberBLService {
 	@Override
 	public boolean CreateOrder(OrderVO orderVO) {
 		return false;
+	}
+	
+	public boolean updateDataToFile() {
+		return false;
+	}
+	
+	public boolean updateDataFromFile() {
+		return false;
+	}
+	
+	public static MemberPO memberVOtoPO(MemberVO memberVO) {
+		return null;
+	}
+	
+	public static MemberVO memberPOtoVO(MemberPO memberPO) {
+		return null;
+	}
+	
+	/**
+	 * 将新用户的信息传入数据层
+	 * @param memberVO 新用户的信息
+	 * @return 传入成功则返回true，否则返回false
+	 */
+	public boolean registerMember(MemberVO memberVO) {
+		MemberPO memberPO = memberVOtoPO(memberVO);
+		return memberDataService.addMember(memberPO);
 	}
 }

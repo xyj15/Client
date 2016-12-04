@@ -5,6 +5,7 @@ import other.OrderStatus;
 import other.PromotionType;
 import vo.OrderVO;
 import vo.PromotionVO;
+import vo.SalerVO;
 
 import java.util.ArrayList;
 import java.util.Date;
@@ -17,6 +18,7 @@ public class SalerBLStub implements SalerBLService {
 	
 	private PromotionVO promotionVO;
 	private OrderVO orderVO;
+	private SalerVO salerVO;
 	
 	public SalerBLStub() {
 		String promotionID = "00000";
@@ -49,6 +51,22 @@ public class SalerBLStub implements SalerBLService {
 				checkinTime, actualCheckinTime, latestCheckinTime, checkoutTime, actualCheckoutTime,
 				numberOfRoom, roomName, numberOfClient, haveKids, score, evaluation, recover,
 				promotionID, price, cancelTime);
+		
+		String salerID = "1234";
+		String password = "12345678910";
+		String name = "传销人员";
+		String tel = "12345678910";
+		salerVO = new SalerVO(salerID, password, name, tel);
+	}
+	
+	@Override
+	public SalerVO getSalerInformation() {
+		return salerVO;
+	}
+	
+	@Override
+	public boolean setSalerInformation(SalerVO salerVO) {
+		return true;
 	}
 	
 	@Override
