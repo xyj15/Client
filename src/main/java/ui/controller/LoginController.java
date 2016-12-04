@@ -1,10 +1,13 @@
 package ui.controller;
 
+import bl.implementation.Login;
+import bl.service.LoginBLService;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
+import other.UserType;
 import ui.presentation.*;
 
 
@@ -13,7 +16,7 @@ import ui.presentation.*;
  */
 public class LoginController{
     private LoginUI loginUI;
-    //private LoginBLService loginBL = new Login();
+    private LoginBLService loginBL = new Login();
 
     private static Stage primaryStage;
     public static void setPrimaryStage(Stage in){
@@ -22,25 +25,30 @@ public class LoginController{
 
 
     @FXML
-    private TextField username;
+    private TextField usernameForLog;
     @FXML
-    private PasswordField password;
-    /*@FXML
+    private PasswordField passwordForLog;
+    @FXML
     private void onLogIn(ActionEvent E)throws Exception {
-        UserType userType = loginBL.getUserType(username.toString());
-        switch (userType){
-            case Member:
-                new MemberFirstUI().start(primaryStage);
-                break;
-            case Hotel:
-HotelFirstUI()   SalerFirstUI()
-            case Manager:
-
+        if(!loginBL.checkNetwork()){
+            System.out.println("Link failed");
         }
-    }*/
-    @FXML
-    private void onLogIn(ActionEvent E) throws Exception{
-        new SalerFirstUI().start(primaryStage);
+        else {
+            if(loginBL.existUserID(usernameForLog.toString())){
+                if(loginBL.login(usernameForLog.toString(),passwordForLog.toString())){
+                    UserType userType = loginBL.getUserType(usernameForLog.toString());
+                    switch (userType){
+                        case Member:
+                            new MemberFirstUI().start(primaryStage);
+                            break;
+                        case Hotel:
+                            new HotelFirstUI().start(primaryStage);
+                        case Saler:
+                            new SalerFirstUI().start(primaryStage);
+                    }
+                }
+            }
+        }
     }
     @FXML
     private void onCompanyRegister(ActionEvent E)throws Exception {
