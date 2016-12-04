@@ -55,6 +55,29 @@ public class MemberController{
     @FXML
     private void onSearch(ActionEvent E)throws Exception {
         new MemberSearchUI().start(primaryStage);
+        TextField city = (TextField)root.lookup("#city");
+        TextField district = (TextField)root.lookup("#district");
+        TextField roomType = (TextField)root.lookup("#roomType");
+        TextField numOfRoom = (TextField)root.lookup("#numOfRoom");
+        TextField lowPrice = (TextField)root.lookup("#lowPrice");
+        TextField highPrice = (TextField)root.lookup("#highPrice");
+        TextField lowScore = (TextField)root.lookup("#lowScore");
+        TextField highScore = (TextField)root.lookup("#highScore");
+        TextField level = (TextField)root.lookup("#level");
+        TextField hotelName = (TextField)root.lookup("#hotelName");
+        DatePicker inTime = (DatePicker)root.lookup("#inTime");
+        DatePicker outTime = (DatePicker)root.lookup("#outTime");
+        city.setText(null);
+        district.setText(null);
+        roomType.setText(null);
+        numOfRoom.setText(null);
+        lowPrice.setText(null);
+        highPrice.setText(null);
+        lowScore.setText(null);
+        highScore.setText(null);
+        level.setText(null);
+        hotelName.setText(null);
+        inTime.setChronology();
     }
     @FXML
     private void onMenberInfor(ActionEvent E)throws Exception {
@@ -122,28 +145,44 @@ public class MemberController{
     @FXML
     private void onReserveRoomInhis(ActionEvent E)throws Exception {
         DatePicker inTime = (DatePicker)midroot.lookup("#inTime");
-        DatePicker outTime = (DatePicker)root.lookup("#outTime");
-        TextField expectNum = (TextField)root.lookup("#expectNum");
-        RadioButton has = (RadioButton)root.lookup("#has");
-        RadioButton hasnot = (RadioButton)root.lookup("#hasnot");
-        Label totalPrice = (Label)root.lookup("#totalPrice");
+        DatePicker outTime = (DatePicker)midroot.lookup("#outTime");
+        TextField expectNum = (TextField)midroot.lookup("#expectNum");
+        RadioButton has = (RadioButton)midroot.lookup("#has");
+        RadioButton hasnot = (RadioButton)midroot.lookup("#hasnot");
+        Label totalPrice = (Label)midroot.lookup("#totalPrice");
         tem = inTime.getEditor().getText().split("-");
         in = new Date(Integer.parseInt(tem[0])-1900,Integer.parseInt(tem[1])-1,Integer.parseInt(tem[2]));
         tem = outTime.getEditor().getText().split("-");
         out = new Date(Integer.parseInt(tem[0])-1900,Integer.parseInt(tem[1])-1,Integer.parseInt(tem[2]));
         reserve.setCheckinTime(in);
         reserve.setChekckoutTime(out);
-
+        reserve.setClientName(member.getName());
+        reserve.setClientTel(member.getTel());
+        reserve.setHaveKids(has.selectedProperty().getValue());
+        //生成订单
+        midprimaryStage.close();
+        new MemberHisitoryHotelUI().start(primaryStage);
     }
-
-
-
-
-    @FXML
+     @FXML
     private void onReserveRoomInsear(ActionEvent E)throws Exception {
-//        DatePicker inTime = (DatePicker)root.lookup("#inTime");
-//        System.out.print(inTime.getEditor().getText());
-        new MemberReserveInHisUI().start(midprimaryStage);
+        DatePicker inTime = (DatePicker)midroot.lookup("#inTime");
+        DatePicker outTime = (DatePicker)midroot.lookup("#outTime");
+        TextField expectNum = (TextField)midroot.lookup("#expectNum");
+        RadioButton has = (RadioButton)midroot.lookup("#has");
+        RadioButton hasnot = (RadioButton)midroot.lookup("#hasnot");
+        Label totalPrice = (Label)midroot.lookup("#totalPrice");
+        tem = inTime.getEditor().getText().split("-");
+        in = new Date(Integer.parseInt(tem[0])-1900,Integer.parseInt(tem[1])-1,Integer.parseInt(tem[2]));
+        tem = outTime.getEditor().getText().split("-");
+        out = new Date(Integer.parseInt(tem[0])-1900,Integer.parseInt(tem[1])-1,Integer.parseInt(tem[2]));
+        reserve.setCheckinTime(in);
+        reserve.setChekckoutTime(out);
+        reserve.setClientName(member.getName());
+        reserve.setClientTel(member.getTel());
+        reserve.setHaveKids(has.selectedProperty().getValue());
+        //生成订单
+        midprimaryStage.close();
+        new MemberSearchListUI().start(primaryStage);
     }
     @FXML
     private void onTotalPrice(ActionEvent E)throws Exception {
@@ -166,7 +205,21 @@ public class MemberController{
     }
     @FXML
     private void onSearchLimited(ActionEvent E)throws Exception {
-     new MemberSearchListUI().start(primaryStage);
+        TextField city = (TextField)root.lookup("#city");
+        TextField district = (TextField)root.lookup("#district");
+        TextField roomType = (TextField)root.lookup("#roomType");
+        TextField numOfRoom = (TextField)root.lookup("#numOfRoom");
+        TextField lowPrice = (TextField)root.lookup("#lowPrice");
+        TextField highPrice = (TextField)root.lookup("#highPrice");
+        TextField lowScore = (TextField)root.lookup("#lowScore");
+        TextField highScore = (TextField)root.lookup("#highScore");
+        TextField level = (TextField)root.lookup("#level");
+        TextField hotelName = (TextField)root.lookup("#hotelName");
+        DatePicker inTime = (DatePicker)root.lookup("#inTime");
+        DatePicker outTime = (DatePicker)root.lookup("#outTime");
+
+        System.out.print(city.getText());
+//     new MemberSearchListUI().start(primaryStage);
     }
     @FXML
     private void onSearchAll(ActionEvent E)throws Exception {
