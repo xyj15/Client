@@ -1,15 +1,11 @@
 package ui.controller;
 
-import bl.service.ManagerBLService;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.stage.Stage;
-import ui.controllerservice.ManagerControllerService;
 import ui.presentation.LoginUI;
+import ui.presentation.ManagerAddUserUI;
 import ui.presentation.ManagerSearchUserUI;
-import vo.HotelVO;
-import vo.MemberVO;
-import vo.SalerVO;
 
 
 /**
@@ -34,7 +30,7 @@ public class ManagerController{
 	}
 	@FXML
 	private void onAddUser(ActionEvent E)throws Exception {
-		new ManagerSearchUserUI().start(primaryStage);
+		new ManagerAddUserUI().start(primaryStage);
 	}
 	@FXML
 	private void onLogOut(ActionEvent E)throws Exception {

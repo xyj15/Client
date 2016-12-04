@@ -21,4 +21,5 @@ public class MemberSearchUI  extends Application {
         primaryStage.setScene(myScene);
         primaryStage.show();
     }
+
 }

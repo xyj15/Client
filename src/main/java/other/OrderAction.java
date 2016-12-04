@@ -7,11 +7,12 @@ package other;
  * AbnormalOrder：订单异常(1)
  * CancelOrder：取消订单(2)
  * RechargeCredit：信用充值(3)
+ * CancelAbnormal：撤销异常订单(4)
  * @author CROFF
  * @version 2016-11-30
  */
 public enum OrderAction {
-    ExecuteOrder(0), AbnormalOrder(1), CancelOrder(2), RechargeCredit(3);
+    ExecuteOrder(0), AbnormalOrder(1), CancelOrder(2), RechargeCredit(3), CancelAbnormal(4);
     
     int value;
 	private OrderAction(int value) {

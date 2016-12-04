@@ -17,7 +17,6 @@ public class MemberVO extends User {
 
 	private String name;	//姓名或名称
 	private String tel;	//联系方式
-	private Credit credit;	//信用和信用变化情况
 	private int level;	//会员等级
 	private double discount;	//当前会员等级享受折扣
 	private MemberType memberType;	//客户类型
@@ -30,7 +29,6 @@ public class MemberVO extends User {
 	 * 空构造方法
 	 */
 	public MemberVO() {
-		credit = null;
 		memberType = null;
 		birthday = null;
 		enterprise = null;
@@ -43,7 +41,6 @@ public class MemberVO extends User {
 	 * 无用户名和密码的构造方法
 	 * @param name 姓名或名称
 	 * @param tel 联系方式
-	 * @param credit 信用和信用变化情况
 	 * @param level 会员等级
 	 * @param discount 当前会员等级享受折扣
 	 * @param memberType 客户类型
@@ -52,11 +49,11 @@ public class MemberVO extends User {
 	 * @param orderList 订单列表
 	 * @param reservedHotelList 预定过的酒店列表
 	 */
-	public MemberVO(String name, String tel, Credit credit, int level, double discount, MemberType memberType,
-					Date birthday, String enterprise, ArrayList<OrderVO> orderList, ArrayList<HotelVO> reservedHotelList) {
+	public MemberVO(String name, String tel, int level, double discount,
+					MemberType memberType, Date birthday, String enterprise,
+					ArrayList<OrderVO> orderList, ArrayList<HotelVO> reservedHotelList) {
 		this.name = name;
 		this.tel = tel;
-		this.credit = credit;
 		this.level = level;
 		this.discount = discount;
 		this.memberType = memberType;
@@ -73,7 +70,6 @@ public class MemberVO extends User {
 	 * @param password 密码
 	 * @param name 姓名或名称
 	 * @param tel 联系方式
-	 * @param credit 信用和信用变化情况
 	 * @param level 会员等级
 	 * @param discount 当前会员等级享受折扣
 	 * @param memberType 客户类型
@@ -82,13 +78,12 @@ public class MemberVO extends User {
 	 * @param orderList 订单列表
 	 * @param reservedHotelList 预定过的酒店列表
 	 */
-	public MemberVO(String userID, String password, String name, String tel, Credit credit,
-					int level, double discount, MemberType memberType, Date birthday, String enterprise,
+	public MemberVO(String userID, String password, String name, String tel, int level,
+					double discount, MemberType memberType, Date birthday, String enterprise,
 					ArrayList<OrderVO> orderList, ArrayList<HotelVO> reservedHotelList) {
 		super(userID, password, UserType.Member);
 		this.name = name;
 		this.tel = tel;
-		this.credit = credit;
 		this.level = level;
 		this.discount = discount;
 		this.memberType = memberType;
@@ -112,14 +107,6 @@ public class MemberVO extends User {
 	
 	public void setTel(String tel) {
 		this.tel = tel;
-	}
-	
-	public Credit getCredit() {
-		return credit;
-	}
-	
-	public void setCredit(Credit credit) {
-		this.credit = credit;
 	}
 	
 	public int getLevel() {

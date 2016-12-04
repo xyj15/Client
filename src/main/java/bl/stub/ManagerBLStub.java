@@ -1,149 +1,149 @@
-//package bl.stub;
-//
-//import java.util.ArrayList;
-//
-//import bl.service.ManagerBLService;
-//import vo.HotelVO;
-//import vo.MemberVO;
-//import vo.SalerVO;
-//
-//public class ManagerBLStub implements ManagerBLService {
-//
-//	private String ID="541322049";
-//	private String phone="541322049";
-//	private String password="DREAMING";
-//	private String name="zhangxinyue";
-//	private String birth="16263";
-//	private String level="5";
-//	private String address="仙林大道163号";
-//	private String district="栖霞区";
-//	private double credit=5;
-//	private ArrayList<MemberVO> memberList = new ArrayList<MemberVO>();
-//	private ArrayList<HotelVO> hotelList = new ArrayList<HotelVO>();
-//
-//	public ManagerBLStub() {
-//		memberList.add(new MemberVO());
-//		hotelList.add(new HotelVO(ID,name,address,level,district));
-//	}
-//
-//	public MemberVO getMember(String userID) {
-//		// TODO Auto-generated method stub
-//		for(int i=0;i<memberList.size();i++){
-//			//if(memberList.get(i).getUserID().equals(userID)){
-//			//	System.out.println("----查找用户———");
-//			//	return memberList.get(i);
-//			//}
-//		}
-//		System.out.println("----未找到（查找用户）———");
-//		return null;
-//	}
-//
-//	public boolean updateMember(MemberVO member) {
-//		// TODO Auto-generated method stub
-//		for(int i=0;i<memberList.size();i++){
-//			//if(memberList.get(i).getMemberID().equals(member.getMemberID())){
-//			//	memberList.remove(i);
-//			//	memberList.add(member);
-//			//}
-//		}
-//		System.out.println("----更新———");
-//		return true;
-//	}
-//
-//	public boolean addMember(MemberVO member) {
-//		// TODO Auto-generated method stub
-////		ID=user.getID();
-////		password=user.getPassword();
-////		name=user.getName();
-////		role=user.getUserType();
-//		memberList.add(member);
-//		System.out.println("----新添———");
-//		return true;
-//	}
-//
-//	public boolean deleteMember(MemberVO member) {
-//		// TODO Auto-generated method stub
-//		for(int i=0;i<memberList.size();i++){
-//		//	if(memberList.get(i).getMemberID().equals(member.getMemberID())){
-//		//		memberList.remove(i);
-//		//	}
-//		}
-//		System.out.println("----删除———");
-//		return true;
-//	}
-//
-//	public ArrayList<MemberVO> getMemberList(String limit) {
-//		// TODO Auto-generated method stub
-//		System.out.println("----查看列表———");
-//		return memberList;
-//	}
-//
-//	@Override
-//	public SalerVO getSaler(String account) {
-//		return null;
-//	}
-//
-//	@Override
-//	public boolean updateSaler(SalerVO saler) {
-//		return false;
-//	}
-//
-//	@Override
-//	public boolean addSaler(SalerVO saler) {
-//		return false;
-//	}
-//
-//	@Override
-//	public boolean deleteSaler(SalerVO saler) {
-//		return false;
-//	}
-//
-//	public HotelVO getHotel(String hotelID) {
-//		// TODO Auto-generated method stub
-//		for(int i=0;i<hotelList.size();i++){
-//			if(hotelList.get(i).getHotelID().equals(hotelID)){
-//				System.out.println("----查找酒店———");
-//				return hotelList.get(i);
-//			}
-//		}
-//		System.out.println("----未找到（查找酒店）———");
-//		return null;
-//	}
-//
-//	public boolean updateHotel(HotelVO hotel) {
-//		// TODO Auto-generated method stub
-//		for(int i=0;i<hotelList.size();i++){
-//			if(hotelList.get(i).getHotelID().equals(hotel.getHotelID())){
-//				hotelList.remove(i);
-//				hotelList.add(hotel);
-//			}
-//		}
-//		System.out.println("----更新酒店———");
-//		return true;
-//	}
-//
-//	public boolean addHotel(HotelVO hotel) {
-//		// TODO Auto-generated method stub
-//		hotelList.add(hotel);
-//		System.out.println("----新添酒店———");
-//		return true;
-//	}
-//
-//	public boolean deleteHotel(HotelVO hotel) {
-//		// TODO Auto-generated method stub
-//		for(int i=0;i<hotelList.size();i++){
-//			if(hotelList.get(i).getHotelID().equals(hotel.getHotelID())){
-//				hotelList.remove(i);
-//			}
-//		}
-//		System.out.println("----删除酒店———");
-//		return true;
-//	}
-//
-//	public ArrayList<HotelVO> getHotelList(String limit) {
-//		// TODO Auto-generated method stub
-//		System.out.println("----查看酒店列表———");
-//		return hotelList;
-//	}
-//
-//}
+package bl.stub;
+
+import java.util.ArrayList;
+import java.util.Date;
+
+import bl.service.ManagerBLService;
+import other.MemberType;
+import vo.*;
+
+public class ManagerBLStub implements ManagerBLService {
+	
+	private MemberVO memberVO;
+	private HotelVO hotelVO;
+	private SalerVO salerVO;
+	private ManagerVO managerVO;
+	
+	public ManagerBLStub() {
+		String memberID = "12345678";
+		String password = "12345678910";
+		String name = "周杰伦";
+		String tel = "12345678910";
+		int level = 1;
+		double discount = 1;
+		MemberType memberType = MemberType.Orinary;
+		Date birthday = new Date();
+		String enterprise = "南京大学有限公司";
+		ArrayList<OrderVO> orderList = new ArrayList<OrderVO>();
+		ArrayList<HotelVO> hotelList = new ArrayList<HotelVO>();
+		memberVO = new MemberVO(memberID, password, name, tel, level, discount,
+				memberType, birthday, enterprise, orderList, hotelList);
+		
+		String hotelID = "123456";
+		password = "12345678910";
+		name = "新悦大酒店";
+		String address = "栖霞区仙林大道163号";
+		String district = "南京大学仙林校区";
+		String city = "江苏省南京市";
+		level = 5;
+		double score = 5;
+		String service = "免费高速Wi-Fi";
+		String introduction = "这个酒店是全世界坠吼的";
+		String managerName = "张新悦";
+		String managerTel = "12345678910";
+		ArrayList<String> enterpriseList = new ArrayList<String>();
+		ArrayList<RoomVO> roomList = new ArrayList<RoomVO>();
+		orderList = new ArrayList<OrderVO>();
+		hotelVO = new HotelVO(hotelID, password, name, address, district,
+				city, level, score, service, introduction, managerName, managerTel,
+				enterpriseList, roomList, orderList);
+		
+		String salerID = "1234";
+		password = "12345678910";
+		name = "传销人员";
+		tel = "12345678910";
+		ArrayList<PromotionVO> promotionList = new ArrayList<PromotionVO>();
+		ArrayList<OrderVO> dailyOrderList = new ArrayList<OrderVO>();
+		salerVO = new SalerVO(salerID, password, name, tel, promotionList, dailyOrderList);
+		
+		String managerID = "12";
+		password = "12345678910";
+		name = "管理人员";
+		tel = "12345678910";
+		managerVO = new ManagerVO(managerID, password, name, tel);
+	}
+	
+	@Override
+	public boolean addMember(MemberVO memberVO) {
+		System.out.println("添加客户成功");
+		return true;
+	}
+	
+	@Override
+	public boolean deleteMember(String memberID) {
+		System.out.println("删除客户成功");
+		return true;
+	}
+	
+	@Override
+	public boolean updateMemberInformation(MemberVO memberVO) {
+		System.out.println("更新客户信息成功");
+		return true;
+	}
+	
+	@Override
+	public MemberVO getMemberInfomation(String memberID) {
+		System.out.println("获取客户信息成功");
+		return memberVO;
+	}
+	
+	@Override
+	public boolean addHotel(HotelVO hotelVO) {
+		System.out.println("添加酒店成功");
+		return true;
+	}
+	
+	@Override
+	public boolean deleteHotel(String hotelID) {
+		System.out.println("删除酒店成功");
+		return true;
+	}
+	
+	@Override
+	public boolean updateHotelManagerInformation(String hotelID, String name, String tel) {
+		System.out.println("更新酒店工作人员信息成功");
+		return true;
+	}
+	
+	@Override
+	public HotelVO getHotelInformation(String hotelID) {
+		System.out.println("获取酒店信息成功");
+		return hotelVO;
+	}
+	
+	@Override
+	public boolean addSaler(SalerVO salerVO) {
+		System.out.println("添加营销人员成功");
+		return true;
+	}
+	
+	@Override
+	public boolean deleteSaler(String salerID) {
+		System.out.println("删除营销人员成功");
+		return true;
+	}
+	
+	@Override
+	public boolean updateSalerInformation(SalerVO salerVO) {
+		System.out.println("更新营销人员信息成功");
+		return true;
+	}
+	
+	@Override
+	public SalerVO getSalerInformation(String salerID) {
+		System.out.println("获取营销人员信息成功");
+		return salerVO;
+	}
+	
+	@Override
+	public boolean updateManagerInformation(ManagerVO managerVO) {
+		System.out.println("更新网站管理人员信息成功");
+		return true;
+	}
+	
+	@Override
+	public ManagerVO getManagerInformation() {
+		System.out.println("获取网站管理人员信息成功");
+		return managerVO;
+	}
+}

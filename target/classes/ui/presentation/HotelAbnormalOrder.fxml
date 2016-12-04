@@ -19,32 +19,12 @@
             <Image url="@background.jpg" />
          </image>
       </ImageView>
-      <Button layoutX="43.0" layoutY="200.0" mnemonicParsing="false" opacity="0.67" prefHeight="23.0" prefWidth="181.0" style="-fx-background-color: #000f32;" text="预定酒店" textFill="WHITE">
-         <font>
-            <Font name="Microsoft YaHei Bold" size="16.0" />
-         </font>
-      </Button>
-      <Button layoutX="43.0" layoutY="270.0" mnemonicParsing="false" opacity="0.66" prefHeight="23.0" prefWidth="181.0" style="-fx-background-color: #000f32;" text="查看个人信息" textFill="WHITE">
-         <font>
-            <Font name="Microsoft YaHei Bold" size="16.0" />
-         </font>
-      </Button>
       <Line endX="10.0" layoutX="255.0" layoutY="169.0" startX="10.0" startY="300.0" stroke="WHITE" strokeWidth="2.0" AnchorPane.bottomAnchor="300.0" AnchorPane.topAnchor="150.0" />
       <ImageView fitHeight="148.0" fitWidth="124.0" layoutX="79.0" layoutY="26.0" pickOnBounds="true" preserveRatio="true" style="-fx-image: url(&quot;C:\Users\Administrator\IdeaProjects\JavaFX\src\sample、background.jpg&quot;);">
          <image>
             <Image url="@logo.png" />
          </image>
       </ImageView>
-      <Button layoutX="43.0" layoutY="340.0" mnemonicParsing="false" opacity="0.66" prefHeight="23.0" prefWidth="181.0" style="-fx-background-color: #000f32;" text="查看订单信息" textFill="WHITE">
-         <font>
-            <Font name="Microsoft YaHei Bold" size="16.0" />
-         </font>
-      </Button>
-      <Button layoutX="43.0" layoutY="410.0" mnemonicParsing="false" opacity="0.66" prefHeight="23.0" prefWidth="181.0" style="-fx-background-color: #000f32;" text="查看预定过的酒店" textFill="WHITE">
-         <font>
-            <Font name="Microsoft YaHei Bold" size="16.0" />
-         </font>
-      </Button>
       <ScrollPane layoutX="328.0" layoutY="150.0" opacity="0.57" prefHeight="324.0" prefWidth="582.0" style="-fx-background-color: #000f32;">
          <content>
             <TableView prefHeight="344.0" prefWidth="575.0" style="-fx-background-color: #000f32;" stylesheets="@TableView.css">
@@ -101,5 +81,25 @@
       </Label>
       <Button layoutX="828.0" layoutY="110.0" mnemonicParsing="false" opacity="0.0" prefHeight="23.0" prefWidth="56.0" text="Button" />
       <Line endX="10.0" endY="200.0" layoutX="813.0" layoutY="-91.0" startX="10.0" startY="230.0" stroke="WHITE" strokeWidth="2.0" />
+      <Button layoutX="63.0" layoutY="183.0" mnemonicParsing="false" onAction="#onInfor" opacity="0.67" prefHeight="32.0" prefWidth="181.0" style="-fx-background-color: #000f32;" text="基本信息" textFill="WHITE">
+         <font>
+            <Font name="Microsoft YaHei Bold" size="16.0" />
+         </font>
+      </Button>
+      <Button layoutX="63.0" layoutY="341.0" mnemonicParsing="false" onAction="#onPromotionManager" opacity="0.66" prefHeight="23.0" prefWidth="181.0" style="-fx-background-color: #000f32;" text="营销策略" textFill="WHITE">
+         <font>
+            <Font name="Microsoft YaHei Bold" size="16.0" />
+         </font>
+      </Button>
+      <Button layoutX="63.0" layoutY="417.0" mnemonicParsing="false" onAction="#onRoomManager" opacity="0.66" prefHeight="23.0" prefWidth="181.0" style="-fx-background-color: #000f32;" text="房间管理" textFill="WHITE">
+         <font>
+            <Font name="Microsoft YaHei Bold" size="16.0" />
+         </font>
+      </Button>
+      <Button layoutX="63.0" layoutY="265.0" mnemonicParsing="false" opacity="0.67" prefHeight="32.0" prefWidth="181.0" style="-fx-background-color: #000f32;" text="订单管理" textFill="WHITE">
+         <font>
+            <Font name="Microsoft YaHei Bold" size="16.0" />
+         </font>
+      </Button>
    </children>
 </AnchorPane>

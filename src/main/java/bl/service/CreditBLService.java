@@ -12,6 +12,6 @@ import java.util.ArrayList;
  */
 public interface CreditBLService {
 	
-	public ArrayList<CreditChangeVO> getCreditChangeList();
-	public double getCredit();
+	public ArrayList<CreditChangeVO> getCreditChangeList();	//获取信用变化列表
+	public double getCredit();	//获取信用
 }

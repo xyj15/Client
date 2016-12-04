@@ -1,183 +1,123 @@
-//package bl.stub;
-//
-//import java.util.ArrayList;
-//import java.util.List;
-//
-//import bl.implementation.Search;
-//import bl.service.MemberBLService;
-//import other.CreditChange;
-//import other.Date;
-//import other.Enterprise;
-//import other.MemberType;
-//import vo.MemberVO;
-//import vo.OrderVO;
-//
-//public class MemberBLStub implements MemberBLService {
-//
-//	String memberID;
-//	String name;
-//	String level;
-//	String pass;
-//	Double credit;
-//	String phone;
-//	String birth;
-//
-//	public MemberBLStub(String level,String memberID,String pass,String name,String birth,String phone,Double credit) {
-//		this.memberID = memberID;
-//		this.name = name;
-//		this.level = level;
-//		this.credit = credit;
-//		this.phone = phone;
-//		this.pass = pass;
-//		this.birth = birth;
-//	}
-//
-//	public MemberVO getMInformation(String memberID) {
-//		// TODO Auto-generated method stub
-//		return new MemberVO();
-//	}
-//
-//	public boolean saveMInformation(String memberID, MemberVO M) {
-//		// TODO Auto-generated method stub
-//		System.out.println("用户信息保存成功");
-//		return true;
-//	}
-//
-//	public ArrayList<Double> getCreditList(String memberID) {
-//		// TODO Auto-generated method stub
-//		ArrayList<Double> creditList = new ArrayList<Double>();
-//		creditList.add(100.0);
-//		return creditList;
-//	}
-//
-//	public Double getCredit(String memberID) {
-//		// TODO Auto-generated method stub
-//		return 0.0;
-//	}
-//
-//	public boolean updateCredit(String memberID, double newCredit) {
-//		// TODO Auto-generated method stub
-//		return false;
-//	}
-//
-//	public boolean checkCredit(String memberID) {
-//		// TODO Auto-generated method stub
-//		return false;
-//	}
-//
-//	public OrderVO getOrder(String orderID) {
-//		// TODO Auto-generated method stub
-//		return null;
-//	}
-//
-//	public ArrayList<OrderVO> gerOrderList(String userID) {
-//		// TODO Auto-generated method stub
-//		return null;
-//	}
-//
-//	@Override
-//	public String getName() {
-//		return null;
-//	}
-//
-//	@Override
-//	public String getPhone() {
-//		return null;
-//	}
-//
-//	@Override
-//	public double getCredit() {
-//		return 0;
-//	}
-//
-//	@Override
-//	public ArrayList<CreditChange> getCreditChangeList() {
-//		return null;
-//	}
-//
-//	@Override
-//	public int getLevel() {
-//		return 0;
-//	}
-//
-//	@Override
-//	public double getDiscount() {
-//		return 0;
-//	}
-//
-//	@Override
-//	public MemberType getMemberType() {
-//		return null;
-//	}
-//
-//	@Override
-//	public Date getBirthday() {
-//		return null;
-//	}
-//
-//	@Override
-//	public Enterprise getEnterprise() {
-//		return null;
-//	}
-//
-//	@Override
-//	public MemberVO getMemberInformation() {
-//		return null;
-//	}
-//
-//	@Override
-//	public boolean setMemberInformation(MemberVO memberVO) {
-//		return false;
-//	}
-//
-//	@Override
-//	public ArrayList<OrderVO> getAllOrder() {
-//		return null;
-//	}
-//
-//	@Override
-//	public ArrayList<OrderVO> getExcutedOrder() {
-//		return null;
-//	}
-//
-//	@Override
-//	public ArrayList<OrderVO> getAbnormalOrder() {
-//		return null;
-//	}
-//
-//	@Override
-//	public ArrayList<OrderVO> getCanceledOrder() {
-//		return null;
-//	}
-//
-//	public void cancelOrder(String orderID) {
-//		// TODO Auto-generated method stub
-//
-//	}
-//
-//	@Override
-//	public void evaluateOrder(double score, String comment) {
-//
-//	}
-//
-//	@Override
-//	public void startSearch() {
-//
-//	}
-//
-//	@Override
-//	public void newReservation() {
-//
-//	}
-//
-//	@Override
-//	public void markHotel() {
-//
-//	}
-//
-//	@Override
-//	public void CreateOrder() {
-//
-//	}
-//
-//}
+package bl.stub;
+
+import java.util.ArrayList;
+import java.util.Date;
+
+import bl.service.MemberBLService;
+import other.MemberType;
+import other.OrderAction;
+import vo.CreditChangeVO;
+import vo.HotelVO;
+import vo.MemberVO;
+import vo.OrderVO;
+
+public class MemberBLStub implements MemberBLService {
+	
+	private MemberVO memberVO;
+	private double credit = 100;
+	
+	public MemberBLStub() {
+		String memberID = "12345678";
+		String password = "12345678910";
+		String name = "周杰伦";
+		String tel = "12345678910";
+		int level = 1;
+		double discount = 1;
+		MemberType memberType = MemberType.Orinary;
+		Date birthday = new Date();
+		String enterprise = "南京大学有限公司";
+		ArrayList<OrderVO> orderList = new ArrayList<OrderVO>();
+		ArrayList<HotelVO> hotelList = new ArrayList<HotelVO>();
+		memberVO = new MemberVO(memberID, password, name, tel, level, discount,
+				memberType, birthday, enterprise, orderList, hotelList);
+	}
+	
+	@Override
+	public String getName() {
+		System.out.println("获取名称成功");
+		return memberVO.getName();
+	}
+	
+	@Override
+	public String getTel() {
+		System.out.println("获取联系方式成功");
+		return memberVO.getTel();
+	}
+	
+	@Override
+	public double getCredit() {
+		System.out.println("获取客户信用成功");
+		return credit;
+	}
+	
+	@Override
+	public ArrayList<CreditChangeVO> getCreditChangeList() {
+		System.out.println("获取信用变化情况成功");
+		ArrayList<CreditChangeVO> creditChangeList = new ArrayList<CreditChangeVO>();
+		CreditChangeVO creditChange = new CreditChangeVO(new Date(), "20161101000000", OrderAction.ExecuteOrder, 100, 100);
+		creditChangeList.add(creditChange);
+		creditChange = new CreditChangeVO(new Date(), "20161102000000", OrderAction.ExecuteOrder, 100, 200);
+		creditChangeList.add(creditChange);
+		return creditChangeList;
+	}
+	
+	@Override
+	public int getLevel() {
+		System.out.println("获取客户会员等级成功");
+		return memberVO.getLevel();
+	}
+	
+	@Override
+	public double getDiscount() {
+		System.out.println("获取折扣成功");
+		return memberVO.getDiscount();
+	}
+	
+	@Override
+	public MemberType getMemberType() {
+		System.out.println("获取客户类型成功");
+		return memberVO.getMemberType();
+	}
+	
+	@Override
+	public Date getBirthday() {
+		System.out.println("获取生日成功");
+		return memberVO.getBirthday();
+	}
+	
+	@Override
+	public String getEnterprise() {
+		System.out.println("获取合作企业名称成功");
+		return memberVO.getEnterprise();
+	}
+	
+	@Override
+	public MemberVO getMemberInformation() {
+		System.out.println("获取客户信息成功");
+		return memberVO;
+	}
+	
+	@Override
+	public boolean updateMemberInformation(MemberVO memberVO) {
+		System.out.println("更新客户信息成功");
+		return true;
+	}
+	
+	@Override
+	public boolean newReservation(String hotelID, String roomID) {
+		System.out.println("新建预订成功");
+		return true;
+	}
+	
+	@Override
+	public boolean markHotel(String hotelID) {
+		System.out.println("收藏酒店成功");
+		return true;
+	}
+	
+	@Override
+	public boolean CreateOrder(OrderVO orderVO) {
+		System.out.println("创建订单成功");
+		return true;
+	}
+}

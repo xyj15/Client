@@ -12,7 +12,11 @@ import vo.OrderVO;
 import java.util.ArrayList;
 import java.util.Date;
 
-
+/**
+ * Member模块bl的实现类
+ * @author CROFF
+ * @version 2016-12-2
+ */
 public class Member implements MemberBLService {
 	
 	private MemberVO memberVO;
@@ -86,21 +90,15 @@ public class Member implements MemberBLService {
 	}
 	
 	@Override
-	public boolean startSearch() {
-		search = new Search(memberVO.getUserID());
-		return false;
-	}
-	
-	@Override
 	public boolean newReservation(String hotelID, String roomID) {
 		reserve = new Reserve(memberVO.getUserID());
 		return false;
 	}
 	
 	@Override
-	public boolean markHotel() {
+	public boolean markHotel(String hotelID) {
 		return false;
-	}
+	};
 	
 	@Override
 	public boolean CreateOrder(OrderVO orderVO) {

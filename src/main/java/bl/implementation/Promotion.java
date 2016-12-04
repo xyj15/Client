@@ -1,85 +1,244 @@
 package bl.implementation;
 
 import java.util.ArrayList;
+import java.util.Date;
 
 import data.service.PromotionDataService;
 import bl.service.PromotionBLService;
+import other.PromotionType;
+import other.SaleType;
 import po.PromotionPO;
 import vo.PromotionVO;
 
+/**
+ * Promotion模块bl的实现类
+ * @author CROFF
+ * @version 2016-12-4
+ */
 public class Promotion implements PromotionBLService {
 	
+	private String hotelID; //酒店ID
+	private ArrayList<PromotionVO> promotionList;   //促销策略列表
+	
 	private PromotionDataService promotionDataService;
-	private ArrayList<PromotionVO> promotionVOList;
-	private ArrayList<PromotionPO> promotionPOList;
 	
-	public Promotion(String userID) {
-		
+	/**
+	 * 酒店营销策略的构造方法，默认酒店存在
+	 * @param hotelID
+	 */
+	public Promotion(String hotelID) {
+		promotionList = getHotelPromotionList(hotelID);
 	}
 	
+	/**
+	 * 网站营销策略的构造方法，获取所有营销策略
+	 */
 	public Promotion() {
-		
+		promotionList = getWebPromotionList();
 	}
 	
+	/**
+	 * 根据营销策略ID获取营销策略信息，若营销策略不存在则返回null
+	 * @param promotionID 营销策略ID
+	 * @return 营销策略信息
+	 */
 	@Override
 	public PromotionVO getPromotion(String promotionID) {
+		updateDataFromFile();
+		PromotionVO promotionVO;
+		for(int i=0; i<promotionList.size(); i++) {
+			promotionVO = promotionList.get(i);
+			if(promotionVO.getPromotionID().equals(promotionID)) {
+				return promotionVO;
+			}
+		}
 		return null;
 	}
 	
+	/**
+	 * 添加营销策略
+	 * @param promotionVO 营销策略信息
+	 * @return 添加成功则返回true，否则返回false
+	 */
 	@Override
-	public boolean addPromotion(PromotionVO promotion) {
-		return false;
+	public boolean addPromotion(PromotionVO promotionVO) {
+		updateDataFromFile();
+		promotionVO.setPromotionID(promotionDataService.getAvailableID());
+		promotionList.add(promotionVO);
+		PromotionPO promotionPO = promotionVOtoPO(promotionVO);
+		return promotionDataService.addPromotion(promotionPO);
 	}
 	
+	/**
+	 * 删除营销策略
+	 * @param promotionID 营销策略ID
+	 * @return 删除成功则返回true，否则返回false
+	 */
 	@Override
 	public boolean deletePromotion(String promotionID) {
-		return false;
+		updateDataFromFile();
+		int index = -1;
+		PromotionVO promotionVO;
+		for(int i=0; i<promotionList.size(); i++) {
+			promotionVO = promotionList.get(i);
+			if(promotionVO.getPromotionID().equals(promotionID)) {
+				index = i;
+				break;
+			}
+		}
+		if(index==-1) {
+			return false;
+		} else {
+			promotionList.remove(index);
+			return promotionDataService.deletePromotion(promotionID);
+		}
 	}
 	
+	/**
+	 * 更新营销策略信息
+	 * @param promotionVO 营销策略信息
+	 * @return 更新成功则返回true，否则返回false
+	 */
 	@Override
-	public boolean updatePromotion(String promotionID, PromotionVO promotion) {
-		return false;
+	public boolean updatePromotion(PromotionVO promotionVO) {
+		String updatePromotionID = promotionVO.getPromotionID();
+		int index = -1;
+		for(int i=0; i<promotionList.size(); i++) {
+			if(promotionList.get(i).getPromotionID().equals(updatePromotionID)) {
+				index = i;
+				break;
+			}
+		}
+		if(index==-1) {
+			return false;
+		} else {
+			promotionList.set(index, promotionVO);
+			PromotionPO promotionPO = promotionVOtoPO(promotionVO);
+			return promotionDataService.updatePromotion(promotionPO);
+		}
 	}
 	
+	/**
+	 * 根据酒店ID获取酒店营销策略列表
+	 * @param hotelID 酒店ID
+	 * @return 酒店营销策略列表
+	 */
 	@Override
 	public ArrayList<PromotionVO> getHotelPromotionList(String hotelID) {
-		return null;
+		this.hotelID = hotelID;
+		updateDataFromFile();
+		return promotionList;
 	}
 	
+	/**
+	 * 获取网站营销策略列表
+	 * @return 网站营销策略列表
+	 */
 	@Override
-	public ArrayList<PromotionVO> getAllPromotionList() {
-		return null;
+	public ArrayList<PromotionVO> getWebPromotionList() {
+		this.hotelID = null;
+		updateDataFromFile();
+		return promotionList;
 	}
-
-//	public PromotionVO getPromotion(String promotionID){
-//		for(int i=0;i<promotionList.size();i++){
-//			if(promotionList.get(i).getID().equals(promotionID)){
-//				return promotionList.get(i);
-//			}
-//		}
-//		return null;
-//	}
-//
-//    public boolean addPromotion(PromotionVO promotion) {
-//    	promotionList.add(promotion);
-//		return true;
-//	}
-//
-//    public boolean delPromotion(PromotionVO promotion) {
-//    	promotionList.remove(promotion);
-//		return true;
-//	}
-//
-//    public boolean changePromotion(PromotionVO promotion) {
-//    	for(int i=0;i<promotionList.size();i++){
-//			if(promotionList.get(i).getID().equals(promotion.getID())){
-//				promotionList.set(i,promotion);
-//			}
-//		}
-//		return true;
-//	}
-//
-//    public ArrayList<PromotionVO> getPromotionList() {
-//		return promotionList;
-//    }
+	
+	/**
+	 * 从Data层更新数据，hotelID为null时更新网站营销策略列表，hotelID不为null时更新酒店营销策略列表
+	 */
+	public void updateDataFromFile() {
+		promotionList = new ArrayList<PromotionVO>();
+		ArrayList<PromotionPO> promotionPOList = promotionDataService.getPromotionList();
+		PromotionPO promotionPO;
+		PromotionVO promotionVO;
+		for(int i=0; i<promotionPOList.size(); i++) {
+			promotionPO = promotionPOList.get(i);
+			promotionVO = promotionPOtoVO(promotionPO);
+			if(hotelID==null) {
+				promotionList.add(promotionVO);
+			} else {
+				if(promotionPO.getRelatedHotelID().equals(hotelID)) {
+					promotionList.add(promotionVO);
+				}
+			}
+		}
+	}
+	
+	/**
+	 * 将promotion从VO转换成PO
+	 * @param promotionVO VO
+	 * @return PO
+	 */
+	public PromotionPO promotionVOtoPO(PromotionVO promotionVO) {
+		String promotionID = promotionVO.getPromotionID();
+		String promotionName = promotionVO.getPromotionName();
+		PromotionType promotionType = promotionVO.getPromotionType();
+		String relatedHotelID = promotionVO.getRelatedHotelID();
+		SaleType saleType = promotionVO.getSaleType();
+		Date startDate = promotionVO.getStartDate();
+		Date endDate = promotionVO.getEndDate();
+		Date birthday = promotionVO.getBirthday();
+		int numberOfRoom = promotionVO.getNumberOfRoom();
+		String enterprise = promotionVO.getEnterprise();
+		String district = promotionVO.getDistrict();
+		double discount = promotionVO.getDiscount();
+		double neededPrice = promotionVO.getNeededPrice();
+		double reducePrice = promotionVO.getReducePrice();
+		PromotionPO promotionPO = new PromotionPO(promotionID, promotionName, promotionType, relatedHotelID);
+		promotionPO.setDiscount(discount);
+		promotionPO.setNeededPrice(neededPrice);
+		promotionPO.setReducePrice(reducePrice);
+		if(saleType==SaleType.Rank) {
+			promotionPO.setRankPromotion();
+		} else if(saleType==SaleType.Date) {
+			promotionPO.setDatePromotion(startDate, endDate);
+		} else if(saleType==SaleType.Birthday) {
+			promotionPO.setBirthday(birthday);
+		} else if(saleType==SaleType.RoomNumber) {
+			promotionPO.setRoomNumberPromotion(numberOfRoom);
+		} else if(saleType==SaleType.Enterprise) {
+			promotionPO.setEnterprisePromotion(enterprise);
+		} else if(saleType==SaleType.District) {
+			promotionPO.setDistrictPromotion(district);
+		}
+		return promotionPO;
+	}
+	
+	/**
+	 * 将promotion从PO转换成VO
+	 * @param promotionPO PO
+	 * @return VO
+	 */
+	public PromotionVO promotionPOtoVO(PromotionPO promotionPO) {
+		String promotionID = promotionPO.getPromotionID();
+		String promotionName = promotionPO.getPromotionName();
+		PromotionType promotionType = promotionPO.getPromotionType();
+		String relatedHotelID = promotionPO.getRelatedHotelID();
+		SaleType saleType = promotionPO.getSaleType();
+		Date startDate = promotionPO.getStartDate();
+		Date endDate = promotionPO.getEndDate();
+		Date birthday = promotionPO.getBirthday();
+		int numberOfRoom = promotionPO.getNumberOfRoom();
+		String enterprise = promotionPO.getEnterprise();
+		String district = promotionPO.getDistrict();
+		double discount = promotionPO.getDiscount();
+		double neededPrice = promotionPO.getNeededPrice();
+		double reducePrice = promotionPO.getReducePrice();
+		PromotionVO promotionVO = new PromotionVO(promotionID, promotionName, promotionType, relatedHotelID);
+		promotionVO.setDiscount(discount);
+		promotionVO.setNeededPrice(neededPrice);
+		promotionVO.setReducePrice(reducePrice);
+		if(saleType.equals(SaleType.Rank)) {
+			promotionVO.setRankPromotion();
+		} else if(saleType.equals(SaleType.Date)) {
+			promotionVO.setDatePromotion(startDate, endDate);
+		} else if(saleType.equals(SaleType.Birthday)) {
+			promotionVO.setBirthday(birthday);
+		} else if(saleType.equals(SaleType.RoomNumber)) {
+			promotionVO.setRoomNumberPromotion(numberOfRoom);
+		} else if(saleType.equals(SaleType.Enterprise)) {
+			promotionVO.setEnterprisePromotion(enterprise);
+		} else if(saleType.equals(SaleType.District)) {
+			promotionVO.setDistrictPromotion(district);
+		}
+		return promotionVO;
+	}
 }

@@ -12,11 +12,12 @@ import java.util.ArrayList;
  */
 public class Rank {
     
-	private RankDataService rankDataService;
-    private ArrayList<Double> creditList;	//会员升级所需信用表
+	private ArrayList<Double> creditList;	//会员升级所需信用表
     private ArrayList<Double> discountList;	//会员各等级享受折扣表
 	
-    private static Rank rank = new Rank();
+	private RankDataService rankDataService;
+	
+	private static Rank rank = new Rank();
 	public static Rank getInstance(){
         return rank;
     }
@@ -27,7 +28,14 @@ public class Rank {
 	 * @return 会员等级
 	 */
 	public int getLevel(double credit){
-        return 0;
+		updateDataFromFile();
+		int result;
+		for(result = 0; result<creditList.size(); result++) {
+			if(credit<creditList.get(result)) {
+				break;
+			}
+		}
+		return result;
     }
 	
 	/**
@@ -36,6 +44,40 @@ public class Rank {
 	 * @return 折扣
 	 */
 	public double getDiscount(double credit) {
-		return 0;
+		updateDataFromFile();
+		int level = getLevel(credit);
+		return discountList.get(level-1);
+	}
+	
+	/**
+	 * 重新设置会员等级制度和折扣
+	 * @param creditList 会员升级所需信用表
+	 * @param discountList 会员各等级享受折扣表
+	 * @return 设置成功返回true，否则返回false
+	 */
+	public boolean setRankInformation(ArrayList<Double> creditList, ArrayList<Double> discountList) {
+		this.creditList = creditList;
+		this.discountList = discountList;
+		return updateDataToFile();
+	}
+	
+	/**
+	 * 从数据层更新数据
+	 */
+	public void updateDataFromFile() {
+		creditList = rankDataService.getCreditList();
+		discountList = rankDataService.getDiscountList();
+	}
+	
+	/**
+	 * 将数据更新到数据层
+	 * @return 更新成功则返回true，否则false
+	 */
+	public boolean updateDataToFile() {
+		if(rankDataService.updateCreditList(creditList) && rankDataService.updateDiscountList(discountList)) {
+			return true;
+		} else {
+			return false;
+		}
 	}
 }

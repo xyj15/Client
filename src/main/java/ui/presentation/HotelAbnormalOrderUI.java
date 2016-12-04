@@ -16,6 +16,7 @@ public class HotelAbnormalOrderUI extends Application {
         Parent root = FXMLLoader.load(getClass().getResource("HotelAbnormalOrder.fxml"));
         HotelController.setPrimaryStage(primaryStage);
         Scene myScene = new Scene(root,960,540);
+        primaryStage.setResizable(false);
         primaryStage.setScene(myScene);
         primaryStage.show();
     }

@@ -16,6 +16,7 @@ public class SalerAddPromotionUI extends Application {
         Parent root = FXMLLoader.load(getClass().getResource("HotelAddDatePromotion.fxml"));
         PromotionController.setPrimaryStage(primaryStage);
         Scene myScene = new Scene(root,318,538);
+        primaryStage.setResizable(false);
         primaryStage.setScene(myScene);
         primaryStage.show();
     }

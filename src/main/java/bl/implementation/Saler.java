@@ -1,28 +1,34 @@
 package bl.implementation;
 
+import data.service.OrderDataService;
+import data.service.PromotionDataService;
 import data.service.SalerDataService;
 import bl.service.SalerBLService;
 import other.Rank;
 import po.SalerPO;
 import vo.OrderVO;
 import vo.PromotionVO;
-import vo.SalerVO;
 
 import java.util.ArrayList;
 
 /**
- * Created by 97147 on 2016/11/19.
+ * Saler模块bl的实现类
+ * @author CROFF
+ * @version 2016-12-2
  */
 public class Saler implements SalerBLService {
     
-    private SalerVO salerVO;
     private SalerPO salerPO;
-	private SalerDataService salerDataService;
 	private Promotion promotion;
-    
-    private Rank rank = Rank.getInstance();
+	private Order order;
+	private Rank rank;
+	
+	private SalerDataService salerDataService;
+	private PromotionDataService promotionDataService;
+	private OrderDataService orderDataService;
 	
 	public Saler(String salerID) {
+		salerPO = salerDataService.getSaler(salerID);
 		
 	}
 	

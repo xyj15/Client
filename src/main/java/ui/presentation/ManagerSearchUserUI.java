@@ -11,7 +11,6 @@ import ui.controller.ManagerController;
  * Created by 97147 on 2016/11/30.
  */
 public class ManagerSearchUserUI extends Application {
-    private ManagerController controller ;
     @Override
     public void start (Stage primaryStage) throws Exception {
         Parent root =FXMLLoader.load(getClass().getResource("ManagerSearchUser.fxml"));
