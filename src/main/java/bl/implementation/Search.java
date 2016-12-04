@@ -37,13 +37,13 @@ public class Search implements SearchBLService {
 	}
 	
 	/**
-	 * 设置搜索地址
-	 * @param address 搜索地址
+	 * 设置搜索城市
+	 * @param city 搜索城市
 	 * @return 设置成功则返回true，否则返回false
 	 */
 	@Override
-	public boolean setAddress(String address) {
-		searchInfomation.setAddress(address);
+	public boolean setCity(String city) {
+		searchInfomation.setCity(city);
 		return true;
 	}
 	

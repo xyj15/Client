@@ -50,8 +50,8 @@ public class SearchBLStub implements SearchBLService {
 	}
 	
 	@Override
-	public boolean setAddress(String address) {
-		System.out.println("设置地址成功");
+	public boolean setCity(String city) {
+		System.out.println("设置城市成功");
 		return true;
 	}
 	
