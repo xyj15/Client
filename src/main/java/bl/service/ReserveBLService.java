@@ -32,5 +32,5 @@ public interface ReserveBLService {
 	public boolean setNumberOfRoom(int numberOfRoom);	//设置预定客房数量
 	public boolean setOtherReq(String otherReq);	//设置其他要求，若无则为""（空字符串）
 	
-	public boolean createOrder(OrderVO orderVO);	//创建新订单
+	public boolean createOrder();	//根据之前设置的参数创建新订单
 }
