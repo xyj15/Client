@@ -1,83 +1,166 @@
 package bl.implementation;
 
-import data.service.OrderDataService;
-import data.service.PromotionDataService;
-import data.service.SalerDataService;
 import bl.service.SalerBLService;
+import data.service.SalerDataService;
+import other.OrderAction;
 import other.Rank;
 import po.SalerPO;
+import vo.CreditChangeVO;
 import vo.OrderVO;
 import vo.PromotionVO;
+import vo.SalerVO;
 
 import java.util.ArrayList;
+import java.util.Date;
 
 /**
  * Saler模块bl的实现类
  * @author CROFF
- * @version 2016-12-2
+ * @version 2016-12-4
  */
 public class Saler implements SalerBLService {
     
-    private SalerPO salerPO;
-	private Promotion promotion;
-	private Order order;
-	private Rank rank;
+	private String salerID;	//营销人员ID
+    private SalerVO salerVO;	//营销人员信息
+	private Promotion promotion;	//促销策略管理
+	private Rank rank;	//会员等级制度管理
+	private Order order;	//订单管理
+	private Credit credit;	//信用管理
 	
 	private SalerDataService salerDataService;
-	private PromotionDataService promotionDataService;
-	private OrderDataService orderDataService;
 	
+	/**
+	 * 构造方法，需要提供营销人员ID
+	 * @param salerID 营销人员ID
+	 */
 	public Saler(String salerID) {
-		salerPO = salerDataService.getSaler(salerID);
-		
+		this.salerID = salerID;
+		rank = Rank.getInstance();
+		updateDataFromFile();
 	}
 	
-	public Saler() {
-		
-	}
-	
+	/**
+	 * 获取网站促销策略列表
+	 * @return 获取成功则返回true，否则返回false
+	 */
 	@Override
 	public ArrayList<PromotionVO> getPromotionList() {
-		return null;
+		updateDataFromFile();
+		return promotion.getWebPromotionList();
 	}
 	
+	/**
+	 * 根据ID获取促销策略信息
+	 * @param promotionID 促销策略ID
+	 * @return 获取成功则返回true，否则返回false
+	 */
 	@Override
 	public PromotionVO getPromotion(String promotionID) {
-		return null;
+		updateDataFromFile();
+		return promotion.getPromotion(promotionID);
 	}
 	
+	/**
+	 * 创建新的促销策略
+	 * @param promotionVO 促销策略信息
+	 * @return 创建成功则返回true，否则返回false
+	 */
 	@Override
 	public boolean createPromotion(PromotionVO promotionVO) {
-		return false;
+		updateDataFromFile();
+		return promotion.addPromotion(promotionVO);
 	}
 	
+	/**
+	 * 删除促销策略
+	 * @param promotionID 促销策略ID
+	 * @return 删除成功则返回true，否则返回false
+	 */
 	@Override
 	public boolean deletePromotion(String promotionID) {
-		return false;
+		updateDataFromFile();
+		return promotion.deletePromotion(promotionID);
 	}
 	
+	/**
+	 * 更新促销策略信息
+	 * @param promotionVO 促销策略信息
+	 * @return 更新成功则返回true，否则返回false
+	 */
 	@Override
-	public boolean updatePromotion(String promotionID, PromotionVO promotionVO) {
-		return false;
+	public boolean updatePromotion(PromotionVO promotionVO) {
+		updateDataFromFile();
+		return promotion.updatePromotion(promotionVO);
 	}
 	
+	/**
+	 * 设置会员等级制度和折扣信息
+	 * @param creditList 会员升级所需信用表
+	 * @param discountList 每级对应折扣表
+	 * @return 设置成功则返回true，否则返回false
+	 */
 	@Override
 	public boolean setRankInformation(ArrayList<Double> creditList, ArrayList<Double> discountList) {
-		return false;
+		updateDataFromFile();
+		return rank.setRankInformation(creditList, discountList);
 	}
 	
+	/**
+	 * 获取每天未执行订单列表
+	 * @return 每天未执行订单列表
+	 */
 	@Override
 	public ArrayList<OrderVO> getDailyUnexcutedOrderList() {
-		return null;
+		updateDataFromFile();
+		ArrayList<OrderVO> orderList = new ArrayList<OrderVO>();
+		ArrayList<OrderVO> dailyAbnormalOrderList = order.getAbnormalOrders();
+		ArrayList<OrderVO> dailyUnexcutedOrderList = order.getUnexcutedOrders();
+		orderList.addAll(dailyAbnormalOrderList);
+		orderList.addAll(dailyUnexcutedOrderList);
+		return orderList;
 	}
 	
+	/**
+	 * 取消异常订单
+	 * @param orderID 订单ID
+	 * @param recover 恢复信用的比例
+	 * @return 取消成功则返回true，否则返回false
+	 */
 	@Override
-	public boolean cancelAbnormalOrder(String orderId, double recover) {
-		return false;
+	public boolean cancelAbnormalOrder(String orderID, double recover) {
+		updateDataFromFile();
+		return cancelAbnormalOrder(orderID, recover);
 	}
 	
+	/**
+	 * 信用充值
+	 * @param memberID 充值的客户ID
+	 * @param money 充值的金额
+	 * @return 充值成功则返回true，否则返回false
+	 */
 	@Override
-	public boolean creditRecharge(String username, double money) {
-		return false;
+	public boolean creditRecharge(String memberID, double money) {
+		updateDataFromFile();
+		credit = new Credit(memberID);
+		Date date = new Date();
+		String orderID = null;
+		OrderAction orderAction = OrderAction.RechargeCredit;
+		double creditChange = money*100;
+		double changeResult = credit.getCredit() - creditChange;
+		CreditChangeVO creditChangeVO = new CreditChangeVO(date, orderID, orderAction,
+				creditChange, changeResult);
+		return credit.addCreditChange(creditChangeVO);
+	}
+	
+	/**
+	 * 从Data层更新数据
+	 */
+	public void updateDataFromFile() {
+		promotion = new Promotion();
+		order = new Order(salerID);
+		SalerPO salerPO = salerDataService.getSaler(salerID);
+		String name = salerPO.getName();
+		String tel = salerPO.getTel();
+		salerVO = new SalerVO(name, tel);
 	}
 }

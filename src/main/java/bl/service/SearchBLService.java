@@ -9,7 +9,7 @@ import vo.RoomVO;
 
 public interface SearchBLService {
 	
-	public boolean setAddress(String address);	//设置搜索酒店地址
+	public boolean setCity(String city);	//设置搜索酒店城市
 	public boolean setDistrict(String district);	//设置搜索酒店商圈
 	public boolean setHotelName(String hotelName);	//设置搜索酒店名称
 	public boolean setLevel(int level);	//设置搜索酒店星级
@@ -23,7 +23,7 @@ public interface SearchBLService {
 	public boolean setOnlyReservationBefore(boolean onlyReservationBefore);	//设置是否只搜索预定过的酒店
 	
 	public ArrayList<HotelVO> search();	//根据设置过的条件返回一个酒店列表
-	public ArrayList<RoomVO> getRoomList(String hotelID);	//根据酒店ID返回该酒店的客房列表
+	public ArrayList<RoomVO> getRoomList(String hotelID, Date date);	//根据酒店ID返回该酒店某个日期的客房列表
 	
 	public ArrayList<HotelVO> sortByPriceHighToLow();	//按价格从高到低排序
 	public ArrayList<HotelVO> sortByPriceLowToHigh();	//按价格从低到高排序

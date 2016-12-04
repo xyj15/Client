@@ -16,15 +16,11 @@ public class SalerVO extends User {
 	
 	private String name;	//姓名或名称
 	private String tel;	//联系方式
-	private ArrayList<PromotionVO> promotionList;	//网站促销策略列表
-	private ArrayList<OrderVO> dailyOrderList;	//当天所有订单列表
 	
 	/**
 	 * 空构造方法
 	 */
 	public SalerVO() {
-		promotionList = new ArrayList<PromotionVO>();
-		dailyOrderList = new ArrayList<OrderVO>();
 		super.setUserType(UserType.Saler);
 	}
 	
@@ -32,15 +28,10 @@ public class SalerVO extends User {
 	 * 无用户名和密码的构造方法
 	 * @param name 姓名或名称
 	 * @param tel 联系方式
-	 * @param promotionList 网站营销策略列表
-	 * @param dailyOrderList 当天所有订单列表
 	 */
-    public SalerVO(String name, String tel, ArrayList<PromotionVO> promotionList,
-				   ArrayList<OrderVO> dailyOrderList) {
+    public SalerVO(String name, String tel) {
 		this.name = name;
 		this.tel = tel;
-		this.promotionList = promotionList;
-		this.dailyOrderList = dailyOrderList;
 		super.setUserType(UserType.Saler);
 	}
 	
@@ -50,16 +41,11 @@ public class SalerVO extends User {
 	 * @param password 密码
 	 * @param name 姓名或名称
 	 * @param tel 联系方式
-	 * @param promotionList 网站营销策略列表
-	 * @param dailyOrderList 当天所有订单列表
 	 */
-	public SalerVO(String userID, String password, String name, String tel,
-				   ArrayList<PromotionVO> promotionList, ArrayList<OrderVO> dailyOrderList) {
+	public SalerVO(String userID, String password, String name, String tel) {
 		super(userID, password, UserType.Saler);
 		this.name = name;
 		this.tel = tel;
-		this.promotionList = promotionList;
-		this.dailyOrderList = dailyOrderList;
 	}
 	
 	public String getName() {
@@ -76,21 +62,5 @@ public class SalerVO extends User {
 	
 	public void setTel(String tel) {
 		this.tel = tel;
-	}
-	
-	public ArrayList<PromotionVO> getPromotionList() {
-		return promotionList;
-	}
-	
-	public void setPromotionList(ArrayList<PromotionVO> promotionList) {
-		this.promotionList = promotionList;
-	}
-	
-	public ArrayList<OrderVO> getDailyOrderList() {
-		return dailyOrderList;
-	}
-	
-	public void setDailyOrderList(ArrayList<OrderVO> dailyOrderList) {
-		this.dailyOrderList = dailyOrderList;
 	}
 }

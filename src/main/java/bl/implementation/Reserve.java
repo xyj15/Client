@@ -122,7 +122,7 @@ public class Reserve implements ReserveBLService {
 	}
 	
 	@Override
-	public boolean createOrder(OrderVO orderVO) {
+	public boolean createOrder() {
 		return false;
 	}
 	

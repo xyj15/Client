@@ -45,8 +45,7 @@ public class ManagerBLStub implements ManagerBLService {
 		ArrayList<RoomVO> roomList = new ArrayList<RoomVO>();
 		orderList = new ArrayList<OrderVO>();
 		hotelVO = new HotelVO(hotelID, password, name, address, district,
-				city, level, score, service, introduction, managerName, managerTel,
-				enterpriseList, roomList, orderList);
+				city, level, score, service, introduction, managerName, managerTel);
 		
 		String salerID = "1234";
 		password = "12345678910";
@@ -54,7 +53,7 @@ public class ManagerBLStub implements ManagerBLService {
 		tel = "12345678910";
 		ArrayList<PromotionVO> promotionList = new ArrayList<PromotionVO>();
 		ArrayList<OrderVO> dailyOrderList = new ArrayList<OrderVO>();
-		salerVO = new SalerVO(salerID, password, name, tel, promotionList, dailyOrderList);
+		salerVO = new SalerVO(salerID, password, name, tel);
 		
 		String managerID = "12";
 		password = "12345678910";

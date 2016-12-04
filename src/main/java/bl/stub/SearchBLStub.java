@@ -33,8 +33,7 @@ public class SearchBLStub implements SearchBLService {
 		ArrayList<RoomVO> roomList = new ArrayList<RoomVO>();
 		ArrayList<OrderVO> orderList = new ArrayList<OrderVO>();
 		HotelVO hotelVO = new HotelVO(hotelID, password, name, address, district,
-				city, level, score, service, introduction, managerName, managerTel,
-				enterpriseList, roomList, orderList);
+				city, level, score, service, introduction, managerName, managerTel);
 		hotelList.add(hotelVO);
 		
 		roomList = new ArrayList<RoomVO>();
@@ -50,8 +49,8 @@ public class SearchBLStub implements SearchBLService {
 	}
 	
 	@Override
-	public boolean setAddress(String address) {
-		System.out.println("设置地址成功");
+	public boolean setCity(String city) {
+		System.out.println("设置城市成功");
 		return true;
 	}
 	
@@ -128,7 +127,7 @@ public class SearchBLStub implements SearchBLService {
 	}
 	
 	@Override
-	public ArrayList<RoomVO> getRoomList(String hotelID) {
+	public ArrayList<RoomVO> getRoomList(String hotelID, Date date) {
 		System.out.println("获取客房列表成功");
 		return roomList;
 	}

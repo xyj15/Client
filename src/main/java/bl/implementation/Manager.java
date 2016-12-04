@@ -267,8 +267,7 @@ public class Manager implements ManagerBLService {
 		ArrayList<RoomVO> roomList = new ArrayList<RoomVO>();
 		ArrayList<OrderVO> orderList = new ArrayList<OrderVO>();
 		HotelVO hotelVO = new HotelVO(hotelID, password, name, address, district,
-				city, level, score, service, introduction, managerName, managerTel,
-				enterpriseList, roomList, orderList);
+				city, level, score, service, introduction, managerName, managerTel);
 		return hotelVO;
 	}
 	
@@ -298,7 +297,7 @@ public class Manager implements ManagerBLService {
 		String tel = salerPO.getTel();
 		ArrayList<PromotionVO> promotionList = new ArrayList<PromotionVO>();
 		ArrayList<OrderVO> dailyOrderList = new ArrayList<OrderVO>();
-		SalerVO salerVO = new SalerVO(salerID, password, name, tel, promotionList, dailyOrderList);
+		SalerVO salerVO = new SalerVO(salerID, password, name, tel);
 		return salerVO;
 	}
 	

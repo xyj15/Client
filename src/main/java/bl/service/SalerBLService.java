@@ -17,7 +17,7 @@ public interface SalerBLService {
 	public PromotionVO getPromotion(String promotionID);	//获得营销策略信息
 	public boolean createPromotion(PromotionVO promotionVO);	//创建营销策略
 	public boolean deletePromotion(String promotionID);	//删除营销策略
-	public boolean updatePromotion(String promotionID, PromotionVO promotionVO);	//更新营销策略信息
+	public boolean updatePromotion(PromotionVO promotionVO);	//更新营销策略信息
 	
 	public boolean setRankInformation(ArrayList<Double> creditList, ArrayList<Double> discountList);	//设置客户升级所需信用表和每个等级的折扣表
 	public ArrayList<OrderVO> getDailyUnexcutedOrderList();	//返回每天的未执行订单列表

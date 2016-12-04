@@ -12,7 +12,6 @@ public class SearchInfomation {
 
     private String city;	//城市，若未设置则为null
 	private String district;	//商圈，若未设置则为null
-    private String address;	//地址，若未设置则为null
     private String hotelName;	//酒店名称，若未设置则为null
     private int level;	//星级，若未设置则为0
     private RoomType roomType;	//房间类型，若未设置则为null
@@ -35,7 +34,6 @@ public class SearchInfomation {
 	 * 带参数的构造方法
 	 * @param city 城市，若未设置则为null
 	 * @param district 商圈，若未设置则为null
-	 * @param address 地址，若未设置则为null
 	 * @param hotelName 酒店名称，若未设置则为null
 	 * @param level 星级，若未设置则为0
 	 * @param roomType 房间类型，若未设置则为null
@@ -47,12 +45,11 @@ public class SearchInfomation {
 	 * @param checkoutTime 退房日期，若未设置则为一天后
 	 * @param onlyReservationBefore 是否只搜索自己预定过的酒店
 	 */
-	public SearchInfomation(String city, String district, String address, String hotelName, int level,
+	public SearchInfomation(String city, String district, String hotelName, int level,
 							RoomType roomType, double lowerPrice, double upperPrice, double lowerScore,
 							double upperScore, Date checkinTime, Date checkoutTime, boolean onlyReservationBefore) {
 		this.city = city;
 		this.district = district;
-		this.address = address;
 		this.hotelName = hotelName;
 		this.level = level;
 		this.roomType = roomType;
@@ -72,14 +69,6 @@ public class SearchInfomation {
 	public void setCity(String city) {
 		this.city = city;
 	}
-
-    public String getAddress() {
-        return address;
-    }
-
-    public void setAddress(String address) {
-        this.address = address;
-    }
 
     public String getDistrict() {
         return district;
