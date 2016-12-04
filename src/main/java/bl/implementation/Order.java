@@ -24,7 +24,7 @@ public class Order implements OrderBLService {
 	private OrderDataService orderDataService;
 	
 	/**
-	 * 提供用户ID的构造方法
+	 * 提供用户ID的构造方法（客户和酒店）
 	 * @param userID 用户ID
 	 */
 	public Order(String userID) {
@@ -99,7 +99,7 @@ public class Order implements OrderBLService {
 		orderVO.setOrderStatus(OrderStatus.Canceled);
 		orderVO.setCancelTime(new Date());
 		orderList.set(index, orderVO);
-		OrderPO orderPO = orderVOTransferToPO(orderVO);
+		OrderPO orderPO = orderVOtoPO(orderVO);
 		return orderDataService.updateOrder(orderPO);
 	}
 	
@@ -122,7 +122,7 @@ public class Order implements OrderBLService {
 		orderVO.setScore(score);
 		orderVO.setEvaluation(comment);
 		orderList.set(index, orderVO);
-		OrderPO orderPO = orderVOTransferToPO(orderVO);
+		OrderPO orderPO = orderVOtoPO(orderVO);
 		return orderDataService.updateOrder(orderPO);
 	}
 	
@@ -144,7 +144,7 @@ public class Order implements OrderBLService {
 		orderVO.setOrderStatus(OrderStatus.Executed);
 		orderVO.setRecover(recover);
 		orderList.set(index, orderVO);
-		OrderPO orderPO = orderVOTransferToPO(orderVO);
+		OrderPO orderPO = orderVOtoPO(orderVO);
 		orderDataService.updateOrder(orderPO);
 		
 		Credit credit = new Credit(orderVO.getMemberID());
@@ -163,32 +163,9 @@ public class Order implements OrderBLService {
 		orderList = new ArrayList<OrderVO>();
 		OrderPO orderPO;
 		OrderVO orderVO;
-		for(int i = 0; i < orderList.size(); i++) {
+		for(int i=0; i<orderList.size(); i++) {
 			orderPO = orderPOArrayList.get(i);
-			String memberID = orderPO.getMemberID();
-			String hotelID = orderPO.getHotelID();
-			String orderID = orderPO.getOrderID();
-			OrderStatus orderStatus = orderPO.getOrderStatus();
-			Date createTime = orderPO.getCreateTime();
-			Date checkinTime = orderPO.getCheckinTime();
-			Date actualCheckinTime = orderPO.getActualCheckinTime();
-			Date latestCheckinTime = orderPO.getLatestCheckinTime();
-			Date checkoutTime = orderPO.getCheckoutTime();
-			Date actualCheckoutTime = orderPO.getActualCheckoutTime();
-			int numberOfRoom = orderPO.getNumberOfRoom();
-			String roomName = orderPO.getRoomName();
-			int numberOfClient = orderPO.getNumberOfClient();
-			boolean haveKids = orderPO.getHaveKids();
-			double score = orderPO.getScore();
-			String evaluation = orderPO.getEvaluation();
-			double recover = orderPO.getRecover();
-			String promotionID = orderPO.getPromotionID();
-			double price = orderPO.getPrice();
-			Date cancelTime = orderPO.getCancelTime();
-			orderVO = new OrderVO(memberID, hotelID, orderID, orderStatus, createTime,
-					checkinTime, actualCheckinTime, latestCheckinTime, checkoutTime,
-					actualCheckoutTime, numberOfRoom, roomName, numberOfClient, haveKids,
-					score, evaluation, recover, promotionID, price, cancelTime);
+			orderVO = orderPOtoVO(orderPO);
 			orderList.add(orderVO);
 		}
 	}
@@ -231,7 +208,7 @@ public class Order implements OrderBLService {
 	 * @param orderVO VO变量
 	 * @return PO变量
 	 */
-	public OrderPO orderVOTransferToPO(OrderVO orderVO) {
+	public static OrderPO orderVOtoPO(OrderVO orderVO) {
 		String memberID = orderVO.getMemberID();
 		String hotelID = orderVO.getHotelID();
 		String orderID = orderVO.getOrderID();
@@ -257,5 +234,33 @@ public class Order implements OrderBLService {
 				actualCheckoutTime, numberOfRoom, roomName, numberOfClient, haveKids,
 				score, evaluation, recover, promotionID, price, cancelTime);
 		return orderPO;
+	}
+	
+	public static OrderVO orderPOtoVO(OrderPO orderPO) {
+		String memberID = orderPO.getMemberID();
+		String hotelID = orderPO.getHotelID();
+		String orderID = orderPO.getOrderID();
+		OrderStatus orderStatus = orderPO.getOrderStatus();
+		Date createTime = orderPO.getCreateTime();
+		Date checkinTime = orderPO.getCheckinTime();
+		Date actualCheckinTime = orderPO.getActualCheckinTime();
+		Date latestCheckinTime = orderPO.getLatestCheckinTime();
+		Date checkoutTime = orderPO.getCheckoutTime();
+		Date actualCheckoutTime = orderPO.getActualCheckoutTime();
+		int numberOfRoom = orderPO.getNumberOfRoom();
+		String roomName = orderPO.getRoomName();
+		int numberOfClient = orderPO.getNumberOfClient();
+		boolean haveKids = orderPO.getHaveKids();
+		double score = orderPO.getScore();
+		String evaluation = orderPO.getEvaluation();
+		double recover = orderPO.getRecover();
+		String promotionID = orderPO.getPromotionID();
+		double price = orderPO.getPrice();
+		Date cancelTime = orderPO.getCancelTime();
+		OrderVO orderVO = new OrderVO(memberID, hotelID, orderID, orderStatus, createTime,
+				checkinTime, actualCheckinTime, latestCheckinTime, checkoutTime,
+				actualCheckoutTime, numberOfRoom, roomName, numberOfClient, haveKids,
+				score, evaluation, recover, promotionID, price, cancelTime);
+		return orderVO;
 	}
 }

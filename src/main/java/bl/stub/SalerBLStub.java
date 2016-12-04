@@ -78,7 +78,7 @@ public class SalerBLStub implements SalerBLService {
 	}
 	
 	@Override
-	public boolean updatePromotion(String promotionID, PromotionVO promotionVO) {
+	public boolean updatePromotion(PromotionVO promotionVO) {
 		System.out.println("更新促销策略信息成功");
 		return true;
 	}

@@ -7,7 +7,7 @@ import java.util.ArrayList;
 public interface OrderDataService {
 	public boolean addOrder(OrderPO order);  //添加订单
 	public boolean updateOrder(OrderPO order);  //更新订单
-	public boolean cancleOrder(String orderID);  //取消订单
+	public boolean cancelOrder(String orderID);  //取消订单
 	public boolean makeOrderAbnormal(String orderID);  //将订单置为异常
 	public boolean recoverOrder(String orderID, double recover);  //恢复异常订单
 	public OrderPO getOrder(String orderID);  //根据订单编号查找订单
