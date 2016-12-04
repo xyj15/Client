@@ -298,7 +298,7 @@ public class Manager implements ManagerBLService {
 		String tel = salerPO.getTel();
 		ArrayList<PromotionVO> promotionList = new ArrayList<PromotionVO>();
 		ArrayList<OrderVO> dailyOrderList = new ArrayList<OrderVO>();
-		SalerVO salerVO = new SalerVO(salerID, password, name, tel, promotionList, dailyOrderList);
+		SalerVO salerVO = new SalerVO(salerID, password, name, tel);
 		return salerVO;
 	}
 	
