@@ -1,6 +1,6 @@
 package ui.controller;
 
-import bl.implementation.Member;
+
 import bl.service.HotelBLService;
 import bl.service.ManagerBLService;
 import bl.service.MemberBLService;
@@ -21,9 +21,6 @@ import ui.presentation.*;
 import vo.HotelVO;
 import vo.SalerVO;
 
-import java.time.LocalDate;
-import java.util.Date;
-
 
 /**
  *
@@ -40,6 +37,27 @@ public class ManagerController{
 	private HotelBLService hotel = new HotelBLStub();
 	private SalerBLService saler = new SalerBLStub();
 	private MemberBLService member = new MemberBLStub();
+	@FXML
+	private TextField salerName;
+	@FXML
+	private TextField salerPassword;
+	@FXML
+	private TextField hotelName;
+	@FXML
+	private TextField hotelPassword;
+	@FXML
+	private TextField address;
+	@FXML
+	private TextField district;
+	@FXML
+	private TextField level;
+	@FXML
+	private TextField service;
+	@FXML
+	private TextField introduction;
+	@FXML
+	private TextField hotelManagerName;
+
 
 	public static void setPrimaryStage(Stage in){
 		primaryStage=in;
@@ -62,9 +80,24 @@ public class ManagerController{
 				memberName.setText(member.getName());
 				memberTel.setText(member.getTel());
 				credit.setText(String.valueOf(member.getCredit()));
-				birthday.setText(member.getBirthday().toString());
 				break;
 			case Hotel:new ManagerSearchHotelUI().start(primaryStage);
+				TextField hotelName=(TextField)root.lookup("#hotelName");
+				TextField address=(TextField)root.lookup("#address");
+				TextField district=(TextField)root.lookup("#district");
+				TextField level=(TextField)root.lookup("#level");
+				TextField introduction=(TextField)root.lookup("#introduction");
+				TextField service=(TextField)root.lookup("#service");
+				TextField hotelManagerName=(TextField)root.lookup("#hotelManagerName");
+				TextField hotelPassword=(TextField)root.lookup("#hotelPassword");
+				hotelName.setText(hotel.getHotelName());
+				address.setText(hotel.getHotelAddress());
+				district.setText(hotel.getDistrict());
+				level.setText(String.valueOf(hotel.getHotelLevel()));
+				introduction.setText(hotel.getHotelIntroduction());
+				service.setText(hotel.getHotelService());
+				hotelManagerName.setText(hotel.getHotelManagerName());
+				//hotelPassword.setText(hotel.password);
 				break;
 			case Saler:new ManagerSearchSalerUI().start(primaryStage);
 				break;
@@ -73,29 +106,23 @@ public class ManagerController{
 	@FXML
 	private void onAddUser(ActionEvent E)throws Exception {
 		new ManagerAddSalerUI().start(primaryStage);
-
-		TextField username=(TextField)root.lookup("#username");
-		TextField password=(TextField)root.lookup("#password");
+	}
+	@FXML
+	private void confirmAddSaler(ActionEvent E)throws Exception {
 		SalerVO saler=new SalerVO();
-		saler.setName(username.getText());
-		saler.setPassword(password.getText());
+		saler.setName(salerName.getText());
+		saler.setPassword(salerPassword.getText());
 		manager.addSaler(saler);
-
 	}
 	@FXML
 	private void onAddHotel(ActionEvent E)throws Exception {
 		new ManagerAddHotelUI().start(primaryStage);
-		TextField hotelName=(TextField)root.lookup("#hotelName");
-		TextField password=(TextField)root.lookup("#password");
-		TextField address=(TextField)root.lookup("#address");
-		TextField district=(TextField)root.lookup("#district");
-		TextField level=(TextField)root.lookup("#level");
-		TextField service=(TextField)root.lookup("#service");
-		TextField introduction=(TextField)root.lookup("#introduction");
-		TextField hotelManagerName=(TextField)root.lookup("#hotelManagerName");
 
+	}
+	@FXML
+	private void confirmAddHotel(ActionEvent E)throws Exception {
 		HotelVO hotel=new HotelVO();
-		hotel.setPassword(password.getText());
+		hotel.setPassword(hotelPassword.getText());
 		hotel.setName(hotelName.getText());
 		hotel.setAddress(address.getText());
 		hotel.setDistrict(district.getText());
@@ -104,7 +131,6 @@ public class ManagerController{
 		hotel.setService(service.getText());
 		hotel.setManagerName(hotelManagerName.getText());
 		manager.addHotel(hotel);
-
 	}
 	@FXML
 	private void onLogOut(ActionEvent E)throws Exception {
