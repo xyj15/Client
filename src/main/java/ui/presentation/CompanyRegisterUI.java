@@ -19,6 +19,7 @@ public class CompanyRegisterUI extends Application{
         FXMLLoader loader=new FXMLLoader(getClass().getResource("CompanyRegister.fxml"));
         Parent root =loader.load();
         controller=loader.getController();
+        LoginController.setRoot(root);
         controller.setPrimaryStage(primaryStage);
         Scene myScene = new Scene(root,315,520);
         primaryStage.setScene(myScene);

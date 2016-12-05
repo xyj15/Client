@@ -68,7 +68,7 @@
                   <Font name="Microsoft YaHei Bold" size="16.0" />
                </font>
             </Label>
-            <TextField opacity="0.41" prefHeight="30.0" prefWidth="241.0" GridPane.columnIndex="1">
+            <TextField fx:id="hotelName" opacity="0.41" prefHeight="30.0" prefWidth="241.0" GridPane.columnIndex="1">
                <GridPane.margin>
                   <Insets right="10.0" />
                </GridPane.margin>
@@ -87,7 +87,7 @@
                   <Font name="Microsoft YaHei Bold" size="16.0" />
                </font>
             </Label>
-            <TextField opacity="0.41" prefHeight="30.0" prefWidth="103.0" GridPane.columnIndex="1">
+            <TextField fx:id="level" opacity="0.41" prefHeight="30.0" prefWidth="103.0" GridPane.columnIndex="1">
                <GridPane.margin>
                   <Insets right="10.0" />
                </GridPane.margin>
@@ -108,12 +108,12 @@
                   <Font name="Microsoft YaHei Bold" size="16.0" />
                </font>
             </Label>
-            <TextField opacity="0.41" prefHeight="30.0" prefWidth="96.0" GridPane.columnIndex="1">
+            <TextField fx:id="lowScore" opacity="0.41" prefHeight="30.0" prefWidth="96.0" GridPane.columnIndex="1">
                <GridPane.margin>
                   <Insets right="5.0" />
                </GridPane.margin>
             </TextField>
-            <TextField opacity="0.41" prefHeight="30.0" prefWidth="63.0" GridPane.columnIndex="3">
+            <TextField fx:id="highScore" opacity="0.41" prefHeight="30.0" prefWidth="63.0" GridPane.columnIndex="3">
                <GridPane.margin>
                   <Insets right="5.0" />
                </GridPane.margin>
@@ -141,7 +141,7 @@
                   <Font name="Microsoft YaHei Bold" size="16.0" />
                </font>
             </Label>
-            <TextField opacity="0.41" prefHeight="30.0" prefWidth="241.0" GridPane.columnIndex="1">
+            <TextField fx:id="city" opacity="0.41" prefHeight="30.0" prefWidth="241.0" GridPane.columnIndex="1">
                <GridPane.margin>
                   <Insets right="10.0" />
                </GridPane.margin>
@@ -151,7 +151,7 @@
                   <Font name="Microsoft YaHei Bold" size="16.0" />
                </font>
             </Label>
-            <TextField opacity="0.41" prefHeight="30.0" prefWidth="241.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
+            <TextField fx:id="district" opacity="0.41" prefHeight="30.0" prefWidth="241.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
                <GridPane.margin>
                   <Insets right="10.0" />
                </GridPane.margin>
@@ -172,37 +172,37 @@
                <font>
                   <Font name="Microsoft YaHei Bold" size="16.0" />
                </font></Label>
-            <TextField opacity="0.41" prefHeight="30.0" prefWidth="103.0" style="-fx-background-color: white;" />
+            <TextField fx:id="roomType" opacity="0.41" prefHeight="30.0" prefWidth="103.0" style="-fx-background-color: white;" />
             <Label alignment="CENTER" prefHeight="49.0" prefWidth="109.0" text="房间数量" textFill="WHITE">
                <font>
                   <Font name="Microsoft YaHei Bold" size="16.0" />
                </font>
             </Label>
-            <TextField opacity="0.41" prefHeight="30.0" prefWidth="103.0" style="-fx-background-color: white;" />
+            <TextField fx:id="numOfRoom" opacity="0.41" prefHeight="30.0" prefWidth="103.0" style="-fx-background-color: white;" />
             <Label alignment="CENTER" prefHeight="49.0" prefWidth="109.0" text="原始价格" textFill="WHITE">
                <font>
                   <Font name="Microsoft YaHei Bold" size="16.0" />
                </font>
             </Label>
-            <TextField opacity="0.41" prefHeight="30.0" prefWidth="103.0" style="-fx-background-color: white;" />
+            <TextField fx:id="lowPrice" opacity="0.41" prefHeight="30.0" prefWidth="103.0" style="-fx-background-color: white;" />
             <Label alignment="CENTER" prefHeight="49.0" prefWidth="109.0" text="至" textFill="WHITE">
                <font>
                   <Font name="Microsoft YaHei Bold" size="16.0" />
                </font>
             </Label>
-            <TextField opacity="0.41" prefHeight="30.0" prefWidth="103.0" style="-fx-background-color: white;" />
+            <TextField fx:id="highPrice" opacity="0.41" prefHeight="30.0" prefWidth="103.0" style="-fx-background-color: white;" />
             <Label alignment="CENTER" prefHeight="49.0" prefWidth="109.0" text="入住日期" textFill="WHITE">
                <font>
                   <Font name="Microsoft YaHei Bold" size="16.0" />
                </font>
             </Label>
-            <DatePicker opacity="0.59" prefHeight="23.0" prefWidth="305.0" />
+            <DatePicker fx:id="inTime" opacity="0.59" prefHeight="23.0" prefWidth="305.0" />
             <Label alignment="CENTER" prefHeight="49.0" prefWidth="109.0" text="退房日期" textFill="WHITE">
                <font>
                   <Font name="Microsoft YaHei Bold" size="16.0" />
                </font>
             </Label>
-            <DatePicker opacity="0.59" prefHeight="23.0" prefWidth="305.0" />
+            <DatePicker fx:id="outTime" opacity="0.59" prefHeight="23.0" prefWidth="305.0" />
          </children>
       </FlowPane>
       <Button layoutX="767.0" layoutY="435.0" mnemonicParsing="false" onAction="#onSearchLimited" prefHeight="34.0" prefWidth="172.0" style="-fx-background-color: #6B6BCF;" text="只搜索预定过的酒店" textFill="WHITE">

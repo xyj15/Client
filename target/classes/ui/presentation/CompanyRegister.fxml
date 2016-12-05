@@ -51,7 +51,7 @@
             <Font name="Microsoft YaHei Bold" size="16.0" />
          </font>
       </TextField>
-      <Button fx:id="signInButton" layoutX="188.0" layoutY="462.0" mnemonicParsing="false" onAction="#onRegister" prefHeight="29.0" prefWidth="102.0" style="-fx-background-color: #6B6BCF;" text="注册" textAlignment="CENTER" textFill="WHITE">
+      <Button fx:id="signInButton" layoutX="188.0" layoutY="462.0" mnemonicParsing="false" onAction="#oncRegister" prefHeight="29.0" prefWidth="102.0" style="-fx-background-color: #6B6BCF;" text="注册" textAlignment="CENTER" textFill="WHITE">
          <font>
             <Font name="Microsoft YaHei Bold" size="14.0" />
          </font>
