@@ -8,6 +8,7 @@ import java.util.ArrayList;
  * Created by zhangxinyue on 2016/12/1.
  */
 public interface HotelDataService {
+	
 	public boolean addHotel(HotelPO hotel);
 	public boolean deleteHotel(String hotelID);
 	public boolean updateHotel(HotelPO hotel);

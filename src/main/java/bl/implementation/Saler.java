@@ -39,6 +39,18 @@ public class Saler implements SalerBLService {
 		updateDataFromFile();
 	}
 	
+	@Override
+	public SalerVO getSalerInformation() {
+		updateDataFromFile();
+		return salerVO;
+	}
+	
+	@Override
+	public boolean setSalerInformation(SalerVO salerVO) {
+		SalerPO salerPO = salerVOtoPO(salerVO);
+		return salerDataService.updateSaler(salerPO);
+	}
+	
 	/**
 	 * 获取网站促销策略列表
 	 * @return 获取成功则返回true，否则返回false
@@ -159,8 +171,24 @@ public class Saler implements SalerBLService {
 		promotion = new Promotion();
 		order = new Order(salerID);
 		SalerPO salerPO = salerDataService.getSaler(salerID);
+		salerVO = salerPOtoVO(salerPO);
+	}
+	
+	public SalerVO salerPOtoVO(SalerPO salerPO) {
+		String salerID = salerPO.getUserID();
+		String password = salerPO.getPassword();
 		String name = salerPO.getName();
 		String tel = salerPO.getTel();
-		salerVO = new SalerVO(name, tel);
+		SalerVO salerVO = new SalerVO(name, tel, salerID, password);
+		return salerVO;
+	}
+	
+	public SalerPO salerVOtoPO(SalerVO salerVO) {
+		String tel = salerVO.getTel();
+		String salerID = salerVO.getUserID();
+		String password = salerVO.getPassword();
+		String name = salerVO.getName();
+		SalerPO salerPO = new SalerPO(name, tel, salerID, password);
+		return salerPO;
 	}
 }

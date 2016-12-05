@@ -6,6 +6,7 @@ import other.RoomType;
 import po.RoomPO;
 import vo.RoomVO;
 
+import java.util.ArrayList;
 import java.util.Date;
 
 /**
@@ -106,6 +107,20 @@ public class Room implements RoomBLService {
 		String hotelID = roomVO.getHotelID();
 		RoomPO roomPO = new RoomPO(reserved, available, roomNumber, roomName, roomType, price, hotelID);
 		return roomPO;
+	}
+	
+	/**
+	 * 获得酒店某天的所有客房信息
+	 * @param date 日期
+	 * @return 客房信息列表
+	 */
+	public ArrayList<RoomVO> getDailyRoomList(Date date) {
+		ArrayList<RoomPO> roomPOList = roomDataService.getRoomsByDate(date, hotelID);
+		ArrayList<RoomVO> roomVOList = new ArrayList<RoomVO>();
+		for(int i=0; i<roomPOList.size(); i++) {
+			roomVOList.add(roomPOtoVO(roomPOList.get(i)));
+		}
+		return roomVOList;
 	}
 }
 
