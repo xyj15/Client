@@ -19,6 +19,7 @@ import java.util.Date;
  */
 public class Member implements MemberBLService {
 	
+	private String memberID;
 	private MemberVO memberVO;
 	
 	private Search search;
@@ -31,11 +32,19 @@ public class Member implements MemberBLService {
 	 * 注册用户时使用这个构造方法，分配一个可用的ID
 	 */
 	public Member() {
+		init();
 		memberVO = new MemberVO();
 		memberVO.setUserID(memberDataService.getAvailableID());
+		updateDataToFile();
 	}
 
 	public Member(String memberID) {
+		init();
+		this.memberID = memberID;
+		updateDataFromFile();
+	}
+	
+	public void init() {
 		
 	}
 	
@@ -118,12 +127,44 @@ public class Member implements MemberBLService {
 		return false;
 	}
 	
+	/**
+	 * member的VO转换成PO
+	 * @param memberVO VO
+	 * @return PO
+	 */
 	public static MemberPO memberVOtoPO(MemberVO memberVO) {
-		return null;
+		String memberID = memberVO.getUserID();
+		String password = memberVO.getPassword();
+		String name = memberVO.getName();
+		String tel = memberVO.getTel();
+		int level = memberVO.getLevel();
+		double discount = memberVO.getDiscount();
+		MemberType memberType = memberVO.getMemberType();
+		Date birthday = memberVO.getBirthday();
+		String enterprise = memberVO.getEnterprise();
+		MemberPO memberPO = new MemberPO(memberID, password, name, tel,
+				level, discount, memberType, birthday, enterprise);
+		return memberPO;
 	}
 	
+	/**
+	 * member的PO转换成VO
+	 * @param memberPO PO
+	 * @return VO
+	 */
 	public static MemberVO memberPOtoVO(MemberPO memberPO) {
-		return null;
+		String memberID = memberPO.getMemberID();
+		String password = memberPO.getPassword();
+		String name = memberPO.getName();
+		String tel = memberPO.getPhone();
+		int level = memberPO.getLevel();
+		double discount = memberPO.getDiscount();
+		MemberType memberType = memberPO.getMemberType();
+		Date birthday = memberPO.getBirthday();
+		String enterprise = memberPO.getEnterprise();
+		MemberVO memberVO = new MemberVO(memberID, password, name, tel, level, discount,
+				memberType, birthday, enterprise);
+		return memberVO;
 	}
 	
 	/**
@@ -133,6 +174,16 @@ public class Member implements MemberBLService {
 	 */
 	public boolean registerMember(MemberVO memberVO) {
 		MemberPO memberPO = memberVOtoPO(memberVO);
+		this.memberVO = memberVO;
+		updateDataToFile();
 		return memberDataService.addMember(memberPO);
+	}
+	
+	/**
+	 * 删除当前客户
+	 * @return 删除成功则返回true，否则返回false
+	 */
+	public boolean deleteMember() {
+		return memberDataService.deleteMember(memberID);
 	}
 }

@@ -18,7 +18,6 @@
 //	}
 //
 //	public static void main(String[] args) {
-//		// TODO Auto-generated method stub
 //		OrderBLDriver driver =new OrderBLDriver();
 ////		driver.drive(new OrderVO(2, "1997-2-2", "1997-2-5", 1, 2, "��", 0, 450, "123"));
 //	}

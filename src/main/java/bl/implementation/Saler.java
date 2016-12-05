@@ -16,7 +16,7 @@ import java.util.Date;
 /**
  * Saler模块bl的实现类
  * @author CROFF
- * @version 2016-12-4
+ * @version 2016-12-5
  */
 public class Saler implements SalerBLService {
     
@@ -30,12 +30,20 @@ public class Saler implements SalerBLService {
 	private SalerDataService salerDataService;
 	
 	/**
+	 * 增加新的营销人员调用这个构造方法
+	 */
+	public Saler() {
+		salerVO = new SalerVO();
+		salerVO.setUserID(salerDataService.getAvailableID());
+		updateDataFromFile();
+	}
+	
+	/**
 	 * 构造方法，需要提供营销人员ID
 	 * @param salerID 营销人员ID
 	 */
 	public Saler(String salerID) {
 		this.salerID = salerID;
-		rank = Rank.getInstance();
 		updateDataFromFile();
 	}
 	
@@ -47,6 +55,7 @@ public class Saler implements SalerBLService {
 	
 	@Override
 	public boolean setSalerInformation(SalerVO salerVO) {
+		this.salerVO = salerVO;
 		SalerPO salerPO = salerVOtoPO(salerVO);
 		return salerDataService.updateSaler(salerPO);
 	}
@@ -172,23 +181,44 @@ public class Saler implements SalerBLService {
 		order = new Order(salerID);
 		SalerPO salerPO = salerDataService.getSaler(salerID);
 		salerVO = salerPOtoVO(salerPO);
+		rank = Rank.getInstance();
 	}
 	
-	public SalerVO salerPOtoVO(SalerPO salerPO) {
+	/**
+	 * 删除当前营销人员
+	 * @return 删除成功则返回true，否则返回false
+	 */
+	public boolean deleteSaler() {
+		return salerDataService.deleteSaler(salerID);
+	}
+	
+	/**
+	 * saler的VO转换成PO
+	 * @param salerVO VO
+	 * @return PO
+	 */
+	public static SalerPO salerVOtoPO(SalerVO salerVO) {
+		String salerID = salerVO.getUserID();
+		String password = salerVO.getPassword();
+		String name = salerVO.getName();
+		String tel = salerVO.getTel();
+		SalerPO salerPO = new SalerPO(salerID, password, name, tel);
+		return salerPO;
+	}
+	
+	/**
+	 * saler的PO转换成VO
+	 * @param salerPO PO
+	 * @return VO
+	 */
+	public static SalerVO salerPOtoVO(SalerPO salerPO) {
 		String salerID = salerPO.getUserID();
 		String password = salerPO.getPassword();
 		String name = salerPO.getName();
 		String tel = salerPO.getTel();
-		SalerVO salerVO = new SalerVO(name, tel, salerID, password);
+		ArrayList<PromotionVO> promotionList = new ArrayList<PromotionVO>();
+		ArrayList<OrderVO> dailyOrderList = new ArrayList<OrderVO>();
+		SalerVO salerVO = new SalerVO(salerID, password, name, tel);
 		return salerVO;
-	}
-	
-	public SalerPO salerVOtoPO(SalerVO salerVO) {
-		String tel = salerVO.getTel();
-		String salerID = salerVO.getUserID();
-		String password = salerVO.getPassword();
-		String name = salerVO.getName();
-		SalerPO salerPO = new SalerPO(name, tel, salerID, password);
-		return salerPO;
 	}
 }
