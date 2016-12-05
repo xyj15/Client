@@ -1,14 +1,14 @@
 package bl.implementation;
 
-import java.util.*;
-
-import data.service.HotelDataService;
-import data.service.MemberDataService;
-import data.service.OrderDataService;
 import bl.service.SearchBLService;
-import other.*;
-import po.MemberPO;
-import vo.*;
+import other.HotelQuickSort;
+import other.RoomType;
+import other.SortValueOrder;
+import vo.HotelVO;
+import vo.RoomVO;
+
+import java.util.ArrayList;
+import java.util.Date;
 
 /**
  * Search模块bl的实现类
@@ -17,7 +17,7 @@ import vo.*;
  */
 public class Search implements SearchBLService {
 	
-	private MemberVO memberVO;	//持有的客户信息
+	private String memberID;	//持有的客户ID
 	
 	private String city;	//城市，若未设置则为""
 	private String district;	//商圈，若未设置则为""
@@ -33,24 +33,12 @@ public class Search implements SearchBLService {
 	private Date checkoutTime;	//退房日期，若未设置则为一天后
 	private boolean onlyReservationBefore;	//是否只搜索自己预定过的酒店，默认为false
 	
-	private HotelDataService hotelDataService;
-	private MemberDataService memberDataService;
-	private OrderDataService orderDataService;
-	
 	/**
 	 * 构造方法，提供客户ID
 	 * @param memberID 客户ID
 	 */
 	public Search(String memberID) {
-		MemberPO memberPO = memberDataService.getMember(memberID);
-		String name = memberPO.getName();
-		String tel = memberPO.getPhone();
-		int level = memberPO.getLevel();
-		double discount = memberPO.getDiscount();
-		MemberType memberType = memberPO.getMemberType();
-		Date birthday = memberPO.getBirthday();
-		String enterprise = memberPO.getEnterprise();
-		memberVO = new MemberVO(name, tel, level, discount, memberType, birthday, enterprise);
+		this.memberID = memberID;
 	}
 	
 	/**
@@ -208,8 +196,8 @@ public class Search implements SearchBLService {
 	 */
 	@Override
 	public ArrayList<RoomVO> getRoomList(String hotelID, Date date) {
-		
-		return null;
+		Room room = new Room(hotelID);
+		return room.getDailyRoomList(date);
 	}
 	
 	/**
@@ -218,8 +206,9 @@ public class Search implements SearchBLService {
 	 */
 	@Override
 	public ArrayList<HotelVO> sortByPriceHighToLow() {
-		ArrayList<HotelVO> resultList = new ArrayList<HotelVO>();
-		return null;
+		ArrayList<HotelVO> hotelList = search();
+		HotelQuickSort.quickSort(hotelList, SortValueOrder.priceHtoL);
+		return hotelList;
 	}
 	
 	/**
@@ -228,8 +217,9 @@ public class Search implements SearchBLService {
 	 */
 	@Override
 	public ArrayList<HotelVO> sortByPriceLowToHigh() {
-		ArrayList<HotelVO> resultList = new ArrayList<HotelVO>();
-		return null;
+		ArrayList<HotelVO> hotelList = search();
+		HotelQuickSort.quickSort(hotelList, SortValueOrder.priceLtoH);
+		return hotelList;
 	}
 	
 	/**
@@ -238,8 +228,9 @@ public class Search implements SearchBLService {
 	 */
 	@Override
 	public ArrayList<HotelVO> sortByScoreHighToLow() {
-		ArrayList<HotelVO> resultList = new ArrayList<HotelVO>();
-		return null;
+		ArrayList<HotelVO> hotelList = search();
+		HotelQuickSort.quickSort(hotelList, SortValueOrder.scoreHtoL);
+		return hotelList;
 	}
 	
 	/**
@@ -248,8 +239,9 @@ public class Search implements SearchBLService {
 	 */
 	@Override
 	public ArrayList<HotelVO> sortByScoreLowToHigh() {
-		ArrayList<HotelVO> resultList = new ArrayList<HotelVO>();
-		return null;
+		ArrayList<HotelVO> hotelList = search();
+		HotelQuickSort.quickSort(hotelList, SortValueOrder.scoreLtoH);
+		return hotelList;
 	}
 	
 	/**
@@ -258,8 +250,9 @@ public class Search implements SearchBLService {
 	 */
 	@Override
 	public ArrayList<HotelVO> sortByLevelHighToLow() {
-		ArrayList<HotelVO> resultList = new ArrayList<HotelVO>();
-		return null;
+		ArrayList<HotelVO> hotelList = search();
+		HotelQuickSort.quickSort(hotelList, SortValueOrder.levelHtoL);
+		return hotelList;
 	}
 	
 	/**
@@ -268,7 +261,8 @@ public class Search implements SearchBLService {
 	 */
 	@Override
 	public ArrayList<HotelVO> sortByLevelLowToHigh() {
-		ArrayList<HotelVO> resultList = new ArrayList<HotelVO>();
-		return null;
+		ArrayList<HotelVO> hotelList = search();
+		HotelQuickSort.quickSort(hotelList, SortValueOrder.levelLtoH);
+		return hotelList;
 	}
 }

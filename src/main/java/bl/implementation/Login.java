@@ -1,14 +1,9 @@
 package bl.implementation;
 
-import data.service.HotelDataService;
-import data.service.ManagerDataService;
-import data.service.MemberDataService;
 import bl.service.LoginBLService;
-import data.service.SalerDataService;
 import other.MemberType;
 import other.User;
 import other.UserType;
-import po.MemberPO;
 import vo.MemberVO;
 
 import java.util.Date;
@@ -20,13 +15,8 @@ import java.util.Date;
  */
 public class Login implements LoginBLService {
 	
-	private MemberDataService memberDataService;
-	private SalerDataService salerDataService;
-	private HotelDataService hotelDataService;
-	private ManagerDataService managerDataService;
-	
 	/**
-	 * 空构造方法
+	 * 构造方法
 	 */
 	public Login() {
 		
@@ -103,7 +93,7 @@ public class Login implements LoginBLService {
 	 */
 	@Override
 	public boolean register(MemberVO memberVO) {
-		String userID = memberVO.getUserID();
+		Member member = new Member();
 		String password = memberVO.getPassword();
 		String name = memberVO.getName();
 		String tel = memberVO.getTel();
@@ -112,13 +102,20 @@ public class Login implements LoginBLService {
 		MemberType memberType = memberVO.getMemberType();
 		Date birthday = memberVO.getBirthday();
 		String enterprise = memberVO.getEnterprise();
-		MemberPO memberPO = new MemberPO(userID, password, name, tel,
-				level, discount, memberType, birthday, enterprise);
-		return memberDataService.addMember(memberPO);
+		memberVO = member.getMemberInformation();
+		memberVO.setPassword(password);
+		memberVO.setName(name);
+		memberVO.setTel(tel);
+		memberVO.setLevel(level);
+		memberVO.setDiscount(discount);
+		memberVO.setMemberType(memberType);
+		memberVO.setBirthday(birthday);
+		memberVO.setEnterprise(enterprise);
+		return member.registerMember(memberVO);
 	}
 	
 	/**
-	 * 获得用户类型
+	 * 根据用户ID获得用户类型，不存在则返回null
 	 * @param userID 用户ID
 	 * @return 用户类型：Member、Hotel、Saler、Manager
 	 */
@@ -148,16 +145,20 @@ public class Login implements LoginBLService {
 		UserType userType = getUserType(userID);
 		switch(userType.getValue()) {
 			case 0:
-				user = memberDataService.getMember(userID);
+				Member member = new Member(userID);
+				user = member.getMemberInformation();
 				break;
 			case 1:
-				user = hotelDataService.getHotelByID(userID);
+				Hotel hotel = new Hotel(userID);
+				user = hotel.getHotelInformation();
 				break;
 			case 2:
-				user = salerDataService.getSaler(userID);
+				Saler saler = new Saler(userID);
+				user = saler.getSalerInformation();
 				break;
 			case 3:
-				user = managerDataService.getManager();
+				Manager manager = new Manager();
+				user = manager.getManagerInformation();
 				break;
 		}
 		return user;

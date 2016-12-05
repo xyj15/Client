@@ -19,22 +19,13 @@ import ui.controllerservice.LoginControllerService;
 import java.io.IOException;
 
 
-public class LoginUI extends Application {/*
-            @FXML
-            private Button signInButton;
-            @FXML
-            private Button normalRegiserButton;
-            @FXML
-            private Button companyRegiserButton;
-            @FXML
-            private TextField username;
-            @FXML
-            private PasswordField password;
-        */
+public class LoginUI extends Application {
+
     @Override
     public void start (Stage primaryStage) throws Exception {
            primaryStage.setTitle("食宿");
            Parent root =FXMLLoader.load(getClass().getResource("login.fxml"));
+        LoginController.setRoot(root);
            LoginController.setPrimaryStage(primaryStage);
            Scene myScene = new Scene(root,318,538);
            primaryStage.setResizable(false);

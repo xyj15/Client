@@ -20,7 +20,7 @@ import vo.*;
 /**
  * Manager模块bl的实现类
  * @author CROFF
- * @version 2016-12-3
+ * @version 2016-12-4
  */
 public class Manager implements ManagerBLService {
 
@@ -29,11 +29,13 @@ public class Manager implements ManagerBLService {
 	private SalerDataService salerDataService;
 	private ManagerDataService managerDataService;
 	
+	private Login login;
+	
 	/**
 	 * 构造方法
 	 */
 	public Manager() {
-		
+		login = new Login();
 	}
 	
 	/**
@@ -180,9 +182,14 @@ public class Manager implements ManagerBLService {
 		return managerPOtoVO(managerDataService.getManager());
 	}
 	
+	/**
+	 * 根据用户ID返回用户的类型，不存在则返回null
+	 * @param userID 用户ID
+	 * @return 用户类型
+	 */
 	@Override
 	public UserType getUserType(String userID) {
-		return null;
+		return login.getUserType(userID);
 	}
 	
 	/**
