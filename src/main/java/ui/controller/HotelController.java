@@ -11,7 +11,6 @@ import ui.presentation.*;
  */
 public class HotelController {
 
-
     //private HotelBLService hotelBL = new Hotel();
 
     private static Stage primaryStage;
