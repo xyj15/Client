@@ -25,22 +25,22 @@
             <Image url="@background.jpg" />
          </image>
       </ImageView>
-      <Button layoutX="43.0" layoutY="163.0" mnemonicParsing="false" onAction="#onInfor" opacity="0.67" prefHeight="32.0" prefWidth="181.0" style="-fx-background-color: #000f32;" text="基本信息" textFill="WHITE">
+      <Button layoutX="43.0" layoutY="200.0" mnemonicParsing="false" onAction="#onInfor" opacity="0.67" prefHeight="32.0" prefWidth="181.0" style="-fx-background-color: #000f32;" text="基本信息" textFill="WHITE">
          <font>
             <Font name="Microsoft YaHei Bold" size="16.0" />
          </font>
       </Button>
-      <Button layoutX="43.0" layoutY="321.0" mnemonicParsing="false" onAction="#onPromotionManager" opacity="0.66" prefHeight="23.0" prefWidth="181.0" style="-fx-background-color: #000f32;" text="营销策略" textFill="WHITE">
+      <Button layoutX="43.0" layoutY="340.0" mnemonicParsing="false" onAction="#onPromotionManager" opacity="0.66" prefHeight="23.0" prefWidth="181.0" style="-fx-background-color: #000f32;" text="营销策略" textFill="WHITE">
          <font>
             <Font name="Microsoft YaHei Bold" size="16.0" />
          </font>
       </Button>
-      <Button layoutX="43.0" layoutY="397.0" mnemonicParsing="false" onAction="#onRoomManager" opacity="0.66" prefHeight="23.0" prefWidth="181.0" style="-fx-background-color: #000f32;" text="房间管理" textFill="WHITE">
+      <Button layoutX="43.0" layoutY="410.0" mnemonicParsing="false" onAction="#onRoomManager" opacity="0.66" prefHeight="23.0" prefWidth="181.0" style="-fx-background-color: #000f32;" text="房间管理" textFill="WHITE">
          <font>
             <Font name="Microsoft YaHei Bold" size="16.0" />
          </font>
       </Button>
-      <Button layoutX="43.0" layoutY="245.0" mnemonicParsing="false" onAction="#onOrderManager" opacity="0.67" prefHeight="32.0" prefWidth="181.0" style="-fx-background-color: #000f32;" text="订单管理" textFill="WHITE">
+      <Button layoutX="43.0" layoutY="270.0" mnemonicParsing="false" onAction="#onOrderManager" opacity="0.67" prefHeight="32.0" prefWidth="181.0" style="-fx-background-color: #000f32;" text="订单管理" textFill="WHITE">
          <font>
             <Font name="Microsoft YaHei Bold" size="16.0" />
          </font>

@@ -1,7 +1,12 @@
 package ui.controller;
 
+import bl.service.HotelBLService;
+import bl.stub.HotelBLStub;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.Parent;
+import javafx.scene.control.TextArea;
+import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 import ui.presentation.*;
 
@@ -11,16 +16,42 @@ import ui.presentation.*;
  */
 public class HotelController {
 
-    //private HotelBLService hotelBL = new Hotel();
+
+    private HotelBLService hotel = new HotelBLStub();
 
     private static Stage primaryStage;
     public static void setPrimaryStage(Stage in){
         primaryStage=in;
     }
+    private static Parent midroot;
+    private static Parent root;
+
+    public static void setRoot(Parent root) {
+        HotelController.root = root;
+    }
+
+    public static void setMidroot(Parent midroot) {
+        HotelController.midroot = midroot;
+    }
 
     @FXML
     private void onInfor(ActionEvent E) throws Exception {
         new HotelInformationUI().start(primaryStage);
+        TextField name = (TextField)root.lookup("#name");
+        TextField address = (TextField)root.lookup("#address");
+        TextField district = (TextField)root.lookup("#district");
+        TextField level = (TextField)root.lookup("#level");
+        TextArea service = (TextArea) root.lookup("#service");
+        service.setWrapText(true);
+        TextArea introduction = (TextArea) root.lookup("#introduction");
+        introduction.setWrapText(true);
+
+        name.setText(hotel.getHotelName());
+        address.setText(hotel.getHotelAddress());
+        district.setText(hotel.getDistrict());
+        level.setText(""+hotel.getHotelLevel());
+        service.setText(hotel.getHotelService());
+        introduction.setText(hotel.getHotelIntroduction());
     }
     @FXML
     private void onInforChange(ActionEvent E)throws Exception {
