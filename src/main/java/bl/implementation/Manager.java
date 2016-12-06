@@ -87,10 +87,8 @@ public class Manager implements ManagerBLService {
 	 */
 	@Override
 	public boolean addHotel(HotelVO hotelVO) {
-		hotel = new Hotel();
-		String hotelID = hotel.getHotelInformation().getUserID();
-		hotelVO.setUserID(hotelID);
-		return hotel.setHotelInformation(hotelVO);
+		hotel = new Hotel(hotelVO);
+		return hotel.updateDateToFile();
 	}
 	
 	/**
@@ -135,10 +133,8 @@ public class Manager implements ManagerBLService {
 	 */
 	@Override
 	public boolean addSaler(SalerVO salerVO) {
-		saler = new Saler();
-		String salerID = saler.getSalerInformation().getUserID();
-		salerVO.setUserID(salerID);
-		return saler.setSalerInformation(salerVO);
+		saler = new Saler(salerVO);
+		return true;
 	}
 	
 	/**

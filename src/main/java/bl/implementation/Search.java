@@ -1,13 +1,17 @@
 package bl.implementation;
 
 import bl.service.SearchBLService;
+import data.service.SearchDataService;
 import other.HotelQuickSort;
 import other.RoomType;
 import other.SortValueOrder;
+import po.HotelPO;
 import vo.HotelVO;
+import vo.OrderVO;
 import vo.RoomVO;
 
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.Date;
 
 /**
@@ -18,6 +22,7 @@ import java.util.Date;
 public class Search implements SearchBLService {
 	
 	private String memberID;	//持有的客户ID
+	private Order order;	//客户订单信息
 	
 	private String city;	//城市，必须设置
 	private String district;	//商圈，必须设置
@@ -30,8 +35,10 @@ public class Search implements SearchBLService {
 	private double lowerScore = -1;	//评分区间下限，若未设置则为-1
 	private double upperScore = -1;	//评分区间上限，若未设置则为-1
 	private Date checkinTime = new Date();	//入住日期，若未设置则为当天
-	private Date checkoutTime;	//退房日期，若未设置则为一天后
+	private Date checkoutTime = nextDay(new Date());	//退房日期，若未设置则为一天后
 	private boolean onlyReservationBefore = false;	//是否只搜索自己预定过的酒店，默认为false
+	
+	private SearchDataService searchDataService;
 	
 	/**
 	 * 构造方法，提供客户ID
@@ -39,6 +46,7 @@ public class Search implements SearchBLService {
 	 */
 	public Search(String memberID) {
 		this.memberID = memberID;
+		order = new Order(memberID);
 	}
 	
 	/**
@@ -188,7 +196,23 @@ public class Search implements SearchBLService {
 		if(city.equals("") || district.equals("")) {
 			return null;
 		}
+		
+		ArrayList<HotelVO> hotelList = filterByDate();
+		return hotelList;
+	}
+	
+	/**
+	 * 根据除日期外其余条件筛选酒店
+	 * @param date 特定日期
+	 * @return 符合条件的酒店列表
+	 */
+	public ArrayList<HotelVO> filterExceptDate(Date date) {
+		ArrayList<HotelPO> hotelPOList = searchDataService.getHotelListByCityDistrict(city, district);
 		ArrayList<HotelVO> hotelList = new ArrayList<HotelVO>();
+		for(int i=0; i<hotelPOList.size(); i++) {
+			hotelList.add(Hotel.hotelPOtoVO(hotelPOList.get(i)));
+		}
+		hotelList = updateHotelInfomationByDate(hotelList, date);
 		
 		if(!hotelName.equals("")) {
 			hotelList = filterByhotelName(hotelList);
@@ -199,13 +223,6 @@ public class Search implements SearchBLService {
 		
 		if(level!=0) {
 			hotelList = filterByLevel(hotelList);
-			if(hotelList.size()==0) {
-				return hotelList;
-			}
-		}
-		
-		if(roomType!=null) {
-			hotelList = filterByRoomType(hotelList);
 			if(hotelList.size()==0) {
 				return hotelList;
 			}
@@ -225,10 +242,8 @@ public class Search implements SearchBLService {
 			}
 		}
 		
-		hotelList = filterByDate(hotelList);
 		hotelList = filterByPrice(hotelList);
 		hotelList = filterByScore(hotelList);
-		
 		return hotelList;
 	}
 	
@@ -316,6 +331,10 @@ public class Search implements SearchBLService {
 	 * @return 筛选后的酒店列表
 	 */
 	public ArrayList<HotelVO> filterByhotelName(ArrayList<HotelVO> hotelList) {
+		if(hotelName.equals("")) {
+			return hotelList;
+		}
+		
 		ArrayList<HotelVO> newList = new ArrayList<HotelVO>();
 		HotelVO hotelVO;
 		for(int i=0; i<hotelList.size(); i++) {
@@ -333,6 +352,10 @@ public class Search implements SearchBLService {
 	 * @return 筛选后的酒店列表
 	 */
 	public ArrayList<HotelVO> filterByLevel(ArrayList<HotelVO> hotelList) {
+		if(level==0) {
+			return hotelList;
+		}
+		
 		ArrayList<HotelVO> newList = new ArrayList<HotelVO>();
 		HotelVO hotelVO;
 		for(int i=0; i<hotelList.size(); i++) {
@@ -345,21 +368,31 @@ public class Search implements SearchBLService {
 	}
 	
 	/**
-	 * 按可订房型筛选酒店
-	 * @param hotelList 酒店列表
-	 * @return 筛选后的酒店列表
-	 */
-	public ArrayList<HotelVO> filterByRoomType(ArrayList<HotelVO> hotelList) {
-		return null;
-	}
-	
-	/**
-	 * 按可订客房数量筛选酒店
+	 * 按可订房型和可订客房数量筛选酒店，如果房间类型已设定则只检查对应房型的数量，如果未设定则检查所有房型的数量
 	 * @param hotelList 酒店列表
 	 * @return 筛选后的酒店列表
 	 */
 	public ArrayList<HotelVO> filterByNumberOfRooms(ArrayList<HotelVO> hotelList) {
-		return null;
+		ArrayList<HotelVO> newList = new ArrayList<HotelVO>();
+		
+		for(int i=0; i<hotelList.size(); i++) {
+			HotelVO hotelVO = hotelList.get(i);
+			if(roomType!=null) {
+				int index = hotelVO.getRoomTypeList().indexOf(roomType);
+				if(hotelVO.getRoomNumberList().get(index)>=numberOfRooms) {
+					newList.add(hotelVO);
+				}
+			} else {
+				int total = 0;
+				for(int j=0; j<hotelVO.getRoomNumberList().size(); j++) {
+					total += hotelVO.getRoomNumberList().get(i);
+				}
+				if(total>=numberOfRooms) {
+					newList.add(hotelVO);
+				}
+			}
+		}
+		return newList;
 	}
 	
 	/**
@@ -368,9 +401,25 @@ public class Search implements SearchBLService {
 	 * @return 筛选后的酒店列表
 	 */
 	public ArrayList<HotelVO> filterByPrice(ArrayList<HotelVO> hotelList) {
-		return null;
+		double top = Double.MAX_VALUE, bottom = 0;
+		if(upperPrice!=-1) {
+			top = upperPrice;
+		}
+		if(lowerPrice!=-1) {
+			bottom = lowerPrice;
+		}
+		
+		ArrayList<HotelVO> newList = new ArrayList<HotelVO>();
+		HotelVO hotelVO;
+		for(int i=0; i<hotelList.size(); i++) {
+			hotelVO = hotelList.get(i);
+			double lowestPrice = hotelVO.getLowestPrice();
+			if(lowestPrice>=bottom && lowestPrice<=top) {
+				newList.add(hotelVO);
+			}
+		}
+		return newList;
 	}
-	
 	
 	/**
 	 * 按评分区间筛选酒店
@@ -378,26 +427,98 @@ public class Search implements SearchBLService {
 	 * @return 筛选后的酒店列表
 	 */
 	public ArrayList<HotelVO> filterByScore(ArrayList<HotelVO> hotelList) {
-		return null;
+		double top = Double.MAX_VALUE, bottom = 0;
+		if(upperScore!=-1) {
+			top = upperScore;
+		}
+		if(lowerScore!=-1) {
+			bottom = lowerScore;
+		}
+		
+		ArrayList<HotelVO> newList = new ArrayList<HotelVO>();
+		HotelVO hotelVO;
+		for(int i=0; i<hotelList.size(); i++) {
+			hotelVO = hotelList.get(i);
+			double score = hotelVO.getScore();
+			if(score>=bottom && score<=top) {
+				newList.add(hotelVO);
+			}
+		}
+		return newList;
 	}
 	
-	
 	/**
-	 * 筛选酒店只留下以前预定过的酒店
+	 * 按以前是否预定过筛选酒店
 	 * @param hotelList 酒店列表
 	 * @return 筛选后的酒店列表
 	 */
 	public ArrayList<HotelVO> filterByReservedBefore(ArrayList<HotelVO> hotelList) {
-		return null;
+		ArrayList<OrderVO> orderList = order.getExcutedOrders();
+		ArrayList<String> reservedHotelList = new ArrayList<String>();
+		for(int i=0; i<orderList.size(); i++) {
+			OrderVO orderVO = orderList.get(i);
+			if(!reservedHotelList.contains(orderVO.getHotelID())) {
+				reservedHotelList.add(orderVO.getHotelID());
+			}
+		}
+		
+		ArrayList<HotelVO> newList = new ArrayList<HotelVO>();
+		for(int i=0; i<hotelList.size(); i++) {
+			HotelVO hotelVO = hotelList.get(i);
+			String hotelID = hotelVO.getUserID();
+			if(reservedHotelList.contains(hotelID) && !newList.contains(hotelVO)) {
+				newList.add(hotelVO);
+			}
+		}
+		return newList;
 	}
-	
 	
 	/**
 	 * 按入住日期和退房日期筛选酒店
-	 * @param hotelList 酒店列表
 	 * @return 筛选后的酒店列表
 	 */
-	public ArrayList<HotelVO> filterByDate(ArrayList<HotelVO> hotelList) {
-		return null;
+	public ArrayList<HotelVO> filterByDate() {
+		ArrayList<HotelVO> newList = filterExceptDate(checkinTime);
+		for(Date i = nextDay(checkinTime); i.before(checkoutTime); nextDay(i)) {
+			ArrayList<HotelVO> dailyList = filterExceptDate(i);
+			for(int j=0; j<newList.size();) {
+				HotelVO hotelVO = newList.get(j);
+				if(dailyList.contains(hotelVO)) {
+					j++;
+				} else {
+					newList.remove(j);
+				}
+			}
+		}
+		return newList;
+	}
+	
+	/**
+	 * 把输入的日期往后加一天，并减少10秒
+	 * @param date 日期
+	 * @return 加一天后的日期
+	 */
+	public Date nextDay(Date date) {
+		Calendar calendar = Calendar.getInstance();
+		calendar.setTime(date);
+		calendar.add(calendar.DATE, 1);
+		calendar.add(calendar.SECOND, -10);
+		return calendar.getTime();
+	}
+	
+	/**
+	 * 根据日期更新酒店列表中的酒店信息
+	 * @param hotelList 原酒店列表
+	 * @param date 日期
+	 * @return 更新后的酒店列表
+	 */
+	public ArrayList<HotelVO> updateHotelInfomationByDate(ArrayList<HotelVO> hotelList, Date date) {
+		for(int i=0; i<hotelList.size(); i++) {
+			HotelVO hotelVO = hotelList.get(i);
+			Hotel hotel = new Hotel(hotelVO.getUserID());
+			hotel.updateDailyInformation(date);
+			hotelList.set(i, hotel.getHotelInformation());
+		}
+		return hotelList;
 	}
 }
