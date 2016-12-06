@@ -32,10 +32,10 @@ public class Saler implements SalerBLService {
 	/**
 	 * 增加新的营销人员调用这个构造方法
 	 */
-	public Saler() {
-		salerVO = new SalerVO();
+	public Saler(SalerVO salerVO) {
 		salerVO.setUserID(salerDataService.getAvailableID());
-		updateDataFromFile();
+		this.salerID = salerVO.getUserID();
+		salerDataService.addSaler(salerVOtoPO(salerVO));
 	}
 	
 	/**

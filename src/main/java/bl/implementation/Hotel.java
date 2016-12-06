@@ -3,6 +3,7 @@ package bl.implementation;
 import data.service.HotelDataService;
 import data.service.RoomDataService;
 import bl.service.HotelBLService;
+import other.RoomType;
 import po.HotelPO;
 import vo.HotelVO;
 import vo.OrderVO;
@@ -21,6 +22,7 @@ public class Hotel implements HotelBLService {
 	
 	private String hotelID;
 	private HotelVO hotelVO;
+	private Date date;
 
 	public Order order;
 	public Room room;
@@ -31,89 +33,173 @@ public class Hotel implements HotelBLService {
 	/**
 	 * 新增酒店时调用这个构造方法，自动分配可用ID
 	 */
-	public Hotel() {
-		hotelVO = new HotelVO();
+	public Hotel(HotelVO hotelVO) {
+		this.hotelVO = hotelVO;
 		hotelVO.setUserID(hotelDataService.getAvailableID());
 		hotelID = hotelVO.getUserID();
-		updateDateToFile();
 	}
-
+	
+	/**
+	 * 一般酒店的构造方法，提供酒店ID
+	 * @param hotelID 酒店ID
+	 */
 	public Hotel(String hotelID) {
 		this.hotelID = hotelID;
 		updateDateFromFile();
 	}
 	
+	/**
+	 *
+	 * @return
+	 */
 	@Override
 	public String getHotelName() {
-		return null;
+		updateDateFromFile();
+		return hotelVO.getName();
 	}
 	
+	/**
+	 *
+	 * @return
+	 */
 	@Override
 	public String getHotelAddress() {
-		return null;
+		updateDateFromFile();
+		return hotelVO.getAddress();
 	}
 	
+	/**
+	 *
+	 * @return
+	 */
 	@Override
 	public String getCity() {
-		return null;
+		updateDateFromFile();
+		return hotelVO.getCity();
 	}
 	
+	/**
+	 *
+	 * @return
+	 */
 	@Override
 	public int getHotelLevel() {
-		return 0;
+		updateDateFromFile();
+		return hotelVO.getLevel();
 	}
 	
+	/**
+	 *
+	 * @return
+	 */
 	@Override
 	public String getDistrict() {
-		return null;
+		updateDateFromFile();
+		return hotelVO.getDistrict();
 	}
 	
+	/**
+	 *
+	 * @return
+	 */
 	@Override
 	public double getHotelScore() {
-		return 0;
+		updateDateFromFile();
+		return hotelVO.getScore();
 	}
 	
+	/**
+	 *
+	 * @return
+	 */
 	@Override
 	public String getHotelService() {
-		return null;
+		updateDateFromFile();
+		return hotelVO.getService();
 	}
 	
+	/**
+	 *
+	 * @return
+	 */
 	@Override
 	public String getHotelIntroduction() {
-		return null;
+		updateDateFromFile();
+		return hotelVO.getIntroduction();
 	}
 	
+	/**
+	 *
+	 * @return
+	 */
 	@Override
 	public String getHotelManagerName() {
-		return null;
+		updateDateFromFile();
+		return hotelVO.getManagerName();
 	}
 	
+	/**
+	 *
+	 * @return
+	 */
 	@Override
 	public String getHotelManagerTel() {
-		return null;
+		updateDateFromFile();
+		return hotelVO.getManagerTel();
 	}
 	
+	/**
+	 *
+	 * @param hotelInformation
+	 * @return
+	 */
 	@Override
 	public boolean setHotelInformation(HotelVO hotelInformation) {
+		this.hotelVO = hotelInformation;
+		updateDateToFile();
 		return false;
 	}
 	
+	/**
+	 *
+	 * @param orderID
+	 * @param roomID
+	 * @return
+	 */
 	@Override
 	public boolean checkin(String orderID, String roomID) {
 		return false;
 	}
 	
+	/**
+	 *
+	 * @param orderID
+	 * @param roomID
+	 * @return
+	 */
 	@Override
 	public boolean checkout(String orderID, String roomID) {
 		return false;
 	}
 	
+	/**
+	 *
+	 * @param orderID
+	 * @return
+	 */
 	@Override
 	public boolean delay(String orderID) {
 		return false;
 	}
 	
-	public double getLowestPrice(Date date) {
+	/**
+	 * 通过给定日期获取当天酒店的客房信息
+	 * @param date 日期
+	 */
+	public void updateDailyInformation(Date date) {
+		ArrayList<RoomType> roomTypeList = new ArrayList<RoomType>();
+		ArrayList<Integer> roomNumberList = new ArrayList<Integer>();
+		
 		ArrayList<RoomVO> dailyRoomList = room.getDailyRoomList(date);
 		double lowestPrice = 10000;
 		RoomVO roomVO;
@@ -124,15 +210,33 @@ public class Hotel implements HotelBLService {
 			if(price < lowestPrice) {
 				lowestPrice = price;
 			}
+			
+			RoomType roomType = roomVO.getRoomType();
+			if(roomTypeList.contains(roomType)) {
+				int index = roomTypeList.indexOf(roomType);
+				roomNumberList.set(index, roomNumberList.get(index)+1);
+			} else {
+				roomTypeList.add(roomType);
+			}
 		}
-		return lowestPrice;
+		
+		hotelVO.setLowestPrice(lowestPrice);
+		hotelVO.setRoomTypeList(roomTypeList);
+		hotelVO.setRoomNumberList(roomNumberList);
 	}
 	
+	/**
+	 * 获取酒店信息
+	 * @return 酒店信息
+	 */
 	public HotelVO getHotelInformation() {
 		updateDateFromFile();
 		return hotelVO;
 	}
 	
+	/**
+	 * 从Data层更新数据
+	 */
 	public void updateDateFromFile() {
 		hotelVO = hotelPOtoVO(hotelDataService.getHotelByID(hotelID));
 		order = new Order(hotelID);
@@ -140,9 +244,12 @@ public class Hotel implements HotelBLService {
 		promotion = new Promotion(hotelID);
 	}
 	
-	public void updateDateToFile() {
+	/**
+	 * 将数据更新到Data层
+	 */
+	public boolean updateDateToFile() {
 		HotelPO hotelPO = hotelVOtoPO(hotelVO);
-		hotelDataService.updateHotel(hotelPO);
+		return hotelDataService.updateHotel(hotelPO);
 	}
 	
 	/**
@@ -199,7 +306,13 @@ public class Hotel implements HotelBLService {
 	public boolean deleteHotel() {
 		return hotelDataService.deleteHotel(hotelID);
 	}
-
+	
+	/**
+	 * 更新酒店工作人员信息
+	 * @param managerName 酒店工作人员名称
+	 * @param managerTel 酒店工作人员联系方式
+	 * @return 更新成功则返回true，否则返回false
+	 */
 	public boolean updateHotelManagerInformation(String managerName, String managerTel) {
 		hotelVO.setManagerName(managerName);
 		hotelVO.setManagerTel(managerTel);
