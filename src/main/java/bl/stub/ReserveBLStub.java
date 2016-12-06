@@ -5,6 +5,7 @@ import other.PromotionType;
 import vo.OrderVO;
 import vo.PromotionVO;
 
+import java.util.ArrayList;
 import java.util.Date;
 
 public class ReserveBLStub implements ReserveBLService {
@@ -27,6 +28,14 @@ public class ReserveBLStub implements ReserveBLService {
 		PromotionType promotionType = PromotionType.Discount;
 		promotionVO = new PromotionVO(promotionID, promotionName, promotionType);
 		promotionVO.setRankPromotion();
+	}
+	
+	@Override
+	public ArrayList<PromotionVO> getPromotionList() {
+		System.out.println("获取可用优惠列表成功");
+		ArrayList<PromotionVO> promotionList = new ArrayList<PromotionVO>();
+		promotionList.add(promotionVO);
+		return promotionList;
 	}
 	
 	@Override

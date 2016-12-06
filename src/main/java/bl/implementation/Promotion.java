@@ -167,7 +167,7 @@ public class Promotion implements PromotionBLService {
 	 * @param promotionVO VO
 	 * @return PO
 	 */
-	public PromotionPO promotionVOtoPO(PromotionVO promotionVO) {
+	public static PromotionPO promotionVOtoPO(PromotionVO promotionVO) {
 		String promotionID = promotionVO.getPromotionID();
 		String promotionName = promotionVO.getPromotionName();
 		PromotionType promotionType = promotionVO.getPromotionType();
@@ -207,7 +207,7 @@ public class Promotion implements PromotionBLService {
 	 * @param promotionPO PO
 	 * @return VO
 	 */
-	public PromotionVO promotionPOtoVO(PromotionPO promotionPO) {
+	public static PromotionVO promotionPOtoVO(PromotionPO promotionPO) {
 		String promotionID = promotionPO.getPromotionID();
 		String promotionName = promotionPO.getPromotionName();
 		PromotionType promotionType = promotionPO.getPromotionType();

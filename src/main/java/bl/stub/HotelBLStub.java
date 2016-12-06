@@ -83,6 +83,12 @@ public class HotelBLStub implements HotelBLService{
 	}
 	
 	@Override
+	public HotelVO getHotelInformation() {
+		return new HotelVO("123456", "12345678910", name, address, district, city,
+				level, score, service, introduction, managerName, managerTel);
+	}
+	
+	@Override
 	public boolean checkin(String orderID, String roomID) {
 		System.out.println("客户入住成功");
 		return true;

@@ -106,7 +106,7 @@ public class Member implements MemberBLService {
 	@Override
 	public boolean newReservation(String hotelID) {
 		reserve = new Reserve(memberVO.getUserID(), hotelID);
-		return false;
+		return true;
 	}
 	
 	@Override
