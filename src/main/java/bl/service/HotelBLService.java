@@ -20,6 +20,7 @@ public interface HotelBLService {
 	public String getHotelManagerName();	//获得酒店工作人员名称
 	public String getHotelManagerTel();	//获得酒店工作人员联系方式
 	public boolean setHotelInformation(HotelVO hotelInformation);	//设置酒店信息
+	public HotelVO getHotelInformation();	//获取酒店信息
 
 	public boolean checkin(String orderID, String roomID);	//办理入住手续
 	public boolean checkout(String orderID, String roomID);	//办理离店手续

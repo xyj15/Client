@@ -161,6 +161,15 @@ public class Hotel implements HotelBLService {
 	}
 	
 	/**
+	 * 获取酒店信息
+	 * @return 酒店信息
+	 */
+	@Override
+	public HotelVO getHotelInformation() {
+		return null;
+	}
+	
+	/**
 	 *
 	 * @param orderID
 	 * @param roomID
@@ -223,15 +232,6 @@ public class Hotel implements HotelBLService {
 		hotelVO.setLowestPrice(lowestPrice);
 		hotelVO.setRoomTypeList(roomTypeList);
 		hotelVO.setRoomNumberList(roomNumberList);
-	}
-	
-	/**
-	 * 获取酒店信息
-	 * @return 酒店信息
-	 */
-	public HotelVO getHotelInformation() {
-		updateDateFromFile();
-		return hotelVO;
 	}
 	
 	/**

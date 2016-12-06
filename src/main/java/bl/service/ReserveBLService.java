@@ -3,6 +3,7 @@ package bl.service;
 import vo.OrderVO;
 import vo.PromotionVO;
 
+import java.util.ArrayList;
 import java.util.Date;
 
 /**
@@ -12,6 +13,7 @@ import java.util.Date;
  */
 public interface ReserveBLService {
 	
+	public ArrayList<PromotionVO> getPromotionList();	//获得适用的营销策略列表
 	public PromotionVO getPromotion();	//获得营销策略信息
 	public boolean setPromotion(PromotionVO promotion);	//设置营销策略信息
 	
