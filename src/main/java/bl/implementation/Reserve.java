@@ -23,11 +23,16 @@ public class Reserve implements ReserveBLService {
 	private String hotelAddress;	//目标酒店地址
 	private int hotelLevel;	//目标酒店星级
 	private String hotelTel;	//目标酒店联系方式
-	private String roomName;	//目标客房名称
+	
+	private String roomName;	//要预订的客房名称
+	private int numberOfRooms;	//要预订的客房数量
 	private Date checkinTime;	//预期入住时间
 	private Date checkoutTime;	//预期离店时间
+	private Date latestArriveTime;	//最晚到店时间
 	private String clientName;	//客户名称
 	private String clientTel;	//客户联系方式
+	private int numberOfClient;	//预计入住人数
+	private boolean haveKids;	//是否有儿童
 	private String otherReq;	//其它要求
 	
 	/**
@@ -116,12 +121,24 @@ public class Reserve implements ReserveBLService {
 	}
 	
 	/**
-	 * 获取
-	 * @return
+	 * 根据酒店ID和日期获取酒店某天的客房列表
+	 * @param date 日期
+	 * @return 酒店某天的客房列表
 	 */
 	@Override
-	public String getRoomName() {
-		return roomName;
+	public ArrayList<RoomVO> getRoomList(Date date) {
+		Room room = new Room(hotelID);
+		return room.getDailyRoomList(date);
+	}
+	
+	@Override
+	public RoomVO getSelectedRoom() {
+		return null;
+	}
+	
+	@Override
+	public boolean setSelectedRoom(RoomVO roomVO) {
+		return false;
 	}
 	
 	/**

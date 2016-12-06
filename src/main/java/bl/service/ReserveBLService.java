@@ -1,7 +1,7 @@
 package bl.service;
 
-import vo.OrderVO;
 import vo.PromotionVO;
+import vo.RoomVO;
 
 import java.util.ArrayList;
 import java.util.Date;
@@ -22,7 +22,10 @@ public interface ReserveBLService {
 	public String getHotelAddress();	//获得酒店地址
 	public int getHotelLevel();	//获得酒店星级
 	public String getHotelTel();	//获得酒店联系方式
-	public String getRoomName();	//获得客房名称
+	
+	public ArrayList<RoomVO> getRoomList(Date date);	//返回该酒店某个日期的客房列表
+	public RoomVO getSelectedRoom();	//获取选择预订的客房
+	public boolean setSelectedRoom(RoomVO roomVO);	//设置选择预订的客房
 	
 	public boolean setCheckinTime(Date checkinTime);	//设置入住时间
 	public boolean setChekckoutTime(Date chekckoutTime);	//设置离店时间
