@@ -15,7 +15,6 @@
 //	}
 //
 //	public static void main(String[] args) {
-//		// TODO Auto-generated method stub
 //
 //		RoomVO room = new RoomVO(true ,"521" , 0, 250);
 //		new RoomBLDriver(room);

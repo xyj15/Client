@@ -5,6 +5,7 @@ import data.service.RoomDataService;
 import bl.service.HotelBLService;
 import po.HotelPO;
 import vo.HotelVO;
+import vo.OrderVO;
 import vo.RoomVO;
 
 import java.util.ArrayList;
@@ -17,16 +18,29 @@ import java.util.Date;
  * @version 2016-12-2
  */
 public class Hotel implements HotelBLService {
+	
+	private String hotelID;
+	private HotelVO hotelVO;
 
 	public Order order;
 	public Room room;
 	public Promotion promotion;
-
-	private HotelVO hotelVO;
+	
 	private HotelDataService hotelDataService;
+	
+	/**
+	 * 新增酒店时调用这个构造方法，自动分配可用ID
+	 */
+	public Hotel() {
+		hotelVO = new HotelVO();
+		hotelVO.setUserID(hotelDataService.getAvailableID());
+		hotelID = hotelVO.getUserID();
+		updateDateToFile();
+	}
 
 	public Hotel(String hotelID) {
-		
+		this.hotelID = hotelID;
+		updateDateFromFile();
 	}
 	
 	@Override
@@ -115,66 +129,81 @@ public class Hotel implements HotelBLService {
 	}
 	
 	public HotelVO getHotelInformation() {
-		return null;
+		updateDateFromFile();
+		return hotelVO;
+	}
+	
+	public void updateDateFromFile() {
+		hotelVO = hotelPOtoVO(hotelDataService.getHotelByID(hotelID));
+		order = new Order(hotelID);
+		room = new Room(hotelID);
+		promotion = new Promotion(hotelID);
+	}
+	
+	public void updateDateToFile() {
+		HotelPO hotelPO = hotelVOtoPO(hotelVO);
+		hotelDataService.updateHotel(hotelPO);
+	}
+	
+	/**
+	 * hotel的PO转换成VO
+	 * @param hotelPO PO
+	 * @return VO
+	 */
+	public static HotelVO hotelPOtoVO(HotelPO hotelPO) {
+		String hotelID = hotelPO.getUserID();
+		String password = hotelPO.getPassword();
+		String name = hotelPO.getName();
+		String address = hotelPO.getAddress();
+		String district = hotelPO.getDistrict();
+		String city = hotelPO.getCity();
+		int level = hotelPO.getLevel();
+		double score = hotelPO.getScore();
+		String service = hotelPO.getService();
+		String introduction = hotelPO.getIntroduction();
+		String managerName = hotelPO.getManagerName();
+		String managerTel = hotelPO.getManagerTel();
+		HotelVO hotelVO = new HotelVO(hotelID, password, name, address, district,
+				city, level, score, service, introduction, managerName, managerTel);
+		return hotelVO;
+	}
+	
+	/**
+	 * hotel的VO转换成PO
+	 * @param hotelVO VO
+	 * @return PO
+	 */
+	public static HotelPO hotelVOtoPO(HotelVO hotelVO) {
+		String hotelID = hotelVO.getUserID();
+		String password = hotelVO.getPassword();
+		String name = hotelVO.getName();
+		String address = hotelVO.getAddress();
+		String district = hotelVO.getDistrict();
+		String city = hotelVO.getCity();
+		int level = hotelVO.getLevel();
+		double score = hotelVO.getScore();
+		String service = hotelVO.getService();
+		String introduction = hotelVO.getIntroduction();
+		String managerName = hotelVO.getManagerName();
+		String managerTel = hotelVO.getManagerTel();
+		ArrayList<String> enterpriseList = new ArrayList<String>();
+		HotelPO hotelPO = new HotelPO(hotelID, password, name, address, district, city,
+				level, score, service, introduction, managerName, managerTel, enterpriseList);
+		return hotelPO;
+	}
+	
+	/**
+	 * 删除当前酒店
+	 * @return 删除成功则返回true，否则返回false
+	 */
+	public boolean deleteHotel() {
+		return hotelDataService.deleteHotel(hotelID);
 	}
 
-//	public void changeHotelManager(String hoMa,String hoMaID){
-//		//setHotelManager(hoMa);
-//		//setHotelManagerID(hoMaID);
-//	}
-//	public List<OrderVO> getOrderList (String hotelID,Date time){
-//		if(getUserID().equals(hotelID)){
-//			return ordermanager.getOrderList();
-//		} else {
-//			return null;
-//		}
-//	}
-//
-//	public OrderVO getOrder(String orderID){
-//		return ordermanager.getOrder(orderID);
-//	}
-//
-//	public HotelVO getHotelInformat (String hotelID){
-//		return hotelVO;
-//	}
-//
-//	public boolean updataOrder (String orderID,OrderVO OR){
-//		for(int i=0;i<ordermanager.getOrderList().size();i++){
-//			if(ordermanager.getOrderList().get(i).getOrderID().equals(orderID)){
-//				ordermanager.orderList.set(i, OR);
-//				return true;
-//			}
-//		}
-//		return false;
-//	}
-	
-//	public boolean updataHotelInformat (String hotelID,HotelVO HO){
-//		if(getUserID().equals(hotelID)){
-//			//setVO(HO);
-//			return true;
-//		}
-//		return false;
-//	}
-//
-//	public boolean check (String orderID,String memberID,String roomID,RoomVO RO,int mark){
-//		roommanager.updateRoom(RO);
-//		return true;
-//	}
-//
-//
-//	public boolean delay(String orderID) {
-//		for(int i=0;i<ordermanager.getOrderList().size();i++){
-//			if(ordermanager.getOrderList().get(i).getOrderID().equals(orderID)){
-//				if(ordermanager.getOrderList().get(i).getState()==3){
-//					ordermanager.getOrderList().get(i).setState(2);
-//					return true;
-//				}
-//				else{
-//					return false;
-//				}
-//			}
-//
-//		}
-//		return false;
-//	}
+	public boolean updateHotelManagerInformation(String managerName, String managerTel) {
+		hotelVO.setManagerName(managerName);
+		hotelVO.setManagerTel(managerTel);
+		updateDateToFile();
+		return true;
+	}
 }
