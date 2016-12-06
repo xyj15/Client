@@ -46,7 +46,7 @@
          </image>
       </ImageView>
       <Button layoutX="878.0" layoutY="34.0" mnemonicParsing="false" onAction="#onLogOut" opacity="0.0" prefHeight="34.0" prefWidth="70.0" text="Button" />
-      <Button layoutX="790.0" layoutY="467.0" mnemonicParsing="false" prefHeight="29.0" prefWidth="88.0" style="-fx-background-color: #6B6BCF;" text="确认" textFill="WHITE">
+      <Button layoutX="790.0" layoutY="467.0" mnemonicParsing="false" onAction="#confirmAddHotel" prefHeight="29.0" prefWidth="88.0" style="-fx-background-color: #6B6BCF;" text="确认" textFill="WHITE">
          <font>
             <Font name="Microsoft YaHei Bold" size="14.0" />
          </font>

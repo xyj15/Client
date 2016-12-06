@@ -33,7 +33,7 @@
                   <Font name="Microsoft YaHei Bold" size="16.0" />
                </font>
             </Label>
-            <TextField layoutX="108.0" layoutY="59.0" prefHeight="29.0" prefWidth="299.0">
+            <TextField fx:id="memberTel" layoutX="108.0" layoutY="59.0" prefHeight="29.0" prefWidth="299.0">
                <font>
                   <Font name="Microsoft YaHei Bold" size="14.0" />
                </font>
@@ -53,17 +53,17 @@
                   <Font name="Microsoft YaHei Bold" size="16.0" />
                </font>
             </Label>
-            <TextField layoutX="108.0" layoutY="15.0" prefHeight="29.0" prefWidth="299.0">
+            <TextField fx:id="memberName" layoutX="108.0" layoutY="15.0" prefHeight="29.0" prefWidth="299.0">
                <font>
                   <Font name="Microsoft YaHei Bold" size="14.0" />
                </font>
             </TextField>
-            <TextField layoutX="108.0" layoutY="106.0" prefHeight="29.0" prefWidth="299.0">
+            <TextField fx:id="credit" layoutX="108.0" layoutY="106.0" prefHeight="29.0" prefWidth="299.0">
                <font>
                   <Font name="Microsoft YaHei Bold" size="14.0" />
                </font>
             </TextField>
-            <DatePicker layoutX="108.0" layoutY="153.0" prefHeight="34.0" prefWidth="299.0" />
+            <DatePicker fx:id="birthday" layoutX="108.0" layoutY="153.0" prefHeight="34.0" prefWidth="299.0" />
          </children>
       </AnchorPane>
    </children>

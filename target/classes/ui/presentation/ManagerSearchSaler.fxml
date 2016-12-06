@@ -53,12 +53,12 @@
                   <Font name="Microsoft YaHei Bold" size="16.0" />
                </font>
             </Label>
-            <TextField prefHeight="23.0" prefWidth="165.0" style="-fx-background-color: white;" GridPane.columnIndex="1">
+            <TextField fx:id="salerName" prefHeight="23.0" prefWidth="165.0" style="-fx-background-color: white;" GridPane.columnIndex="1">
                <GridPane.margin>
                   <Insets right="20.0" />
                </GridPane.margin>
             </TextField>
-            <PasswordField GridPane.columnIndex="1" GridPane.rowIndex="1">
+            <PasswordField fx:id="password" GridPane.columnIndex="1" GridPane.rowIndex="1">
                <GridPane.margin>
                   <Insets right="20.0" />
                </GridPane.margin>

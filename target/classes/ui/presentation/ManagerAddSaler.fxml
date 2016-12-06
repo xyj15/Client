@@ -44,12 +44,12 @@
                   <Font name="Microsoft YaHei Bold" size="16.0" />
                </font>
             </Label>
-            <TextField fx:id="username" prefHeight="23.0" prefWidth="165.0" style="-fx-background-color: white;" GridPane.columnIndex="1">
+            <TextField fx:id="salerName" prefHeight="23.0" prefWidth="165.0" style="-fx-background-color: white;" GridPane.columnIndex="1">
                <GridPane.margin>
                   <Insets right="20.0" />
                </GridPane.margin>
             </TextField>
-            <PasswordField fx:id="password" GridPane.columnIndex="1" GridPane.rowIndex="1">
+            <PasswordField fx:id="salerPassword" GridPane.columnIndex="1" GridPane.rowIndex="1">
                <GridPane.margin>
                   <Insets right="20.0" />
                </GridPane.margin>
@@ -83,7 +83,7 @@
          </image>
       </ImageView>
       <Button layoutX="878.0" layoutY="34.0" mnemonicParsing="false" onAction="#onLogOut" opacity="0.0" prefHeight="34.0" prefWidth="70.0" text="Button" />
-      <Button layoutX="800.0" layoutY="471.0" mnemonicParsing="false" prefHeight="29.0" prefWidth="97.0" style="-fx-background-color: #6B6BCF;" text="确认" textFill="WHITE">
+      <Button layoutX="800.0" layoutY="471.0" mnemonicParsing="false" onAction="#confirmAddSaler" prefHeight="29.0" prefWidth="97.0" style="-fx-background-color: #6B6BCF;" text="确认" textFill="WHITE">
          <font>
             <Font name="Microsoft YaHei Bold" size="14.0" />
          </font>
