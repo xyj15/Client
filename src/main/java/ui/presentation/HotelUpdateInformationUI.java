@@ -5,6 +5,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+import ui.controller.HotelController;
 import ui.controller.PromotionController;
 
 /**
@@ -14,7 +15,8 @@ public class HotelUpdateInformationUI  extends Application {
     @Override
     public void start(Stage primaryStage)throws Exception{
         Parent root = FXMLLoader.load(getClass().getResource("HotelUpdateInformation.fxml"));
-        PromotionController.setPrimaryStage(primaryStage);
+        HotelController.setMinprimaryStage(primaryStage);
+        HotelController.setMinroot(root);
         Scene myScene = new Scene(root,318,538);
         primaryStage.setResizable(false);
         primaryStage.setScene(myScene);
