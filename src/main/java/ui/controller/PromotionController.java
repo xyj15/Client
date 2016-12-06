@@ -5,9 +5,11 @@ import bl.stub.SalerBLStub;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.Parent;
+import javafx.scene.control.DatePicker;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 import ui.presentation.*;
+import vo.PromotionVO;
 
 /**
  * Created by 97147 on 2016/11/30.
@@ -35,7 +37,14 @@ public class PromotionController {
     private TextField memberID=new TextField();
     @FXML
     private TextField credit=new TextField();
-
+    @FXML
+    private TextField datePromotionName=new TextField();
+    @FXML
+    private DatePicker checkInDate=new DatePicker();
+    @FXML
+    private TextField dateDiscount=new TextField();
+    @FXML
+    private DatePicker checkOutDate=new DatePicker();
 
     @FXML
     private void onPromotion(ActionEvent E) throws Exception{
@@ -80,5 +89,11 @@ public class PromotionController {
     @FXML
     private void confirmAddCredit(ActionEvent E) throws Exception{
         saler.creditRecharge(memberID.getText(),Double.parseDouble(credit.getText()));
+    }
+    @FXML
+    private void confirmAddCpromotion(ActionEvent E) throws Exception{
+        //PromotionVO promotion=new PromotionVO(datePromotionName.getText(),);
+
+        //saler.createPromotion()
     }
 }
