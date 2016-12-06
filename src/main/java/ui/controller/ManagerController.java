@@ -14,6 +14,7 @@ import javafx.fxml.FXML;
 import javafx.scene.Parent;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.Label;
+import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 import other.UserType;
@@ -100,6 +101,10 @@ public class ManagerController{
 				//hotelPassword.setText(hotel.password);
 				break;
 			case Saler:new ManagerSearchSalerUI().start(primaryStage);
+				TextField salerName=(TextField)root.lookup("#salerName");
+				PasswordField password=(PasswordField)root.lookup("#password");
+				salerName.setText(saler.getSalerInformation().getName());
+				password.setText(saler.getSalerInformation().getPassword());
 				break;
 		}
 	}
