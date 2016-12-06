@@ -248,18 +248,6 @@ public class Search implements SearchBLService {
 	}
 	
 	/**
-	 * 根据酒店ID和日期获取酒店某天的客房列表
-	 * @param hotelID 酒店ID
-	 * @param date 日期
-	 * @return 酒店某天的客房列表
-	 */
-	@Override
-	public ArrayList<RoomVO> getRoomList(String hotelID, Date date) {
-		Room room = new Room(hotelID);
-		return room.getDailyRoomList(date);
-	}
-	
-	/**
 	 * 酒店按价格从高到低排序
 	 * @return 排序完成的酒店列表
 	 */

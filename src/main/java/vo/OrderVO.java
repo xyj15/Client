@@ -21,8 +21,8 @@ public class OrderVO {
 	private Date latestCheckinTime;	//最晚入住时间
 	private Date checkoutTime;	//预计退房时间
 	private Date actualCheckoutTime;	//实际退房时间
-	private int numberOfRoom;	//订单中客房名称
-	private String roomName;	//订单中客房数量
+	private int numberOfRoom;	//订单中客房数量
+	private String roomName;	//订单中客房名称
 	private int numberOfClient;	//预计入住人数
 	private boolean haveKids;	//有无儿童
 	private double score;	//订单评分
@@ -37,6 +37,39 @@ public class OrderVO {
 	 */
 	public OrderVO() {
 		
+	}
+	
+	/**
+	 * 客户创建订单的构造方法
+	 * @param memberID 订单相关客户
+	 * @param hotelID 订单相关酒店
+	 * @param checkinTime 预计入住时间
+	 * @param latestCheckinTime 最晚入住时间
+	 * @param checkoutTime 预计退房时间
+	 * @param numberOfRoom 订单中客房名称高
+	 * @param roomName 订单中客房数量
+	 * @param numberOfClient 预计入住人数
+	 * @param haveKids 有无儿童
+	 * @param promotionID 使用的促销策略ID
+	 * @param price 订单价值
+	 */
+	public OrderVO(String memberID, String hotelID, Date checkinTime, Date checkoutTime,
+				   Date latestCheckinTime, String roomName, int numberOfRoom, int numberOfClient,
+				   boolean haveKids, String promotionID, double price) {
+		this.memberID = memberID;
+		this.hotelID = hotelID;
+		this.checkinTime = checkinTime;
+		this.checkoutTime = checkoutTime;
+		this.latestCheckinTime = latestCheckinTime;
+		this.roomName = roomName;
+		this.numberOfRoom = numberOfRoom;
+		this.numberOfClient = numberOfClient;
+		this.haveKids = haveKids;
+		this.promotionID = promotionID;
+		this.price = price;
+		
+		this.orderStatus = OrderStatus.Unexecuted;
+		this.createTime = new Date();
 	}
 	
 	/**
