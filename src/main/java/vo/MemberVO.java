@@ -32,29 +32,7 @@ public class MemberVO extends User {
 	}
 	
 	/**
-	 * 无用户名和密码的构造方法
-	 * @param name 姓名或名称
-	 * @param tel 联系方式
-	 * @param level 会员等级
-	 * @param discount 当前会员等级享受折扣
-	 * @param memberType 客户类型
-	 * @param birthday 生日
-	 * @param enterprise 合作企业名称
-	 */
-	public MemberVO(String name, String tel, int level, double discount,
-					MemberType memberType, Date birthday, String enterprise) {
-		this.name = name;
-		this.tel = tel;
-		this.level = level;
-		this.discount = discount;
-		this.memberType = memberType;
-		this.birthday = birthday;
-		this.enterprise = enterprise;
-		super.setUserType(UserType.Member);
-	}
-	
-	/**
-	 * 有用户名和密码的构造方法
+	 * 有参数的构造方法
 	 * @param userID 用户名
 	 * @param password 密码
 	 * @param name 姓名或名称

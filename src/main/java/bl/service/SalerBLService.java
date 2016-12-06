@@ -2,6 +2,7 @@ package bl.service;
 
 import vo.OrderVO;
 import vo.PromotionVO;
+import vo.SalerVO;
 
 import java.util.ArrayList;
 
@@ -12,6 +13,9 @@ import java.util.ArrayList;
  * @version 2016-11-30
  */
 public interface SalerBLService {
+	
+	public SalerVO getSalerInformation();	//获取营销人员信息
+	public boolean setSalerInformation(SalerVO salerVO);	//更新营销人员信息
 	
 	public ArrayList<PromotionVO> getPromotionList();	//获得营销策略列表
 	public PromotionVO getPromotion(String promotionID);	//获得营销策略信息

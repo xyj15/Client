@@ -17,7 +17,6 @@
 //	}
 //
 //	public static void main(String[] args) {
-//		// TODO Auto-generated method stub
 //
 //		ManagerBLDriver driver =new ManagerBLDriver();
 //		driver.drive(new MemberVO());

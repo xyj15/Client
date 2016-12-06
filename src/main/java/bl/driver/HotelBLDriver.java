@@ -42,7 +42,6 @@
 //	}
 //
 //	public static void main(String[] args) {
-//		// TODO Auto-generated method stub
 //		HotelBLService H = new HotelBLStub(memberID, name, level, address, district, credit, phone, checkInTime, checkOutTime, roomType, roomNumber, promotion, discount, price);
 //		HotelBLDriver drive = new HotelBLDriver();
 //		drive.drive(H);

@@ -12,8 +12,8 @@ import java.util.Date;
  */
 public class Reserve implements ReserveBLService {
 
-	private MemberVO member;	//
-	private HotelVO hotel;	//
+	private String memberID;	//
+	private String hotelID;	//
 
 	private PromotionVO promotion;	//
 	private double singlePrice;	//
@@ -29,12 +29,13 @@ public class Reserve implements ReserveBLService {
 	private String clientTel;	//
 	private String otherReq;	//
 	
-	public Reserve(String memberID) {
+	public Reserve(String memberID, String hotelID) {
 		
 	}
 	
-	public Reserve() {
-		
+	@Override
+	public PromotionVO getPromotion() {
+		return null;
 	}
 	
 	@Override
@@ -124,25 +125,5 @@ public class Reserve implements ReserveBLService {
 	@Override
 	public boolean createOrder() {
 		return false;
-	}
-	
-	public MemberVO getMember() {
-		return member;
-	}
-	
-	public void setMember(MemberVO member) {
-		this.member = member;
-	}
-	
-	public HotelVO getHotel() {
-		return hotel;
-	}
-	
-	public void setHotel(HotelVO hotel) {
-		this.hotel = hotel;
-	}
-	
-	public PromotionVO getPromotion() {
-		return promotion;
 	}
 }

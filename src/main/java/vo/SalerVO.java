@@ -25,18 +25,7 @@ public class SalerVO extends User {
 	}
 	
 	/**
-	 * 无用户名和密码的构造方法
-	 * @param name 姓名或名称
-	 * @param tel 联系方式
-	 */
-    public SalerVO(String name, String tel) {
-		this.name = name;
-		this.tel = tel;
-		super.setUserType(UserType.Saler);
-	}
-	
-	/**
-	 * 有用户名和密码的构造方法
+	 * 有参数的构造方法
 	 * @param userID 用户名
 	 * @param password 密码
 	 * @param name 姓名或名称

@@ -1,39 +1,40 @@
 package bl.implementation;
 
-import java.util.ArrayList;
-import java.util.Date;
-
-import data.service.HotelDataService;
-import data.service.ManagerDataService;
 import bl.service.ManagerBLService;
-import data.service.MemberDataService;
-import data.service.SalerDataService;
-import other.MemberType;
-import other.User;
+import data.service.ManagerDataService;
 import other.UserType;
-import po.HotelPO;
 import po.ManagerPO;
-import po.MemberPO;
-import po.SalerPO;
-import vo.*;
+import vo.HotelVO;
+import vo.ManagerVO;
+import vo.MemberVO;
+import vo.SalerVO;
 
 /**
  * Manager模块bl的实现类
  * @author CROFF
- * @version 2016-12-3
+ * @version 2016-12-5
  */
 public class Manager implements ManagerBLService {
-
-	private MemberDataService memberDataService;
-	private HotelDataService hotelDataService;
-	private SalerDataService salerDataService;
+	
+	private Login login;
+	private Member member;
+	private Hotel hotel;
+	private Saler saler;
+	
 	private ManagerDataService managerDataService;
 	
 	/**
 	 * 构造方法
 	 */
 	public Manager() {
-		
+		init();
+	}
+	
+	/**
+	 * 初始化成员变量
+	 */
+	public void init() {
+		login = new Login();
 	}
 	
 	/**
@@ -43,7 +44,7 @@ public class Manager implements ManagerBLService {
 	 */
 	@Override
 	public boolean addMember(MemberVO memberVO) {
-		return memberDataService.addMember(memberVOtoPO(memberVO));
+		return login.register(memberVO);
 	}
 	
 	/**
@@ -53,7 +54,8 @@ public class Manager implements ManagerBLService {
 	 */
 	@Override
 	public boolean deleteMember(String memberID) {
-		return memberDataService.deleteMember(memberID);
+		member = new Member(memberID);
+		return member.deleteMember();
 	}
 	
 	/**
@@ -63,7 +65,8 @@ public class Manager implements ManagerBLService {
 	 */
 	@Override
 	public boolean updateMemberInformation(MemberVO memberVO) {
-		return memberDataService.updateMember(memberVOtoPO(memberVO));
+		member = new Member(memberVO.getUserID());
+		return member.updateMemberInformation(memberVO);
 	}
 	
 	/**
@@ -73,7 +76,8 @@ public class Manager implements ManagerBLService {
 	 */
 	@Override
 	public MemberVO getMemberInfomation(String memberID) {
-		return memberPOtoVO(memberDataService.getMember(memberID));
+		member = new Member(memberID);
+		return member.getMemberInformation();
 	}
 	
 	/**
@@ -83,7 +87,8 @@ public class Manager implements ManagerBLService {
 	 */
 	@Override
 	public boolean addHotel(HotelVO hotelVO) {
-		return hotelDataService.addHotel(hotelVOtoPO(hotelVO));
+		hotel = new Hotel(hotelVO);
+		return hotel.updateDateToFile();
 	}
 	
 	/**
@@ -93,7 +98,8 @@ public class Manager implements ManagerBLService {
 	 */
 	@Override
 	public boolean deleteHotel(String hotelID) {
-		return hotelDataService.deleteHotel(hotelID);
+		hotel = new Hotel(hotelID);
+		return hotel.deleteHotel();
 	}
 	
 	/**
@@ -105,10 +111,8 @@ public class Manager implements ManagerBLService {
 	 */
 	@Override
 	public boolean updateHotelManagerInformation(String hotelID, String name, String tel) {
-		HotelPO hotelPO = hotelDataService.getHotelByID(hotelID);
-		hotelPO.setManagerName(name);
-		hotelPO.setManagerTel(tel);
-		return hotelDataService.updateHotel(hotelPO);
+		hotel = new Hotel(hotelID);
+		return hotel.updateHotelManagerInformation(name, tel);
 	}
 	
 	/**
@@ -118,7 +122,8 @@ public class Manager implements ManagerBLService {
 	 */
 	@Override
 	public HotelVO getHotelInformation(String hotelID) {
-		return hotelPOtoVO(hotelDataService.getHotelByID(hotelID));
+		hotel = new Hotel(hotelID);
+		return hotel.getHotelInformation();
 	}
 	
 	/**
@@ -128,7 +133,8 @@ public class Manager implements ManagerBLService {
 	 */
 	@Override
 	public boolean addSaler(SalerVO salerVO) {
-		return salerDataService.addSaler(salerVOtoPO(salerVO));
+		saler = new Saler(salerVO);
+		return true;
 	}
 	
 	/**
@@ -138,7 +144,8 @@ public class Manager implements ManagerBLService {
 	 */
 	@Override
 	public boolean deleteSaler(String salerID) {
-		return salerDataService.deleteSaler(salerID);
+		saler = new Saler(salerID);
+		return saler.deleteSaler();
 	}
 	
 	/**
@@ -148,7 +155,8 @@ public class Manager implements ManagerBLService {
 	 */
 	@Override
 	public boolean updateSalerInformation(SalerVO salerVO) {
-		return salerDataService.updateSaler(salerVOtoPO(salerVO));
+		saler = new Saler(salerVO.getUserID());
+		return saler.setSalerInformation(salerVO);
 	}
 	
 	/**
@@ -158,7 +166,8 @@ public class Manager implements ManagerBLService {
 	 */
 	@Override
 	public SalerVO getSalerInformation(String salerID) {
-		return salerPOtoVO(salerDataService.getSaler(salerID));
+		saler = new Saler(salerID);
+		return saler.getSalerInformation();
 	}
 	
 	/**
@@ -180,129 +189,14 @@ public class Manager implements ManagerBLService {
 		return managerPOtoVO(managerDataService.getManager());
 	}
 	
+	/**
+	 * 根据用户ID返回用户的类型，不存在则返回null
+	 * @param userID 用户ID
+	 * @return 用户类型
+	 */
 	@Override
 	public UserType getUserType(String userID) {
-		return null;
-	}
-	
-	/**
-	 * member的VO转换成PO
-	 * @param memberVO VO
-	 * @return PO
-	 */
-	public MemberPO memberVOtoPO(MemberVO memberVO) {
-		String memberID = memberVO.getUserID();
-		String password = memberVO.getPassword();
-		String name = memberVO.getName();
-		String tel = memberVO.getTel();
-		int level = memberVO.getLevel();
-		double discount = memberVO.getDiscount();
-		MemberType memberType = memberVO.getMemberType();
-		Date birthday = memberVO.getBirthday();
-		String enterprise = memberVO.getEnterprise();
-		MemberPO memberPO = new MemberPO(memberID, password, name, tel,
-				level, discount, memberType, birthday, enterprise);
-		return memberPO;
-	}
-	
-	/**
-	 * member的PO转换成VO
-	 * @param memberPO PO
-	 * @return VO
-	 */
-	public MemberVO memberPOtoVO(MemberPO memberPO) {
-		String memberID = memberPO.getMemberID();
-		String password = memberPO.getPassword();
-		String name = memberPO.getName();
-		String tel = memberPO.getPhone();
-		int level = memberPO.getLevel();
-		double discount = memberPO.getDiscount();
-		MemberType memberType = memberPO.getMemberType();
-		Date birthday = memberPO.getBirthday();
-		String enterprise = memberPO.getEnterprise();
-		MemberVO memberVO = new MemberVO(memberID, password, name, tel, level, discount,
-				memberType, birthday, enterprise);
-		return memberVO;
-	}
-	
-	/**
-	 * hotel的VO转换成PO
-	 * @param hotelVO VO
-	 * @return PO
-	 */
-	public HotelPO hotelVOtoPO(HotelVO hotelVO) {
-		String hotelID = hotelVO.getUserID();
-		String password = hotelVO.getPassword();
-		String name = hotelVO.getName();
-		String address = hotelVO.getAddress();
-		String district = hotelVO.getDistrict();
-		String city = hotelVO.getCity();
-		int level = hotelVO.getLevel();
-		double score = hotelVO.getScore();
-		String service = hotelVO.getService();
-		String introduction = hotelVO.getIntroduction();
-		String managerName = hotelVO.getManagerName();
-		String managerTel = hotelVO.getManagerTel();
-		ArrayList<String> enterpriseList = new ArrayList<String>();
-		HotelPO hotelPO = new HotelPO(hotelID, password, name, address, district, city,
-				level, score, service, introduction, managerName, managerTel, enterpriseList);
-		return hotelPO;
-	}
-	
-	/**
-	 * hotel的PO转换成VO
-	 * @param hotelPO PO
-	 * @return VO
-	 */
-	public HotelVO hotelPOtoVO(HotelPO hotelPO) {
-		String hotelID = hotelPO.getUserID();
-		String password = hotelPO.getPassword();
-		String name = hotelPO.getName();
-		String address = hotelPO.getAddress();
-		String district = hotelPO.getDistrict();
-		String city = hotelPO.getCity();
-		int level = hotelPO.getLevel();
-		double score = hotelPO.getScore();
-		String service = hotelPO.getService();
-		String introduction = hotelPO.getIntroduction();
-		String managerName = hotelPO.getManagerName();
-		String managerTel = hotelPO.getManagerTel();
-		ArrayList<String> enterpriseList = new ArrayList<String>();
-		ArrayList<RoomVO> roomList = new ArrayList<RoomVO>();
-		ArrayList<OrderVO> orderList = new ArrayList<OrderVO>();
-		HotelVO hotelVO = new HotelVO(hotelID, password, name, address, district,
-				city, level, score, service, introduction, managerName, managerTel);
-		return hotelVO;
-	}
-	
-	/**
-	 * saler的VO转换成PO
-	 * @param salerVO VO
-	 * @return PO
-	 */
-	public SalerPO salerVOtoPO(SalerVO salerVO) {
-		String salerID = salerVO.getUserID();
-		String password = salerVO.getPassword();
-		String name = salerVO.getName();
-		String tel = salerVO.getTel();
-		SalerPO salerPO = new SalerPO(salerID, password, name, tel);
-		return salerPO;
-	}
-	
-	/**
-	 * saler的PO转换成VO
-	 * @param salerPO PO
-	 * @return VO
-	 */
-	public SalerVO salerPOtoVO(SalerPO salerPO) {
-		String salerID = salerPO.getUserID();
-		String password = salerPO.getPassword();
-		String name = salerPO.getName();
-		String tel = salerPO.getTel();
-		ArrayList<PromotionVO> promotionList = new ArrayList<PromotionVO>();
-		ArrayList<OrderVO> dailyOrderList = new ArrayList<OrderVO>();
-		SalerVO salerVO = new SalerVO(salerID, password, name, tel);
-		return salerVO;
+		return login.getUserType(userID);
 	}
 	
 	/**

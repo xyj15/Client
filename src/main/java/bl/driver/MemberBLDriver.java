@@ -24,7 +24,6 @@
 //	}
 //
 //	public static void main(String[] args) {
-//		// TODO Auto-generated method stub
 //
 //		MemberBLDriver drive =new MemberBLDriver();
 //		drive.drive(new MemberVO());
