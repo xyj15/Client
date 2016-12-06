@@ -9,6 +9,7 @@ import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 import ui.presentation.*;
+import vo.HotelVO;
 
 /**     帮助Hotel模块完成界面转跳以及连接UI层与BL层
  *
@@ -20,18 +21,23 @@ public class HotelController {
     private HotelBLService hotel = new HotelBLStub();
 
     private static Stage primaryStage;
+    private static Stage minprimaryStage;
     public static void setPrimaryStage(Stage in){
         primaryStage=in;
     }
-    private static Parent midroot;
+    private static Parent minroot;
     private static Parent root;
+
+    public static void setMinprimaryStage(Stage minprimaryStage) {
+        HotelController.minprimaryStage = minprimaryStage;
+    }
 
     public static void setRoot(Parent root) {
         HotelController.root = root;
     }
 
-    public static void setMidroot(Parent midroot) {
-        HotelController.midroot = midroot;
+    public static void setMinroot(Parent minroot) {
+        HotelController.minroot = minroot;
     }
 
     @FXML
@@ -55,9 +61,40 @@ public class HotelController {
     }
     @FXML
     private void onInforChange(ActionEvent E)throws Exception {
-        new HotelUpdateInformationUI().start(primaryStage);                 //酒店基本信息改变
-    }
+        minprimaryStage = new Stage();
+        new HotelUpdateInformationUI().start(minprimaryStage);
+        TextField name = (TextField)minroot.lookup("#name");
+        TextField address = (TextField)minroot.lookup("#address");
+        TextField district = (TextField)minroot.lookup("#district");
+        TextField level = (TextField)minroot.lookup("#level");
+        TextArea service = (TextArea) minroot.lookup("#service");
+        service.setWrapText(true);
+        TextArea introduction = (TextArea) minroot.lookup("#introduction");
+        introduction.setWrapText(true);
 
+        name.setText(hotel.getHotelName());
+        address.setText(hotel.getHotelAddress());
+        district.setText(hotel.getDistrict());
+        level.setText(""+hotel.getHotelLevel());
+        service.setText(hotel.getHotelService());
+        introduction.setText(hotel.getHotelIntroduction());
+    }
+    @FXML
+    private void onMakeChange(ActionEvent E)throws Exception {          //酒店基本信息改变
+        TextField name = (TextField)minroot.lookup("#name");
+        TextField address = (TextField)minroot.lookup("#address");
+        TextField district = (TextField)minroot.lookup("#district");
+        TextField level = (TextField)minroot.lookup("#level");
+        TextArea service = (TextArea) minroot.lookup("#service");
+        service.setWrapText(true);
+        TextArea introduction = (TextArea) minroot.lookup("#introduction");
+        introduction.setWrapText(true);
+
+        hotel.setHotelInformation(new HotelVO(hotel.getHotelInformation().getUserID(),hotel.getHotelInformation().getPassword(),name.getText().toString(),
+                address.getText().toString(),district.getText().toString(),hotel.getHotelInformation().getCity(),Integer.parseInt(level.getText().toString()),
+                hotel.getHotelInformation().getScore(), service.getText().toString(), introduction.getText().toString(),
+                hotel.getHotelInformation().getManagerName(),hotel.getHotelManagerTel()));
+    }
     @FXML
     private void onOrderManager(ActionEvent E)throws Exception {
         new HotelUnprocessedOrderUI().start(primaryStage);

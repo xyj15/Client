@@ -26,24 +26,24 @@
             <Image url="@background2.jpg" />
          </image>
       </ImageView>
-      <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="89.0" layoutY="35.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="89.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@logo.png" />
          </image>
       </ImageView>
-      <GridPane layoutX="22.0" layoutY="179.0" opacity="0.68" prefHeight="315.0" prefWidth="269.0" style="-fx-background-color: #000f32;">
+      <GridPane layoutX="22.0" layoutY="157.0" opacity="0.68" prefHeight="337.0" prefWidth="269.0" style="-fx-background-color: #000f32;">
          <columnConstraints>
             <ColumnConstraints hgrow="SOMETIMES" maxWidth="322.0" minWidth="10.0" prefWidth="83.0" />
             <ColumnConstraints hgrow="SOMETIMES" maxWidth="397.0" minWidth="10.0" prefWidth="111.0" />
          </columnConstraints>
          <rowConstraints>
-            <RowConstraints maxHeight="79.0" minHeight="10.0" prefHeight="42.0" vgrow="SOMETIMES" />
-            <RowConstraints maxHeight="79.0" minHeight="10.0" prefHeight="34.0" vgrow="SOMETIMES" />
-            <RowConstraints maxHeight="79.0" minHeight="10.0" prefHeight="37.0" vgrow="SOMETIMES" />
-            <RowConstraints maxHeight="79.0" minHeight="10.0" prefHeight="37.0" vgrow="SOMETIMES" />
-            <RowConstraints maxHeight="92.0" minHeight="10.0" prefHeight="38.0" vgrow="SOMETIMES" />
-            <RowConstraints maxHeight="115.0" minHeight="10.0" prefHeight="86.0" vgrow="SOMETIMES" />
-            <RowConstraints maxHeight="60.0" minHeight="10.0" prefHeight="50.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="79.0" minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="79.0" minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="79.0" minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="79.0" minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="92.0" minHeight="10.0" prefHeight="50.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="115.0" minHeight="10.0" prefHeight="63.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="60.0" minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
          </rowConstraints>
          <children>
             <Label alignment="CENTER" prefHeight="49.0" prefWidth="248.0" text="酒店名称" textFill="WHITE" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
@@ -51,7 +51,7 @@
                   <Font name="Microsoft YaHei Bold" size="16.0" />
                </font>
             </Label>
-            <Button mnemonicParsing="false" prefHeight="14.0" prefWidth="62.0" style="-fx-background-color: #6B6BCF;" text="确认" textFill="WHITE" GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.rowIndex="6" GridPane.valignment="CENTER">
+            <Button mnemonicParsing="false" onAction="#onMakeChange" prefHeight="14.0" prefWidth="62.0" style="-fx-background-color: #6B6BCF;" text="确认" textFill="WHITE" GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.rowIndex="6" GridPane.valignment="CENTER">
                <GridPane.margin>
                   <Insets bottom="10.0" right="10.0" />
                </GridPane.margin>
@@ -69,15 +69,7 @@
                   <Font size="16.0" />
                </font>
             </Label>
-            <TextField GridPane.columnIndex="1" GridPane.rowIndex="4">
-               <GridPane.margin>
-                  <Insets right="15.0" />
-               </GridPane.margin>
-               <font>
-                  <Font name="Microsoft YaHei Bold" size="12.0" />
-               </font>
-            </TextField>
-            <TextField prefHeight="20.0" prefWidth="133.0" GridPane.columnIndex="1">
+            <TextField fx:id="name" prefHeight="20.0" prefWidth="133.0" GridPane.columnIndex="1">
                <GridPane.margin>
                   <Insets right="15.0" />
                </GridPane.margin>
@@ -90,7 +82,7 @@
                   <Font name="Microsoft YaHei Bold" size="16.0" />
                </font>
             </Label>
-            <TextArea prefHeight="72.0" prefWidth="133.0" GridPane.columnIndex="1" GridPane.rowIndex="5">
+            <TextArea fx:id="introduction" prefHeight="72.0" prefWidth="133.0" GridPane.columnIndex="1" GridPane.rowIndex="5">
                <GridPane.margin>
                   <Insets bottom="10.0" right="15.0" top="10.0" />
                </GridPane.margin>
@@ -113,7 +105,7 @@
                   <Font name="Microsoft YaHei Bold" size="16.0" />
                </font>
             </Label>
-            <TextField prefHeight="20.0" prefWidth="133.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
+            <TextField fx:id="district" prefHeight="20.0" prefWidth="133.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
                <font>
                   <Font name="Microsoft YaHei Bold" size="12.0" />
                </font>
@@ -121,7 +113,7 @@
                   <Insets right="15.0" />
                </GridPane.margin>
             </TextField>
-            <TextField prefHeight="20.0" prefWidth="133.0" GridPane.columnIndex="1" GridPane.rowIndex="2">
+            <TextField fx:id="address" prefHeight="20.0" prefWidth="133.0" GridPane.columnIndex="1" GridPane.rowIndex="2">
                <font>
                   <Font name="Microsoft YaHei Bold" size="12.0" />
                </font>
@@ -129,7 +121,7 @@
                   <Insets right="15.0" />
                </GridPane.margin>
             </TextField>
-            <TextField prefHeight="20.0" prefWidth="133.0" GridPane.columnIndex="1" GridPane.rowIndex="3">
+            <TextField fx:id="level" prefHeight="20.0" prefWidth="133.0" GridPane.columnIndex="1" GridPane.rowIndex="3">
                <font>
                   <Font name="Microsoft YaHei Bold" size="12.0" />
                </font>
@@ -137,6 +129,14 @@
                   <Insets right="15.0" />
                </GridPane.margin>
             </TextField>
+            <TextArea fx:id="service" prefHeight="72.0" prefWidth="133.0" GridPane.columnIndex="1" GridPane.rowIndex="4">
+               <font>
+                  <Font name="Microsoft YaHei Bold" size="12.0" />
+               </font>
+               <GridPane.margin>
+                  <Insets bottom="10.0" right="15.0" top="10.0" />
+               </GridPane.margin>
+            </TextArea>
          </children>
       </GridPane>
    </children>
