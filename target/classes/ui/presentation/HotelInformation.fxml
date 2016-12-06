@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.*?>
 <?import java.lang.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.image.*?>
@@ -24,38 +25,38 @@
             <Image url="@background.jpg" />
          </image>
       </ImageView>
-      <Button layoutX="43.0" layoutY="163.0" mnemonicParsing="false" onAction="#onInfor" opacity="0.67" prefHeight="32.0" prefWidth="181.0" style="-fx-background-color: #000f32;" text="基本信息" textFill="WHITE">
+      <Button layoutX="43.0" layoutY="200.0" mnemonicParsing="false" onAction="#onInfor" opacity="0.67" prefHeight="32.0" prefWidth="181.0" style="-fx-background-color: #000f32;" text="基本信息" textFill="WHITE">
          <font>
             <Font name="Microsoft YaHei Bold" size="16.0" />
          </font>
       </Button>
-      <Button layoutX="43.0" layoutY="321.0" mnemonicParsing="false" onAction="#onPromotionManager" opacity="0.66" prefHeight="23.0" prefWidth="181.0" style="-fx-background-color: #000f32;" text="营销策略" textFill="WHITE">
+      <Button layoutX="43.0" layoutY="340.0" mnemonicParsing="false" onAction="#onPromotionManager" opacity="0.66" prefHeight="23.0" prefWidth="181.0" style="-fx-background-color: #000f32;" text="营销策略" textFill="WHITE">
          <font>
             <Font name="Microsoft YaHei Bold" size="16.0" />
          </font>
       </Button>
-      <Button layoutX="43.0" layoutY="397.0" mnemonicParsing="false" onAction="#onRoomManager" opacity="0.66" prefHeight="23.0" prefWidth="181.0" style="-fx-background-color: #000f32;" text="房间管理" textFill="WHITE">
+      <Button layoutX="43.0" layoutY="410.0" mnemonicParsing="false" onAction="#onRoomManager" opacity="0.66" prefHeight="23.0" prefWidth="181.0" style="-fx-background-color: #000f32;" text="房间管理" textFill="WHITE">
          <font>
             <Font name="Microsoft YaHei Bold" size="16.0" />
          </font>
       </Button>
-      <Button layoutX="43.0" layoutY="245.0" mnemonicParsing="false" onAction="#onOrderManager" opacity="0.67" prefHeight="32.0" prefWidth="181.0" style="-fx-background-color: #000f32;" text="订单管理" textFill="WHITE">
+      <Button layoutX="43.0" layoutY="270.0" mnemonicParsing="false" onAction="#onOrderManager" opacity="0.67" prefHeight="32.0" prefWidth="181.0" style="-fx-background-color: #000f32;" text="订单管理" textFill="WHITE">
          <font>
             <Font name="Microsoft YaHei Bold" size="16.0" />
          </font>
       </Button>
-      <GridPane layoutX="346.0" layoutY="103.0" opacity="0.68" prefHeight="327.0" prefWidth="469.0" style="-fx-background-color: #000f32;" AnchorPane.bottomAnchor="110.0" AnchorPane.leftAnchor="346.0" AnchorPane.rightAnchor="145.0" AnchorPane.topAnchor="103.0">
+      <GridPane layoutX="346.0" layoutY="64.0" opacity="0.68" prefHeight="385.0" prefWidth="469.0" style="-fx-background-color: #000f32;" AnchorPane.bottomAnchor="91.0" AnchorPane.leftAnchor="346.0" AnchorPane.rightAnchor="145.0" AnchorPane.topAnchor="64.0">
         <columnConstraints>
           <ColumnConstraints hgrow="SOMETIMES" maxWidth="322.0" minWidth="10.0" prefWidth="138.0" />
           <ColumnConstraints hgrow="SOMETIMES" maxWidth="431.0" minWidth="10.0" prefWidth="331.0" />
         </columnConstraints>
         <rowConstraints>
-          <RowConstraints maxHeight="60.0" minHeight="10.0" prefHeight="43.0" vgrow="SOMETIMES" />
-          <RowConstraints maxHeight="60.0" minHeight="10.0" prefHeight="43.0" vgrow="SOMETIMES" />
-            <RowConstraints maxHeight="60.0" minHeight="10.0" prefHeight="43.0" vgrow="SOMETIMES" />
-            <RowConstraints maxHeight="66.0" minHeight="10.0" prefHeight="43.0" vgrow="SOMETIMES" />
-            <RowConstraints maxHeight="135.0" minHeight="10.0" prefHeight="43.0" vgrow="SOMETIMES" />
-            <RowConstraints maxHeight="125.0" minHeight="10.0" prefHeight="90.0" vgrow="SOMETIMES" />
+          <RowConstraints maxHeight="60.0" minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+          <RowConstraints maxHeight="60.0" minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="60.0" minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="66.0" minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="135.0" minHeight="10.0" prefHeight="67.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="125.0" minHeight="10.0" prefHeight="72.0" vgrow="SOMETIMES" />
         </rowConstraints>
          <children>
             <Label alignment="CENTER" prefHeight="49.0" prefWidth="248.0" text="酒店名称" textFill="WHITE" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
@@ -85,36 +86,36 @@
                   <Font name="Microsoft YaHei Bold" size="16.0" />
                </font>
             </Label>
-            <Label prefHeight="19.0" prefWidth="305.0" textFill="WHITE" GridPane.columnIndex="1">
-               <font>
-                  <Font name="Microsoft YaHei Bold" size="14.0" />
-               </font>
-            </Label>
-            <Label prefHeight="47.0" prefWidth="331.0" textFill="WHITE" GridPane.columnIndex="1" GridPane.rowIndex="1">
-               <font>
-                  <Font name="Microsoft YaHei Bold" size="14.0" />
-               </font>
-            </Label>
-            <Label prefHeight="47.0" prefWidth="331.0" textFill="WHITE" GridPane.columnIndex="1" GridPane.rowIndex="2">
-               <font>
-                  <Font name="Microsoft YaHei Bold" size="14.0" />
-               </font>
-            </Label>
-            <Label prefHeight="47.0" prefWidth="331.0" textFill="WHITE" GridPane.columnIndex="1" GridPane.rowIndex="3">
-               <font>
-                  <Font name="Microsoft YaHei Bold" size="14.0" />
-               </font>
-            </Label>
-            <Label prefHeight="47.0" prefWidth="331.0" textFill="WHITE" GridPane.columnIndex="1" GridPane.rowIndex="4">
-               <font>
-                  <Font name="Microsoft YaHei Bold" size="14.0" />
-               </font>
-            </Label>
-            <Label prefHeight="47.0" prefWidth="331.0" textFill="WHITE" GridPane.columnIndex="1" GridPane.rowIndex="5">
-               <font>
-                  <Font name="Microsoft YaHei Bold" size="14.0" />
-               </font>
-            </Label>
+            <TextField fx:id="name" editable="false" GridPane.columnIndex="1">
+               <GridPane.margin>
+                  <Insets left="20.0" right="20.0" />
+               </GridPane.margin>
+            </TextField>
+            <TextField fx:id="address" editable="false" GridPane.columnIndex="1" GridPane.rowIndex="1">
+               <GridPane.margin>
+                  <Insets left="20.0" right="20.0" />
+               </GridPane.margin>
+            </TextField>
+            <TextField fx:id="district" editable="false" GridPane.columnIndex="1" GridPane.rowIndex="2">
+               <GridPane.margin>
+                  <Insets left="20.0" right="20.0" />
+               </GridPane.margin>
+            </TextField>
+            <TextField fx:id="level" editable="false" GridPane.columnIndex="1" GridPane.rowIndex="3">
+               <GridPane.margin>
+                  <Insets left="20.0" right="20.0" />
+               </GridPane.margin>
+            </TextField>
+            <TextArea fx:id="service" editable="false" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="4">
+               <GridPane.margin>
+                  <Insets bottom="10.0" left="20.0" right="20.0" top="10.0" />
+               </GridPane.margin>
+            </TextArea>
+            <TextArea fx:id="introduction" editable="false" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="5">
+               <GridPane.margin>
+                  <Insets bottom="10.0" left="20.0" right="20.0" top="10.0" />
+               </GridPane.margin>
+            </TextArea>
          </children>
       </GridPane>
       <Line endX="10.0" layoutX="255.0" layoutY="169.0" startX="10.0" startY="300.0" stroke="WHITE" strokeWidth="2.0" AnchorPane.bottomAnchor="300.0" AnchorPane.topAnchor="150.0" />
