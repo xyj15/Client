@@ -1,5 +1,6 @@
 package vo;
 
+import other.RoomType;
 import other.User;
 import other.UserType;
 
@@ -24,6 +25,8 @@ public class HotelVO extends User {
 	private String managerTel;	//酒店管理人员的联系方式
 	
 	private double lowestPrice;	//酒店当天客房最低价
+	private ArrayList<RoomType> roomTypeList;	//酒店当天可订房型列表
+	private ArrayList<Integer> roomNumberList;	//酒店当天对应房型可订数量
 	
 	/**
 	 * 空构造方法
@@ -150,5 +153,21 @@ public class HotelVO extends User {
 	
 	public void setLowestPrice(double lowestPrice) {
 		this.lowestPrice = lowestPrice;
+	}
+	
+	public ArrayList<RoomType> getRoomTypeList() {
+		return roomTypeList;
+	}
+	
+	public void setRoomTypeList(ArrayList<RoomType> roomTypeList) {
+		this.roomTypeList = roomTypeList;
+	}
+	
+	public ArrayList<Integer> getRoomNumberList() {
+		return roomNumberList;
+	}
+	
+	public void setRoomNumberList(ArrayList<Integer> roomNumberList) {
+		this.roomNumberList = roomNumberList;
 	}
 }

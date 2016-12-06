@@ -101,7 +101,7 @@ public class MemberBLStub implements MemberBLService {
 	}
 	
 	@Override
-	public boolean newReservation(String hotelID, String roomID) {
+	public boolean newReservation(String hotelID) {
 		System.out.println("新建预订成功");
 		return true;
 	}

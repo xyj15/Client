@@ -236,6 +236,11 @@ public class Order implements OrderBLService {
 		return orderPO;
 	}
 	
+	/**
+	 * 将Order从PO转换成VO
+	 * @param orderPO PO
+	 * @return VO
+	 */
 	public static OrderVO orderPOtoVO(OrderPO orderPO) {
 		String memberID = orderPO.getMemberID();
 		String hotelID = orderPO.getHotelID();
