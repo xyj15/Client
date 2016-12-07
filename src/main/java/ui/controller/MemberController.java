@@ -1,14 +1,9 @@
 package ui.controller;
 
 import bl.implementation.Hotel;
-import bl.service.HotelBLService;
-import bl.service.MemberBLService;
-import bl.service.ReserveBLService;
-import bl.service.SearchBLService;
-import bl.stub.HotelBLStub;
-import bl.stub.MemberBLStub;
-import bl.stub.ReserveBLStub;
-import bl.stub.SearchBLStub;
+import bl.implementation.Order;
+import bl.service.*;
+import bl.stub.*;
 import com.sun.javafx.scene.control.skin.TableColumnHeader;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -20,8 +15,10 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
 import other.TableDateForMemberInfor;
 import other.TableDateForMemberOrder;
+import other.TableDateForSearchList;
 import ui.presentation.*;
 import vo.CreditChangeVO;
+import vo.HotelVO;
 import vo.OrderVO;
 
 import java.text.SimpleDateFormat;
@@ -48,7 +45,7 @@ public class MemberController{
     private MemberBLService member = new MemberBLStub();
     private HotelBLService hotel = new HotelBLStub();
     private ReserveBLService reserve = new ReserveBLStub();
-
+    private OrderBLService order = new OrderBLStub();
 
 
     public static void setMidroot(Parent midroot) {
@@ -145,16 +142,14 @@ public class MemberController{
                 = FXCollections.observableArrayList();
         ObservableList<TableColumn> tableList = table.getColumns();
         String dateTem;
+
         SimpleDateFormat sdf=new SimpleDateFormat("yyyy-MM-dd");
-        ArrayList<OrderVO> list = member.getUnexcutedOrders();
-        HotelBLService tem;
+        ArrayList<OrderVO> list = order.getUnexcutedOrders();
         for(int i=0;i<list.size();i++){
             dateTem = sdf.format(list.get(i).getCheckinTime());
-            tem = new Hotel(list.get(i).getHotelID());
             dataForMInfor.add(new TableDateForMemberOrder(list.get(i).getOrderID(),dateTem,
-                    tem.getHotelName(),""+list.get(i).getPrice()));
+                    list.get(i).getHotelID(),""+list.get(i).getPrice()));
         }
-
         tableList.get(0).setCellValueFactory(new PropertyValueFactory("num"));
         tableList.get(1).setCellValueFactory(new PropertyValueFactory("date"));
         tableList.get(2).setCellValueFactory(new PropertyValueFactory("hotelName"));
@@ -348,19 +343,39 @@ public class MemberController{
     @FXML
     private void onSearchAll(ActionEvent E)throws Exception {
      new MemberSearchListUI().start(primaryStage);
+
     }
 
-    //排序，暂时为空
+    //排序
     @FXML
     private void onSortWithLevel(ActionEvent E)throws Exception {
-
+        ArrayList<HotelVO> list = search.sortByLevelHighToLow();
+        sort(list);
     }
     @FXML
     private void onSortWithPrice(ActionEvent E)throws Exception {
-
+        ArrayList<HotelVO> list = search.sortByPriceLowToHigh();
+        sort(list);
     }
     @FXML
     private void onSortWithComment(ActionEvent E)throws Exception {
-
+        ArrayList<HotelVO> list = search.sortByScoreHighToLow();
+        sort(list);
+    }
+    private void sort(ArrayList<HotelVO> list)throws Exception {
+        new MemberSearchListUI().start(primaryStage);
+        TableView table = (TableView) root.lookup("#table");
+        ObservableList<TableDateForSearchList> dataForMInfor
+                = FXCollections.observableArrayList();
+        ObservableList<TableColumn> tableList = table.getColumns();
+        for(int i=0;i<list.size();i++){
+            dataForMInfor.add(new TableDateForSearchList(list.get(i).getName(),""+list.get(i).getLevel(),
+                    ""+list.get(i).getLowestPrice(),""+list.get(i).getScore()));
+        }
+        tableList.get(0).setCellValueFactory(new PropertyValueFactory("name"));
+        tableList.get(1).setCellValueFactory(new PropertyValueFactory("level"));
+        tableList.get(2).setCellValueFactory(new PropertyValueFactory("price"));
+        tableList.get(3).setCellValueFactory(new PropertyValueFactory("score"));
+        table.setItems(dataForMInfor);
     }
 }

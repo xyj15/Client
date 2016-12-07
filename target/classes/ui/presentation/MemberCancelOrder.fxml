@@ -53,7 +53,7 @@
       </Button>
       <ScrollPane layoutX="331.0" layoutY="126.0" opacity="0.57" prefHeight="339.0" prefWidth="556.0" style="-fx-background-color: #000f32;">
          <content>
-            <TableView prefHeight="344.0" prefWidth="558.0" style="-fx-background-color: #000f32;" stylesheets="@TableView.css">
+            <TableView fx:id="table" prefHeight="344.0" prefWidth="558.0" style="-fx-background-color: #000f32;" stylesheets="@TableView.css">
                <columns>
                   <TableColumn fx:id="name" prefWidth="106.0" style="-fx-background-color: #000f32;" text="订单号" />
                   <TableColumn prefWidth="165.0" style="-fx-background-color: #000f32;" text="日期" />
