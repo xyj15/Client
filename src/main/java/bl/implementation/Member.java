@@ -4,6 +4,7 @@ import data.service.MemberDataService;
 import bl.service.MemberBLService;
 
 import other.MemberType;
+import other.Rank;
 import po.MemberPO;
 import vo.CreditChangeVO;
 import vo.MemberVO;
@@ -22,6 +23,7 @@ public class Member implements MemberBLService {
 	private String memberID;
 	private MemberVO memberVO;
 	private Order order;
+	private Credit credit;
 	
 	private MemberDataService memberDataService;
 	
@@ -49,7 +51,8 @@ public class Member implements MemberBLService {
 	 */
 	@Override
 	public String getName() {
-		return null;
+		updateDataFromFile();
+		return memberVO.getName();
 	}
 	
 	/**
@@ -58,7 +61,8 @@ public class Member implements MemberBLService {
 	 */
 	@Override
 	public String getTel() {
-		return null;
+		updateDataFromFile();
+		return memberVO.getTel();
 	}
 	
 	/**
@@ -67,7 +71,8 @@ public class Member implements MemberBLService {
 	 */
 	@Override
 	public double getCredit() {
-		return 0;
+		updateDataFromFile();
+		return credit.getCredit();
 	}
 	
 	/**
@@ -76,7 +81,8 @@ public class Member implements MemberBLService {
 	 */
 	@Override
 	public ArrayList<CreditChangeVO> getCreditChangeList() {
-		return null;
+		updateDataFromFile();
+		return credit.getCreditChangeList();
 	}
 	
 	/**
@@ -85,7 +91,8 @@ public class Member implements MemberBLService {
 	 */
 	@Override
 	public int getLevel() {
-		return 0;
+		updateDataFromFile();
+		return memberVO.getLevel();
 	}
 	
 	/**
@@ -94,7 +101,8 @@ public class Member implements MemberBLService {
 	 */
 	@Override
 	public double getDiscount() {
-		return 0;
+		updateDataFromFile();
+		return memberVO.getDiscount();
 	}
 	
 	/**
@@ -103,7 +111,8 @@ public class Member implements MemberBLService {
 	 */
 	@Override
 	public MemberType getMemberType() {
-		return null;
+		updateDataFromFile();
+		return memberVO.getMemberType();
 	}
 	
 	/**
@@ -112,7 +121,8 @@ public class Member implements MemberBLService {
 	 */
 	@Override
 	public Date getBirthday() {
-		return null;
+		updateDataFromFile();
+		return memberVO.getBirthday();
 	}
 	
 	/**
@@ -121,7 +131,8 @@ public class Member implements MemberBLService {
 	 */
 	@Override
 	public String getEnterprise() {
-		return null;
+		updateDataFromFile();
+		return memberVO.getEnterprise();
 	}
 	
 	/**
@@ -130,7 +141,8 @@ public class Member implements MemberBLService {
 	 */
 	@Override
 	public MemberVO getMemberInformation() {
-		return null;
+		updateDataFromFile();
+		return memberVO;
 	}
 	
 	/**
@@ -140,7 +152,8 @@ public class Member implements MemberBLService {
 	 */
 	@Override
 	public boolean updateMemberInformation(MemberVO memberVO) {
-		return false;
+		this.memberVO = memberVO;
+		return updateDataToFile();
 	}
 	
 	/**
@@ -168,7 +181,8 @@ public class Member implements MemberBLService {
 	 * @return 更新成功则返回true，否则返回false
 	 */
 	public boolean updateDataToFile() {
-		return false;
+		MemberPO memberPO = memberVOtoPO(memberVO);
+		return memberDataService.updateMember(memberPO);
 	}
 	
 	/**
@@ -176,7 +190,15 @@ public class Member implements MemberBLService {
 	 * @return 更新成功则返回true，否则返回false
 	 */
 	public boolean updateDataFromFile() {
-		return false;
+		order = new Order(memberID);
+		credit = new Credit(memberID);
+		memberVO = memberPOtoVO(memberDataService.getMember(memberID));
+		Rank rank = Rank.getInstance();
+		int level = rank.getLevel(credit.getCredit());
+		double discount = rank.getDiscount(credit.getCredit());
+		memberVO.setLevel(level);
+		memberVO.setDiscount(discount);
+		return true;
 	}
 	
 	/**
