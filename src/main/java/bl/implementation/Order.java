@@ -205,6 +205,21 @@ public class Order implements OrderBLService {
 	}
 	
 	/**
+	 * 根据订单ID返回订单信息，若不存在则返回null
+	 * @param orderID 订单ID
+	 * @return 订单信息
+	 */
+	public OrderVO getOrderInformation(String orderID) {
+		for(int i=0; i<orderList.size(); i++) {
+			OrderVO orderVO = orderList.get(i);
+			if(orderVO.getOrderID().equals(orderID)) {
+				return orderVO;
+			}
+		}
+		return null;
+	}
+	
+	/**
 	 * 将Order从VO转换成PO
 	 * @param orderVO VO变量
 	 * @return PO变量
