@@ -30,8 +30,14 @@ public class Member implements MemberBLService {
 	 * 注册用户时使用这个构造方法，分配一个可用的ID
 	 */
 	public Member(MemberVO memberVO) {
-		memberVO.setUserID(memberDataService.getAvailableID());
+		this.memberID = memberDataService.getAvailableID();
+		memberVO.setUserID(memberID);
 		this.memberVO = memberVO;
+		MemberPO memberPO = memberVOtoPO(memberVO);
+		memberDataService.addMember(memberPO);
+		
+		credit = new Credit(memberID);
+		credit.initialCredit();
 	}
 	
 	/**

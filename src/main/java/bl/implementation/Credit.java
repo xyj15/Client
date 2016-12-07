@@ -85,6 +85,14 @@ public class Credit implements CreditBLService {
 	}
 	
 	/**
+	 * 初始化新用户的信用，初始化为100
+	 * @return 成功则返回true，否则返回false
+	 */
+	public boolean initialCredit() {
+		return creditDataService.setCredit(memberID, 100);
+	}
+	
+	/**
 	 * 从data层更新信用变化列表
 	 */
 	public void updateCreditChangeListFromFile() {
