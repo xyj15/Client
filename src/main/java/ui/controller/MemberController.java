@@ -1,5 +1,6 @@
 package ui.controller;
 
+import bl.implementation.Hotel;
 import bl.service.HotelBLService;
 import bl.service.MemberBLService;
 import bl.service.ReserveBLService;
@@ -21,6 +22,7 @@ import other.TableDateForMemberInfor;
 import other.TableDateForMemberOrder;
 import ui.presentation.*;
 import vo.CreditChangeVO;
+import vo.OrderVO;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -144,18 +146,19 @@ public class MemberController{
         ObservableList<TableColumn> tableList = table.getColumns();
         String dateTem;
         SimpleDateFormat sdf=new SimpleDateFormat("yyyy-MM-dd");
-        ArrayList<OrderVO> list = member.
+        ArrayList<OrderVO> list = member.getUnexcutedOrders();
+        HotelBLService tem;
         for(int i=0;i<list.size();i++){
-            dateTem = sdf.format(list.get(i).getDate());
-            dataForMInfor.add(new TableDateForMemberInfor(list.get(i).getOrderID(),dateTem,
-                    list.get(i).getOrderAction().toString(),""+list.get(i).getChange(),""+list.get(i).getResult()));
+            dateTem = sdf.format(list.get(i).getCheckinTime());
+            tem = new Hotel(list.get(i).getHotelID());
+            dataForMInfor.add(new TableDateForMemberOrder(list.get(i).getOrderID(),dateTem,
+                    tem.getHotelName(),""+list.get(i).getPrice()));
         }
 
         tableList.get(0).setCellValueFactory(new PropertyValueFactory("num"));
         tableList.get(1).setCellValueFactory(new PropertyValueFactory("date"));
-        tableList.get(2).setCellValueFactory(new PropertyValueFactory("action"));
-        tableList.get(3).setCellValueFactory(new PropertyValueFactory("change"));
-        tableList.get(4).setCellValueFactory(new PropertyValueFactory("now"));
+        tableList.get(2).setCellValueFactory(new PropertyValueFactory("hotelName"));
+        tableList.get(3).setCellValueFactory(new PropertyValueFactory("price"));
         table.setItems(dataForMInfor);
     }
     @FXML
