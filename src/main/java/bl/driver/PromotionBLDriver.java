@@ -1,25 +1,25 @@
-//package bl.driver;
-//
-//import bl.service.PromotionBLService;
-//import bl.stub.PromotionBLStub;
-//import other.Date;
-//import vo.PromotionVO;
-//
-//public class PromotionBLDriver {
-//
-//	PromotionBLService promotion = new PromotionBLStub();
-//
-//	public void drive(PromotionVO uservo){
-//		System.out.println(promotion.addPromotion(uservo));
-//		System.out.println(promotion.changePromotion(uservo));
-//		System.out.println(promotion.delPromotion(uservo));
-//		System.out.println(promotion.getPromotion("12345678"));
-//		System.out.println(promotion.getPromotionList());
-//	}
-//
-//	public static void main(String[] args) {
-//		PromotionBLDriver driver =new PromotionBLDriver();
-//		driver.drive(new PromotionVO(new Date(1997, 03, 04), 1, false, new Date(2015, 03, 21), false,"12345678", 0.8, null));
-//	}
-//
-//}
+package bl.driver;
+
+import bl.service.PromotionBLService;
+import bl.stub.PromotionBLStub;
+import vo.PromotionVO;
+
+public class PromotionBLDriver {
+
+	PromotionBLService promotionBLService = new PromotionBLStub();
+
+	public void drive() {
+		System.out.println(promotionBLService.addPromotion(new PromotionVO()));
+		System.out.println(promotionBLService.deletePromotion("12345"));
+		System.out.println(promotionBLService.getHotelPromotionList("123456"));
+		System.out.println(promotionBLService.getPromotion("12345"));
+		System.out.println(promotionBLService.getWebPromotionList());
+		System.out.println(promotionBLService.updatePromotion(new PromotionVO()));
+	}
+
+	public static void main(String[] args) {
+		PromotionBLDriver promotionBLDriver = new PromotionBLDriver();
+		promotionBLDriver.drive();
+	}
+
+}

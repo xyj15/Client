@@ -12,6 +12,16 @@ import java.util.Date;
  */
 public class CreditBLStub implements CreditBLService {
 	
+	private String memberID;
+	
+	public CreditBLStub() {
+		memberID = null;
+	}
+	
+	public CreditBLStub(String memberID) {
+		this.memberID = memberID;
+	}
+	
 	@Override
 	public ArrayList<CreditChangeVO> getCreditChangeList() {
 		System.out.println("获取信用变化列表成功");

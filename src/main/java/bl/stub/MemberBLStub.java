@@ -107,7 +107,7 @@ public class MemberBLStub implements MemberBLService {
 	}
 	
 	@Override
-	public boolean CreateOrder(OrderVO orderVO) {
+	public boolean createOrder(OrderVO orderVO) {
 		System.out.println("创建订单成功");
 		return true;
 	}

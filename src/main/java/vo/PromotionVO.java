@@ -31,6 +31,10 @@ public class PromotionVO {
 	private double neededPrice;	//减价需要满足的价格
 	private double reducePrice;	//减少的价格
 	
+	public PromotionVO() {
+		
+	}
+	
 	/**
 	 * 网站营销策略的构造方法
 	 * @param promotionID 营销策略编号

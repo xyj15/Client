@@ -1,14 +1,11 @@
 package bl.stub;
 
-import java.util.ArrayList;
-import java.util.Date;
-
-import bl.implementation.Promotion;
 import bl.service.SearchBLService;
 import other.RoomType;
 import vo.HotelVO;
-import vo.OrderVO;
-import vo.RoomVO;
+
+import java.util.ArrayList;
+import java.util.Date;
 
 public class SearchBLStub implements SearchBLService {
 	

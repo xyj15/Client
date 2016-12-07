@@ -1,23 +1,25 @@
-//package bl.driver;
-//
-//import bl.service.RoomBLService;
-//import bl.stub.RoomBLStub;
-//import vo.RoomVO;
-//
-//public class RoomBLDriver {
-//
-//	RoomBLService service = new RoomBLStub();
-//
-//	public RoomBLDriver (RoomVO room) {
-//		System.out.println(service.addRoom(room));
-//		System.out.println(service.updateRoom(room));
-//		System.out.println(service.findRoom("512"));
-//	}
-//
-//	public static void main(String[] args) {
-//
-//		RoomVO room = new RoomVO(true ,"521" , 0, 250);
-//		new RoomBLDriver(room);
-//	}
-//
-//}
+package bl.driver;
+
+import bl.service.RoomBLService;
+import bl.stub.RoomBLStub;
+import vo.RoomVO;
+
+import java.util.Date;
+
+public class RoomBLDriver {
+
+	RoomBLService roomBLService = new RoomBLStub();
+	
+	public void drive() {
+		System.out.println(roomBLService.addRoom(new RoomVO()));
+		System.out.println(roomBLService.deleteRoom("3304"));
+		System.out.println(roomBLService.getRoomInformation(new Date(), "3304"));
+		System.out.println(roomBLService.updateRoom(new Date(), new RoomVO()));
+	}
+
+	public static void main(String[] args) {
+		RoomBLDriver roomBLDriver = new RoomBLDriver();
+		roomBLDriver.drive();
+	}
+
+}
