@@ -32,6 +32,7 @@ public class OrderBLStub implements OrderBLService {
 		double recover = 0.5;
 		String promotionID = "00000";
 		double price = 99999;
+		String hotelName = "新悦大酒店";
 		Date cancelTime = new Date();
 		OrderVO orderVO = new OrderVO(memberID, hotelID, orderID, orderStatus, createTime,
 				checkinTime, actualCheckinTime, latestCheckinTime, checkoutTime, actualCheckoutTime,

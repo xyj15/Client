@@ -46,6 +46,7 @@ public class SalerBLStub implements SalerBLService {
 		double recover = 0.5;
 		promotionID = "00000";
 		double price = 99999;
+		String hotelName = "新悦大酒店";
 		Date cancelTime = new Date();
 		orderVO = new OrderVO(memberID, hotelID, orderID, orderStatus, createTime,
 				checkinTime, actualCheckinTime, latestCheckinTime, checkoutTime, actualCheckoutTime,
