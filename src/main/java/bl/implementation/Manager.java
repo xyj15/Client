@@ -27,13 +27,6 @@ public class Manager implements ManagerBLService {
 	 * 构造方法
 	 */
 	public Manager() {
-		init();
-	}
-	
-	/**
-	 * 初始化成员变量
-	 */
-	public void init() {
 		login = new Login();
 	}
 	

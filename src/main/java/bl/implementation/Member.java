@@ -4,10 +4,8 @@ import data.service.MemberDataService;
 import bl.service.MemberBLService;
 
 import other.MemberType;
-import other.OrderStatus;
 import other.Rank;
 import po.MemberPO;
-import po.OrderPO;
 import vo.CreditChangeVO;
 import vo.MemberVO;
 import vo.OrderVO;
@@ -24,7 +22,6 @@ public class Member implements MemberBLService {
 	
 	private String memberID;
 	private MemberVO memberVO;
-	private Order order;
 	private Credit credit;
 	
 	private MemberDataService memberDataService;
@@ -32,10 +29,15 @@ public class Member implements MemberBLService {
 	/**
 	 * 注册用户时使用这个构造方法，分配一个可用的ID
 	 */
-	public Member() {
-		memberVO = new MemberVO();
-		memberVO.setUserID(memberDataService.getAvailableID());
-		updateDataToFile();
+	public Member(MemberVO memberVO) {
+		this.memberID = memberDataService.getAvailableID();
+		memberVO.setUserID(memberID);
+		this.memberVO = memberVO;
+		MemberPO memberPO = memberVOtoPO(memberVO);
+		memberDataService.addMember(memberPO);
+		
+		credit = new Credit(memberID);
+		credit.initialCredit();
 	}
 	
 	/**
@@ -138,80 +140,6 @@ public class Member implements MemberBLService {
 	}
 	
 	/**
-	 * 获得用户的所有订单
-	 * @return 所有订单列表
-	 */
-	@Override
-	public ArrayList<OrderVO> getOrderList() {
-		updateDataFromFile();
-		return order.getOrderList();
-	}
-	
-	/**
-	 * 获得用户的已执行订单
-	 * @return 已执行订单列表
-	 */
-	@Override
-	public ArrayList<OrderVO> getExcutedOrders() {
-		updateDataFromFile();
-		return order.getExcutedOrders();
-	}
-	
-	/**
-	 * 获得用户的未执行订单
-	 * @return 未执行订单列表
-	 */
-	@Override
-	public ArrayList<OrderVO> getUnexcutedOrders() {
-		updateDataFromFile();
-		return order.getUnexcutedOrders();
-	}
-	
-	/**
-	 * 获得用户的异常订单
-	 * @return 异常订单列表
-	 */
-	@Override
-	public ArrayList<OrderVO> getAbnormalOrders() {
-		updateDataFromFile();
-		return order.getAbnormalOrders();
-	}
-	
-	/**
-	 * 获得用户的已撤销订单
-	 * @return 已撤销订单列表
-	 */
-	@Override
-	public ArrayList<OrderVO> getCanceledOrders() {
-		updateDataFromFile();
-		return order.getCanceledOrders();
-	}
-	
-	/**
-	 * 撤销订单
-	 * @param orderID 订单ID
-	 * @return 撤销成功则返回true，否则返回false
-	 */
-	@Override
-	public boolean cancelOrder(String orderID) {
-		updateDataFromFile();
-		return order.cancelOrder(orderID);
-	}
-	
-	/**
-	 * 评价订单
-	 * @param orderID 订单ID
-	 * @param score 评分
-	 * @param comment 评价
-	 * @return 评价成功则返回true，否则返回false
-	 */
-	@Override
-	public boolean evaluateOrder(String orderID, double score, String comment) {
-		updateDataFromFile();
-		return order.evaluateOrder(orderID, score, comment);
-	}
-	
-	/**
 	 * 获取客户信息
 	 * @return 客户信息
 	 */
@@ -266,7 +194,6 @@ public class Member implements MemberBLService {
 	 * @return 更新成功则返回true，否则返回false
 	 */
 	public boolean updateDataFromFile() {
-		order = new Order(memberID);
 		credit = new Credit(memberID);
 		memberVO = memberPOtoVO(memberDataService.getMember(memberID));
 		Rank rank = Rank.getInstance();
@@ -315,18 +242,6 @@ public class Member implements MemberBLService {
 		MemberVO memberVO = new MemberVO(memberID, password, name, tel, level, discount,
 				memberType, birthday, enterprise);
 		return memberVO;
-	}
-	
-	/**
-	 * 将新用户的信息传入数据层
-	 * @param memberVO 新用户的信息
-	 * @return 传入成功则返回true，否则返回false
-	 */
-	public boolean registerMember(MemberVO memberVO) {
-		MemberPO memberPO = memberVOtoPO(memberVO);
-		this.memberVO = memberVO;
-		updateDataToFile();
-		return memberDataService.addMember(memberPO);
 	}
 	
 	/**

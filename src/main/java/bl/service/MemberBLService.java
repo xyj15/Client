@@ -3,7 +3,6 @@ package bl.service;
 import java.util.ArrayList;
 import java.util.Date;
 
-import bl.implementation.Order;
 import other.MemberType;
 import vo.CreditChangeVO;
 import vo.MemberVO;
@@ -25,15 +24,6 @@ public interface MemberBLService {
 	public MemberType getMemberType();	//获得客户的类型（普通客户、企业客户）
 	public Date getBirthday();	//获得客户生日，企业客户此项为null
 	public String getEnterprise();	//获得客户所属的合作企业，普通客户此项为null
-	
-	public ArrayList<OrderVO> getOrderList();	//获得全部订单列表
-	public ArrayList<OrderVO> getExcutedOrders();	//获得已执行订单列表
-	public ArrayList<OrderVO> getUnexcutedOrders();	//获得未执行订单列表
-	public ArrayList<OrderVO> getAbnormalOrders();	//获得异常订单列表
-	public ArrayList<OrderVO> getCanceledOrders();	//获得已撤销订单列表
-	
-	public boolean cancelOrder(String orderID);	//撤销订单
-	public boolean evaluateOrder(String orderID, double score, String comment);	//评价订单
 	
 	public MemberVO getMemberInformation();	//获得客户信息
 	public boolean updateMemberInformation(MemberVO memberVO);	//更新客户信息
