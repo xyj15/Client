@@ -8,7 +8,7 @@ import java.util.Date;
 /**
  * 存储Promotion信息的VO类
  * @author CROFF
- * @version 2016-12-1
+ * @version 2016-12-7
  */
 public class PromotionVO {
 	
@@ -20,8 +20,6 @@ public class PromotionVO {
 	
 	private Date startDate;	//起始日期
 	private Date endDate;	//结束日期
-	
-	private Date birthday;	//生日
 	
 	private int numberOfRoom;	//订房数量
 	
@@ -50,7 +48,7 @@ public class PromotionVO {
 	 * @param promotionID 营销策略编号
 	 * @param promotionName 营销策略名称
 	 * @param promotionType 营销策略的价格优惠类型，分为满减和折扣
-	 * @param relatedHotelID
+	 * @param relatedHotelID 对应酒店ID
 	 */
 	public PromotionVO(String promotionID, String promotionName, PromotionType promotionType, String relatedHotelID) {
 		this.promotionID = promotionID;
@@ -70,55 +68,76 @@ public class PromotionVO {
 	 * 将判断条件设置为特定日期优惠
 	 * @param startDate 起始日期
 	 * @param endDate 结束日期
+	 * @param discount 折扣
+	 * @param neededPrice 需要满足的金额
+	 * @param reducePrice 减少的金额
 	 */
-	public void setDatePromotion(Date startDate, Date endDate) {
+	public void setDatePromotion(Date startDate, Date endDate, double discount, double neededPrice, double reducePrice) {
 		saleType = SaleType.Date;
 		this.startDate = startDate;
 		this.endDate = endDate;
+		this.discount = discount;
+		this.neededPrice = neededPrice;
+		this.reducePrice = reducePrice;
 	}
 	
 	/**
 	 * 将判断条件设置为生日特惠
-	 * @param birthday 客户的生日
+	 * @param discount 折扣
+	 * @param neededPrice 需要满足的金额
+	 * @param reducePrice 减少的金额
 	 */
-	public void setBirthdayPromotion(Date birthday) {
+	public void setBirthdayPromotion(double discount, double neededPrice, double reducePrice) {
 		saleType = SaleType.Birthday;
-		this.birthday = birthday;
+		this.discount = discount;
+		this.neededPrice = neededPrice;
+		this.reducePrice = reducePrice;
+		
 	}
 	
 	/**
 	 * 将判断条件设置为订房数量优惠
 	 * @param numberOfRoom 最低订房数量
+	 * @param discount 折扣
+	 * @param neededPrice 需要满足的金额
+	 * @param reducePrice 减少的金额
 	 */
-	public void setRoomNumberPromotion(int numberOfRoom) {
+	public void setRoomNumberPromotion(int numberOfRoom, double discount, double neededPrice, double reducePrice) {
 		saleType = SaleType.RoomNumber;
 		this.numberOfRoom = numberOfRoom;
+		this.discount = discount;
+		this.neededPrice = neededPrice;
+		this.reducePrice = reducePrice;
 	}
 	
 	/**
 	 * 将判断条件设置为合作企业优惠
 	 * @param enterprise 合作企业名称
+	 * @param discount 折扣
+	 * @param neededPrice 需要满足的金额
+	 * @param reducePrice 减少的金额
 	 */
-	public void setEnterprisePromotion(String enterprise) {
+	public void setEnterprisePromotion(String enterprise, double discount, double neededPrice, double reducePrice) {
 		saleType = SaleType.Enterprise;
 		this.enterprise = enterprise;
+		this.discount = discount;
+		this.neededPrice = neededPrice;
+		this.reducePrice = reducePrice;
 	}
 	
 	/**
 	 * 将判断条件设置为特定商圈优惠
 	 * @param district 优惠商圈名称
+	 * @param discount 折扣
+	 * @param neededPrice 需要满足的金额
+	 * @param reducePrice 减少的金额
 	 */
-	public void setDistrictPromotion(String district) {
+	public void setDistrictPromotion(String district, double discount, double neededPrice, double reducePrice) {
 		saleType = SaleType.District;
-	}
-	
-	/**
-	 * 检查某客户是否符合优惠条件
-	 * @param memberVO 客户信息
-	 * @return 符合则为true，否则为false
-	 */
-	public boolean checkAvailable(MemberVO memberVO) {
-		return false;
+		this.district = district;
+		this.discount = discount;
+		this.neededPrice = neededPrice;
+		this.reducePrice = reducePrice;
 	}
 	
 	/**
@@ -127,7 +146,15 @@ public class PromotionVO {
 	 * @return 优惠价
 	 */
 	public double calculatePrice(double originalPrice) {
-		return 0;
+		if(promotionType==PromotionType.Reduce) {
+			if(originalPrice>=neededPrice) {
+				return originalPrice-reducePrice;
+			} else {
+				return originalPrice;
+			}
+		} else {
+			return originalPrice*discount;
+		}
 	}
 	
 	public String getPromotionID() {
@@ -176,14 +203,6 @@ public class PromotionVO {
 	
 	public void setEndDate(Date endDate) {
 		this.endDate = endDate;
-	}
-	
-	public Date getBirthday() {
-		return birthday;
-	}
-	
-	public void setBirthday(Date birthday) {
-		this.birthday = birthday;
 	}
 	
 	public int getNumberOfRoom() {
