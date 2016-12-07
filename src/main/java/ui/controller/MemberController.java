@@ -8,13 +8,22 @@ import bl.stub.HotelBLStub;
 import bl.stub.MemberBLStub;
 import bl.stub.ReserveBLStub;
 import bl.stub.SearchBLStub;
+import com.sun.javafx.scene.control.skin.TableColumnHeader;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.Parent;
 import javafx.scene.control.*;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
+import other.TableDateForMemberInfor;
+import other.TableDateForMemberOrder;
 import ui.presentation.*;
+import vo.CreditChangeVO;
 
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
 
 /**
@@ -37,6 +46,8 @@ public class MemberController{
     private MemberBLService member = new MemberBLStub();
     private HotelBLService hotel = new HotelBLStub();
     private ReserveBLService reserve = new ReserveBLStub();
+
+
 
     public static void setMidroot(Parent midroot) {
         MemberController.midroot = midroot;
@@ -90,6 +101,8 @@ public class MemberController{
 //        Date d = new Date();
 //        inTime.setValue(LocalDate.of(d.getYear(),d.getMonth(),d.getDay()));
     }
+//    @FXML
+//    private TableView table;
     @FXML
     private void onMenberInfor(ActionEvent E)throws Exception {
         new MemberInformationUI().start(primaryStage);
@@ -99,10 +112,51 @@ public class MemberController{
         userName.setText(member.getName());
         tel.setText(member.getTel());
         credit.setText(""+member.getCredit());
+
+        TableView table = (TableView) root.lookup("#table");
+//        table.getSelectionModel()
+        ObservableList<TableDateForMemberInfor> dataForMInfor
+                = FXCollections.observableArrayList();
+        ObservableList<TableColumn> tableList = table.getColumns();
+        String dateTem;
+        SimpleDateFormat sdf=new SimpleDateFormat("yyyy-MM-dd");
+        ArrayList<CreditChangeVO> list = member.getCreditChangeList();
+        for(int i=0;i<list.size();i++){
+            dateTem = sdf.format(list.get(i).getDate());
+            dataForMInfor.add(new TableDateForMemberInfor(list.get(i).getOrderID(),dateTem,
+                    list.get(i).getOrderAction().toString(),""+list.get(i).getChange(),""+list.get(i).getResult()));
+        }
+
+        tableList.get(0).setCellValueFactory(new PropertyValueFactory("num"));
+        tableList.get(1).setCellValueFactory(new PropertyValueFactory("date"));
+        tableList.get(2).setCellValueFactory(new PropertyValueFactory("action"));
+        tableList.get(3).setCellValueFactory(new PropertyValueFactory("change"));
+        tableList.get(4).setCellValueFactory(new PropertyValueFactory("now"));
+        table.setItems(dataForMInfor);
+
     }
     @FXML
     private void onOrderInfor(ActionEvent E)throws Exception {
         new MemberUnprocessedOrderUI().start(primaryStage);
+        TableView table = (TableView) root.lookup("#table");
+        ObservableList<TableDateForMemberOrder> dataForMInfor
+                = FXCollections.observableArrayList();
+        ObservableList<TableColumn> tableList = table.getColumns();
+        String dateTem;
+        SimpleDateFormat sdf=new SimpleDateFormat("yyyy-MM-dd");
+        ArrayList<OrderVO> list = member.
+        for(int i=0;i<list.size();i++){
+            dateTem = sdf.format(list.get(i).getDate());
+            dataForMInfor.add(new TableDateForMemberInfor(list.get(i).getOrderID(),dateTem,
+                    list.get(i).getOrderAction().toString(),""+list.get(i).getChange(),""+list.get(i).getResult()));
+        }
+
+        tableList.get(0).setCellValueFactory(new PropertyValueFactory("num"));
+        tableList.get(1).setCellValueFactory(new PropertyValueFactory("date"));
+        tableList.get(2).setCellValueFactory(new PropertyValueFactory("action"));
+        tableList.get(3).setCellValueFactory(new PropertyValueFactory("change"));
+        tableList.get(4).setCellValueFactory(new PropertyValueFactory("now"));
+        table.setItems(dataForMInfor);
     }
     @FXML
  private void onExecuteOrder(ActionEvent E)throws Exception {

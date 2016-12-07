@@ -94,6 +94,8 @@ public class HotelController {
                 address.getText().toString(),district.getText().toString(),hotel.getHotelInformation().getCity(),Integer.parseInt(level.getText().toString()),
                 hotel.getHotelInformation().getScore(), service.getText().toString(), introduction.getText().toString(),
                 hotel.getHotelInformation().getManagerName(),hotel.getHotelManagerTel()));
+        minprimaryStage.close();
+        onInfor(E);
     }
     @FXML
     private void onOrderManager(ActionEvent E)throws Exception {
