@@ -482,15 +482,15 @@ public class Search implements SearchBLService {
 	}
 	
 	/**
-	 * 把输入的日期往后加一天，并减少10秒
+	 * 把输入的日期往后加一天，并减少1秒
 	 * @param date 日期
 	 * @return 加一天后的日期
 	 */
-	public Date nextDay(Date date) {
+	public static Date nextDay(Date date) {
 		Calendar calendar = Calendar.getInstance();
 		calendar.setTime(date);
 		calendar.add(calendar.DATE, 1);
-		calendar.add(calendar.SECOND, -10);
+		calendar.add(calendar.SECOND, -1);
 		return calendar.getTime();
 	}
 	

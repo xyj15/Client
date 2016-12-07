@@ -21,7 +21,6 @@ public interface ReserveBLService {
 	public String getHotelName();	//获得酒店名称
 	public String getHotelAddress();	//获得酒店地址
 	public int getHotelLevel();	//获得酒店星级
-	public String getHotelTel();	//获得酒店联系方式
 	
 	public ArrayList<RoomVO> getRoomList(Date date);	//返回该酒店某个日期的客房列表
 	public RoomVO getSelectedRoom();	//获取选择预订的客房

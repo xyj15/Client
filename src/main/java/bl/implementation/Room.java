@@ -41,7 +41,6 @@ public class Room implements RoomBLService {
 		return roomVO;
 	}
 	
-	
 	/**
 	 * 添加新客房
 	 * @param roomVO 新客房信息

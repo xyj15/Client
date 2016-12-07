@@ -86,12 +86,6 @@ public class ReserveBLStub implements ReserveBLService {
 	}
 	
 	@Override
-	public String getHotelTel() {
-		System.out.println("获取酒店联系方式成功");
-		return hotelTel;
-	}
-	
-	@Override
 	public ArrayList<RoomVO> getRoomList(Date date) {
 		System.out.println("获取客房列表成功");
 		ArrayList<RoomVO> roomList = new ArrayList<RoomVO>();
