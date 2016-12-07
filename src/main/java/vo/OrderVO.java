@@ -15,6 +15,7 @@ public class OrderVO {
 	private String hotelID;	//订单相关酒店
 	private String orderID;	//订单编号
 	private OrderStatus orderStatus;	//订单状态
+	private String hotelName;	//订单相关酒店
 	private Date createTime;	//订单创建时间
 	private Date checkinTime; 	//预计入住时间
 	private Date actualCheckinTime;	//实际入住时间
@@ -52,10 +53,11 @@ public class OrderVO {
 	 * @param haveKids 有无儿童
 	 * @param promotionID 使用的促销策略ID
 	 * @param price 订单价值
+	 * @param hotelName 酒店名称
 	 */
 	public OrderVO(String memberID, String hotelID, Date checkinTime, Date checkoutTime,
 				   Date latestCheckinTime, String roomName, int numberOfRoom, int numberOfClient,
-				   boolean haveKids, String promotionID, double price) {
+				   boolean haveKids, String promotionID, double price, String hotelName) {
 		this.memberID = memberID;
 		this.hotelID = hotelID;
 		this.checkinTime = checkinTime;
@@ -67,7 +69,7 @@ public class OrderVO {
 		this.haveKids = haveKids;
 		this.promotionID = promotionID;
 		this.price = price;
-		
+		this.hotelName = hotelName;
 		this.orderStatus = OrderStatus.Unexecuted;
 		this.createTime = new Date();
 	}
@@ -95,10 +97,13 @@ public class OrderVO {
 	 * @param price 订单价值
 	 * @param cancelTime 订单撤销时间
 	 */
-	public OrderVO(String memberID, String hotelID, String orderID, OrderStatus orderStatus, Date createTime,
-				   Date checkinTime, Date actualCheckinTime, Date latestCheckinTime, Date checkoutTime,
-				   Date actualCheckoutTime, int numberOfRoom, String roomName, int numberOfClient, boolean haveKids,
-				   double score, String evaluation, double recover, String promotionID, double price, Date cancelTime) {
+	public OrderVO(String memberID, String hotelID, String orderID,
+				   OrderStatus orderStatus, Date createTime, Date checkinTime,
+				   Date actualCheckinTime, Date latestCheckinTime, Date checkoutTime,
+				   Date actualCheckoutTime, int numberOfRoom, String roomName,
+				   int numberOfClient, boolean haveKids, double score,
+				   String evaluation, double recover, String promotionID,
+				   double price, Date cancelTime) {
 		this.memberID = memberID;
 		this.hotelID = hotelID;
 		this.orderID = orderID;
@@ -279,5 +284,13 @@ public class OrderVO {
 	
 	public void setCancelTime(Date cancelTime) {
 		this.cancelTime = cancelTime;
+	}
+	
+	public String getHotelName() {
+		return hotelName;
+	}
+	
+	public void setHotelName(String hotelName) {
+		this.hotelName = hotelName;
 	}
 }

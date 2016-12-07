@@ -179,9 +179,12 @@ public class Order implements OrderBLService {
 		orderList = new ArrayList<OrderVO>();
 		OrderPO orderPO;
 		OrderVO orderVO;
+		Hotel hotel;
 		for(int i=0; i<orderList.size(); i++) {
 			orderPO = orderPOArrayList.get(i);
 			orderVO = orderPOtoVO(orderPO);
+			hotel = new Hotel(orderVO.getHotelID());
+			orderVO.setHotelName(hotel.getHotelName());
 			orderList.add(orderVO);
 		}
 	}
