@@ -107,12 +107,6 @@ public class MemberBLStub implements MemberBLService {
 	}
 	
 	@Override
-	public boolean markHotel(String hotelID) {
-		System.out.println("收藏酒店成功");
-		return true;
-	}
-	
-	@Override
 	public boolean CreateOrder(OrderVO orderVO) {
 		System.out.println("创建订单成功");
 		return true;

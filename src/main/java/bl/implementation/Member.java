@@ -21,9 +21,6 @@ public class Member implements MemberBLService {
 	
 	private String memberID;
 	private MemberVO memberVO;
-	
-	private Search search;
-	private Reserve reserve;
 	private Order order;
 	
 	private MemberDataService memberDataService;
@@ -32,97 +29,152 @@ public class Member implements MemberBLService {
 	 * 注册用户时使用这个构造方法，分配一个可用的ID
 	 */
 	public Member() {
-		init();
 		memberVO = new MemberVO();
 		memberVO.setUserID(memberDataService.getAvailableID());
 		updateDataToFile();
 	}
-
+	
+	/**
+	 * 一般客户的构造方法，需要提供客户ID
+	 * @param memberID 客户ID
+	 */
 	public Member(String memberID) {
-		init();
 		this.memberID = memberID;
 		updateDataFromFile();
 	}
 	
-	public void init() {
-		
-	}
-	
+	/**
+	 * 获取客户名称
+	 * @return 客户名称
+	 */
 	@Override
 	public String getName() {
 		return null;
 	}
 	
+	/**
+	 * 获取客户联系方式
+	 * @return 客户联系方式
+	 */
 	@Override
 	public String getTel() {
 		return null;
 	}
 	
+	/**
+	 * 获取客户信用值
+	 * @return 客户信用值
+	 */
 	@Override
 	public double getCredit() {
 		return 0;
 	}
 	
+	/**
+	 * 获取客户信用变化列表
+	 * @return 信用变化列表
+	 */
 	@Override
 	public ArrayList<CreditChangeVO> getCreditChangeList() {
 		return null;
 	}
 	
+	/**
+	 * 获取客户会员等级
+	 * @return 会员等级
+	 */
 	@Override
 	public int getLevel() {
 		return 0;
 	}
 	
+	/**
+	 * 获取当前等级享受折扣
+	 * @return 当前等级享受折扣
+	 */
 	@Override
 	public double getDiscount() {
 		return 0;
 	}
 	
+	/**
+	 * 获取客户类型
+	 * @return 客户类型：普通客户或企业客户
+	 */
 	@Override
 	public MemberType getMemberType() {
 		return null;
 	}
 	
+	/**
+	 * 获取客户生日
+	 * @return 客户生日
+	 */
 	@Override
 	public Date getBirthday() {
 		return null;
 	}
 	
+	/**
+	 * 获取合作企业名称
+	 * @return 合作企业名称
+	 */
 	@Override
 	public String getEnterprise() {
 		return null;
 	}
 	
+	/**
+	 * 获取客户信息
+	 * @return 客户信息
+	 */
 	@Override
 	public MemberVO getMemberInformation() {
 		return null;
 	}
 	
+	/**
+	 * 更新客户信息
+	 * @param memberVO 客户信息
+	 * @return 更新成功则返回true，否则返回false
+	 */
 	@Override
 	public boolean updateMemberInformation(MemberVO memberVO) {
 		return false;
 	}
 	
+	/**
+	 * 打开对应酒店的预订界面
+	 * @param hotelID 酒店ID
+	 * @return 打开成功则返回true，否则返回false
+	 */
 	@Override
 	public boolean newReservation(String hotelID) {
-		reserve = new Reserve(memberVO.getUserID(), hotelID);
-		return true;
+		return false;
 	}
 	
-	@Override
-	public boolean markHotel(String hotelID) {
-		return false;
-	};
-	
+	/**
+	 * 创建新订单
+	 * @param orderVO 订单信息
+	 * @return 创建成功则返回true，否则返回false
+	 */
 	@Override
 	public boolean CreateOrder(OrderVO orderVO) {
 		return false;
 	}
 	
+	/**
+	 * 更新数据到Data层
+	 * @return 更新成功则返回true，否则返回false
+	 */
 	public boolean updateDataToFile() {
 		return false;
 	}
 	
+	/**
+	 * 从Data层更新数据
+	 * @return 更新成功则返回true，否则返回false
+	 */
 	public boolean updateDataFromFile() {
 		return false;
 	}
