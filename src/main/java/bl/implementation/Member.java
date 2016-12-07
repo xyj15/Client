@@ -4,8 +4,10 @@ import data.service.MemberDataService;
 import bl.service.MemberBLService;
 
 import other.MemberType;
+import other.OrderStatus;
 import other.Rank;
 import po.MemberPO;
+import po.OrderPO;
 import vo.CreditChangeVO;
 import vo.MemberVO;
 import vo.OrderVO;
@@ -136,6 +138,80 @@ public class Member implements MemberBLService {
 	}
 	
 	/**
+	 * 获得用户的所有订单
+	 * @return 所有订单列表
+	 */
+	@Override
+	public ArrayList<OrderVO> getOrderList() {
+		updateDataFromFile();
+		return order.getOrderList();
+	}
+	
+	/**
+	 * 获得用户的已执行订单
+	 * @return 已执行订单列表
+	 */
+	@Override
+	public ArrayList<OrderVO> getExcutedOrders() {
+		updateDataFromFile();
+		return order.getExcutedOrders();
+	}
+	
+	/**
+	 * 获得用户的未执行订单
+	 * @return 未执行订单列表
+	 */
+	@Override
+	public ArrayList<OrderVO> getUnexcutedOrders() {
+		updateDataFromFile();
+		return order.getUnexcutedOrders();
+	}
+	
+	/**
+	 * 获得用户的异常订单
+	 * @return 异常订单列表
+	 */
+	@Override
+	public ArrayList<OrderVO> getAbnormalOrders() {
+		updateDataFromFile();
+		return order.getAbnormalOrders();
+	}
+	
+	/**
+	 * 获得用户的已撤销订单
+	 * @return 已撤销订单列表
+	 */
+	@Override
+	public ArrayList<OrderVO> getCanceledOrders() {
+		updateDataFromFile();
+		return order.getCanceledOrders();
+	}
+	
+	/**
+	 * 撤销订单
+	 * @param orderID 订单ID
+	 * @return 撤销成功则返回true，否则返回false
+	 */
+	@Override
+	public boolean cancelOrder(String orderID) {
+		updateDataFromFile();
+		return order.cancelOrder(orderID);
+	}
+	
+	/**
+	 * 评价订单
+	 * @param orderID 订单ID
+	 * @param score 评分
+	 * @param comment 评价
+	 * @return 评价成功则返回true，否则返回false
+	 */
+	@Override
+	public boolean evaluateOrder(String orderID, double score, String comment) {
+		updateDataFromFile();
+		return order.evaluateOrder(orderID, score, comment);
+	}
+	
+	/**
 	 * 获取客户信息
 	 * @return 客户信息
 	 */
@@ -259,13 +335,5 @@ public class Member implements MemberBLService {
 	 */
 	public boolean deleteMember() {
 		return memberDataService.deleteMember(memberID);
-	}
-	
-	public Order getOrder() {
-		return order;
-	}
-	
-	public void setOrder(Order order) {
-		this.order = order;
 	}
 }
