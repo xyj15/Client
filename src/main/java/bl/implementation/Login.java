@@ -1,12 +1,9 @@
 package bl.implementation;
 
 import bl.service.LoginBLService;
-import other.MemberType;
 import other.User;
 import other.UserType;
 import vo.MemberVO;
-
-import java.util.Date;
 
 /**
  * Login模块bl的实现类
@@ -93,25 +90,8 @@ public class Login implements LoginBLService {
 	 */
 	@Override
 	public boolean register(MemberVO memberVO) {
-		Member member = new Member();
-		String password = memberVO.getPassword();
-		String name = memberVO.getName();
-		String tel = memberVO.getTel();
-		int level = 1;
-		double discount = 1;
-		MemberType memberType = memberVO.getMemberType();
-		Date birthday = memberVO.getBirthday();
-		String enterprise = memberVO.getEnterprise();
-		memberVO = member.getMemberInformation();
-		memberVO.setPassword(password);
-		memberVO.setName(name);
-		memberVO.setTel(tel);
-		memberVO.setLevel(level);
-		memberVO.setDiscount(discount);
-		memberVO.setMemberType(memberType);
-		memberVO.setBirthday(birthday);
-		memberVO.setEnterprise(enterprise);
-		return member.registerMember(memberVO);
+		Member member = new Member(memberVO);
+		return member.updateDataToFile();
 	}
 	
 	/**
