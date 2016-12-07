@@ -1,88 +1,167 @@
-//package test;
-//
-//import static org.junit.Assert.assertEquals;
-//
-//import java.util.ArrayList;
-//
-//import org.junit.*;
-//
-//import bl.implementation.Search;
-//import bl.mock.MockHotel;
-//import vo.HotelVO;
-//
-///**
-// * Search的测试类
-// * @author CROFF
-// * @version 2016-11-09
-// */
-//public class SearchTest {
-//
-//	private Search s;
-//
-//	MockHotel h1 = new MockHotel("001", "新悦大酒店",
-//			"南京市仙林大道163号", "五星级", "南京大学商圈", null);
-//	MockHotel h2 = new MockHotel("002", "一家黑店",
-//			"南京市仙林大道162号", "二星级", "南京大学商圈", null);
-//	MockHotel h3 = new MockHotel("003", "南大宿舍",
-//			"南京市汉口路22号", "一星级", "南京大学商圈", null);
-//
-//	String address1 = "南京市仙林大道163号";
-//	String address2 = "南京市仙林大道162号";
-//	String address3 = "南京市汉口路22号";
-//
-//	String district = "南京大学商圈";
-//
-//	@Before
-//	public void setUp() {
-//		s = new Search(null);
-//		ArrayList<HotelVO> hotelList = new ArrayList<HotelVO>();
-//		hotelList.add(h1);
-//		hotelList.add(h2);
-//		hotelList.add(h3);
-//		s.setAllHotelList(hotelList);
-//	}
-//
-//	@Test
-//	public void testSetAddress() {
-//		s.setCity(address1);
-//		assertEquals(s.getAddress(), address1);
-//		s.setCity(address2);
-//		assertEquals(s.getAddress(), address2);
-//		s.setCity(address3);
-//		assertEquals(s.getAddress(), address3);
-//	}
-//
-//	@Test
-//	public void testSetDistrict() {
-//		s.setDistrict(district);
-//		assertEquals(s.getDistrict(), district);
-//	}
-//
-//	@Test
-//	public void testGetHotelList() {
-//		ArrayList<HotelVO> list;
-//
-//		s.setDistrict(district);
-//		s.setCity(null);
-//		list = s.search();
-//		assertEquals(list.get(0), h1);
-//		assertEquals(list.get(1), h2);
-//		assertEquals(list.get(2), h3);
-//
-//		s.setDistrict(null);
-//		s.setCity(address1);
-//		list = s.search();
-//		assertEquals(list.get(0), h1);
-//
-//		s.setDistrict(null);
-//		s.setCity(address2);
-//		list = s.search();
-//		assertEquals(list.get(0), h2);
-//
-//		s.setDistrict(null);
-//		s.setCity(address3);
-//		list = s.search();
-//		assertEquals(list.get(0), h3);
-//	}
-//
-//}
+package test;
+
+import org.junit.Before;
+import org.junit.Test;
+
+import static org.junit.Assert.*;
+
+/**
+ * Created by CROFF on 2016/12/7.
+ */
+public class SearchTest {
+	@Before
+	public void setUp() throws Exception {
+		
+	}
+	
+	@Test
+	public void setCity() throws Exception {
+		
+	}
+	
+	@Test
+	public void setDistrict() throws Exception {
+		
+	}
+	
+	@Test
+	public void setHotelName() throws Exception {
+		
+	}
+	
+	@Test
+	public void setLevel() throws Exception {
+		
+	}
+	
+	@Test
+	public void setRoomType() throws Exception {
+		
+	}
+	
+	@Test
+	public void setNumberOfRooms() throws Exception {
+		
+	}
+	
+	@Test
+	public void setLowerPrice() throws Exception {
+		
+	}
+	
+	@Test
+	public void setUpperPrice() throws Exception {
+		
+	}
+	
+	@Test
+	public void setLowerScore() throws Exception {
+		
+	}
+	
+	@Test
+	public void setUpperScore() throws Exception {
+		
+	}
+	
+	@Test
+	public void setCheckinTime() throws Exception {
+		
+	}
+	
+	@Test
+	public void setCheckoutTime() throws Exception {
+		
+	}
+	
+	@Test
+	public void setOnlyReservationBefore() throws Exception {
+		
+	}
+	
+	@Test
+	public void search() throws Exception {
+		
+	}
+	
+	@Test
+	public void filterExceptDate() throws Exception {
+		
+	}
+	
+	@Test
+	public void sortByPriceHighToLow() throws Exception {
+		
+	}
+	
+	@Test
+	public void sortByPriceLowToHigh() throws Exception {
+		
+	}
+	
+	@Test
+	public void sortByScoreHighToLow() throws Exception {
+		
+	}
+	
+	@Test
+	public void sortByScoreLowToHigh() throws Exception {
+		
+	}
+	
+	@Test
+	public void sortByLevelHighToLow() throws Exception {
+		
+	}
+	
+	@Test
+	public void sortByLevelLowToHigh() throws Exception {
+		
+	}
+	
+	@Test
+	public void filterByhotelName() throws Exception {
+		
+	}
+	
+	@Test
+	public void filterByLevel() throws Exception {
+		
+	}
+	
+	@Test
+	public void filterByNumberOfRooms() throws Exception {
+		
+	}
+	
+	@Test
+	public void filterByPrice() throws Exception {
+		
+	}
+	
+	@Test
+	public void filterByScore() throws Exception {
+		
+	}
+	
+	@Test
+	public void filterByReservedBefore() throws Exception {
+		
+	}
+	
+	@Test
+	public void filterByDate() throws Exception {
+		
+	}
+	
+	@Test
+	public void nextDay() throws Exception {
+		
+	}
+	
+	@Test
+	public void updateHotelInfomationByDate() throws Exception {
+		
+	}
+	
+}
