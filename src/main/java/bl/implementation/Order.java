@@ -15,7 +15,7 @@ import java.util.Date;
 /**
  * Order模块bl的实现类
  * @author CROFF
- * @version 2016-12-2
+ * @version 2016-12-7
  */
 public class Order implements OrderBLService {
 	
@@ -101,6 +101,21 @@ public class Order implements OrderBLService {
 		orderVO.setCancelTime(new Date());
 		orderList.set(index, orderVO);
 		OrderPO orderPO = orderVOtoPO(orderVO);
+		
+		Date now = new Date();
+		Calendar calendar = Calendar.getInstance();
+		calendar.setTime(now);
+		calendar.add(Calendar.HOUR, 6);
+		Date sixHourLater = calendar.getTime();
+		Date latestArriveTime = orderVO.getLatestCheckinTime();
+		if(sixHourLater.after(latestArriveTime)) {
+			Credit credit = new Credit(userID);
+			double creditChange = orderVO.getPrice()*0.5;
+			double changeResult = credit.getCredit() - creditChange;
+			CreditChangeVO creditChangeVO = new CreditChangeVO(new Date(), getNewOrderID(userID),
+					OrderAction.CancelOrder, creditChange, changeResult);
+			credit.addCreditChange(creditChangeVO);
+		}
 		return orderDataService.updateOrder(orderPO);
 	}
 	
@@ -291,6 +306,17 @@ public class Order implements OrderBLService {
 	 * @return 创建成功则返回true，否则返回false
 	 */
 	public boolean createOrder(OrderVO orderVO) {
+		String orderID = getNewOrderID(userID);
+		orderVO.setOrderID(orderID);
+		return orderDataService.addOrder(orderVOtoPO(orderVO));
+	}
+	
+	/**
+	 * 根据当前时间和客户ID计算新的订单ID
+	 * @param memberID 客户ID
+	 * @return 新的订单ID
+	 */
+	public static String getNewOrderID(String memberID) {
 		Calendar calendar = Calendar.getInstance();
 		calendar.setTime(new Date());
 		String year = String.valueOf(calendar.get(Calendar.YEAR));
@@ -299,8 +325,7 @@ public class Order implements OrderBLService {
 		String hour = String.valueOf(calendar.get(Calendar.HOUR));
 		String minute = String.valueOf(calendar.get(Calendar.MINUTE));
 		String second = String.valueOf(calendar.get(Calendar.SECOND));
-		String orderID = year+month+day+hour+minute+second+userID;
-		orderVO.setOrderID(orderID);
-		return orderDataService.addOrder(orderVOtoPO(orderVO));
+		String orderID = year+month+day+hour+minute+second+memberID;
+		return orderID;
 	}
 }
