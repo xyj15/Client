@@ -1,41 +1,117 @@
-//package test;
-//
-//import static org.junit.Assert.*;
-//
-//import org.junit.*;
-//
-//import bl.implementation.Reserve;
-//import bl.mock.MockPromotion;
-//import other.Date;
-//
-///**
-// * Reserve的测试类
-// * @author CROFF
-// * @version 2016-11-13
-// */
-//public class ReserveTest {
-//
-//	private Reserve r;
-//
-//	@Before
-//	public void setUp() {
-//		r = new Reserve(null);
-//	}
-//
-//	@Test
-//	public void tesetSetPromotion() {
-//		Date birthday = new Date(1996, 1, 1);
-//		int roomNum = 3304;
-//		boolean isCoordinate = false;
-//		Date date = new Date(2016, 10, 10);
-//		boolean isVIP = false;
-//		String district = "南京市新街口";
-//		double discount = 0.8;
-//		MockPromotion promo = new MockPromotion(birthday, roomNum, isCoordinate,
-//				date, isVIP, district, discount, "0011");
-//		r.setPromotion(promo);
-//
-//		assertEquals(r.getPromotion(), promo);
-//	}
-//
-//}
+package test;
+
+import org.junit.Before;
+import org.junit.Test;
+
+import static org.junit.Assert.*;
+
+/**
+ * Created by CROFF on 2016/12/7.
+ */
+public class ReserveTest {
+	@Before
+	public void setUp() throws Exception {
+		
+	}
+	
+	@Test
+	public void getPromotionList() throws Exception {
+		
+	}
+	
+	@Test
+	public void getPromotion() throws Exception {
+		
+	}
+	
+	@Test
+	public void setPromotion() throws Exception {
+		
+	}
+	
+	@Test
+	public void getPrice() throws Exception {
+		
+	}
+	
+	@Test
+	public void getHotelName() throws Exception {
+		
+	}
+	
+	@Test
+	public void getHotelAddress() throws Exception {
+		
+	}
+	
+	@Test
+	public void getHotelLevel() throws Exception {
+		
+	}
+	
+	@Test
+	public void getRoomList() throws Exception {
+		
+	}
+	
+	@Test
+	public void getSelectedRoom() throws Exception {
+		
+	}
+	
+	@Test
+	public void setSelectedRoom() throws Exception {
+		
+	}
+	
+	@Test
+	public void setCheckinTime() throws Exception {
+		
+	}
+	
+	@Test
+	public void setChekckoutTime() throws Exception {
+		
+	}
+	
+	@Test
+	public void setLatestArriveTime() throws Exception {
+		
+	}
+	
+	@Test
+	public void setClientName() throws Exception {
+		
+	}
+	
+	@Test
+	public void setClientTel() throws Exception {
+		
+	}
+	
+	@Test
+	public void setNumberOfClient() throws Exception {
+		
+	}
+	
+	@Test
+	public void setHaveKids() throws Exception {
+		
+	}
+	
+	@Test
+	public void setNumberOfRoom() throws Exception {
+		
+	}
+	
+	@Test
+	public void setOtherReq() throws Exception {
+		
+	}
+	
+	@Test
+	public void createOrder() throws Exception {
+		
+	}
+	
+}

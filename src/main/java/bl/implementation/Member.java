@@ -22,7 +22,6 @@ public class Member implements MemberBLService {
 	
 	private String memberID;
 	private MemberVO memberVO;
-	private Order order;
 	private Credit credit;
 	
 	private MemberDataService memberDataService;
@@ -30,10 +29,15 @@ public class Member implements MemberBLService {
 	/**
 	 * 注册用户时使用这个构造方法，分配一个可用的ID
 	 */
-	public Member() {
-		memberVO = new MemberVO();
-		memberVO.setUserID(memberDataService.getAvailableID());
-		updateDataToFile();
+	public Member(MemberVO memberVO) {
+		this.memberID = memberDataService.getAvailableID();
+		memberVO.setUserID(memberID);
+		this.memberVO = memberVO;
+		MemberPO memberPO = memberVOtoPO(memberVO);
+		memberDataService.addMember(memberPO);
+		
+		credit = new Credit(memberID);
+		credit.initialCredit();
 	}
 	
 	/**
@@ -190,7 +194,6 @@ public class Member implements MemberBLService {
 	 * @return 更新成功则返回true，否则返回false
 	 */
 	public boolean updateDataFromFile() {
-		order = new Order(memberID);
 		credit = new Credit(memberID);
 		memberVO = memberPOtoVO(memberDataService.getMember(memberID));
 		Rank rank = Rank.getInstance();
@@ -242,30 +245,10 @@ public class Member implements MemberBLService {
 	}
 	
 	/**
-	 * 将新用户的信息传入数据层
-	 * @param memberVO 新用户的信息
-	 * @return 传入成功则返回true，否则返回false
-	 */
-	public boolean registerMember(MemberVO memberVO) {
-		MemberPO memberPO = memberVOtoPO(memberVO);
-		this.memberVO = memberVO;
-		updateDataToFile();
-		return memberDataService.addMember(memberPO);
-	}
-	
-	/**
 	 * 删除当前客户
 	 * @return 删除成功则返回true，否则返回false
 	 */
 	public boolean deleteMember() {
 		return memberDataService.deleteMember(memberID);
-	}
-	
-	public Order getOrder() {
-		return order;
-	}
-	
-	public void setOrder(Order order) {
-		this.order = order;
 	}
 }
