@@ -172,7 +172,7 @@ public class Member implements MemberBLService {
 	 * @return 创建成功则返回true，否则返回false
 	 */
 	@Override
-	public boolean CreateOrder(OrderVO orderVO) {
+	public boolean createOrder(OrderVO orderVO) {
 		return false;
 	}
 	
@@ -259,5 +259,13 @@ public class Member implements MemberBLService {
 	 */
 	public boolean deleteMember() {
 		return memberDataService.deleteMember(memberID);
+	}
+	
+	public Order getOrder() {
+		return order;
+	}
+	
+	public void setOrder(Order order) {
+		this.order = order;
 	}
 }

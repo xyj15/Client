@@ -1,25 +1,27 @@
-//package bl.driver;
-//
-//import bl.service.OrderBLService;
-//import bl.stub.OrderBLStub;
-//import vo.OrderVO;
-//
-//public class OrderBLDriver {
-//
-//	OrderBLService orderbl = new OrderBLStub();
-//
-//	public void drive(OrderVO ordervo){
-////		System.out.println(orderbl.addOrder(ordervo));
-////		System.out.println(orderbl.abnormalOrder(ordervo));
-////		System.out.println(orderbl.cancelOrder(ordervo));
-////		System.out.println(orderbl.cancelAbnormalOrder(ordervo));
-////		System.out.println(orderbl.getOrder());
-//		System.out.println(orderbl.getOrderList());
-//	}
-//
-//	public static void main(String[] args) {
-//		OrderBLDriver driver =new OrderBLDriver();
-////		driver.drive(new OrderVO(2, "1997-2-2", "1997-2-5", 1, 2, "��", 0, 450, "123"));
-//	}
-//
-//}
+package bl.driver;
+
+import bl.service.OrderBLService;
+import bl.stub.OrderBLStub;
+
+public class OrderBLDriver {
+
+	OrderBLService orderBLService = new OrderBLStub();
+
+	public void drive() {
+		String orderID = "2011111112323232345678";
+		System.out.println(orderBLService.getOrderList());
+		System.out.println(orderBLService.getAbnormalOrders());
+		System.out.println(orderBLService.getCanceledOrders());
+		System.out.println(orderBLService.getExcutedOrders());
+		System.out.println(orderBLService.getUnexcutedOrders());
+		System.out.println(orderBLService.cancelOrder(orderID));
+		System.out.println(orderBLService.evaluateOrder(orderID, 5, "comment"));
+		System.out.println(orderBLService.cancelAbnormalOrder(orderID, 0.5));
+	}
+
+	public static void main(String[] args) {
+		OrderBLDriver orderBLDriver = new OrderBLDriver();
+		orderBLDriver.drive();
+	}
+
+}
