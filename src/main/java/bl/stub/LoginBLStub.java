@@ -27,7 +27,7 @@ public class LoginBLStub implements LoginBLService {
 	@Override
 	public boolean login(String userID, String password) {
 		System.out.println("检查密码是否正确成功");
-		return false;
+		return true;
 	}
 	
 	@Override

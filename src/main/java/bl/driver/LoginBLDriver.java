@@ -1,26 +1,27 @@
-//package bl.driver;
-//
-//import bl.service.LoginBLService;
-//import bl.stub.LoginBLStub;
-//
-//public class LoginBLDriver {
-//
-//	LoginBLService service = new LoginBLStub();
-//
-//	public void isCorrect(String ID, String password){
-//		System.out.println("---登陆————");
-//	}
-//
-//	public void isValid(String ID, String password){
-//		System.out.println("---yanzheng————");
-//	}
-//
-//	public static void main(String[] args) {
-//
-//		LoginBLDriver driver = new LoginBLDriver();
-//		driver.isCorrect("541322049", "DREAMING");
-//		driver.isValid("541322049", "DREAMING");
-//
-//	}
-//
-//}
+package bl.driver;
+
+import bl.service.LoginBLService;
+import bl.stub.LoginBLStub;
+import vo.MemberVO;
+
+public class LoginBLDriver {
+
+	LoginBLService loginBLService = new LoginBLStub();
+	
+	public void drive() {
+		String memberID = "12345678";
+		String password = "12345678910";
+		System.out.println(loginBLService.checkNetwork());
+		System.out.println(loginBLService.existUserID(memberID));
+		System.out.println(loginBLService.getUserType(memberID));
+		System.out.println(loginBLService.login(memberID, password));
+		System.out.println(loginBLService.register(new MemberVO()));
+		System.out.println(loginBLService.validPassword(password));
+	}
+
+	public static void main(String[] args) {
+		LoginBLDriver loginBLDriver = new LoginBLDriver();
+		loginBLDriver.drive();
+	}
+
+}

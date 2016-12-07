@@ -4,6 +4,7 @@ import bl.service.ReserveBLService;
 import vo.*;
 
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.Date;
 
 /**
@@ -16,19 +17,22 @@ public class Reserve implements ReserveBLService {
 	private String memberID;	//客户ID
 	private String hotelID;	//目标酒店ID
 
-	private Promotion promotion;
+	private ArrayList<PromotionVO> availablePromotionList;
+	private Promotion promotion;	//营销策略信息
 	private PromotionVO promotionVO;	//使用的促销策略
+	private Hotel hotel;	//目标酒店信息
 	
-	private String hotelName;	//目标酒店名称
-	private String hotelAddress;	//目标酒店地址
-	private int hotelLevel;	//目标酒店星级
-	private String hotelTel;	//目标酒店联系方式
-	private String roomName;	//目标客房名称
+	private RoomVO roomVO;	//要预订的客房
+	private int numberOfRooms;	//要预订的客房数量
 	private Date checkinTime;	//预期入住时间
 	private Date checkoutTime;	//预期离店时间
+	private Date latestArriveTime;	//最晚到店时间
 	private String clientName;	//客户名称
 	private String clientTel;	//客户联系方式
+	private int numberOfClient;	//预计入住人数
+	private boolean haveKids;	//是否有儿童
 	private String otherReq;	//其它要求
+	private double price;	//订单价值
 	
 	/**
 	 * 构造方法，需要客户ID和目标酒店ID
@@ -39,6 +43,45 @@ public class Reserve implements ReserveBLService {
 		this.memberID = memberID;
 		this.hotelID = hotelID;
 		promotion = new Promotion();
+		hotel = new Hotel(hotelID);
+		
+		//以下为初始化的默认信息
+		Room room = new Room(hotelID);
+		roomVO = room.getDailyRoomList(new Date()).get(0);
+		numberOfRooms = 1;
+		checkinTime = new Date();
+		checkoutTime = Search.nextDay(new Date());
+		
+		Date latestArriveTime = new Date();
+		Calendar calendar = Calendar.getInstance();
+		calendar.setTime(latestArriveTime);
+		calendar.set(Calendar.HOUR, 21);
+		calendar.set(Calendar.MINUTE, 0);
+		calendar.set(Calendar.SECOND, 0);
+		this.latestArriveTime = calendar.getTime();
+		
+		Member member = new Member(memberID);
+		clientName = member.getName();
+		clientTel = member.getTel();
+		
+		numberOfClient = 1;
+		haveKids = false;
+		otherReq = "";
+		price = getPrice();
+		
+		availablePromotionList = promotion.getAvailablePromotionList(memberID, hotelID, numberOfRooms);
+		double minPrice = Double.MAX_VALUE;
+		int index = 0;
+		for(int i=0; i<availablePromotionList.size(); i++) {
+			promotionVO = availablePromotionList.get(i);
+			price = getPrice();
+			if(price<minPrice) {
+				index = i;
+				minPrice = price;
+			}
+		}
+		promotionVO = availablePromotionList.get(index);
+		price = minPrice;
 	}
 	
 	/**
@@ -47,7 +90,8 @@ public class Reserve implements ReserveBLService {
 	 */
 	@Override
 	public ArrayList<PromotionVO> getPromotionList() {
-		return null;
+		promotion.updateDataFromFile();
+		return promotion.getWebPromotionList();
 	}
 	
 	/**
@@ -56,7 +100,7 @@ public class Reserve implements ReserveBLService {
 	 */
 	@Override
 	public PromotionVO getPromotion() {
-		return null;
+		return promotionVO;
 	}
 	
 	/**
@@ -67,7 +111,7 @@ public class Reserve implements ReserveBLService {
 	@Override
 	public boolean setPromotion(PromotionVO promotionVO) {
 		this.promotionVO = promotionVO;
-		return false;
+		return true;
 	}
 	
 	/**
@@ -76,7 +120,15 @@ public class Reserve implements ReserveBLService {
 	 */
 	@Override
 	public double getPrice() {
-		return 0;
+		if(roomVO==null) {
+			return 0;
+		} else {
+			if(promotionVO==null) {
+				return roomVO.getPrice();
+			} else {
+				return promotionVO.calculatePrice(roomVO.getPrice());
+			}
+		}
 	}
 	
 	/**
@@ -85,7 +137,8 @@ public class Reserve implements ReserveBLService {
 	 */
 	@Override
 	public String getHotelName() {
-		return hotelName;
+		hotel.updateDateFromFile();
+		return hotel.getHotelName();
 	}
 	
 	/**
@@ -94,7 +147,8 @@ public class Reserve implements ReserveBLService {
 	 */
 	@Override
 	public String getHotelAddress() {
-		return hotelAddress;
+		hotel.updateDateFromFile();
+		return hotel.getHotelAddress();
 	}
 	
 	/**
@@ -103,126 +157,150 @@ public class Reserve implements ReserveBLService {
 	 */
 	@Override
 	public int getHotelLevel() {
-		return hotelLevel;
+		hotel.updateDateFromFile();
+		return hotel.getHotelLevel();
 	}
 	
 	/**
-	 * 获取目标酒店联系方式
-	 * @return 目标酒店联系方式
+	 * 根据酒店ID和日期获取酒店某天的客房列表
+	 * @param date 日期
+	 * @return 酒店某天的客房列表
 	 */
 	@Override
-	public String getHotelTel() {
-		return hotelTel;
+	public ArrayList<RoomVO> getRoomList(Date date) {
+		Room room = new Room(hotelID);
+		return room.getDailyRoomList(date);
 	}
 	
 	/**
-	 * 获取
-	 * @return
+	 * 获取选择的房型信息
+	 * @return 客房信息
 	 */
 	@Override
-	public String getRoomName() {
-		return roomName;
+	public RoomVO getSelectedRoom() {
+		return roomVO;
 	}
 	
 	/**
-	 *
-	 * @param checkinTime
-	 * @return
+	 * 设置选择的房型
+	 * @param roomVO 选择的客房
+	 * @return 设置成功则返回true，否则返回false
+	 */
+	@Override
+	public boolean setSelectedRoom(RoomVO roomVO) {
+		this.roomVO = roomVO;
+		return true;
+	}
+	
+	/**
+	 * 设置预期入住时间
+	 * @param checkinTime 预期入住时间
+	 * @return 设置成功则返回true，否则返回false
 	 */
 	@Override
 	public boolean setCheckinTime(Date checkinTime) {
-		return false;
+		this.checkinTime = checkinTime;
+		return true;
 	}
 	
 	/**
-	 *
-	 * @param chekckoutTime
-	 * @return
+	 * 设置预期离店时间
+	 * @param chekckoutTime 预期离店时间
+	 * @return 设置成功则返回true，否则返回false
 	 */
 	@Override
 	public boolean setChekckoutTime(Date chekckoutTime) {
-		return false;
+		this.checkoutTime = chekckoutTime;
+		return true;
 	}
 	
 	/**
-	 *
-	 * @param date
-	 * @return
+	 * 设置最晚到店时间
+	 * @param latestArriveTime 最晚到店时间
+	 * @return 设置成功则返回true，否则返回false
 	 */
 	@Override
-	public boolean setLatestArriveTime(Date date) {
-		return false;
+	public boolean setLatestArriveTime(Date latestArriveTime) {
+		this.latestArriveTime = latestArriveTime;
+		return true;
 	}
 	
 	/**
-	 *
-	 * @param clientName
-	 * @return
+	 * 设置客户名称
+	 * @param clientName 客户名称
+	 * @return 设置成功则返回true，否则返回false
 	 */
 	@Override
 	public boolean setClientName(String clientName) {
 		this.clientName = clientName;
-		return false;
+		return true;
 	}
 	
 	/**
-	 *
-	 * @param clientTel
-	 * @return
+	 * 设置客户联系方式
+	 * @param clientTel 客户联系方式
+	 * @return 设置成功则返回true，否则返回false
 	 */
 	@Override
 	public boolean setClientTel(String clientTel) {
 		this.clientTel = clientTel;
-		return false;
+		return true;
 	}
 	
 	/**
-	 *
-	 * @param numberOfClient
-	 * @return
+	 * 设置入住人数
+	 * @param numberOfClient 入住人数
+	 * @return 设置成功则返回true，否则返回false
 	 */
 	@Override
 	public boolean setNumberOfClient(int numberOfClient) {
-		return false;
+		this.numberOfClient = numberOfClient;
+		return true;
 	}
 	
 	/**
-	 *
-	 * @param haveKids
-	 * @return
+	 * 设置是否有儿童
+	 * @param haveKids 是否有儿童
+	 * @return 设置成功则返回true，否则返回false
 	 */
 	@Override
 	public boolean setHaveKids(boolean haveKids) {
-		return false;
+		this.haveKids = haveKids;
+		return true;
 	}
 	
 	/**
-	 *
-	 * @param numberOfRoom
-	 * @return
+	 * 设置预订间数
+	 * @param numberOfRoom 预订间数
+	 * @return 设置成功则返回true，否则返回false
 	 */
 	@Override
 	public boolean setNumberOfRoom(int numberOfRoom) {
-		return false;
+		this.numberOfRooms = numberOfRoom;
+		return true;
 	}
 	
 	/**
-	 *
-	 * @param otherReq
-	 * @return
+	 * 设置其他要求
+	 * @param otherReq 其他要求
+	 * @return 设置成功则返回true，否则返回false
 	 */
 	@Override
 	public boolean setOtherReq(String otherReq) {
 		this.otherReq = otherReq;
-		return false;
+		return true;
 	}
 	
 	/**
-	 *
-	 * @return
+	 * 创建新订单
+	 * @return 创建成功则返回true，否则返回false
 	 */
 	@Override
 	public boolean createOrder() {
-		return false;
+		Order order = new Order(memberID);
+		OrderVO orderVO = new OrderVO(memberID, hotelID, checkinTime,
+				checkoutTime, latestArriveTime, roomVO.getRoomName(),
+				numberOfRooms, numberOfClient, haveKids, promotionVO.getPromotionID(), price);
+		return order.createOrder(orderVO);
 	}
 }

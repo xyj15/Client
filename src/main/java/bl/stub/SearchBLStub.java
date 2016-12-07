@@ -1,19 +1,15 @@
 package bl.stub;
 
-import java.util.ArrayList;
-import java.util.Date;
-
-import bl.implementation.Promotion;
 import bl.service.SearchBLService;
 import other.RoomType;
 import vo.HotelVO;
-import vo.OrderVO;
-import vo.RoomVO;
+
+import java.util.ArrayList;
+import java.util.Date;
 
 public class SearchBLStub implements SearchBLService {
 	
 	private ArrayList<HotelVO> hotelList;
-	private ArrayList<RoomVO> roomList;
 	
 	public SearchBLStub() {
 		hotelList = new ArrayList<HotelVO>();
@@ -29,23 +25,9 @@ public class SearchBLStub implements SearchBLService {
 		String introduction = "这个酒店是全世界坠吼的";
 		String managerName = "张新悦";
 		String managerTel = "12345678910";
-		ArrayList<String> enterpriseList = new ArrayList<String>();
-		ArrayList<RoomVO> roomList = new ArrayList<RoomVO>();
-		ArrayList<OrderVO> orderList = new ArrayList<OrderVO>();
 		HotelVO hotelVO = new HotelVO(hotelID, password, name, address, district,
 				city, level, score, service, introduction, managerName, managerTel);
 		hotelList.add(hotelVO);
-		
-		roomList = new ArrayList<RoomVO>();
-		boolean reserved = false;
-		boolean available = false;
-		String roomNumber = "3304";
-		String roomName = "总统专用豪华研讨间";
-		RoomType roomType = RoomType.Suite;
-		double price = 99999;
-		hotelID = "123456";
-		RoomVO roomVO = new RoomVO(reserved, available, roomNumber, roomName, roomType, price, hotelID);
-		roomList.add(roomVO);
 	}
 	
 	@Override
@@ -80,7 +62,8 @@ public class SearchBLStub implements SearchBLService {
 	
 	@Override
 	public boolean setNumberOfRooms(int numberOfRooms) {
-		return false;
+		System.out.println("设置客房数量成功");
+		return true;
 	}
 	
 	@Override
@@ -129,12 +112,6 @@ public class SearchBLStub implements SearchBLService {
 	public ArrayList<HotelVO> search() {
 		System.out.println("搜索成功");
 		return hotelList;
-	}
-	
-	@Override
-	public ArrayList<RoomVO> getRoomList(String hotelID, Date date) {
-		System.out.println("获取客房列表成功");
-		return roomList;
 	}
 	
 	@Override

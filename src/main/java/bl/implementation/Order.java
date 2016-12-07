@@ -9,6 +9,7 @@ import vo.CreditChangeVO;
 import vo.OrderVO;
 
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.Date;
 
 /**
@@ -204,6 +205,21 @@ public class Order implements OrderBLService {
 	}
 	
 	/**
+	 * 根据订单ID返回订单信息，若不存在则返回null
+	 * @param orderID 订单ID
+	 * @return 订单信息
+	 */
+	public OrderVO getOrderInformation(String orderID) {
+		for(int i=0; i<orderList.size(); i++) {
+			OrderVO orderVO = orderList.get(i);
+			if(orderVO.getOrderID().equals(orderID)) {
+				return orderVO;
+			}
+		}
+		return null;
+	}
+	
+	/**
 	 * 将Order从VO转换成PO
 	 * @param orderVO VO变量
 	 * @return PO变量
@@ -267,5 +283,24 @@ public class Order implements OrderBLService {
 				actualCheckoutTime, numberOfRoom, roomName, numberOfClient, haveKids,
 				score, evaluation, recover, promotionID, price, cancelTime);
 		return orderVO;
+	}
+	
+	/**
+	 * 客户创建订单
+	 * @param orderVO 订单信息
+	 * @return 创建成功则返回true，否则返回false
+	 */
+	public boolean createOrder(OrderVO orderVO) {
+		Calendar calendar = Calendar.getInstance();
+		calendar.setTime(new Date());
+		String year = String.valueOf(calendar.get(Calendar.YEAR));
+		String month = String.valueOf(calendar.get(Calendar.MONTH));
+		String day = String.valueOf(calendar.get(Calendar.DATE));
+		String hour = String.valueOf(calendar.get(Calendar.HOUR));
+		String minute = String.valueOf(calendar.get(Calendar.MINUTE));
+		String second = String.valueOf(calendar.get(Calendar.SECOND));
+		String orderID = year+month+day+hour+minute+second+userID;
+		orderVO.setOrderID(orderID);
+		return orderDataService.addOrder(orderVOtoPO(orderVO));
 	}
 }

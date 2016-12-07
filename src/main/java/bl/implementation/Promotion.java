@@ -1,11 +1,13 @@
 package bl.implementation;
 
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.Date;
 
 import data.service.PromotionDataService;
 import bl.service.PromotionBLService;
 import other.PromotionType;
+import other.Rank;
 import other.SaleType;
 import po.PromotionPO;
 import vo.PromotionVO;
@@ -175,7 +177,6 @@ public class Promotion implements PromotionBLService {
 		SaleType saleType = promotionVO.getSaleType();
 		Date startDate = promotionVO.getStartDate();
 		Date endDate = promotionVO.getEndDate();
-		Date birthday = promotionVO.getBirthday();
 		int numberOfRoom = promotionVO.getNumberOfRoom();
 		String enterprise = promotionVO.getEnterprise();
 		String district = promotionVO.getDistrict();
@@ -189,15 +190,15 @@ public class Promotion implements PromotionBLService {
 		if(saleType==SaleType.Rank) {
 			promotionPO.setRankPromotion();
 		} else if(saleType==SaleType.Date) {
-			promotionPO.setDatePromotion(startDate, endDate);
+			promotionPO.setDatePromotion(startDate, endDate, discount, neededPrice, reducePrice);
 		} else if(saleType==SaleType.Birthday) {
-			promotionPO.setBirthday(birthday);
+			promotionPO.setBirthdayPromotion(discount, neededPrice, reducePrice);
 		} else if(saleType==SaleType.RoomNumber) {
-			promotionPO.setRoomNumberPromotion(numberOfRoom);
+			promotionPO.setRoomNumberPromotion(numberOfRoom, discount, neededPrice, reducePrice);
 		} else if(saleType==SaleType.Enterprise) {
-			promotionPO.setEnterprisePromotion(enterprise);
+			promotionPO.setEnterprisePromotion(enterprise, discount, neededPrice, reducePrice);
 		} else if(saleType==SaleType.District) {
-			promotionPO.setDistrictPromotion(district);
+			promotionPO.setDistrictPromotion(district, discount, neededPrice, reducePrice);
 		}
 		return promotionPO;
 	}
@@ -215,7 +216,6 @@ public class Promotion implements PromotionBLService {
 		SaleType saleType = promotionPO.getSaleType();
 		Date startDate = promotionPO.getStartDate();
 		Date endDate = promotionPO.getEndDate();
-		Date birthday = promotionPO.getBirthday();
 		int numberOfRoom = promotionPO.getNumberOfRoom();
 		String enterprise = promotionPO.getEnterprise();
 		String district = promotionPO.getDistrict();
@@ -229,16 +229,79 @@ public class Promotion implements PromotionBLService {
 		if(saleType.equals(SaleType.Rank)) {
 			promotionVO.setRankPromotion();
 		} else if(saleType.equals(SaleType.Date)) {
-			promotionVO.setDatePromotion(startDate, endDate);
+			promotionVO.setDatePromotion(startDate, endDate, discount, neededPrice, reducePrice);
 		} else if(saleType.equals(SaleType.Birthday)) {
-			promotionVO.setBirthday(birthday);
+			promotionVO.setBirthdayPromotion(discount, neededPrice, reducePrice);
 		} else if(saleType.equals(SaleType.RoomNumber)) {
-			promotionVO.setRoomNumberPromotion(numberOfRoom);
+			promotionVO.setRoomNumberPromotion(numberOfRoom, discount, neededPrice, reducePrice);
 		} else if(saleType.equals(SaleType.Enterprise)) {
-			promotionVO.setEnterprisePromotion(enterprise);
+			promotionVO.setEnterprisePromotion(enterprise, discount, neededPrice, reducePrice);
 		} else if(saleType.equals(SaleType.District)) {
-			promotionVO.setDistrictPromotion(district);
+			promotionVO.setDistrictPromotion(district, discount, neededPrice, reducePrice);
 		}
 		return promotionVO;
+	}
+	
+	/**
+	 * 根据条件获取可用促销列表
+	 * @param memberID 客户ID
+	 * @param hotelID 酒店ID
+	 * @param numberOfRoom 订房数量
+	 * @return 可用促销列表
+	 */
+	public ArrayList<PromotionVO> getAvailablePromotionList(String memberID, String hotelID, int numberOfRoom) {
+		Member member = new Member(memberID);
+		Hotel hotel = new Hotel(hotelID);
+		Date today = new Date();
+		Rank rank = Rank.getInstance();
+		ArrayList<PromotionVO> availablePromotionList = new ArrayList<PromotionVO>();
+		
+		PromotionVO promotionVO;
+		for(int i=0; i<promotionList.size(); i++) {
+			promotionVO = promotionList.get(i);
+			if(promotionVO.getRelatedHotelID()==null || promotionVO.getRelatedHotelID().equals(hotelID)) {
+				switch (promotionVO.getSaleType().getValue()) {
+					case 0:
+						promotionVO.setDiscount(rank.getDiscount(member.getCredit()));
+						availablePromotionList.add(promotionVO);
+						break;
+					case 1:
+						if(today.after(promotionVO.getStartDate()) && today.before(promotionVO.getEndDate())) {
+							availablePromotionList.add(promotionVO);
+						}
+						break;
+					case 2:
+						Calendar calendar = Calendar.getInstance();
+						calendar.setTime(today);
+						int year1 = calendar.get(Calendar.YEAR);
+						int month1 = calendar.get(Calendar.MONTH);
+						int day1 = calendar.get(Calendar.DATE);
+						calendar.setTime(member.getBirthday());
+						int year2 = calendar.get(Calendar.YEAR);
+						int month2 = calendar.get(Calendar.MONTH);
+						int day2 = calendar.get(Calendar.DATE);
+						if(year1==year2 && month1==month2 && day1==day2) {
+							availablePromotionList.add(promotionVO);
+						}
+						break;
+					case 3:
+						if(numberOfRoom>=promotionVO.getNumberOfRoom()) {
+							availablePromotionList.add(promotionVO);
+						}
+						break;
+					case 4:
+						if(member.getEnterprise().equals(promotionVO.getEnterprise())) {
+							availablePromotionList.add(promotionVO);
+						}
+						break;
+					case 5:
+						if(hotel.getDistrict().equals(promotionVO.getDistrict())) {
+							availablePromotionList.add(promotionVO);
+						}
+						break;
+				}
+			}
+		}
+		return availablePromotionList;
 	}
 }

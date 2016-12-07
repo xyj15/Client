@@ -27,6 +27,10 @@ public class ManagerVO extends User {
 		this.tel = tel;
 	}
 	
+	public ManagerVO() {
+		setUserType(UserType.Manager);
+	}
+	
 	public String getName() {
 		return name;
 	}

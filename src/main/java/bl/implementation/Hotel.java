@@ -3,6 +3,7 @@ package bl.implementation;
 import data.service.HotelDataService;
 import data.service.RoomDataService;
 import bl.service.HotelBLService;
+import other.OrderStatus;
 import other.RoomType;
 import po.HotelPO;
 import vo.HotelVO;
@@ -16,13 +17,12 @@ import java.util.Date;
  * Created by 97147 on 2016/11/18.
  * Hotel模块的bl实现类
  * @author CROFF
- * @version 2016-12-2
+ * @version 2016-12-7
  */
 public class Hotel implements HotelBLService {
 	
 	private String hotelID;
 	private HotelVO hotelVO;
-	private Date date;
 
 	public Order order;
 	public Room room;
@@ -37,6 +37,7 @@ public class Hotel implements HotelBLService {
 		this.hotelVO = hotelVO;
 		hotelVO.setUserID(hotelDataService.getAvailableID());
 		hotelID = hotelVO.getUserID();
+		updateDateToFile();
 	}
 	
 	/**
@@ -49,8 +50,8 @@ public class Hotel implements HotelBLService {
 	}
 	
 	/**
-	 *
-	 * @return
+	 * 获取酒店名称
+	 * @return 酒店名称
 	 */
 	@Override
 	public String getHotelName() {
@@ -59,8 +60,8 @@ public class Hotel implements HotelBLService {
 	}
 	
 	/**
-	 *
-	 * @return
+	 * 获取酒店地址
+	 * @return 酒店地址
 	 */
 	@Override
 	public String getHotelAddress() {
@@ -69,8 +70,8 @@ public class Hotel implements HotelBLService {
 	}
 	
 	/**
-	 *
-	 * @return
+	 * 获取酒店所在城市
+	 * @return 酒店所在城市
 	 */
 	@Override
 	public String getCity() {
@@ -79,8 +80,8 @@ public class Hotel implements HotelBLService {
 	}
 	
 	/**
-	 *
-	 * @return
+	 * 获取酒店星级
+	 * @return 酒店星级
 	 */
 	@Override
 	public int getHotelLevel() {
@@ -89,8 +90,8 @@ public class Hotel implements HotelBLService {
 	}
 	
 	/**
-	 *
-	 * @return
+	 * 获取酒店所属商圈
+	 * @return 酒店所属商圈
 	 */
 	@Override
 	public String getDistrict() {
@@ -99,8 +100,8 @@ public class Hotel implements HotelBLService {
 	}
 	
 	/**
-	 *
-	 * @return
+	 * 获取酒店评分
+	 * @return 酒店评分
 	 */
 	@Override
 	public double getHotelScore() {
@@ -109,8 +110,8 @@ public class Hotel implements HotelBLService {
 	}
 	
 	/**
-	 *
-	 * @return
+	 * 获取酒店设施服务
+	 * @return 酒店设施服务
 	 */
 	@Override
 	public String getHotelService() {
@@ -119,8 +120,8 @@ public class Hotel implements HotelBLService {
 	}
 	
 	/**
-	 *
-	 * @return
+	 * 获取酒店简介
+	 * @return 酒店简介
 	 */
 	@Override
 	public String getHotelIntroduction() {
@@ -129,8 +130,8 @@ public class Hotel implements HotelBLService {
 	}
 	
 	/**
-	 *
-	 * @return
+	 * 获取酒店工作人员名称
+	 * @return 酒店工作人员名称
 	 */
 	@Override
 	public String getHotelManagerName() {
@@ -139,8 +140,8 @@ public class Hotel implements HotelBLService {
 	}
 	
 	/**
-	 *
-	 * @return
+	 * 获取酒店工作人员的联系方式
+	 * @return 酒店工作人员联系方式
 	 */
 	@Override
 	public String getHotelManagerTel() {
@@ -149,15 +150,15 @@ public class Hotel implements HotelBLService {
 	}
 	
 	/**
-	 *
-	 * @param hotelInformation
-	 * @return
+	 * 设置酒店信息
+	 * @param hotelInformation 酒店信息
+	 * @return 设置成功则返回true，否则返回false
 	 */
 	@Override
 	public boolean setHotelInformation(HotelVO hotelInformation) {
 		this.hotelVO = hotelInformation;
 		updateDateToFile();
-		return false;
+		return true;
 	}
 	
 	/**
@@ -166,39 +167,69 @@ public class Hotel implements HotelBLService {
 	 */
 	@Override
 	public HotelVO getHotelInformation() {
-		return null;
+		updateDateFromFile();
+		return hotelVO;
 	}
 	
 	/**
-	 *
-	 * @param orderID
-	 * @param roomID
-	 * @return
+	 * 办理入住手续
+	 * @param orderID 相关订单ID
+	 * @param roomID 使用的客房号
+	 * @return 办理成功则返回true，否则返回false
 	 */
 	@Override
 	public boolean checkin(String orderID, String roomID) {
-		return false;
+		OrderVO orderVO = order.getOrderInformation(orderID);
+		if(orderVO==null) {
+			return false;
+		}
+		orderVO.setOrderStatus(OrderStatus.Executed);
+		orderVO.setActualCheckinTime(new Date());
+		int index = order.getOrderIndex(orderID);
+		order.getOrderList().set(index, orderVO);
+		
+		RoomVO roomVO = room.getRoomInformation(new Date(), roomID);
+		roomVO.setAvailable(false);
+		return true;
 	}
 	
 	/**
-	 *
-	 * @param orderID
-	 * @param roomID
-	 * @return
+	 * 办理离店手续
+	 * @param orderID 相关订单ID
+	 * @param roomID 使用的客房号
+	 * @return 办理成功则返回true，否则返回false
 	 */
 	@Override
 	public boolean checkout(String orderID, String roomID) {
-		return false;
+		OrderVO orderVO = order.getOrderInformation(orderID);
+		if(orderVO==null) {
+			return false;
+		}
+		orderVO.setActualCheckoutTime(new Date());
+		int index = order.getOrderIndex(orderID);
+		order.getOrderList().set(index, orderVO);
+		
+		RoomVO roomVO = room.getRoomInformation(new Date(), roomID);
+		roomVO.setAvailable(true);
+		return true;
 	}
 	
 	/**
-	 *
-	 * @param orderID
-	 * @return
+	 * 办理延迟入住
+	 * @param orderID 相关订单ID
+	 * @return 办理成功则返回true，否则返回false
 	 */
 	@Override
-	public boolean delay(String orderID) {
-		return false;
+	public boolean delay(String orderID, String roomID) {
+		OrderVO orderVO = order.getOrderInformation(orderID);
+		if(orderVO==null) {
+			return false;
+		}
+		order.cancelAbnormalOrder(orderID, orderVO.getPrice());
+		
+		RoomVO roomVO = room.getRoomInformation(new Date(), roomID);
+		roomVO.setAvailable(false);
+		return true;
 	}
 	
 	/**
@@ -210,7 +241,7 @@ public class Hotel implements HotelBLService {
 		ArrayList<Integer> roomNumberList = new ArrayList<Integer>();
 		
 		ArrayList<RoomVO> dailyRoomList = room.getDailyRoomList(date);
-		double lowestPrice = 10000;
+		double lowestPrice = Double.MAX_VALUE;
 		RoomVO roomVO;
 		double price;
 		for(int i=0; i<dailyRoomList.size(); i++) {

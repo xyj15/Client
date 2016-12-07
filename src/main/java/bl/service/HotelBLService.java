@@ -24,5 +24,5 @@ public interface HotelBLService {
 
 	public boolean checkin(String orderID, String roomID);	//办理入住手续
 	public boolean checkout(String orderID, String roomID);	//办理离店手续
-	public boolean delay(String orderID);	//延迟入住
+	public boolean delay(String orderID, String roomID);	//延迟入住
 }

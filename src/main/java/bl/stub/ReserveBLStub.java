@@ -2,8 +2,9 @@ package bl.stub;
 
 import bl.service.ReserveBLService;
 import other.PromotionType;
-import vo.OrderVO;
+import other.RoomType;
 import vo.PromotionVO;
+import vo.RoomVO;
 
 import java.util.ArrayList;
 import java.util.Date;
@@ -21,6 +22,7 @@ public class ReserveBLStub implements ReserveBLService {
 	private double price = 500;
 	private String roomName = "海景房";
 	private PromotionVO promotionVO;
+	private RoomVO roomVO;
 	
 	public ReserveBLStub() {
 		String promotionID = "00000";
@@ -28,6 +30,15 @@ public class ReserveBLStub implements ReserveBLService {
 		PromotionType promotionType = PromotionType.Discount;
 		promotionVO = new PromotionVO(promotionID, promotionName, promotionType);
 		promotionVO.setRankPromotion();
+		
+		boolean reserved = false;
+		boolean available = false;
+		String roomNumber = "3304";
+		String roomName = "总统专用豪华研讨间";
+		RoomType roomType = RoomType.Suite;
+		double price = 99999;
+		String hotelID = "123456";
+		roomVO = new RoomVO(reserved, available, roomNumber, roomName, roomType, price, hotelID);
 	}
 	
 	@Override
@@ -75,15 +86,23 @@ public class ReserveBLStub implements ReserveBLService {
 	}
 	
 	@Override
-	public String getHotelTel() {
-		System.out.println("获取酒店联系方式成功");
-		return hotelTel;
+	public ArrayList<RoomVO> getRoomList(Date date) {
+		System.out.println("获取客房列表成功");
+		ArrayList<RoomVO> roomList = new ArrayList<RoomVO>();
+		roomList.add(roomVO);
+		return roomList;
 	}
 	
 	@Override
-	public String getRoomName() {
-		System.out.println("获取客房类型成功");
-		return roomName;
+	public RoomVO getSelectedRoom() {
+		System.out.println("获取客房成功");
+		return roomVO;
+	}
+	
+	@Override
+	public boolean setSelectedRoom(RoomVO roomVO) {
+		System.out.println("设置客房成功");
+		return true;
 	}
 	
 	@Override

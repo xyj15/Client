@@ -248,18 +248,6 @@ public class Search implements SearchBLService {
 	}
 	
 	/**
-	 * 根据酒店ID和日期获取酒店某天的客房列表
-	 * @param hotelID 酒店ID
-	 * @param date 日期
-	 * @return 酒店某天的客房列表
-	 */
-	@Override
-	public ArrayList<RoomVO> getRoomList(String hotelID, Date date) {
-		Room room = new Room(hotelID);
-		return room.getDailyRoomList(date);
-	}
-	
-	/**
 	 * 酒店按价格从高到低排序
 	 * @return 排序完成的酒店列表
 	 */
@@ -494,15 +482,15 @@ public class Search implements SearchBLService {
 	}
 	
 	/**
-	 * 把输入的日期往后加一天，并减少10秒
+	 * 把输入的日期往后加一天，并减少1秒
 	 * @param date 日期
 	 * @return 加一天后的日期
 	 */
-	public Date nextDay(Date date) {
+	public static Date nextDay(Date date) {
 		Calendar calendar = Calendar.getInstance();
 		calendar.setTime(date);
 		calendar.add(calendar.DATE, 1);
-		calendar.add(calendar.SECOND, -10);
+		calendar.add(calendar.SECOND, -1);
 		return calendar.getTime();
 	}
 	
