@@ -101,7 +101,7 @@ public class HotelBLStub implements HotelBLService{
 	}
 	
 	@Override
-	public boolean delay(String orderID) {
+	public boolean delay(String orderID, String roomID) {
 		System.out.println("客户延迟入住成功");
 		return true;
 	}
