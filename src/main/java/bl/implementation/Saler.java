@@ -47,12 +47,21 @@ public class Saler implements SalerBLService {
 		updateDataFromFile();
 	}
 	
+	/**
+	 * 获取营销人员信息
+	 * @return 营销人员信息
+	 */
 	@Override
 	public SalerVO getSalerInformation() {
 		updateDataFromFile();
 		return salerVO;
 	}
 	
+	/**
+	 * 设置营销人员的信息
+	 * @param salerVO 营销人员信息
+	 * @return 设置成功则返回true，否则返回false
+	 */
 	@Override
 	public boolean setSalerInformation(SalerVO salerVO) {
 		this.salerVO = salerVO;
@@ -89,6 +98,8 @@ public class Saler implements SalerBLService {
 	@Override
 	public boolean createPromotion(PromotionVO promotionVO) {
 		updateDataFromFile();
+		String promotionID = salerDataService.getAvailableID();
+		promotionVO.setPromotionID(promotionID);
 		return promotion.addPromotion(promotionVO);
 	}
 	
