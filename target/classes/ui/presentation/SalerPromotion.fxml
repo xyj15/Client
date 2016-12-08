@@ -42,11 +42,12 @@
       </Button>
       <ScrollPane layoutX="381.0" layoutY="136.0" opacity="0.57" prefHeight="302.0" prefWidth="497.0" style="-fx-background-color: #000f32;">
          <content>
-            <TableView prefHeight="302.0" prefWidth="497.0" style="-fx-background-color: #000f32;" stylesheets="@TableView.css">
+            <TableView fx:id="table" prefHeight="302.0" prefWidth="482.0" style="-fx-background-color: #000f32;" stylesheets="@TableView.css">
               <columns>
-                <TableColumn prefWidth="75.0" style="-fx-background-color: #000f32;" text="起始日期" />
-                  <TableColumn prefWidth="75.0" style="-fx-background-color: #000f32;" text="结束日期" />
-                  <TableColumn prefWidth="75.0" style="-fx-background-color: #000f32;" text="折扣" />
+                <TableColumn fx:id="name" prefWidth="75.0" style="-fx-background-color: #000f32;" text="名称" />
+                  <TableColumn fx:id="startDate" prefWidth="128.0" style="-fx-background-color: #000f32;" text="起始日期" />
+                  <TableColumn fx:id="endDate" prefWidth="112.0" style="-fx-background-color: #000f32;" text="结束日期" />
+                  <TableColumn fx:id="discount" prefWidth="101.0" style="-fx-BACKGROUND-COLOR: #000f32;" text="折扣" />
               </columns>
                <columnResizePolicy>
                   <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
