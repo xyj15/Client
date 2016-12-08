@@ -53,7 +53,7 @@
       </Button>
       <ScrollPane layoutX="298.0" layoutY="150.0" opacity="0.57" prefHeight="325.0" prefWidth="591.0" style="-fx-background-color: #000f32;">
          <content>
-            <TableView prefHeight="364.0" prefWidth="577.0" style="-fx-background-color: #000f32;" stylesheets="@TableView.css">
+            <TableView fx:id="table" prefHeight="364.0" prefWidth="577.0" style="-fx-background-color: #000f32;" stylesheets="@TableView.css">
                <columns>
                   <TableColumn prefWidth="106.0" style="-fx-background-color: #000f32;" text="酒店名称" />
                   <TableColumn prefWidth="69.0" style="-fx-background-color: #000f32;" text="星级" />

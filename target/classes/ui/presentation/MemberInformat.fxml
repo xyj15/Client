@@ -63,15 +63,15 @@
             <Image url="@key.png" />
          </image>
       </ImageView>
-      <ScrollPane layoutX="377.0" layoutY="227.0" opacity="0.57" prefHeight="281.0" prefWidth="508.0" style="-fx-background-color: #000f32;">
+      <ScrollPane layoutX="319.0" layoutY="227.0" opacity="0.57" prefHeight="281.0" prefWidth="566.0" style="-fx-background-color: #000f32;" fx:id="x">
          <content>
-            <TableView prefHeight="280.0" prefWidth="494.0" style="-fx-background-color: #000f32;" stylesheets="@TableView.css">
+            <TableView fx:id="table" prefHeight="280.0" prefWidth="547.0" style="-fx-background-color: #000f32;" stylesheets="@TableView.css">
                <columns>
-                  <TableColumn prefWidth="106.0" style="-fx-background-color: #000f32;" text="订单号" />
-                  <TableColumn prefWidth="94.0" style="-fx-background-color: #000f32;" text="日期" />
-                  <TableColumn prefWidth="64.0" style="-fx-background-color: #000f32;" text="动作" />
-                  <TableColumn prefWidth="121.0" style="-fx-background-color: #000f32;" text="信用变化" />
-                  <TableColumn prefWidth="108.0" style="-fx-background-color: #000f32;" text="当前信用" />
+                  <TableColumn fx:id="number" prefWidth="140.0" sortable="false" style="-fx-background-color: #000f32;" text="订单号" />
+                  <TableColumn fx:id="date" prefWidth="110.0" sortable="false" style="-fx-background-color: #000f32;" text="日期" />
+                  <TableColumn fx:id="action" prefWidth="111.0" sortable="false" style="-fx-background-color: #000f32;" text="动作" />
+                  <TableColumn fx:id="change" prefWidth="95.0" sortable="false" style="-fx-background-color: #000f32;" text="信用变化" />
+                  <TableColumn fx:id="now" prefWidth="95.0" sortable="false" style="-fx-background-color: #000f32;" text="当前信用" />
                </columns>
             </TableView>
          </content>
