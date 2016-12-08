@@ -2,14 +2,22 @@ package ui.controller;
 
 import bl.service.SalerBLService;
 import bl.stub.SalerBLStub;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.Parent;
 import javafx.scene.control.DatePicker;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
+import other.TableDataForSalerPromotion;
 import ui.presentation.*;
 import vo.PromotionVO;
+
+import java.util.ArrayList;
 
 /**
  * Created by 97147 on 2016/11/30.
@@ -49,6 +57,21 @@ public class PromotionController {
     @FXML
     private void onPromotion(ActionEvent E) throws Exception{
         new SalerPromotionUI().start(primaryStage);
+        System.out.print("he");
+        TableView table = (TableView) root.lookup("#table");
+        ObservableList<TableDataForSalerPromotion> dataForSalerPromotion = FXCollections.observableArrayList();
+        ObservableList<TableColumn> tableList = table.getColumns();
+        ArrayList<PromotionVO> list = saler.getPromotionList();
+        for(int i=0;i<list.size();i++){
+            dataForSalerPromotion.add(new TableDataForSalerPromotion(list.get(i).getPromotionName(),list.get(i).getStartDate().toString(),
+                    list.get(i).getEndDate().toString(),""+list.get(i).getDiscount()));
+        }
+        tableList.get(0).setCellValueFactory(new PropertyValueFactory("name"));
+        tableList.get(1).setCellValueFactory(new PropertyValueFactory("startDate"));
+        tableList.get(2).setCellValueFactory(new PropertyValueFactory("endDate"));
+        tableList.get(3).setCellValueFactory(new PropertyValueFactory("discount"));
+        table.setItems(dataForSalerPromotion);
+        
     }
     @FXML
     private void onAbnormal(ActionEvent E) throws Exception{
