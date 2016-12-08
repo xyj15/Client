@@ -144,6 +144,70 @@ public class Promotion implements PromotionBLService {
 	}
 	
 	/**
+	 * 获取商圈营销策略列表
+	 * @return 商圈营销策略列表
+	 */
+	@Override
+	public ArrayList<PromotionVO> getDistrictPromotionList() {
+		ArrayList<PromotionVO> districtPromotionList = new ArrayList<PromotionVO>();
+		for(int i=0; i<promotionList.size(); i++) {
+			PromotionVO promotionVO = promotionList.get(i);
+			if(promotionVO.getRelatedHotelID()==null && promotionVO.getSaleType()==SaleType.District) {
+				districtPromotionList.add(promotionVO);
+			}
+		}
+		return districtPromotionList;
+	}
+	
+	/**
+	 * 获取酒店的特定日期营销策略列表
+	 * @return 酒店的特定日期营销策略列表
+	 */
+	@Override
+	public ArrayList<PromotionVO> getHotelDatePromotionList() {
+		ArrayList<PromotionVO> districtPromotionList = new ArrayList<PromotionVO>();
+		for(int i=0; i<promotionList.size(); i++) {
+			PromotionVO promotionVO = promotionList.get(i);
+			if(promotionVO.getRelatedHotelID().equals(hotelID) && promotionVO.getSaleType()==SaleType.Date) {
+				districtPromotionList.add(promotionVO);
+			}
+		}
+		return districtPromotionList;
+	}
+	
+	/**
+	 * 获取网站的特定日期营销策略列表
+	 * @return 网站的特定日期营销策略列表
+	 */
+	@Override
+	public ArrayList<PromotionVO> getWebDatePromotionList() {
+		ArrayList<PromotionVO> districtPromotionList = new ArrayList<PromotionVO>();
+		for(int i=0; i<promotionList.size(); i++) {
+			PromotionVO promotionVO = promotionList.get(i);
+			if(promotionVO.getRelatedHotelID()==null && promotionVO.getSaleType()==SaleType.Date) {
+				districtPromotionList.add(promotionVO);
+			}
+		}
+		return districtPromotionList;
+	}
+	
+	/**
+	 * 获取合作企业促销列表
+	 * @return 合作企业促销列表
+	 */
+	@Override
+	public ArrayList<PromotionVO> getEnterprisePromotionList() {
+		ArrayList<PromotionVO> districtPromotionList = new ArrayList<PromotionVO>();
+		for(int i=0; i<promotionList.size(); i++) {
+			PromotionVO promotionVO = promotionList.get(i);
+			if(promotionVO.getRelatedHotelID().equals(hotelID) && promotionVO.getSaleType()==SaleType.Enterprise) {
+				districtPromotionList.add(promotionVO);
+			}
+		}
+		return districtPromotionList;
+	}
+	
+	/**
 	 * 从Data层更新数据，hotelID为null时更新网站营销策略列表，hotelID不为null时更新酒店营销策略列表
 	 */
 	public void updateDataFromFile() {
