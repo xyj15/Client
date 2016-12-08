@@ -41,21 +41,43 @@ public class RoomDataStub implements RoomDataService {
 	
 	@Override
 	public RoomPO getSingleRoom(Date date, String roomNum, String hotelID) {
+		for(int i=0; i<roomList.size(); i++) {
+			RoomPO roomPO = roomList.get(i);
+			if(roomPO.getRoomNumber().equals(roomNum)) {
+				return roomPO;
+			}
+		}
 		return null;
 	}
 	
 	@Override
 	public boolean addSingleRoom(RoomPO room, String hotelID) {
-		return false;
+		roomList.add(room);
+		return true;
 	}
 	
 	@Override
 	public boolean updateSingleRoom(Date date, RoomPO room, String hotelID) {
+		String roomNumber = room.getRoomNumber();
+		for(int i=0; i<roomList.size(); i++) {
+			RoomPO roomPO = roomList.get(i);
+			if(roomPO.getRoomNumber().equals(roomNumber)) {
+				roomList.set(i, room);
+				return true;
+			}
+		}
 		return false;
 	}
 	
 	@Override
 	public boolean deleteSingleRoom(String roomNum, String hotelID) {
+		for(int i=0; i<roomList.size(); i++) {
+			RoomPO roomPO = roomList.get(i);
+			if(roomPO.getRoomNumber().equals(roomNum)) {
+				roomList.remove(i);
+				return true;
+			}
+		}
 		return false;
 	}
 	
@@ -71,7 +93,7 @@ public class RoomDataStub implements RoomDataService {
 	
 	@Override
 	public ArrayList<RoomPO> getRoomsByDate(Date day, String hotelID) {
-		return null;
+		return roomList;
 	}
 	
 	@Override
