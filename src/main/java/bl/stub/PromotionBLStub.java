@@ -58,4 +58,36 @@ public class PromotionBLStub implements PromotionBLService {
 		promotionList.add(promotionVO);
 		return promotionList;
 	}
+	
+	@Override
+	public ArrayList<PromotionVO> getDistrictPromotionList() {
+		System.out.println("获取商圈营销策略列表成功");
+		ArrayList<PromotionVO> promotionList = new ArrayList<PromotionVO>();
+		promotionList.add(promotionVO);
+		return promotionList;
+	}
+	
+	@Override
+	public ArrayList<PromotionVO> getHotelDatePromotionList() {
+		System.out.println("获取酒店的特定日期营销策略列表成功");
+		ArrayList<PromotionVO> promotionList = new ArrayList<PromotionVO>();
+		promotionList.add(promotionVO);
+		return promotionList;
+	}
+	
+	@Override
+	public ArrayList<PromotionVO> getWebDatePromotionList() {
+		System.out.println("获取网站的特定日期营销策略列表成功");
+		ArrayList<PromotionVO> promotionList = new ArrayList<PromotionVO>();
+		promotionList.add(promotionVO);
+		return promotionList;
+	}
+	
+	@Override
+	public ArrayList<PromotionVO> getEnterprisePromotionList() {
+		System.out.println("获取合作企业促销列表成功");
+		ArrayList<PromotionVO> promotionList = new ArrayList<PromotionVO>();
+		promotionList.add(promotionVO);
+		return promotionList;
+	}
 }

@@ -17,4 +17,8 @@ public interface PromotionBLService {
 	public boolean updatePromotion(PromotionVO promotionVO);	//更新营销策略信息
 	public ArrayList<PromotionVO> getHotelPromotionList(String hotelID);	//获得酒店营销策略列表
 	public ArrayList<PromotionVO> getWebPromotionList();	//获得网站营销策略列表
+	public ArrayList<PromotionVO> getDistrictPromotionList();	//获得商圈营销策略列表
+	public ArrayList<PromotionVO> getHotelDatePromotionList();	//获得酒店的特定日期营销策略列表
+	public ArrayList<PromotionVO> getWebDatePromotionList();	//获得网站的特定日期营销策略列表
+	public ArrayList<PromotionVO> getEnterprisePromotionList();	//获得合作企业促销列表
 }

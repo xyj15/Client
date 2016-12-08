@@ -2,6 +2,7 @@ package bl.implementation;
 
 import data.service.CreditDataService;
 import bl.service.CreditBLService;
+import data.stub.CreditDataStub;
 import other.OrderAction;
 import po.CreditChangePO;
 import vo.CreditChangeVO;
@@ -24,11 +25,12 @@ public class Credit implements CreditBLService {
 	private CreditDataService creditDataService;
 	
 	/**
-	 * 带memberID的构造方法
+	 * 构造方法
 	 * @param memberID
 	 */
     public Credit(String memberID) {
 		this.memberID = memberID;
+		creditDataService = new CreditDataStub();
 		updateCreditChangeListFromFile();
 		updateCreditFromFile();
     }
@@ -85,11 +87,12 @@ public class Credit implements CreditBLService {
 	}
 	
 	/**
-	 * 初始化新用户的信用，初始化为100
+	 * 初始化新用户的信用，初始化为0
 	 * @return 成功则返回true，否则返回false
 	 */
 	public boolean initialCredit() {
-		return creditDataService.setCredit(memberID, 100);
+		this.credit = 0;
+		return creditDataService.setCredit(memberID, 0);
 	}
 	
 	/**
