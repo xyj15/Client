@@ -7,6 +7,7 @@ import bl.service.MemberBLService;
 import other.MemberType;
 import other.OrderAction;
 import vo.CreditChangeVO;
+import vo.HotelVO;
 import vo.MemberVO;
 import vo.OrderVO;
 
@@ -86,6 +87,16 @@ public class MemberBLStub implements MemberBLService {
 	public String getEnterprise() {
 		System.out.println("获取合作企业名称成功");
 		return memberVO.getEnterprise();
+	}
+	
+	@Override
+	public ArrayList<HotelVO> getReservedHotelList() {
+		ArrayList<HotelVO> hotelVOArrayList = new ArrayList<HotelVO>();
+		HotelVO hotelVO = new HotelVO("123456", "12345678910", "新悦大酒店",
+				"仙林大道163号", "南京大学", "南京市", 5, 5, "什么服务都有",
+				"这个酒店是全世界坠吼的", "张新悦", "12345678910");
+		hotelVOArrayList.add(hotelVO);
+		return hotelVOArrayList;
 	}
 	
 	@Override
