@@ -7,6 +7,7 @@ import other.MemberType;
 import other.Rank;
 import po.MemberPO;
 import vo.CreditChangeVO;
+import vo.HotelVO;
 import vo.MemberVO;
 import vo.OrderVO;
 
@@ -16,13 +17,14 @@ import java.util.Date;
 /**
  * Member模块bl的实现类
  * @author CROFF
- * @version 2016-12-2
+ * @version 2016-12-8
  */
 public class Member implements MemberBLService {
 	
 	private String memberID;
 	private MemberVO memberVO;
 	private Credit credit;
+	private Order order;
 	
 	private MemberDataService memberDataService;
 	
@@ -35,7 +37,7 @@ public class Member implements MemberBLService {
 		this.memberVO = memberVO;
 		MemberPO memberPO = memberVOtoPO(memberVO);
 		memberDataService.addMember(memberPO);
-		
+		updateDataFromFile();
 		credit = new Credit(memberID);
 		credit.initialCredit();
 	}
@@ -140,6 +142,30 @@ public class Member implements MemberBLService {
 	}
 	
 	/**
+	 * 获得预定过的酒店列表
+	 * @return 预定过的酒店列表
+	 */
+	@Override
+	public ArrayList<HotelVO> getReservedHotelList() {
+		ArrayList<String> hotelIDList = new ArrayList<String>();
+		ArrayList<OrderVO> excutedOrderList = order.getExcutedOrders();
+		for(int i=0; i<excutedOrderList.size(); i++) {
+			String hotelID = excutedOrderList.get(i).getHotelID();
+			if(!hotelIDList.contains(hotelID)) {
+				hotelIDList.add(hotelID);
+			}
+		}
+		
+		ArrayList<HotelVO> reservedHotelList = new ArrayList<HotelVO>();
+		Hotel hotel;
+		for(int i=0; i<hotelIDList.size(); i++) {
+			hotel = new Hotel(hotelIDList.get(i));
+			reservedHotelList.add(hotel.getHotelInformation());
+		}
+		return reservedHotelList;
+	}
+	
+	/**
 	 * 获取客户信息
 	 * @return 客户信息
 	 */
@@ -195,6 +221,7 @@ public class Member implements MemberBLService {
 	 */
 	public boolean updateDataFromFile() {
 		credit = new Credit(memberID);
+		order = new Order(memberID);
 		memberVO = memberPOtoVO(memberDataService.getMember(memberID));
 		Rank rank = Rank.getInstance();
 		int level = rank.getLevel(credit.getCredit());
