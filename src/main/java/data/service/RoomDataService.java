@@ -7,6 +7,7 @@ import java.util.ArrayList;
 import java.util.Date;
 
 public interface RoomDataService {
+	
 	public RoomPO getSingleRoom(Date date, String roomNum, String hotelID);  //得到具体某间房的信息
 	public boolean addSingleRoom(RoomPO room, String hotelID);  //添加具体房间
 	public boolean updateSingleRoom(Date date, RoomPO room, String hotelID);  //更新具体房间信息
@@ -17,5 +18,4 @@ public interface RoomDataService {
 	public boolean reserveSingleRoom(Date day, String roomNUM, String hotelID);  //通过日期房间号预定某酒店房间
 	public boolean checkIn(Date day, String roomNUM, String hotelID);  //具体房间的入住执行
 	public boolean checkOut(Date day, String roomNUM, String hotelID);  //具体房间的退房执行
-	public void close();   //关闭输入流
 }
