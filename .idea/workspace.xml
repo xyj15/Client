@@ -2,27 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a9f0de73-1128-483a-bbb9-a1105de32882" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/data/driver/CreditDataDriver.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/bl/implementation/Credit.class" afterPath="$PROJECT_DIR$/target/classes/bl/implementation/Credit.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/bl/implementation/Promotion.class" afterPath="$PROJECT_DIR$/target/classes/bl/implementation/Promotion.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/bl/service/PromotionBLService.class" afterPath="$PROJECT_DIR$/target/classes/bl/service/PromotionBLService.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/bl/stub/PromotionBLStub.class" afterPath="$PROJECT_DIR$/target/classes/bl/stub/PromotionBLStub.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/data/stub/CreditDataStub.class" afterPath="$PROJECT_DIR$/target/classes/data/stub/CreditDataStub.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/bl/implementation/Credit.java" afterPath="$PROJECT_DIR$/src/main/java/bl/implementation/Credit.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/data/service/HotelDataService.java" afterPath="$PROJECT_DIR$/src/main/java/data/service/HotelDataService.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/data/service/ManagerDataService.java" afterPath="$PROJECT_DIR$/src/main/java/data/service/ManagerDataService.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/data/service/MemberDataService.java" afterPath="$PROJECT_DIR$/src/main/java/data/service/MemberDataService.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/data/service/OrderDataObstractFactory.java" afterPath="$PROJECT_DIR$/src/main/java/data/service/OrderDataObstractFactory.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/data/service/OrderDataService.java" afterPath="$PROJECT_DIR$/src/main/java/data/service/OrderDataService.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/data/service/OrderDataServiceForSaler.java" afterPath="$PROJECT_DIR$/src/main/java/data/service/OrderDataServiceForSaler.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/data/service/PromotionDataService.java" afterPath="$PROJECT_DIR$/src/main/java/data/service/PromotionDataService.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/data/service/RankDataService.java" afterPath="$PROJECT_DIR$/src/main/java/data/service/RankDataService.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/data/service/RoomDataService.java" afterPath="$PROJECT_DIR$/src/main/java/data/service/RoomDataService.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/data/service/SalerDataService.java" afterPath="$PROJECT_DIR$/src/main/java/data/service/SalerDataService.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/data/service/SearchDataService.java" afterPath="$PROJECT_DIR$/src/main/java/data/service/SearchDataService.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/data/stub/CreditDataStub.java" afterPath="$PROJECT_DIR$/src/main/java/data/stub/CreditDataStub.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/data/stub/HotelDataStub.java" afterPath="$PROJECT_DIR$/src/main/java/data/stub/HotelDataStub.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/data/stub/RoomDataStub.java" afterPath="$PROJECT_DIR$/src/main/java/data/stub/RoomDataStub.java" />
     </list>
     <ignored path="Client.iws" />
@@ -62,30 +42,30 @@
       <file leaf-file-name="RoomDataStub.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/data/stub/RoomDataStub.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="165">
-              <caret line="11" column="3" selection-start-line="11" selection-start-column="3" selection-end-line="11" selection-end-column="3" />
+            <state relative-caret-position="150">
+              <caret line="38" column="28" selection-start-line="38" selection-start-column="28" selection-end-line="38" selection-end-column="28" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#333#334#0" expanded="true" />
-                <element signature="e#351#352#0" expanded="true" />
-                <element signature="e#425#426#0" expanded="true" />
-                <element signature="e#444#445#0" expanded="true" />
-                <element signature="e#532#533#0" expanded="true" />
-                <element signature="e#551#552#0" expanded="true" />
-                <element signature="e#631#632#0" expanded="true" />
-                <element signature="e#650#651#0" expanded="true" />
-                <element signature="e#755#756#0" expanded="true" />
-                <element signature="e#773#774#0" expanded="true" />
-                <element signature="e#876#877#0" expanded="true" />
-                <element signature="e#894#895#0" expanded="true" />
-                <element signature="e#976#977#0" expanded="true" />
-                <element signature="e#994#995#0" expanded="true" />
-                <element signature="e#1085#1086#0" expanded="true" />
-                <element signature="e#1104#1105#0" expanded="true" />
-                <element signature="e#1185#1186#0" expanded="true" />
-                <element signature="e#1204#1205#0" expanded="true" />
-                <element signature="e#1286#1287#0" expanded="true" />
-                <element signature="e#1305#1306#0" expanded="true" />
+                <element signature="e#1480#1481#0" expanded="true" />
+                <element signature="e#1498#1499#0" expanded="true" />
+                <element signature="e#1572#1573#0" expanded="true" />
+                <element signature="e#1591#1592#0" expanded="true" />
+                <element signature="e#1679#1680#0" expanded="true" />
+                <element signature="e#1698#1699#0" expanded="true" />
+                <element signature="e#1778#1779#0" expanded="true" />
+                <element signature="e#1797#1798#0" expanded="true" />
+                <element signature="e#1902#1903#0" expanded="true" />
+                <element signature="e#1920#1921#0" expanded="true" />
+                <element signature="e#2023#2024#0" expanded="true" />
+                <element signature="e#2041#2042#0" expanded="true" />
+                <element signature="e#2123#2124#0" expanded="true" />
+                <element signature="e#2141#2142#0" expanded="true" />
+                <element signature="e#2232#2233#0" expanded="true" />
+                <element signature="e#2251#2252#0" expanded="true" />
+                <element signature="e#2332#2333#0" expanded="true" />
+                <element signature="e#2351#2352#0" expanded="true" />
+                <element signature="e#2433#2434#0" expanded="true" />
+                <element signature="e#2452#2453#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -154,7 +134,6 @@
         <option value="$PROJECT_DIR$/src/main/java/data/service/HotelDataService.java" />
         <option value="$PROJECT_DIR$/src/main/java/data/service/PromotionDataService.java" />
         <option value="$PROJECT_DIR$/src/main/java/data/service/RankDataService.java" />
-        <option value="$PROJECT_DIR$/src/main/java/data/stub/RoomDataStub.java" />
         <option value="$PROJECT_DIR$/src/main/java/data/service/RoomDataService.java" />
         <option value="$PROJECT_DIR$/src/main/java/data/service/SalerDataService.java" />
         <option value="$PROJECT_DIR$/src/main/java/data/service/SearchDataService.java" />
@@ -162,6 +141,7 @@
         <option value="$PROJECT_DIR$/src/main/java/data/service/OrderDataService.java" />
         <option value="$PROJECT_DIR$/src/main/java/data/service/OrderDataObstractFactory.java" />
         <option value="$PROJECT_DIR$/src/main/java/data/service/MemberDataService.java" />
+        <option value="$PROJECT_DIR$/src/main/java/data/stub/RoomDataStub.java" />
       </list>
     </option>
   </component>
@@ -985,7 +965,7 @@
       <workItem from="1481085908352" duration="620000" />
       <workItem from="1481098236613" duration="7404000" />
       <workItem from="1481120862058" duration="4612000" />
-      <workItem from="1481187405668" duration="4993000" />
+      <workItem from="1481187405668" duration="7478000" />
     </task>
     <servers />
   </component>
@@ -1022,7 +1002,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="78294000" />
+    <option name="totallyTimeSpent" value="80779000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1680" height="1050" extended-state="0" />
@@ -1510,30 +1490,30 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/data/stub/RoomDataStub.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="165">
-          <caret line="11" column="3" selection-start-line="11" selection-start-column="3" selection-end-line="11" selection-end-column="3" />
+        <state relative-caret-position="150">
+          <caret line="38" column="28" selection-start-line="38" selection-start-column="28" selection-end-line="38" selection-end-column="28" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#333#334#0" expanded="true" />
-            <element signature="e#351#352#0" expanded="true" />
-            <element signature="e#425#426#0" expanded="true" />
-            <element signature="e#444#445#0" expanded="true" />
-            <element signature="e#532#533#0" expanded="true" />
-            <element signature="e#551#552#0" expanded="true" />
-            <element signature="e#631#632#0" expanded="true" />
-            <element signature="e#650#651#0" expanded="true" />
-            <element signature="e#755#756#0" expanded="true" />
-            <element signature="e#773#774#0" expanded="true" />
-            <element signature="e#876#877#0" expanded="true" />
-            <element signature="e#894#895#0" expanded="true" />
-            <element signature="e#976#977#0" expanded="true" />
-            <element signature="e#994#995#0" expanded="true" />
-            <element signature="e#1085#1086#0" expanded="true" />
-            <element signature="e#1104#1105#0" expanded="true" />
-            <element signature="e#1185#1186#0" expanded="true" />
-            <element signature="e#1204#1205#0" expanded="true" />
-            <element signature="e#1286#1287#0" expanded="true" />
-            <element signature="e#1305#1306#0" expanded="true" />
+            <element signature="e#1480#1481#0" expanded="true" />
+            <element signature="e#1498#1499#0" expanded="true" />
+            <element signature="e#1572#1573#0" expanded="true" />
+            <element signature="e#1591#1592#0" expanded="true" />
+            <element signature="e#1679#1680#0" expanded="true" />
+            <element signature="e#1698#1699#0" expanded="true" />
+            <element signature="e#1778#1779#0" expanded="true" />
+            <element signature="e#1797#1798#0" expanded="true" />
+            <element signature="e#1902#1903#0" expanded="true" />
+            <element signature="e#1920#1921#0" expanded="true" />
+            <element signature="e#2023#2024#0" expanded="true" />
+            <element signature="e#2041#2042#0" expanded="true" />
+            <element signature="e#2123#2124#0" expanded="true" />
+            <element signature="e#2141#2142#0" expanded="true" />
+            <element signature="e#2232#2233#0" expanded="true" />
+            <element signature="e#2251#2252#0" expanded="true" />
+            <element signature="e#2332#2333#0" expanded="true" />
+            <element signature="e#2351#2352#0" expanded="true" />
+            <element signature="e#2433#2434#0" expanded="true" />
+            <element signature="e#2452#2453#0" expanded="true" />
           </folding>
         </state>
       </provider>
