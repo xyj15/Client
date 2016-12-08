@@ -29,23 +29,28 @@ public class CreditDataStub implements CreditDataService {
 	
 	@Override
 	public double getCredit(String memberID) {
+		System.out.println("获取信用成功");
 		return credit;
 	}
 	
 	@Override
 	public ArrayList<CreditChangePO> getCreditChange(String memberID) {
+		System.out.println("获取信用变化列表成功");
 		return creditChangeList;
 	}
 	
 	@Override
 	public boolean setCredit(String memberID, double credit) {
+		System.out.println("设置信用成功");
 		this.credit = credit;
 		return true;
 	}
 	
 	@Override
 	public boolean addCreditChange(String memberID, CreditChangePO creditChange) {
+		System.out.println("添加信用变化成功");
 		creditChangeList.add(creditChange);
+		credit = creditChange.getResult();
 		return true;
 	}
 }
