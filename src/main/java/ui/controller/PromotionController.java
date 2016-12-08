@@ -1,5 +1,7 @@
 package ui.controller;
 
+import bl.implementation.Member;
+import bl.implementation.Order;
 import bl.service.SalerBLService;
 import bl.stub.SalerBLStub;
 import javafx.collections.FXCollections;
@@ -13,8 +15,13 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
+import other.PromotionType;
+import other.TableDataForSalerAbnormalOrder;
 import other.TableDataForSalerPromotion;
+import other.TableDataForVip;
 import ui.presentation.*;
+import vo.MemberVO;
+import vo.OrderVO;
 import vo.PromotionVO;
 
 import java.util.ArrayList;
@@ -57,7 +64,6 @@ public class PromotionController {
     @FXML
     private void onPromotion(ActionEvent E) throws Exception{
         new SalerPromotionUI().start(primaryStage);
-        System.out.print("he");
         TableView table = (TableView) root.lookup("#table");
         ObservableList<TableDataForSalerPromotion> dataForSalerPromotion = FXCollections.observableArrayList();
         ObservableList<TableColumn> tableList = table.getColumns();
@@ -71,15 +77,37 @@ public class PromotionController {
         tableList.get(2).setCellValueFactory(new PropertyValueFactory("endDate"));
         tableList.get(3).setCellValueFactory(new PropertyValueFactory("discount"));
         table.setItems(dataForSalerPromotion);
-        
+
     }
     @FXML
     private void onAbnormal(ActionEvent E) throws Exception{
         new SalerAbnormalOrderUI().start(primaryStage);
+        TableView table = (TableView) root.lookup("#table");
+        ObservableList<TableDataForSalerAbnormalOrder> dataForSalerAbnormalOrder = FXCollections.observableArrayList();
+        ObservableList<TableColumn> tableList = table.getColumns();
+        ArrayList<OrderVO> list = saler.getDailyUnexcutedOrderList();
+        for(int i=0;i<list.size();i++){
+            Member member=new Member(list.get(i).getMemberID());
+            dataForSalerAbnormalOrder.add(new TableDataForSalerAbnormalOrder(list.get(i).getOrderID(),member.getName(),member.getTel()));
+        }
+        tableList.get(0).setCellValueFactory(new PropertyValueFactory("orderID"));
+        tableList.get(1).setCellValueFactory(new PropertyValueFactory("memberName"));
+        tableList.get(2).setCellValueFactory(new PropertyValueFactory("memberTel"));
+        table.setItems(dataForSalerAbnormalOrder);
     }
     @FXML
     private void onRank(ActionEvent E) throws Exception{
         new SalerVIPUI().start(primaryStage);
+        /*TableView table = (TableView) root.lookup("#table");
+        ObservableList<TableDataForVip> dataForVip = FXCollections.observableArrayList();
+        ObservableList<TableColumn> tableList = table.getColumns();
+        ArrayList<PromotionVO> list = saler.getPromotionList();
+        for(int i=0;i<list.size();i++){
+            dataForVip.add(new dataForVip());
+        }
+        tableList.get(0).setCellValueFactory(new PropertyValueFactory("district"));
+        tableList.get(1).setCellValueFactory(new PropertyValueFactory("discount"));
+        table.setItems(dataForVip);*/
     }
     @FXML
     private void onCredit(ActionEvent E) throws Exception{
@@ -91,7 +119,9 @@ public class PromotionController {
     }
     @FXML
     private void confirmAddVIP(ActionEvent E) throws Exception{
-        //saler.setRankInformation()
+        PromotionVO promotion=new PromotionVO(null,datePromotionName.getText(), PromotionType.Discount);
+        promotion.setDistrictPromotion(district.getText(),Double.parseDouble(discount.getText()),0,0);
+        saler.createPromotion(promotion);
     }
     @FXML
     private void onAddPromotion(ActionEvent E) throws Exception{
@@ -115,8 +145,8 @@ public class PromotionController {
     }
     @FXML
     private void confirmAddCpromotion(ActionEvent E) throws Exception{
-        //PromotionVO promotion=new PromotionVO(datePromotionName.getText(),);
-
-        //saler.createPromotion()
+        PromotionVO promotion=new PromotionVO(null,datePromotionName.getText(),PromotionType.Discount);
+        //promotion.setDatePromotion();
+        saler.createPromotion(promotion);
     }
 }
