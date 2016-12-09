@@ -29,6 +29,24 @@ public class RoomBLStub implements RoomBLService {
 	}
 	
 	@Override
+	public ArrayList<RoomVO> getAvailableRoomByName(Date date, String roomName) {
+		System.out.println("获取客房列表成功");
+		ArrayList<RoomVO> roomList = new ArrayList<>();
+		RoomVO roomVO = new RoomVO(true, false, "301", "海景大床房", RoomType.BigBed, 500, "000000");
+		roomList.add(roomVO);
+		return roomList;
+	}
+	
+	@Override
+	public ArrayList<RoomVO> getDailyRoomList(Date date) {
+		System.out.println("获取客房列表成功");
+		ArrayList<RoomVO> roomList = new ArrayList<>();
+		RoomVO roomVO = new RoomVO(true, false, "301", "海景大床房", RoomType.BigBed, 500, "000000");
+		roomList.add(roomVO);
+		return roomList;
+	}
+	
+	@Override
 	public boolean addRoom(RoomVO roomVO) {
 		System.out.println("添加客房成功");
 		return true;
