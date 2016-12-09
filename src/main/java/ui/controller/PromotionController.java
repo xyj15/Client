@@ -1,7 +1,6 @@
 package ui.controller;
 
 import bl.implementation.Member;
-import bl.implementation.Order;
 import bl.service.SalerBLService;
 import bl.stub.SalerBLStub;
 import javafx.collections.FXCollections;
@@ -18,14 +17,11 @@ import javafx.stage.Stage;
 import other.PromotionType;
 import other.TableDataForSalerAbnormalOrder;
 import other.TableDataForSalerPromotion;
-import other.TableDataForVip;
 import ui.presentation.*;
-import vo.MemberVO;
 import vo.OrderVO;
 import vo.PromotionVO;
-
-import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.Date;
 
 /**
  * Created by 97147 on 2016/11/30.
@@ -33,7 +29,9 @@ import java.util.ArrayList;
 public class PromotionController {
 
     private static Parent root;
+    private static Parent minroot;
     private static Stage primaryStage;
+    private static Stage minprimaryStage;
 
 
     public static void setPrimaryStage(Stage in){
@@ -42,13 +40,19 @@ public class PromotionController {
     public static void setRoot(Parent root) {
         PromotionController.root = root;
     }
+    public static void setMinroot(Parent minroot) {
+        PromotionController.minroot = minroot;
+    }
+    public static void setMinprimaryStage(Stage minprimaryStage) {
+        PromotionController.minprimaryStage = minprimaryStage;
+    }
 
     private SalerBLService saler = new SalerBLStub();
 
     @FXML
     private TextField district=new TextField();
     @FXML
-    private TextField discount=new TextField();
+    private TextField VipDiscount=new TextField();
     @FXML
     private TextField memberID=new TextField();
     @FXML
@@ -61,8 +65,19 @@ public class PromotionController {
     private TextField dateDiscount=new TextField();
     @FXML
     private DatePicker checkOutDate=new DatePicker();
+
+
+
     @FXML
-    private void onPromotion(ActionEvent E) throws Exception{
+    private void onP() throws Exception {
+        System.out.print(0);
+        new SalerPromotionUI().start(primaryStage);
+    }
+
+
+    @FXML
+    private void onPromotion() throws Exception{
+        System.out.print(0);
         new SalerPromotionUI().start(primaryStage);
         TableView table = (TableView) root.lookup("#table");
         ObservableList<TableDataForSalerPromotion> dataForSalerPromotion = FXCollections.observableArrayList();
@@ -78,7 +93,9 @@ public class PromotionController {
         tableList.get(3).setCellValueFactory(new PropertyValueFactory("discount"));
         table.setItems(dataForSalerPromotion);
 
+
     }
+
     @FXML
     private void onAbnormal(ActionEvent E) throws Exception{
         new SalerAbnormalOrderUI().start(primaryStage);
@@ -98,7 +115,7 @@ public class PromotionController {
     @FXML
     private void onRank(ActionEvent E) throws Exception{
         new SalerVIPUI().start(primaryStage);
-        /*TableView table = (TableView) root.lookup("#table");
+       /* TableView table = (TableView) root.lookup("#table");
         ObservableList<TableDataForVip> dataForVip = FXCollections.observableArrayList();
         ObservableList<TableColumn> tableList = table.getColumns();
         ArrayList<PromotionVO> list = saler.getPromotionList();
@@ -115,17 +132,21 @@ public class PromotionController {
     }
     @FXML
     private void onAddVIP(ActionEvent E) throws Exception{
-        new SalerAddVIPUI().start(primaryStage);
+        minprimaryStage = new Stage();
+        new SalerAddVIPUI().start(minprimaryStage);
     }
     @FXML
     private void confirmAddVIP(ActionEvent E) throws Exception{
         PromotionVO promotion=new PromotionVO(null,datePromotionName.getText(), PromotionType.Discount);
-        promotion.setDistrictPromotion(district.getText(),Double.parseDouble(discount.getText()),0,0);
+        promotion.setDistrictPromotion(district.getText(),Double.parseDouble(VipDiscount.getText()),0,0);
         saler.createPromotion(promotion);
     }
     @FXML
     private void onAddPromotion(ActionEvent E) throws Exception{
-        new SalerAddPromotionUI().start(primaryStage);
+        TableView table = (TableView)root.lookup("#table");
+        table.getSelectionModel().getFocusedIndex();
+        minprimaryStage = new Stage();
+        new SalerAddPromotionUI().start(minprimaryStage);
     }
     @FXML
     private void onLogOut(ActionEvent E) throws Exception{
@@ -137,7 +158,7 @@ public class PromotionController {
     }
     @FXML
     private void fullCredit(ActionEvent E) throws Exception{
-        //saler.cancelAbnormalOrder(,1);
+//        saler.cancelAbnormalOrder("",1);
     }
     @FXML
     private void confirmAddCredit(ActionEvent E) throws Exception{
@@ -146,7 +167,9 @@ public class PromotionController {
     @FXML
     private void confirmAddCpromotion(ActionEvent E) throws Exception{
         PromotionVO promotion=new PromotionVO(null,datePromotionName.getText(),PromotionType.Discount);
-        //promotion.setDatePromotion();
+        Date start=new Date(checkInDate.getValue().getYear(),checkInDate.getValue().getMonthValue(),checkInDate.getValue().getDayOfMonth());
+        Date end=new Date(checkOutDate.getValue().getYear(),checkOutDate.getValue().getMonthValue(),checkOutDate.getValue().getDayOfMonth());
+        promotion.setDatePromotion(start,end,Double.parseDouble(dateDiscount.getText()),0,0);
         saler.createPromotion(promotion);
     }
 }
