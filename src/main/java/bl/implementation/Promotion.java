@@ -222,7 +222,11 @@ public class Promotion implements PromotionBLService {
 			promotionPO = promotionPOList.get(i);
 			promotionVO = promotionPOtoVO(promotionPO);
 			if(hotelID==null) {
-				promotionList.add(promotionVO);
+				if(promotionVO.getRelatedHotelID()==null) {
+					promotionList.add(promotionVO);
+				} else {
+					continue;
+				}
 			} else {
 				if(promotionPO.getRelatedHotelID()==null) {
 					continue;

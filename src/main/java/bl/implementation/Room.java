@@ -31,6 +31,22 @@ public class Room implements RoomBLService {
 	}
 	
 	/**
+	 * 根据日期和房间名称获取可用房间列表
+	 * @param date 日期
+	 * @param roomName 房间名称
+	 * @return 可用房间列表
+	 */
+	@Override
+	public ArrayList<RoomVO> getAvailableRoomByName(Date date, String roomName) {
+		ArrayList<RoomPO> roomPOArrayList = roomDataService.getRoomsByNameDate(date, roomName, hotelID);
+		ArrayList<RoomVO> roomVOArrayList = new ArrayList<>();
+		for(int i=0; i<roomPOArrayList.size(); i++) {
+			roomVOArrayList.add(roomPOtoVO(roomPOArrayList.get(i)));
+		}
+		return roomVOArrayList;
+	}
+	
+	/**
 	 * 根据客房号码获取某天的房间信息
 	 * @param date 日期
 	 * @param roomNumber 客房号码
@@ -115,6 +131,7 @@ public class Room implements RoomBLService {
 	 * @param date 日期
 	 * @return 客房信息列表
 	 */
+	@Override
 	public ArrayList<RoomVO> getDailyRoomList(Date date) {
 		ArrayList<RoomPO> roomPOList = roomDataService.getRoomsByDate(date, hotelID);
 		ArrayList<RoomVO> roomVOList = new ArrayList<RoomVO>();

@@ -98,7 +98,15 @@ public class RoomDataStub implements RoomDataService {
 	
 	@Override
 	public ArrayList<RoomPO> getRoomsByNameDate(Date day, String roomName, String hotelID) {
-		return null;
+		System.out.println("获取客房列表成功");
+		ArrayList<RoomPO> roomPOArrayList = new ArrayList<>();
+		for(int i=0; i<roomList.size(); i++) {
+			RoomPO roomPO = roomList.get(i);
+			if(roomPO.getRoomName().equals(roomName)) {
+				roomPOArrayList.add(roomPO);
+			}
+		}
+		return roomPOArrayList;
 	}
 	
 	@Override

@@ -86,4 +86,11 @@ public class RoomTest {
 		}
 	}
 	
+	@Test
+	public void getAvailableRoomByName() throws Exception {
+		ArrayList<RoomVO> roomList = room.getAvailableRoomByName(new Date(), "单人房");
+		for(int i=0; i<roomList.size(); i++) {
+			assertEquals(roomList.get(i).getRoomName(), "单人房");
+		}
+	}
 }
