@@ -24,6 +24,7 @@ import vo.MemberVO;
 import vo.OrderVO;
 import vo.PromotionVO;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
 
 /**
@@ -60,7 +61,6 @@ public class PromotionController {
     private TextField dateDiscount=new TextField();
     @FXML
     private DatePicker checkOutDate=new DatePicker();
-
     @FXML
     private void onPromotion(ActionEvent E) throws Exception{
         new SalerPromotionUI().start(primaryStage);
