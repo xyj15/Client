@@ -1,7 +1,9 @@
 package test;
 
+import bl.implementation.Saler;
 import org.junit.Before;
 import org.junit.Test;
+import vo.SalerVO;
 
 import static org.junit.Assert.*;
 
@@ -9,14 +11,18 @@ import static org.junit.Assert.*;
  * Created by CROFF on 2016/12/7.
  */
 public class SalerTest {
+	
+	private Saler saler;
+	
 	@Before
 	public void setUp() throws Exception {
-		
+//		saler = new Saler("0002");
 	}
 	
 	@Test
 	public void getSalerInformation() throws Exception {
-		
+//		SalerVO salerVO = saler.getSalerInformation();
+//		assertEquals(salerVO.getName(), "传销人员03", "tel03");
 	}
 	
 	@Test

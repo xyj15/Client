@@ -2,7 +2,7 @@ package test;
 
 import org.junit.Before;
 import org.junit.Test;
-import other.Rank;
+import bl.implementation.Rank;
 
 import java.util.ArrayList;
 

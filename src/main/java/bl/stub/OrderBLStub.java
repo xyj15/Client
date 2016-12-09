@@ -1,7 +1,11 @@
 package bl.stub;
 
 import bl.service.OrderBLService;
+import other.MemberType;
 import other.OrderStatus;
+import vo.HotelVO;
+import vo.ManagerVO;
+import vo.MemberVO;
 import vo.OrderVO;
 
 import java.util.ArrayList;
@@ -32,12 +36,18 @@ public class OrderBLStub implements OrderBLService {
 		double recover = 0.5;
 		String promotionID = "00000";
 		double price = 99999;
-		String hotelName = "新悦大酒店";
 		Date cancelTime = new Date();
+		MemberVO memberVO = new MemberVO("12345678", "12345678910", "XXX", "12345678910",
+				2, 0.9, MemberType.Orinary, new Date(), "新悦公司");
+		HotelVO hotelVO = new HotelVO("123456", "12345678910",
+				"新悦大酒店", "南京大学仙林校区", "南京大学商圈", "南京市",
+				5, 5, "什么服务都有", "酒店简介", "张新悦", "12345678910");
 		OrderVO orderVO = new OrderVO(memberID, hotelID, orderID, orderStatus, createTime,
 				checkinTime, actualCheckinTime, latestCheckinTime, checkoutTime, actualCheckoutTime,
 				numberOfRoom, roomName, numberOfClient, haveKids, score, evaluation, recover,
 				promotionID, price, cancelTime);
+		orderVO.setHotelVO(hotelVO);
+		orderVO.setMemberVO(memberVO);
 		orderList.add(orderVO);
 	}
 	

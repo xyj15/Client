@@ -6,8 +6,8 @@ import java.util.Date;
 
 import data.service.PromotionDataService;
 import bl.service.PromotionBLService;
+import data.stub.PromotionDataStub;
 import other.PromotionType;
-import other.Rank;
 import other.SaleType;
 import po.PromotionPO;
 import vo.PromotionVO;
@@ -29,6 +29,8 @@ public class Promotion implements PromotionBLService {
 	 * @param hotelID
 	 */
 	public Promotion(String hotelID) {
+		this.hotelID = hotelID;
+		promotionDataService = new PromotionDataStub();
 		promotionList = getHotelPromotionList(hotelID);
 	}
 	
@@ -36,6 +38,7 @@ public class Promotion implements PromotionBLService {
 	 * 网站营销策略的构造方法，获取所有营销策略
 	 */
 	public Promotion() {
+		promotionDataService = new PromotionDataStub();
 		promotionList = getWebPromotionList();
 	}
 	
@@ -221,6 +224,9 @@ public class Promotion implements PromotionBLService {
 			if(hotelID==null) {
 				promotionList.add(promotionVO);
 			} else {
+				if(promotionPO.getRelatedHotelID()==null) {
+					continue;
+				}
 				if(promotionPO.getRelatedHotelID().equals(hotelID)) {
 					promotionList.add(promotionVO);
 				}
