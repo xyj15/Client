@@ -1,7 +1,12 @@
 package bl.stub;
 
 import bl.service.HotelBLService;
+import other.RoomType;
 import vo.HotelVO;
+import vo.RoomVO;
+
+import java.util.ArrayList;
+import java.util.Date;
 
 public class HotelBLStub implements HotelBLService{
 	
