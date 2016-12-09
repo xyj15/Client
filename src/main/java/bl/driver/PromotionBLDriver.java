@@ -15,6 +15,10 @@ public class PromotionBLDriver {
 		System.out.println(promotionBLService.getPromotion("12345"));
 		System.out.println(promotionBLService.getWebPromotionList());
 		System.out.println(promotionBLService.updatePromotion(new PromotionVO()));
+		System.out.println(promotionBLService.getDistrictPromotionList());
+		System.out.println(promotionBLService.getEnterprisePromotionList());
+		System.out.println(promotionBLService.getHotelDatePromotionList());
+		System.out.println(promotionBLService.getWebDatePromotionList());
 	}
 
 	public static void main(String[] args) {

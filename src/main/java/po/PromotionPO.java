@@ -41,6 +41,7 @@ public class PromotionPO {
 		this.promotionID = promotionID;
 		this.promotionName = promotionName;
 		this.promotionType = promotionType;
+//		saleType = SaleType.Date;
 	}
 	
 	/**
@@ -55,6 +56,7 @@ public class PromotionPO {
 		this.promotionName = promotionName;
 		this.promotionType = promotionType;
 		this.relatedHotelID = relatedHotelID;
+//		saleType = SaleType.Date;
 	}
 	
 	/**
