@@ -2,6 +2,7 @@ package bl.implementation;
 
 import data.service.RoomDataService;
 import bl.service.RoomBLService;
+import data.stub.RoomDataStub;
 import other.RoomType;
 import po.RoomPO;
 import vo.RoomVO;
@@ -26,6 +27,7 @@ public class Room implements RoomBLService {
 	 */
 	public Room(String hotelID) {
 		this.hotelID = hotelID;
+		roomDataService = new RoomDataStub();
 	}
 	
 	/**
@@ -120,6 +122,36 @@ public class Room implements RoomBLService {
 			roomVOList.add(roomPOtoVO(roomPOList.get(i)));
 		}
 		return roomVOList;
+	}
+	
+	/**
+	 * 办理入住手续
+	 * @param date 入住日期
+	 * @param roomID 客房号
+	 * @return 办理成功则返回true，否则返回false
+	 */
+	public boolean checkin(Date date, String roomID) {
+		return roomDataService.checkIn(date, roomID, hotelID);
+	}
+	
+	/**
+	 * 办理离店手续
+	 * @param date 离店日期
+	 * @param roomID 客房号
+	 * @return 办理成功则返回true，否则返回false
+	 */
+	public boolean checkout(Date date, String roomID) {
+		return roomDataService.checkOut(date, roomID, hotelID);
+	}
+	
+	/**
+	 * 预订单间客房
+	 * @param date 预期入住日期
+	 * @param roomID 客房号
+	 * @return 预订成功则返回true，否则返回false
+	 */
+	public boolean reserveSingleRoom(Date date, String roomID) {
+		return roomDataService.reserveSingleRoom(date, roomID, hotelID);
 	}
 }
 

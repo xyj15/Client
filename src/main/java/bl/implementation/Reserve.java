@@ -298,11 +298,16 @@ public class Reserve implements ReserveBLService {
 	@Override
 	public boolean createOrder() {
 		Order order = new Order(memberID);
-		String hotelName = hotel.getHotelName();
+		Hotel hotel = new Hotel(hotelID);
+		Member member = new Member(memberID);
+		hotel.reserveSingleRoom(checkinTime, roomVO.getRoomName());
+		
 		OrderVO orderVO = new OrderVO(memberID, hotelID, checkinTime,
 				checkoutTime, latestArriveTime, roomVO.getRoomName(),
 				numberOfRooms, numberOfClient, haveKids,
-				promotionVO.getPromotionID(), price, hotelName);
+				promotionVO.getPromotionID(), price);
+		orderVO.setMemberVO(member.getMemberInformation());
+		orderVO.setHotelVO(hotel.getHotelInformation());
 		return order.createOrder(orderVO);
 	}
 }

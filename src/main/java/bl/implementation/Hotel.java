@@ -188,9 +188,7 @@ public class Hotel implements HotelBLService {
 		int index = order.getOrderIndex(orderID);
 		order.getOrderList().set(index, orderVO);
 		
-		RoomVO roomVO = room.getRoomInformation(new Date(), roomID);
-		roomVO.setAvailable(false);
-		return true;
+		return room.checkin(new Date(), roomID);
 	}
 	
 	/**
@@ -209,9 +207,26 @@ public class Hotel implements HotelBLService {
 		int index = order.getOrderIndex(orderID);
 		order.getOrderList().set(index, orderVO);
 		
-		RoomVO roomVO = room.getRoomInformation(new Date(), roomID);
-		roomVO.setAvailable(true);
-		return true;
+		return room.checkout(new Date(), roomID);
+	}
+	
+	/**
+	 * 预订单间客房
+	 * @param date 日期
+	 * @param roomName 客房名称
+	 * @return 预订成功则返回true，否则返回false
+	 */
+	public boolean reserveSingleRoom(Date date, String roomName) {
+		ArrayList<RoomVO> roomList = room.getDailyRoomList(date);
+		RoomVO roomVO;
+		for(int i=0; i<roomList.size(); i++) {
+			roomVO = roomList.get(i);
+			if(roomVO.getRoomName().equals(roomName) && roomVO.isReserved()==false) {
+				String roomID = roomVO.getRoomNumber();
+				return room.reserveSingleRoom(date, roomID);
+			}
+		}
+		return false;
 	}
 	
 	/**
