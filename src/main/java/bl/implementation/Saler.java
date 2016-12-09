@@ -192,7 +192,7 @@ public class Saler implements SalerBLService {
 		order = new Order(salerID);
 		SalerPO salerPO = salerDataService.getSaler(salerID);
 		salerVO = salerPOtoVO(salerPO);
-		rank = Rank.getInstance();
+		rank = new Rank();
 	}
 	
 	/**

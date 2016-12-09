@@ -31,8 +31,7 @@ public class Credit implements CreditBLService {
     public Credit(String memberID) {
 		this.memberID = memberID;
 		creditDataService = new CreditDataStub();
-		updateCreditChangeListFromFile();
-		updateCreditFromFile();
+		updateDataFromFile();
     }
 	
 	/**
@@ -41,7 +40,7 @@ public class Credit implements CreditBLService {
 	 */
 	@Override
 	public ArrayList<CreditChangeVO> getCreditChangeList() {
-		updateCreditChangeListFromFile();
+		updateDataFromFile();
 		return creditChangeList;
 	}
 	
@@ -51,7 +50,7 @@ public class Credit implements CreditBLService {
 	 */
 	@Override
 	public double getCredit() {
-		updateCreditFromFile();
+		updateDataFromFile();
 		return credit;
 	}
 	
@@ -96,9 +95,10 @@ public class Credit implements CreditBLService {
 	}
 	
 	/**
-	 * 从data层更新信用变化列表
+	 * 从data层更新数据
 	 */
-	public void updateCreditChangeListFromFile() {
+	public void updateDataFromFile() {
+		credit = creditDataService.getCredit(memberID);
 		ArrayList<CreditChangePO> creditChangePOList = creditDataService.getCreditChange(memberID);
 		creditChangeList = new ArrayList<CreditChangeVO>();
 		for(int i=0; i<creditChangePOList.size(); i++) {
@@ -112,12 +112,5 @@ public class Credit implements CreditBLService {
 					orderAction, change, result);
 			creditChangeList.add(creditChangeVO);
 		}
-	}
-	
-	/**
-	 * 从data层更新信用值
-	 */
-	public void updateCreditFromFile() {
-		credit = creditDataService.getCredit(memberID);
 	}
 }

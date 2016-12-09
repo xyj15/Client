@@ -8,7 +8,7 @@ import po.ManagerPO;
  * @version 2016-12-01
  */
 public interface ManagerDataService {
+	
 	public boolean updateManager(ManagerPO manager);
 	public ManagerPO getManager();
-	public void close();   //关闭输入流
 }

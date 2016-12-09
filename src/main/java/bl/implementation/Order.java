@@ -180,11 +180,14 @@ public class Order implements OrderBLService {
 		OrderPO orderPO;
 		OrderVO orderVO;
 		Hotel hotel;
+		Member member;
 		for(int i=0; i<orderList.size(); i++) {
 			orderPO = orderPOArrayList.get(i);
 			orderVO = orderPOtoVO(orderPO);
 			hotel = new Hotel(orderVO.getHotelID());
-			orderVO.setHotelName(hotel.getHotelName());
+			orderVO.setHotelVO(hotel.getHotelInformation());
+			member = new Member(orderVO.getMemberID());
+			orderVO.setMemberVO(member.getMemberInformation());
 			orderList.add(orderVO);
 		}
 	}
