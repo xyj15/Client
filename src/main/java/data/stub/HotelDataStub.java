@@ -59,9 +59,4 @@ public class HotelDataStub implements HotelDataService {
 	public String getAvailableID() {
 		return null;
 	}
-	
-	@Override
-	public void close() {
-		
-	}
 }

@@ -1,6 +1,5 @@
 package data.stub;
 
-import bl.implementation.Room;
 import data.service.RoomDataService;
 import other.RoomType;
 import po.RoomPO;
@@ -41,6 +40,7 @@ public class RoomDataStub implements RoomDataService {
 	
 	@Override
 	public RoomPO getSingleRoom(Date date, String roomNum, String hotelID) {
+		System.out.println("获取客房信息成功");
 		for(int i=0; i<roomList.size(); i++) {
 			RoomPO roomPO = roomList.get(i);
 			if(roomPO.getRoomNumber().equals(roomNum)) {
@@ -52,12 +52,14 @@ public class RoomDataStub implements RoomDataService {
 	
 	@Override
 	public boolean addSingleRoom(RoomPO room, String hotelID) {
+		System.out.println("添加客房成功");
 		roomList.add(room);
 		return true;
 	}
 	
 	@Override
 	public boolean updateSingleRoom(Date date, RoomPO room, String hotelID) {
+		System.out.println("更新客房信息成功");
 		String roomNumber = room.getRoomNumber();
 		for(int i=0; i<roomList.size(); i++) {
 			RoomPO roomPO = roomList.get(i);
@@ -71,6 +73,7 @@ public class RoomDataStub implements RoomDataService {
 	
 	@Override
 	public boolean deleteSingleRoom(String roomNum, String hotelID) {
+		System.out.println("删除客房成功");
 		for(int i=0; i<roomList.size(); i++) {
 			RoomPO roomPO = roomList.get(i);
 			if(roomPO.getRoomNumber().equals(roomNum)) {
@@ -93,21 +96,46 @@ public class RoomDataStub implements RoomDataService {
 	
 	@Override
 	public ArrayList<RoomPO> getRoomsByDate(Date day, String hotelID) {
+		System.out.println("获取客房列表成功");
 		return roomList;
 	}
 	
 	@Override
 	public boolean reserveSingleRoom(Date day, String roomNUM, String hotelID) {
+		System.out.println("预定客房成功");
+		for(int i=0; i<roomList.size(); i++) {
+			RoomPO roomPO = roomList.get(i);
+			if(roomPO.getRoomNumber().equals(roomNUM) && roomPO.isReserved()==false) {
+				roomPO.setReserved(true);
+				return true;
+			}
+		}
 		return false;
 	}
 	
 	@Override
 	public boolean checkIn(Date day, String roomNUM, String hotelID) {
+		System.out.println("入住成功");
+		for(int i=0; i<roomList.size(); i++) {
+			RoomPO roomPO = roomList.get(i);
+			if(roomPO.getRoomNumber().equals(roomNUM) && roomPO.isAvailable()) {
+				roomPO.setAvailable(false);
+				return true;
+			}
+		}
 		return false;
 	}
 	
 	@Override
 	public boolean checkOut(Date day, String roomNUM, String hotelID) {
+		System.out.println("离店成功");
+		for(int i=0; i<roomList.size(); i++) {
+			RoomPO roomPO = roomList.get(i);
+			if(!roomPO.isAvailable() && roomPO.getRoomNumber().equals(roomNUM)) {
+				roomPO.setAvailable(true);
+				return true;
+			}
+		}
 		return false;
 	}
 }
