@@ -200,7 +200,7 @@ public class Hotel implements HotelBLService {
 	@Override
 	public boolean checkout(String orderID, String roomID) {
 		OrderVO orderVO = order.getOrderInformation(orderID);
-		if(orderVO==null) {
+		if(orderVO==null || orderVO.getActualCheckinTime()==null) {
 			return false;
 		}
 		orderVO.setActualCheckoutTime(new Date());
@@ -248,7 +248,7 @@ public class Hotel implements HotelBLService {
 	}
 	
 	/**
-	 * 通过给定日期获取当天酒店的客房信息
+	 * 通过给定日期获取当天酒店的信息
 	 * @param date 日期
 	 */
 	public void updateDailyInformation(Date date) {

@@ -15,6 +15,8 @@ public class RoomBLDriver {
 		System.out.println(roomBLService.deleteRoom("3304"));
 		System.out.println(roomBLService.getRoomInformation(new Date(), "3304"));
 		System.out.println(roomBLService.updateRoom(new Date(), new RoomVO()));
+		System.out.println(roomBLService.getAvailableRoomByName(new Date(), ""));
+		System.out.println(roomBLService.getDailyRoomList(new Date()));
 	}
 
 	public static void main(String[] args) {

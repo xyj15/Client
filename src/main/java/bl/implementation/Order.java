@@ -190,6 +190,7 @@ public class Order implements OrderBLService {
 			orderVO.setMemberVO(member.getMemberInformation());
 			orderList.add(orderVO);
 		}
+		updateAbnormalOrder();
 	}
 	
 	/**
@@ -333,5 +334,24 @@ public class Order implements OrderBLService {
 		String second = String.valueOf(calendar.get(Calendar.SECOND));
 		String orderID = year+month+day+hour+minute+second+memberID;
 		return orderID;
+	}
+	
+	/**
+	 * 更新订单异常信息
+	 */
+	public void updateAbnormalOrder() {
+		for(int i=0; i<orderList.size(); i++) {
+			OrderVO orderVO = orderList.get(i);
+			if(orderVO.getLatestCheckinTime().after(new Date())) {
+				orderVO.setOrderStatus(OrderStatus.Abnormal);
+				
+				Credit credit = new Credit(orderVO.getMemberID());
+				double change = orderVO.getPrice();
+				double result = credit.getCredit() - change;
+				CreditChangeVO creditChangeVO = new CreditChangeVO(new Date(),
+						orderVO.getOrderID(), OrderAction.AbnormalOrder, change, result);
+				credit.addCreditChange(creditChangeVO);
+			}
+		}
 	}
 }

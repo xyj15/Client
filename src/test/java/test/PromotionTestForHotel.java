@@ -3,6 +3,10 @@ package test;
 import bl.implementation.Promotion;
 import org.junit.Before;
 import org.junit.Test;
+import other.PromotionType;
+import vo.PromotionVO;
+
+import java.util.Date;
 
 import static org.junit.Assert.*;
 
@@ -15,17 +19,21 @@ public class PromotionTestForHotel {
 	
 	@Before
 	public void setUp() throws Exception {
-		promotion = new Promotion("123456");
+		promotion = new Promotion("000000");
 	}
 	
 	@Test
 	public void getPromotion() throws Exception {
-		
+		assertEquals(promotion.getPromotion("00000"), null);
+		assertEquals(promotion.getPromotion("00005").getPromotionName(), "双十一特惠");
 	}
 	
 	@Test
 	public void addPromotion() throws Exception {
-		
+		PromotionVO promotionVO = new PromotionVO("", "国庆特惠", PromotionType.Discount, "000000");
+		promotionVO.setDatePromotion(new Date(), new Date(), 0.8, 0, 0);
+		promotion.addPromotion(promotionVO);
+		assertEquals(promotion.getPromotion("00007").getPromotionName(), "国庆特惠");
 	}
 	
 	@Test
