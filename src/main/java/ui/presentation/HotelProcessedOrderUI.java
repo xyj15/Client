@@ -15,6 +15,7 @@ public class HotelProcessedOrderUI extends Application {
     public void start(Stage primaryStage)throws Exception{
         Parent root = FXMLLoader.load(getClass().getResource("HotelProcessedOrder.fxml"));
         HotelController.setPrimaryStage(primaryStage);
+        HotelController.setRoot(root);
         Scene myScene = new Scene(root,960,540);
         primaryStage.setResizable(false);
         primaryStage.setScene(myScene);

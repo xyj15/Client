@@ -45,22 +45,22 @@
             <Font name="Microsoft YaHei Bold" size="16.0" />
          </font>
       </Button>
-      <Button layoutX="703.0" layoutY="459.0" mnemonicParsing="false" onAction="#onAddCompanyPromotion" prefHeight="23.0" prefWidth="65.0" style="-fx-background-color: #6B6BCF;" text="修改" textFill="WHITE">
+      <Button layoutX="703.0" layoutY="459.0" mnemonicParsing="false" onAction="#onChangeCompanyPromotion" prefHeight="23.0" prefWidth="65.0" style="-fx-background-color: #6B6BCF;" text="修改" textFill="WHITE">
          <font>
             <Font name="Microsoft YaHei Bold" size="16.0" />
          </font>
       </Button>
-      <Button layoutX="779.0" layoutY="459.0" mnemonicParsing="false" prefHeight="23.0" prefWidth="65.0" style="-fx-background-color: #6B6BCF;" text="删除" textFill="WHITE">
+      <Button layoutX="779.0" layoutY="459.0" mnemonicParsing="false" onAction="#onDeleteCompanyPromotion" prefHeight="23.0" prefWidth="65.0" style="-fx-background-color: #6B6BCF;" text="删除" textFill="WHITE">
          <font>
             <Font name="Microsoft YaHei Bold" size="16.0" />
          </font>
       </Button>
-      <ScrollPane layoutX="381.0" layoutY="136.0" opacity="0.57" prefHeight="302.0" prefWidth="497.0" style="-fx-background-color: #000f32;">
+      <ScrollPane layoutX="381.0" layoutY="136.0" opacity="0.57" prefHeight="302.0" prefWidth="500.0" style="-fx-background-color: #000f32;">
          <content>
-            <TableView prefHeight="302.0" prefWidth="497.0" style="-fx-background-color: #000f32;" stylesheets="@TableView.css">
+            <TableView prefHeight="302.0" prefWidth="480.0" style="-fx-background-color: #000f32;" stylesheets="@TableView.css">
               <columns>
-                <TableColumn prefWidth="75.0" style="-fx-background-color: #000f32; -fx-text-fill: white;" text="合作企业" />
-                  <TableColumn prefWidth="75.0" style="-fx-background-color: #000f32;" text="折扣" />
+                <TableColumn editable="false" prefWidth="-1.0" sortable="false" style="-fx-background-color: #000f32; -fx-text-fill: white;" text="合作企业" />
+                  <TableColumn editable="false" minWidth="0.0" prefWidth="-1.0" sortable="false" style="-fx-background-color: #000f32;" text="折扣" />
               </columns>
                <columnResizePolicy>
                   <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
