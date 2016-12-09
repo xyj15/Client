@@ -41,7 +41,7 @@
                   <Font name="Microsoft YaHei Bold" size="16.0" />
                </font>
             </Label>
-            <TextField fx:id="hotelAddress" layoutX="93.0" layoutY="15.0" prefHeight="29.0" prefWidth="360.0">
+            <TextField fx:id="hotelAddress" editable="false" layoutX="93.0" layoutY="15.0" prefHeight="29.0" prefWidth="360.0">
                <font>
                   <Font name="Microsoft YaHei Bold" size="14.0" />
                </font>
@@ -51,18 +51,18 @@
                   <Font name="Microsoft YaHei Bold" size="16.0" />
                </font>
             </Label>
-            <TextArea fx:id="serviceStub" layoutX="93.0" layoutY="70.0" prefHeight="98.0" prefWidth="150.0" />
+            <TextArea fx:id="serviceStub" editable="false" layoutX="93.0" layoutY="70.0" prefHeight="98.0" prefWidth="150.0" />
             <Label alignment="CENTER" layoutX="212.0" layoutY="58.0" prefHeight="58.0" prefWidth="122.0" text="简介" textFill="WHITE">
                <font>
                   <Font name="Microsoft YaHei Bold" size="16.0" />
                </font>
             </Label>
-            <TextArea fx:id="introduct" layoutX="295.0" layoutY="70.0" prefHeight="98.0" prefWidth="150.0" />
+            <TextArea fx:id="introduct" editable="false" layoutX="295.0" layoutY="70.0" prefHeight="98.0" prefWidth="150.0" />
          </children>
       </AnchorPane>
       <ScrollPane layoutX="38.0" layoutY="335.0" opacity="0.57" prefHeight="150.0" prefWidth="467.0" style="-fx-background-color: #000f32;">
          <content>
-            <TableView prefHeight="155.0" prefWidth="460.0" style="-fx-background-color: #000f32;" stylesheets="@TableView.css">
+            <TableView fx:id="table" prefHeight="155.0" prefWidth="460.0" style="-fx-background-color: #000f32;" stylesheets="@TableView.css">
                <columns>
                   <TableColumn prefWidth="75.0" style="-fx-background-color: #000f32;" text="房间类型" />
                   <TableColumn prefWidth="75.0" style="-fx-background-color: #000f32;" text="价格" />
@@ -81,7 +81,7 @@
                   <Font name="Microsoft YaHei Bold" size="16.0" />
                </font>
             </Label>
-            <TextField fx:id="hotelName" layoutX="96.0" layoutY="6.0" prefHeight="29.0" prefWidth="215.0">
+            <TextField fx:id="hotelName" editable="false" layoutX="96.0" layoutY="6.0" prefHeight="29.0" prefWidth="215.0">
                <font>
                   <Font name="Microsoft YaHei Bold" size="14.0" />
                </font>
@@ -96,12 +96,12 @@
                   <Font name="Microsoft YaHei Bold" size="16.0" />
                </font>
             </Label>
-            <TextField fx:id="hotelLevel" layoutX="96.0" layoutY="51.0" prefHeight="29.0" prefWidth="73.0">
+            <TextField fx:id="hotelLevel" editable="false" layoutX="96.0" layoutY="51.0" prefHeight="29.0" prefWidth="73.0">
                <font>
                   <Font name="Microsoft YaHei Bold" size="14.0" />
                </font>
             </TextField>
-            <TextField fx:id="hotelScore" layoutX="238.0" layoutY="52.0" prefHeight="29.0" prefWidth="73.0">
+            <TextField fx:id="hotelScore" editable="false" layoutX="238.0" layoutY="52.0" prefHeight="29.0" prefWidth="73.0">
                <font>
                   <Font name="Microsoft YaHei Bold" size="14.0" />
                </font>

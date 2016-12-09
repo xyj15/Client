@@ -10,13 +10,14 @@ import ui.controller.HotelController;
 /**
  * Created by 97147 on 2016/11/30.
  */
-public class HotelOrderUI  extends Application {
+public class HotelCancelOrderUI extends Application {
 
 
     @Override
     public void start(Stage primaryStage)throws Exception{
-        Parent root =FXMLLoader.load(getClass().getResource("HotelOrder.fxml"));
+        Parent root =FXMLLoader.load(getClass().getResource("HotelCancelOrder.fxml"));
         HotelController.setPrimaryStage(primaryStage);
+        HotelController.setRoot(root);
         Scene myScene = new Scene(root,960,540);
         primaryStage.setResizable(false);
         primaryStage.setScene(myScene);

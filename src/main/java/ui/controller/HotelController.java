@@ -1,15 +1,29 @@
 package ui.controller;
 
+import bl.implementation.Member;
 import bl.service.HotelBLService;
+import bl.service.MemberBLService;
+import bl.service.OrderBLService;
 import bl.stub.HotelBLStub;
+import bl.stub.OrderBLStub;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.Parent;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
+import other.TableDataForHotelOrder;
 import ui.presentation.*;
 import vo.HotelVO;
+import vo.OrderVO;
+
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 
 /**     帮助Hotel模块完成界面转跳以及连接UI层与BL层
  *
@@ -19,6 +33,8 @@ public class HotelController {
 
 
     private HotelBLService hotel = new HotelBLStub();
+    private OrderBLService order = new OrderBLStub();
+
 
     private static Stage primaryStage;
     private static Stage minprimaryStage;
@@ -100,14 +116,50 @@ public class HotelController {
     @FXML
     private void onOrderManager(ActionEvent E)throws Exception {
         new HotelUnprocessedOrderUI().start(primaryStage);
+        TableView table = (TableView) root.lookup("#table");
+        ArrayList<OrderVO> list = order.getUnexcutedOrders();
+        ObservableList<TableDataForHotelOrder> dataForH
+                = FXCollections.observableArrayList();
+        ObservableList<TableColumn> tableList = table.getColumns();
+        for(int i=0;i<list.size();i++){
+            dataForH.add(new TableDataForHotelOrder(list.get(i).getOrderID(),list.get(i).getRoomName(),
+                    list.get(i).getMemberVO().getName(),list.get(i).getMemberVO().getTel()));
+        }
+        tableList.get(0).setCellValueFactory(new PropertyValueFactory("first"));
+        tableList.get(1).setCellValueFactory(new PropertyValueFactory("second"));
+        tableList.get(2).setCellValueFactory(new PropertyValueFactory("third"));
+        tableList.get(3).setCellValueFactory(new PropertyValueFactory("fourth"));
+
+        table.setItems(dataForH);
     }
     @FXML
     private void onProcessedOrder(ActionEvent E)throws Exception {
-        new HotelProcessedOrderUI().start(primaryStage);
+//        new HotelProcessedOrderUI().start(primaryStage);
+//        TableView table = (TableView) root.lookup("#table");
+//        ArrayList<OrderVO> list = order.getUnexcutedOrders();
+//        ObservableList<TableDataForHotelOrder> dataForH
+//                = FXCollections.observableArrayList();
+//        ObservableList<TableColumn> tableList = table.getColumns();
+//        String in,out,outactual;
+//        SimpleDateFormat x=new SimpleDateFormat("yyyy-MM-dd");
+//        for(int i=0;i<list.size();i++){
+//            in = x.format(list.get(i).getCheckinTime());
+//            out = x.format(list.get(i).getCheckoutTime());
+//            outactual = x.format(list.get(i).getActualCheckoutTime());
+//            dataForH.add(new TableDataForHotelOrder(list.get(i).getOrderID(),list.get(i).getRoomName(),
+//                    in,out,outactual));
+//        }
+//        tableList.get(0).setCellValueFactory(new PropertyValueFactory("numOfOrder"));
+//        tableList.get(1).setCellValueFactory(new PropertyValueFactory("numOfRoom"));
+//        tableList.get(2).setCellValueFactory(new PropertyValueFactory("inTime"));
+//        tableList.get(3).setCellValueFactory(new PropertyValueFactory("expectOutTime"));
+//        tableList.get(4).setCellValueFactory(new PropertyValueFactory("actualOutTime"));
+
+//        table.setItems(dataForH);
     }
     @FXML
     private void onCancelOrder(ActionEvent E)throws Exception {
-        new HotelOrderUI().start(primaryStage);
+        new HotelCancelOrderUI().start(primaryStage);
     }
     @FXML
     private void onAbnormalOrder(ActionEvent E)throws Exception {
