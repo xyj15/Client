@@ -31,14 +31,14 @@
             <Image url="@logo.png" />
          </image>
       </ImageView>
-      <ScrollPane layoutX="294.0" layoutY="150.0" opacity="0.57" prefHeight="324.0" prefWidth="616.0" style="-fx-background-color: #000f32;">
+      <ScrollPane layoutX="332.0" layoutY="150.0" opacity="0.57" prefHeight="324.0" prefWidth="569.0" style="-fx-background-color: #000f32;">
          <content>
-            <TableView fx:id="table" prefHeight="344.0" prefWidth="597.0" style="-fx-background-color: #000f32;" stylesheets="@TableView.css">
+            <TableView fx:id="table" prefHeight="347.0" prefWidth="550.0" style="-fx-background-color: #000f32;" stylesheets="@TableView.css">
                <columns>
                   <TableColumn prefWidth="140.0" sortable="false" style="-fx-background-color: #000f32;" text="订单号" />
-                  <TableColumn editable="false" prefWidth="112.0" sortable="false" style="-fx-background-color: #000f32;" text="房间名字" />
-                  <TableColumn editable="false" minWidth="0.0" prefWidth="145.0" sortable="false" style="-fx-background-color: #000f32;" text="客户名字" />
-                  <TableColumn editable="false" prefWidth="199.0" sortable="false" style="-fx-background-color: #000f32;" text="客户联系方式" />
+                  <TableColumn editable="false" prefWidth="150.0" sortable="false" style="-fx-background-color: #000f32;" text="房间名字" />
+                  <TableColumn editable="false" minWidth="0.0" prefWidth="107.0" sortable="false" style="-fx-background-color: #000f32;" text="客户名字" />
+                  <TableColumn editable="false" prefWidth="152.0" sortable="false" style="-fx-background-color: #000f32;" text="客户联系方式" />
                </columns>
             </TableView>
          </content>

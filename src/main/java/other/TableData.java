@@ -5,17 +5,31 @@ import javafx.beans.property.SimpleStringProperty;
 /**
  * Created by 97147 on 2016/12/8.
  */
-public class TableDataForHotelOrder {
+public class TableData {
     private final SimpleStringProperty first = new SimpleStringProperty();
     private final SimpleStringProperty second = new SimpleStringProperty();
     private final SimpleStringProperty third = new SimpleStringProperty();
     private final SimpleStringProperty fourth = new SimpleStringProperty();
-
-    public TableDataForHotelOrder(String  first,String second, String third,String fourth){
+    private final SimpleStringProperty fifth = new SimpleStringProperty();
+    public TableData(String  first, String second){
+        setFirst(first);
+        setSecond(second);
+    }public TableData(String  first, String second, String third){
+        setFirst(first);
+        setSecond(second);
+        setThird(third);
+    }public TableData(String  first, String second, String third, String fourth){
         setFirst(first);
         setSecond(second);
         setThird(third);
         setFourth(fourth);
+    }
+    public TableData(String  first, String second, String third, String fourth, String fifth){
+        setFirst(first);
+        setSecond(second);
+        setThird(third);
+        setFourth(fourth);
+        setFifth(fifth);
     }
 
     public void setFirst(String first) {
@@ -32,6 +46,14 @@ public class TableDataForHotelOrder {
 
     public void setFourth(String fourth) {
         this.fourth.set(fourth);
+    }
+
+    public void setFifth(String fifth) {
+        this.fifth.set(fifth);
+    }
+
+    public String getFifth() {
+        return fifth.get();
     }
 
     public String getFirst() {
@@ -64,5 +86,9 @@ public class TableDataForHotelOrder {
 
     public SimpleStringProperty thirdProperty() {
         return third;
+    }
+
+    public SimpleStringProperty fifthProperty() {
+        return fifth;
     }
 }
