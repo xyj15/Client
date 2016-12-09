@@ -2,194 +2,39 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a9f0de73-1128-483a-bbb9-a1105de32882" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/test/java/test/RankTest.java" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/main/Main.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/main/Runner.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/main/Main.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/main/Runner.class" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/bl/driver/CreditBLDriver.class" afterPath="$PROJECT_DIR$/target/classes/bl/driver/CreditBLDriver.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/bl/driver/HotelBLDriver.class" afterPath="$PROJECT_DIR$/target/classes/bl/driver/HotelBLDriver.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/bl/driver/LoginBLDriver.class" afterPath="$PROJECT_DIR$/target/classes/bl/driver/LoginBLDriver.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/bl/driver/ManagerBLDriver.class" afterPath="$PROJECT_DIR$/target/classes/bl/driver/ManagerBLDriver.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/bl/driver/MemberBLDriver.class" afterPath="$PROJECT_DIR$/target/classes/bl/driver/MemberBLDriver.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/bl/driver/OrderBLDriver.class" afterPath="$PROJECT_DIR$/target/classes/bl/driver/OrderBLDriver.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/data/driver/PromotionDataDriver.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/data/driver/SalerDataDriver.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/test/java/bl/implementation/PromotionTest.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/test/java/test/PromotionTestForHotel.java" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/other/Rank.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/test-classes/test/PromotionTest.class" afterPath="" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/other/Rank.java" afterPath="$PROJECT_DIR$/src/main/java/bl/implementation/Rank.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/test/java/test/PromotionTest.java" afterPath="$PROJECT_DIR$/src/test/java/test/PromotionTestForSaler.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/bl/driver/PromotionBLDriver.class" afterPath="$PROJECT_DIR$/target/classes/bl/driver/PromotionBLDriver.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/bl/driver/ReserveBLDriver.class" afterPath="$PROJECT_DIR$/target/classes/bl/driver/ReserveBLDriver.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/bl/driver/RoomBLDriver.class" afterPath="$PROJECT_DIR$/target/classes/bl/driver/RoomBLDriver.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/bl/driver/SalerBLDriver.class" afterPath="$PROJECT_DIR$/target/classes/bl/driver/SalerBLDriver.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/bl/driver/SearchBLDriver.class" afterPath="$PROJECT_DIR$/target/classes/bl/driver/SearchBLDriver.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/bl/implementation/Credit.class" afterPath="$PROJECT_DIR$/target/classes/bl/implementation/Credit.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/bl/implementation/Hotel.class" afterPath="$PROJECT_DIR$/target/classes/bl/implementation/Hotel.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/bl/implementation/Login.class" afterPath="$PROJECT_DIR$/target/classes/bl/implementation/Login.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/bl/implementation/Manager.class" afterPath="$PROJECT_DIR$/target/classes/bl/implementation/Manager.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/bl/implementation/Member.class" afterPath="$PROJECT_DIR$/target/classes/bl/implementation/Member.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/bl/implementation/Order.class" afterPath="$PROJECT_DIR$/target/classes/bl/implementation/Order.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/bl/implementation/Promotion.class" afterPath="$PROJECT_DIR$/target/classes/bl/implementation/Promotion.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/bl/implementation/Reserve.class" afterPath="$PROJECT_DIR$/target/classes/bl/implementation/Reserve.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/bl/implementation/Room.class" afterPath="$PROJECT_DIR$/target/classes/bl/implementation/Room.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/bl/implementation/Saler.class" afterPath="$PROJECT_DIR$/target/classes/bl/implementation/Saler.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/bl/implementation/Search.class" afterPath="$PROJECT_DIR$/target/classes/bl/implementation/Search.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/bl/service/CreditBLService.class" afterPath="$PROJECT_DIR$/target/classes/bl/service/CreditBLService.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/bl/service/HotelBLService.class" afterPath="$PROJECT_DIR$/target/classes/bl/service/HotelBLService.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/bl/service/LoginBLService.class" afterPath="$PROJECT_DIR$/target/classes/bl/service/LoginBLService.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/bl/service/ManagerBLService.class" afterPath="$PROJECT_DIR$/target/classes/bl/service/ManagerBLService.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/bl/service/MemberBLService.class" afterPath="$PROJECT_DIR$/target/classes/bl/service/MemberBLService.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/bl/service/OrderBLService.class" afterPath="$PROJECT_DIR$/target/classes/bl/service/OrderBLService.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/bl/service/PromotionBLService.class" afterPath="$PROJECT_DIR$/target/classes/bl/service/PromotionBLService.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/bl/service/ReserveBLService.class" afterPath="$PROJECT_DIR$/target/classes/bl/service/ReserveBLService.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/bl/service/RoomBLService.class" afterPath="$PROJECT_DIR$/target/classes/bl/service/RoomBLService.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/bl/service/SalerBLService.class" afterPath="$PROJECT_DIR$/target/classes/bl/service/SalerBLService.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/bl/service/SearchBLService.class" afterPath="$PROJECT_DIR$/target/classes/bl/service/SearchBLService.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/bl/stub/CreditBLStub.class" afterPath="$PROJECT_DIR$/target/classes/bl/stub/CreditBLStub.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/bl/stub/HotelBLStub.class" afterPath="$PROJECT_DIR$/target/classes/bl/stub/HotelBLStub.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/bl/stub/LoginBLStub.class" afterPath="$PROJECT_DIR$/target/classes/bl/stub/LoginBLStub.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/bl/stub/ManagerBLStub.class" afterPath="$PROJECT_DIR$/target/classes/bl/stub/ManagerBLStub.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/bl/stub/MemberBLStub.class" afterPath="$PROJECT_DIR$/target/classes/bl/stub/MemberBLStub.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/bl/stub/OrderBLStub.class" afterPath="$PROJECT_DIR$/target/classes/bl/stub/OrderBLStub.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/bl/stub/PromotionBLStub.class" afterPath="$PROJECT_DIR$/target/classes/bl/stub/PromotionBLStub.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/bl/stub/ReserveBLStub.class" afterPath="$PROJECT_DIR$/target/classes/bl/stub/ReserveBLStub.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/bl/stub/RoomBLStub.class" afterPath="$PROJECT_DIR$/target/classes/bl/stub/RoomBLStub.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/bl/stub/SalerBLStub.class" afterPath="$PROJECT_DIR$/target/classes/bl/stub/SalerBLStub.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/bl/stub/SearchBLStub.class" afterPath="$PROJECT_DIR$/target/classes/bl/stub/SearchBLStub.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/data/driver/CreditDataDriver.class" afterPath="$PROJECT_DIR$/target/classes/data/driver/CreditDataDriver.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/data/driver/RoomDataDriver.class" afterPath="$PROJECT_DIR$/target/classes/data/driver/RoomDataDriver.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/data/service/CreditDataService.class" afterPath="$PROJECT_DIR$/target/classes/data/service/CreditDataService.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/data/service/HotelDataService.class" afterPath="$PROJECT_DIR$/target/classes/data/service/HotelDataService.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/data/service/ManagerDataService.class" afterPath="$PROJECT_DIR$/target/classes/data/service/ManagerDataService.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/data/service/MemberDataService.class" afterPath="$PROJECT_DIR$/target/classes/data/service/MemberDataService.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/data/service/OrderDataObstractFactory.class" afterPath="$PROJECT_DIR$/target/classes/data/service/OrderDataObstractFactory.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/data/service/OrderDataService.class" afterPath="$PROJECT_DIR$/target/classes/data/service/OrderDataService.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/data/service/OrderDataServiceForSaler.class" afterPath="$PROJECT_DIR$/target/classes/data/service/OrderDataServiceForSaler.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/data/service/PromotionDataService.class" afterPath="$PROJECT_DIR$/target/classes/data/service/PromotionDataService.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/data/service/RankDataService.class" afterPath="$PROJECT_DIR$/target/classes/data/service/RankDataService.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/data/service/RoomDataService.class" afterPath="$PROJECT_DIR$/target/classes/data/service/RoomDataService.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/data/service/SalerDataService.class" afterPath="$PROJECT_DIR$/target/classes/data/service/SalerDataService.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/data/service/SearchDataService.class" afterPath="$PROJECT_DIR$/target/classes/data/service/SearchDataService.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/data/stub/CreditDataStub.class" afterPath="$PROJECT_DIR$/target/classes/data/stub/CreditDataStub.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/data/stub/HotelDataStub.class" afterPath="$PROJECT_DIR$/target/classes/data/stub/HotelDataStub.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/data/stub/ManagerDataStub.class" afterPath="$PROJECT_DIR$/target/classes/data/stub/ManagerDataStub.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/data/stub/MemberDataStub.class" afterPath="$PROJECT_DIR$/target/classes/data/stub/MemberDataStub.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/data/stub/OrderDataStub.class" afterPath="$PROJECT_DIR$/target/classes/data/stub/OrderDataStub.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/data/stub/PromotionDataStub.class" afterPath="$PROJECT_DIR$/target/classes/data/stub/PromotionDataStub.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/data/stub/RankDataStub.class" afterPath="$PROJECT_DIR$/target/classes/data/stub/RankDataStub.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/data/stub/RoomDataStub.class" afterPath="$PROJECT_DIR$/target/classes/data/stub/RoomDataStub.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/data/stub/SalerDataStub.class" afterPath="$PROJECT_DIR$/target/classes/data/stub/SalerDataStub.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/other/HotelQuickSort.class" afterPath="$PROJECT_DIR$/target/classes/other/HotelQuickSort.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/other/MemberType.class" afterPath="$PROJECT_DIR$/target/classes/other/MemberType.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/other/OrderAction.class" afterPath="$PROJECT_DIR$/target/classes/other/OrderAction.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/other/OrderStatus.class" afterPath="$PROJECT_DIR$/target/classes/other/OrderStatus.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/other/PromotionType.class" afterPath="$PROJECT_DIR$/target/classes/other/PromotionType.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/other/Rank.class" afterPath="$PROJECT_DIR$/target/classes/other/Rank.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/other/RoomType.class" afterPath="$PROJECT_DIR$/target/classes/other/RoomType.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/other/SaleType.class" afterPath="$PROJECT_DIR$/target/classes/other/SaleType.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/other/SortValueOrder.class" afterPath="$PROJECT_DIR$/target/classes/other/SortValueOrder.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/other/TableDataForSalerAbnormalOrder.class" afterPath="$PROJECT_DIR$/target/classes/other/TableDataForSalerAbnormalOrder.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/other/TableDataForSalerPromotion.class" afterPath="$PROJECT_DIR$/target/classes/other/TableDataForSalerPromotion.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/other/TableDataForVip.class" afterPath="$PROJECT_DIR$/target/classes/other/TableDataForVip.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/other/TableDateForMemberHisHotel.class" afterPath="$PROJECT_DIR$/target/classes/other/TableDateForMemberHisHotel.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/other/TableDateForMemberInfor.class" afterPath="$PROJECT_DIR$/target/classes/other/TableDateForMemberInfor.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/other/TableDateForMemberOrder.class" afterPath="$PROJECT_DIR$/target/classes/other/TableDateForMemberOrder.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/other/TableDateForSearchList.class" afterPath="$PROJECT_DIR$/target/classes/other/TableDateForSearchList.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/other/User.class" afterPath="$PROJECT_DIR$/target/classes/other/User.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/other/UserType.class" afterPath="$PROJECT_DIR$/target/classes/other/UserType.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/po/CreditChangePO.class" afterPath="$PROJECT_DIR$/target/classes/po/CreditChangePO.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/po/HotelPO.class" afterPath="$PROJECT_DIR$/target/classes/po/HotelPO.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/po/ManagerPO.class" afterPath="$PROJECT_DIR$/target/classes/po/ManagerPO.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/po/MemberPO.class" afterPath="$PROJECT_DIR$/target/classes/po/MemberPO.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/po/OrderPO.class" afterPath="$PROJECT_DIR$/target/classes/po/OrderPO.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/po/PromotionPO.class" afterPath="$PROJECT_DIR$/target/classes/po/PromotionPO.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/po/RoomPO.class" afterPath="$PROJECT_DIR$/target/classes/po/RoomPO.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/po/SalerPO.class" afterPath="$PROJECT_DIR$/target/classes/po/SalerPO.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/ui/controller/HotelController.class" afterPath="$PROJECT_DIR$/target/classes/ui/controller/HotelController.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/ui/controller/LoginController$1.class" afterPath="$PROJECT_DIR$/target/classes/ui/controller/LoginController$1.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/ui/controller/LoginController.class" afterPath="$PROJECT_DIR$/target/classes/ui/controller/LoginController.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/ui/controller/ManagerController$1.class" afterPath="$PROJECT_DIR$/target/classes/ui/controller/ManagerController$1.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/ui/controller/ManagerController.class" afterPath="$PROJECT_DIR$/target/classes/ui/controller/ManagerController.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/ui/controller/MemberController.class" afterPath="$PROJECT_DIR$/target/classes/ui/controller/MemberController.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/ui/controller/PromotionController.class" afterPath="$PROJECT_DIR$/target/classes/ui/controller/PromotionController.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/ui/controller/ReserveController.class" afterPath="$PROJECT_DIR$/target/classes/ui/controller/ReserveController.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/ui/controller/RoomController.class" afterPath="$PROJECT_DIR$/target/classes/ui/controller/RoomController.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/ui/controller/SearchController.class" afterPath="$PROJECT_DIR$/target/classes/ui/controller/SearchController.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/ui/controllerservice/HotelControllerService.class" afterPath="$PROJECT_DIR$/target/classes/ui/controllerservice/HotelControllerService.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/ui/controllerservice/LoginControllerService.class" afterPath="$PROJECT_DIR$/target/classes/ui/controllerservice/LoginControllerService.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/ui/controllerservice/ManagerControllerService.class" afterPath="$PROJECT_DIR$/target/classes/ui/controllerservice/ManagerControllerService.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/ui/controllerservice/MemberControllerService.class" afterPath="$PROJECT_DIR$/target/classes/ui/controllerservice/MemberControllerService.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/ui/controllerservice/ReserveControllerService.class" afterPath="$PROJECT_DIR$/target/classes/ui/controllerservice/ReserveControllerService.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/ui/controllerservice/RoomControllerService.class" afterPath="$PROJECT_DIR$/target/classes/ui/controllerservice/RoomControllerService.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/ui/controllerservice/SearchControllerService.class" afterPath="$PROJECT_DIR$/target/classes/ui/controllerservice/SearchControllerService.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/ui/presentation/CompanyRegisterUI.class" afterPath="$PROJECT_DIR$/target/classes/ui/presentation/CompanyRegisterUI.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/ui/presentation/HotelAbnormalOrderUI.class" afterPath="$PROJECT_DIR$/target/classes/ui/presentation/HotelAbnormalOrderUI.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/ui/presentation/HotelAddCompanyPromotion.class" afterPath="$PROJECT_DIR$/target/classes/ui/presentation/HotelAddCompanyPromotion.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/ui/presentation/HotelAddRoomUI.class" afterPath="$PROJECT_DIR$/target/classes/ui/presentation/HotelAddRoomUI.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/ui/presentation/HotelCompanyPromotionUI.class" afterPath="$PROJECT_DIR$/target/classes/ui/presentation/HotelCompanyPromotionUI.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/ui/presentation/HotelDatePromotionUI.class" afterPath="$PROJECT_DIR$/target/classes/ui/presentation/HotelDatePromotionUI.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/ui/presentation/HotelDelayOrderUI.class" afterPath="$PROJECT_DIR$/target/classes/ui/presentation/HotelDelayOrderUI.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/ui/presentation/HotelFirstUI.class" afterPath="$PROJECT_DIR$/target/classes/ui/presentation/HotelFirstUI.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/ui/presentation/HotelInformationUI.class" afterPath="$PROJECT_DIR$/target/classes/ui/presentation/HotelInformationUI.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/ui/presentation/HotelOrderUI.class" afterPath="$PROJECT_DIR$/target/classes/ui/presentation/HotelOrderUI.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/ui/presentation/HotelProcessedOrderUI.class" afterPath="$PROJECT_DIR$/target/classes/ui/presentation/HotelProcessedOrderUI.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/ui/presentation/HotelRoomUI.class" afterPath="$PROJECT_DIR$/target/classes/ui/presentation/HotelRoomUI.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/ui/presentation/HotelUnprocessedOrderUI.class" afterPath="$PROJECT_DIR$/target/classes/ui/presentation/HotelUnprocessedOrderUI.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/ui/presentation/HotelUpdateInformationUI.class" afterPath="$PROJECT_DIR$/target/classes/ui/presentation/HotelUpdateInformationUI.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/ui/presentation/LoginUI.class" afterPath="$PROJECT_DIR$/target/classes/ui/presentation/LoginUI.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/ui/presentation/ManagerAddHotelUI.class" afterPath="$PROJECT_DIR$/target/classes/ui/presentation/ManagerAddHotelUI.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/ui/presentation/ManagerAddSalerUI.class" afterPath="$PROJECT_DIR$/target/classes/ui/presentation/ManagerAddSalerUI.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/ui/presentation/ManagerFirstUI.class" afterPath="$PROJECT_DIR$/target/classes/ui/presentation/ManagerFirstUI.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/ui/presentation/ManagerSearchHotelUI.class" afterPath="$PROJECT_DIR$/target/classes/ui/presentation/ManagerSearchHotelUI.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/ui/presentation/ManagerSearchMemberUI.class" afterPath="$PROJECT_DIR$/target/classes/ui/presentation/ManagerSearchMemberUI.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/ui/presentation/ManagerSearchSalerUI.class" afterPath="$PROJECT_DIR$/target/classes/ui/presentation/ManagerSearchSalerUI.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/ui/presentation/ManagerSearchUserUI.class" afterPath="$PROJECT_DIR$/target/classes/ui/presentation/ManagerSearchUserUI.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/ui/presentation/MemberAbnormalOrder.class" afterPath="$PROJECT_DIR$/target/classes/ui/presentation/MemberAbnormalOrder.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/ui/presentation/MemberCancelOrder.class" afterPath="$PROJECT_DIR$/target/classes/ui/presentation/MemberCancelOrder.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/ui/presentation/MemberFirstUI.class" afterPath="$PROJECT_DIR$/target/classes/ui/presentation/MemberFirstUI.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/ui/presentation/MemberHisitoryHotelUI.class" afterPath="$PROJECT_DIR$/target/classes/ui/presentation/MemberHisitoryHotelUI.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/ui/presentation/MemberHotelInformationInSearUI.class" afterPath="$PROJECT_DIR$/target/classes/ui/presentation/MemberHotelInformationInSearUI.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/ui/presentation/MemberHotelInformationInhisUI.class" afterPath="$PROJECT_DIR$/target/classes/ui/presentation/MemberHotelInformationInhisUI.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/ui/presentation/MemberInformationUI.class" afterPath="$PROJECT_DIR$/target/classes/ui/presentation/MemberInformationUI.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/ui/presentation/MemberProcessedOrderUI.class" afterPath="$PROJECT_DIR$/target/classes/ui/presentation/MemberProcessedOrderUI.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/ui/presentation/MemberReserveInHisUI.class" afterPath="$PROJECT_DIR$/target/classes/ui/presentation/MemberReserveInHisUI.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/ui/presentation/MemberReserveInSearUI.class" afterPath="$PROJECT_DIR$/target/classes/ui/presentation/MemberReserveInSearUI.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/ui/presentation/MemberSearchListUI.class" afterPath="$PROJECT_DIR$/target/classes/ui/presentation/MemberSearchListUI.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/ui/presentation/MemberSearchUI.class" afterPath="$PROJECT_DIR$/target/classes/ui/presentation/MemberSearchUI.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/ui/presentation/MemberUnprocessedOrderUI.class" afterPath="$PROJECT_DIR$/target/classes/ui/presentation/MemberUnprocessedOrderUI.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/ui/presentation/MemberUpdateInformationUI.class" afterPath="$PROJECT_DIR$/target/classes/ui/presentation/MemberUpdateInformationUI.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/ui/presentation/NormalRegiserUI.class" afterPath="$PROJECT_DIR$/target/classes/ui/presentation/NormalRegiserUI.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/ui/presentation/SalerAbnormalOrderUI.class" afterPath="$PROJECT_DIR$/target/classes/ui/presentation/SalerAbnormalOrderUI.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/ui/presentation/SalerAddPromotionUI.class" afterPath="$PROJECT_DIR$/target/classes/ui/presentation/SalerAddPromotionUI.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/ui/presentation/SalerAddVIPUI.class" afterPath="$PROJECT_DIR$/target/classes/ui/presentation/SalerAddVIPUI.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/ui/presentation/SalerCreditRechargeUI.class" afterPath="$PROJECT_DIR$/target/classes/ui/presentation/SalerCreditRechargeUI.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/ui/presentation/SalerFirstUI.class" afterPath="$PROJECT_DIR$/target/classes/ui/presentation/SalerFirstUI.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/ui/presentation/SalerPromotionUI.class" afterPath="$PROJECT_DIR$/target/classes/ui/presentation/SalerPromotionUI.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/ui/presentation/SalerVIPUI.class" afterPath="$PROJECT_DIR$/target/classes/ui/presentation/SalerVIPUI.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/vo/CreditChangeVO.class" afterPath="$PROJECT_DIR$/target/classes/vo/CreditChangeVO.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/vo/HotelVO.class" afterPath="$PROJECT_DIR$/target/classes/vo/HotelVO.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/vo/ManagerVO.class" afterPath="$PROJECT_DIR$/target/classes/vo/ManagerVO.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/vo/MemberVO.class" afterPath="$PROJECT_DIR$/target/classes/vo/MemberVO.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/vo/OrderVO.class" afterPath="$PROJECT_DIR$/target/classes/vo/OrderVO.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/vo/PromotionVO.class" afterPath="$PROJECT_DIR$/target/classes/vo/PromotionVO.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/vo/RoomVO.class" afterPath="$PROJECT_DIR$/target/classes/vo/RoomVO.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/vo/SalerVO.class" afterPath="$PROJECT_DIR$/target/classes/vo/SalerVO.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/test-classes/test/CreditTest.class" afterPath="$PROJECT_DIR$/target/test-classes/test/CreditTest.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/test-classes/test/HotelQuickSortTest.class" afterPath="$PROJECT_DIR$/target/test-classes/test/HotelQuickSortTest.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/test-classes/test/HotelTest.class" afterPath="$PROJECT_DIR$/target/test-classes/test/HotelTest.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/test-classes/test/LoginTest.class" afterPath="$PROJECT_DIR$/target/test-classes/test/LoginTest.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/test-classes/test/ManagerTest.class" afterPath="$PROJECT_DIR$/target/test-classes/test/ManagerTest.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/test-classes/test/MemberTest.class" afterPath="$PROJECT_DIR$/target/test-classes/test/MemberTest.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/test-classes/test/OrderTest.class" afterPath="$PROJECT_DIR$/target/test-classes/test/OrderTest.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/test-classes/test/PromotionTest.class" afterPath="$PROJECT_DIR$/target/test-classes/test/PromotionTest.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/test-classes/test/ReserveTest.class" afterPath="$PROJECT_DIR$/target/test-classes/test/ReserveTest.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/test-classes/test/RoomTest.class" afterPath="$PROJECT_DIR$/target/test-classes/test/RoomTest.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/test-classes/test/RankTest.class" afterPath="$PROJECT_DIR$/target/test-classes/test/RankTest.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/test-classes/test/SalerTest.class" afterPath="$PROJECT_DIR$/target/test-classes/test/SalerTest.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/test-classes/test/SearchTest.class" afterPath="$PROJECT_DIR$/target/test-classes/test/SearchTest.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/compiler.xml" afterPath="$PROJECT_DIR$/.idea/compiler.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Client.iml" afterPath="$PROJECT_DIR$/Client.iml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/bl/driver/PromotionBLDriver.java" afterPath="$PROJECT_DIR$/src/main/java/bl/driver/PromotionBLDriver.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/bl/implementation/Member.java" afterPath="$PROJECT_DIR$/src/main/java/bl/implementation/Member.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/bl/implementation/Promotion.java" afterPath="$PROJECT_DIR$/src/main/java/bl/implementation/Promotion.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/bl/implementation/Saler.java" afterPath="$PROJECT_DIR$/src/main/java/bl/implementation/Saler.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/data/driver/RankDataDriver.java" afterPath="$PROJECT_DIR$/src/main/java/data/driver/RankDataDriver.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/data/stub/RankDataStub.java" afterPath="$PROJECT_DIR$/src/main/java/data/stub/RankDataStub.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/other/Rank.java" afterPath="$PROJECT_DIR$/src/main/java/other/Rank.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/bl/stub/OrderBLStub.java" afterPath="$PROJECT_DIR$/src/main/java/bl/stub/OrderBLStub.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/data/stub/PromotionDataStub.java" afterPath="$PROJECT_DIR$/src/main/java/data/stub/PromotionDataStub.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/data/stub/RoomDataStub.java" afterPath="$PROJECT_DIR$/src/main/java/data/stub/RoomDataStub.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/data/stub/SalerDataStub.java" afterPath="$PROJECT_DIR$/src/main/java/data/stub/SalerDataStub.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/po/PromotionPO.java" afterPath="$PROJECT_DIR$/src/main/java/po/PromotionPO.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/vo/PromotionVO.java" afterPath="$PROJECT_DIR$/src/main/java/vo/PromotionVO.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/test/java/test/RankTest.java" afterPath="$PROJECT_DIR$/src/test/java/test/RankTest.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/test/java/test/SalerTest.java" afterPath="$PROJECT_DIR$/src/test/java/test/SalerTest.java" />
     </list>
     <ignored path="Client.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -224,7 +69,80 @@
     <favorites_list name="Client" />
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="375" />
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="375">
+      <file leaf-file-name="PromotionDataStub.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/data/stub/PromotionDataStub.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="285">
+              <caret line="31" column="104" selection-start-line="31" selection-start-column="104" selection-end-line="31" selection-end-column="104" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="PromotionTestForSaler.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/test/java/test/PromotionTestForSaler.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="840">
+              <caret line="61" column="4" selection-start-line="61" selection-start-column="4" selection-end-line="61" selection-end-column="4" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Promotion.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/bl/implementation/Promotion.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="317">
+              <caret line="227" column="29" selection-start-line="227" selection-start-column="29" selection-end-line="227" selection-end-column="29" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="PromotionTest.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/test/java/bl/implementation/PromotionTest.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="351">
+              <caret line="58" column="5" selection-start-line="38" selection-start-column="5" selection-end-line="58" selection-end-column="5" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="MemberBLStub.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/bl/stub/MemberBLStub.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="51">
+              <caret line="98" column="31" selection-start-line="98" selection-start-column="31" selection-end-line="98" selection-end-column="31" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="OrderBLStub.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/java/bl/stub/OrderBLStub.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="390">
+              <caret line="49" column="36" selection-start-line="49" selection-start-column="36" selection-end-line="49" selection-end-column="36" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="PromotionTestForHotel.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/test/java/test/PromotionTestForHotel.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1260">
+              <caret line="88" column="5" selection-start-line="88" selection-start-column="5" selection-end-line="88" selection-end-column="5" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -245,7 +163,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/main/java/ui/presentation/MemberReserveInHisUI.java" />
         <option value="$PROJECT_DIR$/src/main/java/ui/presentation/MemberReserveInSearUI.java" />
         <option value="$PROJECT_DIR$/src/main/java/ui/presentation/LoginUI.java" />
         <option value="$PROJECT_DIR$/src/main/java/ui/presentation/NormalRegiserUI.java" />
@@ -296,6 +213,7 @@
         <option value="$PROJECT_DIR$/src/main/java/bl/implementation/Member.java" />
         <option value="$PROJECT_DIR$/src/main/java/other/Rank.java" />
         <option value="$PROJECT_DIR$/src/test/java/test/RankTest.java" />
+        <option value="$PROJECT_DIR$/src/main/java/bl/stub/OrderBLStub.java" />
       </list>
     </option>
   </component>
@@ -403,6 +321,54 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
+              <option name="myItemId" value="test" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Client" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Client" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="vo" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Client" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Client" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
               <option name="myItemId" value="main" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
@@ -433,7 +399,59 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
+              <option name="myItemId" value="po" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Client" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Client" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
               <option name="myItemId" value="data" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Client" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Client" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="bl" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
@@ -463,11 +481,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="data" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="service" />
+              <option name="myItemId" value="bl" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -493,67 +507,11 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="data" />
+              <option name="myItemId" value="bl" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="driver" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Client" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Client" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="main" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="java" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="bl" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Client" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Client" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="main" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="java" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="bl" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="implementation" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -1165,13 +1123,13 @@
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="All_in_Client - 2016.12.09 at 11h 51m 00s.xml">
-      <configuration name="All in Client" configurationId="JUnit" />
-    </history-entry>
     <history-entry file="All_in_Client - 2016.12.09 at 13h 06m 07s.xml">
       <configuration name="All in Client" configurationId="JUnit" />
     </history-entry>
     <history-entry file="All_in_Client - 2016.12.09 at 13h 28m 50s.xml">
+      <configuration name="All in Client" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="All_in_Client - 2016.12.09 at 16h 15m 04s.xml">
       <configuration name="All in Client" configurationId="JUnit" />
     </history-entry>
     <history-entry file="RankTest - 2016.12.09 at 13h 27m 41s.xml">
@@ -1197,11 +1155,11 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="88855000" />
+    <option name="totallyTimeSpent" value="89108000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1680" height="1050" extended-state="0" />
-    <editor active="false" />
+    <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32959184" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -1210,7 +1168,7 @@
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32967034" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.38979593" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.38979593" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -1253,52 +1211,10 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/java/ui/controller/HotelController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="375">
-          <caret line="45" column="9" selection-start-line="45" selection-start-column="9" selection-end-line="45" selection-end-column="9" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/ui/controller/MemberController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="838">
-          <caret line="381" column="0" selection-start-line="381" selection-start-column="0" selection-end-line="381" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/other/TableDateForSearchList.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="285">
           <caret line="19" column="5" selection-start-line="19" selection-start-column="5" selection-end-line="19" selection-end-column="5" />
-          <folding>
-            <element signature="e#680#681#0" expanded="false" />
-            <element signature="e#717#718#0" expanded="false" />
-            <element signature="e#759#760#0" expanded="false" />
-            <element signature="e#796#797#0" expanded="false" />
-            <element signature="e#836#837#0" expanded="false" />
-            <element signature="e#871#872#0" expanded="false" />
-            <element signature="e#913#914#0" expanded="false" />
-            <element signature="e#950#951#0" expanded="false" />
-            <element signature="e#982#983#0" expanded="false" />
-            <element signature="e#1016#1017#0" expanded="false" />
-            <element signature="e#1048#1049#0" expanded="false" />
-            <element signature="e#1082#1083#0" expanded="false" />
-            <element signature="e#1113#1114#0" expanded="false" />
-            <element signature="e#1146#1147#0" expanded="false" />
-            <element signature="e#1178#1179#0" expanded="false" />
-            <element signature="e#1212#1213#0" expanded="false" />
-            <element signature="e#1263#1264#0" expanded="false" />
-            <element signature="e#1291#1292#0" expanded="false" />
-            <element signature="e#1342#1343#0" expanded="false" />
-            <element signature="e#1370#1371#0" expanded="false" />
-            <element signature="e#1421#1422#0" expanded="false" />
-            <element signature="e#1449#1450#0" expanded="false" />
-            <element signature="e#1499#1500#0" expanded="false" />
-            <element signature="e#1526#1527#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1306,7 +1222,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="330">
           <caret line="27" column="33" selection-start-line="27" selection-start-column="33" selection-end-line="27" selection-end-column="33" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1314,7 +1229,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="390">
           <caret line="28" column="71" selection-start-line="28" selection-start-column="71" selection-end-line="28" selection-end-column="71" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1337,17 +1251,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="388">
           <caret line="51" column="7" selection-start-line="51" selection-start-column="7" selection-end-line="51" selection-end-column="7" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/bl/stub/MemberBLStub.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="508">
-          <caret line="98" column="31" selection-start-line="98" selection-start-column="31" selection-end-line="98" selection-end-column="31" />
-          <folding>
-            <element signature="e#2276#2285#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1362,7 +1265,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-62">
           <caret line="18" column="13" selection-start-line="18" selection-start-column="13" selection-end-line="18" selection-end-column="13" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1384,10 +1286,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="780">
           <caret line="52" column="42" selection-start-line="52" selection-start-column="42" selection-end-line="52" selection-end-column="42" />
-          <folding>
-            <element signature="imports" expanded="false" />
-            <element signature="e#364#380#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1395,9 +1293,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="315">
           <caret line="21" column="33" selection-start-line="21" selection-start-column="33" selection-end-line="21" selection-end-column="33" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1405,7 +1300,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="75">
           <caret line="9" column="4" selection-start-line="9" selection-start-column="4" selection-end-line="9" selection-end-column="4" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1413,7 +1307,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="75">
           <caret line="5" column="4" selection-start-line="5" selection-start-column="4" selection-end-line="5" selection-end-column="4" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1421,7 +1314,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="120">
           <caret line="10" column="4" selection-start-line="10" selection-start-column="4" selection-end-line="10" selection-end-column="4" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1429,7 +1321,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="225">
           <caret line="15" column="83" selection-start-line="15" selection-start-column="83" selection-end-line="15" selection-end-column="83" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1445,7 +1336,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="120">
           <caret line="11" column="4" selection-start-line="11" selection-start-column="4" selection-end-line="11" selection-end-column="4" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1453,7 +1343,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="75">
           <caret line="7" column="4" selection-start-line="7" selection-start-column="4" selection-end-line="7" selection-end-column="4" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1461,7 +1350,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="90">
           <caret line="6" column="4" selection-start-line="6" selection-start-column="4" selection-end-line="6" selection-end-column="4" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1469,7 +1357,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="90">
           <caret line="6" column="4" selection-start-line="6" selection-start-column="4" selection-end-line="6" selection-end-column="4" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1477,7 +1364,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="150">
           <caret line="10" column="4" selection-start-line="10" selection-start-column="4" selection-end-line="10" selection-end-column="4" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1485,7 +1371,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="270">
           <caret line="20" column="49" selection-start-line="20" selection-start-column="49" selection-end-line="20" selection-end-column="49" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1493,7 +1378,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="150">
           <caret line="12" column="17" selection-start-line="12" selection-start-column="17" selection-end-line="12" selection-end-column="17" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1501,7 +1385,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-137">
           <caret line="9" column="13" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1517,7 +1400,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="75">
           <caret line="5" column="13" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1525,7 +1407,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="75">
           <caret line="5" column="13" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1533,11 +1414,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="330">
           <caret line="28" column="10" selection-start-line="28" selection-start-column="10" selection-end-line="28" selection-end-column="10" />
-          <folding>
-            <element signature="imports" expanded="false" />
-            <element signature="e#493#494#0" expanded="false" />
-            <element signature="e#511#512#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1545,9 +1421,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="495">
           <caret line="33" column="29" selection-start-line="33" selection-start-column="29" selection-end-line="33" selection-end-column="29" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1555,7 +1428,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="330">
           <caret line="31" column="9" selection-start-line="31" selection-start-column="9" selection-end-line="31" selection-end-column="9" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1563,9 +1435,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="300">
           <caret line="20" column="122" selection-start-line="20" selection-start-column="122" selection-end-line="20" selection-end-column="122" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1581,11 +1450,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-210">
           <caret line="14" column="16" selection-start-line="14" selection-start-column="16" selection-end-line="14" selection-end-column="16" />
-          <folding>
-            <element signature="imports" expanded="false" />
-            <element signature="e#3160#3161#0" expanded="false" />
-            <element signature="e#3220#3221#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1593,7 +1457,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="210">
           <caret line="23" column="5" selection-start-line="23" selection-start-column="5" selection-end-line="23" selection-end-column="5" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1626,7 +1489,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="4348">
           <caret line="315" column="36" selection-start-line="315" selection-start-column="36" selection-end-line="315" selection-end-column="36" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1635,7 +1497,7 @@
         <state relative-caret-position="345">
           <caret line="23" column="31" selection-start-line="23" selection-start-column="31" selection-end-line="23" selection-end-column="31" />
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="imports" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1644,14 +1506,13 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="396">
           <caret line="75" column="8" selection-start-line="75" selection-start-column="8" selection-end-line="75" selection-end-column="8" />
-          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/bl/implementation/Promotion.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="319" column="30" selection-start-line="319" selection-start-column="30" selection-end-line="319" selection-end-column="30" />
+        <state relative-caret-position="317">
+          <caret line="227" column="29" selection-start-line="227" selection-start-column="29" selection-end-line="227" selection-end-column="29" />
           <folding />
         </state>
       </provider>
@@ -1676,28 +1537,15 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="735">
           <caret line="55" column="57" selection-start-line="55" selection-start-column="57" selection-end-line="55" selection-end-column="57" />
-          <folding>
-            <element signature="e#906#914#0" expanded="true" />
-            <element signature="e#966#974#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/other/Rank.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="195">
-          <caret line="52" column="43" selection-start-line="52" selection-start-column="43" selection-end-line="52" selection-end-column="43" />
           <folding />
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/other/Rank.java" />
     <entry file="file://$PROJECT_DIR$/src/main/java/data/stub/RankDataStub.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="225">
           <caret line="15" column="8" selection-start-line="15" selection-start-column="8" selection-end-line="25" selection-end-column="9" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1709,10 +1557,27 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/main/Runner.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/main/Runner.java" />
+    <entry file="file://$PROJECT_DIR$/src/test/java/bl/implementation/PromotionTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="11" column="13" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
+        <state relative-caret-position="351">
+          <caret line="58" column="5" selection-start-line="38" selection-start-column="5" selection-end-line="58" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/bl/stub/MemberBLStub.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="51">
+          <caret line="98" column="31" selection-start-line="98" selection-start-column="31" selection-end-line="98" selection-end-column="31" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/bl/stub/OrderBLStub.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="390">
+          <caret line="49" column="36" selection-start-line="49" selection-start-column="36" selection-end-line="49" selection-end-column="36" />
           <folding />
         </state>
       </provider>
