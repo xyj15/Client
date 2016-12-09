@@ -317,7 +317,7 @@ public class Promotion implements PromotionBLService {
 		Member member = new Member(memberID);
 		Hotel hotel = new Hotel(hotelID);
 		Date today = new Date();
-		Rank rank = Rank.getInstance();
+		Rank rank = new Rank();
 		ArrayList<PromotionVO> availablePromotionList = new ArrayList<PromotionVO>();
 		
 		PromotionVO promotionVO;

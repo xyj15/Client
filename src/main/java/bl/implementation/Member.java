@@ -223,7 +223,7 @@ public class Member implements MemberBLService {
 		credit = new Credit(memberID);
 		order = new Order(memberID);
 		memberVO = memberPOtoVO(memberDataService.getMember(memberID));
-		Rank rank = Rank.getInstance();
+		Rank rank = new Rank();
 		int level = rank.getLevel(credit.getCredit());
 		double discount = rank.getDiscount(credit.getCredit());
 		memberVO.setLevel(level);

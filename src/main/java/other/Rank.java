@@ -1,6 +1,7 @@
 package other;
 
 import data.service.RankDataService;
+import data.stub.RankDataStub;
 
 import java.util.ArrayList;
 
@@ -17,25 +18,25 @@ public class Rank {
 	
 	private RankDataService rankDataService;
 	
-	private static Rank rank = new Rank();
-	public static Rank getInstance(){
-        return rank;
-    }
+	public Rank() {
+		rankDataService = new RankDataStub();
+		updateDataFromFile();
+	}
 	
 	/**
 	 * 根据信用值获得会员等级
 	 * @param credit 会员信用值
 	 * @return 会员等级
 	 */
-	public int getLevel(double credit){
+	public int getLevel(double credit) {
 		updateDataFromFile();
-		int result;
-		for(result = 0; result<creditList.size(); result++) {
-			if(credit<creditList.get(result)) {
+		int level;
+		for(level = 0; level<creditList.size(); level++) {
+			if(credit<creditList.get(level)) {
 				break;
 			}
 		}
-		return result;
+		return level+1;
     }
 	
 	/**
@@ -46,7 +47,11 @@ public class Rank {
 	public double getDiscount(double credit) {
 		updateDataFromFile();
 		int level = getLevel(credit);
-		return discountList.get(level-1);
+		if(level==1) {
+			return 1;
+		} else {
+			return discountList.get(level-2);
+		}
 	}
 	
 	/**
