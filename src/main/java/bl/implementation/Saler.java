@@ -2,8 +2,8 @@ package bl.implementation;
 
 import bl.service.SalerBLService;
 import data.service.SalerDataService;
+import data.stub.SalerDataStub;
 import other.OrderAction;
-import other.Rank;
 import po.SalerPO;
 import vo.CreditChangeVO;
 import vo.OrderVO;
@@ -33,6 +33,7 @@ public class Saler implements SalerBLService {
 	 * 增加新的营销人员调用这个构造方法
 	 */
 	public Saler(SalerVO salerVO) {
+		salerDataService = new SalerDataStub();
 		salerVO.setUserID(salerDataService.getAvailableID());
 		this.salerID = salerVO.getUserID();
 		salerDataService.addSaler(salerVOtoPO(salerVO));
@@ -43,6 +44,7 @@ public class Saler implements SalerBLService {
 	 * @param salerID 营销人员ID
 	 */
 	public Saler(String salerID) {
+		salerDataService = new SalerDataStub();
 		this.salerID = salerID;
 		updateDataFromFile();
 	}

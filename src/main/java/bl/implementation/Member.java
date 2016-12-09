@@ -4,7 +4,6 @@ import data.service.MemberDataService;
 import bl.service.MemberBLService;
 
 import other.MemberType;
-import other.Rank;
 import po.MemberPO;
 import vo.CreditChangeVO;
 import vo.HotelVO;

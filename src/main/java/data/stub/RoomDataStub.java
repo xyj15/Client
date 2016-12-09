@@ -1,5 +1,6 @@
 package data.stub;
 
+import bl.implementation.Rank;
 import data.service.RoomDataService;
 import other.RoomType;
 import po.RoomPO;
@@ -53,6 +54,12 @@ public class RoomDataStub implements RoomDataService {
 	@Override
 	public boolean addSingleRoom(RoomPO room, String hotelID) {
 		System.out.println("添加客房成功");
+		for(int i=0; i<roomList.size(); i++) {
+			String roomNumber = roomList.get(i).getRoomNumber();
+			if(roomNumber.equals(room.getRoomNumber())) {
+				return false;
+			}
+		}
 		roomList.add(room);
 		return true;
 	}
