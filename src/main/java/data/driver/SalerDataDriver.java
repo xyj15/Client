@@ -14,7 +14,7 @@ public class SalerDataDriver {
 	public void drive() {
 		System.out.println(salerDataService.addSaler(new SalerPO("", "", "", "")));
 		System.out.println(salerDataService.deleteSaler(""));
-		System.out.println(salerDataService.getAvailableID());
+		System.out.println(salerDataService.getAvailableSalerID());
 		System.out.println(salerDataService.getSaler(""));
 		System.out.println(salerDataService.updateSaler(new SalerPO("", "", "", "")));
 	}

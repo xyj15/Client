@@ -97,7 +97,7 @@ public class PromotionDataStub implements PromotionDataService {
 	}
 	
 	@Override
-	public String getAvailableID() {
+	public String getAvailablePromotionID() {
 		System.out.println("获取可用ID成功");
 		int size = promotionList.size();
 		String availableID = String.valueOf(size);

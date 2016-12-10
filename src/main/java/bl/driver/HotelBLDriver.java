@@ -4,8 +4,6 @@ import bl.service.HotelBLService;
 import bl.stub.HotelBLStub;
 import vo.HotelVO;
 
-import java.util.Date;
-
 public class HotelBLDriver {
 
 	private HotelBLService hotelBLService = new HotelBLStub();

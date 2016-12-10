@@ -16,7 +16,7 @@ public class RoomDataStub implements RoomDataService {
 	private ArrayList<RoomPO> roomList;
 	
 	public RoomDataStub() {
-		String hotelID = "123456";
+		String hotelID = "000000";
 		String bigbed = "大床房";
 		String doublebed = "双床房";
 		String single = "单人房";

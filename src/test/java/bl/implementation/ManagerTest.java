@@ -1,6 +1,5 @@
-package test;
-import bl.implementation.Manager;
-import org.junit.Before;
+package bl.implementation;
+
 import org.junit.Test;
 
 import static org.junit.Assert.*;
@@ -9,13 +8,6 @@ import static org.junit.Assert.*;
  * Created by CROFF on 2016/12/10.
  */
 public class ManagerTest {
-	
-	private Manager manager;
-	
-	@Before
-	public void setUp() {
-		manager = new Manager();
-	}
 	
 	@Test
 	public void addMember() throws Exception {

@@ -34,7 +34,7 @@ public class Saler implements SalerBLService {
 	 */
 	public Saler(SalerVO salerVO) {
 		salerDataService = new SalerDataStub();
-		salerVO.setUserID(salerDataService.getAvailableID());
+		salerVO.setUserID(salerDataService.getAvailableSalerID());
 		this.salerID = salerVO.getUserID();
 		salerDataService.addSaler(salerVOtoPO(salerVO));
 	}
@@ -99,9 +99,6 @@ public class Saler implements SalerBLService {
 	 */
 	@Override
 	public boolean createPromotion(PromotionVO promotionVO) {
-		updateDataFromFile();
-		String promotionID = salerDataService.getAvailableID();
-		promotionVO.setPromotionID(promotionID);
 		return promotion.addPromotion(promotionVO);
 	}
 	
