@@ -53,12 +53,12 @@
       </Button>
       <ScrollPane layoutX="331.0" layoutY="126.0" opacity="0.57" prefHeight="339.0" prefWidth="556.0" style="-fx-background-color: #000f32;">
          <content>
-            <TableView fx:id="table" prefHeight="344.0" prefWidth="558.0" style="-fx-background-color: #000f32;" stylesheets="@TableView.css">
+            <TableView fx:id="table" prefHeight="361.0" prefWidth="537.0" style="-fx-background-color: #000f32;" stylesheets="@TableView.css">
                <columns>
                   <TableColumn prefWidth="106.0" style="-fx-background-color: #000f32;" text="订单号" />
-                  <TableColumn prefWidth="165.0" style="-fx-background-color: #000f32;" text="日期" />
-                  <TableColumn prefWidth="178.0" style="-fx-background-color: #000f32;" text="酒店名称" />
-                  <TableColumn prefWidth="103.0" style="-fx-background-color: #000f32;" text="金额" />
+                  <TableColumn prefWidth="134.0" style="-fx-background-color: #000f32;" text="创建日期" />
+                  <TableColumn prefWidth="158.0" style="-fx-background-color: #000f32;" text="酒店名称" />
+                  <TableColumn minWidth="6.0" prefWidth="137.0" style="-fx-background-color: #000f32;" text="酒店联系方式" />
                </columns>
             </TableView>
          </content>
