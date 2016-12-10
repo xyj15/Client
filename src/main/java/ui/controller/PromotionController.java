@@ -120,7 +120,7 @@ public class PromotionController {
        TableView table = (TableView) root.lookup("#table");
         ObservableList<TableDataForVip> dataForVip = FXCollections.observableArrayList();
         ObservableList<TableColumn> tableList = table.getColumns();
-        ArrayList<PromotionVO> list = saler.
+        ArrayList<PromotionVO> list = saler.get
         for(int i=0;i<list.size();i++){
             dataForVip.add(new dataForVip());
         }

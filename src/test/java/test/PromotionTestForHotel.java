@@ -38,36 +38,21 @@ public class PromotionTestForHotel {
 	
 	@Test
 	public void deletePromotion() throws Exception {
-		
+		promotion.deletePromotion("00005");
+		assertEquals(promotion.getPromotion("00005"), null);
 	}
 	
 	@Test
 	public void updatePromotion() throws Exception {
-		
+		assertEquals(promotion.getPromotion("00005").getPromotionName(), "双十一特惠");
+		PromotionVO promotionVO = promotion.getPromotion("00005");
+		promotionVO.setPromotionName("清明特惠");
+		promotion.updatePromotion(promotionVO);
+		assertEquals(promotion.getPromotion("00005").getPromotionName(), "清明特惠");
 	}
 	
 	@Test
 	public void getHotelPromotionList() throws Exception {
-		
-	}
-	
-	@Test
-	public void getWebPromotionList() throws Exception {
-		
-	}
-	
-	@Test
-	public void updateDataFromFile() throws Exception {
-		
-	}
-	
-	@Test
-	public void promotionVOtoPO() throws Exception {
-		
-	}
-	
-	@Test
-	public void promotionPOtoVO() throws Exception {
 		
 	}
 	
@@ -77,17 +62,7 @@ public class PromotionTestForHotel {
 	}
 	
 	@Test
-	public void getDistrictPromotionList() throws Exception {
-		
-	}
-	
-	@Test
 	public void getHotelDatePromotionList() throws Exception {
-		
-	}
-	
-	@Test
-	public void getWebDatePromotionList() throws Exception {
 		
 	}
 	

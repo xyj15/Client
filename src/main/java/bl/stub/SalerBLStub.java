@@ -109,6 +109,18 @@ public class SalerBLStub implements SalerBLService {
 	}
 	
 	@Override
+	public ArrayList<Double> getCreditList() {
+		System.out.println("获取客户升级所需信用表成功");
+		return new ArrayList<>();
+	}
+	
+	@Override
+	public ArrayList<Double> getDiscountList() {
+		System.out.println("获取客户每级享受的折扣表成功");
+		return new ArrayList<>();
+	}
+	
+	@Override
 	public ArrayList<OrderVO> getDailyUnexcutedOrderList() {
 		System.out.println("获取每天未执行订单列表成功");
 		ArrayList<OrderVO> orderList = new ArrayList<OrderVO>();
