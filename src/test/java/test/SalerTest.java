@@ -5,6 +5,8 @@ import org.junit.Before;
 import org.junit.Test;
 import vo.SalerVO;
 
+import java.util.ArrayList;
+
 import static org.junit.Assert.*;
 
 /**
@@ -76,8 +78,13 @@ public class SalerTest {
 	}
 	
 	@Test
-	public void updateDataFromFile() throws Exception {
-		
+	public ArrayList<Double> getCreditList() {
+		return null;
+	}
+	
+	@Test
+	public ArrayList<Double> getDiscountList() {
+		return null;
 	}
 	
 	@Test

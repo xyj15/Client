@@ -140,6 +140,24 @@ public class Saler implements SalerBLService {
 	}
 	
 	/**
+	 * 获取客户升级所需信用表
+	 * @return 客户升级所需信用表
+	 */
+	@Override
+	public ArrayList<Double> getCreditList() {
+		return rank.getCreditList();
+	}
+	
+	/**
+	 * 获取客户每级享受的折扣表
+	 * @return 客户每级享受的折扣表
+	 */
+	@Override
+	public ArrayList<Double> getDiscountList() {
+		return rank.getDiscountList();
+	}
+	
+	/**
 	 * 获取每天未执行订单列表
 	 * @return 每天未执行订单列表
 	 */
