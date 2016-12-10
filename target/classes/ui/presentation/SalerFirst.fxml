@@ -33,11 +33,6 @@
             <Image url="@key.png" />
          </image>
       </ImageView>
-      <Button disable="true" layoutX="53.0" layoutY="201.0" mnemonicParsing="false" onAction="#onPromotion" opacity="0.67" prefHeight="32.0" prefWidth="181.0" style="-fx-background-color: #000f32;" text="营销策略" textFill="WHITE">
-         <font>
-            <Font name="Microsoft YaHei Bold" size="16.0" />
-         </font>
-      </Button>
       <Button layoutX="53.0" layoutY="263.0" mnemonicParsing="false" onAction="#onAbnormal" opacity="0.66" prefHeight="23.0" prefWidth="181.0" style="-fx-background-color: #000f32;" text="异常订单" textFill="WHITE">
          <font>
             <Font name="Microsoft YaHei Bold" size="16.0" />
@@ -49,6 +44,11 @@
          </font>
       </Button>
       <Button layoutX="53.0" layoutY="393.0" mnemonicParsing="false" onAction="#onCredit" opacity="0.66" prefHeight="23.0" prefWidth="181.0" style="-fx-background-color: #000f32;" text="信用充值" textFill="WHITE">
+         <font>
+            <Font name="Microsoft YaHei Bold" size="16.0" />
+         </font>
+      </Button>
+      <Button layoutX="53.0" layoutY="200.0" mnemonicParsing="false" onAction="#onPromotion" opacity="0.66" prefHeight="23.0" prefWidth="181.0" style="-fx-background-color: #000f32;" text="营销策略" textFill="WHITE">
          <font>
             <Font name="Microsoft YaHei Bold" size="16.0" />
          </font>
