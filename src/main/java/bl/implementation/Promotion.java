@@ -68,7 +68,7 @@ public class Promotion implements PromotionBLService {
 	@Override
 	public boolean addPromotion(PromotionVO promotionVO) {
 		updateDataFromFile();
-		promotionVO.setPromotionID(promotionDataService.getAvailableID());
+		promotionVO.setPromotionID(promotionDataService.getAvailablePromotionID());
 		promotionList.add(promotionVO);
 		PromotionPO promotionPO = promotionVOtoPO(promotionVO);
 		return promotionDataService.addPromotion(promotionPO);

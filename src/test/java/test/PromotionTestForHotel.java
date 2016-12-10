@@ -4,8 +4,10 @@ import bl.implementation.Promotion;
 import org.junit.Before;
 import org.junit.Test;
 import other.PromotionType;
+import other.SaleType;
 import vo.PromotionVO;
 
+import java.util.ArrayList;
 import java.util.Date;
 
 import static org.junit.Assert.*;
@@ -53,7 +55,19 @@ public class PromotionTestForHotel {
 	
 	@Test
 	public void getHotelPromotionList() throws Exception {
-		
+		ArrayList<PromotionVO> promotionList = promotion.getHotelPromotionList("000000");
+		assertEquals(promotionList.size(), 3);
+		for(int i=0; i< promotionList.size(); i++) {
+			PromotionVO promotionVO = promotionList.get(i);
+			assertEquals(promotionVO.getRelatedHotelID(), "000000");
+			if(promotionVO.getPromotionID().equals("00004")) {
+				assertEquals(promotionVO.getPromotionName(), "合作企业特惠");
+			} else if(promotionVO.getPromotionID().equals("00005")) {
+				assertEquals(promotionVO.getDiscount(), 0.9, 0.000001);
+			} else if(promotionVO.getPromotionID().equals("00006")) {
+				assertEquals(promotionVO.getSaleType(), SaleType.RoomNumber);
+			}
+		}
 	}
 	
 	@Test
@@ -63,11 +77,18 @@ public class PromotionTestForHotel {
 	
 	@Test
 	public void getHotelDatePromotionList() throws Exception {
-		
+		ArrayList<PromotionVO> promotionList = promotion.getHotelDatePromotionList();
+		assertEquals(promotionList.size(), 1);
+		PromotionVO promotionVO = promotionList.get(0);
+		assertEquals(promotionVO.getSaleType(), SaleType.Date);
 	}
 	
 	@Test
 	public void getEnterprisePromotionList() throws Exception {
-		
+		ArrayList<PromotionVO> promotionList = promotion.getEnterprisePromotionList();
+		assertEquals(promotionList.size(), 1);
+		PromotionVO promotionVO = promotionList.get(0);
+		assertEquals(promotionVO.getSaleType(), SaleType.Enterprise);
+		assertEquals(promotionVO.getEnterprise(), "");
 	}
 }

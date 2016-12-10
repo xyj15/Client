@@ -78,13 +78,13 @@ public class SalerTest {
 	}
 	
 	@Test
-	public ArrayList<Double> getCreditList() {
-		return null;
+	public void getCreditList() throws Exception {
+		
 	}
 	
 	@Test
-	public ArrayList<Double> getDiscountList() {
-		return null;
+	public void getDiscountList() throws Exception {
+		
 	}
 	
 	@Test

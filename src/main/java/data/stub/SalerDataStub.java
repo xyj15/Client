@@ -75,7 +75,7 @@ public class SalerDataStub implements SalerDataService {
 	}
 	
 	@Override
-	public String getAvailableID() {
+	public String getAvailableSalerID() {
 		System.out.println("获取可用ID成功");
 		int size = salerList.size();
 		String availableID = String.valueOf(size);

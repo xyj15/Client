@@ -1,7 +1,6 @@
 package bl.implementation;
 
 import data.service.HotelDataService;
-import data.service.RoomDataService;
 import bl.service.HotelBLService;
 import other.OrderStatus;
 import other.RoomType;
@@ -35,9 +34,9 @@ public class Hotel implements HotelBLService {
 	 */
 	public Hotel(HotelVO hotelVO) {
 		this.hotelVO = hotelVO;
-		hotelVO.setUserID(hotelDataService.getAvailableID());
+		hotelVO.setUserID(hotelDataService.getAvailableHotelID());
 		hotelID = hotelVO.getUserID();
-		updateDateToFile();
+		hotelDataService.addHotel(hotelVOtoPO(hotelVO));
 	}
 	
 	/**

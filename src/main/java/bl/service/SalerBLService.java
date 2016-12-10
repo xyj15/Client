@@ -5,7 +5,6 @@ import vo.PromotionVO;
 import vo.SalerVO;
 
 import java.util.ArrayList;
-import java.util.Date;
 
 /**
  * Created by 97147 on 2016/11/19.

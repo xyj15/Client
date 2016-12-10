@@ -13,7 +13,7 @@ public class PromotionDataDriver {
 	private PromotionDataService promotionDataService = new PromotionDataStub();
 	
 	public void drive() {
-		System.out.println(promotionDataService.getAvailableID());
+		System.out.println(promotionDataService.getAvailablePromotionID());
 		System.out.println(promotionDataService.addPromotion(new PromotionPO("00000", "生日特惠", PromotionType.Discount)));
 		System.out.println(promotionDataService.deletePromotion("00000"));
 		System.out.println(promotionDataService.getPromotion("00000"));

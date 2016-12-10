@@ -1,7 +1,5 @@
 package bl.service;
 
-import java.util.ArrayList;
-
 import other.UserType;
 import vo.HotelVO;
 import vo.ManagerVO;

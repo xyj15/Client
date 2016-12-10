@@ -2,6 +2,7 @@ package bl.implementation;
 
 import bl.service.ManagerBLService;
 import data.service.ManagerDataService;
+import data.stub.ManagerDataStub;
 import other.UserType;
 import po.ManagerPO;
 import vo.HotelVO;
@@ -27,6 +28,7 @@ public class Manager implements ManagerBLService {
 	 * 构造方法
 	 */
 	public Manager() {
+		managerDataService = new ManagerDataStub();
 		login = new Login();
 	}
 	
