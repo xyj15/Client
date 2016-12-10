@@ -22,6 +22,8 @@ import ui.presentation.*;
 import vo.HotelVO;
 import vo.SalerVO;
 
+import java.time.ZoneId;
+
 
 /**
  *
@@ -58,6 +60,15 @@ public class ManagerController{
 	private TextField introduction;
 	@FXML
 	private TextField hotelManagerName;
+//搜索客户结果
+	@FXML
+	private TextField memberName;
+	@FXML
+	private TextField memberTel;
+	@FXML
+	private TextField credit;
+	@FXML
+	private  DatePicker birthday;
 
 
 	public static void setPrimaryStage(Stage in){
@@ -74,13 +85,10 @@ public class ManagerController{
 		UserType userType =manager.getUserType(searchID.toString());
 		switch (userType){
 			case Member:new ManagerSearchMemberUI().start(primaryStage);
-				TextField memberName=(TextField)root.lookup("#memberName");
-				TextField memberTel=(TextField)root.lookup("#memberTel");
-				TextField credit=(TextField)root.lookup("#credit");
-				DatePicker birthday=(DatePicker)root.lookup("#birthday");
 				memberName.setText(member.getName());
 				memberTel.setText(member.getTel());
 				credit.setText(String.valueOf(member.getCredit()));
+				birthday.setValue(member.getBirthday().toInstant().atZone(ZoneId.systemDefault()).toLocalDate());
 				break;
 			case Hotel:new ManagerSearchHotelUI().start(primaryStage);
 				TextField hotelName=(TextField)root.lookup("#hotelName");
@@ -107,6 +115,10 @@ public class ManagerController{
 				password.setText(saler.getSalerInformation().getPassword());
 				break;
 		}
+	}
+	@FXML
+	private void confirm(ActionEvent E)throws Exception {
+		new ManagerAddSalerUI().start(primaryStage);
 	}
 	@FXML
 	private void onAddUser(ActionEvent E)throws Exception {

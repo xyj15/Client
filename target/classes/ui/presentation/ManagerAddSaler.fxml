@@ -48,11 +48,17 @@
                <GridPane.margin>
                   <Insets right="20.0" />
                </GridPane.margin>
+               <font>
+                  <Font name="Microsoft YaHei Bold" size="14.0" />
+               </font>
             </TextField>
             <PasswordField fx:id="salerPassword" GridPane.columnIndex="1" GridPane.rowIndex="1">
                <GridPane.margin>
                   <Insets right="20.0" />
                </GridPane.margin>
+               <font>
+                  <Font name="Microsoft YaHei Bold" size="14.0" />
+               </font>
             </PasswordField>
          </children>
       </GridPane>
