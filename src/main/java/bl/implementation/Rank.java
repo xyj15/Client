@@ -67,6 +67,22 @@ public class Rank {
 	}
 	
 	/**
+	 * 获取客户升级所需信用表
+	 * @return 客户升级所需信用表
+	 */
+	public ArrayList<Double> getCreditList() {
+		return creditList;
+	}
+	
+	/**
+	 * 获取客户每级享受的折扣表
+	 * @return 客户每级享受的折扣表
+	 */
+	public ArrayList<Double> getDiscountList() {
+		return discountList;
+	}
+	
+	/**
 	 * 从数据层更新数据
 	 */
 	public void updateDataFromFile() {
