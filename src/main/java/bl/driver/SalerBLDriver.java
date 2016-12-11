@@ -26,6 +26,8 @@ public class SalerBLDriver {
 		System.out.println(salerBLService.updatePromotion(new PromotionVO()));
 		System.out.println(salerBLService.setSalerInformation(new SalerVO()));
 		System.out.println(salerBLService.setRankInformation(new ArrayList<Double>(), new ArrayList<Double>()));
+		System.out.println(salerBLService.getCreditList());
+		System.out.println(salerBLService.getDiscountList());
 	}
 	
 	public static void main(String[] args) {

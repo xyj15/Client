@@ -4,7 +4,6 @@ import bl.service.OrderBLService;
 import other.MemberType;
 import other.OrderStatus;
 import vo.HotelVO;
-import vo.ManagerVO;
 import vo.MemberVO;
 import vo.OrderVO;
 

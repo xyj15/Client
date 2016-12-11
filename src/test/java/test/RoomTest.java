@@ -20,7 +20,7 @@ public class RoomTest {
 	
 	@Before
 	public void setUp() throws Exception {
-		room = new Room("123456");
+		room = new Room("000000");
 	}
 	
 	@Test
@@ -45,7 +45,7 @@ public class RoomTest {
 	
 	@Test
 	public void addRoom() throws Exception {
-		RoomVO roomVO = new RoomVO(false, false, "6001", "hahahaha", RoomType.Suite, 1000, "123456");
+		RoomVO roomVO = new RoomVO(false, false, "6001", "hahahaha", RoomType.Suite, 1000, "000000");
 		int size = room.getDailyRoomList(new Date()).size();
 		room.addRoom(roomVO);
 		ArrayList<RoomVO> newRoomList = room.getDailyRoomList(new Date());
@@ -62,7 +62,7 @@ public class RoomTest {
 	
 	@Test
 	public void updateRoom() throws Exception {
-		RoomVO roomVO = new RoomVO(false, false, "5001", "hahahaha", RoomType.Suite, 1000, "123456");
+		RoomVO roomVO = new RoomVO(false, false, "5001", "hahahaha", RoomType.Suite, 1000, "000000");
 		room.updateRoom(new Date(), roomVO);
 		RoomVO newRoomVOinRoomList = room.getRoomInformation(new Date(), "5001");
 		assertEquals(newRoomVOinRoomList.getRoomName(), "hahahaha");

@@ -34,7 +34,7 @@ public class Saler implements SalerBLService {
 	 */
 	public Saler(SalerVO salerVO) {
 		salerDataService = new SalerDataStub();
-		salerVO.setUserID(salerDataService.getAvailableID());
+		salerVO.setUserID(salerDataService.getAvailableSalerID());
 		this.salerID = salerVO.getUserID();
 		salerDataService.addSaler(salerVOtoPO(salerVO));
 	}
@@ -99,9 +99,6 @@ public class Saler implements SalerBLService {
 	 */
 	@Override
 	public boolean createPromotion(PromotionVO promotionVO) {
-		updateDataFromFile();
-		String promotionID = salerDataService.getAvailableID();
-		promotionVO.setPromotionID(promotionID);
 		return promotion.addPromotion(promotionVO);
 	}
 	
@@ -137,6 +134,24 @@ public class Saler implements SalerBLService {
 	public boolean setRankInformation(ArrayList<Double> creditList, ArrayList<Double> discountList) {
 		updateDataFromFile();
 		return rank.setRankInformation(creditList, discountList);
+	}
+	
+	/**
+	 * 获取客户升级所需信用表
+	 * @return 客户升级所需信用表
+	 */
+	@Override
+	public ArrayList<Double> getCreditList() {
+		return rank.getCreditList();
+	}
+	
+	/**
+	 * 获取客户每级享受的折扣表
+	 * @return 客户每级享受的折扣表
+	 */
+	@Override
+	public ArrayList<Double> getDiscountList() {
+		return rank.getDiscountList();
 	}
 	
 	/**

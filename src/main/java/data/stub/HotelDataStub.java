@@ -36,27 +36,7 @@ public class HotelDataStub implements HotelDataService {
 	}
 	
 	@Override
-	public ArrayList<HotelPO> getHotelListByCityDistrict(String city, String district) {
-		return null;
-	}
-	
-	@Override
-	public ArrayList<HotelPO> getHotelListSortedByScore(double lowScore, double highScore, String city, String district) {
-		return null;
-	}
-	
-	@Override
-	public ArrayList<HotelPO> getHotelListFilteredByLevel(int level, String city, String district) {
-		return null;
-	}
-	
-	@Override
-	public ArrayList<HotelPO> getHotelListFilteredByPrice(double lowPrice, double highPrice, String city, String district) {
-		return null;
-	}
-	
-	@Override
-	public String getAvailableID() {
+	public String getAvailableHotelID() {
 		return null;
 	}
 }
