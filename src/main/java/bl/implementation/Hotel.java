@@ -5,6 +5,7 @@ import bl.service.HotelBLService;
 import other.OrderStatus;
 import other.RoomType;
 import po.HotelPO;
+import rmi.RemoteHelper;
 import vo.HotelVO;
 import vo.OrderVO;
 import vo.RoomVO;
@@ -34,6 +35,7 @@ public class Hotel implements HotelBLService {
 	 */
 	public Hotel(HotelVO hotelVO) {
 		this.hotelVO = hotelVO;
+		hotelDataService = RemoteHelper.getInstance().getHotelDataService();
 		hotelVO.setUserID(hotelDataService.getAvailableHotelID());
 		hotelID = hotelVO.getUserID();
 		hotelDataService.addHotel(hotelVOtoPO(hotelVO));
