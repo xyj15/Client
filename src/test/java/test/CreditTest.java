@@ -20,7 +20,7 @@ public class CreditTest {
 	
 	@Before
 	public void setUp() throws Exception {
-		credit = new Credit("12345678");
+		credit = new Credit("00000000");
 	}
 	
 	@Test

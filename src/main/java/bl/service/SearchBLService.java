@@ -5,7 +5,6 @@ import java.util.Date;
 
 import other.RoomType;
 import vo.HotelVO;
-import vo.RoomVO;
 
 public interface SearchBLService {
 	
