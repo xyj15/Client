@@ -101,5 +101,10 @@
       <Button layoutX="639.0" layoutY="81.0" mnemonicParsing="false" onAction="#onExecuteOrder" opacity="0.0" prefHeight="23.0" prefWidth="70.0" text="Button" />
       <Button layoutX="798.0" layoutY="80.0" mnemonicParsing="false" onAction="#onAbnormalOrder" opacity="0.0" prefHeight="23.0" prefWidth="56.0" text="Button" />
       <Button layoutX="730.0" layoutY="82.0" mnemonicParsing="false" onAction="#onCancelOrder" opacity="0.0" prefHeight="23.0" prefWidth="56.0" text="Button" />
+      <Button layoutX="331.0" layoutY="491.0" mnemonicParsing="false" onAction="#onOrderInforx" prefHeight="29.0" prefWidth="89.0" style="-fx-background-color: #6B6BCF;" text="订单详情" textFill="WHITE">
+         <font>
+            <Font name="Microsoft YaHei Bold" size="14.0" />
+         </font>
+      </Button>
    </children>
 </AnchorPane>

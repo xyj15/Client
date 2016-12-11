@@ -101,5 +101,10 @@
             </TableView>
          </content>
       </ScrollPane>
+      <Button layoutX="332.0" layoutY="484.0" mnemonicParsing="false" onAction="#onOrderInforx" prefHeight="34.0" prefWidth="144.0" style="-fx-background-color: #6B6BCF;" text="订单详情" textFill="WHITE">
+         <font>
+            <Font name="Microsoft YaHei Bold" size="16.0" />
+         </font>
+      </Button>
    </children>
 </AnchorPane>

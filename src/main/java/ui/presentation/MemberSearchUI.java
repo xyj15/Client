@@ -17,10 +17,9 @@ import java.util.ResourceBundle;
 /**
  * Created by 97147 on 2016/12/1.
  */
-public class MemberSearchUI  extends Application implements Initializable {
+public class MemberSearchUI  extends Application{
 
-//    @FXML
-//    private ComboBox<roomTypeChoice> roomTypeInsearch;
+
     Parent root;
     @Override
     public void start(Stage primaryStage) throws Exception {
@@ -31,14 +30,5 @@ public class MemberSearchUI  extends Application implements Initializable {
         primaryStage.setResizable(false);
         primaryStage.setScene(myScene);
         primaryStage.show();
-    }
-
-    @Override
-    public void initialize(URL location, ResourceBundle resources){
-        ComboBox<roomTypeChoice> roomTypeInsearch =(ComboBox<roomTypeChoice>)root.lookup("roomTypeInsearch");
-        roomTypeInsearch.getItems().add(new roomTypeChoice(RoomType.Single.toString()));
-        roomTypeInsearch.getItems().add(new roomTypeChoice(RoomType.Single.toString()));
-        roomTypeInsearch.getItems().add(new roomTypeChoice(RoomType.Single.toString()));
-        roomTypeInsearch.getSelectionModel().select(1);
     }
 }

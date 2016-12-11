@@ -57,7 +57,7 @@
       </Button>
       <ScrollPane layoutX="381.0" layoutY="136.0" opacity="0.57" prefHeight="302.0" prefWidth="500.0" style="-fx-background-color: #000f32;">
          <content>
-            <TableView prefHeight="302.0" prefWidth="480.0" style="-fx-background-color: #000f32;" stylesheets="@TableView.css">
+            <TableView fx:id="table" prefHeight="302.0" prefWidth="480.0" style="-fx-background-color: #000f32;" stylesheets="@TableView.css">
               <columns>
                 <TableColumn editable="false" prefWidth="-1.0" sortable="false" style="-fx-background-color: #000f32; -fx-text-fill: white;" text="合作企业" />
                   <TableColumn editable="false" minWidth="0.0" prefWidth="-1.0" sortable="false" style="-fx-background-color: #000f32;" text="折扣" />

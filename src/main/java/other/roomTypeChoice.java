@@ -20,4 +20,17 @@ public class roomTypeChoice {
             return name;
         }
 
+        public RoomType toRoomType(){
+            switch (name){
+                case "Single":
+                    return RoomType.Single;
+                case "TwinBed":
+                    return RoomType.TwinBed;
+                case "BigBed":
+                    return RoomType.BigBed;
+                case "Suite":
+                    return RoomType.Suite;
+            }
+            return null;
+        }
 }

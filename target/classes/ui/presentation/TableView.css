@@ -4,3 +4,6 @@
     -fx-text-fill: white;
     -fx-opacity: 1;
 }
+.table-row-cell:empty .table-cell {  
+    -fx-border-width: 0px;  
+}  
