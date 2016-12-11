@@ -24,6 +24,8 @@ import other.TableDataForVip;
 import ui.presentation.*;
 import vo.OrderVO;
 import vo.PromotionVO;
+
+import java.time.ZoneId;
 import java.util.ArrayList;
 import java.util.Date;
 
@@ -72,16 +74,24 @@ public class PromotionController {
     private DatePicker checkOutDate=new DatePicker();
     @FXML
     private TableView AbnormalOrderTable=new TableView();
-
+    @FXML
+    private TableView promotionTable=new TableView();
+    @FXML
+    private TextField datePromotionNameUpdate=new TextField();
+    @FXML
+    private DatePicker checkInDateUpdate=new DatePicker();
+    @FXML
+    private TextField dateDiscountUpdate=new TextField();
+    @FXML
+    private DatePicker checkOutDateUpdate=new DatePicker();
 
 
     @FXML
     private void onPromotion() throws Exception{
         System.out.print(0);
         new SalerPromotionUI().start(primaryStage);
-        TableView table = (TableView) root.lookup("#table");
         ObservableList<TableDataForSalerPromotion> dataForSalerPromotion = FXCollections.observableArrayList();
-        ObservableList<TableColumn> tableList = table.getColumns();
+        ObservableList<TableColumn> tableList = promotionTable.getColumns();
         ArrayList<PromotionVO> list = saler.getPromotionList();
         for(int i=0;i<list.size();i++){
             dataForSalerPromotion.add(new TableDataForSalerPromotion(list.get(i).getPromotionName(),list.get(i).getStartDate().toString(),
@@ -91,7 +101,7 @@ public class PromotionController {
         tableList.get(1).setCellValueFactory(new PropertyValueFactory("startDate"));
         tableList.get(2).setCellValueFactory(new PropertyValueFactory("endDate"));
         tableList.get(3).setCellValueFactory(new PropertyValueFactory("discount"));
-        table.setItems(dataForSalerPromotion);
+        promotionTable.setItems(dataForSalerPromotion);
 
 
     }
@@ -142,10 +152,27 @@ public class PromotionController {
     }
     @FXML
     private void onAddPromotion(ActionEvent E) throws Exception{
-        TableView table = (TableView)root.lookup("#table");
-        table.getSelectionModel().getFocusedIndex();
         minprimaryStage = new Stage();
         new SalerAddPromotionUI().start(minprimaryStage);
+    }
+    @FXML
+    private void onUpdatePromotion(ActionEvent E) throws Exception{
+        minprimaryStage = new Stage();
+        new SalerUpdatePromotionUI().start(minprimaryStage);
+    }
+    @FXML
+    private void confirmAUpdatePromotion(ActionEvent E) throws Exception{
+        int i=promotionTable.getSelectionModel().getFocusedIndex();
+        ArrayList<PromotionVO> list = promotion.getWebDatePromotionList();
+        PromotionVO promotion=list.get(i);
+        datePromotionNameUpdate.setText(promotion.getPromotionName());
+        checkInDateUpdate.setValue(promotion.getStartDate().toInstant().atZone(ZoneId.systemDefault()).toLocalDate());
+        dateDiscountUpdate.setText(String.valueOf(promotion.getDiscount()));
+        checkOutDateUpdate.setValue(promotion.getEndDate().toInstant().atZone(ZoneId.systemDefault()).toLocalDate());
+        Date start=new Date(checkInDate.getValue().getYear(),checkInDate.getValue().getMonthValue(),checkInDate.getValue().getDayOfMonth());
+        Date end=new Date(checkOutDate.getValue().getYear(),checkOutDate.getValue().getMonthValue(),checkOutDate.getValue().getDayOfMonth());
+        promotion.setDatePromotion(start,end,Double.parseDouble(dateDiscount.getText()),0,0);
+        saler.updatePromotion(promotion);
     }
     @FXML
     private void onLogOut(ActionEvent E) throws Exception{
@@ -168,7 +195,7 @@ public class PromotionController {
         saler.creditRecharge(memberID.getText(),Double.parseDouble(credit.getText()));
     }
     @FXML
-    private void confirmAddCpromotion(ActionEvent E) throws Exception{
+    private void confirmAddPromotion(ActionEvent E) throws Exception{
         PromotionVO promotion=new PromotionVO(null,datePromotionName.getText(),PromotionType.Discount);
         Date start=new Date(checkInDate.getValue().getYear(),checkInDate.getValue().getMonthValue(),checkInDate.getValue().getDayOfMonth());
         Date end=new Date(checkOutDate.getValue().getYear(),checkOutDate.getValue().getMonthValue(),checkOutDate.getValue().getDayOfMonth());
