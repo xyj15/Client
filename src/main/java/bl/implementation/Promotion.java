@@ -10,6 +10,7 @@ import data.stub.PromotionDataStub;
 import other.PromotionType;
 import other.SaleType;
 import po.PromotionPO;
+import rmi.RemoteHelper;
 import vo.PromotionVO;
 
 /**
@@ -30,7 +31,8 @@ public class Promotion implements PromotionBLService {
 	 */
 	public Promotion(String hotelID) {
 		this.hotelID = hotelID;
-		promotionDataService = new PromotionDataStub();
+//		promotionDataService = new PromotionDataStub();
+		promotionDataService = RemoteHelper.getInstance().getPromotionDataService();
 		promotionList = getHotelPromotionList(hotelID);
 	}
 	
@@ -38,7 +40,8 @@ public class Promotion implements PromotionBLService {
 	 * 网站营销策略的构造方法，获取所有营销策略
 	 */
 	public Promotion() {
-		promotionDataService = new PromotionDataStub();
+		promotionDataService = RemoteHelper.getInstance().getPromotionDataService();
+//		promotionDataService = new PromotionDataStub();
 		promotionList = getWebPromotionList();
 	}
 	

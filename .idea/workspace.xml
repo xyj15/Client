@@ -2,53 +2,18 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a9f0de73-1128-483a-bbb9-a1105de32882" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/data/driver/ManagerDataDriver.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/rmi/RemoteHelper.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/rmi/package-info.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/bl/driver/MemberBLDriver.class" afterPath="$PROJECT_DIR$/target/classes/bl/driver/MemberBLDriver.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/bl/implementation/Hotel.class" afterPath="$PROJECT_DIR$/target/classes/bl/implementation/Hotel.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/bl/implementation/Manager.class" afterPath="$PROJECT_DIR$/target/classes/bl/implementation/Manager.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/data/stub/ManagerDataStub.class" afterPath="$PROJECT_DIR$/target/classes/data/stub/ManagerDataStub.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/data/stub/RoomDataStub.class" afterPath="$PROJECT_DIR$/target/classes/data/stub/RoomDataStub.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/test-classes/test/CreditTest.class" afterPath="$PROJECT_DIR$/target/test-classes/test/CreditTest.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/test-classes/test/ManagerTest.class" afterPath="$PROJECT_DIR$/target/test-classes/test/ManagerTest.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/test-classes/test/PromotionTestForHotel.class" afterPath="$PROJECT_DIR$/target/test-classes/test/PromotionTestForHotel.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/test-classes/test/PromotionTestForSaler.class" afterPath="$PROJECT_DIR$/target/test-classes/test/PromotionTestForSaler.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/test-classes/test/RoomTest.class" afterPath="$PROJECT_DIR$/target/test-classes/test/RoomTest.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/test-classes/test/SalerTest.class" afterPath="$PROJECT_DIR$/target/test-classes/test/SalerTest.class" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/test/java/bl/implementation/ManagerTest.java" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/bl/driver/HotelBLDriver.java" afterPath="$PROJECT_DIR$/src/main/java/bl/driver/HotelBLDriver.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/bl/driver/MemberBLDriver.java" afterPath="$PROJECT_DIR$/src/main/java/bl/driver/MemberBLDriver.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/bl/implementation/Credit.java" afterPath="$PROJECT_DIR$/src/main/java/bl/implementation/Credit.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/bl/implementation/Hotel.java" afterPath="$PROJECT_DIR$/src/main/java/bl/implementation/Hotel.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/bl/implementation/Manager.java" afterPath="$PROJECT_DIR$/src/main/java/bl/implementation/Manager.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/bl/implementation/Member.java" afterPath="$PROJECT_DIR$/src/main/java/bl/implementation/Member.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/bl/implementation/Order.java" afterPath="$PROJECT_DIR$/src/main/java/bl/implementation/Order.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/bl/implementation/Promotion.java" afterPath="$PROJECT_DIR$/src/main/java/bl/implementation/Promotion.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/bl/implementation/Rank.java" afterPath="$PROJECT_DIR$/src/main/java/bl/implementation/Rank.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/bl/implementation/Room.java" afterPath="$PROJECT_DIR$/src/main/java/bl/implementation/Room.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/bl/implementation/Saler.java" afterPath="$PROJECT_DIR$/src/main/java/bl/implementation/Saler.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/bl/implementation/Search.java" afterPath="$PROJECT_DIR$/src/main/java/bl/implementation/Search.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/bl/service/ManagerBLService.java" afterPath="$PROJECT_DIR$/src/main/java/bl/service/ManagerBLService.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/bl/service/OrderBLService.java" afterPath="$PROJECT_DIR$/src/main/java/bl/service/OrderBLService.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/bl/service/SalerBLService.java" afterPath="$PROJECT_DIR$/src/main/java/bl/service/SalerBLService.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/bl/service/SearchBLService.java" afterPath="$PROJECT_DIR$/src/main/java/bl/service/SearchBLService.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/bl/stub/HotelBLStub.java" afterPath="$PROJECT_DIR$/src/main/java/bl/stub/HotelBLStub.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/bl/stub/OrderBLStub.java" afterPath="$PROJECT_DIR$/src/main/java/bl/stub/OrderBLStub.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/data/driver/PromotionDataDriver.java" afterPath="$PROJECT_DIR$/src/main/java/data/driver/PromotionDataDriver.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/data/driver/SalerDataDriver.java" afterPath="$PROJECT_DIR$/src/main/java/data/driver/SalerDataDriver.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/data/service/HotelDataService.java" afterPath="$PROJECT_DIR$/src/main/java/data/service/HotelDataService.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/data/service/MemberDataService.java" afterPath="$PROJECT_DIR$/src/main/java/data/service/MemberDataService.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/data/service/PromotionDataService.java" afterPath="$PROJECT_DIR$/src/main/java/data/service/PromotionDataService.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/data/service/SalerDataService.java" afterPath="$PROJECT_DIR$/src/main/java/data/service/SalerDataService.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/data/service/SearchDataService.java" afterPath="$PROJECT_DIR$/src/main/java/data/service/SearchDataService.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/data/stub/HotelDataStub.java" afterPath="$PROJECT_DIR$/src/main/java/data/stub/HotelDataStub.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/data/stub/ManagerDataStub.java" afterPath="$PROJECT_DIR$/src/main/java/data/stub/ManagerDataStub.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/data/stub/PromotionDataStub.java" afterPath="$PROJECT_DIR$/src/main/java/data/stub/PromotionDataStub.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/data/stub/RoomDataStub.java" afterPath="$PROJECT_DIR$/src/main/java/data/stub/RoomDataStub.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/data/stub/SalerDataStub.java" afterPath="$PROJECT_DIR$/src/main/java/data/stub/SalerDataStub.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/test/java/test/CreditTest.java" afterPath="$PROJECT_DIR$/src/test/java/test/CreditTest.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/test/java/test/ManagerTest.java" afterPath="$PROJECT_DIR$/src/test/java/test/ManagerTest.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/test/java/test/PromotionTestForHotel.java" afterPath="$PROJECT_DIR$/src/test/java/test/PromotionTestForHotel.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/test/java/test/PromotionTestForSaler.java" afterPath="$PROJECT_DIR$/src/test/java/test/PromotionTestForSaler.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/test/java/test/RoomTest.java" afterPath="$PROJECT_DIR$/src/test/java/test/RoomTest.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/test/java/test/SalerTest.java" afterPath="$PROJECT_DIR$/src/test/java/test/SalerTest.java" />
     </list>
     <ignored path="Client.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -83,7 +48,7 @@
     <favorites_list name="Client" />
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="375" />
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300" />
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -105,17 +70,13 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/main/java/data/stub/RankDataStub.java" />
         <option value="$PROJECT_DIR$/src/main/java/other/Rank.java" />
         <option value="$PROJECT_DIR$/src/test/java/test/RankTest.java" />
-        <option value="$PROJECT_DIR$/src/main/java/bl/implementation/Order.java" />
         <option value="$PROJECT_DIR$/src/main/java/bl/service/HotelBLService.java" />
-        <option value="$PROJECT_DIR$/src/main/java/bl/implementation/Room.java" />
         <option value="$PROJECT_DIR$/src/main/java/bl/service/RoomBLService.java" />
         <option value="$PROJECT_DIR$/src/main/java/bl/stub/RoomBLStub.java" />
         <option value="$PROJECT_DIR$/src/main/java/bl/driver/RoomBLDriver.java" />
         <option value="$PROJECT_DIR$/src/test/java/bl/implementation/RoomTest.java" />
-        <option value="$PROJECT_DIR$/src/main/java/bl/implementation/Rank.java" />
         <option value="$PROJECT_DIR$/src/main/java/bl/stub/SalerBLStub.java" />
         <option value="$PROJECT_DIR$/src/main/java/bl/driver/SalerBLDriver.java" />
         <option value="$PROJECT_DIR$/src/test/java/test/PromotionTestForSaler.java" />
@@ -127,7 +88,6 @@
         <option value="$PROJECT_DIR$/src/main/java/data/stub/ManagerDataStub.java" />
         <option value="$PROJECT_DIR$/src/main/java/data/driver/ManagerDataDriver.java" />
         <option value="$PROJECT_DIR$/src/test/java/bl/implementation/ManagerTest.java" />
-        <option value="$PROJECT_DIR$/src/main/java/bl/implementation/Manager.java" />
         <option value="$PROJECT_DIR$/src/test/java/test/ManagerTest.java" />
         <option value="$PROJECT_DIR$/src/main/java/bl/driver/MemberBLDriver.java" />
         <option value="$PROJECT_DIR$/src/main/java/rmi.java" />
@@ -136,26 +96,31 @@
         <option value="$PROJECT_DIR$/src/main/java/data/service/SearchDataService.java" />
         <option value="$PROJECT_DIR$/src/main/java/data/service/HotelDataService.java" />
         <option value="$PROJECT_DIR$/src/main/java/data/service/MemberDataService.java" />
-        <option value="$PROJECT_DIR$/src/main/java/bl/implementation/Member.java" />
         <option value="$PROJECT_DIR$/src/main/java/rmi/RemoteHelper.java" />
         <option value="$PROJECT_DIR$/src/main/java/data/stub/HotelDataStub.java" />
         <option value="$PROJECT_DIR$/src/main/java/data/service/PromotionDataService.java" />
-        <option value="$PROJECT_DIR$/src/main/java/bl/implementation/Promotion.java" />
         <option value="$PROJECT_DIR$/src/main/java/data/driver/PromotionDataDriver.java" />
         <option value="$PROJECT_DIR$/src/main/java/data/stub/PromotionDataStub.java" />
         <option value="$PROJECT_DIR$/src/main/java/data/service/SalerDataService.java" />
         <option value="$PROJECT_DIR$/src/main/java/data/driver/SalerDataDriver.java" />
         <option value="$PROJECT_DIR$/src/main/java/data/stub/SalerDataStub.java" />
-        <option value="$PROJECT_DIR$/src/main/java/bl/implementation/Saler.java" />
         <option value="$PROJECT_DIR$/src/main/java/bl/driver/HotelBLDriver.java" />
-        <option value="$PROJECT_DIR$/src/main/java/bl/implementation/Hotel.java" />
-        <option value="$PROJECT_DIR$/src/main/java/bl/implementation/Search.java" />
         <option value="$PROJECT_DIR$/src/main/java/bl/service/OrderBLService.java" />
         <option value="$PROJECT_DIR$/src/main/java/bl/service/SalerBLService.java" />
         <option value="$PROJECT_DIR$/src/main/java/bl/service/SearchBLService.java" />
         <option value="$PROJECT_DIR$/src/main/java/bl/stub/CreditBLStub.java" />
         <option value="$PROJECT_DIR$/src/main/java/bl/stub/HotelBLStub.java" />
         <option value="$PROJECT_DIR$/src/main/java/bl/stub/OrderBLStub.java" />
+        <option value="$PROJECT_DIR$/src/main/java/bl/implementation/Credit.java" />
+        <option value="$PROJECT_DIR$/src/main/java/bl/implementation/Hotel.java" />
+        <option value="$PROJECT_DIR$/src/main/java/bl/implementation/Manager.java" />
+        <option value="$PROJECT_DIR$/src/main/java/bl/implementation/Member.java" />
+        <option value="$PROJECT_DIR$/src/main/java/bl/implementation/Order.java" />
+        <option value="$PROJECT_DIR$/src/main/java/bl/implementation/Promotion.java" />
+        <option value="$PROJECT_DIR$/src/main/java/bl/implementation/Rank.java" />
+        <option value="$PROJECT_DIR$/src/main/java/bl/implementation/Search.java" />
+        <option value="$PROJECT_DIR$/src/main/java/bl/implementation/Saler.java" />
+        <option value="$PROJECT_DIR$/src/main/java/bl/implementation/Room.java" />
       </list>
     </option>
   </component>
@@ -204,8 +169,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
-      <pane id="PackagesPane" />
       <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
@@ -215,8 +178,64 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
             </PATH_ELEMENT>
           </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Client" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Client" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Client" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Client" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="test" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Client" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Client" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
         </subPane>
       </pane>
+      <pane id="PackagesPane" />
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -224,8 +243,8 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="settings.editor.selected.configurable" value="preferences.sourceCode" />
     <property name="settings.editor.splitter.proportion" value="0.2" />
-    <property name="FullScreen" value="true" />
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary" value="JUnit4" />
+    <property name="FullScreen" value="true" />
   </component>
   <component name="RecentsManager">
     <key name="CreateTestDialog.RecentsKey">
@@ -804,6 +823,8 @@
       <workItem from="1481349773135" duration="4907000" />
       <workItem from="1481356939664" duration="84000" />
       <workItem from="1481358051029" duration="2096000" />
+      <workItem from="1481435246278" duration="277000" />
+      <workItem from="1481454265299" duration="424000" />
     </task>
     <servers />
   </component>
@@ -840,7 +861,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="101782000" />
+    <option name="totallyTimeSpent" value="102483000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1680" height="1050" extended-state="0" />
@@ -848,13 +869,12 @@
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32959184" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.327551" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32967034" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.38979593" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.38979593" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
@@ -869,6 +889,7 @@
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.327551" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Coverage" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.329653" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32941177" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -896,41 +917,10 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/java/bl/driver/MemberBLDriver.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="375">
-          <caret line="25" column="65" selection-start-line="25" selection-start-column="65" selection-end-line="25" selection-end-column="65" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/bl/driver/OrderBLDriver.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
-          <caret line="5" column="13" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/bl/driver/package-info.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/bl/driver/PromotionBLDriver.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="90">
           <caret line="6" column="13" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -938,9 +928,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="135">
           <caret line="9" column="13" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -948,9 +935,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="120">
           <caret line="8" column="13" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -958,9 +942,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="180">
           <caret line="12" column="13" selection-start-line="12" selection-start-column="13" selection-end-line="12" selection-end-column="13" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -968,126 +949,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="120">
           <caret line="8" column="13" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/bl/implementation/Credit.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="270">
-          <caret line="18" column="13" selection-start-line="18" selection-start-column="13" selection-end-line="18" selection-end-column="13" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/bl/implementation/Hotel.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="30">
-          <caret line="2" column="37" selection-start-line="2" selection-start-column="37" selection-end-line="2" selection-end-column="37" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/bl/implementation/Login.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="12" column="13" selection-start-line="12" selection-start-column="13" selection-end-line="12" selection-end-column="13" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/bl/implementation/Manager.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="450">
-          <caret line="30" column="51" selection-start-line="30" selection-start-column="51" selection-end-line="30" selection-end-column="51" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/bl/implementation/Member.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="583">
-          <caret line="39" column="38" selection-start-line="39" selection-start-column="38" selection-end-line="39" selection-end-column="38" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/bl/implementation/Order.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="5280">
-          <caret line="352" column="55" selection-start-line="352" selection-start-column="55" selection-end-line="352" selection-end-column="55" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/bl/implementation/Promotion.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1065">
-          <caret line="71" column="39" selection-start-line="71" selection-start-column="39" selection-end-line="71" selection-end-column="39" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/bl/implementation/Rank.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="195">
-          <caret line="13" column="13" selection-start-line="13" selection-start-column="13" selection-end-line="13" selection-end-column="13" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/bl/implementation/Reserve.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="30">
-          <caret line="2" column="0" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/bl/implementation/Room.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="17" column="13" selection-start-line="17" selection-start-column="13" selection-end-line="17" selection-end-column="13" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/bl/implementation/Saler.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1500">
-          <caret line="100" column="61" selection-start-line="100" selection-start-column="61" selection-end-line="100" selection-end-column="61" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#2169#2170#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/bl/implementation/Search.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="9" column="18" selection-start-line="9" selection-start-column="18" selection-end-line="9" selection-end-column="18" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1095,9 +956,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="180">
           <caret line="12" column="17" selection-start-line="12" selection-start-column="17" selection-end-line="12" selection-end-column="17" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1105,7 +963,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="135">
           <caret line="9" column="17" selection-start-line="9" selection-start-column="17" selection-end-line="9" selection-end-column="17" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1113,9 +970,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="30">
           <caret line="2" column="7" selection-start-line="2" selection-start-column="7" selection-end-line="2" selection-end-column="7" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1123,9 +977,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="30">
           <caret line="2" column="7" selection-start-line="2" selection-start-column="7" selection-end-line="2" selection-end-column="7" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1133,9 +984,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="30">
           <caret line="2" column="7" selection-start-line="2" selection-start-column="7" selection-end-line="2" selection-end-column="7" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1143,9 +991,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="15">
           <caret line="1" column="0" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1153,7 +998,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1169,7 +1013,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="300">
           <caret line="22" column="76" selection-start-line="22" selection-start-column="76" selection-end-line="22" selection-end-column="76" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1177,9 +1020,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="30">
           <caret line="2" column="7" selection-start-line="2" selection-start-column="7" selection-end-line="2" selection-end-column="7" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1187,9 +1027,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="30">
           <caret line="2" column="7" selection-start-line="2" selection-start-column="7" selection-end-line="2" selection-end-column="7" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1197,9 +1034,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="90">
           <caret line="6" column="27" selection-start-line="6" selection-start-column="27" selection-end-line="6" selection-end-column="27" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1207,9 +1041,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="90">
           <caret line="6" column="18" selection-start-line="6" selection-start-column="18" selection-end-line="6" selection-end-column="18" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1217,9 +1048,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="45">
           <caret line="3" column="18" selection-start-line="3" selection-start-column="18" selection-end-line="3" selection-end-column="18" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1227,9 +1055,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="30">
           <caret line="2" column="7" selection-start-line="2" selection-start-column="7" selection-end-line="2" selection-end-column="7" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1237,9 +1062,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="240">
           <caret line="16" column="24" selection-start-line="16" selection-start-column="24" selection-end-line="16" selection-end-column="24" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1247,9 +1069,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="30">
           <caret line="2" column="7" selection-start-line="2" selection-start-column="7" selection-end-line="2" selection-end-column="7" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1257,9 +1076,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="30">
           <caret line="2" column="7" selection-start-line="2" selection-start-column="7" selection-end-line="2" selection-end-column="7" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1267,7 +1083,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="75">
           <caret line="5" column="18" selection-start-line="5" selection-start-column="18" selection-end-line="5" selection-end-column="18" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1275,7 +1090,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1291,7 +1105,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="60">
           <caret line="11" column="13" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1299,7 +1112,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="60">
           <caret line="9" column="13" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1307,9 +1119,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="30">
           <caret line="2" column="7" selection-start-line="2" selection-start-column="7" selection-end-line="2" selection-end-column="7" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1317,9 +1126,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="30">
           <caret line="2" column="7" selection-start-line="2" selection-start-column="7" selection-end-line="2" selection-end-column="7" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1327,9 +1133,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="30">
           <caret line="2" column="7" selection-start-line="2" selection-start-column="7" selection-end-line="2" selection-end-column="7" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1337,9 +1140,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="30">
           <caret line="2" column="7" selection-start-line="2" selection-start-column="7" selection-end-line="2" selection-end-column="7" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1348,7 +1148,7 @@
         <state relative-caret-position="30">
           <caret line="2" column="7" selection-start-line="2" selection-start-column="7" selection-end-line="2" selection-end-column="7" />
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="imports" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1357,9 +1157,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="30">
           <caret line="2" column="7" selection-start-line="2" selection-start-column="7" selection-end-line="2" selection-end-column="7" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1367,9 +1164,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="30">
           <caret line="2" column="7" selection-start-line="2" selection-start-column="7" selection-end-line="2" selection-end-column="7" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1377,6 +1171,140 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="30">
           <caret line="2" column="7" selection-start-line="2" selection-start-column="7" selection-end-line="2" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/vo/PromotionVO.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="225">
+          <caret line="18" column="73" selection-start-line="18" selection-start-column="73" selection-end-line="18" selection-end-column="73" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/po/PromotionPO.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="135">
+          <caret line="12" column="13" selection-start-line="12" selection-start-column="13" selection-end-line="12" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/rmi/RemoteHelper.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="105">
+          <caret line="13" column="13" selection-start-line="13" selection-start-column="13" selection-end-line="13" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/bl/implementation/Credit.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="495">
+          <caret line="34" column="78" selection-start-line="34" selection-start-column="78" selection-end-line="34" selection-end-column="78" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/bl/implementation/Hotel.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="345">
+          <caret line="36" column="31" selection-start-line="36" selection-start-column="31" selection-end-line="36" selection-end-column="31" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/bl/implementation/Login.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="135">
+          <caret line="12" column="13" selection-start-line="12" selection-start-column="13" selection-end-line="12" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/bl/implementation/Manager.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="345">
+          <caret line="32" column="80" selection-start-line="32" selection-start-column="80" selection-end-line="32" selection-end-column="80" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/bl/implementation/Member.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="493">
+          <caret line="50" column="78" selection-start-line="50" selection-start-column="78" selection-end-line="50" selection-end-column="78" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/bl/implementation/Order.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="315">
+          <caret line="33" column="76" selection-start-line="33" selection-start-column="76" selection-end-line="33" selection-end-column="76" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/bl/implementation/Promotion.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="480">
+          <caret line="43" column="2" selection-start-line="43" selection-start-column="2" selection-end-line="43" selection-end-column="2" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/bl/implementation/Rank.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="285">
+          <caret line="23" column="74" selection-start-line="23" selection-start-column="74" selection-end-line="23" selection-end-column="74" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/bl/implementation/Reserve.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-75">
+          <caret line="14" column="13" selection-start-line="14" selection-start-column="13" selection-end-line="14" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/bl/implementation/Search.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="435">
+          <caret line="48" column="78" selection-start-line="48" selection-start-column="78" selection-end-line="48" selection-end-column="78" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/bl/implementation/Saler.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="555">
+          <caret line="49" column="76" selection-start-line="49" selection-start-column="76" selection-end-line="49" selection-end-column="76" />
+          <folding>
+            <element signature="e#2291#2292#0" expanded="true" />
+            <element signature="e#2340#2341#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/bl/implementation/Room.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="330">
+          <caret line="31" column="2" selection-start-line="31" selection-start-column="2" selection-end-line="31" selection-end-column="2" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
