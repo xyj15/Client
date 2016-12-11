@@ -74,12 +74,12 @@
                   <Font name="Microsoft YaHei Bold" size="14.0" />
                </font>
             </TextField>
-            <DatePicker fx:id="checkInDate" editable="false" GridPane.columnIndex="1" GridPane.rowIndex="1">
+            <DatePicker fx:id="checkInDate" GridPane.columnIndex="1" GridPane.rowIndex="1">
                <GridPane.margin>
                   <Insets right="15.0" />
                </GridPane.margin>
             </DatePicker>
-            <DatePicker fx:id="checkOutDate" editable="false" GridPane.columnIndex="1" GridPane.rowIndex="2">
+            <DatePicker fx:id="checkOutDate" GridPane.columnIndex="1" GridPane.rowIndex="2">
                <GridPane.margin>
                   <Insets right="15.0" />
                </GridPane.margin>
@@ -102,7 +102,7 @@
             </TextField>
          </children>
       </GridPane>
-      <Button layoutX="213.0" layoutY="442.0" mnemonicParsing="false" onAction="#confirmAddPromotion" prefHeight="29.0" prefWidth="78.0" style="-fx-background-color: #6B6BCF;" text="确认" textFill="WHITE">
+      <Button layoutX="213.0" layoutY="442.0" mnemonicParsing="false" onAction="#confirmChangePromotion" prefHeight="29.0" prefWidth="78.0" style="-fx-background-color: #6B6BCF;" text="确认" textFill="WHITE">
          <font>
             <Font name="Microsoft YaHei Bold" size="14.0" />
          </font>
