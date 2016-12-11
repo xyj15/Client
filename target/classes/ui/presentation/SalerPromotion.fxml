@@ -30,7 +30,7 @@
             <Font name="Microsoft YaHei Bold" size="16.0" />
          </font>
       </Button>
-      <Button layoutX="703.0" layoutY="459.0" mnemonicParsing="false" onAction="#onAddPromotion" prefHeight="23.0" prefWidth="65.0" style="-fx-background-color: #6B6BCF;" text="修改" textFill="WHITE">
+      <Button layoutX="703.0" layoutY="459.0" mnemonicParsing="false" onAction="#onUpdatePromotion" prefHeight="23.0" prefWidth="65.0" style="-fx-background-color: #6B6BCF;" text="修改" textFill="WHITE">
          <font>
             <Font name="Microsoft YaHei Bold" size="16.0" />
          </font>
@@ -42,7 +42,7 @@
       </Button>
       <ScrollPane layoutX="381.0" layoutY="136.0" opacity="0.57" prefHeight="302.0" prefWidth="497.0" style="-fx-background-color: #000f32;">
          <content>
-            <TableView fx:id="table" prefHeight="302.0" prefWidth="482.0" style="-fx-background-color: #000f32;" stylesheets="@TableView.css">
+            <TableView fx:id="promotionTable" prefHeight="302.0" prefWidth="482.0" style="-fx-background-color: #000f32;" stylesheets="@TableView.css">
               <columns>
                 <TableColumn fx:id="name" prefWidth="75.0" style="-fx-background-color: #000f32;" text="名称" />
                   <TableColumn fx:id="startDate" prefWidth="128.0" style="-fx-background-color: #000f32;" text="起始日期" />
