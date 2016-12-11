@@ -21,7 +21,7 @@
             <Image url="@../../../../../../../Desktop/presentation/logo.png" />
          </image>
       </ImageView>
-      <Button layoutX="373.0" layoutY="458.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="119.0" style="-fx-background-color: #6B6BCF;" text="确认" textFill="WHITE">
+      <Button layoutX="373.0" layoutY="458.0" mnemonicParsing="false" onAction="#confirmUpdateMemebr" prefHeight="34.0" prefWidth="119.0" style="-fx-background-color: #6B6BCF;" text="确认" textFill="WHITE">
          <font>
             <Font name="Microsoft YaHei Bold" size="16.0" />
          </font>

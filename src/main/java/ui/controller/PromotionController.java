@@ -1,7 +1,10 @@
 package ui.controller;
 
 import bl.implementation.Member;
+import bl.implementation.Promotion;
+import bl.service.PromotionBLService;
 import bl.service.SalerBLService;
+import bl.stub.PromotionBLStub;
 import bl.stub.SalerBLStub;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -17,6 +20,7 @@ import javafx.stage.Stage;
 import other.PromotionType;
 import other.TableDataForSalerAbnormalOrder;
 import other.TableDataForSalerPromotion;
+import other.TableDataForVip;
 import ui.presentation.*;
 import vo.OrderVO;
 import vo.PromotionVO;
@@ -48,6 +52,7 @@ public class PromotionController {
     }
 
     private SalerBLService saler = new SalerBLStub();
+    private PromotionBLService promotion =new PromotionBLStub();
 
     @FXML
     private TextField district=new TextField();
@@ -65,14 +70,9 @@ public class PromotionController {
     private TextField dateDiscount=new TextField();
     @FXML
     private DatePicker checkOutDate=new DatePicker();
-
-
-
     @FXML
-    private void onP() throws Exception {
-        System.out.print(0);
-        new SalerPromotionUI().start(primaryStage);
-    }
+    private TableView AbnormalOrderTable=new TableView();
+
 
 
     @FXML
@@ -99,9 +99,8 @@ public class PromotionController {
     @FXML
     private void onAbnormal(ActionEvent E) throws Exception{
         new SalerAbnormalOrderUI().start(primaryStage);
-        TableView table = (TableView) root.lookup("#table");
         ObservableList<TableDataForSalerAbnormalOrder> dataForSalerAbnormalOrder = FXCollections.observableArrayList();
-        ObservableList<TableColumn> tableList = table.getColumns();
+        ObservableList<TableColumn> tableList = AbnormalOrderTable.getColumns();
         ArrayList<OrderVO> list = saler.getDailyUnexcutedOrderList();
         for(int i=0;i<list.size();i++){
             Member member=new Member(list.get(i).getMemberID());
@@ -110,21 +109,21 @@ public class PromotionController {
         tableList.get(0).setCellValueFactory(new PropertyValueFactory("orderID"));
         tableList.get(1).setCellValueFactory(new PropertyValueFactory("memberName"));
         tableList.get(2).setCellValueFactory(new PropertyValueFactory("memberTel"));
-        table.setItems(dataForSalerAbnormalOrder);
+        AbnormalOrderTable.setItems(dataForSalerAbnormalOrder);
     }
     @FXML
     private void onRank(ActionEvent E) throws Exception{
         new SalerVIPUI().start(primaryStage);
-       /* TableView table = (TableView) root.lookup("#table");
+        TableView table = (TableView) root.lookup("#table");
         ObservableList<TableDataForVip> dataForVip = FXCollections.observableArrayList();
         ObservableList<TableColumn> tableList = table.getColumns();
-        ArrayList<PromotionVO> list = saler.getPromotionList();
+        ArrayList<PromotionVO> list = promotion .getDistrictPromotionList();
         for(int i=0;i<list.size();i++){
-            dataForVip.add(new dataForVip());
+            dataForVip.add(new TableDataForVip(list.get(i).getDistrict(),String.valueOf(list.get(i).getDiscount())));
         }
         tableList.get(0).setCellValueFactory(new PropertyValueFactory("district"));
         tableList.get(1).setCellValueFactory(new PropertyValueFactory("discount"));
-        table.setItems(dataForVip);*/
+        table.setItems(dataForVip);
     }
     @FXML
     private void onCredit(ActionEvent E) throws Exception{
@@ -154,11 +153,15 @@ public class PromotionController {
     }
     @FXML
     private void halfCredit(ActionEvent E) throws Exception{
-        //saler.cancelAbnormalOrder(,0.5);
+        int i=AbnormalOrderTable.getSelectionModel().getFocusedIndex();
+        ArrayList<OrderVO> list = saler.getDailyUnexcutedOrderList();
+        saler.cancelAbnormalOrder(list.get(i).getOrderID(),0.5);
     }
     @FXML
     private void fullCredit(ActionEvent E) throws Exception{
-//        saler.cancelAbnormalOrder("",1);
+        int i=AbnormalOrderTable.getSelectionModel().getFocusedIndex();
+        ArrayList<OrderVO> list = saler.getDailyUnexcutedOrderList();
+        saler.cancelAbnormalOrder(list.get(i).getOrderID(),1);
     }
     @FXML
     private void confirmAddCredit(ActionEvent E) throws Exception{
