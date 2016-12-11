@@ -1,7 +1,10 @@
 package ui.controller;
 
 import bl.implementation.Member;
+import bl.implementation.Promotion;
+import bl.service.PromotionBLService;
 import bl.service.SalerBLService;
+import bl.stub.PromotionBLStub;
 import bl.stub.SalerBLStub;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -49,6 +52,7 @@ public class PromotionController {
     }
 
     private SalerBLService saler = new SalerBLStub();
+    private PromotionBLService promotion =new PromotionBLStub();
 
     @FXML
     private TextField district=new TextField();
@@ -69,13 +73,6 @@ public class PromotionController {
     @FXML
     private TableView AbnormalOrderTable=new TableView();
 
-
-
-    @FXML
-    private void onP() throws Exception {
-        System.out.print(0);
-        new SalerPromotionUI().start(primaryStage);
-    }
 
 
     @FXML
@@ -117,12 +114,12 @@ public class PromotionController {
     @FXML
     private void onRank(ActionEvent E) throws Exception{
         new SalerVIPUI().start(primaryStage);
-       TableView table = (TableView) root.lookup("#table");
+        TableView table = (TableView) root.lookup("#table");
         ObservableList<TableDataForVip> dataForVip = FXCollections.observableArrayList();
         ObservableList<TableColumn> tableList = table.getColumns();
-        ArrayList<PromotionVO> list = saler.get
+        ArrayList<PromotionVO> list = promotion .getDistrictPromotionList();
         for(int i=0;i<list.size();i++){
-            dataForVip.add(new dataForVip());
+            dataForVip.add(new TableDataForVip(list.get(i).getDistrict(),String.valueOf(list.get(i).getDiscount())));
         }
         tableList.get(0).setCellValueFactory(new PropertyValueFactory("district"));
         tableList.get(1).setCellValueFactory(new PropertyValueFactory("discount"));

@@ -20,9 +20,11 @@ import javafx.stage.Stage;
 import other.UserType;
 import ui.presentation.*;
 import vo.HotelVO;
+import vo.MemberVO;
 import vo.SalerVO;
 
 import java.time.ZoneId;
+import java.util.Date;
 
 
 /**
@@ -40,6 +42,8 @@ public class ManagerController{
 	private HotelBLService hotel = new HotelBLStub();
 	private SalerBLService saler = new SalerBLStub();
 	private MemberBLService member = new MemberBLStub();
+	@FXML
+	private TextField searchID;
 	@FXML
 	private TextField salerName;
 	@FXML
@@ -69,7 +73,28 @@ public class ManagerController{
 	private TextField credit;
 	@FXML
 	private  DatePicker birthday;
-
+//搜索酒店结果
+	@FXML
+	private TextField hotelNameSearch;
+	@FXML
+	private TextField hotelManagerTelSearch;
+	@FXML
+	private TextField addressSearch;
+	@FXML
+	private TextField districtSearch;
+	@FXML
+	private TextField levelSearch;
+	@FXML
+	private TextField serviceSearch;
+	@FXML
+	private TextField introductionSearch;
+	@FXML
+	private TextField hotelManagerNameSearch;
+//搜索营销人员
+	@FXML
+	private TextField salerNameSearch;
+	@FXML
+	private TextField salerTelSearch;
 
 	public static void setPrimaryStage(Stage in){
 		primaryStage=in;
@@ -81,8 +106,7 @@ public class ManagerController{
 	@FXML
 	private void onSearchUser(ActionEvent E)throws Exception {
 		new ManagerSearchUserUI().start(primaryStage);
-		Label searchID=(Label)root.lookup("#searchID");
-		UserType userType =manager.getUserType(searchID.toString());
+		UserType userType =manager.getUserType(searchID.getText());
 		switch (userType){
 			case Member:new ManagerSearchMemberUI().start(primaryStage);
 				memberName.setText(member.getName());
@@ -91,34 +115,40 @@ public class ManagerController{
 				birthday.setValue(member.getBirthday().toInstant().atZone(ZoneId.systemDefault()).toLocalDate());
 				break;
 			case Hotel:new ManagerSearchHotelUI().start(primaryStage);
-				TextField hotelName=(TextField)root.lookup("#hotelName");
-				TextField address=(TextField)root.lookup("#address");
-				TextField district=(TextField)root.lookup("#district");
-				TextField level=(TextField)root.lookup("#level");
-				TextField introduction=(TextField)root.lookup("#introduction");
-				TextField service=(TextField)root.lookup("#service");
-				TextField hotelManagerName=(TextField)root.lookup("#hotelManagerName");
-				TextField hotelPassword=(TextField)root.lookup("#hotelPassword");
-				hotelName.setText(hotel.getHotelName());
-				address.setText(hotel.getHotelAddress());
-				district.setText(hotel.getDistrict());
-				level.setText(String.valueOf(hotel.getHotelLevel()));
-				introduction.setText(hotel.getHotelIntroduction());
-				service.setText(hotel.getHotelService());
-				hotelManagerName.setText(hotel.getHotelManagerName());
-				//hotelPassword.setText(hotel.password);
+				hotelNameSearch.setText(hotel.getHotelName());
+				addressSearch.setText(hotel.getHotelAddress());
+				districtSearch.setText(hotel.getDistrict());
+				levelSearch.setText(String.valueOf(hotel.getHotelLevel()));
+				introductionSearch.setText(hotel.getHotelIntroduction());
+				serviceSearch.setText(hotel.getHotelService());
+				hotelManagerNameSearch.setText(hotel.getHotelManagerName());
+				hotelManagerTelSearch.setText(hotel.getHotelManagerTel());
+
 				break;
 			case Saler:new ManagerSearchSalerUI().start(primaryStage);
-				TextField salerName=(TextField)root.lookup("#salerName");
-				PasswordField password=(PasswordField)root.lookup("#password");
-				salerName.setText(saler.getSalerInformation().getName());
-				password.setText(saler.getSalerInformation().getPassword());
+				salerNameSearch.setText(saler.getSalerInformation().getName());
+				salerTelSearch.setText(saler.getSalerInformation().getPassword());
 				break;
 		}
 	}
 	@FXML
-	private void confirm(ActionEvent E)throws Exception {
-		new ManagerAddSalerUI().start(primaryStage);
+	private void confirmUpdateMemebr(ActionEvent E)throws Exception {
+		MemberVO member=new MemberVO();
+		member.setName(memberName.getText());
+		member.setTel(memberTel.getText());
+		member.setBirthday(new Date(birthday.getValue().getYear(),birthday.getValue().getMonthValue(),birthday.getValue().getDayOfMonth()));
+		manager.updateMemberInformation(member);
+	}
+	@FXML
+	private void confirmUpdateSaler(ActionEvent E)throws Exception {
+		SalerVO saler=new SalerVO();
+		saler.setName(salerNameSearch.getText());
+		saler.setTel(salerTelSearch.getText());
+		manager.updateSalerInformation(saler);
+	}
+	@FXML
+	private void confirmUpdateHotel(ActionEvent E)throws Exception {
+		manager.updateHotelManagerInformation(searchID.getText(),hotelManagerNameSearch.getText(),hotelManagerTelSearch.getText());
 	}
 	@FXML
 	private void onAddUser(ActionEvent E)throws Exception {
@@ -134,7 +164,6 @@ public class ManagerController{
 	@FXML
 	private void onAddHotel(ActionEvent E)throws Exception {
 		new ManagerAddHotelUI().start(primaryStage);
-
 	}
 	@FXML
 	private void confirmAddHotel(ActionEvent E)throws Exception {
