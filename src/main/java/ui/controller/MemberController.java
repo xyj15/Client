@@ -10,16 +10,14 @@ import javafx.scene.Parent;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
-import other.TableDataForMemberInfor;
-import other.TableDataForMemberOrder;
-import other.TableDataForSearchList;
+import other.*;
 import ui.presentation.*;
 import vo.CreditChangeVO;
 import vo.HotelVO;
 import vo.OrderVO;
-import vo.RoomVO;
 
 import java.text.SimpleDateFormat;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Date;
 
@@ -31,6 +29,7 @@ public class MemberController{
     private Date in;
     private Date out;
     private String[] tem;
+//    = order.getUnexcutedOrders();
 
 
     private static Stage primaryStage;
@@ -44,7 +43,7 @@ public class MemberController{
     private HotelBLService hotel = new HotelBLStub();
     private ReserveBLService reserve = new ReserveBLStub();
     private OrderBLService order = new OrderBLStub();
-
+    private static ArrayList<OrderVO> list;
 
     public static void setMidroot(Parent midroot) {
         MemberController.midroot = midroot;
@@ -69,13 +68,18 @@ public class MemberController{
     public static void setMidprimaryStage(Stage midprimaryStage) {
         MemberController.midprimaryStage = midprimaryStage;
     }
-
     @FXML
     private void onSearch(ActionEvent E)throws Exception {
         new MemberSearchUI().start(primaryStage);
+        ComboBox<roomTypeChoice> roomTypeInsearch =(ComboBox<roomTypeChoice>)root.lookup("#roomTypeInsearch");
+        roomTypeInsearch.getItems().clear();
+        roomTypeInsearch.getItems().add(new roomTypeChoice(RoomType.Single.toString()));
+        roomTypeInsearch.getItems().add(new roomTypeChoice(RoomType.BigBed.toString()));
+        roomTypeInsearch.getItems().add(new roomTypeChoice(RoomType.TwinBed.toString()));
+        roomTypeInsearch.getItems().add(new roomTypeChoice(RoomType.Suite.toString()));
+        roomTypeInsearch.getSelectionModel().select(0);
         TextField city = (TextField)root.lookup("#city");
         TextField district = (TextField)root.lookup("#district");
-        ChoiceBox roomType = (ChoiceBox)root.lookup("#roomType");
         TextField numOfRoom = (TextField)root.lookup("#numOfRoom");
         TextField lowPrice = (TextField)root.lookup("#lowPrice");
         TextField highPrice = (TextField)root.lookup("#highPrice");
@@ -94,6 +98,8 @@ public class MemberController{
         highScore.setText("");
         level.setText("");
         hotelName.setText("");
+        inTime.setValue(LocalDate.now());
+        outTime.setValue(LocalDate.now().plusDays(1));
     }
 
     @FXML
@@ -107,71 +113,114 @@ public class MemberController{
         credit.setText(""+member.getCredit());
 
         TableView table = (TableView) root.lookup("#table");
-//        table.getSelectionModel()
-        ObservableList<TableDataForMemberInfor> dataForMInfor
+        ObservableList<TableData> dataForMInfor
                 = FXCollections.observableArrayList();
         ObservableList<TableColumn> tableList = table.getColumns();
         String dateTem;
         SimpleDateFormat sdf=new SimpleDateFormat("yyyy-MM-dd");
         ArrayList<CreditChangeVO> list = member.getCreditChangeList();
-        for(int i=0;i<list.size();i++){
+        for(int i=list.size()-1;i>=0;i--){
             dateTem = sdf.format(list.get(i).getDate());
-            dataForMInfor.add(new TableDataForMemberInfor(list.get(i).getOrderID(),dateTem,
+            dataForMInfor.add(new TableData(list.get(i).getOrderID(),dateTem,
                     list.get(i).getOrderAction().toString(),""+list.get(i).getChange(),""+list.get(i).getResult()));
         }
 
-        tableList.get(0).setCellValueFactory(new PropertyValueFactory("num"));
-        tableList.get(1).setCellValueFactory(new PropertyValueFactory("date"));
-        tableList.get(2).setCellValueFactory(new PropertyValueFactory("action"));
-        tableList.get(3).setCellValueFactory(new PropertyValueFactory("change"));
-        tableList.get(4).setCellValueFactory(new PropertyValueFactory("now"));
+        tableList.get(0).setCellValueFactory(new PropertyValueFactory("first"));
+        tableList.get(1).setCellValueFactory(new PropertyValueFactory("second"));
+        tableList.get(2).setCellValueFactory(new PropertyValueFactory("third"));
+        tableList.get(3).setCellValueFactory(new PropertyValueFactory("fourth"));
+        tableList.get(4).setCellValueFactory(new PropertyValueFactory("fifth"));
         table.setItems(dataForMInfor);
 
+    }
+    private void orderManager(ArrayList<OrderVO> list){
+        TableView table = (TableView) root.lookup("#table");
+        ObservableList<TableData> dataForMInfor
+                = FXCollections.observableArrayList();
+        ObservableList<TableColumn> tableList = table.getColumns();
+        String dateTem;
+        SimpleDateFormat sdf=new SimpleDateFormat("yyyy-MM-dd");
+        for(int i=0;i<list.size();i++){
+            dateTem = sdf.format(list.get(i).getCreateTime());
+            dataForMInfor.add(new TableData(list.get(i).getOrderID(),dateTem,
+                    list.get(i).getHotelVO().getName(),list.get(i).getHotelVO().getManagerTel()));
+        }
+        tableList.get(0).setCellValueFactory(new PropertyValueFactory("first"));
+        tableList.get(1).setCellValueFactory(new PropertyValueFactory("second"));
+        tableList.get(2).setCellValueFactory(new PropertyValueFactory("third"));
+        tableList.get(3).setCellValueFactory(new PropertyValueFactory("fourth"));
+        table.setItems(dataForMInfor);
     }
     @FXML
     private void onOrderInfor(ActionEvent E)throws Exception {
         new MemberUnprocessedOrderUI().start(primaryStage);
-        TableView table = (TableView) root.lookup("#table");
-        ObservableList<TableDataForMemberOrder> dataForMInfor
-                = FXCollections.observableArrayList();
-        ObservableList<TableColumn> tableList = table.getColumns();
-        String dateTem;
-
-        SimpleDateFormat sdf=new SimpleDateFormat("yyyy-MM-dd");
-        ArrayList<OrderVO> list = order.getUnexcutedOrders();
-        for(int i=0;i<list.size();i++){
-            dateTem = sdf.format(list.get(i).getCheckinTime());
-            dataForMInfor.add(new TableDataForMemberOrder(list.get(i).getOrderID(),dateTem,
-                    list.get(i).getHotelID(),""+list.get(i).getPrice()));
-        }
-        tableList.get(0).setCellValueFactory(new PropertyValueFactory("num"));
-        tableList.get(1).setCellValueFactory(new PropertyValueFactory("date"));
-        tableList.get(2).setCellValueFactory(new PropertyValueFactory("hotelName"));
-        tableList.get(3).setCellValueFactory(new PropertyValueFactory("price"));
-        table.setItems(dataForMInfor);
+        this.list = order.getUnexcutedOrders();
+        orderManager(list);
     }
     @FXML
  private void onExecuteOrder(ActionEvent E)throws Exception {
      new MemberProcessedOrderUI().start(primaryStage);
+        this.list = order.getExcutedOrders();
+        orderManager(list);
  }
  @FXML
  private void onCancelOrder(ActionEvent E)throws Exception {
      new MemberCancelOrder().start(primaryStage);
+     this.list = order.getCanceledOrders();
+     orderManager(list);
  }
  @FXML
  private void onAbnormalOrder(ActionEvent E)throws Exception {
      new MemberAbnormalOrder().start(primaryStage);
+     this.list = order.getAbnormalOrders();
+     orderManager(list);
  }
  @FXML//实现撤销
  private void onCancel(ActionEvent E)throws Exception {
+     TableView table = (TableView) root.lookup("#table");
+     ArrayList<OrderVO> list = order.getUnexcutedOrders();
+     order.cancelOrder(list.get(table.getSelectionModel().getSelectedIndex()).getOrderID());
+     onOrderInfor(E);
  }
  @FXML//实现评价
  private void onComment(ActionEvent E)throws Exception {
+        minprimaryStage = new Stage();
+        new MemberCommentUI().start(minprimaryStage);
+     TextArea textArea = (TextArea)minroot.lookup("#textArea");
+     textArea.setWrapText(true);
  }
+    @FXML//实现评价
+    private void onBuildComment(ActionEvent E)throws Exception {
+        TableView table = (TableView) root.lookup("#table");
+        TextArea textArea = (TextArea)minroot.lookup("#textArea");
+        TextField score = (TextField)minroot.lookup("#score");
+        textArea.setWrapText(true);
+        ArrayList<OrderVO> list = order.getExcutedOrders();
+        if(list.get(table.getSelectionModel().getSelectedIndex()).getEvaluation()==null){
+            order.evaluateOrder(list.get(table.getSelectionModel().getSelectedIndex()).getOrderID(),
+                    Double.parseDouble(score.getText().toString()),textArea.getText().toString());
+            minprimaryStage.close();
+        }//else 要做
+    }
     @FXML
     private void onPastHotel(ActionEvent E)throws Exception {
         new MemberHisitoryHotelUI().start(primaryStage);
-        TableView table = (TableView) root.lookup("#table");
+//        TableView table = (TableView) root.lookup("#table");
+//        ObservableList<TableData> dataForMInfor
+//                = FXCollections.observableArrayList();
+//        ObservableList<TableColumn> tableList = table.getColumns();
+//        ArrayList<HotelVO> list = member.getReservedHotelList();
+//        for(int i=list.size()-1;i>=0;i--){
+//            dataForMInfor.add(new TableData(list.get(i).getOrderID(),dateTem,
+//                    list.get(i).getOrderAction().toString(),""+list.get(i).getChange(),""+list.get(i).getResult()));
+//        }
+//
+//        tableList.get(0).setCellValueFactory(new PropertyValueFactory("first"));
+//        tableList.get(1).setCellValueFactory(new PropertyValueFactory("second"));
+//        tableList.get(2).setCellValueFactory(new PropertyValueFactory("third"));
+//        tableList.get(3).setCellValueFactory(new PropertyValueFactory("fourth"));
+//        tableList.get(4).setCellValueFactory(new PropertyValueFactory("fifth"));
+//        table.setItems(dataForMInfor);
 
     }
     @FXML
@@ -179,8 +228,64 @@ public class MemberController{
         new LoginUI().start(primaryStage);
     }
     @FXML
+    private void onOrderInforx(ActionEvent E)throws Exception {
+        TableView table = (TableView) root.lookup("#table");
+        OrderVO tem = this.list.get(table.getSelectionModel().getSelectedIndex());
+
+        midprimaryStage = new Stage();
+        new MOrderInforUI().start(midprimaryStage);
+        TextField name = (TextField)midroot.lookup("#name");
+        TextField tel = (TextField)midroot.lookup("#tel");
+        TextField hotelname = (TextField)midroot.lookup("#hotelname");
+        TextField hotelAddress = (TextField)midroot.lookup("#hotelAddress");
+        TextField roomType = (TextField)midroot.lookup("#roomType");
+        TextField nameOfRoom = (TextField)midroot.lookup("#nameOfRoom");
+        TextField numOfRoom = (TextField)midroot.lookup("#numOfRoom");
+        TextField state = (TextField)midroot.lookup("#state");
+        TextField price = (TextField)midroot.lookup("#price");
+        TextField EinTime = (TextField)midroot.lookup("#EinTime");
+        TextField AinTime = (TextField)midroot.lookup("#AinTime");
+        TextField EoutTime = (TextField)midroot.lookup("#EoutTime");
+        TextField AoutTime = (TextField)midroot.lookup("#AoutTime");
+        TextField CreatTime = (TextField)midroot.lookup("#CreatTime");
+        TextField CancelTime = (TextField)midroot.lookup("#CancelTime");
+        SimpleDateFormat sdf=new SimpleDateFormat("yyyy-MM-dd");
+
+        AinTime.setText("尚未入住");
+        AoutTime.setText("尚未退房");
+        CancelTime.setText("订单没有取消");
+
+        name.setText(tem.getMemberVO().getName());
+        tel.setText(tem.getMemberVO().getTel());
+        hotelname.setText(tem.getHotelVO().getName());
+        hotelAddress.setText(tem.getHotelVO().getAddress());
+//        roomType.setText(tem.ge);
+        nameOfRoom.setText(tem.getRoomName());
+        numOfRoom.setText(""+tem.getNumberOfRoom());
+        state.setText(tem.getOrderStatus().toString());
+        price.setText(""+tem.getPrice());
+        if(tem.getCheckinTime()!=null){
+            EinTime.setText(sdf.format(tem.getCheckinTime()));
+        }
+        if(tem.getActualCheckinTime()!=null){
+            AinTime.setText(sdf.format(tem.getActualCheckinTime()));
+        }
+        if(tem.getCheckoutTime()!=null){
+            EoutTime.setText(sdf.format(tem.getCheckoutTime()));
+        }
+        if(tem.getActualCheckoutTime()!=null){
+            AoutTime.setText(sdf.format(tem.getActualCheckoutTime()));
+        }
+
+        CreatTime.setText(sdf.format(tem.getCreateTime()));
+
+        if(tem.getCancelTime()!=null){
+            CancelTime.setText(sdf.format(tem.getCancelTime()));
+        }
+    }
+
+    @FXML
     private void onLookingInforInHistory(ActionEvent E)throws Exception {
-//        table.getSelectionModel().getFocusedIndex();
         midprimaryStage = new Stage();
         new MemberHotelInformationInhisUI().start(midprimaryStage);
         TextField hotelAddress = (TextField)midroot.lookup("#hotelAddress");
@@ -201,8 +306,7 @@ public class MemberController{
 
 
 //        TableView table = (TableView) root.lookup("#table");
-//        table.getSelectionModel().getFocusedIndex();
-//        ArrayList<RoomVO> list = reserve.getRoomList()
+//        ArrayList<RoomVO> list = hotel
 //        ObservableList<TableDataForSearchList> dataForMInfor
 //                = FXCollections.observableArrayList();
 //        ObservableList<TableColumn> tableList = table.getColumns();
@@ -308,9 +412,20 @@ public class MemberController{
     }
     @FXML
     private void onSearchLimited(ActionEvent E)throws Exception {
+        search.setOnlyReservationBefore(true);
+        searchSet();
+     new MemberSearchListUI().start(primaryStage);
+    }
+    @FXML
+    private void onSearchAll(ActionEvent E)throws Exception {
+        search.setOnlyReservationBefore(false);
+        searchSet();
+     new MemberSearchListUI().start(primaryStage);
+    }
+    private void searchSet(){
         TextField city = (TextField)root.lookup("#city");
         TextField district = (TextField)root.lookup("#district");
-        TextField roomType = (TextField)root.lookup("#roomType");
+        ComboBox<roomTypeChoice> roomTypeInsearch = (ComboBox<roomTypeChoice>)root.lookup("#roomTypeInsearch");
         TextField numOfRoom = (TextField)root.lookup("#numOfRoom");
         TextField lowPrice = (TextField)root.lookup("#lowPrice");
         TextField highPrice = (TextField)root.lookup("#highPrice");
@@ -322,10 +437,15 @@ public class MemberController{
         DatePicker outTime = (DatePicker)root.lookup("#outTime");
         search.setCity(city.getText().toString());
         search.setDistrict(district.getText().toString());
-//        search.setRoomType()
+        search.setRoomType(roomTypeInsearch.getSelectionModel().getSelectedItem().toRoomType());
         search.setNumberOfRooms(Integer.parseInt(numOfRoom.getText().toString()));
         search.setHotelName(hotelName.getText().toString());
-
+        tem = inTime.getEditor().getText().split("-");
+        in = new Date(Integer.parseInt(tem[0])-1900,Integer.parseInt(tem[1])-1,Integer.parseInt(tem[2]));
+        tem = outTime.getEditor().getText().split("-");
+        out = new Date(Integer.parseInt(tem[0])-1900,Integer.parseInt(tem[1])-1,Integer.parseInt(tem[2]));
+        search.setCheckinTime(in);
+        search.setCheckoutTime(out);
         if(lowPrice.getText().toString().equals("")){
             search.setLowerPrice(-1);
         }else {
@@ -351,14 +471,6 @@ public class MemberController{
         }else {
             search.setLevel(Integer.parseInt(level.getText().toString()));
         }
-        search.setOnlyReservationBefore(true);
-
-     new MemberSearchListUI().start(primaryStage);
-    }
-    @FXML
-    private void onSearchAll(ActionEvent E)throws Exception {
-     new MemberSearchListUI().start(primaryStage);
-
     }
 
     //排序

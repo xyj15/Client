@@ -55,11 +55,11 @@
          <content>
             <TableView fx:id="table" prefHeight="327.0" prefWidth="577.0" style="-fx-background-color: #000f32;" stylesheets="@TableView.css">
                <columns>
-                  <TableColumn prefWidth="106.0" style="-fx-background-color: #000f32;" text="酒店名称" />
-                  <TableColumn prefWidth="69.0" style="-fx-background-color: #000f32;" text="星级" />
-                  <TableColumn prefWidth="74.0" style="-fx-background-color: #000f32;" text="价格" />
-                  <TableColumn prefWidth="59.0" style="-fx-background-color: #000f32;" text="评分" />
-                  <TableColumn prefWidth="268.0" style="-fx-background-color: #000f32;" text="历史记录" />
+                  <TableColumn prefWidth="122.0" style="-fx-background-color: #000f32;" text="订单号" />
+                  <TableColumn prefWidth="115.0" style="-fx-background-color: #000f32;" text="酒店名称" />
+                  <TableColumn minWidth="9.0" prefWidth="90.0" style="-fx-background-color: #000f32;" text="价格" />
+                  <TableColumn prefWidth="90.0" style="-fx-background-color: #000f32;" text="评分" />
+                  <TableColumn minWidth="0.0" prefWidth="159.0" style="-fx-background-color: #000f32;" text="酒店联系方式" />
                </columns>
             </TableView>
          </content>

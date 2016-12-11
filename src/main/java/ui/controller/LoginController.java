@@ -15,6 +15,7 @@ import other.UserType;
 import ui.presentation.*;
 import vo.MemberVO;
 
+import java.time.LocalDate;
 import java.util.Date;
 
 
@@ -69,11 +70,14 @@ public class LoginController{
     @FXML
     private void onNormalRegiser(ActionEvent E)throws Exception {
         new NormalRegiserUI().start(primaryStage);
+        DatePicker birth = (DatePicker)root.lookup("#birth");
+        birth.setValue(LocalDate.of(1997,1,1));
     }
     @FXML
     private void onCancel(ActionEvent E)throws Exception {
         new LoginUI().start(primaryStage);
     }
+
     @FXML
     private void oncRegister(ActionEvent E)throws Exception {
         TextField usernameForCR = (TextField)root.lookup("#usernameForCR");
@@ -93,7 +97,7 @@ public class LoginController{
         String[] tem = birth.getEditor().getText().split("-");
         if(loginBL.validPassword(password.getText().toString())){
             loginBL.register(new MemberVO("", password.getText().toString(), username.getText().toString(), "", 1, 1,
-                    MemberType.Orinary, new Date(Integer.parseInt(tem[0]),Integer.parseInt(tem[1]),Integer.parseInt(tem[2])), ""));
+                    MemberType.Orinary, new Date(Integer.parseInt(tem[0])-1900,Integer.parseInt(tem[1])-1,Integer.parseInt(tem[2])),"" ));
             new LoginUI().start(primaryStage);
         }
     }
