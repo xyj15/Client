@@ -29,7 +29,6 @@ public class MemberController{
     private Date in;
     private Date out;
     private String[] tem;
-//    = order.getUnexcutedOrders();
 
 
     private static Stage primaryStage;
