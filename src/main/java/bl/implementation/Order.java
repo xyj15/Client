@@ -5,6 +5,7 @@ import data.service.OrderDataService;
 import other.OrderAction;
 import other.OrderStatus;
 import po.OrderPO;
+import rmi.RemoteHelper;
 import vo.CreditChangeVO;
 import vo.OrderVO;
 
@@ -30,6 +31,7 @@ public class Order implements OrderBLService {
 	 */
 	public Order(String userID) {
 		this.userID = userID;
+		orderDataService = RemoteHelper.getInstance().getOrderDataService();
 		updateDataFromFile();
 	}
 	

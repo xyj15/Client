@@ -5,6 +5,7 @@ import data.service.ManagerDataService;
 import data.stub.ManagerDataStub;
 import other.UserType;
 import po.ManagerPO;
+import rmi.RemoteHelper;
 import vo.HotelVO;
 import vo.ManagerVO;
 import vo.MemberVO;
@@ -28,7 +29,8 @@ public class Manager implements ManagerBLService {
 	 * 构造方法
 	 */
 	public Manager() {
-		managerDataService = new ManagerDataStub();
+//		managerDataService = new ManagerDataStub();
+		managerDataService = RemoteHelper.getInstance().getManagerDataService();
 		login = new Login();
 	}
 	

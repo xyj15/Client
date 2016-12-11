@@ -5,6 +5,7 @@ import bl.service.RoomBLService;
 import data.stub.RoomDataStub;
 import other.RoomType;
 import po.RoomPO;
+import rmi.RemoteHelper;
 import vo.RoomVO;
 
 import java.util.ArrayList;
@@ -27,7 +28,8 @@ public class Room implements RoomBLService {
 	 */
 	public Room(String hotelID) {
 		this.hotelID = hotelID;
-		roomDataService = new RoomDataStub();
+		roomDataService = RemoteHelper.getInstance().getRoomDataService();
+//		roomDataService = new RoomDataStub();
 	}
 	
 	/**

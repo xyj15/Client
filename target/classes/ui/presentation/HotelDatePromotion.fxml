@@ -45,19 +45,19 @@
             <Font name="Microsoft YaHei Bold" size="16.0" />
          </font>
       </Button>
-      <Button layoutX="703.0" layoutY="459.0" mnemonicParsing="false" onAction="#onAddDatePromotion" prefHeight="23.0" prefWidth="65.0" style="-fx-background-color: #6B6BCF;" text="修改" textFill="WHITE">
+      <Button layoutX="703.0" layoutY="459.0" mnemonicParsing="false" onAction="#onChangeDatePromotion" prefHeight="23.0" prefWidth="65.0" style="-fx-background-color: #6B6BCF;" text="修改" textFill="WHITE">
          <font>
             <Font name="Microsoft YaHei Bold" size="16.0" />
          </font>
       </Button>
-      <Button layoutX="779.0" layoutY="459.0" mnemonicParsing="false" prefHeight="23.0" prefWidth="65.0" style="-fx-background-color: #6B6BCF;" text="删除" textFill="WHITE">
+      <Button layoutX="779.0" layoutY="459.0" mnemonicParsing="false" onAction="#onDeleteDateP" prefHeight="23.0" prefWidth="65.0" style="-fx-background-color: #6B6BCF;" text="删除" textFill="WHITE">
          <font>
             <Font name="Microsoft YaHei Bold" size="16.0" />
          </font>
       </Button>
       <ScrollPane layoutX="381.0" layoutY="136.0" opacity="0.57" prefHeight="302.0" prefWidth="500.0" style="-fx-background-color: #000f32;">
          <content>
-            <TableView prefHeight="302.0" prefWidth="480.0" style="-fx-background-color: #000f32;" stylesheets="@TableView.css">
+            <TableView fx:id="table" prefHeight="302.0" prefWidth="480.0" style="-fx-background-color: #000f32;" stylesheets="@TableView.css">
               <columns>
                 <TableColumn editable="false" prefWidth="-1.0" sortable="false" style="-fx-background-color: #000f32;" text="起始日期" />
                   <TableColumn editable="false" prefWidth="-1.0" sortable="false" style="-fx-background-color: #000f32;" text="结束日期" />
@@ -69,7 +69,6 @@
             </TableView>
          </content>
       </ScrollPane>
-      <Button layoutX="703.0" layoutY="94.0" mnemonicParsing="false" opacity="0.0" text="Button" />
       <Label layoutX="703.0" layoutY="96.0" text="日期策略" textFill="WHITE">
          <font>
             <Font name="Microsoft YaHei Bold" size="14.0" />
@@ -103,5 +102,6 @@
          </font>
       </Button>
       <Button layoutX="865.0" layoutY="26.0" mnemonicParsing="false" onAction="#onLogOut" opacity="0.0" prefHeight="23.0" prefWidth="74.0" text="Button" />
+      <Button layoutX="703.0" layoutY="94.0" mnemonicParsing="false" onAction="#onPromotionManager" opacity="0.0" text="Button" />
    </children>
 </AnchorPane>

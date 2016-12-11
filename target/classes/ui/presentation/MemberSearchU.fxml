@@ -209,7 +209,6 @@
                   <Font name="Microsoft YaHei Bold" size="16.0" />
                </font>
             </Label>
-            <ChoiceBox fx:id="roomType" layoutX="106.0" layoutY="17.0" prefHeight="30.0" prefWidth="124.0" />
             <Label alignment="CENTER" layoutX="230.0" layoutY="9.0" prefHeight="49.0" prefWidth="109.0" text="房间数量" textFill="WHITE">
                <font>
                   <Font name="Microsoft YaHei Bold" size="16.0" />
@@ -251,6 +250,7 @@
                   <Font name="Microsoft YaHei Bold" size="15.0" />
                </font>
             </TextField>
+            <ComboBox fx:id="roomTypeInsearch" layoutX="106.0" layoutY="17.0" prefHeight="30.0" prefWidth="124.0" />
          </children>
       </AnchorPane>
    </children>
