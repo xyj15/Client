@@ -1,6 +1,7 @@
 package bl.stub;
 
 import java.util.ArrayList;
+import java.util.Date;
 
 import bl.service.PromotionBLService;
 import other.PromotionType;
@@ -13,10 +14,12 @@ public class PromotionBLStub implements PromotionBLService {
 	
 	public PromotionBLStub() {
 		String promotionID = "00000";
-		String promotionName = "";
+		String promotionName = "1111";
 		PromotionType promotionType = PromotionType.Discount;
 		promotionVO = new PromotionVO(promotionID, promotionName, promotionType);
 		promotionVO.setRankPromotion();
+		promotionVO.setStartDate(new Date());
+		promotionVO.setEndDate(new Date());
 	}
 	
 	@Override
@@ -87,6 +90,7 @@ public class PromotionBLStub implements PromotionBLService {
 	public ArrayList<PromotionVO> getEnterprisePromotionList() {
 		System.out.println("获取合作企业促销列表成功");
 		ArrayList<PromotionVO> promotionList = new ArrayList<PromotionVO>();
+		promotionVO.setEnterprise("2");
 		promotionList.add(promotionVO);
 		return promotionList;
 	}

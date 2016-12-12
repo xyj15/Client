@@ -235,22 +235,27 @@ public class HotelController {
         new HotelDelayOrderUI().start(primaryStage);
     }
     @FXML
+    private void onCheckin(ActionEvent E)throws Exception {
+        TableView table = (TableView) root.lookup("#table");
+
+    }
+    @FXML
     private void onPromotionManager(ActionEvent E)throws Exception {
         new HotelDatePromotionUI().start(primaryStage);
         TableView table = (TableView) root.lookup("#table");
-        ObservableList<TableData> dataForMInfor
+        ObservableList<TableData> dataForH
                 = FXCollections.observableArrayList();
         ObservableList<TableColumn> tableList = table.getColumns();
         ArrayList<PromotionVO> list = promotion.getHotelDatePromotionList();
         SimpleDateFormat sdf=new SimpleDateFormat("yyyy-MM-dd");
         for(int i=0;i<list.size();i++){
-            dataForMInfor.add(new TableData(sdf.format(list.get(i).getStartDate()),sdf.format(list.get(i).getEndDate()),
+            dataForH.add(new TableData(sdf.format(list.get(i).getStartDate()),sdf.format(list.get(i).getEndDate()),
                     ""+list.get(i).getDiscount()));
         }
         tableList.get(0).setCellValueFactory(new PropertyValueFactory("first"));
         tableList.get(1).setCellValueFactory(new PropertyValueFactory("second"));
         tableList.get(2).setCellValueFactory(new PropertyValueFactory("third"));
-        table.setItems(dataForMInfor);
+        table.setItems(dataForH);
     }
     @FXML
     private void onAddDatePromotion(ActionEvent E)throws Exception {
@@ -269,8 +274,11 @@ public class HotelController {
         DatePicker checkOutDate = (DatePicker)minroot.lookup("#checkOutDate");
         DatePromotionName.setText(tem.getPromotionName());
         dateDiscount.setText(""+tem.getDiscount());
-        checkInDate.setValue(LocalDate.of(tem.getStartDate().getYear(),tem.getStartDate().getMonth(),tem.getStartDate().getDay()));
-        checkOutDate.setValue(LocalDate.of(tem.getEndDate().getYear(),tem.getEndDate().getMonth(),tem.getEndDate().getDay()));
+        SimpleDateFormat sdf=new SimpleDateFormat("yyyy-MM-dd");
+        String[] t1 = sdf.format(tem.getStartDate()).split("-");
+        String[] t2 = sdf.format(tem.getEndDate()).split("-");
+        checkInDate.setValue(LocalDate.of(tem.getStartDate().getYear()+1900,tem.getStartDate().getMonth()+1,Integer.parseInt(t1[2])));
+        checkOutDate.setValue(LocalDate.of(tem.getEndDate().getYear()+1900,tem.getEndDate().getMonth()+1,Integer.parseInt(t2[2])));
     }
     @FXML
     private void onDeleteDateP(ActionEvent E)throws Exception {
