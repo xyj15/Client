@@ -9,6 +9,7 @@ import static org.junit.Assert.*;
  * Created by CROFF on 2016/12/7.
  */
 public class LoginTest {
+	
 	@Before
 	public void setUp() throws Exception {
 		

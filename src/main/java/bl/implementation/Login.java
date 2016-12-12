@@ -3,6 +3,7 @@ package bl.implementation;
 import bl.service.LoginBLService;
 import other.User;
 import other.UserType;
+import rmi.RemoteHelper;
 import vo.MemberVO;
 
 /**
@@ -25,7 +26,12 @@ public class Login implements LoginBLService {
 	 */
 	@Override
 	public boolean checkNetwork() {
-		return true;
+		RemoteHelper remoteHelper = RemoteHelper.getInstance();
+		if(remoteHelper.isConnected()) {
+			return true;
+		} else {
+			return false;
+		}
 	}
 	
 	/**

@@ -49,6 +49,8 @@ public class Hotel implements HotelBLService {
 	 */
 	public Hotel(String hotelID) {
 		this.hotelID = hotelID;
+//		hotelDataService = RemoteHelper.getInstance().getHotelDataService();
+		hotelDataService = new HotelDataStub();
 		updateDateFromFile();
 	}
 	
