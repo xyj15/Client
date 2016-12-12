@@ -3,6 +3,7 @@ package bl.implementation;
 import data.service.MemberDataService;
 import bl.service.MemberBLService;
 
+import data.stub.MemberDataStub;
 import other.MemberType;
 import po.MemberPO;
 import rmi.RemoteHelper;
@@ -32,7 +33,8 @@ public class Member implements MemberBLService {
 	 * 注册用户时使用这个构造方法，分配一个可用的ID
 	 */
 	public Member(MemberVO memberVO) {
-		memberDataService = RemoteHelper.getInstance().getMemberDataService();
+//		memberDataService = RemoteHelper.getInstance().getMemberDataService();
+		memberDataService = new MemberDataStub();
 		this.memberID = memberDataService.getAvailableMemberID();
 		memberVO.setUserID(memberID);
 		this.memberVO = memberVO;
@@ -48,7 +50,8 @@ public class Member implements MemberBLService {
 	 * @param memberID 客户ID
 	 */
 	public Member(String memberID) {
-		memberDataService = RemoteHelper.getInstance().getMemberDataService();
+//		memberDataService = RemoteHelper.getInstance().getMemberDataService();
+		memberDataService = new MemberDataStub();
 		this.memberID = memberID;
 		updateDataFromFile();
 	}

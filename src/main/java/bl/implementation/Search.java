@@ -2,6 +2,7 @@ package bl.implementation;
 
 import bl.service.SearchBLService;
 import data.service.SearchDataService;
+import data.stub.SearchDataStub;
 import other.HotelQuickSort;
 import other.RoomType;
 import other.SortValueOrder;
@@ -46,7 +47,8 @@ public class Search implements SearchBLService {
 	 */
 	public Search(String memberID) {
 		this.memberID = memberID;
-		searchDataService = RemoteHelper.getInstance().getSearchDataService();
+//		searchDataService = RemoteHelper.getInstance().getSearchDataService();
+		searchDataService = new SearchDataStub();
 		order = new Order(memberID);
 	}
 	

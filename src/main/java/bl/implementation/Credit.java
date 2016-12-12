@@ -31,8 +31,8 @@ public class Credit implements CreditBLService {
 	 */
     public Credit(String memberID) {
 		this.memberID = memberID;
-//		creditDataService = new CreditDataStub();
-		creditDataService = RemoteHelper.getInstance().getCreditDataService();
+		creditDataService = new CreditDataStub();
+//		creditDataService = RemoteHelper.getInstance().getCreditDataService();
 		updateDataFromFile();
     }
 	
