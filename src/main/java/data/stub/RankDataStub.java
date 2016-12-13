@@ -13,8 +13,8 @@ public class RankDataStub implements RankDataService {
 	private ArrayList<Double> discountList;
 	
 	public RankDataStub() {
-		creditList = new ArrayList<Double>();
-		discountList = new ArrayList<Double>();
+		creditList = new ArrayList<>();
+		discountList = new ArrayList<>();
 		
 		double credit = 100.0;
 		double discount = 0.95;

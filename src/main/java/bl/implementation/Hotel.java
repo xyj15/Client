@@ -2,6 +2,7 @@ package bl.implementation;
 
 import data.service.HotelDataService;
 import bl.service.HotelBLService;
+import data.stub.HotelDataStub;
 import other.OrderStatus;
 import other.RoomType;
 import po.HotelPO;
@@ -35,7 +36,8 @@ public class Hotel implements HotelBLService {
 	 */
 	public Hotel(HotelVO hotelVO) {
 		this.hotelVO = hotelVO;
-		hotelDataService = RemoteHelper.getInstance().getHotelDataService();
+//		hotelDataService = RemoteHelper.getInstance().getHotelDataService();
+		hotelDataService = new HotelDataStub();
 		hotelVO.setUserID(hotelDataService.getAvailableHotelID());
 		hotelID = hotelVO.getUserID();
 		hotelDataService.addHotel(hotelVOtoPO(hotelVO));

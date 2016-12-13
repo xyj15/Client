@@ -2,6 +2,7 @@ package bl.implementation;
 
 import bl.service.OrderBLService;
 import data.service.OrderDataService;
+import data.stub.OrderDataStub;
 import other.OrderAction;
 import other.OrderStatus;
 import po.OrderPO;
@@ -31,7 +32,8 @@ public class Order implements OrderBLService {
 	 */
 	public Order(String userID) {
 		this.userID = userID;
-		orderDataService = RemoteHelper.getInstance().getOrderDataService();
+		orderDataService = new OrderDataStub();
+//		orderDataService = RemoteHelper.getInstance().getOrderDataService();
 		updateDataFromFile();
 	}
 	
@@ -160,6 +162,7 @@ public class Order implements OrderBLService {
 		
 		OrderVO orderVO = orderList.get(index);
 		orderVO.setOrderStatus(OrderStatus.Executed);
+		orderVO.setActualCheckinTime(new Date());
 		orderVO.setRecover(recover);
 		orderList.set(index, orderVO);
 		OrderPO orderPO = orderVOtoPO(orderVO);
