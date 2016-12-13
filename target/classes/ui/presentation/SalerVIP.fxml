@@ -42,7 +42,7 @@
       </Button>
       <ScrollPane layoutX="381.0" layoutY="136.0" opacity="0.57" prefHeight="302.0" prefWidth="497.0" style="-fx-background-color: #000f32;">
          <content>
-            <TableView prefHeight="302.0" prefWidth="497.0" style="-fx-background-color: #000f32;" stylesheets="@TableView.css">
+            <TableView fx:id="rankTable" prefHeight="302.0" prefWidth="497.0" style="-fx-background-color: #000f32;" stylesheets="@TableView.css">
               <columns>
                 <TableColumn prefWidth="75.0" style="-fx-background-color: #000f32;" text="商圈" />
                   <TableColumn prefWidth="75.0" style="-fx-background-color: #000f32;" text="折扣" />
@@ -53,26 +53,6 @@
             </TableView>
          </content>
       </ScrollPane>
-      <Button layoutX="720.0" layoutY="95.0" mnemonicParsing="false" opacity="0.0" prefHeight="23.0" prefWidth="33.0" text="Button" />
-      <Label layoutX="719.0" layoutY="98.0" text="VIP1" textFill="WHITE">
-         <font>
-            <Font name="Microsoft YaHei Bold" size="14.0" />
-         </font>
-      </Label>
-      <Line endX="10.0" endY="200.0" layoutX="758.0" layoutY="-109.0" startX="10.0" startY="230.0" stroke="WHITE" strokeWidth="2.0" />
-      <Button layoutX="779.0" layoutY="95.0" mnemonicParsing="false" opacity="0.0" prefHeight="23.0" prefWidth="32.0" text="Button" />
-      <Label layoutX="779.0" layoutY="97.0" text="VIP2" textFill="WHITE">
-         <font>
-            <Font name="Microsoft YaHei Bold" size="14.0" />
-         </font>
-      </Label>
-      <Line endX="10.0" endY="200.0" layoutX="815.0" layoutY="-108.0" startX="10.0" startY="230.0" stroke="WHITE" strokeWidth="2.0" />
-      <Label layoutX="835.0" layoutY="98.0" text="VIP3" textFill="WHITE">
-         <font>
-            <Font name="Microsoft YaHei Bold" size="14.0" />
-         </font>
-      </Label>
-      <Button layoutX="836.0" layoutY="96.0" mnemonicParsing="false" opacity="0.0" prefHeight="23.0" prefWidth="32.0" text="Button" />
       <Label layoutX="910.0" layoutY="40.0" text="注销" textFill="WHITE">
          <font>
             <Font name="Microsoft YaHei Bold" size="16.0" />
