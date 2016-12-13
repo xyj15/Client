@@ -220,6 +220,10 @@ public class Saler implements SalerBLService {
 	 * @return 删除成功则返回true，否则返回false
 	 */
 	public boolean deleteSaler() {
+		salerVO = null;
+		promotion = null;
+		order = null;
+		rank = null;
 		return salerDataService.deleteSaler(salerID);
 	}
 	

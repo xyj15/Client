@@ -226,7 +226,7 @@ public class Member implements MemberBLService {
 	 */
 	public boolean updateDataFromFile() {
 		credit = new Credit(memberID);
-		order = new Order(memberID);
+//		order = new Order(memberID);
 		memberVO = memberPOtoVO(memberDataService.getMember(memberID));
 		Rank rank = new Rank();
 		int level = rank.getLevel(credit.getCredit());

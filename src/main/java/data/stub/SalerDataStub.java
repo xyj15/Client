@@ -13,7 +13,7 @@ public class SalerDataStub implements SalerDataService {
 	private ArrayList<SalerPO> salerList;
 	
 	public SalerDataStub() {
-		salerList = new ArrayList<SalerPO>();
+		salerList = new ArrayList<>();
 		SalerPO salerPO1 = new SalerPO("0000", "12345678910", "传销人员01", "tel01");
 		salerList.add(salerPO1);
 		SalerPO salerPO2 = new SalerPO("0001", "12345678910", "传销人员02", "tel02");

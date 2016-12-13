@@ -184,6 +184,7 @@ public class Hotel implements HotelBLService {
 	 */
 	@Override
 	public boolean checkin(String orderID, String roomID) {
+		order.updateDataFromFile();
 		OrderVO orderVO = order.getOrderInformation(orderID);
 		if(orderVO==null) {
 			return false;
@@ -204,6 +205,7 @@ public class Hotel implements HotelBLService {
 	 */
 	@Override
 	public boolean checkout(String orderID, String roomID) {
+		order = new Order(hotelID);
 		OrderVO orderVO = order.getOrderInformation(orderID);
 		if(orderVO==null || orderVO.getActualCheckinTime()==null) {
 			return false;
@@ -241,6 +243,7 @@ public class Hotel implements HotelBLService {
 	 */
 	@Override
 	public boolean delay(String orderID, String roomID) {
+		order = new Order(hotelID);
 		OrderVO orderVO = order.getOrderInformation(orderID);
 		if(orderVO==null) {
 			return false;
@@ -290,7 +293,6 @@ public class Hotel implements HotelBLService {
 	 */
 	public void updateDateFromFile() {
 		hotelVO = hotelPOtoVO(hotelDataService.getHotelByID(hotelID));
-		order = new Order(hotelID);
 		room = new Room(hotelID);
 		promotion = new Promotion(hotelID);
 	}
