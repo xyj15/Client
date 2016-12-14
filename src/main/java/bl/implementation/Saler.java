@@ -207,12 +207,16 @@ public class Saler implements SalerBLService {
 	/**
 	 * 从Data层更新数据
 	 */
-	public void updateDataFromFile() {
+	public boolean updateDataFromFile() {
+		if(salerDataService.getSaler(salerID)==null) {
+			return false;
+		}
 		promotion = new Promotion();
 		order = new Order(salerID);
 		SalerPO salerPO = salerDataService.getSaler(salerID);
 		salerVO = salerPOtoVO(salerPO);
 		rank = new Rank();
+		return true;
 	}
 	
 	/**
@@ -220,6 +224,10 @@ public class Saler implements SalerBLService {
 	 * @return 删除成功则返回true，否则返回false
 	 */
 	public boolean deleteSaler() {
+		salerVO = null;
+		promotion = null;
+		order = null;
+		rank = null;
 		return salerDataService.deleteSaler(salerID);
 	}
 	

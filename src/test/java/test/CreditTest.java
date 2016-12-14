@@ -73,15 +73,4 @@ public class CreditTest {
 		credit.initialCredit();
 		assertEquals((int)credit.getCredit(), 0);
 	}
-	
-	@Test
-	public void updateCreditChangeListFromFile() throws Exception {
-		
-	}
-	
-	@Test
-	public void updateCreditFromFile() throws Exception {
-		
-	}
-	
 }

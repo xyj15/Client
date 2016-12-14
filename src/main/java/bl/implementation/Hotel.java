@@ -49,6 +49,8 @@ public class Hotel implements HotelBLService {
 	 */
 	public Hotel(String hotelID) {
 		this.hotelID = hotelID;
+//		hotelDataService = RemoteHelper.getInstance().getHotelDataService();
+		hotelDataService = new HotelDataStub();
 		updateDateFromFile();
 	}
 	
@@ -182,6 +184,7 @@ public class Hotel implements HotelBLService {
 	 */
 	@Override
 	public boolean checkin(String orderID, String roomID) {
+		order.updateDataFromFile();
 		OrderVO orderVO = order.getOrderInformation(orderID);
 		if(orderVO==null) {
 			return false;
@@ -202,6 +205,7 @@ public class Hotel implements HotelBLService {
 	 */
 	@Override
 	public boolean checkout(String orderID, String roomID) {
+		order = new Order(hotelID);
 		OrderVO orderVO = order.getOrderInformation(orderID);
 		if(orderVO==null || orderVO.getActualCheckinTime()==null) {
 			return false;
@@ -239,6 +243,7 @@ public class Hotel implements HotelBLService {
 	 */
 	@Override
 	public boolean delay(String orderID, String roomID) {
+		order = new Order(hotelID);
 		OrderVO orderVO = order.getOrderInformation(orderID);
 		if(orderVO==null) {
 			return false;
@@ -286,11 +291,14 @@ public class Hotel implements HotelBLService {
 	/**
 	 * 从Data层更新数据
 	 */
-	public void updateDateFromFile() {
+	public boolean updateDateFromFile() {
+		if(hotelDataService.getHotelByID(hotelID)==null) {
+			return false;
+		}
 		hotelVO = hotelPOtoVO(hotelDataService.getHotelByID(hotelID));
-		order = new Order(hotelID);
 		room = new Room(hotelID);
 		promotion = new Promotion(hotelID);
+		return true;
 	}
 	
 	/**
