@@ -84,16 +84,17 @@ public class PromotionController {
     private TextField dateDiscountUpdate=new TextField();
     @FXML
     private DatePicker checkOutDateUpdate=new DatePicker();
-
+    @FXML
+    private TableView rankTable=new TableView();
 
     @FXML
     private void onPromotion() throws Exception{
-        System.out.print(0);
         new SalerPromotionUI().start(primaryStage);
         ObservableList<TableDataForSalerPromotion> dataForSalerPromotion = FXCollections.observableArrayList();
         ObservableList<TableColumn> tableList = promotionTable.getColumns();
-        ArrayList<PromotionVO> list = saler.getPromotionList();
-        for(int i=0;i<list.size();i++){
+        ArrayList<PromotionVO> list = promotion.getWebDatePromotionList();
+        System.out.print(list.get(0).getPromotionID());
+       for(int i=0;i<list.size();i++){
             dataForSalerPromotion.add(new TableDataForSalerPromotion(list.get(i).getPromotionName(),list.get(i).getStartDate().toString(),
                     list.get(i).getEndDate().toString(),""+list.get(i).getDiscount()));
         }
@@ -102,7 +103,6 @@ public class PromotionController {
         tableList.get(2).setCellValueFactory(new PropertyValueFactory("endDate"));
         tableList.get(3).setCellValueFactory(new PropertyValueFactory("discount"));
         promotionTable.setItems(dataForSalerPromotion);
-
 
     }
 
@@ -124,16 +124,15 @@ public class PromotionController {
     @FXML
     private void onRank(ActionEvent E) throws Exception{
         new SalerVIPUI().start(primaryStage);
-        TableView table = (TableView) root.lookup("#table");
         ObservableList<TableDataForVip> dataForVip = FXCollections.observableArrayList();
-        ObservableList<TableColumn> tableList = table.getColumns();
+        ObservableList<TableColumn> tableList = rankTable.getColumns();
         ArrayList<PromotionVO> list = promotion .getDistrictPromotionList();
         for(int i=0;i<list.size();i++){
             dataForVip.add(new TableDataForVip(list.get(i).getDistrict(),String.valueOf(list.get(i).getDiscount())));
         }
         tableList.get(0).setCellValueFactory(new PropertyValueFactory("district"));
         tableList.get(1).setCellValueFactory(new PropertyValueFactory("discount"));
-        table.setItems(dataForVip);
+        rankTable.setItems(dataForVip);
     }
     @FXML
     private void onCredit(ActionEvent E) throws Exception{
