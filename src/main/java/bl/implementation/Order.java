@@ -43,7 +43,7 @@ public class Order implements OrderBLService {
 	 */
 	@Override
 	public ArrayList<OrderVO> getOrderList() {
-//		updateDataFromFile();
+		updateDataFromFile();
 		return orderList;
 	}
 	

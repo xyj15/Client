@@ -291,10 +291,14 @@ public class Hotel implements HotelBLService {
 	/**
 	 * 从Data层更新数据
 	 */
-	public void updateDateFromFile() {
+	public boolean updateDateFromFile() {
+		if(hotelDataService.getHotelByID(hotelID)==null) {
+			return false;
+		}
 		hotelVO = hotelPOtoVO(hotelDataService.getHotelByID(hotelID));
 		room = new Room(hotelID);
 		promotion = new Promotion(hotelID);
+		return true;
 	}
 	
 	/**

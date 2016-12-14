@@ -3,6 +3,7 @@ package test;
 import bl.implementation.Hotel;
 import org.junit.Before;
 import org.junit.Test;
+import vo.HotelVO;
 
 import static org.junit.Assert.*;
 
@@ -80,12 +81,13 @@ public class HotelTest {
 	
 	@Test
 	public void setHotelInformation() throws Exception {
-		
+		HotelVO hotelVO;
 	}
 	
 	@Test
 	public void getHotelInformation() throws Exception {
-		
+		HotelVO hotelVO = hotel.getHotelInformation();
+		assertEquals(hotelVO.getName(), "新悦大酒店");
 	}
 	
 	@Test

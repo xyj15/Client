@@ -3,7 +3,11 @@ package test;
 import bl.implementation.Login;
 import org.junit.Before;
 import org.junit.Test;
+import other.MemberType;
 import other.UserType;
+import vo.MemberVO;
+
+import java.util.Date;
 
 import static org.junit.Assert.*;
 
@@ -28,7 +32,13 @@ public class LoginTest {
 	
 	@Test
 	public void existUserID() throws Exception {
-		
+		assertEquals(login.existUserID("00000000"), true);
+		assertEquals(login.existUserID("000000"), true);
+		assertEquals(login.existUserID("0000"), true);
+		assertEquals(login.existUserID("00"), true);
+		assertEquals(login.existUserID("12345678"), false);
+		assertEquals(login.existUserID("123456"), false);
+		assertEquals(login.existUserID("1234"), false);
 	}
 	
 	@Test
@@ -46,12 +56,27 @@ public class LoginTest {
 	
 	@Test
 	public void login() throws Exception {
+		assertEquals(login.login("000000", "12345678910"), true);
+		assertEquals(login.login("00000000", "12345678910"), true);
+		assertEquals(login.login("0000", "12345678910"), true);
+		assertEquals(login.login("00", "12345678910"), true);
 		
+		assertEquals(login.login("00000000", "123"), false);
+		assertEquals(login.login("000000", "123"), false);
+		assertEquals(login.login("0000", "123"), false);
+		assertEquals(login.login("00", "123"), false);
+		
+		assertEquals(login.login("12345678", "123"), false);
+		assertEquals(login.login("123456", "123"), false);
+		assertEquals(login.login("1234", "123"), false);
+		assertEquals(login.login("12", "123"), false);
 	}
 	
 	@Test
 	public void register() throws Exception {
-		
+		MemberVO memberVO = new MemberVO(null, "123456", "new client",
+				"13800000000", 1, 1, MemberType.Orinary, new Date(), null);
+		assertEquals(login.register(memberVO), true);
 	}
 	
 	@Test
