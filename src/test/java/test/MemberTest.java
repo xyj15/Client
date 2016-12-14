@@ -1,5 +1,6 @@
 package test;
 
+import bl.implementation.Member;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -9,9 +10,12 @@ import static org.junit.Assert.*;
  * Created by CROFF on 2016/12/7.
  */
 public class MemberTest {
+	
+	private Member member;
+	
 	@Before
 	public void setUp() throws Exception {
-		
+		member = new Member("000000");
 	}
 	
 	@Test

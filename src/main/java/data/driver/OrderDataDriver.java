@@ -23,6 +23,7 @@ public class OrderDataDriver {
 		System.out.println(orderDataService.recoverOrder(orderID, 0.5));
 		System.out.println(orderDataService.updateOrder(new OrderPO()));
 		System.out.println(orderDataService.cancelOrder(orderID));
+		System.out.println(orderDataService.getOrder(""));
 		System.out.println(orderDataService.addOrder(new OrderPO()));
 	}
 	

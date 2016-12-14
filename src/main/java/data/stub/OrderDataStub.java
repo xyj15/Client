@@ -17,15 +17,29 @@ public class OrderDataStub implements OrderDataService {
 	public OrderDataStub() {
 		orderList = new ArrayList<>();
 		
-		OrderPO orderPO1 = new OrderPO("00000000", "000000", "000", OrderStatus.Executed, new Date(),
-				new Date(), new Date(), new Date(), new Date(), new Date(), 1, "大床房", 2, false, 5,
-				"敲棒～～～", 0, "00000", 500, null);
+		OrderPO orderPO1 = new OrderPO("00000000", "000000", "000",
+				OrderStatus.Executed, new Date(), new Date(), new Date(),
+				new Date(), new Date(), new Date(), 1, "大床房", 2,
+				false, 5, "敲棒～～～", 0, "00000", 500, null);
 		orderList.add(orderPO1);
 		
-		OrderPO orderPO2 = new OrderPO("00000000", "000001", "001", OrderStatus.Abnormal, new Date(),
-				new Date(), new Date(), new Date(), new Date(), new Date(), 1, "大床房", 2, false, 0,
-				null, 0, "00000", 500, null);
+		OrderPO orderPO2 = new OrderPO("00000000", "000001", "001",
+				OrderStatus.Abnormal, new Date(), new Date(), new Date(),
+				new Date(), new Date(), new Date(), 1, "大床房", 2,
+				false, 0, null, 0, "00000", 500, null);
 		orderList.add(orderPO2);
+		
+		OrderPO orderPO3 = new OrderPO("00000000", "000000", "002",
+				OrderStatus.Canceled, new Date(), new Date(), null,
+				new Date(), new Date(), null, 2, "双床房", 4,
+				true, 0, null, 0, "00000", 1200, new Date());
+		orderList.add(orderPO3);
+		
+		OrderPO orderPO4 = new OrderPO("00000000", "000000", "003",
+				OrderStatus.Unexecuted, new Date(), new Date(), null,
+				new Date(), new Date(), null, 1, "大床房", 1,
+				false, 0, null, 0, "00000", 500, null);
+		orderList.add(orderPO4);
 	}
 	
 	@Override
