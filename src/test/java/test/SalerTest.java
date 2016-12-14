@@ -5,6 +5,7 @@ import org.junit.Before;
 import org.junit.Test;
 import other.SaleType;
 import other.UserType;
+import vo.OrderVO;
 import vo.PromotionVO;
 import vo.SalerVO;
 
@@ -62,17 +63,21 @@ public class SalerTest {
 	
 	@Test
 	public void getDailyUnexcutedOrderList() throws Exception {
-		
+		ArrayList<OrderVO> orderList = saler.getDailyUnexcutedOrderList();
+		assertEquals(orderList.get(0).getOrderID(), "001");
+		assertEquals(orderList.get(1).getOrderID(), "003");
 	}
 	
 	@Test
 	public void cancelAbnormalOrder() throws Exception {
-		
+		assertEquals(saler.cancelAbnormalOrder("000", 0.5), false);
+		assertEquals(saler.cancelAbnormalOrder("001", 0.5), true);
 	}
 	
 	@Test
 	public void creditRecharge() throws Exception {
-		
+		assertEquals(saler.creditRecharge("000000", 100), false);
+		assertEquals(saler.creditRecharge("00000000", 100), true);
 	}
 	
 	@Test

@@ -164,7 +164,7 @@ public class Saler implements SalerBLService {
 	@Override
 	public ArrayList<OrderVO> getDailyUnexcutedOrderList() {
 		updateDataFromFile();
-		ArrayList<OrderVO> orderList = new ArrayList<OrderVO>();
+		ArrayList<OrderVO> orderList = new ArrayList<>();
 		ArrayList<OrderVO> dailyAbnormalOrderList = order.getAbnormalOrders();
 		ArrayList<OrderVO> dailyUnexcutedOrderList = order.getUnexcutedOrders();
 		orderList.addAll(dailyAbnormalOrderList);
@@ -181,7 +181,7 @@ public class Saler implements SalerBLService {
 	@Override
 	public boolean cancelAbnormalOrder(String orderID, double recover) {
 		updateDataFromFile();
-		return cancelAbnormalOrder(orderID, recover);
+		return order.cancelAbnormalOrder(orderID, recover);
 	}
 	
 	/**
@@ -192,6 +192,10 @@ public class Saler implements SalerBLService {
 	 */
 	@Override
 	public boolean creditRecharge(String memberID, double money) {
+		if(money==0 || memberID.length()!=8) {
+			return false;
+		}
+		
 		updateDataFromFile();
 		credit = new Credit(memberID);
 		Date date = new Date();

@@ -3,6 +3,7 @@ package data.stub;
 import data.service.OrderDataService;
 import other.OrderStatus;
 import po.OrderPO;
+import vo.HotelVO;
 
 import java.util.ArrayList;
 import java.util.Date;
@@ -129,12 +130,14 @@ public class OrderDataStub implements OrderDataService {
 	@Override
 	public ArrayList<OrderPO> getOrderList(String userID) {
 		System.out.println("获取订单列表成功");
+		filterOrderListByUserID(userID);
 		return orderList;
 	}
 	
 	@Override
 	public ArrayList<OrderPO> getFinishedOrders(String userID) {
 		System.out.println("获取已执行订单列表成功");
+		filterOrderListByUserID(userID);
 		ArrayList<OrderPO> list = new ArrayList<>();
 		for(int i=0; i<orderList.size(); i++) {
 			OrderPO orderPO = orderList.get(i);
@@ -148,6 +151,7 @@ public class OrderDataStub implements OrderDataService {
 	@Override
 	public ArrayList<OrderPO> getUnfinishedOrders(String userID) {
 		System.out.println("获取未执行订单列表成功");
+		filterOrderListByUserID(userID);
 		ArrayList<OrderPO> list = new ArrayList<>();
 		for(int i=0; i<orderList.size(); i++) {
 			OrderPO orderPO = orderList.get(i);
@@ -161,6 +165,7 @@ public class OrderDataStub implements OrderDataService {
 	@Override
 	public ArrayList<OrderPO> getAbnormalOrders(String userID) {
 		System.out.println("获取异常订单列表成功");
+		filterOrderListByUserID(userID);
 		ArrayList<OrderPO> list = new ArrayList<>();
 		for(int i=0; i<orderList.size(); i++) {
 			OrderPO orderPO = orderList.get(i);
@@ -174,6 +179,7 @@ public class OrderDataStub implements OrderDataService {
 	@Override
 	public ArrayList<OrderPO> getCancledOrders(String userID) {
 		System.out.println("获取已撤销订单列表成功");
+		filterOrderListByUserID(userID);
 		ArrayList<OrderPO> list = new ArrayList<>();
 		for(int i=0; i<orderList.size(); i++) {
 			OrderPO orderPO = orderList.get(i);
@@ -182,5 +188,20 @@ public class OrderDataStub implements OrderDataService {
 			}
 		}
 		return list;
+	}
+	
+	public void filterOrderListByUserID(String userID) {
+		ArrayList<OrderPO> list = new ArrayList<>();
+		for(int i=0; i< orderList.size(); i++) {
+			OrderPO orderPO = orderList.get(i);
+			if(userID.length()==8 && orderPO.getMemberID().equals(userID)) {
+				list.add(orderPO);
+			} else if(userID.length()==6 && orderPO.getHotelID().equals(userID)) {
+				list.add(orderPO);
+			} else {
+				list.add(orderPO);
+			}
+		}
+		orderList = list;
 	}
 }

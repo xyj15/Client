@@ -3,7 +3,10 @@ package test;
 import bl.implementation.Hotel;
 import org.junit.Before;
 import org.junit.Test;
+import other.RoomType;
 import vo.HotelVO;
+
+import java.util.Date;
 
 import static org.junit.Assert.*;
 
@@ -81,7 +84,11 @@ public class HotelTest {
 	
 	@Test
 	public void setHotelInformation() throws Exception {
-		HotelVO hotelVO;
+		HotelVO hotelVO = hotel.getHotelInformation();
+		hotelVO.setName("新悦小酒店");
+		hotel.setHotelInformation(hotelVO);
+		hotelVO = hotel.getHotelInformation();
+		assertEquals(hotelVO.getName(), "新悦小酒店");
 	}
 	
 	@Test
@@ -92,31 +99,53 @@ public class HotelTest {
 	
 	@Test
 	public void checkin() throws Exception {
-		
+		assertEquals(hotel.checkin("003", "3003"), false);
+		assertEquals(hotel.checkin("003", "3001"), true);
+		assertEquals(hotel.checkin("003", "3001"), false);
 	}
 	
 	@Test
 	public void checkout() throws Exception {
-		
+		assertEquals(hotel.checkout("000", "3001"), false);
+		assertEquals(hotel.checkout("000", "3003"), true);
+		assertEquals(hotel.checkout("000", "3003"), false);
 	}
 	
 	@Test
 	public void delay() throws Exception {
-		
+		assertEquals(hotel.delay("001", "3003"), false);
+		assertEquals(hotel.delay("001", "3001"), true);
+		assertEquals(hotel.delay("001", "3001"), false);
+	}
+	
+	@Test
+	public void reserveSingleRoom() throws Exception {
+		assertEquals(hotel.reserveSingleRoom(new Date(), "大床房"), true);
+		assertEquals(hotel.reserveSingleRoom(new Date(), "大床房"), false);
+		assertEquals(hotel.reserveSingleRoom(new Date(), "双床房"), true);
+		assertEquals(hotel.reserveSingleRoom(new Date(), "双床房"), false);
 	}
 	
 	@Test
 	public void updateDailyInformation() throws Exception {
-		
+		hotel.updateDailyInformation(new Date());
+		assertEquals(hotel.getHotelInformation().getLowestPrice(), 300, 0.01);
+		assertEquals(hotel.getHotelInformation().getRoomTypeList().get(0), RoomType.BigBed);
+		assertEquals(hotel.getHotelInformation().getRoomNumberList().size(), hotel.getHotelInformation().getRoomTypeList().size());
+		assertEquals((int)hotel.getHotelInformation().getRoomNumberList().get(0), 3);
 	}
 	
 	@Test
 	public void deleteHotel() throws Exception {
-		
+		assertEquals(hotel.deleteHotel(), true);
+		assertEquals(hotel.getHotelInformation(), null);
 	}
 	
 	@Test
 	public void updateHotelManagerInformation() throws Exception {
-		
+		String name = "name", tel = "tel";
+		assertEquals(hotel.updateHotelManagerInformation(name, tel), true);
+		assertEquals(hotel.getHotelInformation().getManagerName(), name);
+		assertEquals(hotel.getHotelInformation().getManagerTel(), tel);
 	}
 }
