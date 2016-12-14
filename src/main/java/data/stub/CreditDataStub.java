@@ -12,7 +12,7 @@ import java.util.Date;
  */
 public class CreditDataStub implements CreditDataService {
 	
-	private double credit = 100;
+	private double credit = 0;
 	private ArrayList<CreditChangePO> creditChangeList = new ArrayList<CreditChangePO>();
 	
 	public CreditDataStub() {

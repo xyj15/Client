@@ -50,7 +50,7 @@ public class CreditTest {
 	
 	@Test
 	public void getCredit() throws Exception {
-		assertEquals((int)credit.getCredit(), 100);
+		assertEquals((int)credit.getCredit(), 0);
 	}
 	
 	@Test

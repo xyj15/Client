@@ -161,6 +161,10 @@ public class Order implements OrderBLService {
 		}
 		
 		OrderVO orderVO = orderList.get(index);
+		if(orderVO.getOrderStatus()!=OrderStatus.Abnormal) {
+			return false;
+		}
+		
 		orderVO.setOrderStatus(OrderStatus.Executed);
 		orderVO.setActualCheckinTime(new Date());
 		orderVO.setRecover(recover);
