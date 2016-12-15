@@ -25,8 +25,8 @@ public class Search implements SearchBLService {
 	private String memberID;	//持有的客户ID
 	private Order order;	//客户订单信息
 	
-	private String city;	//城市，必须设置
-	private String district;	//商圈，必须设置
+	private String city = "";	//城市，必须设置
+	private String district = "";	//商圈，必须设置
 	private String hotelName = "";	//酒店名称，若未设置则为""
 	private int level = 0;	//星级，若未设置则为0
 	private RoomType roomType = null;	//房间类型，若未设置则为null
@@ -211,7 +211,7 @@ public class Search implements SearchBLService {
 	 */
 	public ArrayList<HotelVO> filterExceptDate(Date date) {
 		ArrayList<HotelPO> hotelPOList = searchDataService.getHotelListByCityDistrict(city, district);
-		ArrayList<HotelVO> hotelList = new ArrayList<HotelVO>();
+		ArrayList<HotelVO> hotelList = new ArrayList<>();
 		for(int i=0; i<hotelPOList.size(); i++) {
 			hotelList.add(Hotel.hotelPOtoVO(hotelPOList.get(i)));
 		}
@@ -326,7 +326,7 @@ public class Search implements SearchBLService {
 			return hotelList;
 		}
 		
-		ArrayList<HotelVO> newList = new ArrayList<HotelVO>();
+		ArrayList<HotelVO> newList = new ArrayList<>();
 		HotelVO hotelVO;
 		for(int i=0; i<hotelList.size(); i++) {
 			hotelVO = hotelList.get(i);
@@ -347,7 +347,7 @@ public class Search implements SearchBLService {
 			return hotelList;
 		}
 		
-		ArrayList<HotelVO> newList = new ArrayList<HotelVO>();
+		ArrayList<HotelVO> newList = new ArrayList<>();
 		HotelVO hotelVO;
 		for(int i=0; i<hotelList.size(); i++) {
 			hotelVO = hotelList.get(i);
@@ -364,7 +364,7 @@ public class Search implements SearchBLService {
 	 * @return 筛选后的酒店列表
 	 */
 	public ArrayList<HotelVO> filterByNumberOfRooms(ArrayList<HotelVO> hotelList) {
-		ArrayList<HotelVO> newList = new ArrayList<HotelVO>();
+		ArrayList<HotelVO> newList = new ArrayList<>();
 		
 		for(int i=0; i<hotelList.size(); i++) {
 			HotelVO hotelVO = hotelList.get(i);
@@ -400,7 +400,7 @@ public class Search implements SearchBLService {
 			bottom = lowerPrice;
 		}
 		
-		ArrayList<HotelVO> newList = new ArrayList<HotelVO>();
+		ArrayList<HotelVO> newList = new ArrayList<>();
 		HotelVO hotelVO;
 		for(int i=0; i<hotelList.size(); i++) {
 			hotelVO = hotelList.get(i);
@@ -426,7 +426,7 @@ public class Search implements SearchBLService {
 			bottom = lowerScore;
 		}
 		
-		ArrayList<HotelVO> newList = new ArrayList<HotelVO>();
+		ArrayList<HotelVO> newList = new ArrayList<>();
 		HotelVO hotelVO;
 		for(int i=0; i<hotelList.size(); i++) {
 			hotelVO = hotelList.get(i);
@@ -445,7 +445,7 @@ public class Search implements SearchBLService {
 	 */
 	public ArrayList<HotelVO> filterByReservedBefore(ArrayList<HotelVO> hotelList) {
 		ArrayList<OrderVO> orderList = order.getExcutedOrders();
-		ArrayList<String> reservedHotelList = new ArrayList<String>();
+		ArrayList<String> reservedHotelList = new ArrayList<>();
 		for(int i=0; i<orderList.size(); i++) {
 			OrderVO orderVO = orderList.get(i);
 			if(!reservedHotelList.contains(orderVO.getHotelID())) {
@@ -453,7 +453,7 @@ public class Search implements SearchBLService {
 			}
 		}
 		
-		ArrayList<HotelVO> newList = new ArrayList<HotelVO>();
+		ArrayList<HotelVO> newList = new ArrayList<>();
 		for(int i=0; i<hotelList.size(); i++) {
 			HotelVO hotelVO = hotelList.get(i);
 			String hotelID = hotelVO.getUserID();

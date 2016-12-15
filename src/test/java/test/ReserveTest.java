@@ -1,5 +1,6 @@
 package test;
 
+import bl.implementation.Reserve;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -9,9 +10,12 @@ import static org.junit.Assert.*;
  * Created by CROFF on 2016/12/7.
  */
 public class ReserveTest {
+	
+	private Reserve reserve;
+	
 	@Before
 	public void setUp() throws Exception {
-		
+		reserve = new Reserve("00000000", "000000");
 	}
 	
 	@Test
@@ -113,5 +117,4 @@ public class ReserveTest {
 	public void createOrder() throws Exception {
 		
 	}
-	
 }
