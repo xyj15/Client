@@ -225,8 +225,12 @@ public class Member implements MemberBLService {
 	 * @return 更新成功则返回true，否则返回false
 	 */
 	public boolean updateDataFromFile() {
+		if(memberDataService.getMember(memberID)==null) {
+			return false;
+		}
+		
 		credit = new Credit(memberID);
-		order = new Order(memberID);
+//		order = new Order(memberID);
 		memberVO = memberPOtoVO(memberDataService.getMember(memberID));
 		Rank rank = new Rank();
 		int level = rank.getLevel(credit.getCredit());

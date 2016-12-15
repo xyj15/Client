@@ -49,6 +49,8 @@ public class Hotel implements HotelBLService {
 	 */
 	public Hotel(String hotelID) {
 		this.hotelID = hotelID;
+//		hotelDataService = RemoteHelper.getInstance().getHotelDataService();
+		hotelDataService = new HotelDataStub();
 		updateDateFromFile();
 	}
 	
@@ -170,7 +172,6 @@ public class Hotel implements HotelBLService {
 	 */
 	@Override
 	public HotelVO getHotelInformation() {
-		updateDateFromFile();
 		return hotelVO;
 	}
 	
@@ -182,6 +183,7 @@ public class Hotel implements HotelBLService {
 	 */
 	@Override
 	public boolean checkin(String orderID, String roomID) {
+		order = new Order(hotelID);
 		OrderVO orderVO = order.getOrderInformation(orderID);
 		if(orderVO==null) {
 			return false;
@@ -202,6 +204,7 @@ public class Hotel implements HotelBLService {
 	 */
 	@Override
 	public boolean checkout(String orderID, String roomID) {
+		order = new Order(hotelID);
 		OrderVO orderVO = order.getOrderInformation(orderID);
 		if(orderVO==null || orderVO.getActualCheckinTime()==null) {
 			return false;
@@ -239,15 +242,14 @@ public class Hotel implements HotelBLService {
 	 */
 	@Override
 	public boolean delay(String orderID, String roomID) {
+		order = new Order(hotelID);
 		OrderVO orderVO = order.getOrderInformation(orderID);
 		if(orderVO==null) {
 			return false;
 		}
 		order.cancelAbnormalOrder(orderID, orderVO.getPrice());
 		
-		RoomVO roomVO = room.getRoomInformation(new Date(), roomID);
-		roomVO.setAvailable(false);
-		return true;
+		return room.checkin(new Date(), roomID);
 	}
 	
 	/**
@@ -255,8 +257,8 @@ public class Hotel implements HotelBLService {
 	 * @param date 日期
 	 */
 	public void updateDailyInformation(Date date) {
-		ArrayList<RoomType> roomTypeList = new ArrayList<RoomType>();
-		ArrayList<Integer> roomNumberList = new ArrayList<Integer>();
+		ArrayList<RoomType> roomTypeList = new ArrayList<>();
+		ArrayList<Integer> roomNumberList = new ArrayList<>();
 		
 		ArrayList<RoomVO> dailyRoomList = room.getDailyRoomList(date);
 		double lowestPrice = Double.MAX_VALUE;
@@ -275,6 +277,7 @@ public class Hotel implements HotelBLService {
 				roomNumberList.set(index, roomNumberList.get(index)+1);
 			} else {
 				roomTypeList.add(roomType);
+				roomNumberList.add(1);
 			}
 		}
 		
@@ -286,11 +289,14 @@ public class Hotel implements HotelBLService {
 	/**
 	 * 从Data层更新数据
 	 */
-	public void updateDateFromFile() {
+	public boolean updateDateFromFile() {
+		if(hotelDataService.getHotelByID(hotelID)==null) {
+			return false;
+		}
 		hotelVO = hotelPOtoVO(hotelDataService.getHotelByID(hotelID));
-		order = new Order(hotelID);
 		room = new Room(hotelID);
 		promotion = new Promotion(hotelID);
+		return true;
 	}
 	
 	/**
@@ -353,6 +359,10 @@ public class Hotel implements HotelBLService {
 	 * @return 删除成功则返回true，否则返回false
 	 */
 	public boolean deleteHotel() {
+		this.hotelVO = null;
+		this.order = null;
+		this.room = null;
+		this.promotion = null;
 		return hotelDataService.deleteHotel(hotelID);
 	}
 	

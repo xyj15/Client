@@ -50,7 +50,7 @@ public class CreditTest {
 	
 	@Test
 	public void getCredit() throws Exception {
-		assertEquals((int)credit.getCredit(), 100);
+		assertEquals((int)credit.getCredit(), 0);
 	}
 	
 	@Test
@@ -73,15 +73,4 @@ public class CreditTest {
 		credit.initialCredit();
 		assertEquals((int)credit.getCredit(), 0);
 	}
-	
-	@Test
-	public void updateCreditChangeListFromFile() throws Exception {
-		
-	}
-	
-	@Test
-	public void updateCreditFromFile() throws Exception {
-		
-	}
-	
 }

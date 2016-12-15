@@ -3,6 +3,7 @@ package data.stub;
 import data.service.OrderDataService;
 import other.OrderStatus;
 import po.OrderPO;
+import vo.HotelVO;
 
 import java.util.ArrayList;
 import java.util.Date;
@@ -17,15 +18,29 @@ public class OrderDataStub implements OrderDataService {
 	public OrderDataStub() {
 		orderList = new ArrayList<>();
 		
-		OrderPO orderPO1 = new OrderPO("00000000", "000000", "000", OrderStatus.Executed, new Date(),
-				new Date(), new Date(), new Date(), new Date(), new Date(), 1, "大床房", 2, false, 5,
-				"敲棒～～～", 0, "00000", 500, null);
+		OrderPO orderPO1 = new OrderPO("00000000", "000000", "000",
+				OrderStatus.Executed, new Date(), new Date(), new Date(),
+				new Date(), new Date(), new Date(), 1, "大床房", 2,
+				false, 5, "敲棒～～～", 0, "00000", 500, null);
 		orderList.add(orderPO1);
 		
-		OrderPO orderPO2 = new OrderPO("00000000", "000001", "001", OrderStatus.Abnormal, new Date(),
-				new Date(), new Date(), new Date(), new Date(), new Date(), 1, "大床房", 2, false, 0,
-				null, 0, "00000", 500, null);
+		OrderPO orderPO2 = new OrderPO("00000000", "000001", "001",
+				OrderStatus.Abnormal, new Date(), new Date(), new Date(),
+				new Date(), new Date(), new Date(), 1, "大床房", 2,
+				false, 0, null, 0, "00000", 500, null);
 		orderList.add(orderPO2);
+		
+		OrderPO orderPO3 = new OrderPO("00000000", "000000", "002",
+				OrderStatus.Canceled, new Date(), new Date(), null,
+				new Date(), new Date(), null, 2, "双床房", 4,
+				true, 0, null, 0, "00000", 1200, new Date());
+		orderList.add(orderPO3);
+		
+		OrderPO orderPO4 = new OrderPO("00000000", "000000", "003",
+				OrderStatus.Unexecuted, new Date(), new Date(), null,
+				new Date(), new Date(), null, 1, "大床房", 1,
+				false, 0, null, 0, "00000", 500, null);
+		orderList.add(orderPO4);
 	}
 	
 	@Override
@@ -115,12 +130,14 @@ public class OrderDataStub implements OrderDataService {
 	@Override
 	public ArrayList<OrderPO> getOrderList(String userID) {
 		System.out.println("获取订单列表成功");
+		filterOrderListByUserID(userID);
 		return orderList;
 	}
 	
 	@Override
 	public ArrayList<OrderPO> getFinishedOrders(String userID) {
 		System.out.println("获取已执行订单列表成功");
+		filterOrderListByUserID(userID);
 		ArrayList<OrderPO> list = new ArrayList<>();
 		for(int i=0; i<orderList.size(); i++) {
 			OrderPO orderPO = orderList.get(i);
@@ -134,6 +151,7 @@ public class OrderDataStub implements OrderDataService {
 	@Override
 	public ArrayList<OrderPO> getUnfinishedOrders(String userID) {
 		System.out.println("获取未执行订单列表成功");
+		filterOrderListByUserID(userID);
 		ArrayList<OrderPO> list = new ArrayList<>();
 		for(int i=0; i<orderList.size(); i++) {
 			OrderPO orderPO = orderList.get(i);
@@ -147,6 +165,7 @@ public class OrderDataStub implements OrderDataService {
 	@Override
 	public ArrayList<OrderPO> getAbnormalOrders(String userID) {
 		System.out.println("获取异常订单列表成功");
+		filterOrderListByUserID(userID);
 		ArrayList<OrderPO> list = new ArrayList<>();
 		for(int i=0; i<orderList.size(); i++) {
 			OrderPO orderPO = orderList.get(i);
@@ -160,6 +179,7 @@ public class OrderDataStub implements OrderDataService {
 	@Override
 	public ArrayList<OrderPO> getCancledOrders(String userID) {
 		System.out.println("获取已撤销订单列表成功");
+		filterOrderListByUserID(userID);
 		ArrayList<OrderPO> list = new ArrayList<>();
 		for(int i=0; i<orderList.size(); i++) {
 			OrderPO orderPO = orderList.get(i);
@@ -168,5 +188,20 @@ public class OrderDataStub implements OrderDataService {
 			}
 		}
 		return list;
+	}
+	
+	public void filterOrderListByUserID(String userID) {
+		ArrayList<OrderPO> list = new ArrayList<>();
+		for(int i=0; i< orderList.size(); i++) {
+			OrderPO orderPO = orderList.get(i);
+			if(userID.length()==8 && orderPO.getMemberID().equals(userID)) {
+				list.add(orderPO);
+			} else if(userID.length()==6 && orderPO.getHotelID().equals(userID)) {
+				list.add(orderPO);
+			} else {
+				list.add(orderPO);
+			}
+		}
+		orderList = list;
 	}
 }

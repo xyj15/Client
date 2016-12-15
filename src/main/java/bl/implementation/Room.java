@@ -136,7 +136,7 @@ public class Room implements RoomBLService {
 	@Override
 	public ArrayList<RoomVO> getDailyRoomList(Date date) {
 		ArrayList<RoomPO> roomPOList = roomDataService.getRoomsByDate(date, hotelID);
-		ArrayList<RoomVO> roomVOList = new ArrayList<RoomVO>();
+		ArrayList<RoomVO> roomVOList = new ArrayList<>();
 		for(int i=0; i<roomPOList.size(); i++) {
 			roomVOList.add(roomPOtoVO(roomPOList.get(i)));
 		}
