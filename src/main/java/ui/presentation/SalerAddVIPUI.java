@@ -15,6 +15,7 @@ public class SalerAddVIPUI extends Application {
     public void start(Stage primaryStage)throws Exception{
         Parent root = FXMLLoader.load(getClass().getResource("SalerAddVIP.fxml"));
         PromotionController.setPrimaryStage(primaryStage);
+        PromotionController.setRoot(root);
         Scene myScene = new Scene(root,318,538);
         primaryStage.setResizable(false);
         primaryStage.setScene(myScene);
