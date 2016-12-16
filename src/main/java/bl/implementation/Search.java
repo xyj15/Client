@@ -215,7 +215,7 @@ public class Search implements SearchBLService {
 		for(int i=0; i<hotelPOList.size(); i++) {
 			hotelList.add(Hotel.hotelPOtoVO(hotelPOList.get(i)));
 		}
-		hotelList = updateHotelInfomationByDate(hotelList, date);
+		hotelList = updateHotelInformationByDate(hotelList, date);
 		
 		if(!hotelName.equals("")) {
 			hotelList = filterByhotelName(hotelList);
@@ -470,7 +470,7 @@ public class Search implements SearchBLService {
 	 */
 	public ArrayList<HotelVO> filterByDate() {
 		ArrayList<HotelVO> newList = filterExceptDate(checkinTime);
-		for(Date i = nextDay(checkinTime); i.before(checkoutTime); nextDay(i)) {
+		for(Date i = nextDay(checkinTime); i.before(checkoutTime); i=nextDay(i)) {
 			ArrayList<HotelVO> dailyList = filterExceptDate(i);
 			for(int j=0; j<newList.size();) {
 				HotelVO hotelVO = newList.get(j);
@@ -503,7 +503,7 @@ public class Search implements SearchBLService {
 	 * @param date 日期
 	 * @return 更新后的酒店列表
 	 */
-	public ArrayList<HotelVO> updateHotelInfomationByDate(ArrayList<HotelVO> hotelList, Date date) {
+	public ArrayList<HotelVO> updateHotelInformationByDate(ArrayList<HotelVO> hotelList, Date date) {
 		for(int i=0; i<hotelList.size(); i++) {
 			HotelVO hotelVO = hotelList.get(i);
 			Hotel hotel = new Hotel(hotelVO.getUserID());

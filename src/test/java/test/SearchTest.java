@@ -5,7 +5,9 @@ import org.junit.Before;
 import org.junit.Test;
 import other.RoomType;
 import sun.util.calendar.CalendarDate;
+import vo.HotelVO;
 
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 
@@ -91,77 +93,128 @@ public class SearchTest {
 	@Test
 	public void search() throws Exception {
 		assertEquals(search.search(), null);
-		
+		search.setCheckinTime(new Date());
+		search.setCheckoutTime(new Date());
+		search.setCity("南京市");
+		search.setDistrict("南京大学商圈");
+		assertEquals(search.search().size(), 2);
 	}
 	
 	@Test
 	public void filterExceptDate() throws Exception {
-		
-	}
-	
-	@Test
-	public void sortByPriceHighToLow() throws Exception {
-		
-	}
-	
-	@Test
-	public void sortByPriceLowToHigh() throws Exception {
-		
-	}
-	
-	@Test
-	public void sortByScoreHighToLow() throws Exception {
-		
-	}
-	
-	@Test
-	public void sortByScoreLowToHigh() throws Exception {
-		
-	}
-	
-	@Test
-	public void sortByLevelHighToLow() throws Exception {
-		
-	}
-	
-	@Test
-	public void sortByLevelLowToHigh() throws Exception {
-		
+		assertEquals(search.filterExceptDate(new Date()).size(), 0);
+		search.setCheckinTime(new Date());
+		search.setCheckoutTime(new Date());
+		search.setCity("南京市");
+		search.setDistrict("南京大学商圈");
+		assertEquals(search.filterExceptDate(new Date()).size(), 2);
 	}
 	
 	@Test
 	public void filterByhotelName() throws Exception {
+		search.setCity("南京市");
+		search.setDistrict("南京大学商圈");
+		ArrayList<HotelVO> list = search.search();
+		assertEquals(list.size(), 2);
 		
+		search.setHotelName("新悦大酒店");
+		list = search.filterByhotelName(list);
+		assertEquals(list.size(), 1);
 	}
 	
 	@Test
 	public void filterByLevel() throws Exception {
+		search.setCity("南京市");
+		search.setDistrict("南京大学商圈");
+		ArrayList<HotelVO> list = search.search();
+		assertEquals(list.size(), 2);
 		
+		search.setLevel(5);
+		list = search.filterByLevel(list);
+		assertEquals(list.size(), 1);
 	}
 	
 	@Test
 	public void filterByNumberOfRooms() throws Exception {
+		search.setCity("南京市");
+		search.setDistrict("南京大学商圈");
+		ArrayList<HotelVO> list = search.search();
+		assertEquals(list.size(), 2);
 		
+		search.setNumberOfRooms(5);
+		ArrayList<HotelVO> list1 = search.filterByNumberOfRooms(list);
+		assertEquals(list1.size(), 2);
+		
+		search.setNumberOfRooms(8);
+		ArrayList<HotelVO> list2 = search.filterByNumberOfRooms(list);
+		assertEquals(list2.size(), 2);
+		
+//		search.setNumberOfRooms(10);
+//		ArrayList<HotelVO> list3 = search.filterByNumberOfRooms(list);
+//		assertEquals(list3.size(), 0);
+		
+		search.setNumberOfRooms(14);
+		ArrayList<HotelVO> list4 = search.filterByNumberOfRooms(list);
+		assertEquals(list4.size(), 0);
+		
+		search.setNumberOfRooms(2);
+		search.setRoomType(RoomType.BigBed);
+		ArrayList<HotelVO> list5 = search.filterByNumberOfRooms(list);
+		assertEquals(list5.size(), 2);
+		
+		search.setNumberOfRooms(5);
+		ArrayList<HotelVO> list6 = search.filterByNumberOfRooms(list);
+		assertEquals(list6.size(), 0);
 	}
 	
 	@Test
 	public void filterByPrice() throws Exception {
+		search.setCity("南京市");
+		search.setDistrict("南京大学商圈");
+		ArrayList<HotelVO> list = search.search();
+		assertEquals(list.size(), 2);
 		
+		search.setLowerPrice(1000);
+		list = search.filterByPrice(list);
+		assertEquals(list.size(), 0);
 	}
 	
 	@Test
 	public void filterByScore() throws Exception {
+		search.setCity("南京市");
+		search.setDistrict("南京大学商圈");
+		ArrayList<HotelVO> list = search.search();
+		assertEquals(list.size(), 2);
 		
+		search.setLowerScore(4);
+		list = search.filterByScore(list);
+		assertEquals(list.size(), 1);
+		
+		search.setUpperScore(4);
+		list = search.filterByScore(list);
+		assertEquals(list.size(), 0);
 	}
 	
 	@Test
 	public void filterByReservedBefore() throws Exception {
+		search.setCity("南京市");
+		search.setDistrict("南京大学商圈");
+		ArrayList<HotelVO> list = search.search();
+		assertEquals(list.size(), 2);
 		
+		search.setOnlyReservationBefore(true);
+		ArrayList<HotelVO> hotelList = search.filterByReservedBefore(list);
+		assertEquals(hotelList.size(), 1);
 	}
 	
 	@Test
 	public void filterByDate() throws Exception {
-		
+		search.setCheckinTime(new Date());
+		search.setCheckoutTime(new Date());
+		search.setCity("南京市");
+		search.setDistrict("马群商圈");
+		ArrayList<HotelVO> list = search.filterByDate();
+		assertEquals(list.size(), 1);
 	}
 	
 	@Test
@@ -174,10 +227,5 @@ public class SearchTest {
 		int day = calendar.get(Calendar.DATE);
 		calendar.setTime(d2);
 		assertEquals(day+1, calendar.get(Calendar.DATE));
-	}
-	
-	@Test
-	public void updateHotelInfomationByDate() throws Exception {
-		
 	}
 }
