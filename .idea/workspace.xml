@@ -1,21 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="a9f0de73-1128-483a-bbb9-a1105de32882" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/bl/implementation/Reserve.class" afterPath="$PROJECT_DIR$/target/classes/bl/implementation/Reserve.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/bl/implementation/Search.class" afterPath="$PROJECT_DIR$/target/classes/bl/implementation/Search.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/test-classes/test/ReserveTest.class" afterPath="$PROJECT_DIR$/target/test-classes/test/ReserveTest.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/test-classes/test/SearchTest.class" afterPath="$PROJECT_DIR$/target/test-classes/test/SearchTest.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/bl/implementation/Promotion.java" afterPath="$PROJECT_DIR$/src/main/java/bl/implementation/Promotion.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/bl/implementation/Reserve.java" afterPath="$PROJECT_DIR$/src/main/java/bl/implementation/Reserve.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/bl/implementation/Search.java" afterPath="$PROJECT_DIR$/src/main/java/bl/implementation/Search.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/data/stub/HotelDataStub.java" afterPath="$PROJECT_DIR$/src/main/java/data/stub/HotelDataStub.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/data/stub/RoomDataStub.java" afterPath="$PROJECT_DIR$/src/main/java/data/stub/RoomDataStub.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/test/java/test/HotelTest.java" afterPath="$PROJECT_DIR$/src/test/java/test/HotelTest.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/test/java/test/ReserveTest.java" afterPath="$PROJECT_DIR$/src/test/java/test/ReserveTest.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/test/java/test/SearchTest.java" afterPath="$PROJECT_DIR$/src/test/java/test/SearchTest.java" />
-    </list>
+    <list default="true" id="a9f0de73-1128-483a-bbb9-a1105de32882" name="Default" comment="" />
     <ignored path="Client.iws" />
     <ignored path=".idea/workspace.xml" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -801,7 +787,7 @@
       <workItem from="1481698720975" duration="8000" />
       <workItem from="1481783963389" duration="3009000" />
       <workItem from="1481788134543" duration="5563000" />
-      <workItem from="1481866867302" duration="3240000" />
+      <workItem from="1481866867302" duration="3315000" />
     </task>
     <servers />
   </component>
@@ -838,7 +824,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="145832000" />
+    <option name="totallyTimeSpent" value="145907000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -861,7 +847,7 @@
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32967034" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.38979593" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.38979593" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
