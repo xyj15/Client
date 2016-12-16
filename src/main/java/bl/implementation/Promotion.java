@@ -217,7 +217,7 @@ public class Promotion implements PromotionBLService {
 	 * 从Data层更新数据，hotelID为null时更新网站营销策略列表，hotelID不为null时更新酒店营销策略列表
 	 */
 	public void updateDataFromFile() {
-		promotionList = new ArrayList<PromotionVO>();
+		promotionList = new ArrayList<>();
 		ArrayList<PromotionPO> promotionPOList = promotionDataService.getPromotionList();
 		PromotionPO promotionPO;
 		PromotionVO promotionVO;
@@ -331,7 +331,7 @@ public class Promotion implements PromotionBLService {
 		Hotel hotel = new Hotel(hotelID);
 		Date today = new Date();
 		Rank rank = new Rank();
-		ArrayList<PromotionVO> availablePromotionList = new ArrayList<PromotionVO>();
+		ArrayList<PromotionVO> availablePromotionList = new ArrayList<>();
 		
 		PromotionVO promotionVO;
 		for(int i=0; i<promotionList.size(); i++) {

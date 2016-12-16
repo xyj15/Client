@@ -25,7 +25,6 @@ public class Member implements MemberBLService {
 	private String memberID;
 	private MemberVO memberVO;
 	private Credit credit;
-	private Order order;
 	
 	private MemberDataService memberDataService;
 	
@@ -152,7 +151,8 @@ public class Member implements MemberBLService {
 	 */
 	@Override
 	public ArrayList<HotelVO> getReservedHotelList() {
-		ArrayList<String> hotelIDList = new ArrayList<String>();
+		Order order = new Order(memberID);
+		ArrayList<String> hotelIDList = new ArrayList<>();
 		ArrayList<OrderVO> excutedOrderList = order.getExcutedOrders();
 		for(int i=0; i<excutedOrderList.size(); i++) {
 			String hotelID = excutedOrderList.get(i).getHotelID();
@@ -161,7 +161,7 @@ public class Member implements MemberBLService {
 			}
 		}
 		
-		ArrayList<HotelVO> reservedHotelList = new ArrayList<HotelVO>();
+		ArrayList<HotelVO> reservedHotelList = new ArrayList<>();
 		Hotel hotel;
 		for(int i=0; i<hotelIDList.size(); i++) {
 			hotel = new Hotel(hotelIDList.get(i));
@@ -285,6 +285,8 @@ public class Member implements MemberBLService {
 	 * @return 删除成功则返回true，否则返回false
 	 */
 	public boolean deleteMember() {
+		this.credit = null;
+		this.memberVO = null;
 		return memberDataService.deleteMember(memberID);
 	}
 }

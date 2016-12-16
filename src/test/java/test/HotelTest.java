@@ -121,6 +121,7 @@ public class HotelTest {
 	@Test
 	public void reserveSingleRoom() throws Exception {
 		assertEquals(hotel.reserveSingleRoom(new Date(), "大床房"), true);
+		assertEquals(hotel.reserveSingleRoom(new Date(), "大床房"), true);
 		assertEquals(hotel.reserveSingleRoom(new Date(), "大床房"), false);
 		assertEquals(hotel.reserveSingleRoom(new Date(), "双床房"), true);
 		assertEquals(hotel.reserveSingleRoom(new Date(), "双床房"), false);
