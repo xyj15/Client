@@ -10,8 +10,9 @@ public class TableDataForVip {
     private final SimpleStringProperty discount = new SimpleStringProperty();
 
     public TableDataForVip(String district,String discount){
-        setDiscount(discount);
+
         setDistrict(district);
+        setDiscount(discount);
     }
 
     public void setDiscount(String discount) {

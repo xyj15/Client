@@ -31,8 +31,8 @@ public class Credit implements CreditBLService {
 	 */
     public Credit(String memberID) {
 		this.memberID = memberID;
-//		creditDataService = new CreditDataStub();
-		creditDataService = RemoteHelper.getInstance().getCreditDataService();
+		creditDataService = new CreditDataStub();
+//		creditDataService = RemoteHelper.getInstance().getCreditDataService();
 		updateDataFromFile();
     }
 	
@@ -102,7 +102,7 @@ public class Credit implements CreditBLService {
 	public void updateDataFromFile() {
 		credit = creditDataService.getCredit(memberID);
 		ArrayList<CreditChangePO> creditChangePOList = creditDataService.getCreditChange(memberID);
-		creditChangeList = new ArrayList<CreditChangeVO>();
+		creditChangeList = new ArrayList<>();
 		for(int i=0; i<creditChangePOList.size(); i++) {
 			CreditChangePO creditChangePO = creditChangePOList.get(i);
 			Date date = creditChangePO.getDate();

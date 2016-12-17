@@ -29,8 +29,8 @@ public class Manager implements ManagerBLService {
 	 * 构造方法
 	 */
 	public Manager() {
-//		managerDataService = new ManagerDataStub();
-		managerDataService = RemoteHelper.getInstance().getManagerDataService();
+		managerDataService = new ManagerDataStub();
+//		managerDataService = RemoteHelper.getInstance().getManagerDataService();
 		login = new Login();
 	}
 	

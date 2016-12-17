@@ -3,6 +3,7 @@ package bl.implementation;
 import data.service.MemberDataService;
 import bl.service.MemberBLService;
 
+import data.stub.MemberDataStub;
 import other.MemberType;
 import po.MemberPO;
 import rmi.RemoteHelper;
@@ -24,7 +25,6 @@ public class Member implements MemberBLService {
 	private String memberID;
 	private MemberVO memberVO;
 	private Credit credit;
-	private Order order;
 	
 	private MemberDataService memberDataService;
 	
@@ -32,7 +32,8 @@ public class Member implements MemberBLService {
 	 * 注册用户时使用这个构造方法，分配一个可用的ID
 	 */
 	public Member(MemberVO memberVO) {
-		memberDataService = RemoteHelper.getInstance().getMemberDataService();
+//		memberDataService = RemoteHelper.getInstance().getMemberDataService();
+		memberDataService = new MemberDataStub();
 		this.memberID = memberDataService.getAvailableMemberID();
 		memberVO.setUserID(memberID);
 		this.memberVO = memberVO;
@@ -48,7 +49,8 @@ public class Member implements MemberBLService {
 	 * @param memberID 客户ID
 	 */
 	public Member(String memberID) {
-		memberDataService = RemoteHelper.getInstance().getMemberDataService();
+//		memberDataService = RemoteHelper.getInstance().getMemberDataService();
+		memberDataService = new MemberDataStub();
 		this.memberID = memberID;
 		updateDataFromFile();
 	}
@@ -149,7 +151,8 @@ public class Member implements MemberBLService {
 	 */
 	@Override
 	public ArrayList<HotelVO> getReservedHotelList() {
-		ArrayList<String> hotelIDList = new ArrayList<String>();
+		Order order = new Order(memberID);
+		ArrayList<String> hotelIDList = new ArrayList<>();
 		ArrayList<OrderVO> excutedOrderList = order.getExcutedOrders();
 		for(int i=0; i<excutedOrderList.size(); i++) {
 			String hotelID = excutedOrderList.get(i).getHotelID();
@@ -158,7 +161,7 @@ public class Member implements MemberBLService {
 			}
 		}
 		
-		ArrayList<HotelVO> reservedHotelList = new ArrayList<HotelVO>();
+		ArrayList<HotelVO> reservedHotelList = new ArrayList<>();
 		Hotel hotel;
 		for(int i=0; i<hotelIDList.size(); i++) {
 			hotel = new Hotel(hotelIDList.get(i));
@@ -222,8 +225,12 @@ public class Member implements MemberBLService {
 	 * @return 更新成功则返回true，否则返回false
 	 */
 	public boolean updateDataFromFile() {
+		if(memberDataService.getMember(memberID)==null) {
+			return false;
+		}
+		
 		credit = new Credit(memberID);
-		order = new Order(memberID);
+//		order = new Order(memberID);
 		memberVO = memberPOtoVO(memberDataService.getMember(memberID));
 		Rank rank = new Rank();
 		int level = rank.getLevel(credit.getCredit());
@@ -278,6 +285,8 @@ public class Member implements MemberBLService {
 	 * @return 删除成功则返回true，否则返回false
 	 */
 	public boolean deleteMember() {
+		this.credit = null;
+		this.memberVO = null;
 		return memberDataService.deleteMember(memberID);
 	}
 }

@@ -27,8 +27,8 @@ public class Room implements RoomBLService {
 	 */
 	public Room(String hotelID) {
 		this.hotelID = hotelID;
-		roomDataService = RemoteHelper.getInstance().getRoomDataService();
-//		roomDataService = new RoomDataStub();
+//		roomDataService = RemoteHelper.getInstance().getRoomDataService();
+		roomDataService = new RoomDataStub();
 	}
 	
 	/**
@@ -135,7 +135,7 @@ public class Room implements RoomBLService {
 	@Override
 	public ArrayList<RoomVO> getDailyRoomList(Date date) {
 		ArrayList<RoomPO> roomPOList = roomDataService.getRoomsByDate(date, hotelID);
-		ArrayList<RoomVO> roomVOList = new ArrayList<RoomVO>();
+		ArrayList<RoomVO> roomVOList = new ArrayList<>();
 		for(int i=0; i<roomPOList.size(); i++) {
 			roomVOList.add(roomPOtoVO(roomPOList.get(i)));
 		}

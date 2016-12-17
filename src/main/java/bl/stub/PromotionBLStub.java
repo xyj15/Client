@@ -2,7 +2,6 @@ package bl.stub;
 
 import java.util.ArrayList;
 import java.util.Date;
-
 import bl.service.PromotionBLService;
 import other.PromotionType;
 import vo.PromotionVO;
@@ -57,6 +56,7 @@ public class PromotionBLStub implements PromotionBLService {
 	@Override
 	public ArrayList<PromotionVO> getWebPromotionList() {
 		System.out.println("获取网站促销策略列表成功");
+
 		ArrayList<PromotionVO> promotionList = new ArrayList<PromotionVO>();
 		promotionList.add(promotionVO);
 		return promotionList;
@@ -65,8 +65,15 @@ public class PromotionBLStub implements PromotionBLService {
 	@Override
 	public ArrayList<PromotionVO> getDistrictPromotionList() {
 		System.out.println("获取商圈营销策略列表成功");
+		PromotionVO districtPromotion1=new PromotionVO();
+		districtPromotion1.setDistrict("新街口");
+		districtPromotion1.setDiscount(8.8);
+		PromotionVO districtPromotion2=new PromotionVO();
+		districtPromotion2.setDistrict("仙林");
+		districtPromotion2.setDiscount(9);
 		ArrayList<PromotionVO> promotionList = new ArrayList<PromotionVO>();
-		promotionList.add(promotionVO);
+		promotionList.add(districtPromotion1);
+		promotionList.add(districtPromotion2);
 		return promotionList;
 	}
 	
@@ -81,8 +88,19 @@ public class PromotionBLStub implements PromotionBLService {
 	@Override
 	public ArrayList<PromotionVO> getWebDatePromotionList() {
 		System.out.println("获取网站的特定日期营销策略列表成功");
+		PromotionVO promotion1=new PromotionVO();
+		promotion1.setPromotionName("庆祝我出生");
+		promotion1.setStartDate(new Date(1992-1995,2,2));
+		promotion1.setEndDate(new Date(1996-1995,3,3));
+		promotion1.setDiscount(8.8);
+		PromotionVO promotion2=new PromotionVO();
+		promotion2.setPromotionName("双三二");
+		promotion2.setStartDate(new Date(2005-1995,2,2));
+		promotion2.setEndDate(new Date(2006-1995,3,3));
+		promotion2.setDiscount(9);
 		ArrayList<PromotionVO> promotionList = new ArrayList<PromotionVO>();
-		promotionList.add(promotionVO);
+		promotionList.add(promotion1);
+		promotionList.add(promotion2);
 		return promotionList;
 	}
 	

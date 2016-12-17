@@ -2,6 +2,7 @@ package bl.implementation;
 
 import bl.service.OrderBLService;
 import data.service.OrderDataService;
+import data.stub.OrderDataStub;
 import other.OrderAction;
 import other.OrderStatus;
 import po.OrderPO;
@@ -31,7 +32,8 @@ public class Order implements OrderBLService {
 	 */
 	public Order(String userID) {
 		this.userID = userID;
-		orderDataService = RemoteHelper.getInstance().getOrderDataService();
+		orderDataService = new OrderDataStub();
+//		orderDataService = RemoteHelper.getInstance().getOrderDataService();
 		updateDataFromFile();
 	}
 	
@@ -159,7 +161,12 @@ public class Order implements OrderBLService {
 		}
 		
 		OrderVO orderVO = orderList.get(index);
+		if(orderVO.getOrderStatus()!=OrderStatus.Abnormal) {
+			return false;
+		}
+		
 		orderVO.setOrderStatus(OrderStatus.Executed);
+		orderVO.setActualCheckinTime(new Date());
 		orderVO.setRecover(recover);
 		orderList.set(index, orderVO);
 		OrderPO orderPO = orderVOtoPO(orderVO);
@@ -178,12 +185,12 @@ public class Order implements OrderBLService {
 	 */
 	public void updateDataFromFile() {
 		ArrayList<OrderPO> orderPOArrayList = orderDataService.getOrderList(userID);
-		orderList = new ArrayList<OrderVO>();
+		orderList = new ArrayList<>();
 		OrderPO orderPO;
 		OrderVO orderVO;
 		Hotel hotel;
 		Member member;
-		for(int i=0; i<orderList.size(); i++) {
+		for(int i=0; i<orderPOArrayList.size(); i++) {
 			orderPO = orderPOArrayList.get(i);
 			orderVO = orderPOtoVO(orderPO);
 			hotel = new Hotel(orderVO.getHotelID());
@@ -192,7 +199,7 @@ public class Order implements OrderBLService {
 			orderVO.setMemberVO(member.getMemberInformation());
 			orderList.add(orderVO);
 		}
-		updateAbnormalOrder();
+//		updateAbnormalOrder();
 	}
 	
 	/**
@@ -202,7 +209,7 @@ public class Order implements OrderBLService {
 	 * @return 过滤后的订单列表
 	 */
 	public ArrayList<OrderVO> filterList(ArrayList<OrderVO> orderList, OrderStatus orderStatus) {
-		ArrayList<OrderVO> orderVOArrayList = new ArrayList<OrderVO>();
+		ArrayList<OrderVO> orderVOArrayList = new ArrayList<>();
 		OrderVO orderVO;
 		for(int i=0; i<orderList.size(); i++) {
 			orderVO = orderList.get(i);
@@ -315,8 +322,10 @@ public class Order implements OrderBLService {
 	 * @return 创建成功则返回true，否则返回false
 	 */
 	public boolean createOrder(OrderVO orderVO) {
+		orderVO.setMemberID(userID);
 		String orderID = getNewOrderID(userID);
 		orderVO.setOrderID(orderID);
+		orderList.add(orderVO);
 		return orderDataService.addOrder(orderVOtoPO(orderVO));
 	}
 	
@@ -344,7 +353,7 @@ public class Order implements OrderBLService {
 	public void updateAbnormalOrder() {
 		for(int i=0; i<orderList.size(); i++) {
 			OrderVO orderVO = orderList.get(i);
-			if(orderVO.getLatestCheckinTime().after(new Date())) {
+			if(orderVO.getLatestCheckinTime().before(new Date())) {
 				orderVO.setOrderStatus(OrderStatus.Abnormal);
 				
 				Credit credit = new Credit(orderVO.getMemberID());

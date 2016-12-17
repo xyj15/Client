@@ -17,14 +17,12 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
-import other.PromotionType;
-import other.TableDataForSalerAbnormalOrder;
-import other.TableDataForSalerPromotion;
-import other.TableDataForVip;
+import other.*;
 import ui.presentation.*;
 import vo.OrderVO;
 import vo.PromotionVO;
 
+import java.text.SimpleDateFormat;
 import java.time.ZoneId;
 import java.util.ArrayList;
 import java.util.Date;
@@ -84,18 +82,20 @@ public class PromotionController {
     private TextField dateDiscountUpdate=new TextField();
     @FXML
     private DatePicker checkOutDateUpdate=new DatePicker();
-
+    @FXML
+    private TableView rankTable=new TableView();
 
     @FXML
     private void onPromotion() throws Exception{
-        System.out.print(0);
         new SalerPromotionUI().start(primaryStage);
+        TableView promotionTable = (TableView)root.lookup("#promotionTable");
         ObservableList<TableDataForSalerPromotion> dataForSalerPromotion = FXCollections.observableArrayList();
         ObservableList<TableColumn> tableList = promotionTable.getColumns();
-        ArrayList<PromotionVO> list = saler.getPromotionList();
-        for(int i=0;i<list.size();i++){
-            dataForSalerPromotion.add(new TableDataForSalerPromotion(list.get(i).getPromotionName(),list.get(i).getStartDate().toString(),
-                    list.get(i).getEndDate().toString(),""+list.get(i).getDiscount()));
+        ArrayList<PromotionVO> list = promotion.getWebDatePromotionList();
+        SimpleDateFormat sdf=new SimpleDateFormat("yyyy-MM-dd");
+       for(int i=0;i<list.size();i++){
+            dataForSalerPromotion.add(new TableDataForSalerPromotion(list.get(i).getPromotionName(),sdf.format(list.get(i).getStartDate()),
+                    sdf.format(list.get(i).getEndDate()),""+list.get(i).getDiscount()));
         }
         tableList.get(0).setCellValueFactory(new PropertyValueFactory("name"));
         tableList.get(1).setCellValueFactory(new PropertyValueFactory("startDate"));
@@ -103,12 +103,12 @@ public class PromotionController {
         tableList.get(3).setCellValueFactory(new PropertyValueFactory("discount"));
         promotionTable.setItems(dataForSalerPromotion);
 
-
     }
 
     @FXML
     private void onAbnormal(ActionEvent E) throws Exception{
         new SalerAbnormalOrderUI().start(primaryStage);
+        TableView rankTable = (TableView)root.lookup("#AbnormalOrderTable");
         ObservableList<TableDataForSalerAbnormalOrder> dataForSalerAbnormalOrder = FXCollections.observableArrayList();
         ObservableList<TableColumn> tableList = AbnormalOrderTable.getColumns();
         ArrayList<OrderVO> list = saler.getDailyUnexcutedOrderList();
@@ -124,16 +124,16 @@ public class PromotionController {
     @FXML
     private void onRank(ActionEvent E) throws Exception{
         new SalerVIPUI().start(primaryStage);
-        TableView table = (TableView) root.lookup("#table");
-        ObservableList<TableDataForVip> dataForVip = FXCollections.observableArrayList();
-        ObservableList<TableColumn> tableList = table.getColumns();
-        ArrayList<PromotionVO> list = promotion .getDistrictPromotionList();
-        for(int i=0;i<list.size();i++){
-            dataForVip.add(new TableDataForVip(list.get(i).getDistrict(),String.valueOf(list.get(i).getDiscount())));
+        TableView rankTable = (TableView)root.lookup("#rankTable");
+        ObservableList<TableData> dataForVip = FXCollections.observableArrayList();
+        ObservableList<TableColumn> tableList = rankTable.getColumns();
+        ArrayList<PromotionVO> list = promotion.getDistrictPromotionList();
+        for(int i=0;i<list.size();i++) {
+            dataForVip.add(new TableData(list.get(i).getDistrict(), String.valueOf(list.get(i).getDiscount())));
         }
-        tableList.get(0).setCellValueFactory(new PropertyValueFactory("district"));
-        tableList.get(1).setCellValueFactory(new PropertyValueFactory("discount"));
-        table.setItems(dataForVip);
+        tableList.get(0).setCellValueFactory(new PropertyValueFactory("first"));
+        tableList.get(1).setCellValueFactory(new PropertyValueFactory("second"));
+        rankTable.setItems(dataForVip);
     }
     @FXML
     private void onCredit(ActionEvent E) throws Exception{
@@ -161,7 +161,7 @@ public class PromotionController {
         new SalerUpdatePromotionUI().start(minprimaryStage);
     }
     @FXML
-    private void confirmAUpdatePromotion(ActionEvent E) throws Exception{
+    private void confirmUpdatePromotion(ActionEvent E) throws Exception{
         int i=promotionTable.getSelectionModel().getFocusedIndex();
         ArrayList<PromotionVO> list = promotion.getWebDatePromotionList();
         PromotionVO promotion=list.get(i);

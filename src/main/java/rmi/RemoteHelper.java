@@ -14,6 +14,7 @@ import java.rmi.RemoteException;
 public class RemoteHelper {
 	
 	private Remote remote;
+	private boolean connected = false;
 	private static RemoteHelper remoteHelper = new RemoteHelper();
 	
 	public static RemoteHelper getInstance(){
@@ -66,22 +67,32 @@ public class RemoteHelper {
 	
 	public boolean connect() {
 		try {
-			remote = Naming.lookup("rmi://localhost:8888/DataRemoteObject");
+			remote = Naming.lookup("rmi://localhost:3304/DataRemoteObject");
+			connected = true;
 			return true;
 		} catch (RemoteException e) {
 			e.printStackTrace();
+			connected = false;
 			return false;
 		} catch (NotBoundException e) {
 			e.printStackTrace();
+			connected = false;
 			return false;
 		} catch (MalformedURLException e) {
 			e.printStackTrace();
+			connected = false;
 			return false;
 		}
+	}
+	
+	public boolean isConnected() {
+		return connected;
 	}
 	
 	public static void main(String[] args) {
 		RemoteHelper remoteHelper = RemoteHelper.getInstance();
 		System.out.println(remoteHelper.connect());
+		
+		System.out.println(remoteHelper.getMemberDataService().getAvailableMemberID());
 	}
 }

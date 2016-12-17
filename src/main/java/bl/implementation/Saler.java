@@ -34,8 +34,8 @@ public class Saler implements SalerBLService {
 	 * 增加新的营销人员调用这个构造方法
 	 */
 	public Saler(SalerVO salerVO) {
-//		salerDataService = new SalerDataStub();
-		salerDataService = RemoteHelper.getInstance().getSalerDataService();
+		salerDataService = new SalerDataStub();
+//		salerDataService = RemoteHelper.getInstance().getSalerDataService();
 		salerVO.setUserID(salerDataService.getAvailableSalerID());
 		this.salerID = salerVO.getUserID();
 		salerDataService.addSaler(salerVOtoPO(salerVO));
@@ -46,8 +46,8 @@ public class Saler implements SalerBLService {
 	 * @param salerID 营销人员ID
 	 */
 	public Saler(String salerID) {
-//		salerDataService = new SalerDataStub();
-		salerDataService = RemoteHelper.getInstance().getSalerDataService();
+		salerDataService = new SalerDataStub();
+//		salerDataService = RemoteHelper.getInstance().getSalerDataService();
 		this.salerID = salerID;
 		updateDataFromFile();
 	}
@@ -164,7 +164,7 @@ public class Saler implements SalerBLService {
 	@Override
 	public ArrayList<OrderVO> getDailyUnexcutedOrderList() {
 		updateDataFromFile();
-		ArrayList<OrderVO> orderList = new ArrayList<OrderVO>();
+		ArrayList<OrderVO> orderList = new ArrayList<>();
 		ArrayList<OrderVO> dailyAbnormalOrderList = order.getAbnormalOrders();
 		ArrayList<OrderVO> dailyUnexcutedOrderList = order.getUnexcutedOrders();
 		orderList.addAll(dailyAbnormalOrderList);
@@ -181,7 +181,7 @@ public class Saler implements SalerBLService {
 	@Override
 	public boolean cancelAbnormalOrder(String orderID, double recover) {
 		updateDataFromFile();
-		return cancelAbnormalOrder(orderID, recover);
+		return order.cancelAbnormalOrder(orderID, recover);
 	}
 	
 	/**
@@ -192,6 +192,10 @@ public class Saler implements SalerBLService {
 	 */
 	@Override
 	public boolean creditRecharge(String memberID, double money) {
+		if(money==0 || memberID.length()!=8) {
+			return false;
+		}
+		
 		updateDataFromFile();
 		credit = new Credit(memberID);
 		Date date = new Date();
@@ -207,12 +211,16 @@ public class Saler implements SalerBLService {
 	/**
 	 * 从Data层更新数据
 	 */
-	public void updateDataFromFile() {
+	public boolean updateDataFromFile() {
+		if(salerDataService.getSaler(salerID)==null) {
+			return false;
+		}
 		promotion = new Promotion();
 		order = new Order(salerID);
 		SalerPO salerPO = salerDataService.getSaler(salerID);
 		salerVO = salerPOtoVO(salerPO);
 		rank = new Rank();
+		return true;
 	}
 	
 	/**
@@ -220,6 +228,10 @@ public class Saler implements SalerBLService {
 	 * @return 删除成功则返回true，否则返回false
 	 */
 	public boolean deleteSaler() {
+		salerVO = null;
+		promotion = null;
+		order = null;
+		rank = null;
 		return salerDataService.deleteSaler(salerID);
 	}
 	
