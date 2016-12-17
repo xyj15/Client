@@ -6,15 +6,14 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 import ui.controller.HotelController;
-import ui.controller.PromotionController;
 
 /**
- * Created by 婧婧 on 2016/12/1.
+ * Created by 97147 on 2016/12/18.
  */
-public class HotelAddRoomUI extends Application {
+public class HotelChangeRoomUI  extends Application {
     @Override
     public void start(Stage primaryStage)throws Exception{
-        Parent root = FXMLLoader.load(getClass().getResource("HotelAddRoom.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("HotelChangeRoom.fxml"));
         HotelController.setMinprimaryStage(primaryStage);
         HotelController.setMinroot(root);
         Scene myScene = new Scene(root,318,538);

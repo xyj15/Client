@@ -51,19 +51,6 @@
             <Font name="Microsoft YaHei Bold" size="16.0" />
          </font>
       </Button>
-      <ScrollPane layoutX="307.0" layoutY="139.0" opacity="0.57" prefHeight="325.0" prefWidth="591.0" style="-fx-background-color: #000f32;">
-         <content>
-            <TableView fx:id="table" prefHeight="327.0" prefWidth="577.0" style="-fx-background-color: #000f32;" stylesheets="@TableView.css">
-               <columns>
-                  <TableColumn prefWidth="122.0" style="-fx-background-color: #000f32;" text="订单号" />
-                  <TableColumn prefWidth="115.0" style="-fx-background-color: #000f32;" text="酒店名称" />
-                  <TableColumn minWidth="9.0" prefWidth="90.0" style="-fx-background-color: #000f32;" text="价格" />
-                  <TableColumn prefWidth="90.0" style="-fx-background-color: #000f32;" text="评分" />
-                  <TableColumn minWidth="0.0" prefWidth="159.0" style="-fx-background-color: #000f32;" text="酒店联系方式" />
-               </columns>
-            </TableView>
-         </content>
-      </ScrollPane>
       <Label layoutX="910.0" layoutY="40.0" text="注销" textFill="WHITE" fx:id="x">
          <font>
             <Font name="Microsoft YaHei Bold" size="16.0" />
@@ -80,5 +67,13 @@
             <Font name="Microsoft YaHei Bold" size="16.0" />
          </font>
       </Button>
+      <TableView fx:id="table" layoutX="291.0" layoutY="141.0" opacity="0.8" prefHeight="327.0" prefWidth="651.0" style="-fx-background-color: #000f32;" stylesheets="@TableView.css">
+         <columns>
+            <TableColumn prefWidth="152.0" style="-fx-background-color: #000f32;" text="酒店名称" />
+            <TableColumn minWidth="9.0" prefWidth="105.0" style="-fx-background-color: #000f32;" text="星级" />
+            <TableColumn minWidth="0.0" prefWidth="194.0" style="-fx-background-color: #000f32;" text="地址" />
+            <TableColumn maxWidth="1.7976931348623157E308" minWidth="0.0" prefWidth="193.0" style="-fx-background-color: #000f32;" text="酒店联系方式" />
+         </columns>
+      </TableView>
    </children>
 </AnchorPane>

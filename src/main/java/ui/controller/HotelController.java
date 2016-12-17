@@ -20,7 +20,9 @@ import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import javafx.util.Callback;
 import other.PromotionType;
+import other.RoomType;
 import other.TableData;
+import other.roomTypeChoice;
 import ui.presentation.*;
 import vo.HotelVO;
 import vo.OrderVO;
@@ -241,10 +243,31 @@ public class HotelController {
     @FXML
     private void onDelayOrder(ActionEvent E)throws Exception {
         TableView table = (TableView) root.lookup("#table");
-        list = order.getUnexcutedOrders();
-//        hotel.delay(list.get(table.getSelectionModel().getFocusedIndex()).getOrderID(),list.get(table.getSelectionModel().getFocusedIndex()));
-        minprimaryStage = new Stage();
-        new HotelDelayOrderUI().start(minprimaryStage);
+        list = order.getAbnormalOrders();
+        temOrder = list.get(table.getSelectionModel().getSelectedIndex());
+        midprimaryStage = new Stage();
+        new HotelRoomChoiceUI().start(midprimaryStage);
+        table = (TableView) midroot.lookup("#table");
+        Label totalNum = (Label)midroot.lookup("#totalNum");
+        Label unNum = (Label)midroot.lookup("#unNum");
+        totalNum.setText(""+temOrder.getNumberOfRoom());
+        unNum.setText(""+(temOrder.getNumberOfRoom()-count));
+        RoomList = room.getAvailableRoomByName(temOrder.getCheckinTime(),temOrder.getRoomName());
+        ObservableList<TableData> dataForH
+                = FXCollections.observableArrayList();
+        ObservableList<TableColumn> tableList = table.getColumns();
+        for(int i=0;i<RoomList.size();i++){
+            dataForH.add(new TableData(RoomList.get(i).getRoomNumber(),RoomList.get(i).getRoomName()));
+        }
+        tableList.get(0).setCellValueFactory(new PropertyValueFactory("first"));
+        tableList.get(1).setCellValueFactory(new PropertyValueFactory("second"));
+        tableList.get(2).setCellFactory(new Callback<TableColumn<TableData,Boolean>, TableCell<TableData,Boolean>>() {
+            @Override
+            public TableCell call(TableColumn param) {
+                return new d();
+            }
+        });
+        table.setItems(dataForH);
     }
     @FXML
     private void onCheckin() throws Exception {
@@ -274,7 +297,7 @@ public class HotelController {
         });
 
         table.setItems(dataForH);
-        count++;
+
     }
     class c extends TableCell<TableData,Boolean>{
         private Button button=new Button("入住");
@@ -284,9 +307,11 @@ public class HotelController {
                 int seletedIndex=getTableRow().getIndex();
                 RoomVO tem = RoomList.get(seletedIndex);
                 hotel.checkin(temOrder.getOrderID(),tem.getRoomNumber());
+                count++;
                 if(temOrder.getNumberOfRoom()!=count){
                     try{
                         midprimaryStage.close();
+
                         onCheckin();
 
                     }catch (Exception E){
@@ -301,12 +326,12 @@ public class HotelController {
                 }
             });
         }
-
         @Override
         protected void updateItem(Boolean t,boolean empty){
             super.updateItem(t,empty);
             if(empty){
                 setGraphic(null);
+                setText(null);
                 setText(null);
             }else{
                 setGraphic(button);
@@ -314,6 +339,53 @@ public class HotelController {
             }
 
         }
+    }
+    class d extends TableCell<TableData,Boolean> {
+        private Button button = new Button("入住");
+
+        public d() {
+//            button.setPrefSize();
+            button.setOnAction((ActionEvent e) -> {
+                int seletedIndex = getTableRow().getIndex();
+                RoomVO tem = RoomList.get(seletedIndex);
+                hotel.delay(temOrder.getOrderID(), tem.getRoomNumber());
+                count++;
+                if (temOrder.getNumberOfRoom() != count) {
+                    try {
+                        midprimaryStage.close();
+
+                        onDelayOrder(e);
+
+                    } catch (Exception E) {
+                        E.printStackTrace();
+                    }
+                } else {
+                    try {
+                        onAbnormalOrder(e);
+                    } catch (Exception E) {
+                        E.printStackTrace();
+                    }
+                }
+            });
+        }
+        @Override
+        protected void updateItem(Boolean t, boolean empty) {
+            super.updateItem(t, empty);
+            if (empty) {
+                setGraphic(null);
+                setText(null);
+            } else {
+                setGraphic(button);
+                setText(null);
+            }
+
+        }
+    }
+    @FXML
+    private void onCheckOut(ActionEvent E)throws Exception {
+        TableView table = (TableView) root.lookup("#table");
+        OrderVO tem = list.get(table.getSelectionModel().getSelectedIndex());
+//        hotel.checkout()
     }
     @FXML
     private void onPromotionManager(ActionEvent E)throws Exception {
@@ -462,13 +534,89 @@ public class HotelController {
         minprimaryStage.close();
         onCompanyPromotion(E);
     }
-    @FXML
+    @FXML    //传日期的问题
     private void onRoomManager(ActionEvent E)throws Exception {
         new HotelRoomUI().start(primaryStage);
+        TableView table = (TableView) root.lookup("#table");
+        ObservableList<TableData> dataForMInfor
+                = FXCollections.observableArrayList();
+        ObservableList<TableColumn> tableList = table.getColumns();
+        ArrayList<RoomVO> list = room.getDailyRoomList(new Date());
+        for(int i=0;i<list.size();i++){
+            dataForMInfor.add(new TableData(list.get(i).getRoomNumber(),list.get(i).getRoomName(),""+list.get(i).getRoomType(),""+list.get(i).getPrice()));
+        }
+        tableList.get(0).setCellValueFactory(new PropertyValueFactory("first"));
+        tableList.get(1).setCellValueFactory(new PropertyValueFactory("second"));
+        tableList.get(2).setCellValueFactory(new PropertyValueFactory("third"));
+        tableList.get(3).setCellValueFactory(new PropertyValueFactory("fourth"));
+        table.setItems(dataForMInfor);
     }
     @FXML
     private void onAddRoom(ActionEvent E)throws Exception {
-        new HotelAddRoomUI().start(primaryStage);
+        minprimaryStage = new Stage();
+        new HotelAddRoomUI().start(minprimaryStage);
+        ComboBox<roomTypeChoice> type =(ComboBox<roomTypeChoice>)minroot.lookup("#type");
+        type.getItems().clear();
+        type.getItems().add(new roomTypeChoice(RoomType.Single.toString()));
+        type.getItems().add(new roomTypeChoice(RoomType.BigBed.toString()));
+        type.getItems().add(new roomTypeChoice(RoomType.TwinBed.toString()));
+        type.getItems().add(new roomTypeChoice(RoomType.Suite.toString()));
+    }
+    @FXML
+    private void onSAdd(ActionEvent E)throws Exception {
+        TextField id = (TextField)minroot.lookup("#id");
+        TextField name = (TextField)minroot.lookup("#name");
+        TextField price = (TextField)minroot.lookup("#price");
+        ComboBox<roomTypeChoice> type =(ComboBox<roomTypeChoice>)root.lookup("#type");
+        room.addRoom(new RoomVO(true,true,id.getText().toString(),name.getText().toString(),
+                type.getSelectionModel().getSelectedItem().toRoomType(),
+                Double.parseDouble(price.getText().toString()),hotel.getHotelInformation().getUserID()));
+        minprimaryStage.close();
+        onRoomManager(E);
+    }
+    @FXML
+    private void onChangeRoom(ActionEvent E)throws Exception {
+        TableView table = (TableView) root.lookup("#table");
+        ArrayList<RoomVO> list = room.getDailyRoomList(new Date());
+        RoomVO tem =list.get(table.getSelectionModel().getSelectedIndex());
+        minprimaryStage = new Stage();
+        new HotelChangeRoomUI().start(minprimaryStage);
+        TextField id = (TextField)minroot.lookup("#id");
+        TextField name = (TextField)minroot.lookup("#name");
+        TextField price = (TextField)minroot.lookup("#price");
+        ComboBox<roomTypeChoice> type =(ComboBox<roomTypeChoice>)minroot.lookup("#type");
+        type.getItems().clear();
+        type.getItems().add(new roomTypeChoice(RoomType.Single.toString()));
+        type.getItems().add(new roomTypeChoice(RoomType.BigBed.toString()));
+        type.getItems().add(new roomTypeChoice(RoomType.TwinBed.toString()));
+        type.getItems().add(new roomTypeChoice(RoomType.Suite.toString()));
+        type.setValue(new roomTypeChoice(""+tem.getRoomType()));
+        id.setText(tem.getRoomNumber());
+        name.setText(tem.getRoomName());
+        price.setText(""+tem.getPrice());
+    }
+    @FXML
+    private void onSChange(ActionEvent E)throws Exception {
+        TextField name = (TextField)minroot.lookup("#name");
+        TextField price = (TextField)minroot.lookup("#price");
+        ComboBox<roomTypeChoice> type =(ComboBox<roomTypeChoice>)root.lookup("#type");
+        TableView table = (TableView) root.lookup("#table");
+        ArrayList<RoomVO> list = room.getDailyRoomList(new Date());
+        RoomVO tem =list.get(table.getSelectionModel().getSelectedIndex());
+        tem.setRoomName(name.getText().toString());
+        tem.setPrice(Double.parseDouble(price.getText().toString()));
+        tem.setRoomType(type.getSelectionModel().getSelectedItem().toRoomType());
+        room.updateRoom(new Date(),tem);
+        minprimaryStage.close();
+        onRoomManager(E);
+    }
+    @FXML
+    private void onDeleteRoom(ActionEvent E)throws Exception {
+        TableView table = (TableView) root.lookup("#table");
+        ArrayList<RoomVO> list = room.getDailyRoomList(new Date());
+        RoomVO tem =list.get(table.getSelectionModel().getSelectedIndex());
+        room.deleteRoom(tem.getRoomNumber());
+        onRoomManager(E);
     }
     @FXML
     private void onLogOut(ActionEvent E)throws Exception {

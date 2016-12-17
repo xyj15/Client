@@ -1,10 +1,12 @@
 package ui.presentation;
 
+import bl.implementation.Hotel;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+import ui.controller.HotelController;
 import ui.controller.PromotionController;
 
 /**
@@ -14,7 +16,8 @@ public class HotelRoomUI extends Application {
     @Override
     public void start(Stage primaryStage)throws Exception{
         Parent root = FXMLLoader.load(getClass().getResource("HotelRoom.fxml"));
-        PromotionController.setPrimaryStage(primaryStage);
+        HotelController.setPrimaryStage(primaryStage);
+        HotelController.setRoot(root);
         Scene myScene = new Scene(root,960,540);
         primaryStage.setResizable(false);
         primaryStage.setScene(myScene);

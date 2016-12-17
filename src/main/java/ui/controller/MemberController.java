@@ -199,27 +199,26 @@ public class MemberController{
             order.evaluateOrder(list.get(table.getSelectionModel().getSelectedIndex()).getOrderID(),
                     Double.parseDouble(score.getText().toString()),textArea.getText().toString());
             minprimaryStage.close();
-        }//else 要做
+        }//else 要做你已经评价过
     }
     @FXML
     private void onPastHotel(ActionEvent E)throws Exception {
         new MemberHisitoryHotelUI().start(primaryStage);
-//        TableView table = (TableView) root.lookup("#table");
-//        ObservableList<TableData> dataForMInfor
-//                = FXCollections.observableArrayList();
-//        ObservableList<TableColumn> tableList = table.getColumns();
-//        ArrayList<HotelVO> list = member.getReservedHotelList();
-//        for(int i=list.size()-1;i>=0;i--){
-//            dataForMInfor.add(new TableData(list.get(i).getOrderID(),dateTem,
-//                    list.get(i).getOrderAction().toString(),""+list.get(i).getChange(),""+list.get(i).getResult()));
-//        }
-//
-//        tableList.get(0).setCellValueFactory(new PropertyValueFactory("first"));
-//        tableList.get(1).setCellValueFactory(new PropertyValueFactory("second"));
-//        tableList.get(2).setCellValueFactory(new PropertyValueFactory("third"));
-//        tableList.get(3).setCellValueFactory(new PropertyValueFactory("fourth"));
-//        tableList.get(4).setCellValueFactory(new PropertyValueFactory("fifth"));
-//        table.setItems(dataForMInfor);
+        TableView table = (TableView) root.lookup("#table");
+        ObservableList<TableData> dataForMInfor
+                = FXCollections.observableArrayList();
+        ObservableList<TableColumn> tableList = table.getColumns();
+        ArrayList<HotelVO> list = member.getReservedHotelList();
+        for(int i=list.size()-1;i>=0;i--){
+            dataForMInfor.add(new TableData(list.get(i).getName(),""+list.get(i).getLevel(),
+                    list.get(i).getAddress(),list.get(i).getManagerTel()));
+        }
+
+        tableList.get(0).setCellValueFactory(new PropertyValueFactory("first"));
+        tableList.get(1).setCellValueFactory(new PropertyValueFactory("second"));
+        tableList.get(2).setCellValueFactory(new PropertyValueFactory("third"));
+        tableList.get(3).setCellValueFactory(new PropertyValueFactory("fourth"));
+        table.setItems(dataForMInfor);
 
     }
     @FXML
