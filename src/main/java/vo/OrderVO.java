@@ -35,7 +35,7 @@ public class OrderVO {
 	
 	private MemberVO memberVO;	//客户信息
 	private HotelVO hotelVO;	//酒店信息
-	private ArrayList<RoomVO> roomList;
+	private ArrayList<RoomVO> roomList = new ArrayList<>();
 	
 	/**
 	 * 空构造方法
