@@ -33,7 +33,11 @@ public class RoomBLStub implements RoomBLService {
 		System.out.println("获取客房列表成功");
 		ArrayList<RoomVO> roomList = new ArrayList<>();
 		RoomVO roomVO = new RoomVO(true, false, "301", "海景大床房", RoomType.BigBed, 500, "000000");
+		RoomVO roomVO1 = new RoomVO(true, false, "222", "海景大床房", RoomType.BigBed, 100, "111110");
+		RoomVO roomVO2 = new RoomVO(true, false, "333", "海景大床房", RoomType.BigBed, 5111, "0555550");
 		roomList.add(roomVO);
+		roomList.add(roomVO1);
+		roomList.add(roomVO2);
 		return roomList;
 	}
 	

@@ -237,7 +237,6 @@ public class MemberController{
         TextField tel = (TextField)midroot.lookup("#tel");
         TextField hotelname = (TextField)midroot.lookup("#hotelname");
         TextField hotelAddress = (TextField)midroot.lookup("#hotelAddress");
-        TextField roomType = (TextField)midroot.lookup("#roomType");
         TextField nameOfRoom = (TextField)midroot.lookup("#nameOfRoom");
         TextField numOfRoom = (TextField)midroot.lookup("#numOfRoom");
         TextField state = (TextField)midroot.lookup("#state");
@@ -258,7 +257,6 @@ public class MemberController{
         tel.setText(tem.getMemberVO().getTel());
         hotelname.setText(tem.getHotelVO().getName());
         hotelAddress.setText(tem.getHotelVO().getAddress());
-//        roomType.setText(tem.ge);
         nameOfRoom.setText(tem.getRoomName());
         numOfRoom.setText(""+tem.getNumberOfRoom());
         state.setText(tem.getOrderStatus().toString());

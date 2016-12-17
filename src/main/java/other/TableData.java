@@ -1,6 +1,8 @@
 package other;
 
 import javafx.beans.property.SimpleStringProperty;
+import javafx.scene.control.CheckBox;
+import javafx.scene.control.RadioButton;
 
 /**
  * Created by 97147 on 2016/12/8.
@@ -11,6 +13,12 @@ public class TableData {
     private final SimpleStringProperty third = new SimpleStringProperty();
     private final SimpleStringProperty fourth = new SimpleStringProperty();
     private final SimpleStringProperty fifth = new SimpleStringProperty();
+
+//    public TableData(String  first, String second){
+//        setFirst(first);
+//        setSecond(second);
+//    }
+
     public TableData(String  first, String second){
         setFirst(first);
         setSecond(second);
