@@ -25,7 +25,7 @@ public class HotelQuickSortTest {
 	
 	@Before
 	public void setup() {
-		hotelArrayList = new ArrayList<HotelVO>();
+		hotelArrayList = new ArrayList<>();
 		for(int i=0; i<4; i++) {
 			hotelArrayList.add(new HotelVO());
 			hotelArrayList.get(i).setLevel(level[i]);

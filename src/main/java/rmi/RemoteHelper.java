@@ -67,7 +67,7 @@ public class RemoteHelper {
 	
 	public boolean connect() {
 		try {
-			remote = Naming.lookup("rmi://localhost:8888/DataRemoteObject");
+			remote = Naming.lookup("rmi://localhost:3304/DataRemoteObject");
 			connected = true;
 			return true;
 		} catch (RemoteException e) {
@@ -92,5 +92,7 @@ public class RemoteHelper {
 	public static void main(String[] args) {
 		RemoteHelper remoteHelper = RemoteHelper.getInstance();
 		System.out.println(remoteHelper.connect());
+		
+		System.out.println(remoteHelper.getMemberDataService().getAvailableMemberID());
 	}
 }

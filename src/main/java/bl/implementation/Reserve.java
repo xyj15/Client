@@ -17,7 +17,7 @@ public class Reserve implements ReserveBLService {
 	private String memberID;	//客户ID
 	private String hotelID;	//目标酒店ID
 
-	private ArrayList<PromotionVO> availablePromotionList;
+	private ArrayList<PromotionVO> availablePromotionList;	//可用的营销策略列表
 	private Promotion promotion;	//营销策略信息
 	private PromotionVO promotionVO;	//使用的促销策略
 	private Hotel hotel;	//目标酒店信息
@@ -90,8 +90,7 @@ public class Reserve implements ReserveBLService {
 	 */
 	@Override
 	public ArrayList<PromotionVO> getPromotionList() {
-		promotion.updateDataFromFile();
-		return promotion.getWebPromotionList();
+		return availablePromotionList;
 	}
 	
 	/**

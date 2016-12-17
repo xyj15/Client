@@ -23,8 +23,8 @@ public class HotelDataStub implements HotelDataService {
 		hotelPO1.getEnterpriseList().add("企业1");
 		hotelList.add(hotelPO1);
 		
-		HotelPO hotelPO2 = new HotelPO("000001", password, "婧婧大酒店", city, "南京大学商圈",
-				"仙林大道163号", 5, 5, "24小时Wi-Fi", "这个酒店也是全世界坠吼的", "徐亚婧", tel, new ArrayList<>());
+		HotelPO hotelPO2 = new HotelPO("000001", password, "和园宾馆", city, "南京大学商圈",
+				"仙林大道162号", 2, 2, "啥都没有", "你说啥", "小沈阳", tel, new ArrayList<>());
 		hotelPO2.getEnterpriseList().add("企业2");
 		hotelList.add(hotelPO2);
 		
