@@ -236,13 +236,15 @@ public class HotelController {
         new HotelAbnormalOrderUI().start(primaryStage);
         list = order.getAbnormalOrders();
         OrderTable();
+        count=0;
     }
     @FXML
     private void onDelayOrder(ActionEvent E)throws Exception {
-//        TableView table = (TableView) root.lookup("#table");
-//        ArrayList<OrderVO> list = order.getUnexcutedOrders();
+        TableView table = (TableView) root.lookup("#table");
+        list = order.getUnexcutedOrders();
 //        hotel.delay(list.get(table.getSelectionModel().getFocusedIndex()).getOrderID(),list.get(table.getSelectionModel().getFocusedIndex()));
-        new HotelDelayOrderUI().start(primaryStage);
+        minprimaryStage = new Stage();
+        new HotelDelayOrderUI().start(minprimaryStage);
     }
     @FXML
     private void onCheckin() throws Exception {
@@ -284,7 +286,9 @@ public class HotelController {
                 hotel.checkin(temOrder.getOrderID(),tem.getRoomNumber());
                 if(temOrder.getNumberOfRoom()!=count){
                     try{
+                        midprimaryStage.close();
                         onCheckin();
+
                     }catch (Exception E){
                         E.printStackTrace();
                     }
