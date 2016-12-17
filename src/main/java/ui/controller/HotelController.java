@@ -217,6 +217,7 @@ public class HotelController {
         new HotelUnprocessedOrderUI().start(primaryStage);
         list = order.getUnexcutedOrders();
         OrderTable();
+        count=0;
     }
     @FXML
     private void onProcessedOrder(ActionEvent E)throws Exception {
@@ -284,6 +285,12 @@ public class HotelController {
                 if(temOrder.getNumberOfRoom()!=count){
                     try{
                         onCheckin();
+                    }catch (Exception E){
+                        E.printStackTrace();
+                    }
+                }else {
+                    try{
+                        onOrderManager(e);
                     }catch (Exception E){
                         E.printStackTrace();
                     }
