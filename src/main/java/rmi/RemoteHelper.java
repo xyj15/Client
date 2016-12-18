@@ -71,8 +71,8 @@ public class RemoteHelper {
 		return (SearchDataService)remote;
 	}
 
-	public OrderDataObstractFactory getOrderDataFactory(){
-		return (OrderDataObstractFactory)remote;
+	public OrderDataAbstractFactory getOrderDataFactory(){
+		return (OrderDataAbstractFactory)remote;
 	}
 	
 	public boolean connect() {
@@ -108,10 +108,19 @@ public class RemoteHelper {
 //			e.printStackTrace();
 //		}
 		RemoteHelper remoteHelper = RemoteHelper.getInstance();
-<<<<<<< HEAD
 		System.out.println(remoteHelper.connect());
-		OrderDataService test = remoteHelper.getOrderDataFactory().getOrdaerData("00000000");
-		OrderPO result = test.getOrder("2016120900000000");
+		OrderDataService test = null;
+		try {
+			test = remoteHelper.getOrderDataFactory().getOrderData("00000000");
+		} catch (RemoteException e) {
+			e.printStackTrace();
+		}
+		OrderPO result = null;
+		try {
+			result = test.getOrder("2016120900000000");
+		} catch (RemoteException e) {
+			e.printStackTrace();
+		}
 		SimpleDateFormat bartDateFormate = new SimpleDateFormat("MM-dd-yyyy");
 		System.out.println("orderID: "+result.getOrderID());
 		System.out.println("mamberID: "+result.getMemberID());
@@ -137,13 +146,11 @@ public class RemoteHelper {
 			System.out.println("recover: "+result.getRecover());
 		}
 		System.out.println("createTime: "+bartDateFormate.format(result.getCreateTime()));
-=======
 		boolean b = remoteHelper.connect();
 		if(b) {
 			System.out.println("连接到服务器成功");
 		} else {
 			System.out.println("连接到服务器失败");
 		}
->>>>>>> origin/master
 	}
 }
