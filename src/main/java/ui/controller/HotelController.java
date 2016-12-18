@@ -384,8 +384,72 @@ public class HotelController {
     @FXML
     private void onCheckOut(ActionEvent E)throws Exception {
         TableView table = (TableView) root.lookup("#table");
-        OrderVO tem = list.get(table.getSelectionModel().getSelectedIndex());
-//        hotel.checkout()
+        temOrder = list.get(table.getSelectionModel().getSelectedIndex());
+        midprimaryStage = new Stage();
+        new HotelRoomChoiceUI().start(midprimaryStage);
+        table = (TableView) midroot.lookup("#table");
+        Label totalNum = (Label)midroot.lookup("#totalNum");
+        Label unNum = (Label)midroot.lookup("#unNum");
+        totalNum.setText(""+temOrder.getNumberOfRoom());
+        unNum.setText(""+(temOrder.getNumberOfRoom()-count));
+        RoomList = temOrder.getRoomList();
+        ObservableList<TableData> dataForH
+                = FXCollections.observableArrayList();
+        ObservableList<TableColumn> tableList = table.getColumns();
+        for(int i=0;i<RoomList.size();i++){
+            dataForH.add(new TableData(RoomList.get(i).getRoomNumber(),RoomList.get(i).getRoomName()));
+        }
+        tableList.get(0).setCellValueFactory(new PropertyValueFactory("first"));
+        tableList.get(1).setCellValueFactory(new PropertyValueFactory("second"));
+        tableList.get(2).setCellFactory(new Callback<TableColumn<TableData,Boolean>, TableCell<TableData,Boolean>>() {
+            @Override
+            public TableCell call(TableColumn param) {
+                return new out();
+            }
+        });
+
+        table.setItems(dataForH);
+
+    }
+    class out extends TableCell<TableData,Boolean> {
+        private Button button = new Button("退房");
+
+        public out() {
+//            button.setPrefSize();
+            button.setOnAction((ActionEvent e) -> {
+                int seletedIndex = getTableRow().getIndex();
+                RoomVO tem = RoomList.get(seletedIndex);
+                hotel.checkout(temOrder.getOrderID(), tem.getRoomNumber());
+                count++;
+                if (temOrder.getNumberOfRoom() != count) {
+                    try {
+                        midprimaryStage.close();
+                        onCheckOut(e);
+                    } catch (Exception E) {
+                        E.printStackTrace();
+                    }
+                } else {
+                    try {
+                        onProcessedOrder(e);
+                    } catch (Exception E) {
+                        E.printStackTrace();
+                    }
+                }
+            });
+        }
+        @Override
+        protected void updateItem(Boolean t, boolean empty) {
+            super.updateItem(t, empty);
+            if (empty) {
+                setGraphic(null);
+                setText(null);
+            } else {
+                setGraphic(button);
+                setText(null);
+                setText(null);
+            }
+
+        }
     }
     @FXML
     private void onPromotionManager(ActionEvent E)throws Exception {
@@ -622,5 +686,4 @@ public class HotelController {
     private void onLogOut(ActionEvent E)throws Exception {
         new LoginUI().start(primaryStage);
     }
-
 }
