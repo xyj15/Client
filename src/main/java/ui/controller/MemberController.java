@@ -1,5 +1,6 @@
 package ui.controller;
 
+import bl.implementation.Hotel;
 import bl.implementation.Reserve;
 import bl.implementation.Room;
 import bl.service.*;
@@ -292,6 +293,8 @@ public class MemberController{
 
     @FXML
     private void onLookingInforInHistory(ActionEvent E)throws Exception {
+        TableView table = (TableView) root.lookup("#table");
+        hotel = new Hotel(HList.get(table.getSelectionModel().getSelectedIndex()));
         midprimaryStage = new Stage();
         new MemberHotelInformationInhisUI().start(midprimaryStage);
         TextField hotelAddress = (TextField)midroot.lookup("#hotelAddress");
@@ -308,56 +311,17 @@ public class MemberController{
         hotelAddress.setText(hotel.getHotelAddress());
         serviceStub.setText(hotel.getHotelService());
         introduction.setText(hotel.getHotelIntroduction());
-
-
-
-//        TableView table = (TableView) root.lookup("#table");
-//        ArrayList<RoomVO> list = hotel
-//        ObservableList<TableDataForSearchList> dataForMInfor
-//                = FXCollections.observableArrayList();
-//        ObservableList<TableColumn> tableList = table.getColumns();
-//        for(int i=0;i<list.size();i++){
-//            dataForMInfor.add(new TableDataForSearchList(list.get(i).getName(),""+list.get(i).getLevel(),
-//                    ""+list.get(i).getLowestPrice(),""+list.get(i).getScore()));
-//        }
-//        tableList.get(0).setCellValueFactory(new PropertyValueFactory("name"));
-//        tableList.get(1).setCellValueFactory(new PropertyValueFactory("level"));
-//        tableList.get(2).setCellValueFactory(new PropertyValueFactory("price"));
-//        tableList.get(3).setCellValueFactory(new PropertyValueFactory("score"));
-//        table.setItems(dataForMInfor);
-    }
+        roomList(E);
+     }
     @FXML
     private void onReserveRoomInhis(ActionEvent E)throws Exception {
-
-        //生成订单
+        reserve.createOrder();
         midprimaryStage.close();
         new MemberHisitoryHotelUI().start(primaryStage);
     }
      @FXML
     private void onReserveRoomInsear(ActionEvent E)throws Exception {
-        reserve = new Reserve(member.getMemberInformation().getUserID(),hotel.getHotelInformation().getUserID());
-        DatePicker inTime = (DatePicker)midroot.lookup("#inTime");
-        DatePicker outTime = (DatePicker)midroot.lookup("#outTime");
-        TextField num = (TextField)midroot.lookup("#num");
-         TextField numP = (TextField)midroot.lookup("#numP");
-        RadioButton has = (RadioButton)midroot.lookup("#has");
-        Label totalPrice = (Label)midroot.lookup("#totalPrice");
-        tem = inTime.getEditor().getText().split("-");
-        in = new Date(Integer.parseInt(tem[0])-1900,Integer.parseInt(tem[1])-1,Integer.parseInt(tem[2]));
-        tem = outTime.getEditor().getText().split("-");
-        out = new Date(Integer.parseInt(tem[0])-1900,Integer.parseInt(tem[1])-1,Integer.parseInt(tem[2]));
-        reserve.setCheckinTime(in);
-         in.setHours(in.getHours()+6);
-         reserve.setLatestArriveTime(in);
-         reserve.setSelectedRoom(temR);
-         reserve.setNumberOfRoom(Integer.parseInt(num.getText().toString()));
-         reserve.setNumberOfClient(Integer.parseInt(numP.getText().toString()));
-        reserve.setChekckoutTime(out);
-        reserve.setClientName(member.getName());
-        reserve.setClientTel(member.getTel());
-        reserve.setHaveKids(has.selectedProperty().getValue());
-        //生成订单
-
+         reserve.createOrder();
          midprimaryStage.close();
         new MemberSearchListUI().start(primaryStage);
     }
@@ -366,27 +330,43 @@ public class MemberController{
         reserve = new Reserve(member.getMemberInformation().getUserID(),hotel.getHotelInformation().getUserID());
         DatePicker inTime = (DatePicker)midroot.lookup("#inTime");
         DatePicker outTime = (DatePicker)midroot.lookup("#outTime");
-        TextField expectNum = (TextField)midroot.lookup("#expectNum");
         RadioButton has = (RadioButton)midroot.lookup("#has");
-        RadioButton hasnot = (RadioButton)midroot.lookup("#hasnot");
+        TextField num = (TextField)midroot.lookup("#num");
+        TextField numP = (TextField)midroot.lookup("#numP");
         Label totalPrice = (Label)midroot.lookup("#totalPrice");
         tem = inTime.getEditor().getText().split("-");
         in = new Date(Integer.parseInt(tem[0])-1900,Integer.parseInt(tem[1])-1,Integer.parseInt(tem[2]));
         tem = outTime.getEditor().getText().split("-");
         out = new Date(Integer.parseInt(tem[0])-1900,Integer.parseInt(tem[1])-1,Integer.parseInt(tem[2]));
         reserve.setCheckinTime(in);
+        in.setHours(in.getHours()+6);
+        reserve.setLatestArriveTime(in);
+        reserve.setSelectedRoom(temR);
+        reserve.setNumberOfRoom(Integer.parseInt(num.getText().toString()));
+        reserve.setNumberOfClient(Integer.parseInt(numP.getText().toString()));
         reserve.setChekckoutTime(out);
         reserve.setClientName(member.getName());
         reserve.setClientTel(member.getTel());
         reserve.setHaveKids(has.selectedProperty().getValue());
-        Label totalPrice = (Label)midroot.lookup("#totalPrice");
-        TextField danjia = (TextField)midroot.lookup("#danjia");
-        TextField num = (TextField)midroot.lookup("#num");
-        totalPrice.setText(""+Double.parseDouble(danjia.getText().toString())*Double.parseDouble(num.getText().toString()));
+        totalPrice.setText(""+reserve.getPrice());
     }
     @FXML
     private void onReserveInHis(ActionEvent E)throws Exception {
+        TableView table = (TableView) midroot.lookup("#table");
+        temR =RList.get(table.getSelectionModel().getSelectedIndex());
         new MemberReserveInHisUI().start(midprimaryStage);
+        TextField name = (TextField)midroot.lookup("#name");
+        TextField type = (TextField)midroot.lookup("#type");
+        TextField danjia = (TextField)midroot.lookup("#danjia");
+        TextField num = (TextField)midroot.lookup("#num");
+        DatePicker inTime = (DatePicker)midroot.lookup("#inTime");
+        DatePicker outTime = (DatePicker)midroot.lookup("#outTime");
+        name.setText(temR.getRoomName());
+        type.setText(""+temR.getRoomType());
+        inTime.setValue(i);
+        outTime.setValue(o);
+        danjia.setText(""+temR.getPrice());
+        num.setText("1");
     }
     @FXML
     private void onReserveInSear(ActionEvent E)throws Exception {
@@ -443,6 +423,8 @@ public class MemberController{
     }
     @FXML
     private void onLookingInforInSearch(ActionEvent E)throws Exception {
+        TableView table = (TableView) root.lookup("#table");
+        hotel = new Hotel(HList.get(table.getSelectionModel().getSelectedIndex()));
         midprimaryStage = new Stage();
         new MemberHotelInformationInSearUI().start(midprimaryStage);
         TextField hotelAddress = (TextField)midroot.lookup("#hotelAddress");
@@ -543,18 +525,18 @@ public class MemberController{
     //排序
     @FXML
     private void onSortWithLevel(ActionEvent E)throws Exception {
-        ArrayList<HotelVO> list = search.sortByLevelHighToLow();
-        sort(list);
+        HList= search.sortByLevelHighToLow();
+        sort(HList);
     }
     @FXML
     private void onSortWithPrice(ActionEvent E)throws Exception {
-        ArrayList<HotelVO> list = search.sortByPriceLowToHigh();
-        sort(list);
+        HList = search.sortByPriceLowToHigh();
+        sort(HList);
     }
     @FXML
     private void onSortWithComment(ActionEvent E)throws Exception {
-        ArrayList<HotelVO> list = search.sortByScoreHighToLow();
-        sort(list);
+        HList = search.sortByScoreHighToLow();
+        sort(HList);
     }
     private void sort(ArrayList<HotelVO> list)throws Exception {
         new MemberSearchListUI().start(primaryStage);

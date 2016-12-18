@@ -41,10 +41,26 @@ import java.util.Date;
 public class HotelController {
 
 
-    private HotelBLService hotel = new HotelBLStub();
+    private HotelBLService hotel ;
     private OrderBLService order = new OrderBLStub();
     private PromotionBLService promotion = new PromotionBLStub();
     private RoomBLService room = new RoomBLStub();
+
+    public void setHotel(HotelBLService hotel) {
+        this.hotel = hotel;
+    }
+
+    public void setOrder(OrderBLService order) {
+        this.order = order;
+    }
+
+    public void setPromotion(PromotionBLService promotion) {
+        this.promotion = promotion;
+    }
+
+    public void setRoom(RoomBLService room) {
+        this.room = room;
+    }
 
     private static Stage primaryStage;
     private static Stage minprimaryStage;
