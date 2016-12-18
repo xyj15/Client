@@ -1,5 +1,6 @@
 package data.service;
 
+import java.rmi.RemoteException;
 import java.util.ArrayList;
 
 /**
@@ -8,10 +9,10 @@ import java.util.ArrayList;
  * @author CROFF
  * @version 2016-12-1
  */
-public interface RankDataService {
+public interface RankDataService extends java.rmi.Remote {
 	
-	public ArrayList<Double> getCreditList();	//获得升级所需信用表
-	public ArrayList<Double> getDiscountList();	//获得每级享受折扣表
-	public boolean updateCreditList(ArrayList<Double> creditList);	//更新升级所需信用表
-	public boolean updateDiscountList(ArrayList<Double> discountList);	//更新每级享受折扣表
+	public ArrayList<Double> getCreditList() throws RemoteException;	//获得升级所需信用表
+	public ArrayList<Double> getDiscountList() throws RemoteException;	//获得每级享受折扣表
+	public boolean updateCreditList(ArrayList<Double> creditList) throws RemoteException;	//更新升级所需信用表
+	public boolean updateDiscountList(ArrayList<Double> discountList) throws RemoteException;	//更新每级享受折扣表
 }

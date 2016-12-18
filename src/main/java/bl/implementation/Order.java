@@ -1,6 +1,7 @@
 package bl.implementation;
 
 import bl.service.OrderBLService;
+import data.service.OrderDataAbstractFactory;
 import data.service.OrderDataService;
 import data.stub.OrderDataStub;
 import other.OrderAction;
@@ -10,6 +11,7 @@ import rmi.RemoteHelper;
 import vo.CreditChangeVO;
 import vo.OrderVO;
 
+import java.rmi.RemoteException;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
@@ -120,7 +122,12 @@ public class Order implements OrderBLService {
 					OrderAction.CancelOrder, creditChange, changeResult);
 			credit.addCreditChange(creditChangeVO);
 		}
-		return orderDataService.updateOrder(orderPO);
+		try {
+			return orderDataService.updateOrder(orderPO);
+		} catch (RemoteException e) {
+			e.printStackTrace();
+			return false;
+		}
 	}
 	
 	/**
@@ -143,7 +150,12 @@ public class Order implements OrderBLService {
 		orderVO.setEvaluation(comment);
 		orderList.set(index, orderVO);
 		OrderPO orderPO = orderVOtoPO(orderVO);
-		return orderDataService.updateOrder(orderPO);
+		try {
+			return orderDataService.updateOrder(orderPO);
+		} catch (RemoteException e) {
+			e.printStackTrace();
+			return false;
+		}
 	}
 	
 	/**
@@ -170,7 +182,11 @@ public class Order implements OrderBLService {
 		orderVO.setRecover(recover);
 		orderList.set(index, orderVO);
 		OrderPO orderPO = orderVOtoPO(orderVO);
-		orderDataService.updateOrder(orderPO);
+		try {
+			orderDataService.updateOrder(orderPO);
+		} catch (RemoteException e) {
+			e.printStackTrace();
+		}
 		
 		Credit credit = new Credit(orderVO.getMemberID());
 		double creditChange = orderVO.getPrice()*recover;
@@ -184,7 +200,12 @@ public class Order implements OrderBLService {
 	 * 从Data层更新数据
 	 */
 	public void updateDataFromFile() {
-		ArrayList<OrderPO> orderPOArrayList = orderDataService.getOrderList(userID);
+		ArrayList<OrderPO> orderPOArrayList = null;
+		try {
+			orderPOArrayList = orderDataService.getOrderList(userID);
+		} catch (RemoteException e) {
+			e.printStackTrace();
+		}
 		orderList = new ArrayList<>();
 		OrderPO orderPO;
 		OrderVO orderVO;
@@ -326,7 +347,12 @@ public class Order implements OrderBLService {
 		String orderID = getNewOrderID(userID);
 		orderVO.setOrderID(orderID);
 		orderList.add(orderVO);
-		return orderDataService.addOrder(orderVOtoPO(orderVO));
+		try {
+			return orderDataService.addOrder(orderVOtoPO(orderVO));
+		} catch (RemoteException e) {
+			e.printStackTrace();
+			return false;
+		}
 	}
 	
 	/**

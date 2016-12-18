@@ -5,6 +5,7 @@ import data.stub.CreditDataStub;
 import other.OrderAction;
 import po.CreditChangePO;
 
+import java.rmi.RemoteException;
 import java.util.Date;
 
 /**
@@ -14,14 +15,14 @@ public class CreditDataDriver {
 	
 	private CreditDataService creditDataService = new CreditDataStub();
 	
-	public void drive() {
+	public void drive() throws RemoteException {
 		System.out.println(creditDataService.getCredit(null));
 		System.out.println(creditDataService.getCreditChange(null));
 		System.out.println(creditDataService.setCredit(null, 0));
 		System.out.println(creditDataService.addCreditChange(null, new CreditChangePO(new Date(), "", OrderAction.CancelOrder, 50, 50)));
 	}
 	
-	public static void main(String[] args) {
+	public static void main(String[] args) throws RemoteException {
 		CreditDataDriver creditDataDriver = new CreditDataDriver();
 		creditDataDriver.drive();
 	}
