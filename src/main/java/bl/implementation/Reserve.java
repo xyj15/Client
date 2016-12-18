@@ -123,9 +123,9 @@ public class Reserve implements ReserveBLService {
 			return 0;
 		} else {
 			if(promotionVO==null) {
-				return roomVO.getPrice();
+				return roomVO.getPrice()*numberOfRooms;
 			} else {
-				return promotionVO.calculatePrice(roomVO.getPrice());
+				return promotionVO.calculatePrice(roomVO.getPrice())*numberOfRooms;
 			}
 		}
 	}
