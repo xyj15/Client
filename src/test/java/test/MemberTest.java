@@ -1,6 +1,7 @@
 package test;
 
 import bl.implementation.Member;
+import bl.implementation.Order;
 import org.junit.Before;
 import org.junit.Test;
 import other.MemberType;
@@ -90,6 +91,13 @@ public class MemberTest {
 	public void getEnterprise() throws Exception {
 		String enterprise = member.getEnterprise();
 		assertEquals(enterprise, null);
+	}
+	
+	@Test
+	public void getHotelOrderList() {
+		String hotelID = "000000";
+		ArrayList<OrderVO> list = member.getHotelOrderList(hotelID);
+		assertEquals(list.size(), 3);
 	}
 	
 	@Test

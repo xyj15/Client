@@ -177,8 +177,16 @@ public class Member implements MemberBLService {
 	 */
 	@Override
 	public ArrayList<OrderVO> getHotelOrderList(String hotelID) {
-		
-		return null;
+		Order order = new Order(memberID);
+		ArrayList<OrderVO> list = new ArrayList<>();
+		ArrayList<OrderVO> orderVOs = order.getOrderList();
+		for(int i=0; i<orderVOs.size(); i++) {
+			OrderVO orderVO = orderVOs.get(i);
+			if(orderVO.getHotelID().equals(hotelID)) {
+				list.add(orderVO);
+			}
+		}
+		return list;
 	}
 	
 	/**
