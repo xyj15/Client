@@ -171,6 +171,25 @@ public class Member implements MemberBLService {
 	}
 	
 	/**
+	 * 获取客户在某酒店的所有订单列表
+	 * @param hotelID 酒店ID
+	 * @return 在该酒店的所有订单列表
+	 */
+	@Override
+	public ArrayList<OrderVO> getHotelOrderList(String hotelID) {
+		Order order = new Order(memberID);
+		ArrayList<OrderVO> list = new ArrayList<>();
+		ArrayList<OrderVO> orderVOs = order.getOrderList();
+		for(int i=0; i<orderVOs.size(); i++) {
+			OrderVO orderVO = orderVOs.get(i);
+			if(orderVO.getHotelID().equals(hotelID)) {
+				list.add(orderVO);
+			}
+		}
+		return list;
+	}
+	
+	/**
 	 * 获取客户信息
 	 * @return 客户信息
 	 */
@@ -189,26 +208,6 @@ public class Member implements MemberBLService {
 	public boolean updateMemberInformation(MemberVO memberVO) {
 		this.memberVO = memberVO;
 		return updateDataToFile();
-	}
-	
-	/**
-	 * 打开对应酒店的预订界面
-	 * @param hotelID 酒店ID
-	 * @return 打开成功则返回true，否则返回false
-	 */
-	@Override
-	public boolean newReservation(String hotelID) {
-		return false;
-	}
-	
-	/**
-	 * 创建新订单
-	 * @param orderVO 订单信息
-	 * @return 创建成功则返回true，否则返回false
-	 */
-	@Override
-	public boolean createOrder(OrderVO orderVO) {
-		return false;
 	}
 	
 	/**

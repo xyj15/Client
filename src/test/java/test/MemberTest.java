@@ -1,6 +1,7 @@
 package test;
 
 import bl.implementation.Member;
+import bl.implementation.Order;
 import org.junit.Before;
 import org.junit.Test;
 import other.MemberType;
@@ -93,6 +94,13 @@ public class MemberTest {
 	}
 	
 	@Test
+	public void getHotelOrderList() {
+		String hotelID = "000000";
+		ArrayList<OrderVO> list = member.getHotelOrderList(hotelID);
+		assertEquals(list.size(), 3);
+	}
+	
+	@Test
 	public void getMemberInformation() throws Exception {
 		MemberVO memberVO = member.getMemberInformation();
 		assertEquals(memberVO.getName(), "客户1");
@@ -105,16 +113,6 @@ public class MemberTest {
 		assertEquals(member.updateMemberInformation(memberVO), true);
 		memberVO = member.getMemberInformation();
 		assertEquals(memberVO.getName(), "client");
-	}
-	
-	@Test
-	public void newReservation() throws Exception {
-		assertEquals(member.newReservation("000000"), false);
-	}
-	
-	@Test
-	public void createOrder() throws Exception {
-		assertEquals(member.createOrder(new OrderVO()), false);
 	}
 	
 	@Test
