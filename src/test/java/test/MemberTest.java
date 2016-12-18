@@ -116,11 +116,6 @@ public class MemberTest {
 	}
 	
 	@Test
-	public void createOrder() throws Exception {
-		assertEquals(member.createOrder(new OrderVO()), false);
-	}
-	
-	@Test
 	public void deleteMember() throws Exception {
 		member.deleteMember();
 		assertEquals(member.getMemberInformation(), null);

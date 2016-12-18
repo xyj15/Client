@@ -211,16 +211,6 @@ public class Member implements MemberBLService {
 	}
 	
 	/**
-	 * 创建新订单
-	 * @param orderVO 订单信息
-	 * @return 创建成功则返回true，否则返回false
-	 */
-	@Override
-	public boolean createOrder(OrderVO orderVO) {
-		return false;
-	}
-	
-	/**
 	 * 更新数据到Data层
 	 * @return 更新成功则返回true，否则返回false
 	 */

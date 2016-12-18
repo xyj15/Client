@@ -29,5 +29,4 @@ public interface MemberBLService {
 	public ArrayList<OrderVO> getHotelOrderList(String hotelID);	//获得客户在某酒店的所有订单
 	public MemberVO getMemberInformation();	//获得客户信息
 	public boolean updateMemberInformation(MemberVO memberVO);	//更新客户信息
-	public boolean createOrder(OrderVO orderVO);	//创建订单
 }
