@@ -108,11 +108,6 @@ public class MemberTest {
 	}
 	
 	@Test
-	public void newReservation() throws Exception {
-		assertEquals(member.newReservation("000000"), false);
-	}
-	
-	@Test
 	public void createOrder() throws Exception {
 		assertEquals(member.createOrder(new OrderVO()), false);
 	}

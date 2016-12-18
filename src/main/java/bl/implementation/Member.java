@@ -170,8 +170,14 @@ public class Member implements MemberBLService {
 		return reservedHotelList;
 	}
 	
+	/**
+	 * 获取客户在某酒店的所有订单列表
+	 * @param hotelID 酒店ID
+	 * @return 在该酒店的所有订单列表
+	 */
 	@Override
 	public ArrayList<OrderVO> getHotelOrderList(String hotelID) {
+		
 		return null;
 	}
 	
@@ -194,16 +200,6 @@ public class Member implements MemberBLService {
 	public boolean updateMemberInformation(MemberVO memberVO) {
 		this.memberVO = memberVO;
 		return updateDataToFile();
-	}
-	
-	/**
-	 * 打开对应酒店的预订界面
-	 * @param hotelID 酒店ID
-	 * @return 打开成功则返回true，否则返回false
-	 */
-	@Override
-	public boolean newReservation(String hotelID) {
-		return false;
 	}
 	
 	/**

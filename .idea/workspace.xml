@@ -2,10 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a9f0de73-1128-483a-bbb9-a1105de32882" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/bl/driver/MemberBLDriver.java" afterPath="$PROJECT_DIR$/src/main/java/bl/driver/MemberBLDriver.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/bl/implementation/Member.java" afterPath="$PROJECT_DIR$/src/main/java/bl/implementation/Member.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/bl/service/MemberBLService.java" afterPath="$PROJECT_DIR$/src/main/java/bl/service/MemberBLService.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/bl/stub/MemberBLStub.java" afterPath="$PROJECT_DIR$/src/main/java/bl/stub/MemberBLStub.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/test/java/test/MemberTest.java" afterPath="$PROJECT_DIR$/src/test/java/test/MemberTest.java" />
     </list>
     <ignored path="Client.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -41,15 +42,12 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="Member.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="Member.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/bl/implementation/Member.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="898">
-              <caret line="174" column="8" selection-start-line="174" selection-start-column="8" selection-end-line="174" selection-end-column="20" />
-              <folding>
-                <element signature="e#3446#3447#0" expanded="true" />
-                <element signature="e#3464#3465#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="186">
+              <caret line="202" column="5" selection-start-line="202" selection-start-column="5" selection-end-line="202" selection-end-column="5" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -57,22 +55,9 @@
       <file leaf-file-name="MemberBLDriver.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/bl/driver/MemberBLDriver.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="60">
-              <caret line="7" column="13" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
+            <state relative-caret-position="285">
+              <caret line="22" column="84" selection-start-line="22" selection-start-column="84" selection-end-line="22" selection-end-column="84" />
               <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="MemberBLStub.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/java/bl/stub/MemberBLStub.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="898">
-              <caret line="103" column="8" selection-start-line="103" selection-start-column="8" selection-end-line="103" selection-end-column="20" />
-              <folding>
-                <element signature="e#2581#2582#0" expanded="true" />
-                <element signature="e#2599#2600#0" expanded="true" />
-              </folding>
             </state>
           </provider>
         </entry>
@@ -82,6 +67,26 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="315">
               <caret line="28" column="83" selection-start-line="28" selection-start-column="83" selection-end-line="28" selection-end-column="83" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="MemberBLStub.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/bl/stub/MemberBLStub.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="718">
+              <caret line="117" column="5" selection-start-line="117" selection-start-column="5" selection-end-line="117" selection-end-column="5" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Reserve.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/bl/implementation/Reserve.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="4350">
+              <caret line="301" column="25" selection-start-line="301" selection-start-column="25" selection-end-line="301" selection-end-column="25" />
               <folding />
             </state>
           </provider>
@@ -109,7 +114,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/main/java/data/service/SalerDataService.java" />
         <option value="$PROJECT_DIR$/src/main/java/data/driver/SalerDataDriver.java" />
         <option value="$PROJECT_DIR$/src/main/java/bl/driver/HotelBLDriver.java" />
         <option value="$PROJECT_DIR$/src/main/java/bl/service/OrderBLService.java" />
@@ -146,7 +150,6 @@
         <option value="$PROJECT_DIR$/src/test/java/test/HotelQuickSortTest.java" />
         <option value="$PROJECT_DIR$/src/main/java/rmi/RemoteHelper.java" />
         <option value="$PROJECT_DIR$/src/main/java/data/stub/CreditDataStub.java" />
-        <option value="$PROJECT_DIR$/src/test/java/test/MemberTest.java" />
         <option value="$PROJECT_DIR$/src/main/java/bl/implementation/Promotion.java" />
         <option value="$PROJECT_DIR$/src/main/java/bl/implementation/Reserve.java" />
         <option value="$PROJECT_DIR$/src/test/java/test/ReserveTest.java" />
@@ -157,9 +160,11 @@
         <option value="$PROJECT_DIR$/src/test/java/test/HotelTest.java" />
         <option value="$PROJECT_DIR$/src/main/java/bl/implementation/Hotel.java" />
         <option value="$PROJECT_DIR$/src/main/java/vo/OrderVO.java" />
+        <option value="$PROJECT_DIR$/src/test/java/test/MemberTest.java" />
         <option value="$PROJECT_DIR$/src/main/java/bl/service/MemberBLService.java" />
-        <option value="$PROJECT_DIR$/src/main/java/bl/implementation/Member.java" />
         <option value="$PROJECT_DIR$/src/main/java/bl/stub/MemberBLStub.java" />
+        <option value="$PROJECT_DIR$/src/main/java/bl/implementation/Member.java" />
+        <option value="$PROJECT_DIR$/src/main/java/bl/driver/MemberBLDriver.java" />
       </list>
     </option>
   </component>
@@ -238,6 +243,18 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="test" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="test" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -406,29 +423,8 @@
       <recent name="" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.All in Client">
+  <component name="RunManager" selected="Application.MemberBLDriver">
     <configuration default="false" name="All in Client" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
-      <module name="Client" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" />
-      <option name="METHOD_NAME" />
-      <option name="TEST_OBJECT" value="package" />
-      <option name="VM_PARAMETERS" value="-ea" />
-      <option name="PARAMETERS" />
-      <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
-      <option name="ENV_VARIABLES" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <option name="TEST_SEARCH_SCOPE">
-        <value defaultName="singleModule" />
-      </option>
-      <envs />
-      <patterns />
-      <method />
-    </configuration>
-    <configuration default="false" name="All in Client (1)" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
       <module name="Client" />
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
@@ -514,6 +510,26 @@
       </option>
       <envs />
       <patterns />
+      <method />
+    </configuration>
+    <configuration default="false" name="MemberBLDriver" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
+        <pattern>
+          <option name="PATTERN" value="bl.driver.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="MAIN_CLASS_NAME" value="bl.driver.MemberBLDriver" />
+      <option name="VM_PARAMETERS" />
+      <option name="PROGRAM_PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="ENABLE_SWING_INSPECTOR" value="false" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <module name="Client" />
+      <envs />
       <method />
     </configuration>
     <configuration default="true" type="#org.jetbrains.idea.devkit.run.PluginConfigurationType" factoryName="Plugin">
@@ -932,18 +948,18 @@
     </configuration>
     <list size="5">
       <item index="0" class="java.lang.String" itemvalue="JUnit.All in Client" />
-      <item index="1" class="java.lang.String" itemvalue="JUnit.All in Client (1)" />
-      <item index="2" class="java.lang.String" itemvalue="Application.HotelFirstUI" />
-      <item index="3" class="java.lang.String" itemvalue="JUnit.HotelTest" />
-      <item index="4" class="java.lang.String" itemvalue="JUnit.All in Client (2)" />
+      <item index="1" class="java.lang.String" itemvalue="Application.HotelFirstUI" />
+      <item index="2" class="java.lang.String" itemvalue="JUnit.HotelTest" />
+      <item index="3" class="java.lang.String" itemvalue="JUnit.All in Client (2)" />
+      <item index="4" class="java.lang.String" itemvalue="Application.MemberBLDriver" />
     </list>
     <recent_temporary>
       <list size="5">
-        <item index="0" class="java.lang.String" itemvalue="JUnit.All in Client" />
-        <item index="1" class="java.lang.String" itemvalue="JUnit.All in Client (2)" />
-        <item index="2" class="java.lang.String" itemvalue="JUnit.HotelTest" />
-        <item index="3" class="java.lang.String" itemvalue="Application.HotelFirstUI" />
-        <item index="4" class="java.lang.String" itemvalue="JUnit.All in Client (1)" />
+        <item index="0" class="java.lang.String" itemvalue="Application.MemberBLDriver" />
+        <item index="1" class="java.lang.String" itemvalue="JUnit.All in Client" />
+        <item index="2" class="java.lang.String" itemvalue="JUnit.All in Client (2)" />
+        <item index="3" class="java.lang.String" itemvalue="JUnit.HotelTest" />
+        <item index="4" class="java.lang.String" itemvalue="Application.HotelFirstUI" />
       </list>
     </recent_temporary>
   </component>
@@ -996,7 +1012,7 @@
       <workItem from="1481788134543" duration="5563000" />
       <workItem from="1481866867302" duration="3315000" />
       <workItem from="1481984201316" duration="1844000" />
-      <workItem from="1482024892227" duration="731000" />
+      <workItem from="1482024892227" duration="1529000" />
     </task>
     <servers />
   </component>
@@ -1033,7 +1049,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="148482000" />
+    <option name="totallyTimeSpent" value="149280000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1056,12 +1072,13 @@
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32967034" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.38979593" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.38979593" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25335777" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32967034" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32857144" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24969475" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -1073,7 +1090,6 @@
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Coverage" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.329653" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32941177" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
   <component name="Vcs.Log.UiProperties">
@@ -1089,7 +1105,7 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="46" />
+      <option name="time" value="47" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -1315,13 +1331,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/test/MemberTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="201">
-          <caret line="107" column="5" selection-start-line="107" selection-start-column="5" selection-end-line="107" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/data/stub/CreditDataStub.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="315">
@@ -1348,14 +1357,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="778">
           <caret line="144" column="9" selection-start-line="144" selection-start-column="9" selection-end-line="144" selection-end-column="9" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/bl/implementation/Reserve.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="673">
-          <caret line="301" column="25" selection-start-line="301" selection-start-column="25" selection-end-line="301" selection-end-column="25" />
           <folding />
         </state>
       </provider>
@@ -1423,14 +1424,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/bl/service/MemberBLService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="315">
-          <caret line="28" column="83" selection-start-line="28" selection-start-column="83" selection-end-line="28" selection-end-column="83" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/vo/OrderVO.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="555">
@@ -1449,33 +1442,51 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/bl/implementation/Member.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/bl/implementation/Reserve.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="898">
-          <caret line="174" column="8" selection-start-line="174" selection-start-column="8" selection-end-line="174" selection-end-column="20" />
-          <folding>
-            <element signature="e#3446#3447#0" expanded="true" />
-            <element signature="e#3464#3465#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="4350">
+          <caret line="301" column="25" selection-start-line="301" selection-start-column="25" selection-end-line="301" selection-end-column="25" />
+          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/bl/driver/MemberBLDriver.java">
+    <entry file="file://$PROJECT_DIR$/src/test/java/test/MemberTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="7" column="13" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
+        <state relative-caret-position="658">
+          <caret line="107" column="5" selection-start-line="107" selection-start-column="5" selection-end-line="107" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/bl/service/MemberBLService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="315">
+          <caret line="28" column="83" selection-start-line="28" selection-start-column="83" selection-end-line="28" selection-end-column="83" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/bl/stub/MemberBLStub.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="898">
-          <caret line="103" column="8" selection-start-line="103" selection-start-column="8" selection-end-line="103" selection-end-column="20" />
-          <folding>
-            <element signature="e#2581#2582#0" expanded="true" />
-            <element signature="e#2599#2600#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="718">
+          <caret line="117" column="5" selection-start-line="117" selection-start-column="5" selection-end-line="117" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/bl/driver/MemberBLDriver.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="285">
+          <caret line="22" column="84" selection-start-line="22" selection-start-column="84" selection-end-line="22" selection-end-column="84" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/bl/implementation/Member.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="186">
+          <caret line="202" column="5" selection-start-line="202" selection-start-column="5" selection-end-line="202" selection-end-column="5" />
+          <folding />
         </state>
       </provider>
     </entry>

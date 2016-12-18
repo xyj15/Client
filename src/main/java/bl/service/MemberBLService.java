@@ -27,10 +27,7 @@ public interface MemberBLService {
 	public String getEnterprise();	//获得客户所属的合作企业，普通客户此项为null
 	public ArrayList<HotelVO> getReservedHotelList();	//获得预定过的酒店列表
 	public ArrayList<OrderVO> getHotelOrderList(String hotelID);	//获得客户在某酒店的所有订单
-	
 	public MemberVO getMemberInformation();	//获得客户信息
 	public boolean updateMemberInformation(MemberVO memberVO);	//更新客户信息
-
-	public boolean newReservation(String hotelID);	//打开对应酒店的预订界面
 	public boolean createOrder(OrderVO orderVO);	//创建订单
 }

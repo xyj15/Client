@@ -101,7 +101,8 @@ public class MemberBLStub implements MemberBLService {
 	
 	@Override
 	public ArrayList<OrderVO> getHotelOrderList(String hotelID) {
-		return null;
+		System.out.println("获取对应酒店所有订单列表成功");
+		return new ArrayList<>();
 	}
 	
 	@Override
@@ -113,12 +114,6 @@ public class MemberBLStub implements MemberBLService {
 	@Override
 	public boolean updateMemberInformation(MemberVO memberVO) {
 		System.out.println("更新客户信息成功");
-		return true;
-	}
-	
-	@Override
-	public boolean newReservation(String hotelID) {
-		System.out.println("新建预订成功");
 		return true;
 	}
 	
