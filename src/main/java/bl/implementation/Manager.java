@@ -11,6 +11,8 @@ import vo.ManagerVO;
 import vo.MemberVO;
 import vo.SalerVO;
 
+import java.rmi.RemoteException;
+
 /**
  * Manager模块bl的实现类
  * @author CROFF
@@ -174,7 +176,12 @@ public class Manager implements ManagerBLService {
 	 */
 	@Override
 	public boolean updateManagerInformation(ManagerVO managerVO) {
-		return managerDataService.updateManager(managerVOtoPO(managerVO));
+		try {
+			return managerDataService.updateManager(managerVOtoPO(managerVO));
+		} catch (RemoteException e) {
+			e.printStackTrace();
+		}
+		return false;
 	}
 	
 	/**
@@ -183,7 +190,12 @@ public class Manager implements ManagerBLService {
 	 */
 	@Override
 	public ManagerVO getManagerInformation() {
-		return managerPOtoVO(managerDataService.getManager());
+		try {
+			return managerPOtoVO(managerDataService.getManager());
+		} catch (RemoteException e) {
+			e.printStackTrace();
+		}
+		return null;
 	}
 	
 	/**

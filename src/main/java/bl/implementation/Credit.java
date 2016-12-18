@@ -8,6 +8,7 @@ import po.CreditChangePO;
 import rmi.RemoteHelper;
 import vo.CreditChangeVO;
 
+import java.rmi.RemoteException;
 import java.util.ArrayList;
 import java.util.Date;
 
@@ -84,7 +85,12 @@ public class Credit implements CreditBLService {
 		
 		CreditChangePO creditChangePO = new CreditChangePO(date, orderID, orderAction,
 				change, result);
-		return creditDataService.addCreditChange(memberID, creditChangePO);
+		try {
+			return creditDataService.addCreditChange(memberID, creditChangePO);
+		} catch (RemoteException e) {
+			e.printStackTrace();
+		}
+		return false;
 	}
 	
 	/**
@@ -93,26 +99,41 @@ public class Credit implements CreditBLService {
 	 */
 	public boolean initialCredit() {
 		this.credit = 0;
-		return creditDataService.setCredit(memberID, 0);
+		try {
+			return creditDataService.setCredit(memberID, 0);
+		} catch (RemoteException e) {
+			e.printStackTrace();
+		}
+		return false;
 	}
 	
 	/**
 	 * 从data层更新数据
 	 */
 	public void updateDataFromFile() {
-		credit = creditDataService.getCredit(memberID);
-		ArrayList<CreditChangePO> creditChangePOList = creditDataService.getCreditChange(memberID);
-		creditChangeList = new ArrayList<>();
-		for(int i=0; i<creditChangePOList.size(); i++) {
-			CreditChangePO creditChangePO = creditChangePOList.get(i);
-			Date date = creditChangePO.getDate();
-			String orderID = creditChangePO.getOrderID();
-			OrderAction orderAction = creditChangePO.getOrderAction();
-			double change = creditChangePO.getChange();
-			double result = creditChangePO.getResult();
-			CreditChangeVO creditChangeVO = new CreditChangeVO(date, orderID,
-					orderAction, change, result);
-			creditChangeList.add(creditChangeVO);
+		try {
+			credit = creditDataService.getCredit(memberID);
+		} catch (RemoteException e) {
+			e.printStackTrace();
 		}
+		ArrayList<CreditChangePO> creditChangePOList = null;
+		try {
+			creditChangePOList = creditDataService.getCreditChange(memberID);
+			creditChangeList = new ArrayList<>();
+			for(int i=0; i<creditChangePOList.size(); i++) {
+				CreditChangePO creditChangePO = creditChangePOList.get(i);
+				Date date = creditChangePO.getDate();
+				String orderID = creditChangePO.getOrderID();
+				OrderAction orderAction = creditChangePO.getOrderAction();
+				double change = creditChangePO.getChange();
+				double result = creditChangePO.getResult();
+				CreditChangeVO creditChangeVO = new CreditChangeVO(date, orderID,
+						orderAction, change, result);
+				creditChangeList.add(creditChangeVO);
+			}
+		} catch (RemoteException e) {
+			e.printStackTrace();
+		}
+		
 	}
 }

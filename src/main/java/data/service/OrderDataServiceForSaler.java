@@ -2,6 +2,7 @@ package data.service;
 
 import po.OrderPO;
 
+import java.rmi.RemoteException;
 import java.util.ArrayList;
 import java.util.Date;
 
@@ -10,5 +11,5 @@ import java.util.Date;
  */
 public interface OrderDataServiceForSaler extends OrderDataService {
 	
-	public ArrayList<OrderPO> getOrders(Date day);  //查看当天所有异常订单列表
+	public ArrayList<OrderPO> getOrders(Date day) throws RemoteException;  //查看当天所有异常订单列表
 }
