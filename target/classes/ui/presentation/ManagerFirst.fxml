@@ -8,37 +8,37 @@
 <?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="540.0" prefWidth="960.0" xmlns="http://javafx.com/javafx/8.0.60" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ui.controller.ManagerController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" xmlns="http://javafx.com/javafx/8.0.60" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ui.controller.ManagerController">
    <children>
       <Button layoutX="455.0" layoutY="65.0" mnemonicParsing="false" opacity="0.0" prefHeight="23.0" prefWidth="24.0" text="营销人员" textFill="WHITE" />
-      <ImageView fitHeight="540.0" fitWidth="975.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="673.0" fitWidth="1180.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@background.jpg" />
          </image>
       </ImageView>
-      <Line endX="10.0" layoutX="254.0" layoutY="202.0" startX="10.0" startY="200.0" stroke="WHITE" strokeWidth="2.0" AnchorPane.topAnchor="201.5" />
+      <Line endX="10.0" layoutX="261.0" layoutY="228.0" startX="10.0" startY="300.0" stroke="WHITE" strokeWidth="2.0" AnchorPane.topAnchor="227.0" />
       <ImageView fitHeight="148.0" fitWidth="124.0" layoutX="79.0" layoutY="26.0" pickOnBounds="true" preserveRatio="true" style="-fx-image: url(&quot;C:\Users\Administrator\IdeaProjects\JavaFX\src\sample、background.jpg&quot;);">
          <image>
             <Image url="@logo.png" />
          </image>
       </ImageView>
-      <Label layoutX="910.0" layoutY="40.0" text="注销" textFill="WHITE">
+      <Label layoutX="1108.0" layoutY="32.0" text="注销" textFill="WHITE">
          <font>
             <Font name="Microsoft YaHei Bold" size="16.0" />
          </font>
       </Label>
-      <ImageView fitHeight="21.0" fitWidth="17.0" layoutX="885.0" layoutY="37.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="21.0" fitWidth="17.0" layoutX="1083.0" layoutY="29.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@key.png" />
          </image>
       </ImageView>
-      <Button layoutX="878.0" layoutY="34.0" mnemonicParsing="false" onAction="#onLogOut" opacity="0.0" prefHeight="34.0" prefWidth="70.0" text="Button" />
-      <Button layoutX="53.0" layoutY="235.0" mnemonicParsing="false" onAction="#onSearchUser" opacity="0.67" prefHeight="32.0" prefWidth="181.0" style="-fx-background-color: #000f32;" text="查询用户" textFill="WHITE">
+      <Button layoutX="1076.0" layoutY="26.0" mnemonicParsing="false" onAction="#onLogOut" opacity="0.0" prefHeight="34.0" prefWidth="70.0" text="Button" />
+      <Button layoutX="61.0" layoutY="279.0" mnemonicParsing="false" onAction="#onSearchUser" opacity="0.8" prefHeight="32.0" prefWidth="181.0" style="-fx-background-color: #000f32;" text="查询用户" textFill="WHITE">
          <font>
             <Font name="Microsoft YaHei Bold" size="16.0" />
          </font>
       </Button>
-      <Button layoutX="51.0" layoutY="342.0" mnemonicParsing="false" onAction="#onAddUser" opacity="0.66" prefHeight="23.0" prefWidth="181.0" style="-fx-background-color: #000f32;" text="新增用户" textFill="WHITE">
+      <Button layoutX="61.0" layoutY="409.0" mnemonicParsing="false" onAction="#onAddUser" opacity="0.8" prefHeight="23.0" prefWidth="181.0" style="-fx-background-color: #000f32;" text="新增用户" textFill="WHITE">
          <font>
             <Font name="Microsoft YaHei Bold" size="16.0" />
          </font>
