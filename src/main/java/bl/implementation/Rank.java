@@ -4,6 +4,7 @@ import data.service.RankDataService;
 import data.stub.RankDataStub;
 import rmi.RemoteHelper;
 
+import java.rmi.RemoteException;
 import java.util.ArrayList;
 
 /**
@@ -88,8 +89,12 @@ public class Rank {
 	 * 从数据层更新数据
 	 */
 	public void updateDataFromFile() {
-		creditList = rankDataService.getCreditList();
-		discountList = rankDataService.getDiscountList();
+		try {
+			creditList = rankDataService.getCreditList();
+			discountList = rankDataService.getDiscountList();
+		} catch (RemoteException e) {
+			e.printStackTrace();
+		}
 	}
 	
 	/**
@@ -97,9 +102,14 @@ public class Rank {
 	 * @return 更新成功则返回true，否则false
 	 */
 	public boolean updateDataToFile() {
-		if(rankDataService.updateCreditList(creditList) && rankDataService.updateDiscountList(discountList)) {
-			return true;
-		} else {
+		try {
+			if(rankDataService.updateCreditList(creditList) && rankDataService.updateDiscountList(discountList)) {
+				return true;
+			} else {
+				return false;
+			}
+		} catch (RemoteException e) {
+			e.printStackTrace();
 			return false;
 		}
 	}

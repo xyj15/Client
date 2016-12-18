@@ -2,6 +2,7 @@ package vo;
 
 import other.OrderStatus;
 
+import java.util.ArrayList;
 import java.util.Date;
 
 /**
@@ -34,6 +35,7 @@ public class OrderVO {
 	
 	private MemberVO memberVO;	//客户信息
 	private HotelVO hotelVO;	//酒店信息
+	private ArrayList<RoomVO> roomList = new ArrayList<>();
 	
 	/**
 	 * 空构造方法
@@ -300,5 +302,13 @@ public class OrderVO {
 	
 	public void setHotelVO(HotelVO hotelVO) {
 		this.hotelVO = hotelVO;
+	}
+	
+	public ArrayList<RoomVO> getRoomList() {
+		return roomList;
+	}
+	
+	public void setRoomList(ArrayList<RoomVO> roomList) {
+		this.roomList = roomList;
 	}
 }

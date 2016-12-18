@@ -2,11 +2,13 @@ package data.service;
 
 import po.SalerPO;
 
-public interface SalerDataService {
+import java.rmi.RemoteException;
+
+public interface SalerDataService extends java.rmi.Remote {
 	
-	public boolean addSaler(SalerPO saler);
-	public boolean deleteSaler(String salerID);
-	public boolean updateSaler(SalerPO saler);
-	public SalerPO getSaler(String ID);
-	public String getAvailableSalerID();   //得到可用的新增ID
+	public boolean addSaler(SalerPO saler) throws RemoteException;
+	public boolean deleteSaler(String salerID) throws RemoteException;
+	public boolean updateSaler(SalerPO saler) throws RemoteException;
+	public SalerPO getSaler(String ID) throws RemoteException;
+	public String getAvailableSalerID() throws RemoteException;   //得到可用的新增ID
 }

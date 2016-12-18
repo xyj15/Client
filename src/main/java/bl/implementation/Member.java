@@ -12,6 +12,7 @@ import vo.HotelVO;
 import vo.MemberVO;
 import vo.OrderVO;
 
+import java.rmi.RemoteException;
 import java.util.ArrayList;
 import java.util.Date;
 
@@ -34,11 +35,19 @@ public class Member implements MemberBLService {
 	public Member(MemberVO memberVO) {
 //		memberDataService = RemoteHelper.getInstance().getMemberDataService();
 		memberDataService = new MemberDataStub();
-		this.memberID = memberDataService.getAvailableMemberID();
+		try {
+			this.memberID = memberDataService.getAvailableMemberID();
+		} catch (RemoteException e) {
+			e.printStackTrace();
+		}
 		memberVO.setUserID(memberID);
 		this.memberVO = memberVO;
 		MemberPO memberPO = memberVOtoPO(memberVO);
-		memberDataService.addMember(memberPO);
+		try {
+			memberDataService.addMember(memberPO);
+		} catch (RemoteException e) {
+			e.printStackTrace();
+		}
 		updateDataFromFile();
 		credit = new Credit(memberID);
 		credit.initialCredit();
@@ -171,6 +180,25 @@ public class Member implements MemberBLService {
 	}
 	
 	/**
+	 * 获取客户在某酒店的所有订单列表
+	 * @param hotelID 酒店ID
+	 * @return 在该酒店的所有订单列表
+	 */
+	@Override
+	public ArrayList<OrderVO> getHotelOrderList(String hotelID) {
+		Order order = new Order(memberID);
+		ArrayList<OrderVO> list = new ArrayList<>();
+		ArrayList<OrderVO> orderVOs = order.getOrderList();
+		for(int i=0; i<orderVOs.size(); i++) {
+			OrderVO orderVO = orderVOs.get(i);
+			if(orderVO.getHotelID().equals(hotelID)) {
+				list.add(orderVO);
+			}
+		}
+		return list;
+	}
+	
+	/**
 	 * 获取客户信息
 	 * @return 客户信息
 	 */
@@ -192,32 +220,17 @@ public class Member implements MemberBLService {
 	}
 	
 	/**
-	 * 打开对应酒店的预订界面
-	 * @param hotelID 酒店ID
-	 * @return 打开成功则返回true，否则返回false
-	 */
-	@Override
-	public boolean newReservation(String hotelID) {
-		return false;
-	}
-	
-	/**
-	 * 创建新订单
-	 * @param orderVO 订单信息
-	 * @return 创建成功则返回true，否则返回false
-	 */
-	@Override
-	public boolean createOrder(OrderVO orderVO) {
-		return false;
-	}
-	
-	/**
 	 * 更新数据到Data层
 	 * @return 更新成功则返回true，否则返回false
 	 */
 	public boolean updateDataToFile() {
 		MemberPO memberPO = memberVOtoPO(memberVO);
-		return memberDataService.updateMember(memberPO);
+		try {
+			return memberDataService.updateMember(memberPO);
+		} catch (RemoteException e) {
+			e.printStackTrace();
+		}
+		return false;
 	}
 	
 	/**
@@ -225,13 +238,22 @@ public class Member implements MemberBLService {
 	 * @return 更新成功则返回true，否则返回false
 	 */
 	public boolean updateDataFromFile() {
-		if(memberDataService.getMember(memberID)==null) {
+		try {
+			if(memberDataService.getMember(memberID)==null) {
+				return false;
+			}
+		} catch (RemoteException e) {
+			e.printStackTrace();
 			return false;
 		}
 		
 		credit = new Credit(memberID);
 //		order = new Order(memberID);
-		memberVO = memberPOtoVO(memberDataService.getMember(memberID));
+		try {
+			memberVO = memberPOtoVO(memberDataService.getMember(memberID));
+		} catch (RemoteException e) {
+			e.printStackTrace();
+		}
 		Rank rank = new Rank();
 		int level = rank.getLevel(credit.getCredit());
 		double discount = rank.getDiscount(credit.getCredit());
@@ -287,6 +309,11 @@ public class Member implements MemberBLService {
 	public boolean deleteMember() {
 		this.credit = null;
 		this.memberVO = null;
-		return memberDataService.deleteMember(memberID);
+		try {
+			return memberDataService.deleteMember(memberID);
+		} catch (RemoteException e) {
+			e.printStackTrace();
+		}
+		return false;
 	}
 }

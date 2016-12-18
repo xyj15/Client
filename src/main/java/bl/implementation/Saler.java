@@ -11,6 +11,7 @@ import vo.OrderVO;
 import vo.PromotionVO;
 import vo.SalerVO;
 
+import java.rmi.RemoteException;
 import java.util.ArrayList;
 import java.util.Date;
 
@@ -36,9 +37,17 @@ public class Saler implements SalerBLService {
 	public Saler(SalerVO salerVO) {
 		salerDataService = new SalerDataStub();
 //		salerDataService = RemoteHelper.getInstance().getSalerDataService();
-		salerVO.setUserID(salerDataService.getAvailableSalerID());
+		try {
+			salerVO.setUserID(salerDataService.getAvailableSalerID());
+		} catch (RemoteException e) {
+			e.printStackTrace();
+		}
 		this.salerID = salerVO.getUserID();
-		salerDataService.addSaler(salerVOtoPO(salerVO));
+		try {
+			salerDataService.addSaler(salerVOtoPO(salerVO));
+		} catch (RemoteException e) {
+			e.printStackTrace();
+		}
 	}
 	
 	/**
@@ -71,7 +80,12 @@ public class Saler implements SalerBLService {
 	public boolean setSalerInformation(SalerVO salerVO) {
 		this.salerVO = salerVO;
 		SalerPO salerPO = salerVOtoPO(salerVO);
-		return salerDataService.updateSaler(salerPO);
+		try {
+			return salerDataService.updateSaler(salerPO);
+		} catch (RemoteException e) {
+			e.printStackTrace();
+		}
+		return false;
 	}
 	
 	/**
@@ -212,12 +226,21 @@ public class Saler implements SalerBLService {
 	 * 从Data层更新数据
 	 */
 	public boolean updateDataFromFile() {
-		if(salerDataService.getSaler(salerID)==null) {
-			return false;
+		try {
+			if(salerDataService.getSaler(salerID)==null) {
+				return false;
+			}
+		} catch (RemoteException e) {
+			e.printStackTrace();
 		}
 		promotion = new Promotion();
 		order = new Order(salerID);
-		SalerPO salerPO = salerDataService.getSaler(salerID);
+		SalerPO salerPO = null;
+		try {
+			salerPO = salerDataService.getSaler(salerID);
+		} catch (RemoteException e) {
+			e.printStackTrace();
+		}
 		salerVO = salerPOtoVO(salerPO);
 		rank = new Rank();
 		return true;
@@ -232,7 +255,12 @@ public class Saler implements SalerBLService {
 		promotion = null;
 		order = null;
 		rank = null;
-		return salerDataService.deleteSaler(salerID);
+		try {
+			return salerDataService.deleteSaler(salerID);
+		} catch (RemoteException e) {
+			e.printStackTrace();
+			return false;
+		}
 	}
 	
 	/**
