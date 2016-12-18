@@ -17,10 +17,10 @@
 <?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="663.0" prefWidth="1180.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ui.controller.HotelController">
+<AnchorPane minHeight="-Infinity" minWidth="-Infinity" prefHeight="653.0" prefWidth="1180.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ui.controller.HotelController">
    <children>
       <Button layoutX="455.0" layoutY="65.0" mnemonicParsing="false" opacity="0.0" prefHeight="23.0" prefWidth="24.0" text="营销人员" textFill="WHITE" />
-      <ImageView fitHeight="673.0" fitWidth="1180.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="-0.75">
+      <ImageView fitHeight="673.0" fitWidth="1180.0" layoutY="-5.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@background.jpg" />
          </image>
@@ -31,22 +31,22 @@
             <Image url="@logo.png" />
          </image>
       </ImageView>
-      <Button layoutX="757.0" layoutY="484.0" mnemonicParsing="false" onAction="#onDelayOrder" prefHeight="34.0" prefWidth="144.0" style="-fx-background-color: #6B6BCF;" text="延迟入住" textFill="WHITE">
+      <Button layoutX="739.0" layoutY="595.0" mnemonicParsing="false" onAction="#onDelayOrder" prefHeight="34.0" prefWidth="144.0" style="-fx-background-color: #6B6BCF;" text="延迟入住" textFill="WHITE">
          <font>
             <Font name="Microsoft YaHei Bold" size="16.0" />
          </font>
       </Button>
-      <Label layoutX="910.0" layoutY="40.0" text="注销" textFill="WHITE">
+      <Label layoutX="1112.0" layoutY="31.0" text="注销" textFill="WHITE">
          <font>
             <Font name="Microsoft YaHei Bold" size="16.0" />
          </font>
       </Label>
-      <ImageView fitHeight="21.0" fitWidth="17.0" layoutX="885.0" layoutY="37.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="21.0" fitWidth="17.0" layoutX="1087.0" layoutY="30.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@key.png" />
          </image>
       </ImageView>
-      <Button layoutX="878.0" layoutY="34.0" mnemonicParsing="false" opacity="0.0" prefHeight="34.0" prefWidth="70.0" text="Button" />
+      <Button layoutX="1080.0" layoutY="25.0" mnemonicParsing="false" opacity="0.0" prefHeight="34.0" prefWidth="70.0" text="Button" />
       <Label layoutX="669.0" layoutY="113.0" text="已执行订单" textFill="WHITE">
          <font>
             <Font name="Microsoft YaHei Bold" size="14.0" />
@@ -94,22 +94,18 @@
             <Font name="Microsoft YaHei Bold" size="16.0" />
          </font>
       </Button>
-      <ScrollPane layoutX="332.0" layoutY="150.0" opacity="0.57" prefHeight="324.0" prefWidth="569.0" style="-fx-background-color: #000f32;">
-         <content>
-            <TableView fx:id="table" prefHeight="347.0" prefWidth="550.0" style="-fx-background-color: #000f32;" stylesheets="@TableView.css">
-               <columns>
-                  <TableColumn prefWidth="140.0" sortable="false" style="-fx-background-color: #000f32;" text="订单号" />
-                  <TableColumn editable="false" prefWidth="150.0" sortable="false" style="-fx-background-color: #000f32;" text="房间名字" />
-                  <TableColumn editable="false" minWidth="0.0" prefWidth="107.0" sortable="false" style="-fx-background-color: #000f32;" text="客户名字" />
-                  <TableColumn editable="false" prefWidth="152.0" sortable="false" style="-fx-background-color: #000f32;" text="客户联系方式" />
-               </columns>
-            </TableView>
-         </content>
-      </ScrollPane>
-      <Button layoutX="332.0" layoutY="484.0" mnemonicParsing="false" onAction="#onOrderInforx" prefHeight="34.0" prefWidth="144.0" style="-fx-background-color: #6B6BCF;" text="订单详情" textFill="WHITE">
+      <Button layoutX="332.0" layoutY="595.0" mnemonicParsing="false" onAction="#onOrderInforx" prefHeight="34.0" prefWidth="144.0" style="-fx-background-color: #6B6BCF;" text="订单详情" textFill="WHITE">
          <font>
             <Font name="Microsoft YaHei Bold" size="16.0" />
          </font>
       </Button>
+      <TableView fx:id="table" layoutX="332.0" layoutY="150.0" opacity="0.8" prefHeight="433.0" prefWidth="551.0" style="-fx-background-color: #000f32;" stylesheets="@TableView.css">
+         <columns>
+            <TableColumn prefWidth="140.0" sortable="false" style="-fx-background-color: #000f32;" text="订单号" />
+            <TableColumn editable="false" prefWidth="150.0" sortable="false" style="-fx-background-color: #000f32;" text="房间名字" />
+            <TableColumn editable="false" minWidth="0.0" prefWidth="107.0" sortable="false" style="-fx-background-color: #000f32;" text="客户名字" />
+            <TableColumn editable="false" prefWidth="152.0" sortable="false" style="-fx-background-color: #000f32;" text="客户联系方式" />
+         </columns>
+      </TableView>
    </children>
 </AnchorPane>
