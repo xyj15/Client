@@ -17,7 +17,7 @@ public class MemberUnprocessedOrderUI  extends Application {
         Parent root = FXMLLoader.load(getClass().getResource("MemberUnprocessedOrder.fxml"));
         MemberController.setPrimaryStage(primaryStage);
         MemberController.setRoot(root);
-        Scene myScene = new Scene(root,960,540);
+        Scene myScene = new Scene(root,1180,660);
         primaryStage.setResizable(false);
         primaryStage.setScene(myScene);
         primaryStage.show();

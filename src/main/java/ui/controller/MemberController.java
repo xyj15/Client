@@ -1,5 +1,7 @@
 package ui.controller;
 
+import bl.implementation.Reserve;
+import bl.implementation.Room;
 import bl.service.*;
 import bl.stub.*;
 import javafx.collections.FXCollections;
@@ -15,6 +17,7 @@ import ui.presentation.*;
 import vo.CreditChangeVO;
 import vo.HotelVO;
 import vo.OrderVO;
+import vo.RoomVO;
 
 import java.text.SimpleDateFormat;
 import java.time.LocalDate;
@@ -39,11 +42,18 @@ public class MemberController{
     private static Parent root;
     private SearchBLService search = new SearchBLStub();
     private MemberBLService member = new MemberBLStub();
+    private CreditBLService creidt = new CreditBLStub();
     private HotelBLService hotel = new HotelBLStub();
     private ReserveBLService reserve = new ReserveBLStub();
     private OrderBLService order = new OrderBLStub();
+    private RoomBLService room = new RoomBLStub();
     private static ArrayList<OrderVO> list;
+    private static ArrayList<HotelVO> HList;
+    private static ArrayList<RoomVO> RList;
+    private static LocalDate i=LocalDate.now(),o=LocalDate.now().plusDays(1);
 
+    private static int count;
+    private static RoomVO temR;
     public static void setMidroot(Parent midroot) {
         MemberController.midroot = midroot;
     }
@@ -318,38 +328,30 @@ public class MemberController{
     }
     @FXML
     private void onReserveRoomInhis(ActionEvent E)throws Exception {
-        DatePicker inTime = (DatePicker)midroot.lookup("#inTime");
-        DatePicker outTime = (DatePicker)midroot.lookup("#outTime");
-        TextField expectNum = (TextField)midroot.lookup("#expectNum");
-        RadioButton has = (RadioButton)midroot.lookup("#has");
-        RadioButton hasnot = (RadioButton)midroot.lookup("#hasnot");
-        Label totalPrice = (Label)midroot.lookup("#totalPrice");
-        tem = inTime.getEditor().getText().split("-");
-        in = new Date(Integer.parseInt(tem[0])-1900,Integer.parseInt(tem[1])-1,Integer.parseInt(tem[2]));
-        tem = outTime.getEditor().getText().split("-");
-        out = new Date(Integer.parseInt(tem[0])-1900,Integer.parseInt(tem[1])-1,Integer.parseInt(tem[2]));
-        reserve.setCheckinTime(in);
-        reserve.setChekckoutTime(out);
-        reserve.setClientName(member.getName());
-        reserve.setClientTel(member.getTel());
-        reserve.setHaveKids(has.selectedProperty().getValue());
+
         //生成订单
         midprimaryStage.close();
         new MemberHisitoryHotelUI().start(primaryStage);
     }
      @FXML
     private void onReserveRoomInsear(ActionEvent E)throws Exception {
+        reserve = new Reserve(member.getMemberInformation().getUserID(),hotel.getHotelInformation().getUserID());
         DatePicker inTime = (DatePicker)midroot.lookup("#inTime");
         DatePicker outTime = (DatePicker)midroot.lookup("#outTime");
-        TextField expectNum = (TextField)midroot.lookup("#expectNum");
+        TextField num = (TextField)midroot.lookup("#num");
+         TextField numP = (TextField)midroot.lookup("#numP");
         RadioButton has = (RadioButton)midroot.lookup("#has");
-        RadioButton hasnot = (RadioButton)midroot.lookup("#hasnot");
         Label totalPrice = (Label)midroot.lookup("#totalPrice");
         tem = inTime.getEditor().getText().split("-");
         in = new Date(Integer.parseInt(tem[0])-1900,Integer.parseInt(tem[1])-1,Integer.parseInt(tem[2]));
         tem = outTime.getEditor().getText().split("-");
         out = new Date(Integer.parseInt(tem[0])-1900,Integer.parseInt(tem[1])-1,Integer.parseInt(tem[2]));
         reserve.setCheckinTime(in);
+         in.setHours(in.getHours()+6);
+         reserve.setLatestArriveTime(in);
+         reserve.setSelectedRoom(temR);
+         reserve.setNumberOfRoom(Integer.parseInt(num.getText().toString()));
+         reserve.setNumberOfClient(Integer.parseInt(numP.getText().toString()));
         reserve.setChekckoutTime(out);
         reserve.setClientName(member.getName());
         reserve.setClientTel(member.getTel());
@@ -361,8 +363,26 @@ public class MemberController{
     }
     @FXML
     private void onTotalPrice(ActionEvent E)throws Exception {
-            Label totalPrice = (Label)root.lookup("#totalPrice");
-            totalPrice.setText(""+reserve.getPrice());
+        reserve = new Reserve(member.getMemberInformation().getUserID(),hotel.getHotelInformation().getUserID());
+        DatePicker inTime = (DatePicker)midroot.lookup("#inTime");
+        DatePicker outTime = (DatePicker)midroot.lookup("#outTime");
+        TextField expectNum = (TextField)midroot.lookup("#expectNum");
+        RadioButton has = (RadioButton)midroot.lookup("#has");
+        RadioButton hasnot = (RadioButton)midroot.lookup("#hasnot");
+        Label totalPrice = (Label)midroot.lookup("#totalPrice");
+        tem = inTime.getEditor().getText().split("-");
+        in = new Date(Integer.parseInt(tem[0])-1900,Integer.parseInt(tem[1])-1,Integer.parseInt(tem[2]));
+        tem = outTime.getEditor().getText().split("-");
+        out = new Date(Integer.parseInt(tem[0])-1900,Integer.parseInt(tem[1])-1,Integer.parseInt(tem[2]));
+        reserve.setCheckinTime(in);
+        reserve.setChekckoutTime(out);
+        reserve.setClientName(member.getName());
+        reserve.setClientTel(member.getTel());
+        reserve.setHaveKids(has.selectedProperty().getValue());
+        Label totalPrice = (Label)midroot.lookup("#totalPrice");
+        TextField danjia = (TextField)midroot.lookup("#danjia");
+        TextField num = (TextField)midroot.lookup("#num");
+        totalPrice.setText(""+Double.parseDouble(danjia.getText().toString())*Double.parseDouble(num.getText().toString()));
     }
     @FXML
     private void onReserveInHis(ActionEvent E)throws Exception {
@@ -370,7 +390,56 @@ public class MemberController{
     }
     @FXML
     private void onReserveInSear(ActionEvent E)throws Exception {
+        TableView table = (TableView) midroot.lookup("#table");
+        temR =RList.get(table.getSelectionModel().getSelectedIndex());
         new MemberReserveInSearUI().start(midprimaryStage);
+        TextField name = (TextField)midroot.lookup("#name");
+        TextField type = (TextField)midroot.lookup("#type");
+        TextField danjia = (TextField)midroot.lookup("#danjia");
+        TextField num = (TextField)midroot.lookup("#num");
+        DatePicker inTime = (DatePicker)midroot.lookup("#inTime");
+        DatePicker outTime = (DatePicker)midroot.lookup("#outTime");
+        name.setText(temR.getRoomName());
+        type.setText(""+temR.getRoomType());
+        inTime.setValue(i);
+        outTime.setValue(o);
+        danjia.setText(""+temR.getPrice());
+        num.setText("1");
+    }
+    private void roomList(ActionEvent E){
+        TableView table = (TableView) midroot.lookup("#table");
+        ObservableList<TableData> dataForMInfor
+                = FXCollections.observableArrayList();
+        ObservableList<TableColumn> tableList = table.getColumns();
+        ArrayList<RoomVO> list = room.getDailyRoomList(new Date());
+        RoomVO tem;
+        RList = new ArrayList<RoomVO>();
+        count=0;
+        for(int i=0;!list.isEmpty();){
+            tem = list.get(i);
+            list=jian(list,tem);
+            RList.add(tem);
+            dataForMInfor.add(new TableData(tem.getRoomName(),""+tem.getRoomType(),""+tem.getPrice(),""+count));
+            count=0;
+        }
+        tableList.get(0).setCellValueFactory(new PropertyValueFactory("first"));
+        tableList.get(1).setCellValueFactory(new PropertyValueFactory("second"));
+        tableList.get(2).setCellValueFactory(new PropertyValueFactory("third"));
+        tableList.get(3).setCellValueFactory(new PropertyValueFactory("fourth"));
+        table.setItems(dataForMInfor);
+    }
+    private ArrayList<RoomVO> jian(ArrayList<RoomVO> list, RoomVO room){
+        ArrayList<RoomVO> re = new ArrayList<RoomVO>();
+        for(int i=0;i<list.size();i++){
+            if(list.get(i).getRoomName().equals(room.getRoomName())){
+                if(!list.get(i).isReserved()){
+                    count++;
+                }
+            }else{
+                re.add(list.get(i));
+            }
+        }
+        return re;
     }
     @FXML
     private void onLookingInforInSearch(ActionEvent E)throws Exception {
@@ -390,6 +459,7 @@ public class MemberController{
         hotelAddress.setText(hotel.getHotelAddress());
         serviceStub.setText(hotel.getHotelService());
         introduction.setText(hotel.getHotelIntroduction());
+        roomList(E);
     }
     @FXML
     private void onChangeInfor(ActionEvent E)throws Exception {
@@ -409,16 +479,14 @@ public class MemberController{
     @FXML
     private void onSearchLimited(ActionEvent E)throws Exception {
         search.setOnlyReservationBefore(true);
-        searchSet();
-     new MemberSearchListUI().start(primaryStage);
+        searchSet(E);
     }
     @FXML
     private void onSearchAll(ActionEvent E)throws Exception {
         search.setOnlyReservationBefore(false);
-        searchSet();
-     new MemberSearchListUI().start(primaryStage);
+        searchSet(E);
     }
-    private void searchSet(){
+    private void searchSet(ActionEvent E)throws Exception{
         TextField city = (TextField)root.lookup("#city");
         TextField district = (TextField)root.lookup("#district");
         ComboBox<roomTypeChoice> roomTypeInsearch = (ComboBox<roomTypeChoice>)root.lookup("#roomTypeInsearch");
@@ -440,6 +508,8 @@ public class MemberController{
         in = new Date(Integer.parseInt(tem[0])-1900,Integer.parseInt(tem[1])-1,Integer.parseInt(tem[2]));
         tem = outTime.getEditor().getText().split("-");
         out = new Date(Integer.parseInt(tem[0])-1900,Integer.parseInt(tem[1])-1,Integer.parseInt(tem[2]));
+        i=inTime.getValue();
+        o=outTime.getValue();
         search.setCheckinTime(in);
         search.setCheckoutTime(out);
         if(lowPrice.getText().toString().equals("")){
@@ -467,6 +537,7 @@ public class MemberController{
         }else {
             search.setLevel(Integer.parseInt(level.getText().toString()));
         }
+        onSortWithLevel(E);
     }
 
     //排序
@@ -488,17 +559,36 @@ public class MemberController{
     private void sort(ArrayList<HotelVO> list)throws Exception {
         new MemberSearchListUI().start(primaryStage);
         TableView table = (TableView) root.lookup("#table");
-        ObservableList<TableDataForSearchList> dataForMInfor
+        ObservableList<TableData> dataForMInfor
                 = FXCollections.observableArrayList();
         ObservableList<TableColumn> tableList = table.getColumns();
+        ArrayList<HotelVO> past = member.getReservedHotelList();
+        String  tem ;
         for(int i=0;i<list.size();i++){
-            dataForMInfor.add(new TableDataForSearchList(list.get(i).getName(),""+list.get(i).getLevel(),
-                    ""+list.get(i).getLowestPrice(),""+list.get(i).getScore()));
+            if(compare(past,list.get(i))){
+                tem="是";
+            }else{
+                tem="否";
+            }
+            dataForMInfor.add(new TableData(list.get(i).getName(),""+list.get(i).getLevel(),
+                    ""+list.get(i).getLowestPrice(),""+list.get(i).getScore(),
+                    tem,list.get(i).getManagerTel()));
         }
-        tableList.get(0).setCellValueFactory(new PropertyValueFactory("name"));
-        tableList.get(1).setCellValueFactory(new PropertyValueFactory("level"));
-        tableList.get(2).setCellValueFactory(new PropertyValueFactory("price"));
-        tableList.get(3).setCellValueFactory(new PropertyValueFactory("score"));
+        tableList.get(0).setCellValueFactory(new PropertyValueFactory("first"));
+        tableList.get(1).setCellValueFactory(new PropertyValueFactory("second"));
+        tableList.get(2).setCellValueFactory(new PropertyValueFactory("third"));
+        tableList.get(3).setCellValueFactory(new PropertyValueFactory("fourth"));
+        tableList.get(4).setCellValueFactory(new PropertyValueFactory("fifth"));
+        tableList.get(5).setCellValueFactory(new PropertyValueFactory("sixth"));
+
         table.setItems(dataForMInfor);
+    }
+    private boolean compare(ArrayList<HotelVO> past,HotelVO now){
+        for(int i=0;i<past.size();i++){
+            if(past.get(i).getUserID().equals(now.getUserID())){
+                return true;
+            }
+        }
+        return false;
     }
 }

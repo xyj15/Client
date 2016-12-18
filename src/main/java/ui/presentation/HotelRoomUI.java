@@ -18,7 +18,7 @@ public class HotelRoomUI extends Application {
         Parent root = FXMLLoader.load(getClass().getResource("HotelRoom.fxml"));
         HotelController.setPrimaryStage(primaryStage);
         HotelController.setRoot(root);
-        Scene myScene = new Scene(root,1180,673);
+        Scene myScene = new Scene(root,1180,660);
         primaryStage.setResizable(false);
         primaryStage.setScene(myScene);
         primaryStage.show();

@@ -13,6 +13,7 @@ public class TableData {
     private final SimpleStringProperty third = new SimpleStringProperty();
     private final SimpleStringProperty fourth = new SimpleStringProperty();
     private final SimpleStringProperty fifth = new SimpleStringProperty();
+    private final SimpleStringProperty sixth = new SimpleStringProperty();
 
 //    public TableData(String  first, String second){
 //        setFirst(first);
@@ -38,6 +39,26 @@ public class TableData {
         setThird(third);
         setFourth(fourth);
         setFifth(fifth);
+    }
+    public TableData(String  first, String second, String third, String fourth, String fifth,String sixth){
+        setFirst(first);
+        setSecond(second);
+        setThird(third);
+        setFourth(fourth);
+        setFifth(fifth);
+        setSixth(sixth);
+    }
+
+    public void setSixth(String sixth) {
+        this.sixth.set(sixth);
+    }
+
+    public String getSixth() {
+        return sixth.get();
+    }
+
+    public SimpleStringProperty sixthProperty() {
+        return sixth;
     }
 
     public void setFirst(String first) {

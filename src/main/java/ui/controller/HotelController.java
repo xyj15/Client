@@ -613,6 +613,7 @@ public class HotelController {
         tableList.get(1).setCellValueFactory(new PropertyValueFactory("second"));
         tableList.get(2).setCellValueFactory(new PropertyValueFactory("third"));
         tableList.get(3).setCellValueFactory(new PropertyValueFactory("fourth"));
+        tableList.get(4).setCellValueFactory(new PropertyValueFactory("fifth"));
         table.setItems(dataForMInfor);
     }
     @FXML
@@ -632,7 +633,7 @@ public class HotelController {
         TextField name = (TextField)minroot.lookup("#name");
         TextField price = (TextField)minroot.lookup("#price");
         ComboBox<roomTypeChoice> type =(ComboBox<roomTypeChoice>)root.lookup("#type");
-        room.addRoom(new RoomVO(true,true,id.getText().toString(),name.getText().toString(),
+        room.addRoom(new RoomVO(false,true,id.getText().toString(),name.getText().toString(),
                 type.getSelectionModel().getSelectedItem().toRoomType(),
                 Double.parseDouble(price.getText().toString()),hotel.getHotelInformation().getUserID()));
         minprimaryStage.close();

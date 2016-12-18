@@ -18,9 +18,9 @@
 <?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="663.0" prefWidth="1180.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ui.controller.HotelController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="673.0" prefWidth="1180.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ui.controller.HotelController">
    <children>
-      <ImageView fitHeight="673.0" fitWidth="1180.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="0.0">
+      <ImageView fitHeight="673.0" fitWidth="1180.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="0.0" AnchorPane.topAnchor="0.0">
          <image>
             <Image url="@background.jpg" />
          </image>
@@ -30,22 +30,22 @@
             <Font name="Microsoft YaHei Bold" size="16.0" />
          </font>
       </Button>
-      <Button layoutX="43.0" layoutY="340.0" mnemonicParsing="false" onAction="#onPromotionManager" opacity="0.66" prefHeight="23.0" prefWidth="181.0" style="-fx-background-color: #000f32;" text="营销策略" textFill="WHITE">
+      <Button layoutX="43.0" layoutY="400.0" mnemonicParsing="false" onAction="#onPromotionManager" opacity="0.66" prefHeight="23.0" prefWidth="181.0" style="-fx-background-color: #000f32;" text="营销策略" textFill="WHITE">
          <font>
             <Font name="Microsoft YaHei Bold" size="16.0" />
          </font>
       </Button>
-      <Button layoutX="43.0" layoutY="410.0" mnemonicParsing="false" onAction="#onRoomManager" opacity="0.66" prefHeight="23.0" prefWidth="181.0" style="-fx-background-color: #000f32;" text="房间管理" textFill="WHITE">
+      <Button layoutX="43.0" layoutY="500.0" mnemonicParsing="false" onAction="#onRoomManager" opacity="0.66" prefHeight="23.0" prefWidth="181.0" style="-fx-background-color: #000f32;" text="房间管理" textFill="WHITE">
          <font>
             <Font name="Microsoft YaHei Bold" size="16.0" />
          </font>
       </Button>
-      <Button layoutX="43.0" layoutY="270.0" mnemonicParsing="false" onAction="#onOrderManager" opacity="0.67" prefHeight="32.0" prefWidth="181.0" style="-fx-background-color: #000f32;" text="订单管理" textFill="WHITE">
+      <Button layoutX="43.0" layoutY="300.0" mnemonicParsing="false" onAction="#onOrderManager" opacity="0.67" prefHeight="32.0" prefWidth="181.0" style="-fx-background-color: #000f32;" text="订单管理" textFill="WHITE">
          <font>
             <Font name="Microsoft YaHei Bold" size="16.0" />
          </font>
       </Button>
-      <GridPane layoutX="346.0" layoutY="64.0" opacity="0.68" prefHeight="385.0" prefWidth="469.0" style="-fx-background-color: #000f32;" AnchorPane.bottomAnchor="91.0" AnchorPane.leftAnchor="346.0" AnchorPane.rightAnchor="145.0" AnchorPane.topAnchor="64.0">
+      <GridPane layoutX="346.0" layoutY="79.0" opacity="0.68" prefHeight="518.0" prefWidth="689.0" style="-fx-background-color: #000f32;" AnchorPane.bottomAnchor="76.0" AnchorPane.leftAnchor="346.0" AnchorPane.rightAnchor="145.0" AnchorPane.topAnchor="79.0">
         <columnConstraints>
           <ColumnConstraints hgrow="SOMETIMES" maxWidth="322.0" minWidth="10.0" prefWidth="138.0" />
           <ColumnConstraints hgrow="SOMETIMES" maxWidth="431.0" minWidth="10.0" prefWidth="331.0" />
@@ -118,13 +118,13 @@
             </TextArea>
          </children>
       </GridPane>
-      <Line endX="10.0" layoutX="255.0" layoutY="169.0" startX="10.0" startY="300.0" stroke="WHITE" strokeWidth="2.0" AnchorPane.bottomAnchor="300.0" AnchorPane.topAnchor="150.0" />
+      <Line endX="10.0" layoutX="255.0" layoutY="169.0" startX="10.0" startY="430.0" stroke="WHITE" strokeWidth="2.0" AnchorPane.bottomAnchor="300.0" AnchorPane.topAnchor="150.0" />
       <ImageView fitHeight="148.0" fitWidth="124.0" layoutX="79.0" layoutY="26.0" pickOnBounds="true" preserveRatio="true" style="-fx-image: url(&quot;C:\Users\Administrator\IdeaProjects\JavaFX\src\sample、background.jpg&quot;);">
          <image>
             <Image url="@logo.png" />
          </image>
       </ImageView>
-      <Button layoutX="741.0" layoutY="452.0" mnemonicParsing="false" onAction="#onInforChange" prefHeight="25.0" prefWidth="74.0" style="-fx-background-color: #6B6BCF;" text="更改" textFill="WHITE">
+      <Button layoutX="961.0" layoutY="608.0" mnemonicParsing="false" onAction="#onInforChange" prefHeight="25.0" prefWidth="74.0" style="-fx-background-color: #6B6BCF;" text="更改" textFill="WHITE">
          <font>
             <Font name="Microsoft YaHei Bold" size="16.0" />
          </font>
