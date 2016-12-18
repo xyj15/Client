@@ -4,6 +4,8 @@ import data.service.OrderDataService;
 import data.stub.OrderDataStub;
 import po.OrderPO;
 
+import java.rmi.RemoteException;
+
 /**
  * Created by CROFF on 2016/12/12.
  */
@@ -11,7 +13,7 @@ public class OrderDataDriver {
 	
 	private OrderDataService orderDataService = new OrderDataStub();
 	
-	public void drive() {
+	public void drive() throws RemoteException {
 		String memberID = "000000";
 		String orderID = "00";
 		System.out.println(orderDataService.getAbnormalOrders(memberID));
@@ -27,7 +29,7 @@ public class OrderDataDriver {
 		System.out.println(orderDataService.addOrder(new OrderPO()));
 	}
 	
-	public static void main(String[] args) {
+	public static void main(String[] args) throws RemoteException {
 		OrderDataDriver orderDataDriver = new OrderDataDriver();
 		orderDataDriver.drive();
 	}

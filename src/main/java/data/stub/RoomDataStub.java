@@ -24,7 +24,7 @@ public class RoomDataStub implements RoomDataService {
 		roomList.add(room1);
 		RoomPO room2 = new RoomPO(false, true, "3002", bigbed, RoomType.BigBed, 500, hotelID);
 		roomList.add(room2);
-		RoomPO room3 = new RoomPO(true, false, "3003", bigbed, RoomType.BigBed, 500, hotelID);
+		RoomPO room3 = new RoomPO(false, false, "3003", bigbed, RoomType.BigBed, 500, hotelID);
 		roomList.add(room3);
 		RoomPO room4 = new RoomPO(false, true, "2001", single, RoomType.Single, 300, hotelID);
 		roomList.add(room4);

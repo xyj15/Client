@@ -21,9 +21,8 @@ public class MemberBLDriver {
 		System.out.println(memberBLService.getEnterprise());
 		System.out.println(memberBLService.getMemberInformation());
 		System.out.println(memberBLService.updateMemberInformation(new MemberVO()));
-		System.out.println(memberBLService.newReservation("12345678"));
-		System.out.println(memberBLService.createOrder(new OrderVO()));
 		System.out.println(memberBLService.getReservedHotelList());
+		System.out.println(memberBLService.getHotelOrderList("000000"));
 	}
 
 	public static void main(String[] args) {

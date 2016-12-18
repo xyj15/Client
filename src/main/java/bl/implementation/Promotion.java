@@ -1,5 +1,6 @@
 package bl.implementation;
 
+import java.rmi.RemoteException;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
@@ -71,10 +72,19 @@ public class Promotion implements PromotionBLService {
 	@Override
 	public boolean addPromotion(PromotionVO promotionVO) {
 		updateDataFromFile();
-		promotionVO.setPromotionID(promotionDataService.getAvailablePromotionID());
+		try {
+			promotionVO.setPromotionID(promotionDataService.getAvailablePromotionID());
+		} catch (RemoteException e) {
+			e.printStackTrace();
+		}
 		promotionList.add(promotionVO);
 		PromotionPO promotionPO = promotionVOtoPO(promotionVO);
-		return promotionDataService.addPromotion(promotionPO);
+		try {
+			return promotionDataService.addPromotion(promotionPO);
+		} catch (RemoteException e) {
+			e.printStackTrace();
+			return false;
+		}
 	}
 	
 	/**
@@ -98,7 +108,12 @@ public class Promotion implements PromotionBLService {
 			return false;
 		} else {
 			promotionList.remove(index);
-			return promotionDataService.deletePromotion(promotionID);
+			try {
+				return promotionDataService.deletePromotion(promotionID);
+			} catch (RemoteException e) {
+				e.printStackTrace();
+				return false;
+			}
 		}
 	}
 	
@@ -122,7 +137,12 @@ public class Promotion implements PromotionBLService {
 		} else {
 			promotionList.set(index, promotionVO);
 			PromotionPO promotionPO = promotionVOtoPO(promotionVO);
-			return promotionDataService.updatePromotion(promotionPO);
+			try {
+				return promotionDataService.updatePromotion(promotionPO);
+			} catch (RemoteException e) {
+				e.printStackTrace();
+			}
+			return false;
 		}
 	}
 	
@@ -217,8 +237,13 @@ public class Promotion implements PromotionBLService {
 	 * 从Data层更新数据，hotelID为null时更新网站营销策略列表，hotelID不为null时更新酒店营销策略列表
 	 */
 	public void updateDataFromFile() {
-		promotionList = new ArrayList<PromotionVO>();
-		ArrayList<PromotionPO> promotionPOList = promotionDataService.getPromotionList();
+		promotionList = new ArrayList<>();
+		ArrayList<PromotionPO> promotionPOList = null;
+		try {
+			promotionPOList = promotionDataService.getPromotionList();
+		} catch (RemoteException e) {
+			e.printStackTrace();
+		}
 		PromotionPO promotionPO;
 		PromotionVO promotionVO;
 		for(int i=0; i<promotionPOList.size(); i++) {
@@ -331,7 +356,7 @@ public class Promotion implements PromotionBLService {
 		Hotel hotel = new Hotel(hotelID);
 		Date today = new Date();
 		Rank rank = new Rank();
-		ArrayList<PromotionVO> availablePromotionList = new ArrayList<PromotionVO>();
+		ArrayList<PromotionVO> availablePromotionList = new ArrayList<>();
 		
 		PromotionVO promotionVO;
 		for(int i=0; i<promotionList.size(); i++) {

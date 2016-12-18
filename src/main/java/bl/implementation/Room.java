@@ -8,6 +8,7 @@ import po.RoomPO;
 import rmi.RemoteHelper;
 import vo.RoomVO;
 
+import java.rmi.RemoteException;
 import java.util.ArrayList;
 import java.util.Date;
 
@@ -40,7 +41,12 @@ public class Room implements RoomBLService {
 	 */
 	@Override
 	public ArrayList<RoomVO> getAvailableRoomByName(Date date, String roomName) {
-		ArrayList<RoomPO> roomPOArrayList = roomDataService.getRoomsByNameDate(date, roomName, hotelID);
+		ArrayList<RoomPO> roomPOArrayList = null;
+		try {
+			roomPOArrayList = roomDataService.getRoomsByNameDate(date, roomName, hotelID);
+		} catch (RemoteException e) {
+			e.printStackTrace();
+		}
 		ArrayList<RoomVO> roomVOArrayList = new ArrayList<>();
 		for(int i=0; i<roomPOArrayList.size(); i++) {
 			roomVOArrayList.add(roomPOtoVO(roomPOArrayList.get(i)));
@@ -56,7 +62,12 @@ public class Room implements RoomBLService {
 	 */
 	@Override
 	public RoomVO getRoomInformation(Date date, String roomNumber){
-		RoomPO roomPO = roomDataService.getSingleRoom(date, roomNumber, hotelID);
+		RoomPO roomPO = null;
+		try {
+			roomPO = roomDataService.getSingleRoom(date, roomNumber, hotelID);
+		} catch (RemoteException e) {
+			e.printStackTrace();
+		}
 		RoomVO roomVO = roomPOtoVO(roomPO);
 		return roomVO;
 	}
@@ -69,7 +80,12 @@ public class Room implements RoomBLService {
 	@Override
 	public boolean addRoom(RoomVO roomVO) {
 		RoomPO roomPO = roomVOtoPO(roomVO);
-		return roomDataService.addSingleRoom(roomPO, hotelID);
+		try {
+			return roomDataService.addSingleRoom(roomPO, hotelID);
+		} catch (RemoteException e) {
+			e.printStackTrace();
+		}
+		return false;
 	}
 	
 	/**
@@ -79,7 +95,12 @@ public class Room implements RoomBLService {
 	 */
 	@Override
 	public boolean deleteRoom(String roomNumber) {
-		return roomDataService.deleteSingleRoom(roomNumber, hotelID);
+		try {
+			return roomDataService.deleteSingleRoom(roomNumber, hotelID);
+		} catch (RemoteException e) {
+			e.printStackTrace();
+		}
+		return false;
 	}
 	
 	/**
@@ -91,7 +112,12 @@ public class Room implements RoomBLService {
 	@Override
 	public boolean updateRoom(Date date, RoomVO roomVO) {
 		RoomPO roomPO = roomVOtoPO(roomVO);
-		return roomDataService.updateSingleRoom(date, roomPO, hotelID);
+		try {
+			return roomDataService.updateSingleRoom(date, roomPO, hotelID);
+		} catch (RemoteException e) {
+			e.printStackTrace();
+		}
+		return false;
 	}
 	
 	/**
@@ -135,7 +161,12 @@ public class Room implements RoomBLService {
 	 */
 	@Override
 	public ArrayList<RoomVO> getDailyRoomList(Date date) {
-		ArrayList<RoomPO> roomPOList = roomDataService.getRoomsByDate(date, hotelID);
+		ArrayList<RoomPO> roomPOList = null;
+		try {
+			roomPOList = roomDataService.getRoomsByDate(date, hotelID);
+		} catch (RemoteException e) {
+			e.printStackTrace();
+		}
 		ArrayList<RoomVO> roomVOList = new ArrayList<>();
 		for(int i=0; i<roomPOList.size(); i++) {
 			roomVOList.add(roomPOtoVO(roomPOList.get(i)));
@@ -150,7 +181,12 @@ public class Room implements RoomBLService {
 	 * @return 办理成功则返回true，否则返回false
 	 */
 	public boolean checkin(Date date, String roomID) {
-		return roomDataService.checkIn(date, roomID, hotelID);
+		try {
+			return roomDataService.checkIn(date, roomID, hotelID);
+		} catch (RemoteException e) {
+			e.printStackTrace();
+		}
+		return false;
 	}
 	
 	/**
@@ -160,7 +196,12 @@ public class Room implements RoomBLService {
 	 * @return 办理成功则返回true，否则返回false
 	 */
 	public boolean checkout(Date date, String roomID) {
-		return roomDataService.checkOut(date, roomID, hotelID);
+		try {
+			return roomDataService.checkOut(date, roomID, hotelID);
+		} catch (RemoteException e) {
+			e.printStackTrace();
+		}
+		return false;
 	}
 	
 	/**
@@ -170,7 +211,12 @@ public class Room implements RoomBLService {
 	 * @return 预订成功则返回true，否则返回false
 	 */
 	public boolean reserveSingleRoom(Date date, String roomID) {
-		return roomDataService.reserveSingleRoom(date, roomID, hotelID);
+		try {
+			return roomDataService.reserveSingleRoom(date, roomID, hotelID);
+		} catch (RemoteException e) {
+			e.printStackTrace();
+		}
+		return false;
 	}
 }
 
