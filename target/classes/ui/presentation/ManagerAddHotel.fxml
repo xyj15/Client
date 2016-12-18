@@ -11,10 +11,10 @@
 <?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="540.0" prefWidth="960.0" xmlns="http://javafx.com/javafx/8.0.60" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ui.controller.ManagerController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" xmlns="http://javafx.com/javafx/8.0.60" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ui.controller.ManagerController">
    <children>
       <Button layoutX="455.0" layoutY="65.0" mnemonicParsing="false" opacity="0.0" prefHeight="23.0" prefWidth="24.0" text="营销人员" textFill="WHITE" />
-      <ImageView fitHeight="540.0" fitWidth="975.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="673.0" fitWidth="1180.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@background.jpg" />
          </image>
@@ -24,60 +24,60 @@
             <Image url="@logo.png" />
          </image>
       </ImageView>
-      <Label layoutX="767.0" layoutY="116.0" text="营销人员" textFill="WHITE">
+      <Label layoutX="948.0" layoutY="128.0" text="营销人员" textFill="WHITE">
          <font>
             <Font name="Microsoft YaHei Bold" size="16.0" />
          </font></Label>
-      <Button layoutX="767.0" layoutY="115.0" mnemonicParsing="false" onAction="#onAddUser" opacity="0.0" prefHeight="23.0" prefWidth="64.0" text="Button" />
-      <Line endX="240.0" layoutX="605.0" layoutY="116.0" startX="240.0" startY="20.0" stroke="WHITE" />
-      <Button layoutX="856.0" layoutY="115.0" mnemonicParsing="false" opacity="0.0" prefHeight="23.0" prefWidth="28.0" text="Button" />
-      <Label layoutX="862.0" layoutY="115.0" text="酒店" textFill="WHITE">
+      <Button layoutX="948.0" layoutY="127.0" mnemonicParsing="false" onAction="#onAddUser" opacity="0.0" prefHeight="23.0" prefWidth="64.0" text="Button" />
+      <Line endX="240.0" layoutX="786.0" layoutY="128.0" startX="240.0" startY="20.0" stroke="WHITE" />
+      <Button layoutX="1037.0" layoutY="127.0" mnemonicParsing="false" opacity="0.0" prefHeight="23.0" prefWidth="28.0" text="Button" />
+      <Label layoutX="1043.0" layoutY="127.0" text="酒店" textFill="WHITE">
          <font>
             <Font name="Microsoft YaHei Bold" size="16.0" />
          </font></Label>
-      <Label layoutX="910.0" layoutY="40.0" text="注销" textFill="WHITE">
+      <Label layoutX="1105.0" layoutY="32.0" text="注销" textFill="WHITE">
          <font>
             <Font name="Microsoft YaHei Bold" size="16.0" />
          </font>
       </Label>
-      <ImageView fitHeight="21.0" fitWidth="17.0" layoutX="885.0" layoutY="37.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="21.0" fitWidth="17.0" layoutX="1080.0" layoutY="29.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@key.png" />
          </image>
       </ImageView>
-      <Button layoutX="878.0" layoutY="34.0" mnemonicParsing="false" onAction="#onLogOut" opacity="0.0" prefHeight="34.0" prefWidth="70.0" text="Button" />
-      <Button layoutX="790.0" layoutY="467.0" mnemonicParsing="false" onAction="#confirmAddHotel" prefHeight="29.0" prefWidth="88.0" style="-fx-background-color: #6B6BCF;" text="确认" textFill="WHITE">
+      <Button layoutX="1073.0" layoutY="26.0" mnemonicParsing="false" onAction="#onLogOut" opacity="0.0" prefHeight="34.0" prefWidth="70.0" text="Button" />
+      <Button layoutX="894.0" layoutY="539.0" mnemonicParsing="false" onAction="#confirmAddHotel" prefHeight="34.0" prefWidth="108.0" style="-fx-background-color: #6B6BCF;" text="确认" textFill="WHITE">
          <font>
             <Font name="Microsoft YaHei Bold" size="14.0" />
          </font>
       </Button>
-      <AnchorPane layoutX="332.0" layoutY="150.0" opacity="0.66" prefHeight="263.0" prefWidth="551.0" style="-fx-background-color: #000f32;">
+      <AnchorPane layoutX="326.0" layoutY="181.0" opacity="0.81" prefHeight="302.0" prefWidth="746.0" style="-fx-background-color: #000f32;">
          <children>
             <Label alignment="CENTER" layoutX="-14.0" layoutY="44.0" prefHeight="58.0" prefWidth="122.0" text="地址" textFill="WHITE">
                <font>
                   <Font name="Microsoft YaHei Bold" size="16.0" />
                </font>
             </Label>
-            <TextField fx:id="address" layoutX="108.0" layoutY="59.0" prefHeight="29.0" prefWidth="402.0">
+            <TextField fx:id="address" layoutX="108.0" layoutY="59.0" prefHeight="29.0" prefWidth="587.0">
                <font>
                   <Font name="Microsoft YaHei Bold" size="14.0" />
                </font>
             </TextField>
-            <Label alignment="CENTER" layoutY="151.0" prefHeight="50.0" prefWidth="122.0" text="服务设施" textFill="WHITE">
+            <Label alignment="CENTER" layoutY="138.0" prefHeight="50.0" prefWidth="122.0" text="服务设施" textFill="WHITE">
                <font>
                   <Font name="Microsoft YaHei Bold" size="16.0" />
                </font>
             </Label>
-            <TextArea fx:id="service" layoutX="108.0" layoutY="148.0" prefHeight="98.0" prefWidth="165.0">
+            <TextArea fx:id="service" layoutX="108.0" layoutY="155.0" prefHeight="124.0" prefWidth="267.0">
                <font>
                   <Font name="Microsoft YaHei Bold" size="14.0" />
                </font></TextArea>
-            <Label alignment="CENTER" layoutX="247.0" layoutY="139.0" prefHeight="58.0" prefWidth="122.0" text="简介" textFill="WHITE">
+            <Label alignment="CENTER" layoutX="356.0" layoutY="134.0" prefHeight="58.0" prefWidth="122.0" text="简介" textFill="WHITE">
                <font>
                   <Font name="Microsoft YaHei Bold" size="16.0" />
                </font>
             </Label>
-            <TextArea fx:id="introduction" layoutX="345.0" layoutY="151.0" prefHeight="98.0" prefWidth="165.0">
+            <TextArea fx:id="introduction" layoutX="457.0" layoutY="155.0" prefHeight="124.0" prefWidth="238.0">
                <font>
                   <Font name="Microsoft YaHei Bold" size="14.0" />
                </font></TextArea>
@@ -91,31 +91,31 @@
                   <Font name="Microsoft YaHei Bold" size="16.0" />
                </font>
             </Label>
-            <TextField fx:id="hotelName" layoutX="108.0" layoutY="15.0" prefHeight="29.0" prefWidth="402.0">
+            <TextField fx:id="hotelName" layoutX="108.0" layoutY="15.0" prefHeight="29.0" prefWidth="587.0">
                <font>
                   <Font name="Microsoft YaHei Bold" size="14.0" />
                </font>
             </TextField>
-            <TextField fx:id="district" layoutX="108.0" layoutY="106.0" prefHeight="29.0" prefWidth="165.0">
+            <TextField fx:id="district" layoutX="108.0" layoutY="106.0" prefHeight="29.0" prefWidth="267.0">
                <font>
                   <Font name="Microsoft YaHei Bold" size="14.0" />
                </font>
             </TextField>
-            <Label alignment="CENTER" layoutX="247.0" layoutY="91.0" prefHeight="58.0" prefWidth="122.0" text="星级" textFill="WHITE">
+            <Label alignment="CENTER" layoutX="356.0" layoutY="91.0" prefHeight="58.0" prefWidth="122.0" text="星级" textFill="WHITE">
                <font>
                   <Font name="Microsoft YaHei Bold" size="16.0" />
                </font>
             </Label>
-            <TextField fx:id="level" layoutX="345.0" layoutY="106.0" prefHeight="29.0" prefWidth="165.0">
+            <TextField fx:id="level" layoutX="457.0" layoutY="106.0" prefHeight="29.0" prefWidth="238.0">
                <font>
                   <Font name="Microsoft YaHei Bold" size="14.0" />
                </font>
             </TextField>
          </children>
       </AnchorPane>
-      <AnchorPane layoutX="332.0" layoutY="413.0" opacity="0.66" prefHeight="91.0" prefWidth="436.0" style="-fx-background-color: #000f32;">
+      <AnchorPane layoutX="326.0" layoutY="482.0" opacity="0.82" prefHeight="113.0" prefWidth="498.0" style="-fx-background-color: #000f32;">
          <children>
-            <Label alignment="CENTER" layoutY="31.0" prefHeight="58.0" prefWidth="122.0" text="密码" textFill="WHITE">
+            <Label alignment="CENTER" layoutY="43.0" prefHeight="58.0" prefWidth="122.0" text="密码" textFill="WHITE">
                <font>
                   <Font name="Microsoft YaHei Bold" size="16.0" />
                </font>
@@ -125,28 +125,28 @@
                   <Font name="Microsoft YaHei Bold" size="16.0" />
                </font>
             </Label>
-            <TextField fx:id="hotelManagerName" layoutX="122.0" layoutY="2.0" prefHeight="29.0" prefWidth="263.0">
+            <TextField fx:id="hotelManagerName" layoutX="122.0" layoutY="2.0" prefHeight="29.0" prefWidth="323.0">
                <font>
                   <Font name="Microsoft YaHei Bold" size="14.0" />
                </font>
             </TextField>
-            <PasswordField fx:id="password" layoutX="122.0" layoutY="45.0" prefHeight="23.0" prefWidth="263.0">
+            <PasswordField fx:id="password" layoutX="122.0" layoutY="57.0" prefHeight="29.0" prefWidth="323.0">
                <font>
                   <Font name="Microsoft YaHei Bold" size="14.0" />
                </font>
             </PasswordField>
          </children>
       </AnchorPane>
-      <Button layoutX="63.0" layoutY="245.0" mnemonicParsing="false" onAction="#onSearchUser" opacity="0.67" prefHeight="32.0" prefWidth="181.0" style="-fx-background-color: #000f32;" text="查询用户" textFill="WHITE">
+      <Button layoutX="63.0" layoutY="279.0" mnemonicParsing="false" onAction="#onSearchUser" opacity="0.8" prefHeight="32.0" prefWidth="181.0" style="-fx-background-color: #000f32;" text="查询用户" textFill="WHITE">
          <font>
             <Font name="Microsoft YaHei Bold" size="16.0" />
          </font>
       </Button>
-      <Button layoutX="61.0" layoutY="352.0" mnemonicParsing="false" onAction="#onAddUser" opacity="0.66" prefHeight="23.0" prefWidth="181.0" style="-fx-background-color: #000f32;" text="新增用户" textFill="WHITE">
+      <Button layoutX="61.0" layoutY="409.0" mnemonicParsing="false" onAction="#onAddUser" opacity="0.8" prefHeight="23.0" prefWidth="181.0" style="-fx-background-color: #000f32;" text="新增用户" textFill="WHITE">
          <font>
             <Font name="Microsoft YaHei Bold" size="16.0" />
          </font>
       </Button>
-      <Line endX="10.0" layoutX="265.0" layoutY="179.0" startX="10.0" startY="300.0" stroke="WHITE" strokeWidth="2.0" />
+      <Line endX="10.0" layoutX="261.0" layoutY="228.0" startX="10.0" startY="300.0" stroke="WHITE" strokeWidth="2.0" />
    </children>
 </AnchorPane>

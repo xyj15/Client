@@ -8,15 +8,15 @@ import javafx.stage.Stage;
 import ui.controller.PromotionController;
 
 /**
- * Created by 婧婧 on 2016/11/30.
+ * Created by 婧婧 on 2016/12/18.
  */
-public class SalerAbnormalOrderUI extends Application {
+public class SalerUpdateRankUI extends Application {
     @Override
     public void start(Stage primaryStage)throws Exception{
-        Parent root = FXMLLoader.load(getClass().getResource("SalerAbnormalOrder.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("SalerUpdateRank.fxml"));
         PromotionController.setPrimaryStage(primaryStage);
         PromotionController.setRoot(root);
-        Scene myScene = new Scene(root,1180,673);
+        Scene myScene = new Scene(root,318,538);
         primaryStage.setResizable(false);
         primaryStage.setScene(myScene);
         primaryStage.show();
