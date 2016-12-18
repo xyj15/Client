@@ -12,6 +12,7 @@ import vo.HotelVO;
 import vo.MemberVO;
 import vo.OrderVO;
 
+import java.rmi.RemoteException;
 import java.util.ArrayList;
 import java.util.Date;
 
@@ -34,11 +35,19 @@ public class Member implements MemberBLService {
 	public Member(MemberVO memberVO) {
 //		memberDataService = RemoteHelper.getInstance().getMemberDataService();
 		memberDataService = new MemberDataStub();
-		this.memberID = memberDataService.getAvailableMemberID();
+		try {
+			this.memberID = memberDataService.getAvailableMemberID();
+		} catch (RemoteException e) {
+			e.printStackTrace();
+		}
 		memberVO.setUserID(memberID);
 		this.memberVO = memberVO;
 		MemberPO memberPO = memberVOtoPO(memberVO);
-		memberDataService.addMember(memberPO);
+		try {
+			memberDataService.addMember(memberPO);
+		} catch (RemoteException e) {
+			e.printStackTrace();
+		}
 		updateDataFromFile();
 		credit = new Credit(memberID);
 		credit.initialCredit();
@@ -216,7 +225,12 @@ public class Member implements MemberBLService {
 	 */
 	public boolean updateDataToFile() {
 		MemberPO memberPO = memberVOtoPO(memberVO);
-		return memberDataService.updateMember(memberPO);
+		try {
+			return memberDataService.updateMember(memberPO);
+		} catch (RemoteException e) {
+			e.printStackTrace();
+		}
+		return false;
 	}
 	
 	/**
@@ -224,13 +238,22 @@ public class Member implements MemberBLService {
 	 * @return 更新成功则返回true，否则返回false
 	 */
 	public boolean updateDataFromFile() {
-		if(memberDataService.getMember(memberID)==null) {
+		try {
+			if(memberDataService.getMember(memberID)==null) {
+				return false;
+			}
+		} catch (RemoteException e) {
+			e.printStackTrace();
 			return false;
 		}
 		
 		credit = new Credit(memberID);
 //		order = new Order(memberID);
-		memberVO = memberPOtoVO(memberDataService.getMember(memberID));
+		try {
+			memberVO = memberPOtoVO(memberDataService.getMember(memberID));
+		} catch (RemoteException e) {
+			e.printStackTrace();
+		}
 		Rank rank = new Rank();
 		int level = rank.getLevel(credit.getCredit());
 		double discount = rank.getDiscount(credit.getCredit());
@@ -286,6 +309,11 @@ public class Member implements MemberBLService {
 	public boolean deleteMember() {
 		this.credit = null;
 		this.memberVO = null;
-		return memberDataService.deleteMember(memberID);
+		try {
+			return memberDataService.deleteMember(memberID);
+		} catch (RemoteException e) {
+			e.printStackTrace();
+		}
+		return false;
 	}
 }

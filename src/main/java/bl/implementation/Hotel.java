@@ -11,6 +11,7 @@ import vo.HotelVO;
 import vo.OrderVO;
 import vo.RoomVO;
 
+import java.rmi.RemoteException;
 import java.util.ArrayList;
 import java.util.Date;
 
@@ -38,9 +39,17 @@ public class Hotel implements HotelBLService {
 		this.hotelVO = hotelVO;
 //		hotelDataService = RemoteHelper.getInstance().getHotelDataService();
 		hotelDataService = new HotelDataStub();
-		hotelVO.setUserID(hotelDataService.getAvailableHotelID());
+		try {
+			hotelVO.setUserID(hotelDataService.getAvailableHotelID());
+		} catch (RemoteException e) {
+			e.printStackTrace();
+		}
 		hotelID = hotelVO.getUserID();
-		hotelDataService.addHotel(hotelVOtoPO(hotelVO));
+		try {
+			hotelDataService.addHotel(hotelVOtoPO(hotelVO));
+		} catch (RemoteException e) {
+			e.printStackTrace();
+		}
 	}
 	
 	/**
@@ -293,10 +302,18 @@ public class Hotel implements HotelBLService {
 	 * 从Data层更新数据
 	 */
 	public boolean updateDateFromFile() {
-		if(hotelDataService.getHotelByID(hotelID)==null) {
-			return false;
+		try {
+			if(hotelDataService.getHotelByID(hotelID)==null) {
+				return false;
+			}
+		} catch (RemoteException e) {
+			e.printStackTrace();
 		}
-		hotelVO = hotelPOtoVO(hotelDataService.getHotelByID(hotelID));
+		try {
+			hotelVO = hotelPOtoVO(hotelDataService.getHotelByID(hotelID));
+		} catch (RemoteException e) {
+			e.printStackTrace();
+		}
 		room = new Room(hotelID);
 		promotion = new Promotion(hotelID);
 		return true;
@@ -307,7 +324,12 @@ public class Hotel implements HotelBLService {
 	 */
 	public boolean updateDateToFile() {
 		HotelPO hotelPO = hotelVOtoPO(hotelVO);
-		return hotelDataService.updateHotel(hotelPO);
+		try {
+			return hotelDataService.updateHotel(hotelPO);
+		} catch (RemoteException e) {
+			e.printStackTrace();
+		}
+		return false;
 	}
 	
 	/**
@@ -366,7 +388,12 @@ public class Hotel implements HotelBLService {
 		this.order = null;
 		this.room = null;
 		this.promotion = null;
-		return hotelDataService.deleteHotel(hotelID);
+		try {
+			return hotelDataService.deleteHotel(hotelID);
+		} catch (RemoteException e) {
+			e.printStackTrace();
+		}
+		return false;
 	}
 	
 	/**

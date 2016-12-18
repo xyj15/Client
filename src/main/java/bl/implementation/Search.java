@@ -11,6 +11,7 @@ import rmi.RemoteHelper;
 import vo.HotelVO;
 import vo.OrderVO;
 
+import java.rmi.RemoteException;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
@@ -210,7 +211,12 @@ public class Search implements SearchBLService {
 	 * @return 符合条件的酒店列表
 	 */
 	public ArrayList<HotelVO> filterExceptDate(Date date) {
-		ArrayList<HotelPO> hotelPOList = searchDataService.getHotelListByCityDistrict(city, district);
+		ArrayList<HotelPO> hotelPOList = null;
+		try {
+			hotelPOList = searchDataService.getHotelListByCityDistrict(city, district);
+		} catch (RemoteException e) {
+			e.printStackTrace();
+		}
 		ArrayList<HotelVO> hotelList = new ArrayList<>();
 		for(int i=0; i<hotelPOList.size(); i++) {
 			hotelList.add(Hotel.hotelPOtoVO(hotelPOList.get(i)));
