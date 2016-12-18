@@ -170,6 +170,11 @@ public class Member implements MemberBLService {
 		return reservedHotelList;
 	}
 	
+	@Override
+	public ArrayList<OrderVO> getHotelOrderList(String hotelID) {
+		return null;
+	}
+	
 	/**
 	 * 获取客户信息
 	 * @return 客户信息

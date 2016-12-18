@@ -100,6 +100,11 @@ public class MemberBLStub implements MemberBLService {
 	}
 	
 	@Override
+	public ArrayList<OrderVO> getHotelOrderList(String hotelID) {
+		return null;
+	}
+	
+	@Override
 	public MemberVO getMemberInformation() {
 		System.out.println("获取客户信息成功");
 		return memberVO;

@@ -26,6 +26,7 @@ public interface MemberBLService {
 	public Date getBirthday();	//获得客户生日，企业客户此项为null
 	public String getEnterprise();	//获得客户所属的合作企业，普通客户此项为null
 	public ArrayList<HotelVO> getReservedHotelList();	//获得预定过的酒店列表
+	public ArrayList<OrderVO> getHotelOrderList(String hotelID);	//获得客户在某酒店的所有订单
 	
 	public MemberVO getMemberInformation();	//获得客户信息
 	public boolean updateMemberInformation(MemberVO memberVO);	//更新客户信息
