@@ -50,27 +50,27 @@
             <Image url="@key.png" />
          </image>
       </ImageView>
-      <Button disable="true" layoutX="51.0" layoutY="231.0" mnemonicParsing="false" opacity="0.67" prefHeight="32.0" prefWidth="181.0" style="-fx-background-color: #000f32;" text="营销策略" textFill="WHITE">
+      <Button disable="true" layoutX="51.0" layoutY="231.0" mnemonicParsing="false" opacity="0.8" prefHeight="32.0" prefWidth="181.0" style="-fx-background-color: #000f32;" text="营销策略" textFill="WHITE">
          <font>
             <Font name="Microsoft YaHei Bold" size="16.0" />
          </font>
       </Button>
-      <Button layoutX="51.0" layoutY="306.0" mnemonicParsing="false" onAction="#onAbnormal" opacity="0.66" prefHeight="23.0" prefWidth="181.0" style="-fx-background-color: #000f32;" text="异常订单" textFill="WHITE">
+      <Button layoutX="51.0" layoutY="306.0" mnemonicParsing="false" onAction="#onAbnormal" opacity="0.8" prefHeight="23.0" prefWidth="181.0" style="-fx-background-color: #000f32;" text="异常订单" textFill="WHITE">
          <font>
             <Font name="Microsoft YaHei Bold" size="16.0" />
          </font>
       </Button>
-      <Button layoutX="51.0" layoutY="382.0" mnemonicParsing="false" onAction="#onRank" opacity="0.66" prefHeight="23.0" prefWidth="181.0" style="-fx-background-color: #000f32;" text="会员制度" textFill="WHITE">
+      <Button layoutX="51.0" layoutY="382.0" mnemonicParsing="false" onAction="#onRank" opacity="0.8" prefHeight="23.0" prefWidth="181.0" style="-fx-background-color: #000f32;" text="会员制度" textFill="WHITE">
          <font>
             <Font name="Microsoft YaHei Bold" size="16.0" />
          </font>
       </Button>
-      <Button layoutX="51.0" layoutY="459.0" mnemonicParsing="false" onAction="#onCredit" opacity="0.66" prefHeight="23.0" prefWidth="181.0" style="-fx-background-color: #000f32;" text="信用充值" textFill="WHITE">
+      <Button layoutX="51.0" layoutY="459.0" mnemonicParsing="false" onAction="#onCredit" opacity="0.8" prefHeight="23.0" prefWidth="181.0" style="-fx-background-color: #000f32;" text="信用充值" textFill="WHITE">
          <font>
             <Font name="Microsoft YaHei Bold" size="16.0" />
          </font>
       </Button>
-      <TableView fx:id="promotionTable" layoutX="367.0" layoutY="126.0" opacity="0.74" prefHeight="431.0" prefWidth="696.0" style="-fx-background-color: #000f32;" stylesheets="@TableView.css">
+      <TableView fx:id="promotionTable" layoutX="374.0" layoutY="117.0" opacity="0.8" prefHeight="432.0" prefWidth="709.0" style="-fx-background-color: #000f32;" stylesheets="@TableView.css">
         <columns>
           <TableColumn fx:id="name" prefWidth="75.0" style="-fx-background-color: #000f32;" text="名称" />
             <TableColumn fx:id="startDate" prefWidth="128.0" style="-fx-background-color: #000f32;" text="起始日期" />

@@ -12,10 +12,7 @@ import bl.stub.SalerBLStub;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.Parent;
-import javafx.scene.control.DatePicker;
-import javafx.scene.control.Label;
-import javafx.scene.control.PasswordField;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.stage.Stage;
 import other.UserType;
 import ui.presentation.*;
@@ -59,9 +56,9 @@ public class ManagerController{
 	@FXML
 	private TextField level;
 	@FXML
-	private TextField service;
+	private TextArea service;
 	@FXML
-	private TextField introduction;
+	private TextArea introduction;
 	@FXML
 	private TextField hotelManagerName;
 //搜索客户结果
@@ -85,9 +82,9 @@ public class ManagerController{
 	@FXML
 	private TextField levelSearch;
 	@FXML
-	private TextField serviceSearch;
+	private TextArea serviceSearch;
 	@FXML
-	private TextField introductionSearch;
+	private TextArea introductionSearch;
 	@FXML
 	private TextField hotelManagerNameSearch;
 //搜索营销人员
