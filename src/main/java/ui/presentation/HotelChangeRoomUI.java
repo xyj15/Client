@@ -8,15 +8,15 @@ import javafx.stage.Stage;
 import ui.controller.HotelController;
 
 /**
- * Created by 婧婧 on 2016/12/1.
+ * Created by 97147 on 2016/12/18.
  */
-public class HotelAbnormalOrderUI extends Application {
+public class HotelChangeRoomUI  extends Application {
     @Override
     public void start(Stage primaryStage)throws Exception{
-        Parent root = FXMLLoader.load(getClass().getResource("HotelAbnormalOrder.fxml"));
-        HotelController.setPrimaryStage(primaryStage);
-        HotelController.setRoot(root);
-        Scene myScene = new Scene(root,1180,660);
+        Parent root = FXMLLoader.load(getClass().getResource("HotelChangeRoom.fxml"));
+        HotelController.setMinprimaryStage(primaryStage);
+        HotelController.setMinroot(root);
+        Scene myScene = new Scene(root,318,538);
         primaryStage.setResizable(false);
         primaryStage.setScene(myScene);
         primaryStage.show();

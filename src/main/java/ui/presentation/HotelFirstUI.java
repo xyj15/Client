@@ -17,7 +17,7 @@ public class HotelFirstUI extends Application {
     public void start(Stage primaryStage)throws Exception{
             Parent root =FXMLLoader.load(getClass().getResource("HotelFirst.fxml"));
             HotelController.setPrimaryStage(primaryStage);
-            Scene myScene = new Scene(root,960,540);
+            Scene myScene = new Scene(root,1180,660);
             primaryStage.setResizable(false);
             primaryStage.setScene(myScene);
             primaryStage.show();
