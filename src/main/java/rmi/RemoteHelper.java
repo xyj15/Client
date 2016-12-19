@@ -78,7 +78,7 @@ public class RemoteHelper {
 	public boolean connect() {
 		try {
 			remoteHelper = RemoteHelper.getInstance();
-			remoteHelper.setRemote(Naming.lookup("rmi://localhost:3304/RemoteDataService"));
+			remoteHelper.setRemote(Naming.lookup("rmi://172.28.151.24:3304/RemoteDataService"));
 			connected = true;
 			return true;
 		} catch (RemoteException e) {
