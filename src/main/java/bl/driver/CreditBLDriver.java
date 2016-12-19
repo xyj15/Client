@@ -13,6 +13,7 @@ public class CreditBLDriver {
 	public void drive() {
 		System.out.println(creditBLService.getCredit());
 		System.out.println(creditBLService.getCreditChangeList());
+		System.out.println(creditBLService.checkCredit());
 	}
 	
 	public static void main(String[] args) {

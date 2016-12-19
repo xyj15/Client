@@ -38,4 +38,10 @@ public class CreditBLStub implements CreditBLService {
 		System.out.println("获取信用成功");
 		return 100;
 	}
+	
+	@Override
+	public boolean checkCredit() {
+		System.out.println("检查信用成功");
+		return true;
+	}
 }
