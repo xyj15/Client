@@ -6,7 +6,6 @@ import data.stub.HotelDataStub;
 import other.OrderStatus;
 import other.RoomType;
 import po.HotelPO;
-import rmi.RemoteHelper;
 import vo.HotelVO;
 import vo.OrderVO;
 import vo.RoomVO;

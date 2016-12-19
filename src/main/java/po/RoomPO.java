@@ -2,12 +2,14 @@ package po;
 
 import other.RoomType;
 
+import java.io.Serializable;
+
 /**
  * 存储Room信息的PO类
  * @author CROFF
  * @version 2016-12-1
  */
-public class RoomPO {
+public class RoomPO implements Serializable {
 
 	private boolean reserved;   //客房是否被预定
 	private boolean available;	//客房是否可使用

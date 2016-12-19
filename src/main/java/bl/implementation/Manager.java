@@ -5,7 +5,6 @@ import data.service.ManagerDataService;
 import data.stub.ManagerDataStub;
 import other.UserType;
 import po.ManagerPO;
-import rmi.RemoteHelper;
 import vo.HotelVO;
 import vo.ManagerVO;
 import vo.MemberVO;
