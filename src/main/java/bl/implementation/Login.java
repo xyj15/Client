@@ -132,6 +132,7 @@ public class Login implements LoginBLService {
 	private User getUser(String userID) {
 		User user = null;
 		UserType userType = getUserType(userID);
+		System.out.print(userType);
 		switch(userType.getValue()) {
 			case 0:
 				Member member = new Member(userID);
