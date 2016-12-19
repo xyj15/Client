@@ -3,6 +3,7 @@ package po;
 import other.User;
 import other.UserType;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
 /**
@@ -11,7 +12,7 @@ import java.util.ArrayList;
  * @author CROFF
  * @version 2016-12-1
  */
-public class SalerPO extends User {
+public class SalerPO extends User implements Serializable {
 	
 	private String name;	//姓名或名称
 	private String tel;	//联系方式

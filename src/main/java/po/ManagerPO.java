@@ -3,13 +3,15 @@ package po;
 import other.User;
 import other.UserType;
 
+import java.io.Serializable;
+
 /**
  * Created by CROFF on 2016/12/1.
  * 存储Manager信息的PO类
  * @author CROFF
  * @version 2016-12-1
  */
-public class ManagerPO extends User {
+public class ManagerPO extends User implements Serializable {
 	
 	private String name;	//姓名或名称
 	private String tel;	//联系方式

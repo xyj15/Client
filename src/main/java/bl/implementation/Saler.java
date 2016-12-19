@@ -5,7 +5,6 @@ import data.service.SalerDataService;
 import data.stub.SalerDataStub;
 import other.OrderAction;
 import po.SalerPO;
-import rmi.RemoteHelper;
 import vo.CreditChangeVO;
 import vo.OrderVO;
 import vo.PromotionVO;

@@ -3,6 +3,7 @@ package po;
 import other.User;
 import other.UserType;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
 /**
@@ -10,7 +11,7 @@ import java.util.ArrayList;
  * @author CROFF
  * @version 2016-12-1
  */
-public class HotelPO extends User {
+public class HotelPO extends User implements Serializable {
 	
 	private String name;	//酒店名称
 	private String city;	//酒店所在城市名

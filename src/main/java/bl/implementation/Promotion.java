@@ -11,7 +11,6 @@ import data.stub.PromotionDataStub;
 import other.PromotionType;
 import other.SaleType;
 import po.PromotionPO;
-import rmi.RemoteHelper;
 import vo.PromotionVO;
 
 /**
@@ -175,7 +174,7 @@ public class Promotion implements PromotionBLService {
 	 */
 	@Override
 	public ArrayList<PromotionVO> getDistrictPromotionList() {
-		ArrayList<PromotionVO> districtPromotionList = new ArrayList<PromotionVO>();
+		ArrayList<PromotionVO> districtPromotionList = new ArrayList<>();
 		for(int i=0; i<promotionList.size(); i++) {
 			PromotionVO promotionVO = promotionList.get(i);
 			if(promotionVO.getRelatedHotelID()==null && promotionVO.getSaleType()==SaleType.District) {
@@ -191,7 +190,7 @@ public class Promotion implements PromotionBLService {
 	 */
 	@Override
 	public ArrayList<PromotionVO> getHotelDatePromotionList() {
-		ArrayList<PromotionVO> districtPromotionList = new ArrayList<PromotionVO>();
+		ArrayList<PromotionVO> districtPromotionList = new ArrayList<>();
 		for(int i=0; i<promotionList.size(); i++) {
 			PromotionVO promotionVO = promotionList.get(i);
 			if(promotionVO.getRelatedHotelID().equals(hotelID) && promotionVO.getSaleType()==SaleType.Date) {
@@ -207,7 +206,7 @@ public class Promotion implements PromotionBLService {
 	 */
 	@Override
 	public ArrayList<PromotionVO> getWebDatePromotionList() {
-		ArrayList<PromotionVO> districtPromotionList = new ArrayList<PromotionVO>();
+		ArrayList<PromotionVO> districtPromotionList = new ArrayList<>();
 		for(int i=0; i<promotionList.size(); i++) {
 			PromotionVO promotionVO = promotionList.get(i);
 			if(promotionVO.getRelatedHotelID()==null && promotionVO.getSaleType()==SaleType.Date) {
@@ -223,7 +222,7 @@ public class Promotion implements PromotionBLService {
 	 */
 	@Override
 	public ArrayList<PromotionVO> getEnterprisePromotionList() {
-		ArrayList<PromotionVO> districtPromotionList = new ArrayList<PromotionVO>();
+		ArrayList<PromotionVO> districtPromotionList = new ArrayList<>();
 		for(int i=0; i<promotionList.size(); i++) {
 			PromotionVO promotionVO = promotionList.get(i);
 			if(promotionVO.getRelatedHotelID().equals(hotelID) && promotionVO.getSaleType()==SaleType.Enterprise) {

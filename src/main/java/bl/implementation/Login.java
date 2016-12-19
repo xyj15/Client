@@ -165,4 +165,10 @@ public class Login implements LoginBLService {
 			return false;
 		}
 	}
+	
+	public static void main(String[] args) {
+		Login login = new Login();
+		System.out.println(login.existUserID("00000001"));
+		System.out.println(login.getUserType("000000"));
+	}
 }
