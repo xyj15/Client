@@ -27,6 +27,7 @@ public class Order implements OrderBLService {
 	private ArrayList<OrderVO> orderList;	//所有订单列表
 	
 	private OrderDataService orderDataService;
+	private OrderDataAbstractFactory orderDataAbstractFactory;
 	
 	/**
 	 * 提供用户ID的构造方法（客户和酒店）
@@ -35,6 +36,7 @@ public class Order implements OrderBLService {
 	public Order(String userID) {
 		this.userID = userID;
 		orderDataService = new OrderDataStub();
+//		orderDataAbstractFactory = RemoteHelper.getInstance().getOrderDataFactory();
 //		orderDataService = RemoteHelper.getInstance().getOrderDataService();
 		updateDataFromFile();
 	}

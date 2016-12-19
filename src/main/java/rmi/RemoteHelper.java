@@ -78,6 +78,10 @@ public class RemoteHelper {
 	public boolean connect() {
 		try {
 			remoteHelper = RemoteHelper.getInstance();
+<<<<<<< HEAD
+=======
+//			remoteHelper.setRemote(Naming.lookup("rmi://localhost:3304/RemoteDataService"));
+>>>>>>> origin/master
 			remoteHelper.setRemote(Naming.lookup("rmi://172.28.151.24:3304/RemoteDataService"));
 			connected = true;
 			return true;
@@ -109,48 +113,57 @@ public class RemoteHelper {
 //		}
 		RemoteHelper remoteHelper = RemoteHelper.getInstance();
 		System.out.println(remoteHelper.connect());
-		OrderDataService test = null;
-		try {
-			test = remoteHelper.getOrderDataFactory().getOrderData("00000000");
-		} catch (RemoteException e) {
-			e.printStackTrace();
-		}
-		OrderPO result = null;
-		try {
-			result = test.getOrder("2016120900000000");
-		} catch (RemoteException e) {
-			e.printStackTrace();
-		}
-		SimpleDateFormat bartDateFormate = new SimpleDateFormat("MM-dd-yyyy");
-		System.out.println("orderID: "+result.getOrderID());
-		System.out.println("mamberID: "+result.getMemberID());
-		System.out.println("hotelID: "+result.getHotelID());
-		System.out.println("orderStatus: "+result.getOrderStatus());
-		if(result.getOrderStatus()== OrderStatus.Canceled){
-			System.out.println("cancel: "+bartDateFormate.format(result.getCancelTime()));
-		}
-		System.out.println("roomName: "+result.getRoomName());
-		System.out.println("numberOfRoom: "+result.getNumberOfRoom());
-		System.out.println("numberOfClient: "+result.getNumberOfClient());
-		System.out.println("hasKid: "+result.getHaveKids());
-		System.out.println("checkInTime: "+bartDateFormate.format(result.getCheckinTime()));
-		System.out.println("checkOutTime: "+bartDateFormate.format(result.getCheckoutTime()));
-		System.out.println("latesCheckInTime: "+bartDateFormate.format(result.getLatestCheckinTime()));
-		System.out.println("promotionID: "+result.getPromotionID());
-		System.out.println("price: "+result.getPrice());
-		if(result.getOrderStatus()== OrderStatus.Executed){
-			System.out.println("actualCheckInTime: "+bartDateFormate.format(result.getActualCheckinTime()));
-			System.out.println("actualCheckOutTime: "+bartDateFormate.format(result.getActualCheckoutTime()));
-			System.out.println("score: "+result.getScore());
-			System.out.println("evaluation: "+result.getEvaluation());
-			System.out.println("recover: "+result.getRecover());
-		}
-		System.out.println("createTime: "+bartDateFormate.format(result.getCreateTime()));
-		boolean b = remoteHelper.connect();
+//		OrderDataService test = null;
+//		try {
+//			test = remoteHelper.getOrderDataFactory().getOrderData("00000000");
+//		} catch (RemoteException e) {
+//			e.printStackTrace();
+//		}
+//		OrderPO result = null;
+//		try {
+//			result = test.getOrder("2016120900000000");
+//		} catch (RemoteException e) {
+//			e.printStackTrace();
+//		}
+//		SimpleDateFormat bartDateFormate = new SimpleDateFormat("MM-dd-yyyy");
+//		System.out.println("orderID: "+result.getOrderID());
+//		System.out.println("mamberID: "+result.getMemberID());
+//		System.out.println("hotelID: "+result.getHotelID());
+//		System.out.println("orderStatus: "+result.getOrderStatus());
+//		if(result.getOrderStatus()== OrderStatus.Canceled){
+//			System.out.println("cancel: "+bartDateFormate.format(result.getCancelTime()));
+//		}
+//		System.out.println("roomName: "+result.getRoomName());
+//		System.out.println("numberOfRoom: "+result.getNumberOfRoom());
+//		System.out.println("numberOfClient: "+result.getNumberOfClient());
+//		System.out.println("hasKid: "+result.getHaveKids());
+//		System.out.println("checkInTime: "+bartDateFormate.format(result.getCheckinTime()));
+//		System.out.println("checkOutTime: "+bartDateFormate.format(result.getCheckoutTime()));
+//		System.out.println("latesCheckInTime: "+bartDateFormate.format(result.getLatestCheckinTime()));
+//		System.out.println("promotionID: "+result.getPromotionID());
+//		System.out.println("price: "+result.getPrice());
+//		if(result.getOrderStatus()== OrderStatus.Executed){
+//			System.out.println("actualCheckInTime: "+bartDateFormate.format(result.getActualCheckinTime()));
+//			System.out.println("actualCheckOutTime: "+bartDateFormate.format(result.getActualCheckoutTime()));
+//			System.out.println("score: "+result.getScore());
+//			System.out.println("evaluation: "+result.getEvaluation());
+//			System.out.println("recover: "+result.getRecover());
+//		}
+//		System.out.println("createTime: "+bartDateFormate.format(result.getCreateTime()));
+		boolean b = remoteHelper.isConnected();
 		if(b) {
 			System.out.println("连接到服务器成功");
 		} else {
 			System.out.println("连接到服务器失败");
+		}
+		try {
+			System.out.println(remoteHelper.getHotelDataService().getAvailableHotelID());
+			System.out.println(remoteHelper.getMemberDataService().getAvailableMemberID());
+			System.out.println(remoteHelper.getCreditDataService().getCredit("00000000"));
+			System.out.println(remoteHelper.getManagerDataService().getManager().getName());
+			System.out.println(remoteHelper.getPromotionDataService().getAvailablePromotionID());
+		} catch (RemoteException e) {
+			e.printStackTrace();
 		}
 	}
 }

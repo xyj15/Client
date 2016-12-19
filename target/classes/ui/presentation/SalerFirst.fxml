@@ -22,33 +22,33 @@
             <Image url="@logo.png" />
          </image>
       </ImageView>
-      <Label layoutX="1067.0" layoutY="32.0" text="注销" textFill="WHITE">
+      <Label layoutX="1099.0" layoutY="32.0" text="注销" textFill="WHITE">
          <font>
             <Font name="Microsoft YaHei Bold" size="16.0" />
          </font>
       </Label>
-      <Button layoutX="1035.0" layoutY="26.0" mnemonicParsing="false" onAction="#onLogOut" opacity="0.0" prefHeight="34.0" prefWidth="70.0" text="Button" />
-      <ImageView fitHeight="21.0" fitWidth="17.0" layoutX="1042.0" layoutY="29.0" pickOnBounds="true" preserveRatio="true">
+      <Button layoutX="1067.0" layoutY="26.0" mnemonicParsing="false" onAction="#onLogOut" opacity="0.0" prefHeight="34.0" prefWidth="70.0" text="Button" />
+      <ImageView fitHeight="21.0" fitWidth="17.0" layoutX="1074.0" layoutY="29.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@key.png" />
          </image>
       </ImageView>
-      <Button layoutX="51.0" layoutY="306.0" mnemonicParsing="false" onAction="#onAbnormal" opacity="0.66" prefHeight="23.0" prefWidth="181.0" style="-fx-background-color: #000f32;" text="异常订单" textFill="WHITE">
+      <Button layoutX="51.0" layoutY="306.0" mnemonicParsing="false" onAction="#onAbnormal" opacity="0.81" prefHeight="23.0" prefWidth="181.0" style="-fx-background-color: #000f32;" text="异常订单" textFill="WHITE">
          <font>
             <Font name="Microsoft YaHei Bold" size="16.0" />
          </font>
       </Button>
-      <Button layoutX="51.0" layoutY="382.0" mnemonicParsing="false" onAction="#onRank" opacity="0.66" prefHeight="23.0" prefWidth="181.0" style="-fx-background-color: #000f32;" text="会员制度" textFill="WHITE">
+      <Button layoutX="51.0" layoutY="382.0" mnemonicParsing="false" onAction="#onRank" opacity="0.81" prefHeight="23.0" prefWidth="181.0" style="-fx-background-color: #000f32;" text="会员制度" textFill="WHITE">
          <font>
             <Font name="Microsoft YaHei Bold" size="16.0" />
          </font>
       </Button>
-      <Button layoutX="51.0" layoutY="459.0" mnemonicParsing="false" onAction="#onCredit" opacity="0.66" prefHeight="23.0" prefWidth="181.0" style="-fx-background-color: #000f32;" text="信用充值" textFill="WHITE">
+      <Button layoutX="51.0" layoutY="459.0" mnemonicParsing="false" onAction="#onCredit" opacity="0.81" prefHeight="23.0" prefWidth="181.0" style="-fx-background-color: #000f32;" text="信用充值" textFill="WHITE">
          <font>
             <Font name="Microsoft YaHei Bold" size="16.0" />
          </font>
       </Button>
-      <Button layoutX="51.0" layoutY="231.0" mnemonicParsing="false" onAction="#onPromotion" opacity="0.66" prefHeight="23.0" prefWidth="181.0" style="-fx-background-color: #000f32;" text="营销策略" textFill="WHITE">
+      <Button layoutX="51.0" layoutY="231.0" mnemonicParsing="false" onAction="#onPromotion" opacity="0.81" prefHeight="23.0" prefWidth="181.0" style="-fx-background-color: #000f32;" text="营销策略" textFill="WHITE">
          <font>
             <Font name="Microsoft YaHei Bold" size="16.0" />
          </font>

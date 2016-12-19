@@ -4,6 +4,7 @@ import other.MemberType;
 import other.User;
 import other.UserType;
 
+import java.io.Serializable;
 import java.util.Date;
 
 /**
@@ -11,7 +12,7 @@ import java.util.Date;
  * @author CROFF
  * @version 2016-12-1
  */
-public class MemberPO extends User {
+public class MemberPO extends User implements Serializable {
 	
 	private String name;
 	private String phone;
