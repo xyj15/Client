@@ -160,10 +160,14 @@ public class RemoteHelper {
 			System.out.println(remoteHelper.getCreditDataService().getCredit("00000000"));
 			System.out.println(remoteHelper.getManagerDataService().getManager().getName());
 			System.out.println(remoteHelper.getPromotionDataService().getAvailablePromotionID());
+<<<<<<< Updated upstream
 			System.out.println(remoteHelper.getRankDataService().getCreditList().get(2));
 			System.out.println(remoteHelper.getRoomDataService().getRoomsByDate(new Date(), "000000").get(0).getRoomName());
 			System.out.println(remoteHelper.getSalerDataService().getAvailableSalerID());
 			System.out.println(remoteHelper.getSearchDataService().getHotelListByCityDistrict("南京市", "新街口").get(0).getName());
+=======
+			System.out.println(remoteHelper.getRoomDataService().getRoomsByDate(new Date(),"000000").get(0).getRoomName());
+>>>>>>> Stashed changes
 		} catch (RemoteException e) {
 			e.printStackTrace();
 		}
