@@ -41,25 +41,25 @@ import java.util.Date;
 public class HotelController {
 
 
-    private HotelBLService hotel ;
-    private OrderBLService order = new OrderBLStub();
-    private PromotionBLService promotion = new PromotionBLStub();
-    private RoomBLService room = new RoomBLStub();
+    private static   HotelBLService hotel ;
+    private static OrderBLService order = new OrderBLStub();
+    private static PromotionBLService promotion = new PromotionBLStub();
+    private static RoomBLService room = new RoomBLStub();
 
-    public void setHotel(HotelBLService hotel) {
-        this.hotel = hotel;
+    public static void setHotel(HotelBLService hote) {
+        hotel = hote;
     }
 
-    public void setOrder(OrderBLService order) {
-        this.order = order;
+    public static void setOrder(OrderBLService orde) {
+        order = orde;
     }
 
-    public void setPromotion(PromotionBLService promotion) {
-        this.promotion = promotion;
+    public static void setPromotion(PromotionBLService promotio) {
+        promotion = promotio;
     }
 
-    public void setRoom(RoomBLService room) {
-        this.room = room;
+    public static  void setRoom(RoomBLService roo) {
+        room = roo;
     }
 
     private static Stage primaryStage;

@@ -1,8 +1,9 @@
 package ui.controller;
 
-import bl.implementation.Login;
+import bl.implementation.*;
 import bl.service.LoginBLService;
 import bl.stub.LoginBLStub;
+import bl.stub.PromotionBLStub;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.Parent;
@@ -24,7 +25,7 @@ import java.util.Date;
  */
 public class LoginController{
     private LoginUI loginUI;
-    private LoginBLService loginBL = new LoginBLStub();
+    private LoginBLService loginBL =new Login();
     private static Parent root;
     private static Stage primaryStage;
     public static void setPrimaryStage(Stage in){
@@ -45,12 +46,17 @@ public class LoginController{
             if(loginBL.existUserID(usernameForLog.toString())){
                 if(loginBL.login(usernameForLog.toString(),passwordForLog.toString())){
                     UserType userType = loginBL.getUserType(usernameForLog.toString());
+                System.out.print(""+userType );
                     switch (userType){
                         case Member:
                             new MemberFirstUI().start(primaryStage);
                             break;
                         case Hotel:
                             new HotelFirstUI().start(primaryStage);
+                            HotelController.setHotel(new Hotel(usernameForLog.getText().toString()));
+                            HotelController.setOrder(new Order(usernameForLog.getText().toString()));
+                            HotelController.setPromotion(new Promotion(usernameForLog.getText().toString()));
+                            HotelController.setRoom(new Room(usernameForLog.getText().toString()));
                             break;
                         case Saler:
                             new SalerFirstUI().start(primaryStage);
