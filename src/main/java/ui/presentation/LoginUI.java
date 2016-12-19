@@ -31,10 +31,6 @@ public class LoginUI extends Application {
            primaryStage.setResizable(false);
            primaryStage.setScene(myScene);
            primaryStage.show();
-        Date x =new Date();
-        System.out.print(x.getHours());
-        x.setHours(x.getHours()+12);
-        System.out.print(x.getHours());
     }
     public static void main(String[] args) {
         launch(args);
