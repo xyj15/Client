@@ -12,6 +12,7 @@ import java.rmi.NotBoundException;
 import java.rmi.Remote;
 import java.rmi.RemoteException;
 import java.text.SimpleDateFormat;
+import java.util.Date;
 
 public class RemoteHelper {
 	
@@ -78,10 +79,7 @@ public class RemoteHelper {
 	public boolean connect() {
 		try {
 			remoteHelper = RemoteHelper.getInstance();
-<<<<<<< HEAD
-=======
 //			remoteHelper.setRemote(Naming.lookup("rmi://localhost:3304/RemoteDataService"));
->>>>>>> origin/master
 			remoteHelper.setRemote(Naming.lookup("rmi://172.28.151.24:3304/RemoteDataService"));
 			connected = true;
 			return true;
@@ -162,6 +160,14 @@ public class RemoteHelper {
 			System.out.println(remoteHelper.getCreditDataService().getCredit("00000000"));
 			System.out.println(remoteHelper.getManagerDataService().getManager().getName());
 			System.out.println(remoteHelper.getPromotionDataService().getAvailablePromotionID());
+<<<<<<< Updated upstream
+			System.out.println(remoteHelper.getRankDataService().getCreditList().get(2));
+			System.out.println(remoteHelper.getRoomDataService().getRoomsByDate(new Date(), "000000").get(0).getRoomName());
+			System.out.println(remoteHelper.getSalerDataService().getAvailableSalerID());
+			System.out.println(remoteHelper.getSearchDataService().getHotelListByCityDistrict("南京市", "新街口").get(0).getName());
+=======
+			System.out.println(remoteHelper.getRoomDataService().getRoomsByDate(new Date(),"000000").get(0).getRoomName());
+>>>>>>> Stashed changes
 		} catch (RemoteException e) {
 			e.printStackTrace();
 		}
