@@ -37,7 +37,11 @@ public class Order implements OrderBLService {
 		this.userID = userID;
 		orderDataService = new OrderDataStub();
 //		orderDataAbstractFactory = RemoteHelper.getInstance().getOrderDataFactory();
-//		orderDataService = RemoteHelper.getInstance().getOrderDataService();
+//		try {
+//			orderDataService = orderDataAbstractFactory.getOrderData(userID);
+//		} catch (RemoteException e) {
+//			e.printStackTrace();
+//		}
 		updateDataFromFile();
 	}
 	
@@ -383,6 +387,11 @@ public class Order implements OrderBLService {
 			OrderVO orderVO = orderList.get(i);
 			if(orderVO.getLatestCheckinTime().before(new Date())) {
 				orderVO.setOrderStatus(OrderStatus.Abnormal);
+				try {
+					orderDataService.makeOrderAbnormal(orderVO.getOrderID());
+				} catch (RemoteException e) {
+					e.printStackTrace();
+				}
 				
 				Credit credit = new Credit(orderVO.getMemberID());
 				double change = orderVO.getPrice();

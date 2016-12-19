@@ -45,12 +45,12 @@
             <Font name="Microsoft YaHei Bold" size="16.0" />
          </font>
       </Button>
-      <Button layoutX="696.0" layoutY="613.0" mnemonicParsing="false" onAction="#onAddRoom" prefHeight="23.0" prefWidth="65.0" style="-fx-background-color: #6B6BCF;" text="修改" textFill="WHITE">
+      <Button layoutX="696.0" layoutY="613.0" mnemonicParsing="false" onAction="#onChangeRoom" prefHeight="23.0" prefWidth="65.0" style="-fx-background-color: #6B6BCF;" text="修改" textFill="WHITE">
          <font>
             <Font name="Microsoft YaHei Bold" size="16.0" />
          </font>
       </Button>
-      <Button layoutX="772.0" layoutY="613.0" mnemonicParsing="false" prefHeight="23.0" prefWidth="65.0" style="-fx-background-color: #6B6BCF;" text="删除" textFill="WHITE">
+      <Button layoutX="772.0" layoutY="613.0" mnemonicParsing="false" onAction="#onDeleteRoom" prefHeight="23.0" prefWidth="65.0" style="-fx-background-color: #6B6BCF;" text="删除" textFill="WHITE">
          <font>
             <Font name="Microsoft YaHei Bold" size="16.0" />
          </font>
