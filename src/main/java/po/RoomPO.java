@@ -37,7 +37,7 @@ public class RoomPO implements Serializable {
 	 * @param hotelID 所属酒店ID
 	 */
 	public RoomPO(boolean reserved, boolean available, String roomNumber, String roomName,
-	              RoomType roomType, double price, String hotelID) {
+				  RoomType roomType, double price, String hotelID) {
 		this.reserved = reserved;
 		this.available = available;
 		this.roomNumber = roomNumber;
@@ -45,6 +45,25 @@ public class RoomPO implements Serializable {
 		this.roomType = roomType;
 		this.price = price;
 		this.hotelID = hotelID;
+	}
+
+	/**
+	 * 没有HotelID的构造方法
+	 * @param reserved  客房是否被预定
+	 * @param available 客房是否可使用
+	 * @param roomNumber 客房号码
+	 * @param roomName 客房名称
+	 * @param roomType 客房类型
+	 * @param price 客房单价
+	 */
+	public RoomPO(boolean reserved, boolean available, String roomNumber, String roomName,
+				  RoomType roomType, double price) {
+		this.reserved = reserved;
+		this.available = available;
+		this.roomNumber = roomNumber;
+		this.roomName = roomName;
+		this.roomType = roomType;
+		this.price = price;
 	}
 	
 	public boolean isAvailable() {
