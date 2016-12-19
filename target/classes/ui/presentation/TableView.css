@@ -5,7 +5,7 @@
     -fx-table-cell-border-color: transparent;
     -fx-table-header-border-color: transparent;
     -fx-padding: 5;
-    -fx-font-size: 12pt;
+    -fx-font-size: 14pt;
     -fx-font-family: "Microsoft Yahei";
     -fx-text-fill: white;
     -fx-alignment: center-right;
@@ -33,7 +33,7 @@
 }
 /*标题栏字*/
 .table-view .column-header .label {
-    -fx-font-size: 16pt;
+    -fx-font-size: 18pt;
     -fx-font-family: "Microsoft Yahei";
     -fx-text-fill: white;
     -fx-alignment: center;
@@ -41,12 +41,9 @@
 }
 
 .table-view:focused .table-row-cell:filled:focused:selected {
-   /*// -fx-background-color: red;*/
     -fx-opacity: 0.5;
-   /*// -fx-text-fill: black;*/
-     /*// -fx-text-fill: -fx-selection-bar-text; */
-     /*// -fx-background-color: -fx-selection-bar; */
-      -fx-table-cell-border-color: transparent;
+    -fx-table-cell-border-color: transparent;
+    -fx-table-header-border-color: transparent;
 }
 .table-view .label {
     -fx-font-size: 12pt;
@@ -54,4 +51,8 @@
     -fx-text-fill: white;
     -fx-alignment: center;
     -fx-opacity: 1;
+}
+
+.table-view .table-column{
+  -fx-alignment: center;
 }

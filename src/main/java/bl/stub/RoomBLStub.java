@@ -13,7 +13,7 @@ public class RoomBLStub implements RoomBLService {
 	
 	public RoomBLStub() {
 		boolean reserved = false;
-		boolean available = false;
+		boolean available = true;
 		String roomNumber = "3304";
 		String roomName = "总统专用豪华研讨间";
 		RoomType roomType = RoomType.Suite;
@@ -33,7 +33,11 @@ public class RoomBLStub implements RoomBLService {
 		System.out.println("获取客房列表成功");
 		ArrayList<RoomVO> roomList = new ArrayList<>();
 		RoomVO roomVO = new RoomVO(true, false, "301", "海景大床房", RoomType.BigBed, 500, "000000");
+		RoomVO roomVO1 = new RoomVO(true, false, "222", "海景大床房", RoomType.BigBed, 100, "111110");
+		RoomVO roomVO2 = new RoomVO(true, false, "333", "海景大床房", RoomType.BigBed, 5111, "0555550");
 		roomList.add(roomVO);
+		roomList.add(roomVO1);
+		roomList.add(roomVO2);
 		return roomList;
 	}
 	
@@ -41,7 +45,7 @@ public class RoomBLStub implements RoomBLService {
 	public ArrayList<RoomVO> getDailyRoomList(Date date) {
 		System.out.println("获取客房列表成功");
 		ArrayList<RoomVO> roomList = new ArrayList<>();
-		RoomVO roomVO = new RoomVO(true, false, "301", "海景大床房", RoomType.BigBed, 500, "000000");
+		RoomVO roomVO = new RoomVO(false, true, "301", "海景大床房", RoomType.BigBed, 500, "000000");
 		roomList.add(roomVO);
 		return roomList;
 	}

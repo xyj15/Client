@@ -15,7 +15,7 @@ public class ManagerSearchSalerUI extends Application {
     public void start (Stage primaryStage) throws Exception {
         Parent root = FXMLLoader.load(getClass().getResource("ManagerSearchSaler.fxml"));
         ManagerController.setPrimaryStage(primaryStage);
-        Scene myScene = new Scene(root,960,540);
+        Scene myScene = new Scene(root,1180,540);
         primaryStage.setResizable(false);
         primaryStage.setScene(myScene);
         primaryStage.show();
