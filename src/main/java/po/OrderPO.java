@@ -2,6 +2,7 @@ package po;
 
 import other.OrderStatus;
 
+import java.io.Serializable;
 import java.util.Date;
 
 /**
@@ -9,7 +10,7 @@ import java.util.Date;
  * @author CROFF
  * @version 2016-12-1
  */
-public class OrderPO {
+public class OrderPO implements Serializable {
 	
 	private String memberID;	//订单相关客户
 	private String hotelID;	//订单相关酒店
