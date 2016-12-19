@@ -39,17 +39,22 @@ public class LoginController{
     private void onLogIn(ActionEvent E)throws Exception {
         TextField usernameForLog = (TextField)root.lookup("#usernameForLog");
         PasswordField passwordForLog = (PasswordField)root.lookup("#passwordForLog");
-        if(!loginBL.checkNetwork()){
-            System.out.println("Link failed");
-        }
-        else {
-            if(loginBL.existUserID(usernameForLog.toString())){
-                if(loginBL.login(usernameForLog.toString(),passwordForLog.toString())){
-                    UserType userType = loginBL.getUserType(usernameForLog.toString());
-                System.out.print(""+userType );
+//        if(!loginBL.checkNetwork()){
+//            System.out.println("Link failed");
+//        }
+//        else {
+//         System.out.print(usernameForLog.getText().toString());
+            if(loginBL.existUserID(usernameForLog.getText().toString())){
+                if(loginBL.login(usernameForLog.getText().toString(),passwordForLog.getText().toString())){
+                    UserType userType = loginBL.getUserType(usernameForLog.getText().toString());
+//                System.out.print(""+userType );
                     switch (userType){
                         case Member:
                             new MemberFirstUI().start(primaryStage);
+                            MemberController.setSearch(new Search(usernameForLog.getText().toString()));
+                            MemberController.setMember(new Member(usernameForLog.getText().toString()));
+                            MemberController.setCreidt(new Credit(usernameForLog.getText().toString()));
+                            MemberController.setOrder(new Order(usernameForLog.getText().toString()));
                             break;
                         case Hotel:
                             new HotelFirstUI().start(primaryStage);
@@ -68,7 +73,7 @@ public class LoginController{
                 }
             }
         }
-    }
+//    }
     @FXML
     private void onCompanyRegister(ActionEvent E)throws Exception {
         new CompanyRegisterUI().start(primaryStage);

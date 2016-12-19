@@ -41,13 +41,37 @@ public class MemberController{
     private static Parent minroot;
     private static Parent midroot;
     private static Parent root;
-    private SearchBLService search = new SearchBLStub();
-    private MemberBLService member = new MemberBLStub();
-    private CreditBLService creidt = new CreditBLStub();
-    private HotelBLService hotel = new HotelBLStub();
-    private ReserveBLService reserve = new ReserveBLStub();
-    private OrderBLService order = new OrderBLStub();
-    private RoomBLService room = new RoomBLStub();
+    private static SearchBLService search ;
+    private static MemberBLService member ;
+    private static CreditBLService creidt ;
+    private static HotelBLService hotel ;
+    private static ReserveBLService reserve ;
+    private static OrderBLService order;
+    private static RoomBLService room ;
+//    private SearchBLService search = new SearchBLStub();
+//    private MemberBLService member = new MemberBLStub();
+//    private CreditBLService creidt = new CreditBLStub();
+//    private HotelBLService hotel = new HotelBLStub();
+//    private ReserveBLService reserve = new ReserveBLStub();
+//    private OrderBLService order = new OrderBLStub();
+//    private RoomBLService room = new RoomBLStub();
+
+    public static void setSearch(SearchBLService searc) {
+        search = searc;
+    }
+
+    public static void setMember(MemberBLService membe) {
+        member = membe;
+    }
+
+    public static void setCreidt(CreditBLService creid) {
+        creidt = creid;
+    }
+
+    public static void setOrder(OrderBLService orde) {
+        order = orde;
+    }
+
     private static ArrayList<OrderVO> list;
     private static ArrayList<HotelVO> HList;
     private static ArrayList<RoomVO> RList;
