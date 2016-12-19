@@ -19,10 +19,7 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import javafx.util.Callback;
-import other.PromotionType;
-import other.RoomType;
-import other.TableData;
-import other.roomTypeChoice;
+import other.*;
 import ui.presentation.*;
 import vo.HotelVO;
 import vo.OrderVO;
@@ -41,25 +38,25 @@ import java.util.Date;
 public class HotelController {
 
 
-    private HotelBLService hotel ;
-    private OrderBLService order = new OrderBLStub();
-    private PromotionBLService promotion = new PromotionBLStub();
-    private RoomBLService room = new RoomBLStub();
+    private static HotelBLService hotel;
+    private static OrderBLService order = new OrderBLStub();
+    private static PromotionBLService promotion = new PromotionBLStub();
+    private static RoomBLService room = new RoomBLStub();
 
-    public void setHotel(HotelBLService hotel) {
-        this.hotel = hotel;
+    public static void setHotel(HotelBLService hote) {
+        hotel = hote;
     }
 
-    public void setOrder(OrderBLService order) {
-        this.order = order;
+    public static void setOrder(OrderBLService orde) {
+        order = orde;
     }
 
-    public void setPromotion(PromotionBLService promotion) {
-        this.promotion = promotion;
+    public static void setPromotion(PromotionBLService promotio) {
+        promotion = promotio;
     }
 
-    public void setRoom(RoomBLService room) {
-        this.room = room;
+    public static  void setRoom(RoomBLService roo) {
+        room = roo;
     }
 
     private static Stage primaryStage;
@@ -73,6 +70,7 @@ public class HotelController {
     private static Parent midroot;
     private static ArrayList<OrderVO> list;
     private static ArrayList<RoomVO> RoomList;
+    private static ArrayList<PromotionVO> PromotionList;
     private static OrderVO temOrder;
     private static int count=0;
 
@@ -335,6 +333,7 @@ public class HotelController {
                     }
                 }else {
                     try{
+                        midprimaryStage.close();
                         onOrderManager(e);
                     }catch (Exception E){
                         E.printStackTrace();
@@ -369,7 +368,6 @@ public class HotelController {
                 if (temOrder.getNumberOfRoom() != count) {
                     try {
                         midprimaryStage.close();
-
                         onDelayOrder(e);
 
                     } catch (Exception E) {
@@ -377,6 +375,7 @@ public class HotelController {
                     }
                 } else {
                     try {
+                        midprimaryStage.close();
                         onAbnormalOrder(e);
                     } catch (Exception E) {
                         E.printStackTrace();
@@ -446,6 +445,7 @@ public class HotelController {
                     }
                 } else {
                     try {
+                        midprimaryStage.close();
                         onProcessedOrder(e);
                     } catch (Exception E) {
                         E.printStackTrace();
@@ -474,11 +474,11 @@ public class HotelController {
         ObservableList<TableData> dataForH
                 = FXCollections.observableArrayList();
         ObservableList<TableColumn> tableList = table.getColumns();
-        ArrayList<PromotionVO> list = promotion.getHotelDatePromotionList();
+        PromotionList = promotion.getHotelDatePromotionList();
         SimpleDateFormat sdf=new SimpleDateFormat("yyyy-MM-dd");
-        for(int i=0;i<list.size();i++){
-            dataForH.add(new TableData(sdf.format(list.get(i).getStartDate()),sdf.format(list.get(i).getEndDate()),
-                    ""+list.get(i).getDiscount()));
+        for(int i=0;i<PromotionList.size();i++){
+            dataForH.add(new TableData(sdf.format(PromotionList.get(i).getStartDate()),sdf.format(PromotionList.get(i).getEndDate()),
+                    ""+PromotionList.get(i).getDiscount()));
         }
         tableList.get(0).setCellValueFactory(new PropertyValueFactory("first"));
         tableList.get(1).setCellValueFactory(new PropertyValueFactory("second"));
@@ -511,14 +511,14 @@ public class HotelController {
     @FXML
     private void onDeleteDateP(ActionEvent E)throws Exception {
         TableView table = (TableView) root.lookup("#table");
-        PromotionVO tem = promotion.getHotelDatePromotionList().get(table.getSelectionModel().getSelectedIndex());
+        PromotionVO tem = PromotionList.get(table.getSelectionModel().getSelectedIndex());
         promotion.deletePromotion(tem.getPromotionID());
         onPromotionManager(E);
     }
     @FXML
     private void confirmChangePromotion(ActionEvent E)throws Exception {
         TableView table = (TableView) root.lookup("#table");
-        PromotionVO tem = promotion.getHotelDatePromotionList().get(table.getSelectionModel().getSelectedIndex());
+        PromotionVO tem = PromotionList.get(table.getSelectionModel().getSelectedIndex());
         TextField DatePromotionName = (TextField)minroot.lookup("#DatePromotionName");
         TextField dateDiscount = (TextField)minroot.lookup("#dateDiscount");
         DatePicker checkInDate = (DatePicker)minroot.lookup("#checkInDate");
@@ -555,7 +555,7 @@ public class HotelController {
         minprimaryStage = new Stage();
         new HotelChangeCompanyPromotionUI().start(minprimaryStage);
         TableView table = (TableView) root.lookup("#table");
-        PromotionVO tem = promotion.getHotelDatePromotionList().get(table.getSelectionModel().getSelectedIndex());
+        PromotionVO tem = PromotionList.get(table.getSelectionModel().getSelectedIndex());
         TextField Pname = (TextField)minroot.lookup("#Pname");
         TextField name = (TextField)minroot.lookup("#name");
         TextField discount = (TextField)minroot.lookup("#discount");
@@ -566,7 +566,7 @@ public class HotelController {
     @FXML
     private void onDeleteCompanyPromotion(ActionEvent E)throws Exception {
         TableView table = (TableView) root.lookup("#table");
-        PromotionVO tem = promotion.getHotelDatePromotionList().get(table.getSelectionModel().getSelectedIndex());
+        PromotionVO tem = PromotionList.get(table.getSelectionModel().getSelectedIndex());
         promotion.deletePromotion(tem.getPromotionID());
         onCompanyPromotion(E);
     }
@@ -577,9 +577,9 @@ public class HotelController {
         ObservableList<TableData> dataForMInfor
                 = FXCollections.observableArrayList();
         ObservableList<TableColumn> tableList = table.getColumns();
-        ArrayList<PromotionVO> list = promotion.getEnterprisePromotionList();
-        for(int i=0;i<list.size();i++){
-            dataForMInfor.add(new TableData(list.get(i).getPromotionName(),list.get(i).getEnterprise(),""+list.get(i).getDiscount()));
+        PromotionList = promotion.getEnterprisePromotionList();
+        for(int i=0;i<PromotionList.size();i++){
+            dataForMInfor.add(new TableData(PromotionList.get(i).getPromotionName(),PromotionList.get(i).getEnterprise(),""+PromotionList.get(i).getDiscount()));
         }
         tableList.get(0).setCellValueFactory(new PropertyValueFactory("first"));
         tableList.get(1).setCellValueFactory(new PropertyValueFactory("second"));
@@ -602,7 +602,7 @@ public class HotelController {
     @FXML
     private void onSureChangeCp(ActionEvent E)throws Exception {
         TableView table = (TableView) root.lookup("#table");
-        PromotionVO tem = promotion.getEnterprisePromotionList().get(table.getSelectionModel().getSelectedIndex());
+        PromotionVO tem = PromotionList.get(table.getSelectionModel().getSelectedIndex());
         TextField Pname = (TextField)minroot.lookup("#Pname");
         TextField name = (TextField)minroot.lookup("#name");
         TextField discount = (TextField)minroot.lookup("#discount");
@@ -621,9 +621,10 @@ public class HotelController {
         ObservableList<TableData> dataForMInfor
                 = FXCollections.observableArrayList();
         ObservableList<TableColumn> tableList = table.getColumns();
-        ArrayList<RoomVO> list = room.getDailyRoomList(new Date());
-        for(int i=0;i<list.size();i++){
-            dataForMInfor.add(new TableData(list.get(i).getRoomNumber(),list.get(i).getRoomName(),""+list.get(i).getRoomType(),""+list.get(i).getPrice()));
+        RoomList = room.getDailyRoomList(new Date());
+        for(int i=0;i<RoomList.size();i++){
+            dataForMInfor.add(new TableData(RoomList.get(i).getRoomNumber(),RoomList.get(i).getRoomName(),
+                    ""+RoomList.get(i).getRoomType(),""+RoomList.get(i).getPrice(),RoomList.get(i).isAvailable()?"空置":"已入住"));
         }
         tableList.get(0).setCellValueFactory(new PropertyValueFactory("first"));
         tableList.get(1).setCellValueFactory(new PropertyValueFactory("second"));
@@ -648,7 +649,7 @@ public class HotelController {
         TextField id = (TextField)minroot.lookup("#id");
         TextField name = (TextField)minroot.lookup("#name");
         TextField price = (TextField)minroot.lookup("#price");
-        ComboBox<roomTypeChoice> type =(ComboBox<roomTypeChoice>)root.lookup("#type");
+        ComboBox<roomTypeChoice> type =(ComboBox<roomTypeChoice>)minroot.lookup("#type");
         room.addRoom(new RoomVO(false,true,id.getText().toString(),name.getText().toString(),
                 type.getSelectionModel().getSelectedItem().toRoomType(),
                 Double.parseDouble(price.getText().toString()),hotel.getHotelInformation().getUserID()));
@@ -658,8 +659,8 @@ public class HotelController {
     @FXML
     private void onChangeRoom(ActionEvent E)throws Exception {
         TableView table = (TableView) root.lookup("#table");
-        ArrayList<RoomVO> list = room.getDailyRoomList(new Date());
-        RoomVO tem =list.get(table.getSelectionModel().getSelectedIndex());
+//        ArrayList<RoomVO> list = room.getDailyRoomList(new Date());
+        RoomVO tem =RoomList.get(table.getSelectionModel().getSelectedIndex());
         minprimaryStage = new Stage();
         new HotelChangeRoomUI().start(minprimaryStage);
         TextField id = (TextField)minroot.lookup("#id");
@@ -672,6 +673,11 @@ public class HotelController {
         type.getItems().add(new roomTypeChoice(RoomType.TwinBed.toString()));
         type.getItems().add(new roomTypeChoice(RoomType.Suite.toString()));
         type.setValue(new roomTypeChoice(""+tem.getRoomType()));
+        ComboBox<roomState> state =(ComboBox<roomState>)minroot.lookup("#state");
+        state.getItems().clear();
+        state.getItems().add(new roomState("已入住"));
+        state.getItems().add(new roomState("空置"));
+        state.setValue(tem.isAvailable()?new roomState("空置"):new roomState("已入住"));
         id.setText(tem.getRoomNumber());
         name.setText(tem.getRoomName());
         price.setText(""+tem.getPrice());
@@ -680,10 +686,10 @@ public class HotelController {
     private void onSChange(ActionEvent E)throws Exception {
         TextField name = (TextField)minroot.lookup("#name");
         TextField price = (TextField)minroot.lookup("#price");
-        ComboBox<roomTypeChoice> type =(ComboBox<roomTypeChoice>)root.lookup("#type");
+        ComboBox<roomTypeChoice> type =(ComboBox<roomTypeChoice>)minroot.lookup("#type");
         TableView table = (TableView) root.lookup("#table");
-        ArrayList<RoomVO> list = room.getDailyRoomList(new Date());
-        RoomVO tem =list.get(table.getSelectionModel().getSelectedIndex());
+//        ArrayList<RoomVO> list = room.getDailyRoomList(new Date());
+        RoomVO tem =RoomList.get(table.getSelectionModel().getSelectedIndex());
         tem.setRoomName(name.getText().toString());
         tem.setPrice(Double.parseDouble(price.getText().toString()));
         tem.setRoomType(type.getSelectionModel().getSelectedItem().toRoomType());
@@ -694,8 +700,8 @@ public class HotelController {
     @FXML
     private void onDeleteRoom(ActionEvent E)throws Exception {
         TableView table = (TableView) root.lookup("#table");
-        ArrayList<RoomVO> list = room.getDailyRoomList(new Date());
-        RoomVO tem =list.get(table.getSelectionModel().getSelectedIndex());
+//        ArrayList<RoomVO> list = room.getDailyRoomList(new Date());
+        RoomVO tem =RoomList.get(table.getSelectionModel().getSelectedIndex());
         room.deleteRoom(tem.getRoomNumber());
         onRoomManager(E);
     }

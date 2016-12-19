@@ -1,8 +1,9 @@
 package ui.controller;
 
-import bl.implementation.Login;
+import bl.implementation.*;
 import bl.service.LoginBLService;
 import bl.stub.LoginBLStub;
+import bl.stub.PromotionBLStub;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.Parent;
@@ -24,7 +25,7 @@ import java.util.Date;
  */
 public class LoginController{
     private LoginUI loginUI;
-    private LoginBLService loginBL = new LoginBLStub();
+    private LoginBLService loginBL =new Login();
     private static Parent root;
     private static Stage primaryStage;
     public static void setPrimaryStage(Stage in){
@@ -38,19 +39,29 @@ public class LoginController{
     private void onLogIn(ActionEvent E)throws Exception {
         TextField usernameForLog = (TextField)root.lookup("#usernameForLog");
         PasswordField passwordForLog = (PasswordField)root.lookup("#passwordForLog");
-        if(!loginBL.checkNetwork()){
-            System.out.println("Link failed");
-        }
-        else {
-            if(loginBL.existUserID(usernameForLog.toString())){
-                if(loginBL.login(usernameForLog.toString(),passwordForLog.toString())){
-                    UserType userType = loginBL.getUserType(usernameForLog.toString());
+//        if(!loginBL.checkNetwork()){
+//            System.out.println("Link failed");
+//        }
+//        else {
+//         System.out.print(usernameForLog.getText().toString());
+            if(loginBL.existUserID(usernameForLog.getText().toString())){
+                if(loginBL.login(usernameForLog.getText().toString(),passwordForLog.getText().toString())){
+                    UserType userType = loginBL.getUserType(usernameForLog.getText().toString());
+//                System.out.print(""+userType );
                     switch (userType){
                         case Member:
                             new MemberFirstUI().start(primaryStage);
+                            MemberController.setSearch(new Search(usernameForLog.getText().toString()));
+                            MemberController.setMember(new Member(usernameForLog.getText().toString()));
+                            MemberController.setCreidt(new Credit(usernameForLog.getText().toString()));
+                            MemberController.setOrder(new Order(usernameForLog.getText().toString()));
                             break;
                         case Hotel:
                             new HotelFirstUI().start(primaryStage);
+                            HotelController.setHotel(new Hotel(usernameForLog.getText().toString()));
+                            HotelController.setOrder(new Order(usernameForLog.getText().toString()));
+                            HotelController.setPromotion(new Promotion(usernameForLog.getText().toString()));
+                            HotelController.setRoom(new Room(usernameForLog.getText().toString()));
                             break;
                         case Saler:
                             new SalerFirstUI().start(primaryStage);
@@ -62,7 +73,7 @@ public class LoginController{
                 }
             }
         }
-    }
+//    }
     @FXML
     private void onCompanyRegister(ActionEvent E)throws Exception {
         new CompanyRegisterUI().start(primaryStage);
