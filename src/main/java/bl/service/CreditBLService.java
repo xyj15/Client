@@ -14,4 +14,5 @@ public interface CreditBLService {
 	
 	public ArrayList<CreditChangeVO> getCreditChangeList();	//获取信用变化列表
 	public double getCredit();	//获取信用
+	public boolean checkCredit();	//检查信用是否大于0
 }
