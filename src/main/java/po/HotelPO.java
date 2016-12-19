@@ -24,6 +24,7 @@ public class HotelPO extends User implements Serializable {
 	private String managerName;	//酒店管理人员的姓名
 	private String managerTel;	//酒店管理人员的联系方式
 	private ArrayList<String> enterpriseList;	//合作企业列表
+	private static final long serialVersionUID = -6833877079313718314L;   //序列号
 	
 	/**
 	 * 空构造方法
