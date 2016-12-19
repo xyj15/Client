@@ -2,10 +2,22 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a9f0de73-1128-483a-bbb9-a1105de32882" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/bl/driver/CreditBLDriver.java" afterPath="$PROJECT_DIR$/src/main/java/bl/driver/CreditBLDriver.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/bl/implementation/Credit.java" afterPath="$PROJECT_DIR$/src/main/java/bl/implementation/Credit.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/bl/service/CreditBLService.java" afterPath="$PROJECT_DIR$/src/main/java/bl/service/CreditBLService.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/bl/stub/CreditBLStub.java" afterPath="$PROJECT_DIR$/src/main/java/bl/stub/CreditBLStub.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/bl/driver/CreditBLDriver.class" afterPath="$PROJECT_DIR$/target/classes/bl/driver/CreditBLDriver.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/bl/implementation/Credit.class" afterPath="$PROJECT_DIR$/target/classes/bl/implementation/Credit.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/bl/implementation/Login.class" afterPath="$PROJECT_DIR$/target/classes/bl/implementation/Login.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/bl/service/CreditBLService.class" afterPath="$PROJECT_DIR$/target/classes/bl/service/CreditBLService.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/bl/stub/CreditBLStub.class" afterPath="$PROJECT_DIR$/target/classes/bl/stub/CreditBLStub.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/rmi/RemoteHelper.class" afterPath="$PROJECT_DIR$/target/classes/rmi/RemoteHelper.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/ui/controller/HotelController$1.class" afterPath="$PROJECT_DIR$/target/classes/ui/controller/HotelController$1.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/ui/controller/HotelController$2.class" afterPath="$PROJECT_DIR$/target/classes/ui/controller/HotelController$2.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/ui/controller/HotelController$3.class" afterPath="$PROJECT_DIR$/target/classes/ui/controller/HotelController$3.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/ui/controller/HotelController$c.class" afterPath="$PROJECT_DIR$/target/classes/ui/controller/HotelController$c.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/ui/controller/HotelController$d.class" afterPath="$PROJECT_DIR$/target/classes/ui/controller/HotelController$d.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/ui/controller/HotelController$out.class" afterPath="$PROJECT_DIR$/target/classes/ui/controller/HotelController$out.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/ui/controller/HotelController.class" afterPath="$PROJECT_DIR$/target/classes/ui/controller/HotelController.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/ui/controller/LoginController.class" afterPath="$PROJECT_DIR$/target/classes/ui/controller/LoginController.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/ui/controller/MemberController.class" afterPath="$PROJECT_DIR$/target/classes/ui/controller/MemberController.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/rmi/RemoteHelper.java" afterPath="$PROJECT_DIR$/src/main/java/rmi/RemoteHelper.java" />
     </list>
     <ignored path="Client.iws" />
@@ -38,11 +50,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="RemoteHelper.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="RemoteHelper.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/rmi/RemoteHelper.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="255">
-              <caret line="81" column="92" selection-start-line="81" selection-start-column="92" selection-end-line="81" selection-end-column="92" />
+            <state relative-caret-position="763">
+              <caret line="166" column="123" selection-start-line="166" selection-start-column="123" selection-end-line="166" selection-end-column="123" />
               <folding />
             </state>
           </provider>
@@ -78,10 +90,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="CreditBLStub.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="CreditBLStub.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/bl/stub/CreditBLStub.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="495">
+            <state relative-caret-position="525">
               <caret line="44" column="19" selection-start-line="44" selection-start-column="19" selection-end-line="44" selection-end-column="19" />
               <folding />
             </state>
@@ -98,11 +110,11 @@
       <list>
         <option value="$PROJECT_DIR$/src/main/java/bl/implementation/Order.java" />
         <option value="$PROJECT_DIR$/src/main/java/po/RoomPO.java" />
-        <option value="$PROJECT_DIR$/src/main/java/rmi/RemoteHelper.java" />
         <option value="$PROJECT_DIR$/src/main/java/bl/service/CreditBLService.java" />
         <option value="$PROJECT_DIR$/src/main/java/bl/implementation/Credit.java" />
         <option value="$PROJECT_DIR$/src/main/java/bl/driver/CreditBLDriver.java" />
         <option value="$PROJECT_DIR$/src/main/java/bl/stub/CreditBLStub.java" />
+        <option value="$PROJECT_DIR$/src/main/java/rmi/RemoteHelper.java" />
       </list>
     </option>
   </component>
@@ -658,11 +670,11 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="2213000" />
+    <option name="totallyTimeSpent" value="2363000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1680" height="1050" extended-state="0" />
-    <editor active="false" />
+    <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32959184" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -672,11 +684,11 @@
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32967034" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3887755" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3887755" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25274727" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25274727" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32967034" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32857144" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24969475" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -1076,14 +1088,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/rmi/RemoteHelper.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="81" column="92" selection-start-line="81" selection-start-column="92" selection-end-line="81" selection-end-column="92" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/bl/service/CreditBLService.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="210">
@@ -1110,8 +1114,16 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/bl/stub/CreditBLStub.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="495">
+        <state relative-caret-position="525">
           <caret line="44" column="19" selection-start-line="44" selection-start-column="19" selection-end-line="44" selection-end-column="19" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/rmi/RemoteHelper.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="763">
+          <caret line="166" column="123" selection-start-line="166" selection-start-column="123" selection-end-line="166" selection-end-column="123" />
           <folding />
         </state>
       </provider>
