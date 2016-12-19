@@ -213,7 +213,9 @@ public class PromotionController {
     private void onUpdateVIP(ActionEvent E) throws Exception{
         minprimaryStage = new Stage();
         new SalerUpdateVipUI().start(minprimaryStage);
-
+        TableView districtTable=(TableView)minroot.lookup("#districtTable");
+        TextField districtUpdate=(TextField)minroot.lookup("#districtUpdate");
+        TextField VipDiscountUpdate=(TextField)minroot.lookup("#VipDiscountUpdate");
         int i=districtTable.getSelectionModel().getFocusedIndex();
         ArrayList<PromotionVO> list = promotion.getDistrictPromotionList();
         PromotionVO promotion=list.get(i);
@@ -222,6 +224,7 @@ public class PromotionController {
     }
     @FXML
     private void onDelVIP(ActionEvent E) throws Exception{
+        TableView districtTable=(TableView)minroot.lookup("#districtTable");
         int i=districtTable.getSelectionModel().getFocusedIndex();
         ArrayList<PromotionVO> list = promotion.getDistrictPromotionList();
         PromotionVO promotion=list.get(i);
@@ -229,6 +232,9 @@ public class PromotionController {
     }
     @FXML
     private void onconfirmUpdateVIP(ActionEvent E) throws Exception{
+        TableView districtTable=(TableView)minroot.lookup("#districtTable");
+        TextField districtUpdate=(TextField)minroot.lookup("#districtUpdate");
+        TextField VipDiscountUpdate=(TextField)minroot.lookup("#VipDiscountUpdate");
         int i=districtTable.getSelectionModel().getFocusedIndex();
         ArrayList<PromotionVO> list = promotion.getDistrictPromotionList();
         PromotionVO promotion=list.get(i);
@@ -244,6 +250,8 @@ public class PromotionController {
     }
     @FXML
     private void confirmAddRank(ActionEvent E) throws Exception{
+        TextField rankDiscount=(TextField)minroot.lookup("#rankDiscount");
+        TextField creditUpgrate=(TextField)minroot.lookup("#creditUpgrate");
         ArrayList<Double> discountList = saler.getDiscountList();
         ArrayList<Double> creditList = saler.getCreditList();
         int level=Integer.parseInt(vip.getText());
@@ -254,7 +262,9 @@ public class PromotionController {
     private void onUpdateRank(ActionEvent E) throws Exception{
         minprimaryStage = new Stage();
         new SalerUpdateRankUI().start(minprimaryStage);
-
+        TableView rankTable=(TableView)minroot.lookup("#rankTable");
+        TextField rankDiscountUpdate=(TextField)minroot.lookup("#rankDiscountUpdate");
+        TextField creditUpgrateUpdate=(TextField)minroot.lookup("#creditUpgrateUpdate");
         int i=rankTable.getSelectionModel().getFocusedIndex();
         ArrayList<Double> discountList = saler.getDiscountList();
         ArrayList<Double> creditList = saler.getCreditList();
@@ -270,6 +280,9 @@ public class PromotionController {
     }
     @FXML
     private void onconfirmUpdateRank(ActionEvent E) throws Exception{
+        TableView rankTable=(TableView)minroot.lookup("#rankTable");
+        TextField rankDiscountUpdate=(TextField)minroot.lookup("#rankDiscountUpdate");
+        TextField creditUpgrateUpdate=(TextField)minroot.lookup("#creditUpgrateUpdate");
         int i=districtTable.getSelectionModel().getFocusedIndex();
         ArrayList<Double> discountList = saler.getDiscountList();
         ArrayList<Double> creditList = saler.getCreditList();
@@ -313,6 +326,11 @@ public class PromotionController {
     private void onUpdatePromotion(ActionEvent E) throws Exception{
         minprimaryStage = new Stage();
         new SalerUpdatePromotionUI().start(minprimaryStage);
+        TableView promotionTable=(TableView)root.lookup("#promotionTable") ;
+        TextField datePromotionNameUpdate=(TextField)minroot.lookup("#datePromotionNameUpdate");
+        DatePicker checkInDateUpdate = (DatePicker)minroot.lookup("#checkInDateUpdate");
+        DatePicker checkOutDateUpdate = (DatePicker)minroot.lookup("#checkOutDateUpdate");
+        TextField dateDiscountUpdate=(TextField)minroot.lookup("#dateDiscountUpdate");
         int i=promotionTable.getSelectionModel().getFocusedIndex();
         ArrayList<PromotionVO> list = promotion.getWebDatePromotionList();
         PromotionVO promotion=list.get(i);
@@ -324,6 +342,10 @@ public class PromotionController {
     }
     @FXML
     private void confirmUpdatePromotion(ActionEvent E) throws Exception{
+        TableView promotionTable=(TableView)root.lookup("#promotionTable") ;
+        DatePicker checkInDate = (DatePicker)minroot.lookup("#checkInDate");
+        DatePicker checkOutDate = (DatePicker)minroot.lookup("#checkOutDate");
+        TextField dateDiscount=(TextField)minroot.lookup("#dateDiscount");
         int i=promotionTable.getSelectionModel().getFocusedIndex();
         ArrayList<PromotionVO> list = promotion.getWebDatePromotionList();
         PromotionVO promotion=list.get(i);
@@ -338,19 +360,23 @@ public class PromotionController {
     }
     @FXML
     private void halfCredit(ActionEvent E) throws Exception{
+        TableView AbnormalOrderTable=(TableView)root.lookup("#AbnormalOrderTable") ;
         int i=AbnormalOrderTable.getSelectionModel().getFocusedIndex();
         ArrayList<OrderVO> list = saler.getDailyUnexcutedOrderList();
         saler.cancelAbnormalOrder(list.get(i).getOrderID(),0.5);
     }
     @FXML
     private void fullCredit(ActionEvent E) throws Exception{
+        TableView AbnormalOrderTable=(TableView)root.lookup("#AbnormalOrderTable") ;
         int i=AbnormalOrderTable.getSelectionModel().getFocusedIndex();
         ArrayList<OrderVO> list = saler.getDailyUnexcutedOrderList();
         saler.cancelAbnormalOrder(list.get(i).getOrderID(),1);
     }
     @FXML
     private void confirmAddCredit(ActionEvent E) throws Exception{
-            saler.creditRecharge(memberID.getText(),Double.parseDouble(credit.getText()));
+        TextField memberID=(TextField)minroot.lookup("#memberID");
+        TextField credit=(TextField)minroot.lookup("#credit");
+        saler.creditRecharge(memberID.getText(),Double.parseDouble(credit.getText()));
     }
     @FXML
     private void confirmAddPromotion(ActionEvent E) throws Exception{
