@@ -35,10 +35,27 @@ public class ManagerController{
 	private static Parent root;
 	private static Stage primaryStage;
 
-	private ManagerBLService manager = new ManagerBLStub();
-	private HotelBLService hotel = new HotelBLStub();
-	private SalerBLService saler = new SalerBLStub();
-	private MemberBLService member = new MemberBLStub();
+	private static ManagerBLService manager;
+	private static HotelBLService hotel ;
+	private static SalerBLService saler ;
+	private static MemberBLService member;
+
+	public static void setSaler(SalerBLService s) {
+		saler = s;
+	}
+
+	public static void setHotel(HotelBLService h) {
+		hotel = h;
+	}
+
+	public static void setMember(MemberBLService m) {
+		member = m;
+	}
+
+	public static void setManager(ManagerBLService m) {
+		manager = m;
+	}
+
 	@FXML
 	private TextField searchID;
 	@FXML

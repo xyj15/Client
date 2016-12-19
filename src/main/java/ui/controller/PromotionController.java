@@ -1,7 +1,6 @@
 package ui.controller;
 
-import bl.implementation.Member;
-import bl.implementation.Promotion;
+
 import bl.service.PromotionBLService;
 import bl.service.SalerBLService;
 import bl.stub.PromotionBLStub;
@@ -11,21 +10,23 @@ import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.Parent;
-import javafx.scene.control.DatePicker;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
+import javafx.util.Callback;
 import other.*;
 import ui.presentation.*;
 import vo.OrderVO;
 import vo.PromotionVO;
-
+import bl.implementation.Member;
+import bl.implementation.Promotion;
 import java.text.SimpleDateFormat;
+import java.time.LocalDate;
 import java.time.ZoneId;
 import java.util.ArrayList;
 import java.util.Date;
+import javafx.scene.control.DateCell;
+import static other.UserType.Member;
 
 /**
  * Created by 97147 on 2016/11/30.
@@ -51,8 +52,16 @@ public class PromotionController {
         PromotionController.minprimaryStage = minprimaryStage;
     }
 
-    private SalerBLService saler = new SalerBLStub();
-    private PromotionBLService promotion =new PromotionBLStub();
+    private static SalerBLService saler;
+    private static PromotionBLService promotion;
+
+    public static void setSaler(SalerBLService s) {
+        saler = s;
+    }
+
+    public static void setPromotion(PromotionBLService p) {
+        promotion = p;
+    }
 //  增加商圈折扣
     @FXML
     private TextField district=new TextField();
@@ -113,6 +122,11 @@ public class PromotionController {
     private TextField creditUpgrateUpdate=new TextField();
 
 
+
+
+
+
+
     @FXML
     private void onPromotion() throws Exception{
         new SalerPromotionUI().start(primaryStage);
@@ -170,7 +184,7 @@ public class PromotionController {
         ArrayList<Double> discountList = saler.getDiscountList();
         ArrayList<Double> creditList = saler.getCreditList();
         for(int i=0;i<list.size();i++) {
-            dataForVip.add(new TableData("VIP"+i, String.valueOf(discountList.get(i)),String.valueOf(creditList.get(i))));
+            dataForVip.add(new TableData("VIP"+(i+1), String.valueOf(discountList.get(i)),String.valueOf(creditList.get(i))));
         }
         tableList2.get(0).setCellValueFactory(new PropertyValueFactory("first"));
         tableList2.get(1).setCellValueFactory(new PropertyValueFactory("second"));
@@ -188,6 +202,9 @@ public class PromotionController {
     }
     @FXML
     private void confirmAddVIP(ActionEvent E) throws Exception{
+        TextField datePromotionName=(TextField)minroot.lookup("#DatePromotionName");
+        TextField district=(TextField)minroot.lookup("#district");
+        TextField VipDiscount=(TextField)minroot.lookup("#VipDiscount");
         PromotionVO promotion=new PromotionVO(null,datePromotionName.getText(), PromotionType.Discount);
         promotion.setDistrictPromotion(district.getText(),Double.parseDouble(VipDiscount.getText()),0,0);
         saler.createPromotion(promotion);
@@ -263,6 +280,33 @@ public class PromotionController {
     private void onAddPromotion(ActionEvent E) throws Exception{
         minprimaryStage = new Stage();
         new SalerAddPromotionUI().start(minprimaryStage);
+        TextField datePromotionName=(TextField)minroot.lookup("#DatePromotionName");
+        DatePicker checkInDate = (DatePicker)minroot.lookup("#checkInDate");
+        DatePicker checkOutDate = (DatePicker)minroot.lookup("#checkOutDate");
+        TextField dateDiscount=(TextField)minroot.lookup("#dateDiscount");
+        checkInDate.setValue(LocalDate.now());
+
+       final Callback<DatePicker, DateCell> dayCellFactory =
+                new Callback<DatePicker, DateCell>() {
+                    @Override
+                    public DateCell call(final DatePicker datePicker) {
+                        return new DateCell() {
+                            @Override
+                            public void updateItem(LocalDate item, boolean empty) {
+                                super.updateItem(item, empty);
+
+                                if (item.isBefore(
+                                        checkInDate.getValue().plusDays(1))
+                                        ) {
+                                    setDisable(true);
+                                    setStyle("-fx-background-color: #ffc0cb;");
+                                }
+                            }
+                        };
+                    }
+                };
+        checkOutDate.setDayCellFactory(dayCellFactory);
+        checkOutDate.setValue(checkInDate.getValue().plusDays(1));
     }
 
     @FXML
@@ -306,10 +350,14 @@ public class PromotionController {
     }
     @FXML
     private void confirmAddCredit(ActionEvent E) throws Exception{
-        saler.creditRecharge(memberID.getText(),Double.parseDouble(credit.getText()));
+            saler.creditRecharge(memberID.getText(),Double.parseDouble(credit.getText()));
     }
     @FXML
     private void confirmAddPromotion(ActionEvent E) throws Exception{
+        TextField datePromotionName=(TextField)minroot.lookup("#DatePromotionName");
+        DatePicker checkInDate = (DatePicker)minroot.lookup("#checkInDate");
+        DatePicker checkOutDate = (DatePicker)minroot.lookup("#checkOutDate");
+        TextField dateDiscount=(TextField)minroot.lookup("#dateDiscount");
         PromotionVO promotion=new PromotionVO(null,datePromotionName.getText(),PromotionType.Discount);
         Date start=new Date(checkInDate.getValue().getYear(),checkInDate.getValue().getMonthValue(),checkInDate.getValue().getDayOfMonth());
         Date end=new Date(checkOutDate.getValue().getYear(),checkOutDate.getValue().getMonthValue(),checkOutDate.getValue().getDayOfMonth());

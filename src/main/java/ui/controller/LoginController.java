@@ -65,9 +65,15 @@ public class LoginController{
                             break;
                         case Saler:
                             new SalerFirstUI().start(primaryStage);
+                            PromotionController.setSaler(new Saler(usernameForLog.getText().toString()));
+                            PromotionController.setPromotion(new Promotion(usernameForLog.getText().toString()));
                             break;
                         case Manager:
                             new ManagerFirstUI().start(primaryStage);
+                            ManagerController.setSaler(new Saler(usernameForLog.getText().toString()));
+                            ManagerController.setHotel(new Hotel(usernameForLog.getText().toString()));
+                            ManagerController.setMember(new Member(usernameForLog.getText().toString()));
+                            ManagerController.setManager(new Manager());
                             break;
                     }
                 }

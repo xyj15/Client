@@ -14,8 +14,8 @@ public class SalerAddRankUI extends Application {
     @Override
     public void start(Stage primaryStage)throws Exception{
         Parent root = FXMLLoader.load(getClass().getResource("SalerAddRank.fxml"));
-        PromotionController.setPrimaryStage(primaryStage);
-        PromotionController.setRoot(root);
+        PromotionController.setMinprimaryStage(primaryStage);
+        PromotionController.setMinroot(root);
         Scene myScene = new Scene(root,318,538);
         primaryStage.setResizable(false);
         primaryStage.setScene(myScene);

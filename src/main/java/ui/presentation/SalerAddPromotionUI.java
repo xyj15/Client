@@ -13,9 +13,9 @@ import ui.controller.PromotionController;
 public class SalerAddPromotionUI extends Application {
     @Override
     public void start(Stage primaryStage)throws Exception{
-        Parent root = FXMLLoader.load(getClass().getResource("HotelAddDatePromotion.fxml"));
-        PromotionController.setPrimaryStage(primaryStage);
-        PromotionController.setRoot(root);
+        Parent root = FXMLLoader.load(getClass().getResource("SalerAddPromotion.fxml"));
+        PromotionController.setMinprimaryStage(primaryStage);
+        PromotionController.setMinroot(root);
         Scene myScene = new Scene(root,318,538);
         primaryStage.setResizable(false);
         primaryStage.setScene(myScene);
