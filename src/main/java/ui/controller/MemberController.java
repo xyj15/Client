@@ -345,7 +345,7 @@ public class MemberController{
     }
      @FXML
     private void onReserveRoomInsear(ActionEvent E)throws Exception {
-         if(creidt.)
+//         if(creidt.)
          reserve.createOrder();
          midprimaryStage.close();
         new MemberSearchListUI().start(primaryStage);
