@@ -60,6 +60,7 @@ public class Credit implements CreditBLService {
 	 * 检查信用值是否大于等于0
 	 * @return 是的话返回true，否则返回false
 	 */
+	@Override
     public boolean checkCredit() {
         if(credit>=0) {
             return true;
