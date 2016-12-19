@@ -345,6 +345,7 @@ public class MemberController{
     }
      @FXML
     private void onReserveRoomInsear(ActionEvent E)throws Exception {
+         if(creidt.)
          reserve.createOrder();
          midprimaryStage.close();
         new MemberSearchListUI().start(primaryStage);
@@ -363,7 +364,7 @@ public class MemberController{
         tem = outTime.getEditor().getText().split("-");
         out = new Date(Integer.parseInt(tem[0])-1900,Integer.parseInt(tem[1])-1,Integer.parseInt(tem[2]));
         reserve.setCheckinTime(in);
-        in.setHours(in.getHours()+6);
+        in.setHours(in.getHours()+18);
         reserve.setLatestArriveTime(in);
         reserve.setSelectedRoom(temR);
         reserve.setNumberOfRoom(Integer.parseInt(num.getText().toString()));
