@@ -4,7 +4,6 @@ import other.User;
 import other.UserType;
 
 import java.io.Serializable;
-import java.util.ArrayList;
 
 /**
  * Created by apple on 2016/11/22.

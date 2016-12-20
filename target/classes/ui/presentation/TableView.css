@@ -40,11 +40,15 @@
     -fx-opacity: 1;
 }
 
-.table-view:focused .table-row-cell:filled:focused:selected {
+/*.table-view:focused .table-row-cell:filled:focused:selected {*/
+    /*-fx-text-fill: darkred;*/
+    /*-fx-opacity: 0.5;*/
+    /*-fx-table-cell-border-color: transparent;*/
+    /*-fx-table-header-border-color: transparent;*/
+/*}*/
+.table-view:focused .table-row-cell:selected {
     -fx-text-fill: darkred;
-    -fx-opacity: 0.5;
-    -fx-table-cell-border-color: transparent;
-    -fx-table-header-border-color: transparent;
+    -fx-background-color: aqua;
 }
 .table-view .label {
     -fx-font-size: 12pt;
