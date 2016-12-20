@@ -22,7 +22,7 @@ public class ManagerVO extends User {
 	 * @param tel 联系方式
 	 */
 	public ManagerVO(String userID, String password, String name, String tel) {
-		super(userID, password, UserType.Manager);
+		super(userID, password, UserType.Manager, isLoged);
 		this.name = name;
 		this.tel = tel;
 	}

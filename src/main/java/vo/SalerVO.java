@@ -2,9 +2,6 @@ package vo;
 
 import other.User;
 import other.UserType;
-import po.PromotionPO;
-
-import java.util.ArrayList;
 
 /**
  * Created by apple on 2016/11/22.
@@ -32,7 +29,7 @@ public class SalerVO extends User {
 	 * @param tel 联系方式
 	 */
 	public SalerVO(String userID, String password, String name, String tel) {
-		super(userID, password, UserType.Saler);
+		super(userID, password, UserType.Saler, isLoged);
 		this.name = name;
 		this.tel = tel;
 	}

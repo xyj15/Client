@@ -10,6 +10,7 @@ public class User {
 	private String userID;	//用户ID
 	private String password;	//密码
 	private UserType userType;	//用户类型
+	private boolean isLoged;   //登录状态
 	
 	/**
 	 * 空构造方法
@@ -33,11 +34,13 @@ public class User {
 	 * @param userID 用户ID
 	 * @param password 密码
 	 * @param userType 用户类型
+	 * @param isLoged
 	 */
-	public User(String userID, String password, UserType userType) {
+	public User(String userID, String password, UserType userType, boolean isLoged) {
 		this.userID = userID;
 		this.password = password;
 		this.userType = userType;
+		this.isLoged = isLoged;
 	}
 	
 	/**
@@ -76,5 +79,13 @@ public class User {
 
 	public void setUserType(UserType userType) {
 		this.userType = userType;
+	}
+
+	public boolean isLoged() {
+		return isLoged;
+	}
+
+	public void setLoged(boolean loged) {
+		isLoged = loged;
 	}
 }

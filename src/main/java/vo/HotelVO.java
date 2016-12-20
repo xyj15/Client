@@ -53,7 +53,7 @@ public class HotelVO extends User {
 	public HotelVO(String userID, String password, String name, String address,
 				   String district, String city, int level, double score, String service,
 				   String introduction, String managerName, String managerTel) {
-		super(userID, password, UserType.Hotel);
+		super(userID, password, UserType.Hotel, isLoged);
 		this.name = name;
 		this.address = address;
 		this.district = district;

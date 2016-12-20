@@ -45,7 +45,7 @@ public class MemberVO extends User {
 	 */
 	public MemberVO(String userID, String password, String name, String tel, int level,
 					double discount, MemberType memberType, Date birthday, String enterprise) {
-		super(userID, password, UserType.Member);
+		super(userID, password, UserType.Member, isLoged);
 		this.name = name;
 		this.tel = tel;
 		this.level = level;
