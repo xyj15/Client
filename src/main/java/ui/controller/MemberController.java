@@ -38,9 +38,11 @@ public class MemberController{
     private static Stage primaryStage;
     private static Stage minprimaryStage;
     private static Stage midprimaryStage;
+    private static Stage MLO;
     private static Parent minroot;
     private static Parent midroot;
     private static Parent root;
+    private static Parent MLOroot;
     private static SearchBLService search ;
     private static MemberBLService member ;
     private static CreditBLService creidt ;
@@ -77,6 +79,7 @@ public class MemberController{
     private static ArrayList<RoomVO> RList;
     private static LocalDate i=LocalDate.now(),o=LocalDate.now().plusDays(1);
 
+    private static OrderVO temOrder;
     private static int count;
     private static RoomVO temR;
     public static void setMidroot(Parent midroot) {
@@ -97,6 +100,14 @@ public class MemberController{
 
     public static void setMinprimaryStage(Stage minprimaryStage) {
         MemberController.minprimaryStage = minprimaryStage;
+    }
+
+    public static void setMLO(Stage MLO) {
+        MemberController.MLO = MLO;
+    }
+
+    public static void setMLOroot(Parent MLOroot) {
+        MemberController.MLOroot = MLOroot;
     }
 
     public static void setMidprimaryStage(Stage midprimaryStage) {
@@ -212,29 +223,35 @@ public class MemberController{
  @FXML//实现撤销
  private void onCancel(ActionEvent E)throws Exception {
      TableView table = (TableView) root.lookup("#table");
-     ArrayList<OrderVO> list = order.getUnexcutedOrders();
      order.cancelOrder(list.get(table.getSelectionModel().getSelectedIndex()).getOrderID());
      onOrderInfor(E);
  }
  @FXML//实现评价
  private void onComment(ActionEvent E)throws Exception {
-        minprimaryStage = new Stage();
-        new MemberCommentUI().start(minprimaryStage);
-     TextArea textArea = (TextArea)minroot.lookup("#textArea");
-     textArea.setWrapText(true);
+     TableView table = (TableView) root.lookup("#table");
+     temOrder = list.get(table.getSelectionModel().getSelectedIndex());
+     minprimaryStage = new Stage();
+     if(temOrder.getEvaluation()==null){
+         new MemberCommentUI().start(minprimaryStage);
+         TextArea textArea = (TextArea)minroot.lookup("#textArea");
+         textArea.setWrapText(true);
+     }else{
+         new MemberCommentYUI().start(minprimaryStage);
+         TextArea textArea = (TextArea)minroot.lookup("#textArea");
+         TextField score = (TextField)minroot.lookup("#score");
+         textArea.setWrapText(true);
+         textArea.setText(temOrder.getEvaluation());
+         score.setText(""+temOrder.getScore());
+     }
+
  }
     @FXML//实现评价
     private void onBuildComment(ActionEvent E)throws Exception {
-        TableView table = (TableView) root.lookup("#table");
         TextArea textArea = (TextArea)minroot.lookup("#textArea");
         TextField score = (TextField)minroot.lookup("#score");
         textArea.setWrapText(true);
-        ArrayList<OrderVO> list = order.getExcutedOrders();
-        if(list.get(table.getSelectionModel().getSelectedIndex()).getEvaluation()==null){
-            order.evaluateOrder(list.get(table.getSelectionModel().getSelectedIndex()).getOrderID(),
-                    Double.parseDouble(score.getText().toString()),textArea.getText().toString());
-            minprimaryStage.close();
-        }//else 要做你已经评价过
+        order.evaluateOrder(temOrder.getOrderID(),Double.parseDouble(score.getText().toString()),textArea.getText().toString());
+        minprimaryStage.close();
     }
     @FXML
     private void onPastHotel(ActionEvent E)throws Exception {
@@ -318,7 +335,7 @@ public class MemberController{
     @FXML
     private void onLookingInforInHistory(ActionEvent E)throws Exception {
         TableView table = (TableView) root.lookup("#table");
-        hotel = new Hotel(HList.get(table.getSelectionModel().getSelectedIndex()));
+        hotel = new Hotel(HList.get(table.getSelectionModel().getSelectedIndex()).getUserID());
         midprimaryStage = new Stage();
         new MemberHotelInformationInhisUI().start(midprimaryStage);
         TextField hotelAddress = (TextField)midroot.lookup("#hotelAddress");
@@ -339,15 +356,25 @@ public class MemberController{
      }
     @FXML
     private void onReserveRoomInhis(ActionEvent E)throws Exception {
-        reserve.createOrder();
-        midprimaryStage.close();
-        new MemberHisitoryHotelUI().start(primaryStage);
+        if(creidt.checkCredit()){
+            reserve.createOrder();
+            midprimaryStage.close();
+            new MemberHisitoryHotelUI().start(primaryStage);
+        }
+       else{
+
+        }
     }
      @FXML
     private void onReserveRoomInsear(ActionEvent E)throws Exception {
-         reserve.createOrder();
-         midprimaryStage.close();
-        new MemberSearchListUI().start(primaryStage);
+         if(creidt.checkCredit()){
+             reserve.createOrder();
+             midprimaryStage.close();
+             new MemberSearchListUI().start(primaryStage);
+         }
+         else {
+
+         }
     }
     @FXML
     private void onTotalPrice(ActionEvent E)throws Exception {
@@ -360,10 +387,11 @@ public class MemberController{
         Label totalPrice = (Label)midroot.lookup("#totalPrice");
         tem = inTime.getEditor().getText().split("-");
         in = new Date(Integer.parseInt(tem[0])-1900,Integer.parseInt(tem[1])-1,Integer.parseInt(tem[2]));
+        in.setHours(12);
         tem = outTime.getEditor().getText().split("-");
         out = new Date(Integer.parseInt(tem[0])-1900,Integer.parseInt(tem[1])-1,Integer.parseInt(tem[2]));
         reserve.setCheckinTime(in);
-        in.setHours(in.getHours()+6);
+        in.setHours(in.getHours()+8);
         reserve.setLatestArriveTime(in);
         reserve.setSelectedRoom(temR);
         reserve.setNumberOfRoom(Integer.parseInt(num.getText().toString()));
@@ -448,7 +476,7 @@ public class MemberController{
     @FXML
     private void onLookingInforInSearch(ActionEvent E)throws Exception {
         TableView table = (TableView) root.lookup("#table");
-        hotel = new Hotel(HList.get(table.getSelectionModel().getSelectedIndex()));
+        hotel = new Hotel(HList.get(table.getSelectionModel().getSelectedIndex()).getUserID());
         midprimaryStage = new Stage();
         new MemberHotelInformationInSearUI().start(midprimaryStage);
         TextField hotelAddress = (TextField)midroot.lookup("#hotelAddress");
@@ -596,5 +624,21 @@ public class MemberController{
             }
         }
         return false;
+    }
+    private void Mlo(){
+        ArrayList<OrderVO> l = member.getHotelOrderList(hotel.getHotelInformation().getUserID());
+        TableView table = (TableView) MLOroot.lookup("#table");
+        ObservableList<TableData> dataForMInfor
+                = FXCollections.observableArrayList();
+        ObservableList<TableColumn> tableList = table.getColumns();
+        SimpleDateFormat sdf=new SimpleDateFormat("yyyy-MM-dd");
+        for(int i =0 ;i<l.size();i++){
+            dataForMInfor.add(new TableData(l.get(i).getOrderID(),sdf.format(l.get(i).getCreateTime()),""+l.get(i).getOrderStatus(),""+l.get(i).getPrice()));
+        }
+        tableList.get(0).setCellValueFactory(new PropertyValueFactory("first"));
+        tableList.get(1).setCellValueFactory(new PropertyValueFactory("second"));
+        tableList.get(2).setCellValueFactory(new PropertyValueFactory("third"));
+        tableList.get(3).setCellValueFactory(new PropertyValueFactory("fourth"));
+        table.setItems(dataForMInfor);
     }
 }
