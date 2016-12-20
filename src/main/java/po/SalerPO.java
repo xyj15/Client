@@ -4,7 +4,6 @@ import other.User;
 import other.UserType;
 
 import java.io.Serializable;
-import java.util.ArrayList;
 
 /**
  * Created by apple on 2016/11/22.
@@ -43,8 +42,8 @@ public class SalerPO extends User implements Serializable {
 	 * @param name 姓名或名称
 	 * @param tel 联系方式
 	 */
-    public SalerPO(String userID, String password, String name, String tel) {
-		super(userID, password, UserType.Saler);
+    public SalerPO(String userID, String password, String name, String tel, boolean isLoged) {
+		super(userID, password, UserType.Saler, isLoged);
 		this.name = name;
 		this.tel = tel;
 	}

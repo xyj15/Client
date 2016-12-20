@@ -20,7 +20,7 @@
             <Image url="@background2.jpg" />
          </image>
       </ImageView>
-      <ImageView fitHeight="118.0" fitWidth="148.0" layoutX="106.0" layoutY="29.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="89.0" layoutY="35.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@logo.png" />
          </image>
@@ -60,7 +60,7 @@
                   <Font size="16.0" />
                </font>
             </Label>
-            <TextField fx:id="dateDiscountUpdate" GridPane.columnIndex="1" GridPane.rowIndex="3">
+            <TextField fx:id="dateDiscount" GridPane.columnIndex="1" GridPane.rowIndex="3">
                <GridPane.margin>
                   <Insets right="15.0" />
                </GridPane.margin>
@@ -68,12 +68,12 @@
                   <Font name="Microsoft YaHei Bold" size="14.0" />
                </font>
             </TextField>
-            <DatePicker fx:id="checkInDateUpdate" GridPane.columnIndex="1" GridPane.rowIndex="1">
+            <DatePicker fx:id="checkInDate" editable="false" GridPane.columnIndex="1" GridPane.rowIndex="1">
                <GridPane.margin>
                   <Insets right="15.0" />
                </GridPane.margin>
             </DatePicker>
-            <DatePicker fx:id="checkOutDateUpdate" GridPane.columnIndex="1" GridPane.rowIndex="2">
+            <DatePicker fx:id="checkOutDate" editable="false" GridPane.columnIndex="1" GridPane.rowIndex="2">
                <GridPane.margin>
                   <Insets right="15.0" />
                </GridPane.margin>
@@ -83,7 +83,7 @@
                   <Font name="Microsoft YaHei Bold" size="16.0" />
                </font>
             </Label>
-            <TextField fx:id="DatePromotionNameUpdate" GridPane.columnIndex="1">
+            <TextField fx:id="DatePromotionName" GridPane.columnIndex="1">
                <font>
                   <Font name="Microsoft YaHei Bold" size="14.0" />
                </font>
@@ -96,7 +96,7 @@
             </TextField>
          </children>
       </GridPane>
-      <Button layoutX="213.0" layoutY="442.0" mnemonicParsing="false" onAction="#confirmUpdatePromotion" prefHeight="29.0" prefWidth="78.0" style="-fx-background-color: #6B6BCF;" text="确认" textFill="WHITE">
+      <Button layoutX="213.0" layoutY="442.0" mnemonicParsing="false" onAction="#confirmAddPromotion" prefHeight="29.0" prefWidth="78.0" style="-fx-background-color: #6B6BCF;" text="确认" textFill="WHITE">
          <font>
             <Font name="Microsoft YaHei Bold" size="14.0" />
          </font>
