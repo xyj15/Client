@@ -38,11 +38,9 @@ public class MemberController{
     private static Stage primaryStage;
     private static Stage minprimaryStage;
     private static Stage midprimaryStage;
-    private static Stage MLO;
     private static Parent minroot;
     private static Parent midroot;
     private static Parent root;
-    private static Parent MLOroot;
     private static SearchBLService search ;
     private static MemberBLService member ;
     private static CreditBLService creidt ;
@@ -100,14 +98,6 @@ public class MemberController{
 
     public static void setMinprimaryStage(Stage minprimaryStage) {
         MemberController.minprimaryStage = minprimaryStage;
-    }
-
-    public static void setMLO(Stage MLO) {
-        MemberController.MLO = MLO;
-    }
-
-    public static void setMLOroot(Parent MLOroot) {
-        MemberController.MLOroot = MLOroot;
     }
 
     public static void setMidprimaryStage(Stage midprimaryStage) {
@@ -337,17 +327,16 @@ public class MemberController{
         TableView table = (TableView) root.lookup("#table");
         hotel = new Hotel(HList.get(table.getSelectionModel().getSelectedIndex()).getUserID());
         room = new Room(hotel.getHotelInformation().getUserID());
-        midprimaryStage = new Stage();
+        new MemberHotelInformationInhisUI().start(primaryStage);
         Mlo();
-        new MemberHotelInformationInhisUI().start(midprimaryStage);
-        TextField hotelAddress = (TextField)midroot.lookup("#hotelAddress");
-        TextArea serviceStub = (TextArea)midroot.lookup("#serviceStub");
+        TextField hotelAddress = (TextField)root.lookup("#hotelAddress");
+        TextArea serviceStub = (TextArea)root.lookup("#serviceStub");
         serviceStub.setWrapText(true);
-        TextArea introduction = (TextArea)midroot.lookup("#introduct");
+        TextArea introduction = (TextArea)root.lookup("#introduct");
         introduction.setWrapText(true);
-        TextField hotelName = (TextField)midroot.lookup("#hotelName");
-        TextField hotelLevel = (TextField)midroot.lookup("#hotelLevel");
-        TextField hotelScore = (TextField)midroot.lookup("#hotelScore");
+        TextField hotelName = (TextField)root.lookup("#hotelName");
+        TextField hotelLevel = (TextField)root.lookup("#hotelLevel");
+        TextField hotelScore = (TextField)root.lookup("#hotelScore");
         hotelName.setText(hotel.getHotelName());
         hotelLevel.setText(""+hotel.getHotelLevel());
         hotelScore.setText(""+hotel.getHotelScore());
@@ -406,8 +395,9 @@ public class MemberController{
     }
     @FXML
     private void onReserveInHis(ActionEvent E)throws Exception {
-        TableView table = (TableView) midroot.lookup("#table");
+        TableView table = (TableView) root.lookup("#tablePass");
         temR =RList.get(table.getSelectionModel().getSelectedIndex());
+        midprimaryStage = new Stage();
         new MemberReserveInHisUI().start(midprimaryStage);
         TextField name = (TextField)midroot.lookup("#name");
         TextField type = (TextField)midroot.lookup("#type");
@@ -424,8 +414,9 @@ public class MemberController{
     }
     @FXML
     private void onReserveInSear(ActionEvent E)throws Exception {
-        TableView table = (TableView) midroot.lookup("#table");
+        TableView table = (TableView) root.lookup("#tablePass");
         temR =RList.get(table.getSelectionModel().getSelectedIndex());
+        midprimaryStage = new Stage();
         new MemberReserveInSearUI().start(midprimaryStage);
         TextField name = (TextField)midroot.lookup("#name");
         TextField type = (TextField)midroot.lookup("#type");
@@ -441,7 +432,7 @@ public class MemberController{
         num.setText("1");
     }
     private void roomList(ActionEvent E){
-        TableView table = (TableView) midroot.lookup("#table");
+        TableView table = (TableView) root.lookup("#tablePass");
         ObservableList<TableData> dataForMInfor
                 = FXCollections.observableArrayList();
         ObservableList<TableColumn> tableList = table.getColumns();
@@ -480,17 +471,16 @@ public class MemberController{
         TableView table = (TableView) root.lookup("#table");
         hotel = new Hotel(HList.get(table.getSelectionModel().getSelectedIndex()).getUserID());
         room = new Room(hotel.getHotelInformation().getUserID());
-        midprimaryStage = new Stage();
-        new MemberHotelInformationInSearUI().start(midprimaryStage);
+        new MemberHotelInformationInSearUI().start(primaryStage);
         Mlo();
-        TextField hotelAddress = (TextField)midroot.lookup("#hotelAddress");
-        TextArea serviceStub = (TextArea)midroot.lookup("#serviceStub");
+        TextField hotelAddress = (TextField)root.lookup("#hotelAddress");
+        TextArea serviceStub = (TextArea)root.lookup("#serviceStub");
         serviceStub.setWrapText(true);
-        TextArea introduction = (TextArea)midroot.lookup("#introduct");
+        TextArea introduction = (TextArea)root.lookup("#introduct");
         introduction.setWrapText(true);
-        TextField hotelName = (TextField)midroot.lookup("#hotelName");
-        TextField hotelLevel = (TextField)midroot.lookup("#hotelLevel");
-        TextField hotelScore = (TextField)midroot.lookup("#hotelScore");
+        TextField hotelName = (TextField)root.lookup("#hotelName");
+        TextField hotelLevel = (TextField)root.lookup("#hotelLevel");
+        TextField hotelScore = (TextField)root.lookup("#hotelScore");
         hotelName.setText(hotel.getHotelName());
         hotelLevel.setText(""+hotel.getHotelLevel());
         hotelScore.setText(""+hotel.getHotelScore());
@@ -590,6 +580,14 @@ public class MemberController{
         sort(HList);
     }
     @FXML
+    private void onFHTsear(ActionEvent E)throws Exception {
+        onSortWithLevel(E);
+    }
+    @FXML
+    private void onFHThis(ActionEvent E)throws Exception {
+        onPastHotel(E);
+    }
+    @FXML
     private void onSortWithComment(ActionEvent E)throws Exception {
         HList = search.sortByScoreHighToLow();
         sort(HList);
@@ -630,10 +628,8 @@ public class MemberController{
         return false;
     }
     private void Mlo() throws  Exception{
-        MLO = new Stage();
-        new MLOUI().start(MLO);
         ArrayList<OrderVO> l = member.getHotelOrderList(hotel.getHotelInformation().getUserID());
-        TableView table = (TableView) MLOroot.lookup("#table");
+        TableView table = (TableView) root.lookup("#table");
         ObservableList<TableData> dataForMInfor
                 = FXCollections.observableArrayList();
         ObservableList<TableColumn> tableList = table.getColumns();
