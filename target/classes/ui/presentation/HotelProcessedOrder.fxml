@@ -89,12 +89,7 @@
             <Font name="Microsoft YaHei Bold" size="16.0" />
          </font>
       </Button>
-      <Button layoutX="908.0" layoutY="598.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="99.0" style="-fx-background-color: #6B6BCF;" text="线下入住" textFill="WHITE">
-         <font>
-            <Font name="Microsoft YaHei Bold" size="16.0" />
-         </font>
-      </Button>
-      <Button layoutX="690.0" layoutY="598.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="99.0" style="-fx-background-color: #6B6BCF;" text="客户离开" textFill="WHITE">
+      <Button layoutX="690.0" layoutY="598.0" mnemonicParsing="false" onAction="#onCheckOut" prefHeight="34.0" prefWidth="99.0" style="-fx-background-color: #6B6BCF;" text="客户离开" textFill="WHITE">
          <font>
             <Font name="Microsoft YaHei Bold" size="16.0" />
          </font>

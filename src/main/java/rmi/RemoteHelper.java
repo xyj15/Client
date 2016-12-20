@@ -48,9 +48,9 @@ public class RemoteHelper {
 		return (MemberDataService)remote;
 	}
 	
-//	public OrderDataService getOrderDataService() {
-//		return (OrderDataService)remote;
-//	}
+	public OrderDataService getOrderDataService() {
+		return (OrderDataService) remote;
+	}
 	
 	public PromotionDataService getPromotionDataService() {
 		return (PromotionDataService)remote;
@@ -79,8 +79,8 @@ public class RemoteHelper {
 	public boolean connect() {
 		try {
 			remoteHelper = RemoteHelper.getInstance();
-//			remoteHelper.setRemote(Naming.lookup("rmi://localhost:3304/RemoteDataService"));
-			remoteHelper.setRemote(Naming.lookup("rmi://172.28.151.24:3304/RemoteDataService"));
+			remoteHelper.setRemote(Naming.lookup("rmi://localhost:3304/RemoteDataService"));
+//			remoteHelper.setRemote(Naming.lookup("rmi://172.28.151.24:3304/RemoteDataService"));
 			connected = true;
 			return true;
 		} catch (RemoteException e) {
@@ -112,22 +112,24 @@ public class RemoteHelper {
 		RemoteHelper remoteHelper = RemoteHelper.getInstance();
 		System.out.println(remoteHelper.connect());
 //		OrderDataService test = null;
-//		try {
-//			test = remoteHelper.getOrderDataFactory().getOrderData("00000000");
-//		} catch (RemoteException e) {
-//			e.printStackTrace();
-//		}
-//		OrderPO result = null;
-//		try {
-//			result = test.getOrder("2016120900000000");
-//		} catch (RemoteException e) {
-//			e.printStackTrace();
-//		}
-//		SimpleDateFormat bartDateFormate = new SimpleDateFormat("MM-dd-yyyy");
-//		System.out.println("orderID: "+result.getOrderID());
-//		System.out.println("mamberID: "+result.getMemberID());
-//		System.out.println("hotelID: "+result.getHotelID());
-//		System.out.println("orderStatus: "+result.getOrderStatus());
+		try {
+			OrderDataAbstractFactory factory = remoteHelper.getOrderDataFactory();
+			factory.setOrderData("00000000");
+			OrderDataService test = remoteHelper.getOrderDataService();
+			OrderPO result = null;
+			try {
+				result = test.getOrder("2016120900000000");
+				System.out.println("orderID: "+result.getOrderID());
+				System.out.println("memberID: "+result.getMemberID());
+				System.out.println("hotelID: "+result.getHotelID());
+				System.out.println("orderStatus: "+result.getOrderStatus());
+			} catch (RemoteException e) {
+				e.printStackTrace();
+			}
+			SimpleDateFormat bartDateFormate = new SimpleDateFormat("MM-dd-yyyy");
+		} catch (RemoteException e) {
+			e.printStackTrace();
+		}
 //		if(result.getOrderStatus()== OrderStatus.Canceled){
 //			System.out.println("cancel: "+bartDateFormate.format(result.getCancelTime()));
 //		}
@@ -154,19 +156,19 @@ public class RemoteHelper {
 		} else {
 			System.out.println("连接到服务器失败");
 		}
-		try {
-			System.out.println(remoteHelper.getHotelDataService().getAvailableHotelID());
-			System.out.println(remoteHelper.getMemberDataService().getAvailableMemberID());
-			System.out.println(remoteHelper.getCreditDataService().getCredit("00000000"));
-			System.out.println(remoteHelper.getManagerDataService().getManager().getName());
-			System.out.println(remoteHelper.getPromotionDataService().getAvailablePromotionID());
-			System.out.println(remoteHelper.getRankDataService().getCreditList().get(2));
-			System.out.println(remoteHelper.getRoomDataService().getRoomsByDate(new Date(), "000000").get(0).getRoomName());
-			System.out.println(remoteHelper.getSalerDataService().getAvailableSalerID());
-			System.out.println(remoteHelper.getSearchDataService().getHotelListByCityDistrict("南京市", "新街口").get(0).getName());
-			System.out.println(remoteHelper.getRoomDataService().getRoomsByDate(new Date(),"000000").get(0).getRoomName());
-		} catch (RemoteException e) {
-			e.printStackTrace();
-		}
+//		try {
+//			System.out.println(remoteHelper.getHotelDataService().getAvailableHotelID());
+//			System.out.println(remoteHelper.getMemberDataService().getAvailableMemberID());
+//			System.out.println(remoteHelper.getCreditDataService().getCredit("00000000"));
+//			System.out.println(remoteHelper.getManagerDataService().getManager().getName());
+//			System.out.println(remoteHelper.getPromotionDataService().getAvailablePromotionID());
+//			System.out.println(remoteHelper.getRankDataService().getCreditList().get(2));
+//			System.out.println(remoteHelper.getRoomDataService().getRoomsByDate(new Date(), "000000").get(0).getRoomName());
+//			System.out.println(remoteHelper.getSalerDataService().getAvailableSalerID());
+//			System.out.println(remoteHelper.getSearchDataService().getHotelListByCityDistrict("南京市", "新街口").get(0).getName());
+//			System.out.println(remoteHelper.getRoomDataService().getRoomsByDate(new Date(),"000000").get(0).getRoomName());
+//		} catch (RemoteException e) {
+//			e.printStackTrace();
+//		}
 	}
 }
