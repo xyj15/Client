@@ -216,11 +216,17 @@ public class PromotionController {
         TableView districtTable=(TableView)minroot.lookup("#districtTable");
         TextField districtUpdate=(TextField)minroot.lookup("#districtUpdate");
         TextField VipDiscountUpdate=(TextField)minroot.lookup("#VipDiscountUpdate");
-        int i=districtTable.getSelectionModel().getFocusedIndex();
-        ArrayList<PromotionVO> list = promotion.getDistrictPromotionList();
-        PromotionVO promotion=list.get(i);
-        districtUpdate.setText(promotion.getDistrict());
-        VipDiscountUpdate.setText(String.valueOf(promotion.getDiscount()));
+
+        try {
+            int i = districtTable.getSelectionModel().getFocusedIndex();ArrayList<PromotionVO> list = promotion.getDistrictPromotionList();
+            PromotionVO promotion=list.get(i);
+            districtUpdate.setText(promotion.getDistrict());
+            VipDiscountUpdate.setText(String.valueOf(promotion.getDiscount()));
+        }
+        catch (NullPointerException e){
+
+        }
+
     }
     @FXML
     private void onDelVIP(ActionEvent E) throws Exception{
