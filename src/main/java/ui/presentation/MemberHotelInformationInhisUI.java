@@ -17,7 +17,7 @@ public class MemberHotelInformationInhisUI extends Application {
         Parent root = FXMLLoader.load(getClass().getResource("MemberHotelInformationInhis.fxml"));
         MemberController.setMidprimaryStage(primaryStage);
         MemberController.setMidroot(root);
-        Scene myScene = new Scene(root,528,528);
+        Scene myScene = new Scene(root,740,528);
         primaryStage.setResizable(false);
         primaryStage.setScene(myScene);
         primaryStage.show();

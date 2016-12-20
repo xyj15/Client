@@ -260,10 +260,10 @@ public class MemberController{
         ObservableList<TableData> dataForMInfor
                 = FXCollections.observableArrayList();
         ObservableList<TableColumn> tableList = table.getColumns();
-        ArrayList<HotelVO> list = member.getReservedHotelList();
-        for(int i=list.size()-1;i>=0;i--){
-            dataForMInfor.add(new TableData(list.get(i).getName(),""+list.get(i).getLevel(),
-                    list.get(i).getAddress(),list.get(i).getManagerTel()));
+        HList = member.getReservedHotelList();
+        for(int i=HList.size()-1;i>=0;i--){
+            dataForMInfor.add(new TableData(HList.get(i).getName(),""+HList.get(i).getLevel(),
+                    HList.get(i).getAddress(),HList.get(i).getManagerTel()));
         }
 
         tableList.get(0).setCellValueFactory(new PropertyValueFactory("first"));
@@ -336,7 +336,9 @@ public class MemberController{
     private void onLookingInforInHistory(ActionEvent E)throws Exception {
         TableView table = (TableView) root.lookup("#table");
         hotel = new Hotel(HList.get(table.getSelectionModel().getSelectedIndex()).getUserID());
+        room = new Room(hotel.getHotelInformation().getUserID());
         midprimaryStage = new Stage();
+        Mlo();
         new MemberHotelInformationInhisUI().start(midprimaryStage);
         TextField hotelAddress = (TextField)midroot.lookup("#hotelAddress");
         TextArea serviceStub = (TextArea)midroot.lookup("#serviceStub");
@@ -359,7 +361,7 @@ public class MemberController{
         if(creidt.checkCredit()){
             reserve.createOrder();
             midprimaryStage.close();
-            new MemberHisitoryHotelUI().start(primaryStage);
+            onPastHotel(E);
         }
        else{
 
@@ -370,7 +372,7 @@ public class MemberController{
          if(creidt.checkCredit()){
              reserve.createOrder();
              midprimaryStage.close();
-             new MemberSearchListUI().start(primaryStage);
+             onOrderInfor(E);
          }
          else {
 
@@ -477,8 +479,10 @@ public class MemberController{
     private void onLookingInforInSearch(ActionEvent E)throws Exception {
         TableView table = (TableView) root.lookup("#table");
         hotel = new Hotel(HList.get(table.getSelectionModel().getSelectedIndex()).getUserID());
+        room = new Room(hotel.getHotelInformation().getUserID());
         midprimaryStage = new Stage();
         new MemberHotelInformationInSearUI().start(midprimaryStage);
+        Mlo();
         TextField hotelAddress = (TextField)midroot.lookup("#hotelAddress");
         TextArea serviceStub = (TextArea)midroot.lookup("#serviceStub");
         serviceStub.setWrapText(true);
@@ -625,7 +629,9 @@ public class MemberController{
         }
         return false;
     }
-    private void Mlo(){
+    private void Mlo() throws  Exception{
+        MLO = new Stage();
+        new MLOUI().start(MLO);
         ArrayList<OrderVO> l = member.getHotelOrderList(hotel.getHotelInformation().getUserID());
         TableView table = (TableView) MLOroot.lookup("#table");
         ObservableList<TableData> dataForMInfor
