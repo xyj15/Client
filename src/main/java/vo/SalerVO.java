@@ -29,7 +29,7 @@ public class SalerVO extends User {
 	 * @param tel 联系方式
 	 */
 	public SalerVO(String userID, String password, String name, String tel) {
-		super(userID, password, UserType.Saler, isLoged);
+		super(userID, password, UserType.Saler);
 		this.name = name;
 		this.tel = tel;
 	}

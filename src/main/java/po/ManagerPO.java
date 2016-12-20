@@ -42,8 +42,8 @@ public class ManagerPO extends User implements Serializable {
 	 * @param name 姓名或名称
 	 * @param tel 联系方式
 	 */
-	public ManagerPO(String userID, String password, String name, String tel, boolean isLoged) {
-		super(userID, password, UserType.Manager, isLoged);
+	public ManagerPO(String userID, String password, String name, String tel) {
+		super(userID, password, UserType.Manager);
 		this.name = name;
 		this.tel = tel;
 	}

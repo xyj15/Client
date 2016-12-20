@@ -49,7 +49,7 @@ public class RemoteHelper {
 	}
 	
 	public OrderDataService getOrderDataService() {
-		return (OrderDataService) remote;
+		return (OrderDataService)remote;
 	}
 	
 	public PromotionDataService getPromotionDataService() {
@@ -111,25 +111,31 @@ public class RemoteHelper {
 //		}
 		RemoteHelper remoteHelper = RemoteHelper.getInstance();
 		System.out.println(remoteHelper.connect());
-//		OrderDataService test = null;
+		boolean b = remoteHelper.isConnected();
+		if(b) {
+			System.out.println("连接到服务器成功");
+		} else {
+			System.out.println("连接到服务器失败");
+		}
+		OrderDataAbstractFactory factory = remoteHelper.getOrderDataFactory();
 		try {
-			OrderDataAbstractFactory factory = remoteHelper.getOrderDataFactory();
 			factory.setOrderData("00000000");
-			OrderDataService test = remoteHelper.getOrderDataService();
-			OrderPO result = null;
-			try {
-				result = test.getOrder("2016120900000000");
-				System.out.println("orderID: "+result.getOrderID());
-				System.out.println("memberID: "+result.getMemberID());
-				System.out.println("hotelID: "+result.getHotelID());
-				System.out.println("orderStatus: "+result.getOrderStatus());
-			} catch (RemoteException e) {
-				e.printStackTrace();
-			}
-			SimpleDateFormat bartDateFormate = new SimpleDateFormat("MM-dd-yyyy");
 		} catch (RemoteException e) {
 			e.printStackTrace();
 		}
+		OrderDataService test = remoteHelper.getOrderDataService();
+		OrderPO result = null;
+		try {
+			result = test.getOrder("2016120900000000");
+		} catch (RemoteException e) {
+			e.printStackTrace();
+		}
+
+//		SimpleDateFormat bartDateFormate = new SimpleDateFormat("MM-dd-yyyy");
+		System.out.println("orderID: "+result.getOrderID());
+		System.out.println("mamberID: "+result.getMemberID());
+		System.out.println("hotelID: "+result.getHotelID());
+		System.out.println("orderStatus: "+result.getOrderStatus());
 //		if(result.getOrderStatus()== OrderStatus.Canceled){
 //			System.out.println("cancel: "+bartDateFormate.format(result.getCancelTime()));
 //		}
@@ -150,12 +156,7 @@ public class RemoteHelper {
 //			System.out.println("recover: "+result.getRecover());
 //		}
 //		System.out.println("createTime: "+bartDateFormate.format(result.getCreateTime()));
-		boolean b = remoteHelper.isConnected();
-		if(b) {
-			System.out.println("连接到服务器成功");
-		} else {
-			System.out.println("连接到服务器失败");
-		}
+
 //		try {
 //			System.out.println(remoteHelper.getHotelDataService().getAvailableHotelID());
 //			System.out.println(remoteHelper.getMemberDataService().getAvailableMemberID());
