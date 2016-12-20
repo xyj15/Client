@@ -67,7 +67,7 @@
             </TextField>
          </children>
       </GridPane>
-      <Button layoutX="193.0" layoutY="403.0" mnemonicParsing="false" onAction="#confirmAddVIP" prefHeight="29.0" prefWidth="95.0" style="-fx-background-color: #6B6BCF;" text="确认" textFill="WHITE">
+      <Button layoutX="193.0" layoutY="403.0" mnemonicParsing="false" onAction="#confirmUpdateVIP" prefHeight="29.0" prefWidth="95.0" style="-fx-background-color: #6B6BCF;" text="确认" textFill="WHITE">
          <font>
             <Font name="Microsoft YaHei Bold" size="14.0" />
          </font>

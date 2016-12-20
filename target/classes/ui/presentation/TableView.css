@@ -41,6 +41,7 @@
 }
 
 .table-view:focused .table-row-cell:filled:focused:selected {
+    -fx-text-fill: darkred;
     -fx-opacity: 0.5;
     -fx-table-cell-border-color: transparent;
     -fx-table-header-border-color: transparent;
