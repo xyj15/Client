@@ -9,5 +9,4 @@ import java.rmi.RemoteException;
 public interface OrderDataAbstractFactory extends Remote {
     
     public OrderDataService getOrderData(String userID) throws RemoteException;
-    public void setOrderData(String userID) throws RemoteException;
 }
