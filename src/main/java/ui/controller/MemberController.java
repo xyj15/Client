@@ -1,6 +1,7 @@
 package ui.controller;
 
 import bl.implementation.Hotel;
+import bl.implementation.Login;
 import bl.implementation.Reserve;
 import bl.implementation.Room;
 import bl.service.*;
@@ -36,11 +37,13 @@ public class MemberController{
 
 
     private static Stage primaryStage;
+    private static Stage TprimaryStage;
     private static Stage minprimaryStage;
     private static Stage midprimaryStage;
     private static Parent minroot;
     private static Parent midroot;
     private static Parent root;
+    private static Parent Troot;
     private static SearchBLService search ;
     private static MemberBLService member ;
     private static CreditBLService creidt ;
@@ -48,6 +51,7 @@ public class MemberController{
     private static ReserveBLService reserve ;
     private static OrderBLService order;
     private static RoomBLService room ;
+    private static  LoginBLService login = new Login();
 //    private SearchBLService search = new SearchBLStub();
 //    private MemberBLService member = new MemberBLStub();
 //    private CreditBLService creidt = new CreditBLStub();
@@ -92,6 +96,14 @@ public class MemberController{
         MemberController.root = root;
     }
 
+    public static void setTprimaryStage(Stage tprimaryStage) {
+        TprimaryStage = tprimaryStage;
+    }
+
+    public static void setTroot(Parent troot) {
+        Troot = troot;
+    }
+
     public static void setPrimaryStage(Stage in) {
         primaryStage = in;
     }
@@ -102,6 +114,47 @@ public class MemberController{
 
     public static void setMidprimaryStage(Stage midprimaryStage) {
         MemberController.midprimaryStage = midprimaryStage;
+    }
+
+
+    @FXML
+    private void sure(ActionEvent E)throws Exception {
+        TprimaryStage.close();
+    }
+    @FXML
+    private void sureChangeP(ActionEvent E)throws Exception {
+        PasswordField oldP = (PasswordField)minroot.lookup("#oldP");
+        PasswordField newP = (PasswordField)minroot.lookup("#newP");
+        PasswordField sureP = (PasswordField)minroot.lookup("#sureP");
+        TprimaryStage = new Stage();
+        if(oldP.getText().toString().equals(member.getMemberInformation().getPassword())){
+            if(newP.getText().toString().equals(sureP.getText().toString())){
+                if(login.validPassword(newP.getText().toString())){
+                    member.getMemberInformation().setPassword(newP.getText().toString());
+                    minprimaryStage.close();
+                    onMenberInfor(E);
+                }
+                else{
+                    new MtUI().start(TprimaryStage);
+                    Label messager = (Label)Troot.lookup("#Message");
+                    messager.setText("新密码格式不符合要求");
+                }
+            }else{
+                new MtUI().start(TprimaryStage);
+                Label messager = (Label)Troot.lookup("#Message");
+                messager.setText("请再次确认新密码");
+            }
+        }
+        else{
+            new MtUI().start(TprimaryStage);
+            Label messager = (Label)Troot.lookup("#Message");
+            messager.setText("旧密码输入不正确");
+        }
+    }
+    @FXML
+    private void onChangePass(ActionEvent E)throws Exception {
+        minprimaryStage = new Stage();
+        new changePassUI().start(minprimaryStage);
     }
     @FXML
     private void onSearch(ActionEvent E)throws Exception {
@@ -337,6 +390,10 @@ public class MemberController{
         TextField hotelName = (TextField)root.lookup("#hotelName");
         TextField hotelLevel = (TextField)root.lookup("#hotelLevel");
         TextField hotelScore = (TextField)root.lookup("#hotelScore");
+        TextField city = (TextField)root.lookup("#city");
+        TextField district = (TextField)root.lookup("#district");
+        city.setText(hotel.getCity());
+        district.setText(hotel.getDistrict());
         hotelName.setText(hotel.getHotelName());
         hotelLevel.setText(""+hotel.getHotelLevel());
         hotelScore.setText(""+hotel.getHotelScore());
@@ -347,24 +404,45 @@ public class MemberController{
      }
     @FXML
     private void onReserveRoomInhis(ActionEvent E)throws Exception {
-        if(creidt.checkCredit()){
-            reserve.createOrder();
-            midprimaryStage.close();
-            onPastHotel(E);
-        }
-       else{
-
+        Label totalPrice = (Label)midroot.lookup("#totalPrice");
+        TprimaryStage = new Stage();
+        if(totalPrice.getText().toString().equals("")){
+            new MtUI().start(TprimaryStage);
+            Label messager = (Label)Troot.lookup("#Message");
+            messager.setText("请先结算订单总价");
+        }else{
+            if(creidt.checkCredit()){
+                reserve.createOrder();
+                midprimaryStage.close();
+                onPastHotel(E);
+            }
+            else {
+                new MtUI().start(TprimaryStage);
+                Label messager = (Label)Troot.lookup("#Message");
+                messager.setText("您的信用值小于0，无法生成订单");
+            }
         }
     }
      @FXML
     private void onReserveRoomInsear(ActionEvent E)throws Exception {
-         if(creidt.checkCredit()){
-             reserve.createOrder();
-             midprimaryStage.close();
-             onOrderInfor(E);
-         }
-         else {
-
+         Label totalPrice = (Label)midroot.lookup("#totalPrice");
+         TprimaryStage = new Stage();
+         if(totalPrice.getText().toString().equals("")){
+             new MtUI().start(TprimaryStage);
+             Label messager = (Label)Troot.lookup("#Message");
+             messager.setText("");
+             messager.setText("请先结算订单总价");
+         }else{
+             if(creidt.checkCredit()){
+                 reserve.createOrder();
+                 midprimaryStage.close();
+                 onOrderInfor(E);
+             }
+             else {
+                 new MtUI().start(TprimaryStage);
+                 Label messager = (Label)Troot.lookup("#Message");
+                 messager.setText("您的信用值小于0，无法生成订单");
+             }
          }
     }
     @FXML
@@ -481,6 +559,10 @@ public class MemberController{
         TextField hotelName = (TextField)root.lookup("#hotelName");
         TextField hotelLevel = (TextField)root.lookup("#hotelLevel");
         TextField hotelScore = (TextField)root.lookup("#hotelScore");
+        TextField city = (TextField)root.lookup("#city");
+        TextField district = (TextField)root.lookup("#district");
+        city.setText(hotel.getCity());
+        district.setText(hotel.getDistrict());
         hotelName.setText(hotel.getHotelName());
         hotelLevel.setText(""+hotel.getHotelLevel());
         hotelScore.setText(""+hotel.getHotelScore());
@@ -506,13 +588,31 @@ public class MemberController{
     }
     @FXML
     private void onSearchLimited(ActionEvent E)throws Exception {
-        search.setOnlyReservationBefore(true);
-        searchSet(E);
+        TextField city = (TextField)root.lookup("#city");
+        TextField district = (TextField)root.lookup("#district");
+        if(city.getText().toString().equals("")||district.getText().toString().equals("")){
+            TprimaryStage = new Stage();
+            new MtUI().start(TprimaryStage);
+            Label messager = (Label)Troot.lookup("#Message");
+            messager.setText("请先输入商圈和城市信息");
+        }else{
+            search.setOnlyReservationBefore(true);
+            searchSet(E);
+        }
     }
     @FXML
     private void onSearchAll(ActionEvent E)throws Exception {
-        search.setOnlyReservationBefore(false);
-        searchSet(E);
+        TextField city = (TextField)root.lookup("#city");
+        TextField district = (TextField)root.lookup("#district");
+        if(city.getText().toString().equals("")||district.getText().toString().equals("")){
+            TprimaryStage = new Stage();
+            new MtUI().start(TprimaryStage);
+            Label messager = (Label)Troot.lookup("#Message");
+            messager.setText("请先输入商圈和城市信息");
+        }else{
+            search.setOnlyReservationBefore(false);
+            searchSet(E);
+        }
     }
     private void searchSet(ActionEvent E)throws Exception{
         TextField city = (TextField)root.lookup("#city");
@@ -628,14 +728,14 @@ public class MemberController{
         return false;
     }
     private void Mlo() throws  Exception{
-        ArrayList<OrderVO> l = member.getHotelOrderList(hotel.getHotelInformation().getUserID());
+        list = member.getHotelOrderList(hotel.getHotelInformation().getUserID());
         TableView table = (TableView) root.lookup("#table");
         ObservableList<TableData> dataForMInfor
                 = FXCollections.observableArrayList();
         ObservableList<TableColumn> tableList = table.getColumns();
         SimpleDateFormat sdf=new SimpleDateFormat("yyyy-MM-dd");
-        for(int i =0 ;i<l.size();i++){
-            dataForMInfor.add(new TableData(l.get(i).getOrderID(),sdf.format(l.get(i).getCreateTime()),""+l.get(i).getOrderStatus(),""+l.get(i).getPrice()));
+        for(int i =0 ;i<list.size();i++){
+            dataForMInfor.add(new TableData(list.get(i).getOrderID(),sdf.format(list.get(i).getCreateTime()),""+list.get(i).getOrderStatus(),""+list.get(i).getPrice()));
         }
         tableList.get(0).setCellValueFactory(new PropertyValueFactory("first"));
         tableList.get(1).setCellValueFactory(new PropertyValueFactory("second"));
