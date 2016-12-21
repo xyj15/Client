@@ -8,6 +8,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.Parent;
 import javafx.scene.control.DatePicker;
+import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
@@ -27,7 +28,18 @@ public class LoginController{
     private LoginUI loginUI;
     private LoginBLService loginBL =new Login();
     private static Parent root;
+    private static Parent Troot;
     private static Stage primaryStage;
+    private static Stage TprimaryStage;
+    private  static  boolean zhuce =false;
+    public static void setTprimaryStage(Stage tprimaryStage) {
+        TprimaryStage = tprimaryStage;
+    }
+
+    public static void setTroot(Parent troot) {
+        Troot = troot;
+    }
+
     public static void setPrimaryStage(Stage in){
         primaryStage=in;
     }
@@ -100,9 +112,23 @@ public class LoginController{
         TextField usernameForCR = (TextField)root.lookup("#usernameForCR");
         PasswordField passwordForCR = (PasswordField)root.lookup("passwordForCR");
         TextField companyName = (TextField)root.lookup("#companyName");
+        TprimaryStage = new Stage();
         if(loginBL.validPassword(passwordForCR.getText().toString())){
-            loginBL.register(new MemberVO("", passwordForCR.getText().toString(), usernameForCR.getText().toString(),
-                    "", 1, 1, MemberType.Bussiness, null, companyName.getText().toString()));
+            MemberVO tem = new MemberVO("", passwordForCR.getText().toString(), usernameForCR.getText().toString(),
+                    "", 1, 1, MemberType.Bussiness, null, companyName.getText().toString());
+            loginBL.register(tem);
+            zhuce = true;
+            new logintUI().start(TprimaryStage);
+            Label messager = (Label)Troot.lookup("#Message");
+            Label m = (Label)Troot.lookup("#m");
+            messager.setText("您的ID为：");
+            m.setText(tem.getUserID());
+        }
+    }
+    @FXML
+    private void sure(ActionEvent E)throws Exception {
+        TprimaryStage.close();
+        if(zhuce){
             new LoginUI().start(primaryStage);
         }
     }
@@ -113,9 +139,15 @@ public class LoginController{
         DatePicker birth = (DatePicker)root.lookup("#birth");
         String[] tem = birth.getEditor().getText().split("-");
         if(loginBL.validPassword(password.getText().toString())){
-            loginBL.register(new MemberVO("", password.getText().toString(), username.getText().toString(), "", 1, 1,
-                    MemberType.Orinary, new Date(Integer.parseInt(tem[0])-1900,Integer.parseInt(tem[1])-1,Integer.parseInt(tem[2])),"" ));
-            new LoginUI().start(primaryStage);
+            MemberVO t = new MemberVO("", password.getText().toString(), username.getText().toString(), "", 1, 1,
+                    MemberType.Orinary, new Date(Integer.parseInt(tem[0])-1900,Integer.parseInt(tem[1])-1,Integer.parseInt(tem[2])),"" );
+            loginBL.register(t);
+            zhuce = true;
+            new logintUI().start(TprimaryStage);
+            Label messager = (Label)Troot.lookup("#Message");
+            Label m = (Label)Troot.lookup("#m");
+            messager.setText("您的ID为：");
+            m.setText(t.getUserID());
         }
     }
 }

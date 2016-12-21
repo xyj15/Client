@@ -76,7 +76,7 @@
          </font>
       </Button>
       <Button layoutX="1080.0" layoutY="25.0" mnemonicParsing="false" onAction="#onLogOut" opacity="0.0" prefHeight="23.0" prefWidth="74.0" text="Button" />
-      <TableView fx:id="table" layoutX="330.0" layoutY="150.0" opacity="0.8" prefHeight="400.0" prefWidth="730.0" style="-fx-background-color: #000f32;" stylesheets="@TableView.css">
+      <TableView fx:id="table" layoutX="330.0" layoutY="167.0" opacity="0.8" prefHeight="383.0" prefWidth="730.0" style="-fx-background-color: #000f32;" stylesheets="@TableView.css">
         <columns>
           <TableColumn prefWidth="153.0" style="-fx-background-color: #000f32;" text="房间ID" />
             <TableColumn prefWidth="233.0" style="-fx-background-color: #000f32;" text="房间名字" />
@@ -88,5 +88,16 @@
             <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
          </columnResizePolicy>
       </TableView>
+      <Label layoutX="525.0" layoutY="125.0" prefHeight="30.0" prefWidth="65.0" text="日期：" textFill="WHITE">
+         <font>
+            <Font name="Microsoft YaHei Bold" size="20.0" />
+         </font>
+      </Label>
+      <DatePicker fx:id="date" layoutX="590.0" layoutY="125.0" />
+      <Button layoutX="871.0" layoutY="123.0" mnemonicParsing="false" onAction="#onCHA" prefHeight="23.0" prefWidth="65.0" style="-fx-background-color: #6B6BCF;" text="查询" textFill="WHITE">
+         <font>
+            <Font name="Microsoft YaHei Bold" size="16.0" />
+         </font>
+      </Button>
    </children>
 </AnchorPane>

@@ -15,9 +15,9 @@ public class MemberHotelInformationInhisUI extends Application {
     @Override
     public void start(Stage primaryStage) throws Exception {
         Parent root = FXMLLoader.load(getClass().getResource("MemberHotelInformationInhis.fxml"));
-        MemberController.setMidprimaryStage(primaryStage);
-        MemberController.setMidroot(root);
-        Scene myScene = new Scene(root,528,528);
+        MemberController.setPrimaryStage(primaryStage);
+        MemberController.setRoot(root);
+        Scene myScene = new Scene(root,1180,660);
         primaryStage.setResizable(false);
         primaryStage.setScene(myScene);
         primaryStage.show();
