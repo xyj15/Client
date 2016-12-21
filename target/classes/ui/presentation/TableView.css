@@ -1,6 +1,6 @@
 .table-view {
-    -fx-base: #1d1d1d;/*分割线颜色*/
-    -fx-control-inner-background: #1d1d1d;
+    -fx-base: #1d1d1d;
+    -fx-control-inner-background: #000f32;
     -fx-background-color: #000f32;
     -fx-table-cell-border-color: transparent;
     -fx-table-header-border-color: transparent;
@@ -24,11 +24,11 @@
     -fx-size: 35;
     -fx-border-width: 0 0 1 0;
     -fx-background-color: transparent;
-    -fx-border-color: 
-        transparent
-        transparent
-        derive(-fx-base, 80%) 
-        transparent;
+    -fx-border-color:
+            transparent
+            transparent
+            derive(-fx-base, 80%)
+            transparent;
     -fx-border-insets: 0 10 1 0;
 }
 /*标题栏字*/
@@ -40,8 +40,14 @@
     -fx-opacity: 1;
 }
 
-.table-view:focused .table-row-cell:filled:focused:selected {
-    -fx-opacity: 0.5;
+/*.table-view:focused .table-row-cell:filled:focused:selected {*/
+/*-fx-text-fill: darkred;*/
+/*-fx-opacity: 0.5;*/
+/*-fx-table-cell-border-color: transparent;*/
+/*-fx-table-header-border-color: transparent;*/
+/*}*/
+.table-view:focused .table-row-cell:selected {
+    -fx-background-color: #3b34ac;
     -fx-table-cell-border-color: transparent;
     -fx-table-header-border-color: transparent;
 }
