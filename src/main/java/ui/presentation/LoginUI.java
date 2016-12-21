@@ -33,9 +33,8 @@ public class LoginUI extends Application {
            primaryStage.setScene(myScene);
            primaryStage.show();
     }
+    
     public static void main(String[] args) {
-		RemoteHelper remoteHelper = RemoteHelper.getInstance();
-		remoteHelper.connect();
         launch(args);
     }
 
