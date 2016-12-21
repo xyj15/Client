@@ -73,6 +73,7 @@ public class HotelController {
     private static ArrayList<PromotionVO> PromotionList;
     private static OrderVO temOrder;
     private static int count=0;
+    private static LocalDate tem;
 
     public static void setMidroot(Parent midroot) {
         HotelController.midroot = midroot;
@@ -614,14 +615,40 @@ public class HotelController {
         minprimaryStage.close();
         onCompanyPromotion(E);
     }
-    @FXML    //传日期的问题
+
+    @FXML
     private void onRoomManager(ActionEvent E)throws Exception {
         new HotelRoomUI().start(primaryStage);
         TableView table = (TableView) root.lookup("#table");
+        DatePicker date = (DatePicker)root.lookup("#date");
+        date.setValue(LocalDate.now());
+        tem=date.getValue();
         ObservableList<TableData> dataForMInfor
                 = FXCollections.observableArrayList();
         ObservableList<TableColumn> tableList = table.getColumns();
         RoomList = room.getDailyRoomList(new Date());
+        for(int i=0;i<RoomList.size();i++){
+            dataForMInfor.add(new TableData(RoomList.get(i).getRoomNumber(),RoomList.get(i).getRoomName(),
+                    ""+RoomList.get(i).getRoomType(),""+RoomList.get(i).getPrice(),RoomList.get(i).isAvailable()?"空置":"已入住"));
+        }
+        tableList.get(0).setCellValueFactory(new PropertyValueFactory("first"));
+        tableList.get(1).setCellValueFactory(new PropertyValueFactory("second"));
+        tableList.get(2).setCellValueFactory(new PropertyValueFactory("third"));
+        tableList.get(3).setCellValueFactory(new PropertyValueFactory("fourth"));
+        tableList.get(4).setCellValueFactory(new PropertyValueFactory("fifth"));
+        table.setItems(dataForMInfor);
+    }
+
+    @FXML
+    private void onCHA(ActionEvent E)throws Exception {
+        DatePicker date = (DatePicker)root.lookup("#date");
+        tem = date.getValue();
+        TableView table = (TableView) root.lookup("#table");
+        table.getItems().clear();
+        ObservableList<TableData> dataForMInfor
+                = FXCollections.observableArrayList();
+        ObservableList<TableColumn> tableList = table.getColumns();
+        RoomList = room.getDailyRoomList(new Date(tem.getYear()-1900,tem.getMonthValue()-1,tem.getDayOfMonth()));
         for(int i=0;i<RoomList.size();i++){
             dataForMInfor.add(new TableData(RoomList.get(i).getRoomNumber(),RoomList.get(i).getRoomName(),
                     ""+RoomList.get(i).getRoomType(),""+RoomList.get(i).getPrice(),RoomList.get(i).isAvailable()?"空置":"已入住"));
@@ -687,13 +714,15 @@ public class HotelController {
         TextField name = (TextField)minroot.lookup("#name");
         TextField price = (TextField)minroot.lookup("#price");
         ComboBox<roomTypeChoice> type =(ComboBox<roomTypeChoice>)minroot.lookup("#type");
+        ComboBox<roomState> state =(ComboBox<roomState>)minroot.lookup("#state");
         TableView table = (TableView) root.lookup("#table");
 //        ArrayList<RoomVO> list = room.getDailyRoomList(new Date());
         RoomVO tem =RoomList.get(table.getSelectionModel().getSelectedIndex());
         tem.setRoomName(name.getText().toString());
         tem.setPrice(Double.parseDouble(price.getText().toString()));
         tem.setRoomType(type.getSelectionModel().getSelectedItem().toRoomType());
-        room.updateRoom(new Date(),tem);
+        tem.setAvailable(state.getSelectionModel().getSelectedItem().toString().equals("空置")?true:false);
+        room.updateRoom(new Date(this.tem.getYear()-1900,this.tem.getMonthValue()-1,this.tem.getDayOfMonth()),tem);
         minprimaryStage.close();
         onRoomManager(E);
     }

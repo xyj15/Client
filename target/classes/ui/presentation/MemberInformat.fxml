@@ -129,5 +129,10 @@
             <TableColumn fx:id="now" prefWidth="151.5" sortable="false" style="-fx-background-color: #000f32;" text="当前信用" />
          </columns>
       </TableView>
+      <Button layoutX="869.0" layoutY="121.0" mnemonicParsing="false" onAction="#onChangePass" prefHeight="29.0" prefWidth="89.0" style="-fx-background-color: #6B6BCF;" text="修改密码" textFill="WHITE">
+         <font>
+            <Font name="Microsoft YaHei Bold" size="14.0" />
+         </font>
+      </Button>
    </children>
 </AnchorPane>

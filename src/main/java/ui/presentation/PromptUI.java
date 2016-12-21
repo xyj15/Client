@@ -8,12 +8,12 @@ import javafx.stage.Stage;
 import ui.controller.PromotionController;
 
 /**
- * Created by 婧婧 on 2016/12/1.
+ * Created by 婧婧 on 2016/12/20.
  */
-public class SalerAddPromotionUI extends Application {
+public class PromptUI extends Application {
     @Override
     public void start(Stage primaryStage)throws Exception{
-        Parent root = FXMLLoader.load(getClass().getResource("SalerAddPromotion.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("prompt.fxml"));
         PromotionController.setPromptStage(primaryStage);
         PromotionController.setPromptroot(root);
         Scene myScene = new Scene(root,318,538);

@@ -70,12 +70,12 @@
             <Font name="Microsoft YaHei Bold" size="16.0" />
          </font>
       </Button>
-      <TableView fx:id="promotionTable" layoutX="374.0" layoutY="117.0" opacity="0.8" prefHeight="432.0" prefWidth="709.0" style="-fx-background-color: #000f32;" stylesheets="@TableView.css">
+      <TableView fx:id="promotionTable" layoutX="374.0" layoutY="117.0" opacity="0.8" prefHeight="432.0" prefWidth="709.0" stylesheets="@TableView.css">
         <columns>
-          <TableColumn fx:id="name" prefWidth="75.0" style="-fx-background-color: #000f32;" text="名称" />
-            <TableColumn fx:id="startDate" prefWidth="128.0" style="-fx-background-color: #000f32;" text="起始日期" />
-            <TableColumn fx:id="endDate" prefWidth="112.0" style="-fx-background-color: #000f32;" text="结束日期" />
-            <TableColumn fx:id="discount" prefWidth="101.0" style="-fx-BACKGROUND-COLOR: #000f32;" text="折扣" />
+          <TableColumn fx:id="name" prefWidth="75.0" text="名称" />
+            <TableColumn fx:id="startDate" prefWidth="128.0" text="起始日期" />
+            <TableColumn fx:id="endDate" prefWidth="112.0" text="结束日期" />
+            <TableColumn fx:id="discount" prefWidth="101.0" text="折扣" />
         </columns>
          <columnResizePolicy>
             <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
