@@ -35,14 +35,15 @@ public class Order implements OrderBLService {
 	 */
 	public Order(String userID) {
 		this.userID = userID;
-		orderDataService = new OrderDataStub();
-//		orderDataAbstractFactory = RemoteHelper.getInstance().getOrderDataFactory();
-//		try {
-//			orderDataAbstractFactory.setOrderData(userID);
-//		} catch (RemoteException e) {
-//			e.printStackTrace();
-//		}
-//		orderDataService = RemoteHelper.getInstance().getOrderDataService();
+//		orderDataService = new OrderDataStub();
+		RemoteHelper.getInstance().connect();
+		orderDataAbstractFactory = RemoteHelper.getInstance().getOrderDataFactory();
+		try {
+			orderDataAbstractFactory.setOrderData(userID);
+		} catch (RemoteException e) {
+			e.printStackTrace();
+		}
+		orderDataService = RemoteHelper.getInstance().getOrderDataService();
 		updateDataFromFile();
 	}
 	

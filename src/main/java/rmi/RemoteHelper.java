@@ -2,6 +2,7 @@ package rmi;
 
 import data.service.*;
 import other.OrderStatus;
+import po.CreditChangePO;
 import po.OrderPO;
 
 import java.net.InetAddress;
@@ -12,6 +13,7 @@ import java.rmi.NotBoundException;
 import java.rmi.Remote;
 import java.rmi.RemoteException;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
 
 public class RemoteHelper {
@@ -126,9 +128,12 @@ public class RemoteHelper {
 			System.out.println(remoteHelper.getManagerDataService().getManager().getName());
 			System.out.println(remoteHelper.getPromotionDataService().getAvailablePromotionID());
 			System.out.println(remoteHelper.getRankDataService().getCreditList().get(2));
-//			System.out.println(remoteHelper.getRoomDataService().getRoomsByDate(new Date(), "000000"));
+			System.out.println(remoteHelper.getRoomDataService().getRoomsByDate(new Date(), "000000"));
 			System.out.println(remoteHelper.getSalerDataService().getAvailableSalerID());
-//			System.out.println(remoteHelper.getSearchDataService().getHotelListByCityDistrict("南京市", "新街口"));
+			System.out.println(remoteHelper.getSearchDataService().getHotelListByCityDistrict("南京市", "新街口"));
+			
+			ArrayList<CreditChangePO> creditChangePOList = remoteHelper.getCreditDataService().getCreditChange("00000000");
+			System.out.println(creditChangePOList.get(0).getOrderID());
 		} catch (RemoteException e) {
 			e.printStackTrace();
 		}

@@ -21,8 +21,9 @@ public class Rank {
 	private RankDataService rankDataService;
 	
 	public Rank() {
-		rankDataService = new RankDataStub();
-//		rankDataService = RemoteHelper.getInstance().getRankDataService();
+//		rankDataService = new RankDataStub();
+		RemoteHelper.getInstance().connect();
+		rankDataService = RemoteHelper.getInstance().getRankDataService();
 		updateDataFromFile();
 	}
 	

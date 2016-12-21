@@ -39,8 +39,9 @@ public class Hotel implements HotelBLService {
 	 */
 	public Hotel(HotelVO hotelVO) {
 		this.hotelVO = hotelVO;
-//		hotelDataService = RemoteHelper.getInstance().getHotelDataService();
-		hotelDataService = new HotelDataStub();
+		RemoteHelper.getInstance().connect();
+		hotelDataService = RemoteHelper.getInstance().getHotelDataService();
+//		hotelDataService = new HotelDataStub();
 		try {
 			hotelVO.setUserID(hotelDataService.getAvailableHotelID());
 		} catch (RemoteException e) {
@@ -60,8 +61,9 @@ public class Hotel implements HotelBLService {
 	 */
 	public Hotel(String hotelID) {
 		this.hotelID = hotelID;
-//		hotelDataService = RemoteHelper.getInstance().getHotelDataService();
-		hotelDataService = new HotelDataStub();
+		RemoteHelper.getInstance().connect();
+		hotelDataService = RemoteHelper.getInstance().getHotelDataService();
+//		hotelDataService = new HotelDataStub();
 		updateDateFromFile();
 	}
 	

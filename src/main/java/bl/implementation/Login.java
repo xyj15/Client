@@ -132,7 +132,6 @@ public class Login implements LoginBLService {
 	private User getUser(String userID) {
 		User user = null;
 		UserType userType = getUserType(userID);
-		System.out.print(userType);
 		switch(userType.getValue()) {
 			case 0:
 				Member member = new Member(userID);
@@ -165,11 +164,5 @@ public class Login implements LoginBLService {
 		} else {
 			return false;
 		}
-	}
-	
-	public static void main(String[] args) {
-		Login login = new Login();
-		System.out.println(login.existUserID("00000001"));
-		System.out.println(login.getUserType("000000"));
 	}
 }
