@@ -52,6 +52,7 @@ public class LoginController{
         TprimaryStage = new Stage();
         TextField usernameForLog = (TextField)root.lookup("#usernameForLog");
         PasswordField passwordForLog = (PasswordField)root.lookup("#passwordForLog");
+<<<<<<< HEAD
         if(!loginBL.checkNetwork()){
             new LtUI().start(TprimaryStage);
             Label messager = (Label)Troot.lookup("#Message");
@@ -60,6 +61,15 @@ public class LoginController{
         else {
             if(loginBL.existUserID(usernameForLog.getText().toString())){
                 if(loginBL.login(usernameForLog.getText().toString(),passwordForLog.getText().toString())){
+=======
+//        if(!loginBL.checkNetwork()){
+//            System.out.println("Link failed");
+//        }
+//        else {
+//         System.out.print(usernameForLog.getText().toString());
+            if(loginBL.existUserID(usernameForLog.getText())){
+                if(loginBL.login(usernameForLog.getText(), passwordForLog.getText())) {
+>>>>>>> refs/remotes/xin541322049/master
                     UserType userType = loginBL.getUserType(usernameForLog.getText().toString());
                     switch (userType){
                         case Member:

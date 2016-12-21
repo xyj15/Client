@@ -21,4 +21,6 @@ public interface PromotionBLService {
 	public ArrayList<PromotionVO> getHotelDatePromotionList();	//获得酒店的特定日期营销策略列表
 	public ArrayList<PromotionVO> getWebDatePromotionList();	//获得网站的特定日期营销策略列表
 	public ArrayList<PromotionVO> getEnterprisePromotionList();	//获得合作企业促销列表
+	
+	public ArrayList<PromotionVO> getAvailablePromotionList(String memberID, String hotelID, int numberOfRoom);	//根据条件获取可用促销策略列表
 }

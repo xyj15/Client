@@ -19,6 +19,7 @@ public class PromotionBLDriver {
 		System.out.println(promotionBLService.getEnterprisePromotionList());
 		System.out.println(promotionBLService.getHotelDatePromotionList());
 		System.out.println(promotionBLService.getWebDatePromotionList());
+		System.out.println(promotionBLService.getAvailablePromotionList("00000000", "000000", 1));
 	}
 
 	public static void main(String[] args) {

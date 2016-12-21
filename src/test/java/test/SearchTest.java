@@ -34,7 +34,7 @@ public class SearchTest {
 	
 	@Test
 	public void getDistrictList() throws Exception {
-		ArrayList<String> districtList = search.getDistrictList();
+		ArrayList<String> districtList = search.getDistrictList("南京市");
 		assertEquals(districtList.size(), 3);
 		assertEquals(districtList.get(0), "南京大学商圈");
 		assertEquals(districtList.get(1), "马群商圈");
