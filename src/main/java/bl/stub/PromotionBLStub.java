@@ -112,4 +112,10 @@ public class PromotionBLStub implements PromotionBLService {
 		promotionList.add(promotionVO);
 		return promotionList;
 	}
+	
+	@Override
+	public ArrayList<PromotionVO> getAvailablePromotionList(String memberID, String hotelID, int numberOfRoom) {
+		System.out.println("获取可用促销列表成功");
+		return new ArrayList<>();
+	}
 }

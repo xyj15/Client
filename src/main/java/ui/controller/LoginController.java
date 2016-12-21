@@ -57,16 +57,8 @@ public class LoginController{
 //        }
 //        else {
 //         System.out.print(usernameForLog.getText().toString());
-<<<<<<< HEAD
-            if(loginBL.existUserID(usernameForLog.getText().toString())){
-
-//                System.out.println(usernameForLog.getText().toString());
-                System.out.println(loginBL.login(usernameForLog.getText().toString(),passwordForLog.getText().toString()));
-                if(loginBL.login(usernameForLog.getText().toString(),passwordForLog.getText().toString())){
-=======
             if(loginBL.existUserID(usernameForLog.getText())){
                 if(loginBL.login(usernameForLog.getText(), passwordForLog.getText())) {
->>>>>>> origin/master
                     UserType userType = loginBL.getUserType(usernameForLog.getText().toString());
                     System.out.println(userType);
                     System.out.print(11111);

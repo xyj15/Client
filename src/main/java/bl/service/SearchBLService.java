@@ -10,7 +10,7 @@ import vo.HotelVO;
 public interface SearchBLService {
 	
 	public ArrayList<String> getCityList();	//获取所有城市的列表
-	public ArrayList<String> getDistrictList();	//获取所有商圈的列表
+	public ArrayList<String> getDistrictList(String city);	//获取所有商圈的列表
 	
 	public boolean setCity(String city);	//设置搜索酒店城市
 	public boolean setDistrict(String district);	//设置搜索酒店商圈
