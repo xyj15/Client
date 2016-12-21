@@ -60,7 +60,7 @@
                   <Font size="16.0" />
                </font>
             </Label>
-            <TextField fx:id="dateDiscountUpdate" GridPane.columnIndex="1" GridPane.rowIndex="3">
+            <TextField fx:id="dateDiscountUpdate" promptText="0~1" GridPane.columnIndex="1" GridPane.rowIndex="3">
                <GridPane.margin>
                   <Insets right="15.0" />
                </GridPane.margin>
