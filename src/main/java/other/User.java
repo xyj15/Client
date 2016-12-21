@@ -10,6 +10,7 @@ public class User {
 	private String userID;	//用户ID
 	private String password;	//密码
 	private UserType userType;	//用户类型
+	private boolean isLoged;	//登录状态
 	
 	/**
 	 * 空构造方法
@@ -77,6 +78,12 @@ public class User {
 	public void setUserType(UserType userType) {
 		this.userType = userType;
 	}
-
-
+	
+	public boolean isLoged() {
+		return isLoged;
+	}
+	
+	public void setLoged(boolean loged) {
+		isLoged = loged;
+	}
 }
