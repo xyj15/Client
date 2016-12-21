@@ -32,6 +32,7 @@ public class Manager implements ManagerBLService {
 	 */
 	public Manager() {
 //		managerDataService = new ManagerDataStub();
+		RemoteHelper.getInstance().connect();
 		managerDataService = RemoteHelper.getInstance().getManagerDataService();
 		login = new Login();
 	}

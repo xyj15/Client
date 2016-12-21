@@ -81,6 +81,11 @@ public class Login implements LoginBLService {
 	@Override
 	public boolean login(String userID, String password) {
 		User user = getUser(userID);
+		System.out.println();
+		System.out.println(user!=null);
+		System.out.println(user.getUserID());
+		System.out.println(user.getPassword());
+		System.out.println();
 		if(user==null) {
 			return false;
 		}
@@ -132,7 +137,6 @@ public class Login implements LoginBLService {
 	private User getUser(String userID) {
 		User user = null;
 		UserType userType = getUserType(userID);
-		System.out.print(userType);
 		switch(userType.getValue()) {
 			case 0:
 				Member member = new Member(userID);
@@ -165,11 +169,5 @@ public class Login implements LoginBLService {
 		} else {
 			return false;
 		}
-	}
-	
-	public static void main(String[] args) {
-		Login login = new Login();
-		System.out.println(login.existUserID("00000001"));
-		System.out.println(login.getUserType("000000"));
 	}
 }

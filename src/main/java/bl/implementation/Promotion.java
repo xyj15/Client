@@ -33,6 +33,7 @@ public class Promotion implements PromotionBLService {
 	public Promotion(String hotelID) {
 		this.hotelID = hotelID;
 //		promotionDataService = new PromotionDataStub();
+		RemoteHelper.getInstance().connect();
 		promotionDataService = RemoteHelper.getInstance().getPromotionDataService();
 		promotionList = getHotelPromotionList(hotelID);
 	}
@@ -41,6 +42,7 @@ public class Promotion implements PromotionBLService {
 	 * 网站营销策略的构造方法，获取所有营销策略
 	 */
 	public Promotion() {
+		RemoteHelper.getInstance().connect();
 		promotionDataService = RemoteHelper.getInstance().getPromotionDataService();
 //		promotionDataService = new PromotionDataStub();
 		promotionList = getWebPromotionList();

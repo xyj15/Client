@@ -36,6 +36,7 @@ public class Order implements OrderBLService {
 	public Order(String userID) {
 		this.userID = userID;
 //		orderDataService = new OrderDataStub();
+		RemoteHelper.getInstance().connect();
 		orderDataAbstractFactory = RemoteHelper.getInstance().getOrderDataFactory();
 		try {
 			orderDataAbstractFactory.setOrderData(userID);
