@@ -48,9 +48,30 @@ public class Search implements SearchBLService {
 	 */
 	public Search(String memberID) {
 		this.memberID = memberID;
+		RemoteHelper.getInstance().connect();
 		searchDataService = RemoteHelper.getInstance().getSearchDataService();
 //		searchDataService = new SearchDataStub();
 		order = new Order(memberID);
+	}
+	
+	@Override
+	public ArrayList<String> getCityList() {
+		try {
+			return searchDataService.getCityList();
+		} catch (RemoteException e) {
+			e.printStackTrace();
+			return null;
+		}
+	}
+	
+	@Override
+	public ArrayList<String> getDistrictList() {
+		try {
+			return searchDataService.getDistrictList();
+		} catch (RemoteException e) {
+			e.printStackTrace();
+			return null;
+		}
 	}
 	
 	/**

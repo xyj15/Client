@@ -13,6 +13,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.layout.Pane;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
+import rmi.RemoteHelper;
 import ui.controller.LoginController;
 
 import java.io.IOException;
@@ -32,6 +33,7 @@ public class LoginUI extends Application {
            primaryStage.setScene(myScene);
            primaryStage.show();
     }
+    
     public static void main(String[] args) {
         launch(args);
     }

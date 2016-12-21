@@ -36,6 +36,7 @@ public class Saler implements SalerBLService {
 	 */
 	public Saler(SalerVO salerVO) {
 //		salerDataService = new SalerDataStub();
+		RemoteHelper.getInstance().connect();
 		salerDataService = RemoteHelper.getInstance().getSalerDataService();
 		try {
 			salerVO.setUserID(salerDataService.getAvailableSalerID());
@@ -56,6 +57,7 @@ public class Saler implements SalerBLService {
 	 */
 	public Saler(String salerID) {
 //		salerDataService = new SalerDataStub();
+		RemoteHelper.getInstance().connect();
 		salerDataService = RemoteHelper.getInstance().getSalerDataService();
 		this.salerID = salerID;
 		updateDataFromFile();
