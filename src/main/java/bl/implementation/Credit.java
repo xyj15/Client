@@ -5,6 +5,7 @@ import bl.service.CreditBLService;
 import data.stub.CreditDataStub;
 import other.OrderAction;
 import po.CreditChangePO;
+import rmi.RemoteHelper;
 import vo.CreditChangeVO;
 
 import java.rmi.RemoteException;
@@ -31,8 +32,8 @@ public class Credit implements CreditBLService {
 	 */
     public Credit(String memberID) {
 		this.memberID = memberID;
-		creditDataService = new CreditDataStub();
-//		creditDataService = RemoteHelper.getInstance().getCreditDataService();
+//		creditDataService = new CreditDataStub();
+		creditDataService = RemoteHelper.getInstance().getCreditDataService();
 		updateDataFromFile();
     }
 	

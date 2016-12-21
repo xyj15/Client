@@ -2,6 +2,7 @@ package bl.implementation;
 
 import data.service.RankDataService;
 import data.stub.RankDataStub;
+import rmi.RemoteHelper;
 
 import java.rmi.RemoteException;
 import java.util.ArrayList;
@@ -20,8 +21,8 @@ public class Rank {
 	private RankDataService rankDataService;
 	
 	public Rank() {
-		rankDataService = new RankDataStub();
-//		rankDataService = RemoteHelper.getInstance().getRankDataService();
+//		rankDataService = new RankDataStub();
+		rankDataService = RemoteHelper.getInstance().getRankDataService();
 		updateDataFromFile();
 	}
 	

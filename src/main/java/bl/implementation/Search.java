@@ -7,6 +7,7 @@ import other.HotelQuickSort;
 import other.RoomType;
 import other.SortValueOrder;
 import po.HotelPO;
+import rmi.RemoteHelper;
 import vo.HotelVO;
 import vo.OrderVO;
 
@@ -47,8 +48,8 @@ public class Search implements SearchBLService {
 	 */
 	public Search(String memberID) {
 		this.memberID = memberID;
-//		searchDataService = RemoteHelper.getInstance().getSearchDataService();
-		searchDataService = new SearchDataStub();
+		searchDataService = RemoteHelper.getInstance().getSearchDataService();
+//		searchDataService = new SearchDataStub();
 		order = new Order(memberID);
 	}
 	
