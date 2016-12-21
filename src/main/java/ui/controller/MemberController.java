@@ -196,6 +196,8 @@ public class MemberController{
         Label userName=(Label)root.lookup("#userNameLable");
         Label tel=(Label)root.lookup("#telLable");
         Label credit=(Label)root.lookup("#creditLable");
+        System.out.print(root.toString());
+        System.out.print(userName);
         userName.setText(member.getName());
         tel.setText(member.getTel());
         credit.setText(""+member.getCredit());

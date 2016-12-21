@@ -57,11 +57,17 @@ public class LoginController{
 //        else {
 //         System.out.print(usernameForLog.getText().toString());
             if(loginBL.existUserID(usernameForLog.getText().toString())){
+
+//                System.out.println(usernameForLog.getText().toString());
+                System.out.println(loginBL.login(usernameForLog.getText().toString(),passwordForLog.getText().toString()));
                 if(loginBL.login(usernameForLog.getText().toString(),passwordForLog.getText().toString())){
                     UserType userType = loginBL.getUserType(usernameForLog.getText().toString());
-//                System.out.print(""+userType );
+                    System.out.println(userType);
+                    System.out.print(11111);
+
                     switch (userType){
                         case Member:
+                            System.out.print(111);
                             new MemberFirstUI().start(primaryStage);
                             MemberController.setSearch(new Search(usernameForLog.getText().toString()));
                             MemberController.setMember(new Member(usernameForLog.getText().toString()));

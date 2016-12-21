@@ -1,8 +1,10 @@
 package rmi;
 
 import data.service.*;
+import javafx.stage.Stage;
 import other.OrderStatus;
 import po.OrderPO;
+import ui.presentation.LoginUI;
 
 import java.net.InetAddress;
 import java.net.MalformedURLException;
@@ -13,6 +15,7 @@ import java.rmi.Remote;
 import java.rmi.RemoteException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.concurrent.ExecutionException;
 
 public class RemoteHelper {
 	
@@ -103,7 +106,7 @@ public class RemoteHelper {
 		this.connected = connected;
 	}
 	
-	public static void main(String[] args) {
+	public static void main(String[] args) throws Exception {
 //		try {
 //			System.out.println(InetAddress.getLocalHost().toString());
 //		} catch (UnknownHostException e) {
@@ -118,38 +121,44 @@ public class RemoteHelper {
 		} else {
 			System.out.println("连接到服务器失败");
 		}
-		
-		try {
-			System.out.println(remoteHelper.getHotelDataService().getAvailableHotelID());
-			System.out.println(remoteHelper.getMemberDataService().getAvailableMemberID());
-			System.out.println(remoteHelper.getCreditDataService().getCredit("00000000"));
-			System.out.println(remoteHelper.getManagerDataService().getManager().getName());
-			System.out.println(remoteHelper.getPromotionDataService().getAvailablePromotionID());
-			System.out.println(remoteHelper.getRankDataService().getCreditList().get(2));
+//		try{
+//			Stage tem = new Stage();
+//			new LoginUI().start(tem);
+//		}catch (Exception e){
+//			e.printStackTrace();
+//		}
+
+//		try {
+//			System.out.println(remoteHelper.getHotelDataService().getAvailableHotelID());
+			System.out.println(remoteHelper.getMemberDataService().getMember("00000000").getUserID());
+//			System.out.println(remoteHelper.getCreditDataService().getCredit("00000000"));
+//			System.out.println(remoteHelper.getManagerDataService().getManager().getName());
+//			System.out.println(remoteHelper.getPromotionDataService().getAvailablePromotionID());
+//			System.out.println(remoteHelper.getRankDataService().getCreditList().get(2));
 //			System.out.println(remoteHelper.getRoomDataService().getRoomsByDate(new Date(), "000000"));
-			System.out.println(remoteHelper.getSalerDataService().getAvailableSalerID());
+//			System.out.println(remoteHelper.getSalerDataService().getAvailableSalerID());
 //			System.out.println(remoteHelper.getSearchDataService().getHotelListByCityDistrict("南京市", "新街口"));
-		} catch (RemoteException e) {
-			e.printStackTrace();
-		}
+//		} catch (RemoteException e) {
+//			e.printStackTrace();
+//		}
 			
-		OrderDataAbstractFactory factory = remoteHelper.getOrderDataFactory();
-		try {
-			factory.setOrderData("00000000");
-		} catch (RemoteException e) {
-			e.printStackTrace();
-		}
-		OrderDataService test = remoteHelper.getOrderDataService();
-		OrderPO result = null;
-		try {
-			result = test.getOrder("2016120900000000");
-		} catch (RemoteException e) {
-			e.printStackTrace();
-		}
-		System.out.println("orderID: "+result.getOrderID());
-		System.out.println("mamberID: "+result.getMemberID());
-		System.out.println("hotelID: "+result.getHotelID());
-		System.out.println("orderStatus: "+result.getOrderStatus());
+//		OrderDataAbstractFactory factory = remoteHelper.getOrderDataFactory();
+//		try {
+//			factory.setOrderData("00000000");
+//		} catch (RemoteException e) {
+//			e.printStackTrace();
+//		}
+//		OrderDataService test = remoteHelper.getOrderDataService();
+//		OrderPO result = null;
+//		try {
+//			result = test.getOrder("2016120900000000");
+//		} catch (RemoteException e) {
+//			e.printStackTrace();
+//		}
+//		System.out.println("orderID: "+result.getOrderID());
+//		System.out.println("mamberID: "+result.getMemberID());
+//		System.out.println("hotelID: "+result.getHotelID());
+//		System.out.println("orderStatus: "+result.getOrderStatus());
 		
 //		if(result.getOrderStatus()== OrderStatus.Canceled){
 //			System.out.println("cancel: "+bartDateFormate.format(result.getCancelTime()));

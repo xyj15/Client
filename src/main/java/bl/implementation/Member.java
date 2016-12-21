@@ -238,6 +238,7 @@ public class Member implements MemberBLService {
 	 */
 	public boolean updateDataFromFile() {
 		try {
+			System.out.println(memberID);
 			if(memberDataService.getMember(memberID)==null) {
 				return false;
 			}
