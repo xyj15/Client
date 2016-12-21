@@ -29,8 +29,8 @@ public class Room implements RoomBLService {
 	 */
 	public Room(String hotelID) {
 		this.hotelID = hotelID;
-		roomDataService = RemoteHelper.getInstance().getRoomDataService();
-//		roomDataService = new RoomDataStub();
+//		roomDataService = RemoteHelper.getInstance().getRoomDataService();
+		roomDataService = new RoomDataStub();
 	}
 	
 	/**

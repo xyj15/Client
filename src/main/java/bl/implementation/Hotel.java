@@ -3,10 +3,12 @@ package bl.implementation;
 import data.service.HotelDataService;
 import bl.service.HotelBLService;
 import data.stub.HotelDataStub;
+import other.OrderAction;
 import other.OrderStatus;
 import other.RoomType;
 import po.HotelPO;
 import rmi.RemoteHelper;
+import vo.CreditChangeVO;
 import vo.HotelVO;
 import vo.OrderVO;
 import vo.RoomVO;
@@ -37,8 +39,8 @@ public class Hotel implements HotelBLService {
 	 */
 	public Hotel(HotelVO hotelVO) {
 		this.hotelVO = hotelVO;
-		hotelDataService = RemoteHelper.getInstance().getHotelDataService();
-//		hotelDataService = new HotelDataStub();
+//		hotelDataService = RemoteHelper.getInstance().getHotelDataService();
+		hotelDataService = new HotelDataStub();
 		try {
 			hotelVO.setUserID(hotelDataService.getAvailableHotelID());
 		} catch (RemoteException e) {
@@ -58,8 +60,8 @@ public class Hotel implements HotelBLService {
 	 */
 	public Hotel(String hotelID) {
 		this.hotelID = hotelID;
-		hotelDataService = RemoteHelper.getInstance().getHotelDataService();
-//		hotelDataService = new HotelDataStub();
+//		hotelDataService = RemoteHelper.getInstance().getHotelDataService();
+		hotelDataService = new HotelDataStub();
 		updateDateFromFile();
 	}
 	
@@ -224,6 +226,13 @@ public class Hotel implements HotelBLService {
 		orderVO.setActualCheckoutTime(new Date());
 		int index = order.getOrderIndex(orderID);
 		order.getOrderList().set(index, orderVO);
+		
+		Credit credit = new Credit(orderVO.getMemberID());
+		double change = orderVO.getPrice();
+		double result = credit.getCredit() + change;
+		CreditChangeVO creditChangeVO = new CreditChangeVO(new Date(),
+				orderVO.getOrderID(), OrderAction.ExecuteOrder, change, result);
+		credit.addCreditChange(creditChangeVO);
 		
 		return room.checkout(new Date(), roomID);
 	}

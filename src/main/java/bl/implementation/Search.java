@@ -48,8 +48,8 @@ public class Search implements SearchBLService {
 	 */
 	public Search(String memberID) {
 		this.memberID = memberID;
-		searchDataService = RemoteHelper.getInstance().getSearchDataService();
-//		searchDataService = new SearchDataStub();
+//		searchDataService = RemoteHelper.getInstance().getSearchDataService();
+		searchDataService = new SearchDataStub();
 		order = new Order(memberID);
 	}
 	
