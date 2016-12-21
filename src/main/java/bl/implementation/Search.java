@@ -53,6 +53,26 @@ public class Search implements SearchBLService {
 		order = new Order(memberID);
 	}
 	
+	@Override
+	public ArrayList<String> getCityList() {
+		try {
+			return searchDataService.getCityList();
+		} catch (RemoteException e) {
+			e.printStackTrace();
+			return null;
+		}
+	}
+	
+	@Override
+	public ArrayList<String> getDistrictList() {
+		try {
+			return searchDataService.getDistrictList();
+		} catch (RemoteException e) {
+			e.printStackTrace();
+			return null;
+		}
+	}
+	
 	/**
 	 * 设置搜索城市
 	 * @param city 搜索城市
