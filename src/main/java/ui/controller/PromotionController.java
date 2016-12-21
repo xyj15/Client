@@ -35,9 +35,18 @@ public class PromotionController {
 
     private static Parent root;
     private static Parent minroot;
+    private static Parent promptroot;
     private static Stage primaryStage;
     private static Stage minprimaryStage;
+    private static Stage promptStage;
 
+    public static void setPromptroot(Parent pr) {
+        promptroot = pr;
+    }
+
+    public static void setPromptStage(Stage ps) {
+        promptStage = ps;
+    }
 
     public static void setPrimaryStage(Stage in){
         primaryStage=in;
@@ -52,8 +61,8 @@ public class PromotionController {
         PromotionController.minprimaryStage = minprimaryStage;
     }
 
-    private static SalerBLService saler;
-    private static PromotionBLService promotion;
+    private static SalerBLService saler=new SalerBLStub();
+    private static PromotionBLService promotion=new PromotionBLStub();
 
     public static void setSaler(SalerBLService s) {
         saler = s;
@@ -213,15 +222,23 @@ public class PromotionController {
     private void onUpdateVIP(ActionEvent E) throws Exception{
         minprimaryStage = new Stage();
         new SalerUpdateVipUI().start(minprimaryStage);
+        Label promptLabel=(Label)promptroot.lookup("#promptLabel");
+        TableView districtTable=(TableView)minroot.lookup("#districtTable");
+        TextField districtUpdate=(TextField)minroot.lookup("#districtUpdate");
+        TextField VipDiscountUpdate=(TextField)minroot.lookup("#VipDiscountUpdate");
 
-        int i=districtTable.getSelectionModel().getFocusedIndex();
-        ArrayList<PromotionVO> list = promotion.getDistrictPromotionList();
-        PromotionVO promotion=list.get(i);
-        districtUpdate.setText(promotion.getDistrict());
-        VipDiscountUpdate.setText(String.valueOf(promotion.getDiscount()));
+            int i = districtTable.getSelectionModel().getFocusedIndex();ArrayList<PromotionVO> list = promotion.getDistrictPromotionList();
+            System.out.print(i);
+            PromotionVO promotion=list.get(i);
+            districtUpdate.setText(promotion.getDistrict());
+            VipDiscountUpdate.setText(String.valueOf(promotion.getDiscount()));
+
+
+
     }
     @FXML
     private void onDelVIP(ActionEvent E) throws Exception{
+        TableView districtTable=(TableView)minroot.lookup("#districtTable");
         int i=districtTable.getSelectionModel().getFocusedIndex();
         ArrayList<PromotionVO> list = promotion.getDistrictPromotionList();
         PromotionVO promotion=list.get(i);
@@ -229,6 +246,9 @@ public class PromotionController {
     }
     @FXML
     private void onconfirmUpdateVIP(ActionEvent E) throws Exception{
+        TableView districtTable=(TableView)minroot.lookup("#districtTable");
+        TextField districtUpdate=(TextField)minroot.lookup("#districtUpdate");
+        TextField VipDiscountUpdate=(TextField)minroot.lookup("#VipDiscountUpdate");
         int i=districtTable.getSelectionModel().getFocusedIndex();
         ArrayList<PromotionVO> list = promotion.getDistrictPromotionList();
         PromotionVO promotion=list.get(i);
@@ -244,9 +264,11 @@ public class PromotionController {
     }
     @FXML
     private void confirmAddRank(ActionEvent E) throws Exception{
+        TextField rankDiscount=(TextField)minroot.lookup("#rankDiscount");
+        TextField creditUpgrate=(TextField)minroot.lookup("#creditUpgrate");
         ArrayList<Double> discountList = saler.getDiscountList();
         ArrayList<Double> creditList = saler.getCreditList();
-        int level=Integer.parseInt(vip.getText());
+
         discountList.add(Double.parseDouble(rankDiscount.getText()));
         creditList.add(Double.parseDouble(creditUpgrate.getText()));
     }
@@ -254,8 +276,11 @@ public class PromotionController {
     private void onUpdateRank(ActionEvent E) throws Exception{
         minprimaryStage = new Stage();
         new SalerUpdateRankUI().start(minprimaryStage);
-
+        TableView rankTable=(TableView)minroot.lookup("#rankTable");
+        TextField rankDiscountUpdate=(TextField)minroot.lookup("#rankDiscountUpdate");
+        TextField creditUpgrateUpdate=(TextField)minroot.lookup("#creditUpgrateUpdate");
         int i=rankTable.getSelectionModel().getFocusedIndex();
+        System.out.print(i);
         ArrayList<Double> discountList = saler.getDiscountList();
         ArrayList<Double> creditList = saler.getCreditList();
         rankDiscountUpdate.setText(String.valueOf(discountList.get(i)));
@@ -270,6 +295,9 @@ public class PromotionController {
     }
     @FXML
     private void onconfirmUpdateRank(ActionEvent E) throws Exception{
+        TableView rankTable=(TableView)minroot.lookup("#rankTable");
+        TextField rankDiscountUpdate=(TextField)minroot.lookup("#rankDiscountUpdate");
+        TextField creditUpgrateUpdate=(TextField)minroot.lookup("#creditUpgrateUpdate");
         int i=districtTable.getSelectionModel().getFocusedIndex();
         ArrayList<Double> discountList = saler.getDiscountList();
         ArrayList<Double> creditList = saler.getCreditList();
@@ -313,17 +341,34 @@ public class PromotionController {
     private void onUpdatePromotion(ActionEvent E) throws Exception{
         minprimaryStage = new Stage();
         new SalerUpdatePromotionUI().start(minprimaryStage);
-        int i=promotionTable.getSelectionModel().getFocusedIndex();
-        ArrayList<PromotionVO> list = promotion.getWebDatePromotionList();
-        PromotionVO promotion=list.get(i);
-        datePromotionNameUpdate.setText(promotion.getPromotionName());
-        checkInDateUpdate.setValue(promotion.getStartDate().toInstant().atZone(ZoneId.systemDefault()).toLocalDate());
-        dateDiscountUpdate.setText(String.valueOf(promotion.getDiscount()));
-        checkOutDateUpdate.setValue(promotion.getEndDate().toInstant().atZone(ZoneId.systemDefault()).toLocalDate());
+        TableView promotionTable=(TableView)root.lookup("#promotionTable") ;
+        TextField datePromotionNameUpdate=(TextField)minroot.lookup("#DatePromotionNameUpdate");
+        DatePicker checkInDateUpdate = (DatePicker)minroot.lookup("#checkInDateUpdate");
+        DatePicker checkOutDateUpdate = (DatePicker)minroot.lookup("#checkOutDateUpdate");
+        TextField dateDiscountUpdate=(TextField)minroot.lookup("#dateDiscountUpdate");
 
+       try {
+           int i = promotionTable.getSelectionModel().getFocusedIndex();
+           System.out.print(i);
+           ArrayList<PromotionVO> list = promotion.getWebDatePromotionList();
+           PromotionVO promotion = list.get(i);
+           datePromotionNameUpdate.setText(promotion.getPromotionName());
+           checkInDateUpdate.setValue(promotion.getStartDate().toInstant().atZone(ZoneId.systemDefault()).toLocalDate());
+           dateDiscountUpdate.setText(String.valueOf(promotion.getDiscount()));
+           checkOutDateUpdate.setValue(promotion.getEndDate().toInstant().atZone(ZoneId.systemDefault()).toLocalDate());
+       }
+       catch (NullPointerException e){
+           new PromptUI().start(promptStage);
+           Label promptLabel=(Label)promptroot.lookup("#promptLabel");
+           promptLabel.setText("请选择一个营销策略");
+       }
     }
     @FXML
     private void confirmUpdatePromotion(ActionEvent E) throws Exception{
+        TableView promotionTable=(TableView)root.lookup("#promotionTable") ;
+        DatePicker checkInDate = (DatePicker)minroot.lookup("#checkInDate");
+        DatePicker checkOutDate = (DatePicker)minroot.lookup("#checkOutDate");
+        TextField dateDiscount=(TextField)minroot.lookup("#dateDiscount");
         int i=promotionTable.getSelectionModel().getFocusedIndex();
         ArrayList<PromotionVO> list = promotion.getWebDatePromotionList();
         PromotionVO promotion=list.get(i);
@@ -338,19 +383,23 @@ public class PromotionController {
     }
     @FXML
     private void halfCredit(ActionEvent E) throws Exception{
+        TableView AbnormalOrderTable=(TableView)root.lookup("#AbnormalOrderTable") ;
         int i=AbnormalOrderTable.getSelectionModel().getFocusedIndex();
         ArrayList<OrderVO> list = saler.getDailyUnexcutedOrderList();
         saler.cancelAbnormalOrder(list.get(i).getOrderID(),0.5);
     }
     @FXML
     private void fullCredit(ActionEvent E) throws Exception{
+        TableView AbnormalOrderTable=(TableView)root.lookup("#AbnormalOrderTable") ;
         int i=AbnormalOrderTable.getSelectionModel().getFocusedIndex();
         ArrayList<OrderVO> list = saler.getDailyUnexcutedOrderList();
         saler.cancelAbnormalOrder(list.get(i).getOrderID(),1);
     }
     @FXML
     private void confirmAddCredit(ActionEvent E) throws Exception{
-            saler.creditRecharge(memberID.getText(),Double.parseDouble(credit.getText()));
+        TextField memberID=(TextField)minroot.lookup("#memberID");
+        TextField credit=(TextField)minroot.lookup("#credit");
+        saler.creditRecharge(memberID.getText(),Double.parseDouble(credit.getText()));
     }
     @FXML
     private void confirmAddPromotion(ActionEvent E) throws Exception{

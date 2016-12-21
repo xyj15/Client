@@ -15,6 +15,7 @@ import javafx.scene.Parent;
 import javafx.scene.control.*;
 import javafx.stage.Stage;
 import other.UserType;
+import sun.security.util.Password;
 import ui.presentation.*;
 import vo.HotelVO;
 import vo.MemberVO;
@@ -120,6 +121,23 @@ public class ManagerController{
 	@FXML
 	private void onSearchUser(ActionEvent E)throws Exception {
 		new ManagerSearchUserUI().start(primaryStage);
+		TextField searchID=(TextField)root.lookup("#searchID");
+		TextField memberName=(TextField)root.lookup("#memberName");
+		TextField memberTel=(TextField)root.lookup("#memberTel");
+		TextField credit=(TextField)root.lookup("#credit");
+		DatePicker birthday=(DatePicker) root.lookup("#birthday");
+		TextField hotelNameSearch=(TextField)root.lookup("#hotelNameSearch");
+		TextField addressSearch=(TextField)root.lookup("#addressSearch");
+		TextField districtSearch=(TextField)root.lookup("#districtSearch");
+		TextField levelSearch=(TextField)root.lookup("#levelSearch");
+		TextField introductionSearch=(TextField)root.lookup("#introductionSearch");
+		TextField serviceSearch=(TextField)root.lookup("#serviceSearch");
+		TextField hotelManagerNameSearch=(TextField)root.lookup("#hotelManagerNameSearch");
+		TextField hotelManagerTelSearch=(TextField)root.lookup("#hotelManagerTelSearch");
+		TextField salerNameSearch=(TextField)root.lookup("#salerNameSearch");
+		TextField salerTelSearch=(TextField)root.lookup("#salerTelSearch");
+
+
 		UserType userType =manager.getUserType(searchID.getText());
 		switch (userType){
 			case Member:new ManagerSearchMemberUI().start(primaryStage);
@@ -147,6 +165,9 @@ public class ManagerController{
 	}
 	@FXML
 	private void confirmUpdateMemebr(ActionEvent E)throws Exception {
+		TextField memberName=(TextField)root.lookup("#memberName");
+		TextField memberTel=(TextField)root.lookup("#memberTel");
+		DatePicker birthday=(DatePicker) root.lookup("#birthday");
 		MemberVO member=new MemberVO();
 		member.setName(memberName.getText());
 		member.setTel(memberTel.getText());
@@ -155,6 +176,8 @@ public class ManagerController{
 	}
 	@FXML
 	private void confirmUpdateSaler(ActionEvent E)throws Exception {
+		TextField salerNameSearch=(TextField)root.lookup("#salerNameSearch");
+		TextField salerTelSearch=(TextField)root.lookup("#salerTelSearch");
 		SalerVO saler=new SalerVO();
 		saler.setName(salerNameSearch.getText());
 		saler.setTel(salerTelSearch.getText());
@@ -162,6 +185,9 @@ public class ManagerController{
 	}
 	@FXML
 	private void confirmUpdateHotel(ActionEvent E)throws Exception {
+		TextField searchID=(TextField)root.lookup("#searchID");
+		TextField hotelManagerNameSearch=(TextField)root.lookup("#hotelManagerNameSearch");
+		TextField hotelManagerTelSearch=(TextField)root.lookup("#hotelManagerTelSearch");
 		manager.updateHotelManagerInformation(searchID.getText(),hotelManagerNameSearch.getText(),hotelManagerTelSearch.getText());
 	}
 	@FXML
@@ -170,6 +196,8 @@ public class ManagerController{
 	}
 	@FXML
 	private void confirmAddSaler(ActionEvent E)throws Exception {
+		TextField salerName=(TextField)root.lookup("#salerName");
+		PasswordField salerPassword=(PasswordField)root.lookup("#salerPassword");
 		SalerVO saler=new SalerVO();
 		saler.setName(salerName.getText());
 		saler.setPassword(salerPassword.getText());
@@ -181,6 +209,15 @@ public class ManagerController{
 	}
 	@FXML
 	private void confirmAddHotel(ActionEvent E)throws Exception {
+		TextField hotelName=(TextField)root.lookup("#hotelName");
+		TextField address=(TextField)root.lookup("#address");
+		TextField district=(TextField)root.lookup("#district");
+		TextField level=(TextField)root.lookup("#level");
+		TextField introduction=(TextField)root.lookup("#introduction");
+		TextField service=(TextField)root.lookup("#service");
+		TextField hotelManagerName=(TextField)root.lookup("#hotelManagerName");
+		TextField hotelManagerTel=(TextField)root.lookup("#hotelManagerTel");
+		PasswordField hotelPassword=(PasswordField)root.lookup("#hotelPassword");
 		HotelVO hotel=new HotelVO();
 		hotel.setPassword(hotelPassword.getText());
 		hotel.setName(hotelName.getText());
