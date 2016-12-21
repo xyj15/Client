@@ -11,6 +11,8 @@ public class SearchBLDriver {
 	SearchBLService searchBLService = new SearchBLStub();
 
 	public void drive() {
+		System.out.println(searchBLService.getCityList());
+		System.out.println(searchBLService.getDistrictList("city"));
 		System.out.println(searchBLService.setCity("city"));
 		System.out.println(searchBLService.setDistrict("district"));
 		System.out.println(searchBLService.setHotelName("hotel name"));

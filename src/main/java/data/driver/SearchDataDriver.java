@@ -14,6 +14,8 @@ public class SearchDataDriver {
 	
 	public void drive() throws RemoteException {
 		System.out.println(searchDataService.getHotelListByCityDistrict("南京市", "南京大学商圈"));
+		System.out.println(searchDataService.getCityList());
+		System.out.println(searchDataService.getDistrictList("南京市"));
 	}
 	
 	public static void main(String[] args) throws RemoteException {

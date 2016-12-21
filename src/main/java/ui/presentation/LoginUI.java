@@ -13,14 +13,18 @@ import javafx.scene.control.TextField;
 import javafx.scene.layout.Pane;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
+import rmi.RemoteHelper;
 import ui.controller.LoginController;
 
 import java.io.IOException;
+import java.rmi.Remote;
 import java.util.Date;
 
 
 public class LoginUI extends Application {
 
+    static RemoteHelper remoteHelper = RemoteHelper.getInstance();
+    static boolean x=remoteHelper.connect();
     @Override
     public void start (Stage primaryStage) throws Exception {
            primaryStage.setTitle("食宿");
@@ -32,7 +36,10 @@ public class LoginUI extends Application {
            primaryStage.setScene(myScene);
            primaryStage.show();
     }
+    
     public static void main(String[] args) {
+        new LoginUI();
+        System.out.println(remoteHelper.isConnected());
         launch(args);
     }
 
