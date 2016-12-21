@@ -5,6 +5,7 @@ import data.service.SalerDataService;
 import data.stub.SalerDataStub;
 import other.OrderAction;
 import po.SalerPO;
+import rmi.RemoteHelper;
 import vo.CreditChangeVO;
 import vo.OrderVO;
 import vo.PromotionVO;
@@ -34,8 +35,8 @@ public class Saler implements SalerBLService {
 	 * 增加新的营销人员调用这个构造方法
 	 */
 	public Saler(SalerVO salerVO) {
-		salerDataService = new SalerDataStub();
-//		salerDataService = RemoteHelper.getInstance().getSalerDataService();
+//		salerDataService = new SalerDataStub();
+		salerDataService = RemoteHelper.getInstance().getSalerDataService();
 		try {
 			salerVO.setUserID(salerDataService.getAvailableSalerID());
 		} catch (RemoteException e) {
@@ -54,8 +55,8 @@ public class Saler implements SalerBLService {
 	 * @param salerID 营销人员ID
 	 */
 	public Saler(String salerID) {
-		salerDataService = new SalerDataStub();
-//		salerDataService = RemoteHelper.getInstance().getSalerDataService();
+//		salerDataService = new SalerDataStub();
+		salerDataService = RemoteHelper.getInstance().getSalerDataService();
 		this.salerID = salerID;
 		updateDataFromFile();
 	}
