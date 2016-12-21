@@ -26,6 +26,22 @@ public class SearchTest {
 	}
 	
 	@Test
+	public void getCityList() throws Exception {
+		ArrayList<String> cityList = search.getCityList();
+		assertEquals(cityList.size(), 1);
+		assertEquals(cityList.get(0), "南京市");
+	}
+	
+	@Test
+	public void getDistrictList() throws Exception {
+		ArrayList<String> districtList = search.getDistrictList();
+		assertEquals(districtList.size(), 3);
+		assertEquals(districtList.get(0), "南京大学商圈");
+		assertEquals(districtList.get(1), "马群商圈");
+		assertEquals(districtList.get(2), "新街口商圈");
+	}
+	
+	@Test
 	public void setCity() throws Exception {
 		assertEquals(search.setCity("city"), true);
 	}

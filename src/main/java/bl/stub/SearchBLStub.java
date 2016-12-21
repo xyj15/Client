@@ -31,6 +31,16 @@ public class SearchBLStub implements SearchBLService {
 	}
 	
 	@Override
+	public ArrayList<String> getCityList() {
+		return new ArrayList<>();
+	}
+	
+	@Override
+	public ArrayList<String> getDistrictList() {
+		return new ArrayList<>();
+	}
+	
+	@Override
 	public boolean setCity(String city) {
 		System.out.println("设置城市成功");
 		return true;

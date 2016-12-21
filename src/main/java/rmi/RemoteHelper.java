@@ -3,6 +3,7 @@ package rmi;
 import data.service.*;
 import javafx.stage.Stage;
 import other.OrderStatus;
+import po.CreditChangePO;
 import po.OrderPO;
 import ui.presentation.LoginUI;
 
@@ -14,6 +15,7 @@ import java.rmi.NotBoundException;
 import java.rmi.Remote;
 import java.rmi.RemoteException;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.concurrent.ExecutionException;
 
@@ -121,6 +123,7 @@ public class RemoteHelper {
 		} else {
 			System.out.println("连接到服务器失败");
 		}
+<<<<<<< HEAD
 //		try{
 //			Stage tem = new Stage();
 //			new LoginUI().start(tem);
@@ -141,6 +144,25 @@ public class RemoteHelper {
 //		} catch (RemoteException e) {
 //			e.printStackTrace();
 //		}
+=======
+		
+		try {
+			System.out.println(remoteHelper.getHotelDataService().getAvailableHotelID());
+			System.out.println(remoteHelper.getMemberDataService().getAvailableMemberID());
+			System.out.println(remoteHelper.getCreditDataService().getCredit("00000000"));
+			System.out.println(remoteHelper.getManagerDataService().getManager().getName());
+			System.out.println(remoteHelper.getPromotionDataService().getAvailablePromotionID());
+			System.out.println(remoteHelper.getRankDataService().getCreditList().get(2));
+			System.out.println(remoteHelper.getRoomDataService().getRoomsByDate(new Date(), "000000"));
+			System.out.println(remoteHelper.getSalerDataService().getAvailableSalerID());
+			System.out.println(remoteHelper.getSearchDataService().getHotelListByCityDistrict("南京市", "新街口"));
+			
+			ArrayList<CreditChangePO> creditChangePOList = remoteHelper.getCreditDataService().getCreditChange("00000000");
+			System.out.println(creditChangePOList.get(0).getOrderID());
+		} catch (RemoteException e) {
+			e.printStackTrace();
+		}
+>>>>>>> origin/master
 			
 //		OrderDataAbstractFactory factory = remoteHelper.getOrderDataFactory();
 //		try {

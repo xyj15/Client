@@ -36,6 +36,7 @@ public class LoginUI extends Application {
            primaryStage.setScene(myScene);
            primaryStage.show();
     }
+    
     public static void main(String[] args) {
         new LoginUI();
         System.out.println(remoteHelper.isConnected());
