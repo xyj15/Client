@@ -353,6 +353,7 @@ public class Promotion implements PromotionBLService {
 	 * @param numberOfRoom 订房数量
 	 * @return 可用促销列表
 	 */
+	@Override
 	public ArrayList<PromotionVO> getAvailablePromotionList(String memberID, String hotelID, int numberOfRoom) {
 		Member member = new Member(memberID);
 		Hotel hotel = new Hotel(hotelID);

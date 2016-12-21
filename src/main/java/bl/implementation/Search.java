@@ -65,9 +65,9 @@ public class Search implements SearchBLService {
 	}
 	
 	@Override
-	public ArrayList<String> getDistrictList() {
+	public ArrayList<String> getDistrictList(String city) {
 		try {
-			return searchDataService.getDistrictList();
+			return searchDataService.getDistrictList(city);
 		} catch (RemoteException e) {
 			e.printStackTrace();
 			return null;

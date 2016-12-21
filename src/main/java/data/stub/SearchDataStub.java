@@ -30,12 +30,15 @@ public class SearchDataStub implements SearchDataService {
 	}
 	
 	@Override
-	public ArrayList<String> getDistrictList() {
+	public ArrayList<String> getDistrictList(String city) {
 		ArrayList<String> districtList = new ArrayList<>();
 		for(int i=0; i<hotelList.size(); i++) {
-			String district = hotelList.get(i).getDistrict();
-			if(!districtList.contains(district)) {
-				districtList.add(district);
+			HotelPO hotelPO = hotelList.get(i);
+			if(hotelPO.getCity().equals(city)) {
+				String district = hotelPO.getDistrict();
+				if(!districtList.contains(district)) {
+					districtList.add(district);
+				}
 			}
 		}
 		return districtList;
