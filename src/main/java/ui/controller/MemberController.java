@@ -158,6 +158,7 @@ public class MemberController{
     }
     @FXML
     private void onSearch(ActionEvent E)throws Exception {
+        ArrayList<String> c ;
         new MemberSearchUI().start(primaryStage);
         ComboBox<roomTypeChoice> roomTypeInsearch =(ComboBox<roomTypeChoice>)root.lookup("#roomTypeInsearch");
         roomTypeInsearch.getItems().clear();

@@ -49,17 +49,18 @@ public class LoginController{
 
     @FXML
     private void onLogIn(ActionEvent E)throws Exception {
+        TprimaryStage = new Stage();
         TextField usernameForLog = (TextField)root.lookup("#usernameForLog");
         PasswordField passwordForLog = (PasswordField)root.lookup("#passwordForLog");
-//        if(!loginBL.checkNetwork()){
-//            System.out.println("Link failed");
-//        }
-//        else {
-//         System.out.print(usernameForLog.getText().toString());
+        if(!loginBL.checkNetwork()){
+            new LtUI().start(TprimaryStage);
+            Label messager = (Label)Troot.lookup("#Message");
+            messager.setText("网络连接失败");
+        }
+        else {
             if(loginBL.existUserID(usernameForLog.getText().toString())){
                 if(loginBL.login(usernameForLog.getText().toString(),passwordForLog.getText().toString())){
                     UserType userType = loginBL.getUserType(usernameForLog.getText().toString());
-//                System.out.print(""+userType );
                     switch (userType){
                         case Member:
                             new MemberFirstUI().start(primaryStage);
@@ -88,10 +89,18 @@ public class LoginController{
                             ManagerController.setManager(new Manager());
                             break;
                     }
+                }else{
+                    new LtUI().start(TprimaryStage);
+                    Label messager = (Label)Troot.lookup("#Message");
+                    messager.setText("账号密码不匹配");
                 }
+            }else{
+                new LtUI().start(TprimaryStage);
+                Label messager = (Label)Troot.lookup("#Message");
+                messager.setText("账户不存在");
             }
         }
-//    }
+    }
     @FXML
     private void onCompanyRegister(ActionEvent E)throws Exception {
         new CompanyRegisterUI().start(primaryStage);
