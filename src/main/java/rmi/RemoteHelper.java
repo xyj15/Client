@@ -109,6 +109,7 @@ public class RemoteHelper {
 //		} catch (UnknownHostException e) {
 //			e.printStackTrace();
 //		}
+		
 		RemoteHelper remoteHelper = RemoteHelper.getInstance();
 		System.out.println(remoteHelper.connect());
 		boolean b = remoteHelper.isConnected();
@@ -117,6 +118,21 @@ public class RemoteHelper {
 		} else {
 			System.out.println("连接到服务器失败");
 		}
+		
+		try {
+			System.out.println(remoteHelper.getHotelDataService().getAvailableHotelID());
+			System.out.println(remoteHelper.getMemberDataService().getAvailableMemberID());
+			System.out.println(remoteHelper.getCreditDataService().getCredit("00000000"));
+			System.out.println(remoteHelper.getManagerDataService().getManager().getName());
+			System.out.println(remoteHelper.getPromotionDataService().getAvailablePromotionID());
+			System.out.println(remoteHelper.getRankDataService().getCreditList().get(2));
+//			System.out.println(remoteHelper.getRoomDataService().getRoomsByDate(new Date(), "000000"));
+			System.out.println(remoteHelper.getSalerDataService().getAvailableSalerID());
+//			System.out.println(remoteHelper.getSearchDataService().getHotelListByCityDistrict("南京市", "新街口"));
+		} catch (RemoteException e) {
+			e.printStackTrace();
+		}
+			
 		OrderDataAbstractFactory factory = remoteHelper.getOrderDataFactory();
 		try {
 			factory.setOrderData("00000000");
@@ -130,12 +146,11 @@ public class RemoteHelper {
 		} catch (RemoteException e) {
 			e.printStackTrace();
 		}
-
-//		SimpleDateFormat bartDateFormate = new SimpleDateFormat("MM-dd-yyyy");
 		System.out.println("orderID: "+result.getOrderID());
 		System.out.println("mamberID: "+result.getMemberID());
 		System.out.println("hotelID: "+result.getHotelID());
 		System.out.println("orderStatus: "+result.getOrderStatus());
+		
 //		if(result.getOrderStatus()== OrderStatus.Canceled){
 //			System.out.println("cancel: "+bartDateFormate.format(result.getCancelTime()));
 //		}
@@ -156,20 +171,5 @@ public class RemoteHelper {
 //			System.out.println("recover: "+result.getRecover());
 //		}
 //		System.out.println("createTime: "+bartDateFormate.format(result.getCreateTime()));
-
-//		try {
-//			System.out.println(remoteHelper.getHotelDataService().getAvailableHotelID());
-//			System.out.println(remoteHelper.getMemberDataService().getAvailableMemberID());
-//			System.out.println(remoteHelper.getCreditDataService().getCredit("00000000"));
-//			System.out.println(remoteHelper.getManagerDataService().getManager().getName());
-//			System.out.println(remoteHelper.getPromotionDataService().getAvailablePromotionID());
-//			System.out.println(remoteHelper.getRankDataService().getCreditList().get(2));
-//			System.out.println(remoteHelper.getRoomDataService().getRoomsByDate(new Date(), "000000").get(0).getRoomName());
-//			System.out.println(remoteHelper.getSalerDataService().getAvailableSalerID());
-//			System.out.println(remoteHelper.getSearchDataService().getHotelListByCityDistrict("南京市", "新街口").get(0).getName());
-//			System.out.println(remoteHelper.getRoomDataService().getRoomsByDate(new Date(),"000000").get(0).getRoomName());
-//		} catch (RemoteException e) {
-//			e.printStackTrace();
-//		}
 	}
 }
