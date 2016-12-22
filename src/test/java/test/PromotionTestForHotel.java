@@ -71,11 +71,6 @@ public class PromotionTestForHotel {
 	}
 	
 	@Test
-	public void getAvailablePromotionList() throws Exception {
-		
-	}
-	
-	@Test
 	public void getHotelDatePromotionList() throws Exception {
 		ArrayList<PromotionVO> promotionList = promotion.getHotelDatePromotionList();
 		assertEquals(promotionList.size(), 1);
