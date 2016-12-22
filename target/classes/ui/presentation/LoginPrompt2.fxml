@@ -19,7 +19,7 @@
             <Image url="@prompt.jpg" />
          </image>
       </ImageView>
-      <Label fx:id="Message" alignment="CENTER" contentDisplay="CENTER" layoutX="67.0" layoutY="27.0" prefHeight="58.0" prefWidth="281.0" textAlignment="JUSTIFY" textFill="WHITE">
+      <Label fx:id="Message" alignment="CENTER" contentDisplay="CENTER" layoutX="87.0" layoutY="27.0" prefHeight="58.0" prefWidth="248.0" textAlignment="JUSTIFY" textFill="WHITE">
          <font>
             <Font name="Microsoft YaHei Bold" size="18.0" />
          </font>
