@@ -75,7 +75,7 @@ public class PromotionController {
     @FXML
     private void onPromotion() throws Exception{
         new SalerPromotionUI().start(primaryStage);
-        TableView promotionTable = (TableView)root.lookup("#promotionTable");
+        TableView promotionTable = (TableView)root.lookup("#promotionTable");//营销策略列表
         ObservableList<TableDataForSalerPromotion> dataForSalerPromotion = FXCollections.observableArrayList();
         ObservableList<TableColumn> tableList = promotionTable.getColumns();
         ArrayList<PromotionVO> list = promotion.getWebDatePromotionList();
@@ -98,7 +98,7 @@ public class PromotionController {
     @FXML
     private void onAbnormal(ActionEvent E) throws Exception{
         new SalerAbnormalOrderUI().start(primaryStage);
-        TableView rankTable = (TableView)root.lookup("#AbnormalOrderTable");
+        TableView rankTable = (TableView)root.lookup("#AbnormalOrderTable");//异常订单列表
         ObservableList<TableDataForSalerAbnormalOrder> dataForSalerAbnormalOrder = FXCollections.observableArrayList();
         ObservableList<TableColumn> tableList = rankTable.getColumns();
         ArrayList<OrderVO> list = saler.getDailyUnexcutedOrderList();
@@ -118,7 +118,7 @@ public class PromotionController {
     @FXML
     private void onRank(ActionEvent E) throws Exception{
         new SalerVIPUI().start(primaryStage);
-        TableView districtTable = (TableView)root.lookup("#districtTable");
+        TableView districtTable = (TableView)root.lookup("#districtTable");//商圈折扣列表
         ObservableList<TableData> dataForDistrict = FXCollections.observableArrayList();
         ObservableList<TableColumn> tableList = districtTable.getColumns();
         ArrayList<PromotionVO> list = promotion.getDistrictPromotionList();
@@ -130,7 +130,7 @@ public class PromotionController {
         districtTable.setItems(dataForDistrict);
 
 
-        TableView rankTable = (TableView)root.lookup("#rankTable");
+        TableView rankTable = (TableView)root.lookup("#rankTable");//VIP等级列表
         ObservableList<TableData> dataForVip = FXCollections.observableArrayList();
         ObservableList<TableColumn> tableList2 = rankTable.getColumns();
         ArrayList<Double> discountList = saler.getDiscountList();
@@ -166,10 +166,9 @@ public class PromotionController {
      */
     @FXML
     private void confirmAddVIP(ActionEvent E) throws Exception{
-        TextField datePromotionName=(TextField)minroot.lookup("#DatePromotionName");
-        TextField district=(TextField)minroot.lookup("#district");
-        TextField VipDiscount=(TextField)minroot.lookup("#VipDiscount");
-        PromotionVO promotion=new PromotionVO(null,datePromotionName.getText(), PromotionType.Discount);
+        TextField district=(TextField)minroot.lookup("#district");//商圈
+        TextField VipDiscount=(TextField)minroot.lookup("#VipDiscount");//折扣
+        PromotionVO promotion=new PromotionVO(null,"", PromotionType.Discount);
         promotion.setDistrictPromotion(district.getText(),Double.parseDouble(VipDiscount.getText()),0,0);
         saler.createPromotion(promotion);
     }
@@ -181,9 +180,9 @@ public class PromotionController {
     private void onUpdateVIP(ActionEvent E) throws Exception{
         minprimaryStage = new Stage();
         new SalerUpdateVipUI().start(minprimaryStage);
-        TableView districtTable=(TableView)root.lookup("#districtTable");
-        TextField districtUpdate=(TextField)minroot.lookup("#districtUpdate");
-        TextField VipDiscountUpdate=(TextField)minroot.lookup("#VipDiscountUpdate");
+        TableView districtTable=(TableView)root.lookup("#districtTable");//商圈列表
+        TextField districtUpdate=(TextField)minroot.lookup("#districtUpdate");//商圈
+        TextField VipDiscountUpdate=(TextField)minroot.lookup("#VipDiscountUpdate");//折扣
         int i = districtTable.getSelectionModel().getFocusedIndex();
         ArrayList<PromotionVO> list = promotion.getDistrictPromotionList();
 
@@ -198,9 +197,9 @@ public class PromotionController {
      */
     @FXML
     private void onconfirmUpdateVIP(ActionEvent E) throws Exception{
-        TableView districtTable=(TableView)root.lookup("#districtTable");
-        TextField districtUpdate=(TextField)minroot.lookup("#districtUpdate");
-        TextField VipDiscountUpdate=(TextField)minroot.lookup("#VipDiscountUpdate");
+        TableView districtTable=(TableView)root.lookup("#districtTable");//商圈列表
+        TextField districtUpdate=(TextField)minroot.lookup("#districtUpdate");//商圈
+        TextField VipDiscountUpdate=(TextField)minroot.lookup("#VipDiscountUpdate");//折扣
         int i=districtTable.getSelectionModel().getFocusedIndex();
         ArrayList<PromotionVO> list = promotion.getDistrictPromotionList();
         PromotionVO promotion=list.get(i);
@@ -213,7 +212,7 @@ public class PromotionController {
      */
     @FXML
     private void onDelVIP(ActionEvent E) throws Exception{
-        TableView districtTable=(TableView)root.lookup("#districtTable");
+        TableView districtTable=(TableView)root.lookup("#districtTable");//商圈列表
         int i=districtTable.getSelectionModel().getFocusedIndex();
         ArrayList<PromotionVO> list = promotion.getDistrictPromotionList();
         PromotionVO promotion=list.get(i);
@@ -236,8 +235,8 @@ public class PromotionController {
      */
     @FXML
     private void confirmAddRank(ActionEvent E) throws Exception{
-        TextField rankDiscount=(TextField)minroot.lookup("#rankDiscount");
-        TextField creditUpgrate=(TextField)minroot.lookup("#creditUpgrate");
+        TextField rankDiscount=(TextField)minroot.lookup("#rankDiscount");//Vip折扣
+        TextField creditUpgrate=(TextField)minroot.lookup("#creditUpgrate");//升级所需经验
         ArrayList<Double> discountList = saler.getDiscountList();
         ArrayList<Double> creditList = saler.getCreditList();
 
@@ -253,8 +252,8 @@ public class PromotionController {
         minprimaryStage = new Stage();
         new SalerUpdateRankUI().start(minprimaryStage);
         TableView rankTable=(TableView)root.lookup("#rankTable");
-        TextField VipDiscountUpdate=(TextField)minroot.lookup("#VipDiscountUpdate");
-        TextField creditUpgrateUpdate=(TextField)minroot.lookup("#creditUpgrateUpdate");
+        TextField VipDiscountUpdate=(TextField)minroot.lookup("#VipDiscountUpdate");//Vip折扣
+        TextField creditUpgrateUpdate=(TextField)minroot.lookup("#creditUpgrateUpdate");//升级所需经验
         int i=rankTable.getSelectionModel().getFocusedIndex();
         ArrayList<Double> discountList = saler.getDiscountList();
         ArrayList<Double> creditList = saler.getCreditList();
@@ -267,9 +266,9 @@ public class PromotionController {
      */
     @FXML
     private void onconfirmUpdateRank(ActionEvent E) throws Exception{
-        TableView rankTable=(TableView)root.lookup("#rankTable");
-        TextField rankDiscountUpdate=(TextField)minroot.lookup("#rankDiscountUpdate");
-        TextField creditUpgrateUpdate=(TextField)minroot.lookup("#creditUpgrateUpdate");
+        TableView rankTable=(TableView)root.lookup("#rankTable");//vip列表
+        TextField rankDiscountUpdate=(TextField)minroot.lookup("#rankDiscountUpdate");//Vip折扣
+        TextField creditUpgrateUpdate=(TextField)minroot.lookup("#creditUpgrateUpdate");//升级所需经验
         int i=rankTable.getSelectionModel().getFocusedIndex();
         ArrayList<Double> discountList = saler.getDiscountList();
         ArrayList<Double> creditList = saler.getCreditList();
@@ -295,8 +294,8 @@ public class PromotionController {
     private void onAddPromotion(ActionEvent E) throws Exception{
         minprimaryStage = new Stage();
         new SalerAddPromotionUI().start(minprimaryStage);
-        DatePicker checkInDate = (DatePicker)minroot.lookup("#checkInDate");
-        DatePicker checkOutDate = (DatePicker)minroot.lookup("#checkOutDate");
+        DatePicker checkInDate = (DatePicker)minroot.lookup("#checkInDate");//起始时间
+        DatePicker checkOutDate = (DatePicker)minroot.lookup("#checkOutDate");//结束时间
         checkInDate.setValue(LocalDate.now());
         checkOutDate.setDayCellFactory(dateBefore(checkInDate));
         checkOutDate.setValue(checkInDate.getValue().plusDays(1));
@@ -307,10 +306,10 @@ public class PromotionController {
      */
     @FXML
     private void confirmAddPromotion(ActionEvent E) throws Exception{
-        TextField datePromotionName=(TextField)minroot.lookup("#DatePromotionName");
-        DatePicker checkInDate = (DatePicker)minroot.lookup("#checkInDate");
-        DatePicker checkOutDate = (DatePicker)minroot.lookup("#checkOutDate");
-        TextField dateDiscount=(TextField)minroot.lookup("#dateDiscount");
+        TextField datePromotionName=(TextField)minroot.lookup("#DatePromotionName");//营销策略名称
+        DatePicker checkInDate = (DatePicker)minroot.lookup("#checkInDate");//起始时间
+        DatePicker checkOutDate = (DatePicker)minroot.lookup("#checkOutDate");//结束时间
+        TextField dateDiscount=(TextField)minroot.lookup("#dateDiscount");//折扣
         PromotionVO promotion=new PromotionVO(null,datePromotionName.getText(),PromotionType.Discount);
         Date start=new Date(checkInDate.getValue().getYear(),checkInDate.getValue().getMonthValue(),checkInDate.getValue().getDayOfMonth());
         Date end=new Date(checkOutDate.getValue().getYear(),checkOutDate.getValue().getMonthValue(),checkOutDate.getValue().getDayOfMonth());
@@ -325,11 +324,11 @@ public class PromotionController {
     private void onUpdatePromotion(ActionEvent E) throws Exception{
         minprimaryStage = new Stage();
         new SalerUpdatePromotionUI().start(minprimaryStage);
-        TableView promotionTable=(TableView)root.lookup("#promotionTable") ;
-        TextField datePromotionNameUpdate=(TextField)minroot.lookup("#DatePromotionNameUpdate");
-        DatePicker checkInDateUpdate = (DatePicker)minroot.lookup("#checkInDateUpdate");
-        DatePicker checkOutDateUpdate = (DatePicker)minroot.lookup("#checkOutDateUpdate");
-        TextField dateDiscountUpdate=(TextField)minroot.lookup("#dateDiscountUpdate");
+        TableView promotionTable=(TableView)root.lookup("#promotionTable") ;//营销策略名称
+        TextField datePromotionNameUpdate=(TextField)minroot.lookup("#DatePromotionNameUpdate");//营销策略名称
+        DatePicker checkInDateUpdate = (DatePicker)minroot.lookup("#checkInDateUpdate");//起始时间
+        DatePicker checkOutDateUpdate = (DatePicker)minroot.lookup("#checkOutDateUpdate");//结束时间
+        TextField dateDiscountUpdate=(TextField)minroot.lookup("#dateDiscountUpdate");//折扣
 
        try {
            int i = promotionTable.getSelectionModel().getFocusedIndex();
@@ -379,10 +378,10 @@ public class PromotionController {
      */
     @FXML
     private void confirmUpdatePromotion(ActionEvent E) throws Exception{
-        TableView promotionTable=(TableView)root.lookup("#promotionTable") ;
-        DatePicker checkInDate = (DatePicker)minroot.lookup("#checkInDate");
-        DatePicker checkOutDate = (DatePicker)minroot.lookup("#checkOutDate");
-        TextField dateDiscount=(TextField)minroot.lookup("#dateDiscount");
+        TableView promotionTable=(TableView)root.lookup("#promotionTable") ;//营销策略名称
+        DatePicker checkInDate = (DatePicker)minroot.lookup("#checkInDate");//起始时间
+        DatePicker checkOutDate = (DatePicker)minroot.lookup("#checkOutDate");//结束时间
+        TextField dateDiscount=(TextField)minroot.lookup("#dateDiscount");//折扣
         int i=promotionTable.getSelectionModel().getFocusedIndex();
         ArrayList<PromotionVO> list = promotion.getWebDatePromotionList();
         PromotionVO promotion=list.get(i);
@@ -405,7 +404,7 @@ public class PromotionController {
      */
     @FXML
     private void halfCredit(ActionEvent E) throws Exception{
-        TableView AbnormalOrderTable=(TableView)root.lookup("#AbnormalOrderTable") ;
+        TableView AbnormalOrderTable=(TableView)root.lookup("#AbnormalOrderTable") ;//异常订单列表
         int i=AbnormalOrderTable.getSelectionModel().getFocusedIndex();
         ArrayList<OrderVO> list = saler.getDailyUnexcutedOrderList();
         saler.cancelAbnormalOrder(list.get(i).getOrderID(),0.5);
@@ -416,7 +415,7 @@ public class PromotionController {
      */
     @FXML
     private void fullCredit(ActionEvent E) throws Exception{
-        TableView AbnormalOrderTable=(TableView)root.lookup("#AbnormalOrderTable") ;
+        TableView AbnormalOrderTable=(TableView)root.lookup("#AbnormalOrderTable") ;//异常订单列表
         int i=AbnormalOrderTable.getSelectionModel().getFocusedIndex();
         ArrayList<OrderVO> list = saler.getDailyUnexcutedOrderList();
         saler.cancelAbnormalOrder(list.get(i).getOrderID(),1);
@@ -427,8 +426,8 @@ public class PromotionController {
      */
     @FXML
     private void confirmAddCredit(ActionEvent E) throws Exception{
-        TextField memberID=(TextField)minroot.lookup("#memberID");
-        TextField credit=(TextField)minroot.lookup("#credit");
+        TextField memberID=(TextField)minroot.lookup("#memberID");//用户ID
+        TextField credit=(TextField)minroot.lookup("#credit");//信用
         saler.creditRecharge(memberID.getText(),Double.parseDouble(credit.getText()));
     }
 
