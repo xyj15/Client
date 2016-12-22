@@ -30,7 +30,7 @@
             <Image url="@logo.png" />
          </image>
       </ImageView>
-      <Button layoutX="399.0" layoutY="473.0" mnemonicParsing="false" onAction="#onReserveRoomInhis" prefHeight="34.0" prefWidth="119.0" style="-fx-background-color: #6B6BCF;" text="预订房间" textFill="WHITE">
+      <Button layoutX="399.0" layoutY="473.0" mnemonicParsing="false" onAction="#onReserveRoom" prefHeight="34.0" prefWidth="119.0" style="-fx-background-color: #6B6BCF;" text="预订房间" textFill="WHITE">
          <font>
             <Font name="Microsoft YaHei Bold" size="16.0" />
          </font>

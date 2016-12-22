@@ -15,8 +15,8 @@ public class MemberCommentYUI extends Application {
     @Override
     public void start (Stage primaryStage) throws Exception {
         Parent root = FXMLLoader.load(getClass().getResource("MemberCommentY.fxml"));
-        MemberController.setMinroot(root);
-        MemberController.setMinprimaryStage(primaryStage);
+        MemberController.setMinRoot(root);
+        MemberController.setMinPrimaryStage(primaryStage);
         Scene myScene = new Scene(root,318,538);
         primaryStage.setResizable(false);
         primaryStage.setScene(myScene);
