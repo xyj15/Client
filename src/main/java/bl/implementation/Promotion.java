@@ -8,6 +8,7 @@ import java.util.Date;
 import data.service.PromotionDataService;
 import bl.service.PromotionBLService;
 import data.stub.PromotionDataStub;
+import other.MemberType;
 import other.PromotionType;
 import other.SaleType;
 import po.PromotionPO;
@@ -32,9 +33,9 @@ public class Promotion implements PromotionBLService {
 	 */
 	public Promotion(String hotelID) {
 		this.hotelID = hotelID;
-//		promotionDataService = new PromotionDataStub();
 		RemoteHelper.getInstance().connect();
 		promotionDataService = RemoteHelper.getInstance().getPromotionDataService();
+//		promotionDataService = new PromotionDataStub();
 		promotionList = getHotelPromotionList(hotelID);
 	}
 	
@@ -359,11 +360,26 @@ public class Promotion implements PromotionBLService {
 		Hotel hotel = new Hotel(hotelID);
 		Date today = new Date();
 		Rank rank = new Rank();
-		ArrayList<PromotionVO> availablePromotionList = new ArrayList<>();
 		
+		ArrayList<PromotionPO> promotionPOArrayList = null;
+		try {
+			promotionPOArrayList = promotionDataService.getPromotionList();
+		} catch (RemoteException e) {
+			e.printStackTrace();
+		}
+		if(promotionPOArrayList==null) {
+			return null;
+		}
+		
+		ArrayList<PromotionVO> allPromotionList = new ArrayList<>();
+		for(int i=0; i<promotionPOArrayList.size(); i++) {
+			allPromotionList.add(promotionPOtoVO(promotionPOArrayList.get(i)));
+		}
+		
+		ArrayList<PromotionVO> availablePromotionList = new ArrayList<>();
 		PromotionVO promotionVO;
-		for(int i=0; i<promotionList.size(); i++) {
-			promotionVO = promotionList.get(i);
+		for(int i=0; i<allPromotionList.size(); i++) {
+			promotionVO = allPromotionList.get(i);
 			if(promotionVO.getRelatedHotelID()==null || promotionVO.getRelatedHotelID().equals(hotelID)) {
 				switch (promotionVO.getSaleType().getValue()) {
 					case 0:
@@ -376,6 +392,9 @@ public class Promotion implements PromotionBLService {
 						}
 						break;
 					case 2:
+						if(member.getMemberType()==MemberType.Bussiness) {
+							break;
+						}
 						Calendar calendar = Calendar.getInstance();
 						calendar.setTime(today);
 						int year1 = calendar.get(Calendar.YEAR);
@@ -395,6 +414,9 @@ public class Promotion implements PromotionBLService {
 						}
 						break;
 					case 4:
+						if(member.getMemberType()==MemberType.Orinary) {
+							break;
+						}
 						if(member.getEnterprise().equals(promotionVO.getEnterprise())) {
 							availablePromotionList.add(promotionVO);
 						}

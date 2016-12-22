@@ -77,7 +77,11 @@ public class PromotionTestForSaler {
 	
 	@Test
 	public void getAvailablePromotionList() throws Exception {
-		
+		ArrayList<PromotionVO> availablePromotionList = promotion.getAvailablePromotionList("00000002", "000000", 3);
+		for(int i=0; i<availablePromotionList.size(); i++) {
+			PromotionVO promotionVO = availablePromotionList.get(i);
+			System.out.println(promotionVO.getSaleType());
+		}
 	}
 	
 	@Test
