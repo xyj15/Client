@@ -39,9 +39,9 @@ public class HotelController {
 
 
     private static HotelBLService hotel;
-    private static OrderBLService order = new OrderBLStub();
-    private static PromotionBLService promotion = new PromotionBLStub();
-    private static RoomBLService room = new RoomBLStub();
+    private static OrderBLService order ;
+    private static PromotionBLService promotion;
+    private static RoomBLService room ;
 
     public static void setHotel(HotelBLService hote) {
         hotel = hote;
@@ -615,7 +615,9 @@ public class HotelController {
         minprimaryStage.close();
         onCompanyPromotion(E);
     }
-
+    /**
+     * 进入酒店房间管理界面的响应
+     * */
     @FXML
     private void onRoomManager(ActionEvent E)throws Exception {
         new HotelRoomUI().start(primaryStage);
@@ -639,8 +641,11 @@ public class HotelController {
         table.setItems(dataForMInfor);
     }
 
+    /**
+     * 按日期查询房间的动作响应
+     * */
     @FXML
-    private void onCHA(ActionEvent E)throws Exception {
+    private void onQuery(ActionEvent E)throws Exception {
         DatePicker date = (DatePicker)root.lookup("#date");
         tem = date.getValue();
         TableView table = (TableView) root.lookup("#table");

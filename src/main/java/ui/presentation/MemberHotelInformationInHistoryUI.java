@@ -8,16 +8,16 @@ import javafx.stage.Stage;
 import ui.controller.MemberController;
 
 /**
- * Created by 97147 on 2016/12/4.
+ * Created by 97147 on 2016/12/1.
  */
-public class MemberReserveInHisUI extends Application {
+public class MemberHotelInformationInHistoryUI extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception {
-        Parent root = FXMLLoader.load(getClass().getResource("MemberReserveInHis.fxml"));
-        MemberController.setMidprimaryStage(primaryStage);
-        MemberController.setMidroot(root);
-        Scene myScene = new Scene(root,528,528);
+        Parent root = FXMLLoader.load(getClass().getResource("MemberHotelInformationInhis.fxml"));
+        MemberController.setPrimaryStage(primaryStage);
+        MemberController.setRoot(root);
+        Scene myScene = new Scene(root,1180,660);
         primaryStage.setResizable(false);
         primaryStage.setScene(myScene);
         primaryStage.show();

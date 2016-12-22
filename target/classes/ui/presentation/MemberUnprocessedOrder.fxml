@@ -94,7 +94,7 @@
       <Button layoutX="844.0" layoutY="119.0" mnemonicParsing="false" onAction="#onExecuteOrder" opacity="0.0" prefHeight="23.0" prefWidth="70.0" text="Button" />
       <Button layoutX="1003.0" layoutY="118.0" mnemonicParsing="false" onAction="#onAbnormalOrder" opacity="0.0" prefHeight="23.0" prefWidth="56.0" text="Button" />
       <Button layoutX="935.0" layoutY="120.0" mnemonicParsing="false" onAction="#onCancelOrder" opacity="0.0" prefHeight="23.0" prefWidth="56.0" text="Button" />
-      <Button layoutX="330.0" layoutY="586.0" mnemonicParsing="false" onAction="#onOrderInforx" prefHeight="29.0" prefWidth="89.0" style="-fx-background-color: #6B6BCF;" text="订单详情" textFill="WHITE">
+      <Button layoutX="330.0" layoutY="586.0" mnemonicParsing="false" onAction="#onOrderInformation" prefHeight="29.0" prefWidth="89.0" style="-fx-background-color: #6B6BCF;" text="订单详情" textFill="WHITE">
          <font>
             <Font name="Microsoft YaHei Bold" size="14.0" />
          </font>
