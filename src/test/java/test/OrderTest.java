@@ -7,6 +7,8 @@ import other.OrderStatus;
 import vo.OrderVO;
 
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
 
 import static org.junit.Assert.*;
 
@@ -105,5 +107,10 @@ public class OrderTest {
 		OrderVO orderVO = new OrderVO();
 		order.createOrder(orderVO);
 		assertEquals(order.getOrderList().size(), 5);
+	}
+	
+	@Test
+	public void getNewOrderID() {
+		System.out.println(Order.getNewOrderID());
 	}
 }
