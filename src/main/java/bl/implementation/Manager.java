@@ -34,7 +34,6 @@ public class Manager implements ManagerBLService {
 //		managerDataService = new ManagerDataStub();
 		RemoteHelper.getInstance().connect();
 		managerDataService = RemoteHelper.getInstance().getManagerDataService();
-		login = new Login();
 	}
 	
 	/**
@@ -44,6 +43,7 @@ public class Manager implements ManagerBLService {
 	 */
 	@Override
 	public boolean addMember(MemberVO memberVO) {
+		login = new Login();
 		return login.register(memberVO);
 	}
 	
@@ -206,6 +206,7 @@ public class Manager implements ManagerBLService {
 	 */
 	@Override
 	public UserType getUserType(String userID) {
+		login = new Login();
 		return login.getUserType(userID);
 	}
 	
