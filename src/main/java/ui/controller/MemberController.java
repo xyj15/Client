@@ -157,9 +157,18 @@ public class MemberController{
         new changePassUI().start(minprimaryStage);
     }
     @FXML
+    private void onD(ActionEvent E)throws Exception {
+        ComboBox<roomState> city = (ComboBox<roomState>)root.lookup("#city");
+        ComboBox<roomState> district = (ComboBox<roomState>)root.lookup("#district");
+        ArrayList<String> d = search.getDistrictList(city.getSelectionModel().getSelectedItem().toString()) ;
+        for(int i = 0; i<d.size();i++){
+            district.getItems().add(new roomState(d.get(i)));
+        }
+    }
+    @FXML
     private void onSearch(ActionEvent E)throws Exception {
         ArrayList<String> c = search.getCityList() ;
-        ArrayList<String> d = search.getDistrictList() ;
+
         new MemberSearchUI().start(primaryStage);
         ComboBox<roomTypeChoice> roomTypeInsearch =(ComboBox<roomTypeChoice>)root.lookup("#roomTypeInsearch");
         roomTypeInsearch.getItems().clear();
@@ -172,10 +181,7 @@ public class MemberController{
         for(int i = 0; i<c.size();i++){
             city.getItems().add(new roomState(c.get(i)));
         }
-        ComboBox<roomState> district = (ComboBox<roomState>)root.lookup("#district");
-        for(int i = 0; i<d.size();i++){
-            district.getItems().add(new roomState(d.get(i)));
-        }
+
         ComboBox<roomState> numOfRoom = (ComboBox<roomState>)root.lookup("#numOfRoom");
         numOfRoom.getItems().clear();
         numOfRoom.getItems().add(new roomState("1"));
@@ -609,7 +615,7 @@ public class MemberController{
     private void onSearchLimited(ActionEvent E)throws Exception {
         ComboBox<roomState> city = ( ComboBox<roomState>)root.lookup("#city");
         ComboBox<roomState> district= ( ComboBox<roomState>)root.lookup("#district");
-        if(city.getText().toString().equals("")||district.getText().toString().equals("")){
+        if(city.getSelectionModel().getSelectedItem().toString().equals("")||district.getSelectionModel().getSelectedItem().toString().equals("")){
             TprimaryStage = new Stage();
             new MtUI().start(TprimaryStage);
             Label messager = (Label)Troot.lookup("#Message");
@@ -623,7 +629,7 @@ public class MemberController{
     private void onSearchAll(ActionEvent E)throws Exception {
         ComboBox<roomState> city = ( ComboBox<roomState>)root.lookup("#city");
         ComboBox<roomState> district= ( ComboBox<roomState>)root.lookup("#district");
-        if(city.getText().toString().equals("")||district.getText().toString().equals("")){
+        if(city.getSelectionModel().getSelectedItem().toString().equals("")||district.getSelectionModel().getSelectedItem().toString().equals("")){
             TprimaryStage = new Stage();
             new MtUI().start(TprimaryStage);
             Label messager = (Label)Troot.lookup("#Message");

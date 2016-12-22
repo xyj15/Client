@@ -149,7 +149,7 @@
                </font>
             </Label>
             <ComboBox fx:id="city" prefHeight="30.0" prefWidth="217.0" GridPane.columnIndex="1" />
-            <ComboBox fx:id="district" prefHeight="30.0" prefWidth="217.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+            <ComboBox fx:id="district" onAction="#onD" prefHeight="30.0" prefWidth="217.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
          </children>
          <columnConstraints>
             <ColumnConstraints hgrow="SOMETIMES" maxWidth="170.0" minWidth="10.0" prefWidth="140.0" />
