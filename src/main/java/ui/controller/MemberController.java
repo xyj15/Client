@@ -157,7 +157,18 @@ public class MemberController{
         new changePassUI().start(minprimaryStage);
     }
     @FXML
+    private void onD(ActionEvent E)throws Exception {
+        ComboBox<roomState> city = (ComboBox<roomState>)root.lookup("#city");
+        ComboBox<roomState> district = (ComboBox<roomState>)root.lookup("#district");
+        ArrayList<String> d = search.getDistrictList(city.getSelectionModel().getSelectedItem().toString()) ;
+        for(int i = 0; i<d.size();i++){
+            district.getItems().add(new roomState(d.get(i)));
+        }
+    }
+    @FXML
     private void onSearch(ActionEvent E)throws Exception {
+        ArrayList<String> c = search.getCityList() ;
+
         new MemberSearchUI().start(primaryStage);
         ComboBox<roomTypeChoice> roomTypeInsearch =(ComboBox<roomTypeChoice>)root.lookup("#roomTypeInsearch");
         roomTypeInsearch.getItems().clear();
@@ -166,25 +177,38 @@ public class MemberController{
         roomTypeInsearch.getItems().add(new roomTypeChoice(RoomType.TwinBed.toString()));
         roomTypeInsearch.getItems().add(new roomTypeChoice(RoomType.Suite.toString()));
         roomTypeInsearch.getSelectionModel().select(0);
-        TextField city = (TextField)root.lookup("#city");
-        TextField district = (TextField)root.lookup("#district");
-        TextField numOfRoom = (TextField)root.lookup("#numOfRoom");
+        ComboBox<roomState> city = (ComboBox<roomState>)root.lookup("#city");
+        for(int i = 0; i<c.size();i++){
+            city.getItems().add(new roomState(c.get(i)));
+        }
+
+        ComboBox<roomState> numOfRoom = (ComboBox<roomState>)root.lookup("#numOfRoom");
+        numOfRoom.getItems().clear();
+        numOfRoom.getItems().add(new roomState("1"));
+        numOfRoom.getItems().add(new roomState("2"));
+        numOfRoom.getItems().add(new roomState("3"));
+        numOfRoom.getItems().add(new roomState("4"));
+        numOfRoom.getItems().add(new roomState("5"));
+        numOfRoom.getItems().add(new roomState("6"));
+        numOfRoom.getItems().add(new roomState("7"));
+        numOfRoom.getItems().add(new roomState("8"));
         TextField lowPrice = (TextField)root.lookup("#lowPrice");
         TextField highPrice = (TextField)root.lookup("#highPrice");
         TextField lowScore = (TextField)root.lookup("#lowScore");
         TextField highScore = (TextField)root.lookup("#highScore");
-        TextField level = (TextField)root.lookup("#level");
+        ComboBox<roomState> level = (ComboBox<roomState>)root.lookup("#level");
+        level.getItems().add(new roomState("1"));
+        level.getItems().add(new roomState("2"));
+        level.getItems().add(new roomState("3"));
+        level.getItems().add(new roomState("4"));
+        level.getItems().add(new roomState("5"));
         TextField hotelName = (TextField)root.lookup("#hotelName");
         DatePicker inTime = (DatePicker)root.lookup("#inTime");
         DatePicker outTime = (DatePicker)root.lookup("#outTime");
-        city.setText("");
-        district.setText("");
-        numOfRoom.setText("1");
         lowPrice.setText("");
         highPrice.setText("");
         lowScore.setText("");
         highScore.setText("");
-        level.setText("");
         hotelName.setText("");
         inTime.setValue(LocalDate.now());
         outTime.setValue(LocalDate.now().plusDays(1));
@@ -201,7 +225,6 @@ public class MemberController{
         userName.setText(member.getName());
         tel.setText(member.getTel());
         credit.setText(""+member.getCredit());
-
         TableView table = (TableView) root.lookup("#table");
         ObservableList<TableData> dataForMInfor
                 = FXCollections.observableArrayList();
@@ -590,9 +613,9 @@ public class MemberController{
     }
     @FXML
     private void onSearchLimited(ActionEvent E)throws Exception {
-        TextField city = (TextField)root.lookup("#city");
-        TextField district = (TextField)root.lookup("#district");
-        if(city.getText().toString().equals("")||district.getText().toString().equals("")){
+        ComboBox<roomState> city = ( ComboBox<roomState>)root.lookup("#city");
+        ComboBox<roomState> district= ( ComboBox<roomState>)root.lookup("#district");
+        if(city.getSelectionModel().getSelectedItem().toString().equals("")||district.getSelectionModel().getSelectedItem().toString().equals("")){
             TprimaryStage = new Stage();
             new MtUI().start(TprimaryStage);
             Label messager = (Label)Troot.lookup("#Message");
@@ -604,9 +627,9 @@ public class MemberController{
     }
     @FXML
     private void onSearchAll(ActionEvent E)throws Exception {
-        TextField city = (TextField)root.lookup("#city");
-        TextField district = (TextField)root.lookup("#district");
-        if(city.getText().toString().equals("")||district.getText().toString().equals("")){
+        ComboBox<roomState> city = ( ComboBox<roomState>)root.lookup("#city");
+        ComboBox<roomState> district= ( ComboBox<roomState>)root.lookup("#district");
+        if(city.getSelectionModel().getSelectedItem().toString().equals("")||district.getSelectionModel().getSelectedItem().toString().equals("")){
             TprimaryStage = new Stage();
             new MtUI().start(TprimaryStage);
             Label messager = (Label)Troot.lookup("#Message");
@@ -617,22 +640,22 @@ public class MemberController{
         }
     }
     private void searchSet(ActionEvent E)throws Exception{
-        TextField city = (TextField)root.lookup("#city");
-        TextField district = (TextField)root.lookup("#district");
+        ComboBox<roomState> city = (ComboBox<roomState>)root.lookup("#city");
+        ComboBox<roomState> district = (ComboBox<roomState>)root.lookup("#district");
         ComboBox<roomTypeChoice> roomTypeInsearch = (ComboBox<roomTypeChoice>)root.lookup("#roomTypeInsearch");
-        TextField numOfRoom = (TextField)root.lookup("#numOfRoom");
+        ComboBox<roomState> numOfRoom = (ComboBox<roomState>)root.lookup("#numOfRoom");
         TextField lowPrice = (TextField)root.lookup("#lowPrice");
         TextField highPrice = (TextField)root.lookup("#highPrice");
         TextField lowScore = (TextField)root.lookup("#lowScore");
         TextField highScore = (TextField)root.lookup("#highScore");
-        TextField level = (TextField)root.lookup("#level");
+        ComboBox<roomState> level = (ComboBox<roomState>)root.lookup("#level");
         TextField hotelName = (TextField)root.lookup("#hotelName");
         DatePicker inTime = (DatePicker)root.lookup("#inTime");
         DatePicker outTime = (DatePicker)root.lookup("#outTime");
-        search.setCity(city.getText().toString());
-        search.setDistrict(district.getText().toString());
+        search.setCity(city.getSelectionModel().getSelectedItem().toString());
+        search.setDistrict(district.getSelectionModel().getSelectedItem().toString());
         search.setRoomType(roomTypeInsearch.getSelectionModel().getSelectedItem().toRoomType());
-        search.setNumberOfRooms(Integer.parseInt(numOfRoom.getText().toString()));
+        search.setNumberOfRooms(Integer.parseInt(numOfRoom.getSelectionModel().getSelectedItem().toString()));
         search.setHotelName(hotelName.getText().toString());
         tem = inTime.getEditor().getText().split("-");
         in = new Date(Integer.parseInt(tem[0])-1900,Integer.parseInt(tem[1])-1,Integer.parseInt(tem[2]));
@@ -662,10 +685,12 @@ public class MemberController{
         }else {
             search.setUpperScore(Double.parseDouble(highScore.getText().toString()));
         }
-        if(level.getText().toString().equals("")){
+        System.out.print(level.getSelectionModel().getSelectedItem().toString());
+        if(level.getSelectionModel().getSelectedItem().toString().equals("")){
+
             search.setLevel(-1);
         }else {
-            search.setLevel(Integer.parseInt(level.getText().toString()));
+            search.setLevel(Integer.parseInt(level.getSelectionModel().getSelectedItem().toString()));
         }
         onSortWithLevel(E);
     }

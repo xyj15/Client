@@ -123,6 +123,9 @@ public class RemoteHelper {
 		} else {
 			System.out.println("连接到服务器失败");
 		}
+<<<<<<< HEAD
+
+=======
 //		try{
 //			Stage tem = new Stage();
 //			new LoginUI().start(tem);
@@ -143,6 +146,7 @@ public class RemoteHelper {
 //		} catch (RemoteException e) {
 //			e.printStackTrace();
 //		}
+>>>>>>> refs/remotes/xin541322049/master
 		
 		try {
 			System.out.println(remoteHelper.getHotelDataService().getAvailableHotelID());

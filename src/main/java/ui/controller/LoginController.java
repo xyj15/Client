@@ -14,7 +14,6 @@ import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 import other.MemberType;
 import other.UserType;
-import rmi.RemoteHelper;
 import ui.presentation.*;
 import vo.MemberVO;
 
@@ -49,9 +48,20 @@ public class LoginController{
     }
 
     @FXML
-    private void onLogIn(ActionEvent E) throws Exception {
+    private void onLogIn(ActionEvent E)throws Exception {
+        TprimaryStage = new Stage();
         TextField usernameForLog = (TextField)root.lookup("#usernameForLog");
         PasswordField passwordForLog = (PasswordField)root.lookup("#passwordForLog");
+<<<<<<< HEAD
+        if(!loginBL.checkNetwork()){
+            new LtUI().start(TprimaryStage);
+            Label messager = (Label)Troot.lookup("#Message");
+            messager.setText("网络连接失败");
+        }
+        else {
+            if(loginBL.existUserID(usernameForLog.getText().toString())){
+                if(loginBL.login(usernameForLog.getText().toString(),passwordForLog.getText().toString())){
+=======
 //        if(!loginBL.checkNetwork()){
 //            System.out.println("Link failed");
 //        }
@@ -59,13 +69,10 @@ public class LoginController{
 //         System.out.print(usernameForLog.getText().toString());
             if(loginBL.existUserID(usernameForLog.getText())){
                 if(loginBL.login(usernameForLog.getText(), passwordForLog.getText())) {
+>>>>>>> refs/remotes/xin541322049/master
                     UserType userType = loginBL.getUserType(usernameForLog.getText().toString());
-                    System.out.println(userType);
-                    System.out.print(11111);
-
                     switch (userType){
                         case Member:
-                            System.out.print(111);
                             new MemberFirstUI().start(primaryStage);
                             MemberController.setSearch(new Search(usernameForLog.getText().toString()));
                             MemberController.setMember(new Member(usernameForLog.getText().toString()));
@@ -92,10 +99,18 @@ public class LoginController{
                             ManagerController.setManager(new Manager());
                             break;
                     }
+                }else{
+                    new LtUI().start(TprimaryStage);
+                    Label messager = (Label)Troot.lookup("#Message");
+                    messager.setText("账号密码不匹配");
                 }
+            }else{
+                new LtUI().start(TprimaryStage);
+                Label messager = (Label)Troot.lookup("#Message");
+                messager.setText("账户不存在");
             }
         }
-//    }
+    }
     @FXML
     private void onCompanyRegister(ActionEvent E)throws Exception {
         new CompanyRegisterUI().start(primaryStage);

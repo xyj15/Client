@@ -82,23 +82,16 @@
       </Button>
       <GridPane layoutX="678.0" layoutY="492.0" opacity="0.8" prefHeight="42.0" prefWidth="202.0" style="-fx-background-color: #000f32;">
          <children>
-            <TextField fx:id="level" prefHeight="30.0" prefWidth="103.0" GridPane.columnIndex="1">
-               <GridPane.margin>
-                  <Insets right="10.0" />
-               </GridPane.margin>
-               <font>
-                  <Font name="Microsoft YaHei Bold" size="15.0" />
-               </font>
-            </TextField>
-            <Label alignment="CENTER" prefHeight="42.0" prefWidth="160.0" text="酒店星级" textFill="WHITE">
+            <Label alignment="CENTER" prefHeight="42.0" prefWidth="91.0" text="酒店星级" textFill="WHITE">
                <font>
                   <Font name="Microsoft YaHei Bold" size="16.0" />
                </font>
             </Label>
+            <ComboBox fx:id="level" prefHeight="30.0" prefWidth="110.0" GridPane.columnIndex="1" />
          </children>
          <columnConstraints>
-            <ColumnConstraints hgrow="SOMETIMES" maxWidth="170.0" minWidth="10.0" prefWidth="89.0" />
-            <ColumnConstraints hgrow="SOMETIMES" maxWidth="270.0" minWidth="10.0" prefWidth="51.0" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="170.0" minWidth="10.0" prefWidth="84.0" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="270.0" minWidth="10.0" prefWidth="118.0" />
          </columnConstraints>
          <rowConstraints>
             <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
@@ -143,34 +136,20 @@
             <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
          </rowConstraints>
       </GridPane>
-      <GridPane layoutX="304.0" layoutY="120.0" opacity="0.8" prefHeight="97.0" prefWidth="572.0" style="-fx-background-color: #000f32;">
+      <GridPane layoutX="304.0" layoutY="120.0" opacity="0.8" prefHeight="97.0" prefWidth="392.0" style="-fx-background-color: #000f32;">
          <children>
             <Label alignment="CENTER" prefHeight="42.0" prefWidth="179.0" text="城市" textFill="WHITE">
                <font>
                   <Font name="Microsoft YaHei Bold" size="16.0" />
                </font>
             </Label>
-            <TextField fx:id="city" prefHeight="30.0" prefWidth="288.0" GridPane.columnIndex="1">
-               <GridPane.margin>
-                  <Insets right="10.0" />
-               </GridPane.margin>
-               <font>
-                  <Font name="Microsoft YaHei Bold" size="15.0" />
-               </font>
-            </TextField>
             <Label alignment="CENTER" prefHeight="49.0" prefWidth="219.0" text="商圈" textFill="WHITE" GridPane.rowIndex="1">
                <font>
                   <Font name="Microsoft YaHei Bold" size="16.0" />
                </font>
             </Label>
-            <TextField fx:id="district" prefHeight="30.0" prefWidth="290.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
-               <GridPane.margin>
-                  <Insets right="10.0" />
-               </GridPane.margin>
-               <font>
-                  <Font name="Microsoft YaHei Bold" size="15.0" />
-               </font>
-            </TextField>
+            <ComboBox fx:id="city" prefHeight="30.0" prefWidth="217.0" GridPane.columnIndex="1" />
+            <ComboBox fx:id="district" onAction="#onD" prefHeight="30.0" prefWidth="217.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
          </children>
          <columnConstraints>
             <ColumnConstraints hgrow="SOMETIMES" maxWidth="170.0" minWidth="10.0" prefWidth="140.0" />
@@ -245,12 +224,8 @@
                   <Font name="Microsoft YaHei Bold" size="15.0" />
                </font>
             </TextField>
-            <TextField fx:id="numOfRoom" layoutX="400.0" layoutY="19.0" prefHeight="30.0" prefWidth="145.0" style="-fx-background-color: white;">
-               <font>
-                  <Font name="Microsoft YaHei Bold" size="15.0" />
-               </font>
-            </TextField>
             <ComboBox fx:id="roomTypeInsearch" layoutX="153.0" layoutY="19.0" prefHeight="30.0" prefWidth="145.0" />
+            <ComboBox fx:id="numOfRoom" layoutX="400.0" layoutY="19.0" prefHeight="30.0" prefWidth="145.0" />
          </children>
       </AnchorPane>
    </children>
