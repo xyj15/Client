@@ -1,6 +1,9 @@
 package ui.controller;
 
 
+import bl.implementation.Hotel;
+import bl.implementation.Member;
+import bl.implementation.Saler;
 import bl.service.HotelBLService;
 import bl.service.ManagerBLService;
 import bl.service.MemberBLService;
@@ -35,6 +38,8 @@ import java.util.Date;
 public class ManagerController{
 	private static Parent root;
 	private static Stage primaryStage;
+	private static Parent midRoot;
+	private static Stage MidStage;
 
 	private static ManagerBLService manager;
 	private static HotelBLService hotel ;
@@ -58,7 +63,12 @@ public class ManagerController{
 	}
 
 
-
+	public static void setMidRoot(Parent m) {
+		ManagerController.midRoot = m;
+	}
+	public static void setMidStage(Stage m) {
+		MidStage = m;
+	}
 	public static void setPrimaryStage(Stage in){
 		primaryStage=in;
 	}
@@ -73,32 +83,40 @@ public class ManagerController{
 	@FXML
 	private void onSearchUser(ActionEvent E)throws Exception {
 		new ManagerSearchUserUI().start(primaryStage);
+
+
+	}
+	@FXML
+	private void onSearch(ActionEvent E)throws Exception {
 		TextField searchID=(TextField)root.lookup("#searchID");//搜索时输入的ID
-		TextField memberName=(TextField)root.lookup("#memberName");//客户名字
-		TextField memberTel=(TextField)root.lookup("#memberTel");//客户电话
-		TextField credit=(TextField)root.lookup("#credit");//客户信用
-		DatePicker birthday=(DatePicker) root.lookup("#birthday");//客户生日
-		TextField hotelNameSearch=(TextField)root.lookup("#hotelNameSearch");//酒店名字
-		TextField addressSearch=(TextField)root.lookup("#addressSearch");//酒店地址
-		TextField districtSearch=(TextField)root.lookup("#districtSearch");//酒店商圈
-		TextField levelSearch=(TextField)root.lookup("#levelSearch");//酒店星级
-		TextField introductionSearch=(TextField)root.lookup("#introductionSearch");//酒店介绍
-		TextField serviceSearch=(TextField)root.lookup("#serviceSearch");//酒店服务设施
-		TextField hotelManagerNameSearch=(TextField)root.lookup("#hotelManagerNameSearch");//酒店工作人员名字
-		TextField hotelManagerTelSearch=(TextField)root.lookup("#hotelManagerTelSearch");//酒店工作人员电话
-		TextField salerNameSearch=(TextField)root.lookup("#salerNameSearch");//营销人员名字
-		TextField salerTelSearch=(TextField)root.lookup("#salerTelSearch");//营销人员电话
-
-
 		UserType userType =manager.getUserType(searchID.getText());
-		switch (userType){
-			case Member:new ManagerSearchMemberUI().start(primaryStage);
+		switch (userType) {
+			case Member:
+				MidStage=new Stage();
+				new ManagerSearchMemberUI().start(MidStage);
+				TextField memberName=(TextField)midRoot.lookup("#memberName");//客户名字
+				TextField memberTel=(TextField)midRoot.lookup("#memberTel");//客户电话
+				TextField credit=(TextField)midRoot.lookup("#credit");//客户信用
+				DatePicker birthday=(DatePicker) midRoot.lookup("#birthday");//客户生日
+				member=new Member(searchID.getText());
 				memberName.setText(member.getName());
 				memberTel.setText(member.getTel());
 				credit.setText(String.valueOf(member.getCredit()));
 				birthday.setValue(member.getBirthday().toInstant().atZone(ZoneId.systemDefault()).toLocalDate());
 				break;
-			case Hotel:new ManagerSearchHotelUI().start(primaryStage);
+
+				case Hotel:
+				MidStage=new Stage();
+				new ManagerSearchHotelUI().start(MidStage);
+				TextField hotelNameSearch=(TextField)midRoot.lookup("#hotelNameSearch");//酒店名字
+				TextField addressSearch=(TextField)midRoot.lookup("#addressSearch");//酒店地址
+				TextField districtSearch=(TextField)midRoot.lookup("#districtSearch");//酒店商圈
+				TextField levelSearch=(TextField)midRoot.lookup("#levelSearch");//酒店星级
+				TextArea introductionSearch=(TextArea)midRoot.lookup("#introductionSearch");//酒店介绍
+				TextArea serviceSearch=(TextArea)midRoot.lookup("#serviceSearch");//酒店服务设施
+				TextField hotelManagerNameSearch=(TextField)midRoot.lookup("#hotelManagerNameSearch");//酒店工作人员名字
+				TextField hotelManagerTelSearch=(TextField)midRoot.lookup("#hotelManagerTelSearch");//酒店工作人员电话
+				hotel=new Hotel(searchID.getText());
 				hotelNameSearch.setText(hotel.getHotelName());
 				addressSearch.setText(hotel.getHotelAddress());
 				districtSearch.setText(hotel.getDistrict());
@@ -109,7 +127,12 @@ public class ManagerController{
 				hotelManagerTelSearch.setText(hotel.getHotelManagerTel());
 
 				break;
-			case Saler:new ManagerSearchSalerUI().start(primaryStage);
+			case Saler:
+				MidStage=new Stage();
+				new ManagerSearchSalerUI().start(MidStage);
+				saler=new Saler(searchID.getText());
+				TextField salerNameSearch=(TextField)midRoot.lookup("#salerNameSearch");//营销人员名字
+				TextField salerTelSearch=(TextField)midRoot.lookup("#salerTelSearch");//营销人员电话
 				salerNameSearch.setText(saler.getSalerInformation().getName());
 				salerTelSearch.setText(saler.getSalerInformation().getPassword());
 				break;
@@ -121,10 +144,12 @@ public class ManagerController{
 	 */
 	@FXML
 	private void confirmUpdateMemebr(ActionEvent E)throws Exception {
-		TextField memberName=(TextField)root.lookup("#memberName");//客户名字
-		TextField memberTel=(TextField)root.lookup("#memberTel");//客户电话
-		DatePicker birthday=(DatePicker) root.lookup("#birthday");//客户生日
+		TextField searchID=(TextField)root.lookup("#searchID");//搜索时输入的ID
+		TextField memberName=(TextField)midRoot.lookup("#memberName");//客户名字
+		TextField memberTel=(TextField)midRoot.lookup("#memberTel");//客户电话
+		DatePicker birthday=(DatePicker) midRoot.lookup("#birthday");//客户生日
 		MemberVO member=new MemberVO();
+		member.setUserID(searchID.getText());
 		member.setName(memberName.getText());
 		member.setTel(memberTel.getText());
 		member.setBirthday(new Date(birthday.getValue().getYear(),birthday.getValue().getMonthValue(),birthday.getValue().getDayOfMonth()));
@@ -136,9 +161,11 @@ public class ManagerController{
 	 */
 	@FXML
 	private void confirmUpdateSaler(ActionEvent E)throws Exception {
-		TextField salerNameSearch=(TextField)root.lookup("#salerNameSearch");//营销人员名字
-		TextField salerTelSearch=(TextField)root.lookup("#salerTelSearch");//营销人员电话
+		TextField searchID=(TextField)root.lookup("#searchID");//搜索时输入的ID
+		TextField salerNameSearch=(TextField)midRoot.lookup("#salerNameSearch");//营销人员名字
+		TextField salerTelSearch=(TextField)midRoot.lookup("#salerTelSearch");//营销人员电话
 		SalerVO saler=new SalerVO();
+		saler.setUserID(searchID.getText());
 		saler.setName(salerNameSearch.getText());
 		saler.setTel(salerTelSearch.getText());
 		manager.updateSalerInformation(saler);
@@ -193,8 +220,8 @@ public class ManagerController{
 		TextField address=(TextField)root.lookup("#address");
 		TextField district=(TextField)root.lookup("#district");
 		TextField level=(TextField)root.lookup("#level");
-		TextField introduction=(TextField)root.lookup("#introduction");
-		TextField service=(TextField)root.lookup("#service");
+		TextArea introduction=(TextArea)root.lookup("#introduction");
+		TextArea service=(TextArea)root.lookup("#service");
 		TextField hotelManagerName=(TextField)root.lookup("#hotelManagerName");
 		TextField hotelManagerTel=(TextField)root.lookup("#hotelManagerTel");
 		PasswordField hotelPassword=(PasswordField)root.lookup("#hotelPassword");

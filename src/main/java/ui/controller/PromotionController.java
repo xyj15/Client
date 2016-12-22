@@ -58,8 +58,8 @@ public class PromotionController {
     public static void setMinprimaryStage(Stage minprimaryStage) {
         PromotionController.minprimaryStage = minprimaryStage;
     }
-    private static SalerBLService saler=new SalerBLStub();
-    private static PromotionBLService promotion=new PromotionBLStub();
+    private static SalerBLService saler;
+    private static PromotionBLService promotion;
     public static void setSaler(SalerBLService s) {
         saler = s;
     }
