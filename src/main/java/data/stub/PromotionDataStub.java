@@ -26,14 +26,14 @@ public class PromotionDataStub implements PromotionDataService {
 		promotionPO3.setDistrictPromotion("南京大学商圈", 0.8, 0, 0);
 		promotionList.add(promotionPO3);
 		PromotionPO promotionPO4 = new PromotionPO("00003", "双十二特惠", PromotionType.Discount);
-		promotionPO4.setDatePromotion(new Date(), new Date(), 0.9, 0, 0);
+		promotionPO4.setDatePromotion(new Date(116, 12, 12), new Date(117, 1, 1), 0.9, 0, 0);
 		promotionList.add(promotionPO4);
 
 		PromotionPO promotionPO5 = new PromotionPO("00004", "合作企业特惠", PromotionType.Discount, "000000");
-		promotionPO5.setEnterprisePromotion("", 0.7, 0, 0);
+		promotionPO5.setEnterprisePromotion("企业1", 0.7, 0, 0);
 		promotionList.add(promotionPO5);
 		PromotionPO promotionPO6 = new PromotionPO("00005", "双十一特惠", PromotionType.Discount, "000000");
-		promotionPO6.setDatePromotion(new Date(), new Date(), 0.9, 0, 0);
+		promotionPO6.setDatePromotion(new Date(116, 11, 11), new Date(116, 11, 11), 0.9, 0, 0);
 		promotionList.add(promotionPO6);
 		PromotionPO promotionPO7 = new PromotionPO("00006", "预订3间以上优惠", PromotionType.Discount, "000000");
 		promotionPO7.setRoomNumberPromotion(3, 0.8, 0, 0);

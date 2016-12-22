@@ -44,7 +44,7 @@
                   <Font size="16.0" />
                </font>
             </Label>
-            <TextField fx:id="VipDiscountUpdate" GridPane.columnIndex="1">
+            <TextField fx:id="VipDiscountUpdate" promptText="0~1" GridPane.columnIndex="1">
                <GridPane.margin>
                   <Insets right="15.0" />
                </GridPane.margin>
@@ -57,7 +57,7 @@
                   <Font name="Microsoft YaHei Bold" size="16.0" />
                </font>
             </Label>
-            <TextField fx:id="VipDiscountUpdate1" GridPane.columnIndex="1" GridPane.rowIndex="1">
+            <TextField fx:id="creditUpgrateUpdate" GridPane.columnIndex="1" GridPane.rowIndex="1">
                <font>
                   <Font name="Microsoft YaHei Bold" size="14.0" />
                </font>
@@ -67,7 +67,7 @@
             </TextField>
          </children>
       </GridPane>
-      <Button layoutX="204.0" layoutY="456.0" mnemonicParsing="false" onAction="#confirmAddVIP" prefHeight="29.0" prefWidth="95.0" style="-fx-background-color: #6B6BCF;" text="确认" textFill="WHITE">
+      <Button layoutX="204.0" layoutY="456.0" mnemonicParsing="false" onAction="#onconfirmUpdateRank" prefHeight="29.0" prefWidth="95.0" style="-fx-background-color: #6B6BCF;" text="确认" textFill="WHITE">
          <font>
             <Font name="Microsoft YaHei Bold" size="14.0" />
          </font>

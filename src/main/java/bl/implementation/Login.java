@@ -81,11 +81,6 @@ public class Login implements LoginBLService {
 	@Override
 	public boolean login(String userID, String password) {
 		User user = getUser(userID);
-		System.out.println();
-		System.out.println(user!=null);
-		System.out.println(user.getUserID());
-		System.out.println(user.getPassword());
-		System.out.println();
 		if(user==null) {
 			return false;
 		}
