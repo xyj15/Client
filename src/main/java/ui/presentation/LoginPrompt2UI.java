@@ -10,12 +10,12 @@ import ui.controller.LoginController;
 /**
  * Created by 97147 on 2016/12/21.
  */
-public class logintUI extends Application {
+public class LoginPrompt2UI extends Application {
 
     @Override
     public void start (Stage primaryStage) throws Exception {
         primaryStage.setTitle("请皇上过目");
-        Parent root = FXMLLoader.load(getClass().getResource("logint.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("LoginPrompt2.fxml"));
         LoginController.setTroot(root);
         LoginController.setTprimaryStage(primaryStage);
         Scene myScene = new Scene(root,410,193);

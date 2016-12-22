@@ -123,31 +123,6 @@ public class RemoteHelper {
 		} else {
 			System.out.println("连接到服务器失败");
 		}
-<<<<<<< HEAD
-
-=======
-//		try{
-//			Stage tem = new Stage();
-//			new LoginUI().start(tem);
-//		}catch (Exception e){
-//			e.printStackTrace();
-//		}
-
-//		try {
-//			System.out.println(remoteHelper.getHotelDataService().getAvailableHotelID());
-			System.out.println(remoteHelper.getMemberDataService().getMember("00000000").getUserID());
-//			System.out.println(remoteHelper.getCreditDataService().getCredit("00000000"));
-//			System.out.println(remoteHelper.getManagerDataService().getManager().getName());
-//			System.out.println(remoteHelper.getPromotionDataService().getAvailablePromotionID());
-//			System.out.println(remoteHelper.getRankDataService().getCreditList().get(2));
-//			System.out.println(remoteHelper.getRoomDataService().getRoomsByDate(new Date(), "000000"));
-//			System.out.println(remoteHelper.getSalerDataService().getAvailableSalerID());
-//			System.out.println(remoteHelper.getSearchDataService().getHotelListByCityDistrict("南京市", "新街口"));
-//		} catch (RemoteException e) {
-//			e.printStackTrace();
-//		}
->>>>>>> refs/remotes/xin541322049/master
-		
 		try {
 			System.out.println(remoteHelper.getHotelDataService().getAvailableHotelID());
 			System.out.println(remoteHelper.getMemberDataService().getAvailableMemberID());

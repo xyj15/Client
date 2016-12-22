@@ -2,8 +2,6 @@ package ui.controller;
 
 import bl.implementation.*;
 import bl.service.LoginBLService;
-import bl.stub.LoginBLStub;
-import bl.stub.PromotionBLStub;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.Parent;
@@ -49,27 +47,17 @@ public class LoginController{
 
     @FXML
     private void onLogIn(ActionEvent E)throws Exception {
-        TprimaryStage = new Stage();
         TextField usernameForLog = (TextField)root.lookup("#usernameForLog");
         PasswordField passwordForLog = (PasswordField)root.lookup("#passwordForLog");
-<<<<<<< HEAD
         if(!loginBL.checkNetwork()){
-            new LtUI().start(TprimaryStage);
+            TprimaryStage = new Stage();
+            new LoginPromptUI().start(TprimaryStage);
             Label messager = (Label)Troot.lookup("#Message");
             messager.setText("网络连接失败");
         }
         else {
             if(loginBL.existUserID(usernameForLog.getText().toString())){
                 if(loginBL.login(usernameForLog.getText().toString(),passwordForLog.getText().toString())){
-=======
-//        if(!loginBL.checkNetwork()){
-//            System.out.println("Link failed");
-//        }
-//        else {
-//         System.out.print(usernameForLog.getText().toString());
-            if(loginBL.existUserID(usernameForLog.getText())){
-                if(loginBL.login(usernameForLog.getText(), passwordForLog.getText())) {
->>>>>>> refs/remotes/xin541322049/master
                     UserType userType = loginBL.getUserType(usernameForLog.getText().toString());
                     switch (userType){
                         case Member:
@@ -100,12 +88,14 @@ public class LoginController{
                             break;
                     }
                 }else{
-                    new LtUI().start(TprimaryStage);
+                    TprimaryStage = new Stage();
+                    new LoginPromptUI().start(TprimaryStage);
                     Label messager = (Label)Troot.lookup("#Message");
                     messager.setText("账号密码不匹配");
                 }
             }else{
-                new LtUI().start(TprimaryStage);
+                TprimaryStage = new Stage();
+                new LoginPromptUI().start(TprimaryStage);
                 Label messager = (Label)Troot.lookup("#Message");
                 messager.setText("账户不存在");
             }
@@ -137,7 +127,7 @@ public class LoginController{
                     "", 1, 1, MemberType.Bussiness, null, companyName.getText().toString());
             loginBL.register(tem);
             zhuce = true;
-            new logintUI().start(TprimaryStage);
+            new LoginPrompt2UI().start(TprimaryStage);
             Label messager = (Label)Troot.lookup("#Message");
             Label m = (Label)Troot.lookup("#m");
             messager.setText("您的ID为：");
@@ -162,7 +152,7 @@ public class LoginController{
                     MemberType.Orinary, new Date(Integer.parseInt(tem[0])-1900,Integer.parseInt(tem[1])-1,Integer.parseInt(tem[2])),"" );
             loginBL.register(t);
             zhuce = true;
-            new logintUI().start(TprimaryStage);
+            new LoginPrompt2UI().start(TprimaryStage);
             Label messager = (Label)Troot.lookup("#Message");
             Label m = (Label)Troot.lookup("#m");
             messager.setText("您的ID为：");
