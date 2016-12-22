@@ -49,7 +49,7 @@
                   <Font size="16.0" />
                </font>
             </Label>
-            <TextField fx:id="VipDiscountUpdate" GridPane.columnIndex="1" GridPane.rowIndex="1">
+            <TextField fx:id="VipDiscountUpdate" promptText="0~1" GridPane.columnIndex="1" GridPane.rowIndex="1">
                <GridPane.margin>
                   <Insets right="15.0" />
                </GridPane.margin>
@@ -67,7 +67,7 @@
             </TextField>
          </children>
       </GridPane>
-      <Button layoutX="193.0" layoutY="403.0" mnemonicParsing="false" onAction="#confirmUpdateVIP" prefHeight="29.0" prefWidth="95.0" style="-fx-background-color: #6B6BCF;" text="确认" textFill="WHITE">
+      <Button layoutX="193.0" layoutY="403.0" mnemonicParsing="false" onAction="#onconfirmUpdateVIP" prefHeight="29.0" prefWidth="95.0" style="-fx-background-color: #6B6BCF;" text="确认" textFill="WHITE">
          <font>
             <Font name="Microsoft YaHei Bold" size="14.0" />
          </font>

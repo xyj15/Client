@@ -90,13 +90,13 @@ public class PromotionBLStub implements PromotionBLService {
 		System.out.println("获取网站的特定日期营销策略列表成功");
 		PromotionVO promotion1=new PromotionVO();
 		promotion1.setPromotionName("庆祝我出生");
-		promotion1.setStartDate(new Date(1992-1995,2,2));
-		promotion1.setEndDate(new Date(1996-1995,3,3));
+		promotion1.setStartDate(new Date(1992-1996,2,2));
+		promotion1.setEndDate(new Date(1996-1996,3,3));
 		promotion1.setDiscount(8.8);
 		PromotionVO promotion2=new PromotionVO();
 		promotion2.setPromotionName("双三二");
-		promotion2.setStartDate(new Date(2005-1995,2,2));
-		promotion2.setEndDate(new Date(2006-1995,3,3));
+		promotion2.setStartDate(new Date(2005-1996,2,2));
+		promotion2.setEndDate(new Date(2005-1996,2,3));
 		promotion2.setDiscount(9);
 		ArrayList<PromotionVO> promotionList = new ArrayList<PromotionVO>();
 		promotionList.add(promotion1);

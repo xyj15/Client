@@ -3,6 +3,7 @@ package bl.stub;
 import bl.service.SalerBLService;
 import other.OrderStatus;
 import other.PromotionType;
+import vo.MemberVO;
 import vo.OrderVO;
 import vo.PromotionVO;
 import vo.SalerVO;
@@ -132,7 +133,13 @@ public class SalerBLStub implements SalerBLService {
 	public ArrayList<OrderVO> getDailyUnexcutedOrderList() {
 		System.out.println("获取每天未执行订单列表成功");
 		ArrayList<OrderVO> orderList = new ArrayList<OrderVO>();
-		orderList.add(orderVO);
+		OrderVO order1=new OrderVO();
+		MemberVO member1=new MemberVO();
+		member1.setName("zxy");
+		member1.setTel("13813839765");
+		order1.setOrderID("00000");
+		order1.setMemberVO(member1);
+		orderList.add(order1);
 		return orderList;
 	}
 	
