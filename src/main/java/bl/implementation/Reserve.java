@@ -90,6 +90,7 @@ public class Reserve implements ReserveBLService {
 	 */
 	@Override
 	public ArrayList<PromotionVO> getPromotionList() {
+		availablePromotionList = promotion.getAvailablePromotionList(memberID, hotelID, numberOfRooms);
 		return availablePromotionList;
 	}
 	

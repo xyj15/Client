@@ -15,6 +15,7 @@ import java.rmi.RemoteException;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.StringJoiner;
 
 /**
  * Order模块bl的实现类
@@ -126,7 +127,7 @@ public class Order implements OrderBLService {
 			Credit credit = new Credit(userID);
 			double creditChange = orderVO.getPrice()*0.5;
 			double changeResult = credit.getCredit() - creditChange;
-			CreditChangeVO creditChangeVO = new CreditChangeVO(new Date(), getNewOrderID(userID),
+			CreditChangeVO creditChangeVO = new CreditChangeVO(new Date(), orderVO.getOrderID(),
 					OrderAction.CancelOrder, creditChange, changeResult);
 			credit.addCreditChange(creditChangeVO);
 		}
@@ -352,7 +353,7 @@ public class Order implements OrderBLService {
 	 */
 	public boolean createOrder(OrderVO orderVO) {
 		orderVO.setMemberID(userID);
-		String orderID = getNewOrderID(userID);
+		String orderID = getNewOrderID();
 		orderVO.setOrderID(orderID);
 		orderList.add(orderVO);
 		try {
@@ -365,19 +366,46 @@ public class Order implements OrderBLService {
 	
 	/**
 	 * 根据当前时间和客户ID计算新的订单ID
-	 * @param memberID 客户ID
 	 * @return 新的订单ID
 	 */
-	public static String getNewOrderID(String memberID) {
+	public static String getNewOrderID() {
 		Calendar calendar = Calendar.getInstance();
 		calendar.setTime(new Date());
+		
 		String year = String.valueOf(calendar.get(Calendar.YEAR));
-		String month = String.valueOf(calendar.get(Calendar.MONTH));
-		String day = String.valueOf(calendar.get(Calendar.DATE));
-		String hour = String.valueOf(calendar.get(Calendar.HOUR));
-		String minute = String.valueOf(calendar.get(Calendar.MINUTE));
-		String second = String.valueOf(calendar.get(Calendar.SECOND));
-		String orderID = year+month+day+hour+minute+second+memberID;
+		year = year.substring(2);
+		
+		int m = calendar.get(Calendar.MONTH);
+		if(m<12) {
+			m+=12;
+		}
+		String month = String.valueOf(m);
+		
+		int d = calendar.get(Calendar.DATE);
+		String day = String.valueOf(d);
+		if(d<10) {
+			day = "0" + day;
+		}
+		
+		int h = calendar.get(Calendar.HOUR);
+		String hour = String.valueOf(h);
+		if(h<10) {
+			hour = "0" + hour;
+		}
+		
+		int min = calendar.get(Calendar.MINUTE);
+		String minute = String.valueOf(min);
+		if(min<10) {
+			minute = "0" + minute;
+		}
+		
+		int s = calendar.get(Calendar.SECOND);
+		String second = String.valueOf(s);
+		if(s<10) {
+			second = "0" + second;
+		}
+		
+		String orderID = year+month+day+hour+minute+second;
 		return orderID;
 	}
 	
