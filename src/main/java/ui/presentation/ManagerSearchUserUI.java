@@ -15,6 +15,7 @@ public class ManagerSearchUserUI extends Application {
     public void start (Stage primaryStage) throws Exception {
         Parent root =FXMLLoader.load(getClass().getResource("ManagerSearchUser.fxml"));
         ManagerController.setPrimaryStage(primaryStage);
+        ManagerController.setRoot(root);
         Scene myScene = new Scene(root,1180,673);
         primaryStage.setResizable(false);
         primaryStage.setScene(myScene);
