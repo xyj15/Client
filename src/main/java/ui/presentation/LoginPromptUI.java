@@ -12,12 +12,12 @@ import ui.controller.MemberController;
 /**
  * Created by 97147 on 2016/12/21.
  */
-public class LtUI extends Application {
+public class LoginPromptUI extends Application {
 
     @Override
     public void start (Stage primaryStage) throws Exception {
         primaryStage.setTitle("请皇上过目");
-        Parent root = FXMLLoader.load(getClass().getResource("Lt.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("LoginPrompt.fxml"));
         LoginController.setTroot(root);
         LoginController.setTprimaryStage(primaryStage);
         Scene myScene = new Scene(root,410,193);

@@ -35,7 +35,7 @@
             <Image url="@search.png" />
          </image>
       </ImageView>
-      <Button layoutX="842.0" layoutY="314.0" mnemonicParsing="false" prefHeight="29.0" prefWidth="80.0" style="-fx-background-color: #6B6BCF;" text="查询" textFill="WHITE">
+      <Button layoutX="842.0" layoutY="314.0" mnemonicParsing="false" onAction="#onSearch" prefHeight="29.0" prefWidth="80.0" style="-fx-background-color: #6B6BCF;" text="查询" textFill="WHITE">
          <font>
             <Font name="Microsoft YaHei Bold" size="16.0" />
          </font>
