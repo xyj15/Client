@@ -678,7 +678,8 @@ public class HotelController {
     }
 
     /**
-     * 响应
+     * 响应添加企业促销策略
+     * 生成添加界面
      * @param E
      * @throws Exception
      */
@@ -687,6 +688,13 @@ public class HotelController {
         minPrimaryStage = new Stage();
         new HotelAddCompanyPromotionUI().start(minPrimaryStage);
     }
+
+    /**
+     * 响应更改企业促销策略
+     * 生成更改界面
+     * @param E
+     * @throws Exception
+     */
     @FXML
     private void onChangeCompanyPromotion(ActionEvent E)throws Exception {
         minPrimaryStage = new Stage();
@@ -700,6 +708,12 @@ public class HotelController {
         name.setText(tem.getEnterprise());
         discount.setText(""+tem.getDiscount());
     }
+
+    /**
+     * 响应删除企业促销策略操作
+     * @param E
+     * @throws Exception
+     */
     @FXML
     private void onDeleteCompanyPromotion(ActionEvent E)throws Exception {
         TableView table = (TableView) root.lookup("#table");
@@ -707,6 +721,12 @@ public class HotelController {
         promotion.deletePromotion(tem.getPromotionID());
         onCompanyPromotion(E);
     }
+
+    /**
+     * 响应企业策略策略界面
+     * @param E
+     * @throws Exception
+     */
     @FXML
     private void onCompanyPromotion(ActionEvent E)throws Exception {
         new HotelCompanyPromotionUI().start(primaryStage);
@@ -723,6 +743,12 @@ public class HotelController {
         tableList.get(2).setCellValueFactory(new PropertyValueFactory("third"));
         table.setItems(dataForMInfor);
     }
+
+    /**
+     * 确认新增
+     * @param E
+     * @throws Exception
+     */
     @FXML
     private void onSureAddCp(ActionEvent E)throws Exception {
         TextField Pname = (TextField) minRoot.lookup("#Pname");
