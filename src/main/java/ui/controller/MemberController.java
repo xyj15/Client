@@ -5,6 +5,8 @@ import bl.implementation.Login;
 import bl.implementation.Reserve;
 import bl.implementation.Room;
 import bl.service.*;
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -15,10 +17,7 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
 import other.*;
 import ui.presentation.*;
-import vo.CreditChangeVO;
-import vo.HotelVO;
-import vo.OrderVO;
-import vo.RoomVO;
+import vo.*;
 
 import java.text.SimpleDateFormat;
 import java.time.LocalDate;
@@ -50,7 +49,7 @@ public class MemberController{
     private static ReserveBLService reserve ;
     private static OrderBLService order;
     private static RoomBLService room ;
-    private static  LoginBLService login = new Login();
+    private static  LoginBLService login;
 //    private SearchBLService search = new SearchBLStub();
 //    private MemberBLService member = new MemberBLStub();
 //    private CreditBLService creidt = new CreditBLStub();
@@ -58,6 +57,11 @@ public class MemberController{
 //    private ReserveBLService reserve = new ReserveBLStub();
 //    private OrderBLService order = new OrderBLStub();
 //    private RoomBLService room = new RoomBLStub();
+
+
+    public static void setLogin(LoginBLService login) {
+        MemberController.login = login;
+    }
 
     public static void setSearch(SearchBLService in) {
         search = in;
@@ -78,6 +82,7 @@ public class MemberController{
     private static ArrayList<OrderVO> OrderList;
     private static ArrayList<HotelVO> HotelList;
     private static ArrayList<RoomVO> RoomList;
+    private static ArrayList<PromotionVO> PromotionList;
     private static LocalDate LocalDateInTime =LocalDate.now(), LocalDateOutTime =LocalDate.now().plusDays(1);
 
     private static OrderVO temOrder;
@@ -582,7 +587,6 @@ public class MemberController{
      */
     @FXML
     private void onTotalPrice(ActionEvent E)throws Exception {
-        reserve = new Reserve(member.getMemberInformation().getUserID(),hotel.getHotelInformation().getUserID());
         DatePicker inTime = (DatePicker)midRoot.lookup("#inTime");
         DatePicker outTime = (DatePicker)midRoot.lookup("#outTime");
         RadioButton has = (RadioButton)midRoot.lookup("#has");
@@ -614,8 +618,10 @@ public class MemberController{
      */
     @FXML
     private void onReserve(ActionEvent E)throws Exception {
+        reserve = new Reserve(member.getMemberInformation().getUserID(),hotel.getHotelInformation().getUserID());
         TableView table = (TableView) root.lookup("#tablePass");
         temRoom = RoomList.get(table.getSelectionModel().getSelectedIndex());
+        PromotionList = reserve.getPromotionList();
         midPrimaryStage = new Stage();
         new MemberReserveUI().start(midPrimaryStage);
         TextField name = (TextField)midRoot.lookup("#name");
@@ -624,6 +630,19 @@ public class MemberController{
         TextField num = (TextField)midRoot.lookup("#num");
         DatePicker inTime = (DatePicker)midRoot.lookup("#inTime");
         DatePicker outTime = (DatePicker)midRoot.lookup("#outTime");
+        Label discount = (Label)midRoot.lookup("#discount") ;
+        ComboBox<roomState> discountList = (ComboBox<roomState>) midRoot.lookup("#discountList");
+        for(int i = 0 ; i < PromotionList.size() ; i++  ){
+             discountList.getItems().add(new roomState(PromotionList.get(i).getPromotionName()));
+        }
+        discountList.getSelectionModel().select(0);
+        discount.setText(""+PromotionList.get(0).getDiscount());
+        discountList.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<roomState>() {
+            @Override
+            public void changed(ObservableValue<? extends roomState> observable, roomState oldValue, roomState newValue) {
+                discount.setText(""+PromotionList.get(discountList.getSelectionModel().getSelectedIndex()).getDiscount());
+            }
+        });
         name.setText(temRoom.getRoomName());
         type.setText(""+temRoom.getRoomType());
         inTime.setValue(LocalDateInTime);
