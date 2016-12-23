@@ -46,8 +46,6 @@ public class LoginController{
     private void onLogIn(ActionEvent E)throws Exception {
         TextField usernameForLog = (TextField)root.lookup("#usernameForLog");
         PasswordField passwordForLog = (PasswordField)root.lookup("#passwordForLog");
-        ComboBox<roomState> k= (ComboBox<roomState>)root.lookup("#k");
-        System.out.println(1+k.getEditor().getText());
         if(!loginBL.checkNetwork()){
             promptPrimaryStage = new Stage();
             new LoginPromptUI().start(promptPrimaryStage);
