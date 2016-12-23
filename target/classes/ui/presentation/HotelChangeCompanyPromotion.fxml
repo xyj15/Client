@@ -47,7 +47,7 @@
                   <Font name="Microsoft YaHei Bold" size="16.0" />
                </font>
             </Label>
-            <Button mnemonicParsing="false" onAction="#onSureChangeCp" prefHeight="14.0" prefWidth="62.0" style="-fx-background-color: #6B6BCF;" text="确认" textFill="WHITE" GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.rowIndex="3" GridPane.valignment="CENTER">
+            <Button mnemonicParsing="false" onAction="#onSureChangeCompanyPromotion" prefHeight="14.0" prefWidth="62.0" style="-fx-background-color: #6B6BCF;" text="确认" textFill="WHITE" GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.rowIndex="3" GridPane.valignment="CENTER">
                <GridPane.margin>
                   <Insets bottom="10.0" right="10.0" />
                </GridPane.margin>

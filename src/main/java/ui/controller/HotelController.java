@@ -32,10 +32,10 @@ import java.util.Date;
 public class HotelController {
 
 
-    private static HotelBLService hotel;
-    private static OrderBLService order ;
-    private static PromotionBLService promotion;
-    private static RoomBLService room ;
+    private static HotelBLService hotel;            //hotel模块，连接BL层
+    private static OrderBLService order ;           //order模块，连接BL层
+    private static PromotionBLService promotion;            //Promotion模块，连接BL层
+    private static RoomBLService room ;             //room模块，连接BL层
 
     public static void setHotel(HotelBLService hote) {
         hotel = hote;
@@ -53,9 +53,9 @@ public class HotelController {
         room = roo;
     }
 
-    private static Stage primaryStage;
-    private static Stage minPrimaryStage;
-    private static Stage midPrimaryStage;
+    private static Stage primaryStage;              //主界面舞台
+    private static Stage minPrimaryStage;           //小界面舞台
+    private static Stage midPrimaryStage;           //中界面舞台
     public static void setPrimaryStage(Stage in){
         primaryStage=in;
     }
@@ -176,7 +176,7 @@ public class HotelController {
         OrderVO tem = this.OrderList.get(table.getSelectionModel().getSelectedIndex());
 
         midPrimaryStage = new Stage();
-        new HOrderInforUI().start(midPrimaryStage);
+        new HotelOrderInformationUI().start(midPrimaryStage);
         TextField name = (TextField) midRoot.lookup("#name");
         TextField tel = (TextField) midRoot.lookup("#tel");
         TextField level = (TextField) midRoot.lookup("#l");
@@ -348,7 +348,7 @@ public class HotelController {
         tableList.get(2).setCellFactory(new Callback<TableColumn<TableData,Boolean>, TableCell<TableData,Boolean>>() {
             @Override
             public TableCell call(TableColumn param) {
-                return new delayCheckin();
+                return new delayCheckIn();
             }
         });
         table.setItems(dataForH);
@@ -359,7 +359,7 @@ public class HotelController {
      * @throws Exception
      */
     @FXML
-    private void onCheckin() throws Exception {
+    private void onCheckIn() throws Exception {
         TableView table = (TableView) root.lookup("#table");
         temOrder = OrderList.get(table.getSelectionModel().getSelectedIndex());
         midPrimaryStage = new Stage();
@@ -381,7 +381,7 @@ public class HotelController {
         tableList.get(2).setCellFactory(new Callback<TableColumn<TableData,Boolean>, TableCell<TableData,Boolean>>() {
             @Override
             public TableCell call(TableColumn param) {
-                return new checkin();
+                return new checkIn();
             }
         });
 
@@ -392,9 +392,9 @@ public class HotelController {
     /**
      * 帮助完成入住操作界面的绘制，添加入住按钮动作并响应动作监听
      */
-    class checkin extends TableCell<TableData,Boolean>{
+    class checkIn extends TableCell<TableData,Boolean>{
         private Button button=new Button("入住");
-        public checkin(){
+        public checkIn(){
 //            button.setPrefSize();
             button.setOnAction((ActionEvent e)->{
                 int seletedIndex=getTableRow().getIndex();
@@ -404,7 +404,7 @@ public class HotelController {
                 if(temOrder.getNumberOfRoom()!=count){
                     try{
                         midPrimaryStage.close();
-                        onCheckin();
+                        onCheckIn();
                     }catch (Exception E){
                         E.printStackTrace();
                     }
@@ -437,10 +437,10 @@ public class HotelController {
      *
      * 帮助完成延迟入住操作界面的绘制，添加入住按钮动作并响应动作监听
      */
-    class delayCheckin extends TableCell<TableData,Boolean> {
+    class delayCheckIn extends TableCell<TableData,Boolean> {
         private Button button = new Button("入住");
 
-        public delayCheckin() {
+        public delayCheckIn() {
 //            button.setPrefSize();
             button.setOnAction((ActionEvent e) -> {
                 int seletedIndex = getTableRow().getIndex();
@@ -745,12 +745,12 @@ public class HotelController {
     }
 
     /**
-     * 确认新增
+     * 确认新增企业促销策略
      * @param E
      * @throws Exception
      */
     @FXML
-    private void onSureAddCp(ActionEvent E)throws Exception {
+    private void onSureAddCompanyPromotion(ActionEvent E)throws Exception {
         TextField Pname = (TextField) minRoot.lookup("#Pname");
         TextField name = (TextField) minRoot.lookup("#name");
         TextField discount = (TextField) minRoot.lookup("#discount");
@@ -762,8 +762,14 @@ public class HotelController {
         minPrimaryStage.close();
         onCompanyPromotion(E);
     }
+
+    /**
+     * 确认更改企业促销策略
+     * @param E
+     * @throws Exception
+     */
     @FXML
-    private void onSureChangeCp(ActionEvent E)throws Exception {
+    private void onSureChangeCompanyPromotion(ActionEvent E)throws Exception {
         TableView table = (TableView) root.lookup("#table");
         PromotionVO tem = PromotionList.get(table.getSelectionModel().getSelectedIndex());
         TextField Pname = (TextField) minRoot.lookup("#Pname");
@@ -827,6 +833,13 @@ public class HotelController {
         tableList.get(4).setCellValueFactory(new PropertyValueFactory("fifth"));
         table.setItems(dataForMInfor);
     }
+
+    /**
+     * 响应新增房间操作
+     * 生成新增界面
+     * @param E
+     * @throws Exception
+     */
     @FXML
     private void onAddRoom(ActionEvent E)throws Exception {
         minPrimaryStage = new Stage();
@@ -838,8 +851,14 @@ public class HotelController {
         type.getItems().add(new roomTypeChoice(RoomType.TwinBed.toString()));
         type.getItems().add(new roomTypeChoice(RoomType.Suite.toString()));
     }
+
+    /**
+     * 确认新增房间的操作
+     * @param E
+     * @throws Exception
+     */
     @FXML
-    private void onSAdd(ActionEvent E)throws Exception {
+    private void onSureAddRoom(ActionEvent E)throws Exception {
         TextField id = (TextField) minRoot.lookup("#id");
         TextField name = (TextField) minRoot.lookup("#name");
         TextField price = (TextField) minRoot.lookup("#price");
@@ -850,6 +869,13 @@ public class HotelController {
         minPrimaryStage.close();
         onRoomManager(E);
     }
+
+    /**
+     * 响应更改房间信息操作
+     * 生成更改房间信息界面
+     * @param E
+     * @throws Exception
+     */
     @FXML
     private void onChangeRoom(ActionEvent E)throws Exception {
         TableView table = (TableView) root.lookup("#table");
@@ -876,8 +902,14 @@ public class HotelController {
         name.setText(tem.getRoomName());
         price.setText(""+tem.getPrice());
     }
+
+    /**
+     * 响应确认房间信息变化
+     * @param E
+     * @throws Exception
+     */
     @FXML
-    private void onSChange(ActionEvent E)throws Exception {
+    private void onSureChangeRoom(ActionEvent E)throws Exception {
         TextField name = (TextField) minRoot.lookup("#name");
         TextField price = (TextField) minRoot.lookup("#price");
         ComboBox<roomTypeChoice> type =(ComboBox<roomTypeChoice>) minRoot.lookup("#type");
@@ -893,6 +925,12 @@ public class HotelController {
         minPrimaryStage.close();
         onRoomManager(E);
     }
+
+    /**
+     * 响应删除房间操作
+     * @param E
+     * @throws Exception
+     */
     @FXML
     private void onDeleteRoom(ActionEvent E)throws Exception {
         TableView table = (TableView) root.lookup("#table");
@@ -901,6 +939,12 @@ public class HotelController {
         room.deleteRoom(tem.getRoomNumber());
         onRoomManager(E);
     }
+
+    /**
+     * 实现登出，返回登录界面
+     * @param E
+     * @throws Exception
+     */
     @FXML
     private void onLogOut(ActionEvent E)throws Exception {
         new LoginUI().start(primaryStage);
