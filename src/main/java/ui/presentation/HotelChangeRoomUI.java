@@ -14,8 +14,8 @@ public class HotelChangeRoomUI  extends Application {
     @Override
     public void start(Stage primaryStage)throws Exception{
         Parent root = FXMLLoader.load(getClass().getResource("HotelChangeRoom.fxml"));
-        HotelController.setMinprimaryStage(primaryStage);
-        HotelController.setMinroot(root);
+        HotelController.setMinPrimaryStage(primaryStage);
+        HotelController.setMinRoot(root);
         Scene myScene = new Scene(root,318,538);
         primaryStage.setResizable(false);
         primaryStage.setScene(myScene);
