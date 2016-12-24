@@ -93,8 +93,6 @@ public class ManagerController{
 	@FXML
 	private void onSearchUser(ActionEvent E)throws Exception {
 		new ManagerSearchUserUI().start(primaryStage);
-
-
 	}
 	@FXML
 	private void onSearch(ActionEvent E)throws Exception {
@@ -144,9 +142,9 @@ public class ManagerController{
 				new ManagerSearchSalerUI().start(MidStage);
 				saler=new Saler(searchID.getText());
 				TextField salerNameSearch=(TextField)midRoot.lookup("#salerNameSearch");//营销人员名字
-				TextField salerTelSearch=(TextField)midRoot.lookup("#salerTelSearch");//营销人员电话
+				TextField salerTelSearch=(TextField)midRoot.lookup("#tel");//营销人员电话
 				salerNameSearch.setText(saler.getSalerInformation().getName());
-				salerTelSearch.setText(saler.getSalerInformation().getPassword());
+				salerTelSearch.setText(saler.getSalerInformation().getTel());
 				break;
 		}
 	}
@@ -180,7 +178,19 @@ public class ManagerController{
 		saler.setUserID(searchID.getText());
 		saler.setName(salerNameSearch.getText());
 		saler.setTel(salerTelSearch.getText());
-		manager.updateSalerInformation(saler);
+		if(manager.updateSalerInformation(saler)){
+			MidStage.close();
+			PromptStage = new Stage();
+			new ManagerPromptUI().start(PromptStage);
+			Label message = (Label)PromptRoot.lookup("#Message");
+			message.setText("营销人员信息更新成功");
+		}
+		else{
+			PromptStage = new Stage();
+			new ManagerPromptUI().start(PromptStage);
+			Label message = (Label)PromptRoot.lookup("#Message");
+			message.setText("营销人员信息更新失败");
+		}
 	}
 	/**
 	 *
@@ -189,9 +199,21 @@ public class ManagerController{
 	@FXML
 	private void confirmUpdateHotel(ActionEvent E)throws Exception {
 		TextField searchID=(TextField)root.lookup("#searchID");//搜索时输入的用户ID
-		TextField hotelManagerNameSearch=(TextField)root.lookup("#hotelManagerNameSearch");//酒店工作人员名字
-		TextField hotelManagerTelSearch=(TextField)root.lookup("#hotelManagerTelSearch");//酒店工作人员电话
-		manager.updateHotelManagerInformation(searchID.getText(),hotelManagerNameSearch.getText(),hotelManagerTelSearch.getText());
+		TextField hotelManagerNameSearch=(TextField)midRoot.lookup("#hotelManagerNameSearch");//酒店工作人员名字
+		TextField hotelManagerTelSearch=(TextField)midRoot.lookup("#hotelManagerTelSearch");//酒店工作人员电话
+		if(manager.updateHotelManagerInformation(searchID.getText(),hotelManagerNameSearch.getText(),hotelManagerTelSearch.getText())){
+			MidStage.close();
+			PromptStage = new Stage();
+			new ManagerPromptUI().start(PromptStage);
+			Label message = (Label)PromptRoot.lookup("#Message");
+			message.setText("酒店工作人员信息更新成功");
+		}
+		else{
+			PromptStage = new Stage();
+			new ManagerPromptUI().start(PromptStage);
+			Label message = (Label)PromptRoot.lookup("#Message");
+			message.setText("酒店工作人员信息更新失败");
+		}
 	}
 	/**
 	 *
@@ -208,11 +230,20 @@ public class ManagerController{
 	@FXML
 	private void confirmAddSaler(ActionEvent E)throws Exception {
 		TextField salerName=(TextField)root.lookup("#salerName");//营销人员名字
-		TextField salerPassword=(TextField)root.lookup("#tel");//营销人员电话
-		SalerVO saler=new SalerVO();
-		saler.setName(salerName.getText().toString());
-		saler.setPassword(salerPassword.getText().toString());
-		manager.addSaler(saler);
+		TextField tel=(TextField)root.lookup("#tel");//营销人员电话
+		if(salerName.getText().toString().equals("")||tel.getText().toString().equals("")){
+			PromptStage = new Stage();
+			new ManagerPromptUI().start(PromptStage);
+			Label message = (Label)PromptRoot.lookup("#Message");
+			message.setText("请完善营销人员信息");
+		}else{
+			SalerVO saler=new SalerVO();
+			saler.setName(salerName.getText().toString());
+			saler.setPassword(tel.getText().toString());
+			manager.addSaler(saler);
+			//有东西
+		}
+
 	}
 	/**
 	 *
@@ -226,17 +257,27 @@ public class ManagerController{
 		ComboBox<roomState> city = (ComboBox<roomState>)root.lookup("#city") ;
 		introduction.setWrapText(true);
 		service.setWrapText(true);
-
 		ArrayList<String> cityList = search.getCityList();
 		for(int i = 0 ; i < cityList.size() ; i++){
 			city.getItems().add(new roomState(cityList.get(i)));
 		}
 	}
+
+	/**
+	 * 关闭提示面板
+	 * @param E
+	 * @throws Exception
+	 */
 	@FXML
 	private void sure(ActionEvent E)throws Exception {
 		PromptStage.close();
 	}
 
+	/**
+	 * 帮助商圈信息初始化
+	 * @param E
+	 * @throws Exception
+	 */
 	@FXML
 	private void onDistrict(ActionEvent E)throws Exception {
 		ComboBox<roomState> city = (ComboBox<roomState>)root.lookup("#city") ;
