@@ -20,7 +20,7 @@
             <Image url="@background.jpg" />
          </image>
       </ImageView>
-      <Line endX="10.0" layoutX="264.0" layoutY="215.0" startX="10.0" startY="300.0" stroke="WHITE" strokeWidth="2.0" AnchorPane.topAnchor="168.0" />
+      <Line endX="10.0" layoutX="264.0" layoutY="215.0" startX="10.0" startY="300.0" stroke="WHITE" strokeWidth="2.0" AnchorPane.topAnchor="214.0" />
       <ImageView fitHeight="148.0" fitWidth="124.0" layoutX="79.0" layoutY="26.0" pickOnBounds="true" preserveRatio="true" style="-fx-image: url(&quot;C:\Users\Administrator\IdeaProjects\JavaFX\src\sample、background.jpg&quot;);">
          <image>
             <Image url="@logo.png" />
@@ -42,7 +42,7 @@
             <Image url="@key.png" />
          </image>
       </ImageView>
-      <Button disable="true" layoutX="51.0" layoutY="231.0" mnemonicParsing="false" opacity="0.8" prefHeight="32.0" prefWidth="181.0" style="-fx-background-color: #000f32;" text="营销策略" textFill="WHITE">
+      <Button disable="true" layoutX="51.0" layoutY="231.0" mnemonicParsing="false" onAction="#onPromotion" opacity="0.8" prefHeight="32.0" prefWidth="181.0" style="-fx-background-color: #000f32;" text="营销策略" textFill="WHITE">
          <font>
             <Font name="Microsoft YaHei Bold" size="16.0" />
          </font>
