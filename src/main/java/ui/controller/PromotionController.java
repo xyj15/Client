@@ -310,7 +310,7 @@ public class PromotionController {
         DatePicker checkInDate = (DatePicker)minroot.lookup("#checkInDate");//起始时间
         DatePicker checkOutDate = (DatePicker)minroot.lookup("#checkOutDate");//结束时间
         TextField dateDiscount=(TextField)minroot.lookup("#dateDiscount");//折扣
-        PromotionVO promotion=new PromotionVO(null,datePromotionName.getText(),PromotionType.Discount);
+        PromotionVO promotion=new PromotionVO(null,datePromotionName.getText().toString(),PromotionType.Discount);
         Date start=new Date(checkInDate.getValue().getYear(),checkInDate.getValue().getMonthValue(),checkInDate.getValue().getDayOfMonth());
         Date end=new Date(checkOutDate.getValue().getYear(),checkOutDate.getValue().getMonthValue(),checkOutDate.getValue().getDayOfMonth());
         promotion.setDatePromotion(start,end,Double.parseDouble(dateDiscount.getText()),0,0);
