@@ -47,7 +47,7 @@
             <Font name="Microsoft YaHei Bold" size="14.0" />
          </font>
       </Button>
-      <Button layoutX="1028.0" layoutY="76.0" mnemonicParsing="false" onAction="#returnSearch" prefHeight="34.0" prefWidth="119.0" style="-fx-background-color: #6B6BCF;" text="返回" textFill="WHITE">
+      <Button layoutX="42.0" layoutY="42.0" mnemonicParsing="false" onAction="#returnSearch" prefHeight="34.0" prefWidth="119.0" style="-fx-background-color: #6B6BCF;" text="返回" textFill="WHITE">
          <font>
             <Font name="Microsoft YaHei Bold" size="16.0" />
          </font>

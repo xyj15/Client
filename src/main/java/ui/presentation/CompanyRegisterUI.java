@@ -21,7 +21,7 @@ public class CompanyRegisterUI extends Application{
         controller=loader.getController();
         LoginController.setRoot(root);
         controller.setPrimaryStage(primaryStage);
-        Scene myScene = new Scene(root,315,520);
+        Scene myScene = new Scene(root,315,538);
         primaryStage.setScene(myScene);
         primaryStage.show();
     }

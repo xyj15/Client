@@ -178,7 +178,7 @@
                   <Font name="Microsoft YaHei Bold" size="14.0" />
                </font>
             </TextField>
-            <TextArea fx:id="area" layoutX="330.0" layoutY="350.0" prefHeight="141.0" prefWidth="111.0" />
+            <TextArea fx:id="area" editable="false" layoutX="330.0" layoutY="350.0" prefHeight="141.0" prefWidth="111.0" />
             <Label alignment="CENTER" layoutX="324.0" layoutY="290.0" prefHeight="58.0" prefWidth="122.0" text="订单评价信息" textFill="WHITE">
                <font>
                   <Font name="Microsoft YaHei Bold" size="16.0" />

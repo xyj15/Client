@@ -80,9 +80,6 @@ public class LoginController{
                             break;
                         case Manager:
                             new ManagerFirstUI().start(primaryStage);
-                            ManagerController.setSaler(new Saler(usernameForLog.getText().toString()));
-                            ManagerController.setHotel(new Hotel(usernameForLog.getText().toString()));
-                            ManagerController.setMember(new Member(usernameForLog.getText().toString()));
                             ManagerController.setManager(new Manager());
                             break;
                     }

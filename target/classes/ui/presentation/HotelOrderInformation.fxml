@@ -82,7 +82,7 @@
                   <Font name="Microsoft YaHei Bold" size="16.0" />
                </font>
             </Label>
-            <TextArea fx:id="area" layoutX="330.0" layoutY="350.0" prefHeight="141.0" prefWidth="111.0" />
+            <TextArea fx:id="area" editable="false" layoutX="330.0" layoutY="350.0" prefHeight="141.0" prefWidth="111.0" />
             <TextField fx:id="score" editable="false" layoutX="330.0" layoutY="254.0" prefHeight="29.0" prefWidth="111.0">
                <font>
                   <Font name="Microsoft YaHei Bold" size="14.0" />

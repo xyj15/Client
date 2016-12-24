@@ -340,9 +340,9 @@ public class PromotionController {
            checkOutDateUpdate.setDayCellFactory(dateBefore(checkInDateUpdate));
        }
        catch (NullPointerException e){
-           new PromptUI().start(promptStage);
-           Label promptLabel=(Label)promptroot.lookup("#promptLabel");
-           promptLabel.setText("请选择一个营销策略");
+//           new PromptUI().start(promptStage);
+//           Label promptLabel=(Label)promptroot.lookup("#promptLabel");
+//           promptLabel.setText("请选择一个营销策略");
        }
     }
     /**

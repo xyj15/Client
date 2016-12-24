@@ -661,6 +661,9 @@ public class MemberController{
                 = FXCollections.observableArrayList();
         ObservableList<TableColumn> tableList = table.getColumns();
         ArrayList<RoomVO> list = room.getDailyRoomList(new Date());
+        for(int i =0 ; i<list.size();i++){
+            System.out.println(list.get(i).getRoomName()+list.get(i).isAvailable());
+        }
         RoomVO tem;
         RoomList = new ArrayList<RoomVO>();
         count=0;
@@ -691,10 +694,11 @@ public class MemberController{
         ArrayList<RoomVO> re = new ArrayList<RoomVO>();
         for(int i=0;i<list.size();i++){
             if(list.get(i).getRoomName().equals(room.getRoomName())){
-                if(!list.get(i).isReserved()){
+                if(list.get(i).isAvailable()){
                     count++;
                 }
-            }else{
+            }
+            else{
                 re.add(list.get(i));
             }
         }
