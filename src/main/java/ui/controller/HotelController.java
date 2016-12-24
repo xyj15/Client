@@ -759,6 +759,7 @@ public class HotelController {
         add.setPromotionName(Pname.getText().toString());
         add.setEnterprise(name.getText());
         add.setDiscount(Double.parseDouble(discount.getText().toString()));
+        add.setSaleType(SaleType.Enterprise);
         promotion.addPromotion(add);
         minPrimaryStage.close();
         onCompanyPromotion(E);
