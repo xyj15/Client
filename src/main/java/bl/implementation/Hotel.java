@@ -205,11 +205,15 @@ public class Hotel implements HotelBLService {
 		orderVO.setActualCheckinTime(new Date());
 		RoomVO roomVO = room.getRoomInformation(new Date(), roomID);
 		orderVO.getRoomList().add(roomVO);
-		
+
+		roomVO.setAvailable(false);
+		roomVO.setReserved(true);
+
+		room.updateRoom(new Date(),roomVO);
 		int index = order.getOrderIndex(orderID);
 		order.getOrderList().set(index, orderVO);
 		
-		return room.checkin(new Date(), roomID);
+		return true;
 	}
 	
 	/**

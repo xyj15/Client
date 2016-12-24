@@ -8,18 +8,19 @@ import javafx.stage.Stage;
 import ui.controller.ManagerController;
 
 /**
- * Created by 婧婧 on 2016/12/2.
+ * Created by 97147 on 2016/12/24.
  */
-public class ManagerAddHotelUI extends Application {
+public class ManagerPromptUI extends Application {
+
     @Override
     public void start (Stage primaryStage) throws Exception {
-        Parent root = FXMLLoader.load(getClass().getResource("ManagerAddHotel.fxml"));
-        ManagerController.setPrimaryStage(primaryStage);
-        ManagerController.setRoot(root);
-        Scene myScene = new Scene(root,1180,660);
+        primaryStage.setTitle("请皇上过目");
+        Parent root = FXMLLoader.load(getClass().getResource("ManagerPrompt.fxml"));
+        ManagerController.setPromptRoot(root);
+        ManagerController.setPromptStage(primaryStage);
+        Scene myScene = new Scene(root,410,193);
         primaryStage.setResizable(false);
         primaryStage.setScene(myScene);
         primaryStage.show();
     }
-
 }

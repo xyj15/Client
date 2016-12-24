@@ -18,7 +18,7 @@ public class SalerFirstUI  extends Application {
         Parent root = FXMLLoader.load(getClass().getResource("SalerFirst.fxml"));
         PromotionController.setPrimaryStage(primaryStage);
         PromotionController.setRoot(root);
-        Scene myScene = new Scene(root,1180,673);
+        Scene myScene = new Scene(root,1180,660);
         primaryStage.setResizable(false);
         primaryStage.setScene(myScene);
         primaryStage.show();
