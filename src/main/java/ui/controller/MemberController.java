@@ -140,7 +140,9 @@ public class MemberController{
                 if(login.validPassword(newPassword.getText().toString())){
                     member.getMemberInformation().setPassword(newPassword.getText().toString());
                     minPrimaryStage.close();
-                    onMenberInfor(E);
+                    new MemberPromptUI().start(promptPrimaryStage);
+                    Label message = (Label) promptRoot.lookup("#Message");
+                    message.setText("修改密码成功");
                 }
                 else{
                     promptPrimaryStage = new Stage();
@@ -540,6 +542,14 @@ public class MemberController{
         TextField hotelScore = (TextField)root.lookup("#hotelScore");
         TextField city = (TextField)root.lookup("#city");
         TextField district = (TextField)root.lookup("#district");
+        DatePicker inTimeInHistory = (DatePicker)root.lookup("#inTimeInHistory");
+        DatePicker outTimeInHistory = (DatePicker)root.lookup("#outTimeInHistory");
+        inTimeInHistory.setValue(LocalDate.now());
+        outTimeInHistory.setValue(LocalDate.now().plusDays(1));
+        LocalDateInTime = inTimeInHistory.getValue();
+        LocalDateOutTime = outTimeInHistory.getValue();
+        DateInTime = new Date(LocalDateInTime.getYear()-1900,LocalDateInTime.getMonthValue()-1,LocalDateInTime.getDayOfMonth());
+        DateOutTime = new Date(LocalDateOutTime.getYear()-1900,LocalDateOutTime.getMonthValue()-1,LocalDateOutTime.getDayOfMonth());
         city.setText(hotel.getCity());
         district.setText(hotel.getDistrict());
         hotelName.setText(hotel.getHotelName());
@@ -550,6 +560,17 @@ public class MemberController{
         introduction.setText(hotel.getHotelIntroduction());
         roomList(E);
      }
+
+    @FXML
+    private void onFindRoom(ActionEvent E)throws Exception {
+        DatePicker inTimeInHistory = (DatePicker)root.lookup("#inTimeInHistory");
+        DatePicker outTimeInHistory = (DatePicker)root.lookup("#outTimeInHistory");
+        LocalDateInTime = inTimeInHistory.getValue();
+        LocalDateOutTime = outTimeInHistory.getValue();
+        DateInTime = new Date(LocalDateInTime.getYear()-1900,LocalDateInTime.getMonthValue()-1,LocalDateInTime.getDayOfMonth());
+        DateOutTime = new Date(LocalDateOutTime.getYear()-1900,LocalDateOutTime.getMonthValue()-1,LocalDateOutTime.getDayOfMonth());
+        roomList(E);
+    }
 
     /**
      *
@@ -587,16 +608,16 @@ public class MemberController{
      */
     @FXML
     private void onTotalPrice(ActionEvent E)throws Exception {
-        DatePicker inTime = (DatePicker)midRoot.lookup("#inTime");
-        DatePicker outTime = (DatePicker)midRoot.lookup("#outTime");
+        Label inTime = (Label)midRoot.lookup("#inTime");
+        Label outTime = (Label)midRoot.lookup("#outTime");
         RadioButton has = (RadioButton)midRoot.lookup("#has");
         TextField num = (TextField)midRoot.lookup("#num");
         TextField numP = (TextField)midRoot.lookup("#numP");
         Label totalPrice = (Label)midRoot.lookup("#totalPrice");
-        tem = inTime.getEditor().getText().split("-");
+        tem = inTime.getText().split("-");
         DateInTime = new Date(Integer.parseInt(tem[0])-1900,Integer.parseInt(tem[1])-1,Integer.parseInt(tem[2]));
         DateInTime.setHours(12);
-        tem = outTime.getEditor().getText().split("-");
+        tem = outTime.getText().split("-");
         DateOutTime = new Date(Integer.parseInt(tem[0])-1900,Integer.parseInt(tem[1])-1,Integer.parseInt(tem[2]));
         reserve.setCheckinTime(DateInTime);
         DateInTime.setHours(DateInTime.getHours()+8);
@@ -628,8 +649,8 @@ public class MemberController{
         TextField type = (TextField)midRoot.lookup("#type");
         TextField danjia = (TextField)midRoot.lookup("#danjia");
         TextField num = (TextField)midRoot.lookup("#num");
-        DatePicker inTime = (DatePicker)midRoot.lookup("#inTime");
-        DatePicker outTime = (DatePicker)midRoot.lookup("#outTime");
+        Label inTime = (Label)midRoot.lookup("#inTime");
+        Label outTime = (Label)midRoot.lookup("#outTime");
         Label discount = (Label)midRoot.lookup("#discount") ;
         ComboBox<roomState> discountList = (ComboBox<roomState>) midRoot.lookup("#discountList");
         for(int i = 0 ; i < PromotionList.size() ; i++  ){
@@ -645,8 +666,8 @@ public class MemberController{
         });
         name.setText(temRoom.getRoomName());
         type.setText(""+temRoom.getRoomType());
-        inTime.setValue(LocalDateInTime);
-        outTime.setValue(LocalDateOutTime);
+        inTime.setText(""+LocalDateInTime.getYear()+"-"+LocalDateInTime.getMonthValue()+"-"+LocalDateInTime.getDayOfMonth());
+        outTime.setText(""+LocalDateOutTime.getYear()+"-"+LocalDateOutTime.getMonthValue()+"-"+LocalDateOutTime.getDayOfMonth());
         danjia.setText(""+temRoom.getPrice());
         num.setText("1");
     }
@@ -660,7 +681,7 @@ public class MemberController{
         ObservableList<TableData> dataForMInfor
                 = FXCollections.observableArrayList();
         ObservableList<TableColumn> tableList = table.getColumns();
-        ArrayList<RoomVO> list = room.getDailyRoomList(new Date());
+        ArrayList<RoomVO> list = room.getDailyRoomList(DateInTime);
         for(int i =0 ; i<list.size();i++){
             System.out.println(list.get(i).getRoomName()+list.get(i).isAvailable());
         }

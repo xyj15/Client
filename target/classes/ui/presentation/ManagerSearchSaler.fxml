@@ -64,11 +64,11 @@
                   <Insets right="20.0" />
                </GridPane.margin>
             </TextField>
-            <PasswordField fx:id="salerTelSearch" GridPane.columnIndex="1" GridPane.rowIndex="1">
+            <TextField fx:id="tel" prefHeight="30.0" prefWidth="277.0" style="-fx-background-color: white;" GridPane.columnIndex="1" GridPane.rowIndex="1">
                <GridPane.margin>
                   <Insets right="20.0" />
                </GridPane.margin>
-            </PasswordField>
+            </TextField>
          </children>
       </GridPane>
    </children>

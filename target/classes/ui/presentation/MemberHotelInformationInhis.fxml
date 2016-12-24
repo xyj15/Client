@@ -36,10 +36,10 @@
             <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
          </columnResizePolicy>
          <columns>
-            <TableColumn editable="false" prefWidth="75.0" sortable="false" style="-fx-background-color: #000f32;" text="房间名字" />
-            <TableColumn editable="false" prefWidth="75.0" sortable="false" style="-fx-background-color: #000f32;" text="房间类型" />
-            <TableColumn editable="false" prefWidth="157.0" sortable="false" style="-fx-background-color: #000f32;" text="单价" />
-            <TableColumn editable="false" prefWidth="75.0" sortable="false" style="-fx-background-color: #000f32;" text="剩余数量" />
+            <TableColumn editable="false" prefWidth="164.0" resizable="false" sortable="false" style="-fx-background-color: #000f32;" text="房间名字" />
+            <TableColumn editable="false" prefWidth="128.0" resizable="false" sortable="false" style="-fx-background-color: #000f32;" text="房间类型" />
+            <TableColumn editable="false" prefWidth="78.0" resizable="false" sortable="false" style="-fx-background-color: #000f32;" text="单价" />
+            <TableColumn editable="false" prefWidth="125.0" resizable="false" sortable="false" style="-fx-background-color: #000f32;" text="剩余数量" />
          </columns>
       </TableView>
       <AnchorPane layoutX="42.0" layoutY="129.0" opacity="0.66" prefHeight="251.0" prefWidth="506.0" style="-fx-background-color: #000f32;">
@@ -144,7 +144,21 @@
             <Font name="Microsoft YaHei Bold" size="16.0" />
          </font>
       </Button>
-      <DatePicker layoutX="806.0" layoutY="59.0" />
-      <Label layoutX="696.0" layoutY="61.0" prefHeight="30.0" prefWidth="81.0" text="Label" />
+      <DatePicker fx:id="inTimeInHistory" editable="false" layoutX="778.0" layoutY="57.0" />
+      <Label layoutX="688.0" layoutY="55.0" prefHeight="34.0" prefWidth="81.0" text="入住时间 :" textFill="WHITE">
+         <font>
+            <Font name="Microsoft YaHei Bold" size="15.0" />
+         </font></Label>
+      <Button layoutX="1052.0" layoutY="95.0" mnemonicParsing="false" onAction="#onFindRoom" prefHeight="34.0" prefWidth="95.0" style="-fx-background-color: #6B6BCF;" text="查询" textFill="WHITE">
+         <font>
+            <Font name="Microsoft YaHei Bold" size="16.0" />
+         </font>
+      </Button>
+      <Label layoutX="688.0" layoutY="95.0" prefHeight="34.0" prefWidth="81.0" text="离开时间 :" textFill="WHITE">
+         <font>
+            <Font name="Microsoft YaHei Bold" size="15.0" />
+         </font>
+      </Label>
+      <DatePicker fx:id="outTimeInHistory" editable="false" layoutX="778.0" layoutY="97.0" />
    </children>
 </AnchorPane>

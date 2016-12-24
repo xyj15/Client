@@ -38,7 +38,7 @@
                   <Font name="Microsoft YaHei Bold" size="16.0" />
                </font>
             </Label>
-            <TextField fx:id="addressSearch" layoutX="92.0" layoutY="60.0" prefHeight="29.0" prefWidth="402.0">
+            <TextField fx:id="addressSearch" editable="false" layoutX="92.0" layoutY="60.0" prefHeight="29.0" prefWidth="402.0">
                <font>
                   <Font name="Microsoft YaHei Bold" size="14.0" />
                </font>
@@ -48,13 +48,13 @@
                   <Font name="Microsoft YaHei Bold" size="16.0" />
                </font>
             </Label>
-            <TextArea fx:id="serviceSearch" layoutX="92.0" layoutY="148.0" prefHeight="98.0" prefWidth="165.0" />
+            <TextArea fx:id="serviceSearch" editable="false" layoutX="92.0" layoutY="148.0" prefHeight="98.0" prefWidth="165.0" />
             <Label alignment="CENTER" layoutX="232.0" layoutY="139.0" prefHeight="58.0" prefWidth="122.0" text="简介" textFill="WHITE">
                <font>
                   <Font name="Microsoft YaHei Bold" size="16.0" />
                </font>
             </Label>
-            <TextArea fx:id="introductionSearch" layoutX="329.0" layoutY="148.0" prefHeight="98.0" prefWidth="165.0" />
+            <TextArea fx:id="introductionSearch" editable="false" layoutX="329.0" layoutY="148.0" prefHeight="98.0" prefWidth="165.0" />
             <Label alignment="CENTER" layoutX="-14.0" layoutY="95.0" prefHeight="50.0" prefWidth="122.0" text="商圈" textFill="WHITE">
                <font>
                   <Font name="Microsoft YaHei Bold" size="16.0" />
@@ -65,12 +65,12 @@
                   <Font name="Microsoft YaHei Bold" size="16.0" />
                </font>
             </Label>
-            <TextField fx:id="hotelNameSearch" layoutX="92.0" layoutY="16.0" prefHeight="29.0" prefWidth="402.0">
+            <TextField fx:id="hotelNameSearch" editable="false" layoutX="92.0" layoutY="16.0" prefHeight="29.0" prefWidth="402.0">
                <font>
                   <Font name="Microsoft YaHei Bold" size="14.0" />
                </font>
             </TextField>
-            <TextField fx:id="districtSearch" layoutX="92.0" layoutY="106.0" prefHeight="29.0" prefWidth="165.0">
+            <TextField fx:id="districtSearch" editable="false" layoutX="92.0" layoutY="106.0" prefHeight="29.0" prefWidth="165.0">
                <font>
                   <Font name="Microsoft YaHei Bold" size="14.0" />
                </font>
@@ -80,7 +80,7 @@
                   <Font name="Microsoft YaHei Bold" size="16.0" />
                </font>
             </Label>
-            <TextField fx:id="levelSearch" layoutX="329.0" layoutY="106.0" prefHeight="29.0" prefWidth="165.0">
+            <TextField fx:id="levelSearch" editable="false" layoutX="329.0" layoutY="106.0" prefHeight="29.0" prefWidth="165.0">
                <font>
                   <Font name="Microsoft YaHei Bold" size="14.0" />
                </font>
