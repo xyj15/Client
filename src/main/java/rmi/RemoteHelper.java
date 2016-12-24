@@ -110,7 +110,7 @@ public class RemoteHelper {
 	
 	public static void main(String[] args) throws Exception {
 //		try {
-//			System.out.println(InetAddress.getLocalHost().toString());
+//			System.checkout.println(InetAddress.getLocalHost().toString());
 //		} catch (UnknownHostException e) {
 //			e.printStackTrace();
 //		}
@@ -153,30 +153,30 @@ public class RemoteHelper {
 //		} catch (RemoteException e) {
 //			e.printStackTrace();
 //		}
-//		System.out.println("orderID: "+result.getOrderID());
-//		System.out.println("mamberID: "+result.getMemberID());
-//		System.out.println("hotelID: "+result.getHotelID());
-//		System.out.println("orderStatus: "+result.getOrderStatus());
+//		System.checkout.println("orderID: "+result.getOrderID());
+//		System.checkout.println("mamberID: "+result.getMemberID());
+//		System.checkout.println("hotelID: "+result.getHotelID());
+//		System.checkout.println("orderStatus: "+result.getOrderStatus());
 		
 //		if(result.getOrderStatus()== OrderStatus.Canceled){
-//			System.out.println("cancel: "+bartDateFormate.format(result.getCancelTime()));
+//			System.checkout.println("cancel: "+bartDateFormate.format(result.getCancelTime()));
 //		}
-//		System.out.println("roomName: "+result.getRoomName());
-//		System.out.println("numberOfRoom: "+result.getNumberOfRoom());
-//		System.out.println("numberOfClient: "+result.getNumberOfClient());
-//		System.out.println("hasKid: "+result.getHaveKids());
-//		System.out.println("checkInTime: "+bartDateFormate.format(result.getCheckinTime()));
-//		System.out.println("checkOutTime: "+bartDateFormate.format(result.getCheckoutTime()));
-//		System.out.println("latesCheckInTime: "+bartDateFormate.format(result.getLatestCheckinTime()));
-//		System.out.println("promotionID: "+result.getPromotionID());
-//		System.out.println("price: "+result.getPrice());
+//		System.checkout.println("roomName: "+result.getRoomName());
+//		System.checkout.println("numberOfRoom: "+result.getNumberOfRoom());
+//		System.checkout.println("numberOfClient: "+result.getNumberOfClient());
+//		System.checkout.println("hasKid: "+result.getHaveKids());
+//		System.checkout.println("checkInTime: "+bartDateFormate.format(result.getCheckinTime()));
+//		System.checkout.println("checkOutTime: "+bartDateFormate.format(result.getCheckoutTime()));
+//		System.checkout.println("latesCheckInTime: "+bartDateFormate.format(result.getLatestCheckinTime()));
+//		System.checkout.println("promotionID: "+result.getPromotionID());
+//		System.checkout.println("price: "+result.getPrice());
 //		if(result.getOrderStatus()== OrderStatus.Executed){
-//			System.out.println("actualCheckInTime: "+bartDateFormate.format(result.getActualCheckinTime()));
-//			System.out.println("actualCheckOutTime: "+bartDateFormate.format(result.getActualCheckoutTime()));
-//			System.out.println("score: "+result.getScore());
-//			System.out.println("evaluation: "+result.getEvaluation());
-//			System.out.println("recover: "+result.getRecover());
+//			System.checkout.println("actualCheckInTime: "+bartDateFormate.format(result.getActualCheckinTime()));
+//			System.checkout.println("actualCheckOutTime: "+bartDateFormate.format(result.getActualCheckoutTime()));
+//			System.checkout.println("score: "+result.getScore());
+//			System.checkout.println("evaluation: "+result.getEvaluation());
+//			System.checkout.println("recover: "+result.getRecover());
 //		}
-//		System.out.println("createTime: "+bartDateFormate.format(result.getCreateTime()));
+//		System.checkout.println("createTime: "+bartDateFormate.format(result.getCreateTime()));
 	}
 }

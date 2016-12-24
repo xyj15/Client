@@ -15,8 +15,8 @@ public class HotelRoomChoiceUI extends Application {
     @Override
     public void start(Stage primaryStage) throws Exception {
         Parent root = FXMLLoader.load(getClass().getResource("HotelRoomChoice.fxml"));
-        HotelController.setMidprimaryStage(primaryStage);
-        HotelController.setMidroot(root);
+        HotelController.setMidPrimaryStage(primaryStage);
+        HotelController.setMidRoot(root);
         Scene myScene = new Scene(root,528,528);
         primaryStage.setResizable(false);
         primaryStage.setScene(myScene);

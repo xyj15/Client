@@ -21,19 +21,18 @@ import java.util.Date;
  * Created by 婧婧 on 2016/11/27.
  */
 public class LoginController{
-    private LoginUI loginUI;
     private LoginBLService loginBL =new Login();
     private static Parent root;
-    private static Parent Troot;
+    private static Parent promptRoot;
     private static Stage primaryStage;
-    private static Stage TprimaryStage;
-    private  static  boolean zhuce =false;
-    public static void setTprimaryStage(Stage tprimaryStage) {
-        TprimaryStage = tprimaryStage;
+    private static Stage promptPrimaryStage;
+    private  static  boolean register =false;
+    public static void setPromptPrimaryStage(Stage promptPrimaryStage) {
+        LoginController.promptPrimaryStage = promptPrimaryStage;
     }
 
-    public static void setTroot(Parent troot) {
-        Troot = troot;
+    public static void setPromptRoot(Parent promptRoot) {
+        LoginController.promptRoot = promptRoot;
     }
 
     public static void setPrimaryStage(Stage in){
@@ -47,12 +46,10 @@ public class LoginController{
     private void onLogIn(ActionEvent E)throws Exception {
         TextField usernameForLog = (TextField)root.lookup("#usernameForLog");
         PasswordField passwordForLog = (PasswordField)root.lookup("#passwordForLog");
-        ComboBox<roomState> k= (ComboBox<roomState>)root.lookup("#k");
-        System.out.println(1+k.getEditor().getText());
         if(!loginBL.checkNetwork()){
-            TprimaryStage = new Stage();
-            new LoginPromptUI().start(TprimaryStage);
-            Label message = (Label)Troot.lookup("#Message");
+            promptPrimaryStage = new Stage();
+            new LoginPromptUI().start(promptPrimaryStage);
+            Label message = (Label) promptRoot.lookup("#Message");
             message.setText("网络连接失败");
         }
         else {
@@ -64,8 +61,9 @@ public class LoginController{
                             new MemberFirstUI().start(primaryStage);
                             MemberController.setSearch(new Search(usernameForLog.getText().toString()));
                             MemberController.setMember(new Member(usernameForLog.getText().toString()));
-                            MemberController.setCreidt(new Credit(usernameForLog.getText().toString()));
+                            MemberController.setCredit(new Credit(usernameForLog.getText().toString()));
                             MemberController.setOrder(new Order(usernameForLog.getText().toString()));
+                            MemberController.setLogin(loginBL);
                             break;
                         case Hotel:
                             new HotelFirstUI().start(primaryStage);
@@ -88,15 +86,15 @@ public class LoginController{
                             break;
                     }
                 }else{
-                    TprimaryStage = new Stage();
-                    new LoginPromptUI().start(TprimaryStage);
-                    Label message = (Label)Troot.lookup("#Message");
+                    promptPrimaryStage = new Stage();
+                    new LoginPromptUI().start(promptPrimaryStage);
+                    Label message = (Label) promptRoot.lookup("#Message");
                     message.setText("账号密码不匹配");
                 }
             }else{
-                TprimaryStage = new Stage();
-                new LoginPromptUI().start(TprimaryStage);
-                Label message = (Label)Troot.lookup("#Message");
+                promptPrimaryStage = new Stage();
+                new LoginPromptUI().start(promptPrimaryStage);
+                Label message = (Label) promptRoot.lookup("#Message");
                 message.setText("账户不存在");
             }
         }
@@ -117,45 +115,45 @@ public class LoginController{
     }
 
     @FXML
-    private void oncRegister(ActionEvent E)throws Exception {
+    private void CompanyRegister(ActionEvent E)throws Exception {
         TextField usernameForCR = (TextField)root.lookup("#usernameForCR");
         PasswordField passwordForCR = (PasswordField)root.lookup("#passwordForCR");
         TextField companyName = (TextField)root.lookup("#companyName");
-        TprimaryStage = new Stage();
+        promptPrimaryStage = new Stage();
         if(loginBL.validPassword(passwordForCR.getText().toString())){
             MemberVO tem = new MemberVO("", passwordForCR.getText().toString(), usernameForCR.getText().toString(),
                     "", 1, 1, MemberType.Bussiness, null, companyName.getText().toString());
             loginBL.register(tem);
-            zhuce = true;
-            new LoginPrompt2UI().start(TprimaryStage);
-            Label message = (Label)Troot.lookup("#Message");
-            Label m = (Label)Troot.lookup("#m");
+            register = true;
+            new LoginPrompt2UI().start(promptPrimaryStage);
+            Label message = (Label) promptRoot.lookup("#Message");
+            Label m = (Label) promptRoot.lookup("#m");
             message.setText("您的ID为：");
             m.setText(tem.getUserID());
         }
     }
     @FXML
     private void sure(ActionEvent E)throws Exception {
-        TprimaryStage.close();
-        if(zhuce){
+        promptPrimaryStage.close();
+        if(register){
             new LoginUI().start(primaryStage);
         }
     }
     @FXML
-    private void onnRegister(ActionEvent E)throws Exception {
+    private void NormalRegister(ActionEvent E)throws Exception {
         TextField username = (TextField)root.lookup("#username");
         PasswordField password = (PasswordField)root.lookup("#password");
         DatePicker birth = (DatePicker)root.lookup("#birth");
         String[] tem = birth.getEditor().getText().split("-");
-        TprimaryStage = new Stage();
+        promptPrimaryStage = new Stage();
         if(loginBL.validPassword(password.getText().toString())){
             MemberVO t = new MemberVO("", password.getText().toString(), username.getText().toString(), "", 1, 1,
                     MemberType.Orinary, new Date(Integer.parseInt(tem[0])-1900,Integer.parseInt(tem[1])-1,Integer.parseInt(tem[2])),"" );
             loginBL.register(t);
-            zhuce = true;
-            new LoginPrompt2UI().start(TprimaryStage);
-            Label message = (Label)Troot.lookup("#Message");
-            Label m = (Label)Troot.lookup("#m");
+            register = true;
+            new LoginPrompt2UI().start(promptPrimaryStage);
+            Label message = (Label) promptRoot.lookup("#Message");
+            Label m = (Label) promptRoot.lookup("#m");
             message.setText("您的ID为：");
             m.setText(t.getUserID());
         }

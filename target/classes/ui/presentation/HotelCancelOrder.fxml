@@ -88,7 +88,7 @@
             <Font name="Microsoft YaHei Bold" size="16.0" />
          </font>
       </Button>
-      <Button layoutX="333.0" layoutY="587.0" mnemonicParsing="false" onAction="#onOrderInforx" prefHeight="34.0" prefWidth="144.0" style="-fx-background-color: #6B6BCF;" text="订单详情" textFill="WHITE">
+      <Button layoutX="333.0" layoutY="587.0" mnemonicParsing="false" onAction="#onOrderInformation" prefHeight="34.0" prefWidth="144.0" style="-fx-background-color: #6B6BCF;" text="订单详情" textFill="WHITE">
          <font>
             <Font name="Microsoft YaHei Bold" size="16.0" />
          </font>
