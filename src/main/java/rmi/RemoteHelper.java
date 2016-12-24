@@ -124,18 +124,19 @@ public class RemoteHelper {
 			System.out.println("连接到服务器失败");
 		}
 		try {
-			System.out.println(remoteHelper.getHotelDataService().getAvailableHotelID());
-			System.out.println(remoteHelper.getMemberDataService().getAvailableMemberID());
-			System.out.println(remoteHelper.getCreditDataService().getCredit("00000000"));
-			System.out.println(remoteHelper.getManagerDataService().getManager().getName());
-			System.out.println(remoteHelper.getPromotionDataService().getAvailablePromotionID());
-			System.out.println(remoteHelper.getRankDataService().getCreditList().get(2));
-			System.out.println(remoteHelper.getRoomDataService().getRoomsByDate(new Date(), "000000"));
-			System.out.println(remoteHelper.getSalerDataService().getAvailableSalerID());
-			System.out.println(remoteHelper.getSearchDataService().getHotelListByCityDistrict("南京市", "新街口"));
-			
-			ArrayList<CreditChangePO> creditChangePOList = remoteHelper.getCreditDataService().getCreditChange("00000000");
-			System.out.println(creditChangePOList.get(0).getOrderID());
+//			System.out.println(remoteHelper.getHotelDataService().getAvailableHotelID());
+//			System.out.println(remoteHelper.getMemberDataService().getAvailableMemberID());
+//			System.out.println(remoteHelper.getCreditDataService().getCredit("00000000"));
+//			System.out.println(remoteHelper.getManagerDataService().getManager().getName());
+//			System.out.println(remoteHelper.getPromotionDataService().getAvailablePromotionID());
+//			System.out.println(remoteHelper.getRankDataService().getCreditList().get(2));
+//			System.out.println(remoteHelper.getRoomDataService().getRoomsByDate(new Date(), "000000"));
+//			System.out.println(remoteHelper.getSalerDataService().getAvailableSalerID());
+//			System.out.println(remoteHelper.getSearchDataService().getHotelListByCityDistrict("南京市", "新街口"));
+//
+//			ArrayList<CreditChangePO> creditChangePOList = remoteHelper.getCreditDataService().getCreditChange("00000000");
+//			System.out.println(creditChangePOList.get(0).getOrderID());
+			System.out.println(remoteHelper.getPromotionDataService().getPromotionList().get(0).getPromotionName());
 		} catch (RemoteException e) {
 			e.printStackTrace();
 		}

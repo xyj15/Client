@@ -668,9 +668,10 @@ public class HotelController {
         TextField dateDiscount = (TextField) minRoot.lookup("#dateDiscount");
         DatePicker checkInDate = (DatePicker) minRoot.lookup("#checkInDate");
         DatePicker checkOutDate = (DatePicker) minRoot.lookup("#checkOutDate");
-        PromotionVO add = new PromotionVO(null,DatePromotionName.toString(), PromotionType.Discount,hotel.getHotelInformation().getUserID());
+        PromotionVO add = new PromotionVO(null,DatePromotionName.getText().toString(), PromotionType.Discount,hotel.getHotelInformation().getUserID());
         add.setStartDate(new Date(checkInDate.getValue().getYear()-1900,checkInDate.getValue().getMonthValue()-1,checkInDate.getValue().getDayOfMonth()));
         add.setEndDate(new Date(checkOutDate.getValue().getYear()-1900,checkOutDate.getValue().getMonthValue()-1,checkOutDate.getValue().getDayOfMonth()));
+        add.setSaleType(SaleType.Date);
         add.setDiscount(Double.parseDouble(dateDiscount.getText().toString()));
         promotion.addPromotion(add);
         minPrimaryStage.close();
