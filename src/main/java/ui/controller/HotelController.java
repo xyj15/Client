@@ -574,6 +574,7 @@ public class HotelController {
                 = FXCollections.observableArrayList();
         ObservableList<TableColumn> tableList = table.getColumns();
         PromotionList = promotion.getHotelDatePromotionList();
+        System.out.print(PromotionList.size());
         SimpleDateFormat sdf=new SimpleDateFormat("yyyy-MM-dd");
         for(int i=0;i<PromotionList.size();i++){
             dataForH.add(new TableData(sdf.format(PromotionList.get(i).getStartDate()),sdf.format(PromotionList.get(i).getEndDate()),

@@ -61,7 +61,6 @@
       </AnchorPane>
       <AnchorPane layoutX="25.0" layoutY="200.0" opacity="0.66" prefHeight="241.0" prefWidth="492.0" style="-fx-background-color: #000f32;">
          <children>
-            <DatePicker fx:id="inTime" editable="false" layoutX="100.0" layoutY="148.0" prefHeight="30.0" prefWidth="150.0" />
             <Label alignment="CENTER" layoutX="1.0" layoutY="134.0" prefHeight="58.0" prefWidth="96.0" text="入住时间" textFill="WHITE">
                <font>
                   <Font name="Microsoft YaHei Bold" size="16.0" />
@@ -92,7 +91,6 @@
                   <Font name="Microsoft YaHei Bold" size="14.0" />
                </font>
             </RadioButton>
-            <DatePicker fx:id="outTime" editable="false" layoutX="332.0" layoutY="148.0" prefHeight="30.0" prefWidth="150.0" />
             <Label alignment="CENTER" layoutX="4.0" layoutY="4.0" prefHeight="58.0" prefWidth="96.0" text="房间名字" textFill="WHITE">
                <font>
                   <Font name="Microsoft YaHei Bold" size="16.0" />
@@ -145,6 +143,16 @@
                </font>
             </Label>
             <Label fx:id="discount" alignment="CENTER" layoutX="332.0" layoutY="184.0" prefHeight="47.0" prefWidth="150.0" textFill="WHITE">
+               <font>
+                  <Font name="Microsoft YaHei Bold" size="14.0" />
+               </font>
+            </Label>
+            <Label fx:id="inTime" alignment="CENTER" layoutX="103.0" layoutY="140.0" prefHeight="47.0" prefWidth="143.0" textFill="WHITE">
+               <font>
+                  <Font name="Microsoft YaHei Bold" size="14.0" />
+               </font>
+            </Label>
+            <Label fx:id="outTime" alignment="CENTER" layoutX="336.0" layoutY="140.0" prefHeight="47.0" prefWidth="143.0" textFill="WHITE">
                <font>
                   <Font name="Microsoft YaHei Bold" size="14.0" />
                </font>
