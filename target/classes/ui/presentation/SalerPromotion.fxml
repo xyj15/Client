@@ -19,7 +19,7 @@
          </image>
       </ImageView>
       <Line endX="10.0" layoutX="264.0" layoutY="215.0" startX="10.0" startY="300.0" stroke="WHITE" strokeWidth="2.0" AnchorPane.topAnchor="211.0" />
-      <ImageView fitHeight="148.0" fitWidth="124.0" layoutX="63.0" layoutY="26.0" pickOnBounds="true" preserveRatio="true" style="-fx-image: url(&quot;C:\Users\Administrator\IdeaProjects\JavaFX\src\sample、background.jpg&quot;);">
+      <ImageView fitHeight="148.0" fitWidth="124.0" layoutX="63.0" layoutY="26.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@logo.png" />
          </image>
@@ -70,12 +70,12 @@
             <Font name="Microsoft YaHei Bold" size="16.0" />
          </font>
       </Button>
-      <TableView fx:id="promotionTable" layoutX="374.0" layoutY="117.0" opacity="0.8" prefHeight="432.0" prefWidth="709.0" stylesheets="@TableView.css">
+      <TableView fx:id="promotionTable" layoutX="374.0" layoutY="117.0" opacity="0.8" prefHeight="432.0" prefWidth="709.0" style="-fx-background-color: #000f32;" stylesheets="@TableView.css">
         <columns>
-          <TableColumn fx:id="name" prefWidth="75.0" text="名称" />
-            <TableColumn fx:id="startDate" prefWidth="128.0" text="起始日期" />
-            <TableColumn fx:id="endDate" prefWidth="112.0" text="结束日期" />
-            <TableColumn fx:id="discount" prefWidth="101.0" text="折扣" />
+          <TableColumn fx:id="name" editable="false" prefWidth="75.0" sortable="false" style="-fx-background-color: #000f32;" text="名称" />
+            <TableColumn fx:id="startDate" editable="false" prefWidth="128.0" sortable="false" style="-fx-background-color: #000f32;" text="起始日期" />
+            <TableColumn fx:id="endDate" editable="false" prefWidth="112.0" sortable="false" style="-fx-background-color: #000f32;" text="结束日期" />
+            <TableColumn fx:id="discount" editable="false" prefWidth="101.0" sortable="false" style="-fx-BACKGROUND-COLOR: #000f32;" text="折扣" />
         </columns>
          <columnResizePolicy>
             <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />

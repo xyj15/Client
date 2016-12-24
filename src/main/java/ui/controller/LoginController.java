@@ -53,6 +53,7 @@ public class LoginController{
             message.setText("网络连接失败");
         }
         else {
+            System.out.print(usernameForLog.getText().toString());
             if(loginBL.existUserID(usernameForLog.getText().toString())){
                 if(loginBL.login(usernameForLog.getText().toString(),passwordForLog.getText().toString())){
                     UserType userType = loginBL.getUserType(usernameForLog.getText().toString());

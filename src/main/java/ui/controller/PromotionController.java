@@ -19,14 +19,12 @@ import ui.presentation.*;
 import vo.OrderVO;
 import vo.PromotionVO;
 import bl.implementation.Member;
-import bl.implementation.Promotion;
 import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.time.ZoneId;
 import java.util.ArrayList;
 import java.util.Date;
 import javafx.scene.control.DateCell;
-import static other.UserType.Member;
 
 /**
  * Created by 97147 on 2016/11/30.
