@@ -16,7 +16,7 @@ public class SalerAddPromotionUI extends Application {
         Parent root = FXMLLoader.load(getClass().getResource("SalerAddPromotion.fxml"));
         PromotionController.setPromptStage(primaryStage);
         PromotionController.setPromptroot(root);
-        Scene myScene = new Scene(root,318,538);
+        Scene myScene = new Scene(root,1180,660);
         primaryStage.setResizable(false);
         primaryStage.setScene(myScene);
         primaryStage.show();

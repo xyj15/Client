@@ -220,6 +220,9 @@ public class Order implements OrderBLService {
 		OrderVO orderVO;
 		Hotel hotel;
 		Member member;
+		if(orderPOArrayList==null){
+			orderPOArrayList = new ArrayList<OrderPO>();
+		}
 		for(int i=0; i<orderPOArrayList.size(); i++) {
 			orderPO = orderPOArrayList.get(i);
 			orderVO = orderPOtoVO(orderPO);

@@ -4,10 +4,8 @@ package ui.controller;
 import bl.implementation.Hotel;
 import bl.implementation.Member;
 import bl.implementation.Saler;
-import bl.service.HotelBLService;
-import bl.service.ManagerBLService;
-import bl.service.MemberBLService;
-import bl.service.SalerBLService;
+import bl.implementation.Search;
+import bl.service.*;
 import bl.stub.HotelBLStub;
 import bl.stub.ManagerBLStub;
 import bl.stub.MemberBLStub;
@@ -18,6 +16,7 @@ import javafx.scene.Parent;
 import javafx.scene.control.*;
 import javafx.stage.Stage;
 import other.UserType;
+import other.roomState;
 import sun.security.util.Password;
 import ui.presentation.*;
 import vo.HotelVO;
@@ -25,6 +24,7 @@ import vo.MemberVO;
 import vo.SalerVO;
 
 import java.time.ZoneId;
+import java.util.ArrayList;
 import java.util.Date;
 
 
@@ -37,14 +37,17 @@ import java.util.Date;
  */
 public class ManagerController{
 	private static Parent root;
+	private static Parent PromptRoot;
 	private static Stage primaryStage;
 	private static Parent midRoot;
 	private static Stage MidStage;
+	private static Stage PromptStage;
 
 	private static ManagerBLService manager;
 	private static HotelBLService hotel ;
 	private static SalerBLService saler ;
 	private static MemberBLService member;
+	private static SearchBLService search = new Search("000000");
 
 	public static void setSaler(SalerBLService s) {
 		saler = s;
@@ -62,6 +65,13 @@ public class ManagerController{
 		manager = m;
 	}
 
+	public static void setPromptRoot(Parent promptRoot) {
+		PromptRoot = promptRoot;
+	}
+
+	public static void setPromptStage(Stage promptStage) {
+		PromptStage = promptStage;
+	}
 
 	public static void setMidRoot(Parent m) {
 		ManagerController.midRoot = m;
@@ -96,7 +106,7 @@ public class ManagerController{
 				new ManagerSearchMemberUI().start(MidStage);
 				TextField memberName=(TextField)midRoot.lookup("#memberName");//客户名字
 				TextField memberTel=(TextField)midRoot.lookup("#memberTel");//客户电话
-				TextField credit=(TextField)midRoot.lookup("#credit");//客户信用
+				Label credit=(Label) midRoot.lookup("#credit");//客户信用
 				DatePicker birthday=(DatePicker) midRoot.lookup("#birthday");//客户生日
 				member=new Member(searchID.getText());
 				memberName.setText(member.getName());
@@ -120,6 +130,8 @@ public class ManagerController{
 				hotelNameSearch.setText(hotel.getHotelName());
 				addressSearch.setText(hotel.getHotelAddress());
 				districtSearch.setText(hotel.getDistrict());
+					introductionSearch.setWrapText(true);
+					serviceSearch.setWrapText(true);
 				levelSearch.setText(String.valueOf(hotel.getHotelLevel()));
 				introductionSearch.setText(hotel.getHotelIntroduction());
 				serviceSearch.setText(hotel.getHotelService());
@@ -196,10 +208,10 @@ public class ManagerController{
 	@FXML
 	private void confirmAddSaler(ActionEvent E)throws Exception {
 		TextField salerName=(TextField)root.lookup("#salerName");//营销人员名字
-		PasswordField salerPassword=(PasswordField)root.lookup("#salerPassword");//营销人员电话
+		TextField salerPassword=(TextField)root.lookup("#tel");//营销人员电话
 		SalerVO saler=new SalerVO();
-		saler.setName(salerName.getText());
-		saler.setPassword(salerPassword.getText());
+		saler.setName(salerName.getText().toString());
+		saler.setPassword(salerPassword.getText().toString());
 		manager.addSaler(saler);
 	}
 	/**
@@ -209,6 +221,39 @@ public class ManagerController{
 	@FXML
 	private void onAddHotel(ActionEvent E)throws Exception {
 		new ManagerAddHotelUI().start(primaryStage);
+		TextArea introduction=(TextArea)root.lookup("#introduction");
+		TextArea service=(TextArea)root.lookup("#service");
+		ComboBox<roomState> city = (ComboBox<roomState>)root.lookup("#city") ;
+		introduction.setWrapText(true);
+		service.setWrapText(true);
+
+		ArrayList<String> cityList = search.getCityList();
+		for(int i = 0 ; i < cityList.size() ; i++){
+			city.getItems().add(new roomState(cityList.get(i)));
+		}
+	}
+	@FXML
+	private void sure(ActionEvent E)throws Exception {
+		PromptStage.close();
+	}
+
+	@FXML
+	private void onDistrict(ActionEvent E)throws Exception {
+		ComboBox<roomState> city = (ComboBox<roomState>)root.lookup("#city") ;
+		ComboBox<roomState> district = (ComboBox<roomState>)root.lookup("#district") ;
+		if(city.getSelectionModel().getSelectedItem()==null){
+			PromptStage = new Stage();
+			new ManagerPromptUI().start(PromptStage);
+			Label message = (Label)PromptRoot.lookup("#Message");
+			message.setText("请先选择城市");
+		}
+		else{
+			ArrayList<String> districtList = search.getDistrictList(city.getSelectionModel().getSelectedItem().toString());
+			district.getItems().clear();
+			for( int i = 0 ; i<districtList.size();i++){
+				district.getItems().add(new roomState(districtList.get(i)));
+			}
+		}
 	}
 	/**
 	 *
@@ -218,22 +263,23 @@ public class ManagerController{
 	private void confirmAddHotel(ActionEvent E)throws Exception {
 		TextField hotelName=(TextField)root.lookup("#hotelName");
 		TextField address=(TextField)root.lookup("#address");
-		TextField district=(TextField)root.lookup("#district");
+		ComboBox<roomState> district=(ComboBox<roomState>)root.lookup("#district");
+		ComboBox<roomState> city=(ComboBox<roomState>)root.lookup("#city");
 		TextField level=(TextField)root.lookup("#level");
 		TextArea introduction=(TextArea)root.lookup("#introduction");
 		TextArea service=(TextArea)root.lookup("#service");
 		TextField hotelManagerName=(TextField)root.lookup("#hotelManagerName");
-		TextField hotelManagerTel=(TextField)root.lookup("#hotelManagerTel");
-		PasswordField hotelPassword=(PasswordField)root.lookup("#hotelPassword");
+		TextField tel=(TextField)root.lookup("#tel");
 		HotelVO hotel=new HotelVO();
-		hotel.setPassword(hotelPassword.getText());
 		hotel.setName(hotelName.getText());
 		hotel.setAddress(address.getText());
-		hotel.setDistrict(district.getText());
+		hotel.setCity(city.getSelectionModel().getSelectedItem().toString());
+		hotel.setDistrict(district.getSelectionModel().getSelectedItem().toString());
 		hotel.setLevel(Integer.parseInt(level.getText()));
 		hotel.setIntroduction(introduction.getText());
 		hotel.setService(service.getText());
 		hotel.setManagerName(hotelManagerName.getText());
+		hotel.setManagerTel(tel.getText());
 		manager.addHotel(hotel);
 	}
 	/**

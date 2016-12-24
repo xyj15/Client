@@ -369,7 +369,7 @@ public class HotelController {
         Label unNum = (Label) midRoot.lookup("#unNum");
         totalNum.setText(""+temOrder.getNumberOfRoom());
         unNum.setText(""+(temOrder.getNumberOfRoom()-count));
-        RoomList = room.getAvailableRoomByName(temOrder.getCheckinTime(),temOrder.getRoomName());
+        RoomList = room.getAvailableRoomByName(new Date(),temOrder.getRoomName());
         ObservableList<TableData> dataForH
                 = FXCollections.observableArrayList();
         ObservableList<TableColumn> tableList = table.getColumns();
