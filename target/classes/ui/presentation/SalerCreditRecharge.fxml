@@ -20,7 +20,7 @@
             <Image url="@background.jpg" />
          </image>
       </ImageView>
-      <Line endX="10.0" layoutX="264.0" layoutY="215.0" startX="10.0" startY="300.0" stroke="WHITE" strokeWidth="2.0" AnchorPane.topAnchor="168.0" />
+      <Line endX="10.0" layoutX="264.0" layoutY="215.0" startX="10.0" startY="300.0" stroke="WHITE" strokeWidth="2.0" AnchorPane.topAnchor="214.0" />
       <ImageView fitHeight="148.0" fitWidth="124.0" layoutX="79.0" layoutY="26.0" pickOnBounds="true" preserveRatio="true" style="-fx-image: url(&quot;C:\Users\Administrator\IdeaProjects\JavaFX\src\sample、background.jpg&quot;);">
          <image>
             <Image url="@logo.png" />
@@ -42,7 +42,7 @@
             <Image url="@key.png" />
          </image>
       </ImageView>
-      <Button disable="true" layoutX="51.0" layoutY="231.0" mnemonicParsing="false" opacity="0.8" prefHeight="32.0" prefWidth="181.0" style="-fx-background-color: #000f32;" text="营销策略" textFill="WHITE">
+      <Button disable="true" layoutX="51.0" layoutY="231.0" mnemonicParsing="false" onAction="#onPromotion" opacity="0.8" prefHeight="32.0" prefWidth="181.0" style="-fx-background-color: #000f32;" text="营销策略" textFill="WHITE">
          <font>
             <Font name="Microsoft YaHei Bold" size="16.0" />
          </font>
@@ -57,7 +57,7 @@
             <Font name="Microsoft YaHei Bold" size="16.0" />
          </font>
       </Button>
-      <Button layoutX="51.0" layoutY="459.0" mnemonicParsing="false" onAction="#onRank" opacity="0.8" prefHeight="23.0" prefWidth="181.0" style="-fx-background-color: #000f32;" text="信用充值" textFill="WHITE">
+      <Button disable="true" layoutX="51.0" layoutY="459.0" mnemonicParsing="false" onAction="#onRank" opacity="0.8" prefHeight="23.0" prefWidth="181.0" text="信用充值" textFill="#000f32">
          <font>
             <Font name="Microsoft YaHei Bold" size="16.0" />
          </font>
@@ -65,7 +65,8 @@
       <GridPane layoutX="364.0" layoutY="184.0" opacity="0.8" prefHeight="361.0" prefWidth="674.0" style="-fx-background-color: #000f32;">
          <columnConstraints>
             <ColumnConstraints hgrow="SOMETIMES" maxWidth="322.0" minWidth="10.0" prefWidth="172.0" />
-            <ColumnConstraints hgrow="SOMETIMES" maxWidth="397.0" minWidth="10.0" prefWidth="307.0" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="453.0" minWidth="10.0" prefWidth="453.0" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="397.0" minWidth="10.0" prefWidth="87.0" />
          </columnConstraints>
          <rowConstraints>
             <RowConstraints maxHeight="189.0" minHeight="10.0" prefHeight="189.0" vgrow="SOMETIMES" />

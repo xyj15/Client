@@ -16,7 +16,7 @@ public class ManagerSearchHotelUI extends Application {
         Parent root = FXMLLoader.load(getClass().getResource("ManagerSearchHotel.fxml"));
         ManagerController.setMidStage(primaryStage);
         ManagerController.setMidRoot(root);
-        Scene myScene = new Scene(root,538,538);
+        Scene myScene = new Scene(root,528,528);
         primaryStage.setResizable(false);
         primaryStage.setScene(myScene);
         primaryStage.show();

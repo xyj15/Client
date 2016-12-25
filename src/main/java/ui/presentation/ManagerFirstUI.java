@@ -15,7 +15,8 @@ public class ManagerFirstUI extends Application {
     public void start(Stage primaryStage)throws Exception{
         Parent root =FXMLLoader.load(getClass().getResource("ManagerFirst.fxml"));
         ManagerController.setPrimaryStage(primaryStage);
-        Scene myScene = new Scene(root,1180,673);
+        ManagerController.setRoot(root);
+        Scene myScene = new Scene(root,1180,660);
         primaryStage.setResizable(false);
         primaryStage.setScene(myScene);
         primaryStage.show();

@@ -369,7 +369,7 @@ public class HotelController {
         Label unNum = (Label) midRoot.lookup("#unNum");
         totalNum.setText(""+temOrder.getNumberOfRoom());
         unNum.setText(""+(temOrder.getNumberOfRoom()-count));
-        RoomList = room.getAvailableRoomByName(temOrder.getCheckinTime(),temOrder.getRoomName());
+        RoomList = room.getAvailableRoomByName(new Date(),temOrder.getRoomName());
         ObservableList<TableData> dataForH
                 = FXCollections.observableArrayList();
         ObservableList<TableColumn> tableList = table.getColumns();
@@ -574,6 +574,7 @@ public class HotelController {
                 = FXCollections.observableArrayList();
         ObservableList<TableColumn> tableList = table.getColumns();
         PromotionList = promotion.getHotelDatePromotionList();
+        System.out.print(PromotionList.size());
         SimpleDateFormat sdf=new SimpleDateFormat("yyyy-MM-dd");
         for(int i=0;i<PromotionList.size();i++){
             dataForH.add(new TableData(sdf.format(PromotionList.get(i).getStartDate()),sdf.format(PromotionList.get(i).getEndDate()),
@@ -668,9 +669,10 @@ public class HotelController {
         TextField dateDiscount = (TextField) minRoot.lookup("#dateDiscount");
         DatePicker checkInDate = (DatePicker) minRoot.lookup("#checkInDate");
         DatePicker checkOutDate = (DatePicker) minRoot.lookup("#checkOutDate");
-        PromotionVO add = new PromotionVO(null,DatePromotionName.toString(), PromotionType.Discount,hotel.getHotelInformation().getUserID());
+        PromotionVO add = new PromotionVO(null,DatePromotionName.getText().toString(), PromotionType.Discount,hotel.getHotelInformation().getUserID());
         add.setStartDate(new Date(checkInDate.getValue().getYear()-1900,checkInDate.getValue().getMonthValue()-1,checkInDate.getValue().getDayOfMonth()));
         add.setEndDate(new Date(checkOutDate.getValue().getYear()-1900,checkOutDate.getValue().getMonthValue()-1,checkOutDate.getValue().getDayOfMonth()));
+        add.setSaleType(SaleType.Date);
         add.setDiscount(Double.parseDouble(dateDiscount.getText().toString()));
         promotion.addPromotion(add);
         minPrimaryStage.close();
@@ -758,6 +760,7 @@ public class HotelController {
         add.setPromotionName(Pname.getText().toString());
         add.setEnterprise(name.getText());
         add.setDiscount(Double.parseDouble(discount.getText().toString()));
+        add.setSaleType(SaleType.Enterprise);
         promotion.addPromotion(add);
         minPrimaryStage.close();
         onCompanyPromotion(E);

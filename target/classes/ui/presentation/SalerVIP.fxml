@@ -19,7 +19,7 @@
          </image>
       </ImageView>
       <Line endX="10.0" layoutX="264.0" layoutY="215.0" startX="10.0" startY="300.0" stroke="WHITE" strokeWidth="2.0" AnchorPane.topAnchor="214.0" />
-      <ImageView fitHeight="148.0" fitWidth="124.0" layoutX="63.0" layoutY="26.0" pickOnBounds="true" preserveRatio="true" style="-fx-image: url(&quot;C:\Users\Administrator\IdeaProjects\JavaFX\src\sample、background.jpg&quot;);">
+      <ImageView fitHeight="148.0" fitWidth="124.0" layoutX="63.0" layoutY="26.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@logo.png" />
          </image>
@@ -29,7 +29,7 @@
             <Font name="Microsoft YaHei Bold" size="16.0" />
          </font>
       </Button>
-      <Button layoutX="913.0" layoutY="499.0" mnemonicParsing="false" onAction="#onUpdateVIP" prefHeight="34.0" prefWidth="80.0" style="-fx-background-color: #6B6BCF;" text="修改" textFill="WHITE">
+      <Button layoutX="913.0" layoutY="499.0" mnemonicParsing="false" onAction="#onAddVIP" prefHeight="34.0" prefWidth="80.0" style="-fx-background-color: #6B6BCF;" text="修改" textFill="WHITE">
          <font>
             <Font name="Microsoft YaHei Bold" size="16.0" />
          </font>
@@ -55,7 +55,7 @@
             <Font name="Microsoft YaHei Bold" size="16.0" />
          </font>
       </Button>
-      <Button layoutX="51.0" layoutY="382.0" mnemonicParsing="false" opacity="0.81" prefHeight="23.0" prefWidth="181.0" style="-fx-background-color: #000f32;" text="会员制度" textFill="WHITE">
+      <Button disable="true" layoutX="51.0" layoutY="382.0" mnemonicParsing="false" opacity="0.81" prefHeight="23.0" prefWidth="181.0" text="会员制度" textFill="#000f32">
          <font>
             <Font name="Microsoft YaHei Bold" size="16.0" />
          </font>
@@ -65,10 +65,10 @@
             <Font name="Microsoft YaHei Bold" size="16.0" />
          </font>
       </Button>
-      <TableView fx:id="districtTable" layoutX="343.0" layoutY="367.0" opacity="0.81" prefHeight="218.0" prefWidth="511.0" stylesheets="@TableView.css">
+      <TableView fx:id="districtTable" layoutX="343.0" layoutY="367.0" opacity="0.81" prefHeight="218.0" prefWidth="511.0" style="-fx-background-color: #000f32;" stylesheets="@TableView.css">
         <columns>
-          <TableColumn prefWidth="75.0" text="商圈" />
-            <TableColumn prefWidth="75.0" text="折扣" />
+          <TableColumn editable="false" prefWidth="75.0" sortable="false" style="-fx-background-color: #000f32;" text="商圈" />
+            <TableColumn editable="false" prefWidth="75.0" sortable="false" style="-fx-background-color: #000f32;" text="折扣" />
         </columns>
          <columnResizePolicy>
             <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
@@ -79,11 +79,11 @@
             <Font name="Microsoft YaHei Bold" size="16.0" />
          </font>
       </Button>
-      <TableView fx:id="rankTable" layoutX="343.0" layoutY="128.0" opacity="0.81" prefHeight="218.0" prefWidth="511.0" stylesheets="@TableView.css">
+      <TableView fx:id="rankTable" layoutX="343.0" layoutY="128.0" opacity="0.81" prefHeight="218.0" prefWidth="511.0" style="-fx-background-color: #000f32;" stylesheets="@TableView.css">
          <columns>
-            <TableColumn prefWidth="75.0" text="会员等级" />
-            <TableColumn prefWidth="75.0" text="折扣" />
-            <TableColumn prefWidth="75.0" text="升级所需信用" />
+            <TableColumn editable="false" prefWidth="75.0" sortable="false" style="-fx-background-color: #000f32;" text="会员等级" />
+            <TableColumn editable="false" prefWidth="75.0" sortable="false" style="-fx-background-color: #000f32;" text="折扣" />
+            <TableColumn editable="false" prefWidth="75.0" sortable="false" style="-fx-background-color: #000f32;" text="升级所需信用" />
          </columns>
          <columnResizePolicy>
             <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />

@@ -19,14 +19,12 @@ import ui.presentation.*;
 import vo.OrderVO;
 import vo.PromotionVO;
 import bl.implementation.Member;
-import bl.implementation.Promotion;
 import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.time.ZoneId;
 import java.util.ArrayList;
 import java.util.Date;
 import javafx.scene.control.DateCell;
-import static other.UserType.Member;
 
 /**
  * Created by 97147 on 2016/11/30.
@@ -310,7 +308,7 @@ public class PromotionController {
         DatePicker checkInDate = (DatePicker)minroot.lookup("#checkInDate");//起始时间
         DatePicker checkOutDate = (DatePicker)minroot.lookup("#checkOutDate");//结束时间
         TextField dateDiscount=(TextField)minroot.lookup("#dateDiscount");//折扣
-        PromotionVO promotion=new PromotionVO(null,datePromotionName.getText(),PromotionType.Discount);
+        PromotionVO promotion=new PromotionVO(null,datePromotionName.getText().toString(),PromotionType.Discount);
         Date start=new Date(checkInDate.getValue().getYear(),checkInDate.getValue().getMonthValue(),checkInDate.getValue().getDayOfMonth());
         Date end=new Date(checkOutDate.getValue().getYear(),checkOutDate.getValue().getMonthValue(),checkOutDate.getValue().getDayOfMonth());
         promotion.setDatePromotion(start,end,Double.parseDouble(dateDiscount.getText()),0,0);
@@ -342,9 +340,9 @@ public class PromotionController {
            checkOutDateUpdate.setDayCellFactory(dateBefore(checkInDateUpdate));
        }
        catch (NullPointerException e){
-           new PromptUI().start(promptStage);
-           Label promptLabel=(Label)promptroot.lookup("#promptLabel");
-           promptLabel.setText("请选择一个营销策略");
+//           new PromptUI().start(promptStage);
+//           Label promptLabel=(Label)promptroot.lookup("#promptLabel");
+//           promptLabel.setText("请选择一个营销策略");
        }
     }
     /**

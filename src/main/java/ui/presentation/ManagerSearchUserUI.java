@@ -16,7 +16,7 @@ public class ManagerSearchUserUI extends Application {
         Parent root =FXMLLoader.load(getClass().getResource("ManagerSearchUser.fxml"));
         ManagerController.setPrimaryStage(primaryStage);
         ManagerController.setRoot(root);
-        Scene myScene = new Scene(root,1180,673);
+        Scene myScene = new Scene(root,1180,660);
         primaryStage.setResizable(false);
         primaryStage.setScene(myScene);
         primaryStage.show();
