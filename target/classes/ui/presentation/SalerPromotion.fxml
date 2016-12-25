@@ -50,7 +50,7 @@
             <Image url="@key.png" />
          </image>
       </ImageView>
-      <Button disable="true" layoutX="51.0" layoutY="231.0" mnemonicParsing="false" opacity="0.8" prefHeight="32.0" prefWidth="181.0" style="-fx-background-color: #000f32;" text="营销策略" textFill="WHITE">
+      <Button disable="true" layoutX="51.0" layoutY="231.0" mnemonicParsing="false" opacity="0.8" prefHeight="32.0" prefWidth="181.0" text="营销策略" textFill="#000f32">
          <font>
             <Font name="Microsoft YaHei Bold" size="16.0" />
          </font>

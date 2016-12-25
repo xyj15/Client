@@ -55,7 +55,7 @@
             <Font name="Microsoft YaHei Bold" size="16.0" />
          </font>
       </Button>
-      <Button layoutX="51.0" layoutY="382.0" mnemonicParsing="false" opacity="0.81" prefHeight="23.0" prefWidth="181.0" style="-fx-background-color: #000f32;" text="会员制度" textFill="WHITE">
+      <Button disable="true" layoutX="51.0" layoutY="382.0" mnemonicParsing="false" opacity="0.81" prefHeight="23.0" prefWidth="181.0" text="会员制度" textFill="#000f32">
          <font>
             <Font name="Microsoft YaHei Bold" size="16.0" />
          </font>

@@ -51,7 +51,7 @@
          </image>
       </ImageView>
       <Button layoutX="1076.0" layoutY="26.0" mnemonicParsing="false" onAction="#onLogOut" opacity="0.0" prefHeight="34.0" prefWidth="70.0" text="Button" />
-      <Button layoutX="61.0" layoutY="279.0" mnemonicParsing="false" onAction="#onSearchUser" opacity="0.79" prefHeight="32.0" prefWidth="181.0" style="-fx-background-color: #000f32;" text="查询用户" textFill="WHITE">
+      <Button disable="true" layoutX="61.0" layoutY="279.0" mnemonicParsing="false" onAction="#onSearchUser" opacity="0.79" prefHeight="32.0" prefWidth="181.0" text="查询用户" textFill="#000f32">
          <font>
             <Font name="Microsoft YaHei Bold" size="16.0" />
          </font>
