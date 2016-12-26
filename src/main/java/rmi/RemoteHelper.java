@@ -123,7 +123,7 @@ public class RemoteHelper {
 		} else {
 			System.out.println("连接到服务器失败");
 		}
-		try {
+//		try {
 //			System.out.println(remoteHelper.getHotelDataService().getAvailableHotelID());
 //			System.out.println(remoteHelper.getMemberDataService().getAvailableMemberID());
 //			System.out.println(remoteHelper.getCreditDataService().getCredit("00000000"));
@@ -136,10 +136,10 @@ public class RemoteHelper {
 //
 //			ArrayList<CreditChangePO> creditChangePOList = remoteHelper.getCreditDataService().getCreditChange("00000000");
 //			System.out.println(creditChangePOList.get(0).getOrderID());
-			System.out.println(remoteHelper.getPromotionDataService().getPromotionList().get(0).getPromotionName());
-		} catch (RemoteException e) {
-			e.printStackTrace();
-		}
+//			System.out.println(remoteHelper.getPromotionDataService().getPromotionList().get(0).getPromotionName());
+//		} catch (RemoteException e) {
+//			e.printStackTrace();
+//		}
 			
 //		OrderDataAbstractFactory factory = remoteHelper.getOrderDataFactory();
 //		try {

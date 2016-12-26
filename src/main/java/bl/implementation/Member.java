@@ -32,7 +32,6 @@ public class Member implements MemberBLService {
 	 * 注册用户时使用这个构造方法，分配一个可用的ID
 	 */
 	public Member(MemberVO memberVO) {
-		RemoteHelper.getInstance().connect();
 		memberDataService = RemoteHelper.getInstance().getMemberDataService();
 //		memberDataService = new MemberDataStub();
 		try {
@@ -58,7 +57,6 @@ public class Member implements MemberBLService {
 	 * @param memberID 客户ID
 	 */
 	public Member(String memberID) {
-		RemoteHelper.getInstance().connect();
 		memberDataService = RemoteHelper.getInstance().getMemberDataService();
 //		memberDataService = new MemberDataStub();
 		this.memberID = memberID;
