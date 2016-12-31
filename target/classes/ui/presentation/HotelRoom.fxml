@@ -34,37 +34,37 @@
          <font>
             <Font name="Microsoft YaHei Bold" size="16.0" />
          </font></Label>
-      <Button layoutX="622.0" layoutY="613.0" mnemonicParsing="false" onAction="#onAddRoom" prefHeight="23.0" prefWidth="65.0" style="-fx-background-color: #6B6BCF;" text="增加" textFill="WHITE">
+      <Button layoutX="837.0" layoutY="583.0" mnemonicParsing="false" onAction="#onAddRoom" prefHeight="23.0" prefWidth="65.0" style="-fx-background-color: #6B6BCF;" text="增加" textFill="WHITE">
          <font>
             <Font name="Microsoft YaHei Bold" size="16.0" />
          </font>
       </Button>
-      <Button layoutX="696.0" layoutY="613.0" mnemonicParsing="false" onAction="#onChangeRoom" prefHeight="23.0" prefWidth="65.0" style="-fx-background-color: #6B6BCF;" text="修改" textFill="WHITE">
+      <Button layoutX="911.0" layoutY="583.0" mnemonicParsing="false" onAction="#onChangeRoom" prefHeight="23.0" prefWidth="65.0" style="-fx-background-color: #6B6BCF;" text="修改" textFill="WHITE">
          <font>
             <Font name="Microsoft YaHei Bold" size="16.0" />
          </font>
       </Button>
-      <Button layoutX="772.0" layoutY="613.0" mnemonicParsing="false" onAction="#onDeleteRoom" prefHeight="23.0" prefWidth="65.0" style="-fx-background-color: #6B6BCF;" text="删除" textFill="WHITE">
+      <Button layoutX="987.0" layoutY="583.0" mnemonicParsing="false" onAction="#onDeleteRoom" prefHeight="23.0" prefWidth="65.0" style="-fx-background-color: #6B6BCF;" text="删除" textFill="WHITE">
          <font>
             <Font name="Microsoft YaHei Bold" size="16.0" />
          </font>
       </Button>
-      <Button layoutX="43.0" layoutY="200.0" mnemonicParsing="false" onAction="#onInfor" opacity="0.67" prefHeight="32.0" prefWidth="181.0" style="-fx-background-color: #000f32;" text="基本信息" textFill="WHITE">
+      <Button layoutX="43.0" layoutY="200.0" mnemonicParsing="false" onAction="#onInfor" opacity="0.8" prefHeight="32.0" prefWidth="181.0" style="-fx-background-color: #000f32;" text="基本信息" textFill="WHITE">
          <font>
             <Font name="Microsoft YaHei Bold" size="16.0" />
          </font>
       </Button>
-      <Button layoutX="43.0" layoutY="400.0" mnemonicParsing="false" onAction="#onPromotionManager" opacity="0.66" prefHeight="23.0" prefWidth="181.0" style="-fx-background-color: #000f32;" text="营销策略" textFill="WHITE">
+      <Button layoutX="43.0" layoutY="400.0" mnemonicParsing="false" onAction="#onPromotionManager" opacity="0.8" prefHeight="23.0" prefWidth="181.0" style="-fx-background-color: #000f32;" text="营销策略" textFill="WHITE">
          <font>
             <Font name="Microsoft YaHei Bold" size="16.0" />
          </font>
       </Button>
-      <Button layoutX="43.0" layoutY="500.0" mnemonicParsing="false" onAction="#onRoomManager" opacity="0.66" prefHeight="23.0" prefWidth="181.0" style="-fx-background-color: #000f32;" text="房间管理" textFill="WHITE">
+      <Button disable="true" layoutX="43.0" layoutY="500.0" mnemonicParsing="false" onAction="#onRoomManager" opacity="0.8" prefHeight="23.0" prefWidth="181.0" text="房间管理" textFill="#000f32">
          <font>
             <Font name="Microsoft YaHei Bold" size="16.0" />
          </font>
       </Button>
-      <Button layoutX="43.0" layoutY="300.0" mnemonicParsing="false" onAction="#onOrderManager" opacity="0.67" prefHeight="32.0" prefWidth="181.0" style="-fx-background-color: #000f32;" text="订单管理" textFill="WHITE">
+      <Button layoutX="43.0" layoutY="300.0" mnemonicParsing="false" onAction="#onOrderManager" opacity="0.8" prefHeight="32.0" prefWidth="181.0" style="-fx-background-color: #000f32;" text="订单管理" textFill="WHITE">
          <font>
             <Font name="Microsoft YaHei Bold" size="16.0" />
          </font>
@@ -87,7 +87,7 @@
             <Font name="Microsoft YaHei Bold" size="20.0" />
          </font>
       </Label>
-      <DatePicker fx:id="date" layoutX="785.0" layoutY="130.0" />
+      <DatePicker fx:id="date" layoutX="785.0" layoutY="130.0" opacity="0.79" />
       <Button layoutX="987.0" layoutY="124.0" mnemonicParsing="false" onAction="#onCHA" prefHeight="23.0" prefWidth="65.0" style="-fx-background-color: #6B6BCF;" text="查询" textFill="WHITE">
          <font>
             <Font name="Microsoft YaHei Bold" size="16.0" />

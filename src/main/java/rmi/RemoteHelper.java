@@ -2,9 +2,12 @@ package rmi;
 
 import data.service.*;
 import javafx.stage.Stage;
+import other.MemberType;
 import other.OrderStatus;
 import po.CreditChangePO;
+import po.MemberPO;
 import po.OrderPO;
+import po.RoomPO;
 import ui.presentation.LoginUI;
 
 import java.net.InetAddress;
@@ -136,7 +139,13 @@ public class RemoteHelper {
 //
 //			ArrayList<CreditChangePO> creditChangePOList = remoteHelper.getCreditDataService().getCreditChange("00000000");
 //			System.out.println(creditChangePOList.get(0).getOrderID());
-			System.out.println(remoteHelper.getPromotionDataService().getPromotionList().get(0).getPromotionName());
+//			System.out.println(remoteHelper.getPromotionDataService().getPromotionList().get(0).getPromotionName());
+//			ArrayList<RoomPO> roomList = remoteHelper.getRoomDataService().getRoomsByDate(new Date(), "000000");
+//			for (RoomPO room: roomList
+//			     ) {
+//				System.out.println(room.getRoomName());
+//			}
+			System.out.println(remoteHelper.getPromotionDataService().getPromotion("00006").getPromotionName());
 		} catch (RemoteException e) {
 			e.printStackTrace();
 		}

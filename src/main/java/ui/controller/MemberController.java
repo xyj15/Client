@@ -1,9 +1,6 @@
 package ui.controller;
 
-import bl.implementation.Hotel;
-import bl.implementation.Login;
-import bl.implementation.Reserve;
-import bl.implementation.Room;
+import bl.implementation.*;
 import bl.service.*;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
@@ -138,7 +135,9 @@ public class MemberController{
         if(oldPassword.getText().toString().equals(member.getMemberInformation().getPassword())){
             if(newPassword.getText().toString().equals(surePassword.getText().toString())){
                 if(login.validPassword(newPassword.getText().toString())){
-                    member.getMemberInformation().setPassword(newPassword.getText().toString());
+                    MemberVO tem =member.getMemberInformation();
+                    tem.setPassword(newPassword.getText().toString());
+                    member.updateMemberInformation(tem);
                     minPrimaryStage.close();
                     new MemberPromptUI().start(promptPrimaryStage);
                     Label message = (Label) promptRoot.lookup("#Message");
@@ -767,7 +766,12 @@ public class MemberController{
     @FXML
     private void onChangeInfor(ActionEvent E)throws Exception {
         minPrimaryStage = new Stage();
+
         new MemberUpdateInformationUI().start(minPrimaryStage);
+        TextField name = (TextField)minRoot.lookup("#name");
+        TextField tel = (TextField)minRoot.lookup("#tel");
+        name.setText(member.getName());
+        tel.setText(member.getTel());
     }
 
     /**
@@ -779,10 +783,14 @@ public class MemberController{
     private void onMakeChange(ActionEvent E)throws Exception {
         TextField name = (TextField)minRoot.lookup("#name");
         TextField tel = (TextField)minRoot.lookup("#tel");
-        member.getMemberInformation().setName(name.getText().toString());
-        member.getMemberInformation().setTel(tel.getText().toString());
-        member.updateMemberInformation(member.getMemberInformation());
+        MemberVO tem =member.getMemberInformation();
+        tem.setName(name.getText().toString());
+        tem.setTel(tel.getText().toString());
+        member.updateMemberInformation(tem);
+
         minPrimaryStage.close();
+        member = new Member(member.getMemberInformation().getUserID());
+
         onMenberInfor(E);
     }
 
