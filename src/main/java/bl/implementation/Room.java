@@ -166,6 +166,8 @@ public class Room implements RoomBLService {
 	public ArrayList<RoomVO> getDailyRoomList(Date date) {
 		ArrayList<RoomPO> roomPOList = null;
 		try {
+//			System.out.println(hotelID);
+//			System.out.println(date.toString());
 			roomPOList = roomDataService.getRoomsByDate(date, hotelID);
 		} catch (RemoteException e) {
 			e.printStackTrace();
