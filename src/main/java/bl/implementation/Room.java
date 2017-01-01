@@ -169,7 +169,12 @@ public class Room implements RoomBLService {
 		try {
 //			System.out.println(hotelID);
 //			System.out.println(date.toString());
+//			System.out.println(roomDataService.getRoomsByDate(date, hotelID).size());
+			if(roomDataService==null) {
+				roomDataService = RemoteHelper.getInstance().getRoomDataService();
+			}
 			roomPOList = roomDataService.getRoomsByDate(date, hotelID);
+//			System.out.println(roomPOList.size());
 		} catch (RemoteException e) {
 			e.printStackTrace();
 		}
@@ -177,6 +182,7 @@ public class Room implements RoomBLService {
 		for(int i=0; i<roomPOList.size(); i++) {
 			roomVOList.add(roomPOtoVO(roomPOList.get(i)));
 		}
+//		System.out.println(roomVOList.size());
 		return roomVOList;
 	}
 	
