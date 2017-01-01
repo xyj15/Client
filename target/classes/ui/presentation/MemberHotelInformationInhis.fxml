@@ -123,17 +123,6 @@
             <Font name="Microsoft YaHei Bold" size="16.0" />
          </font>
       </Button>
-      <TableView fx:id="table" layoutX="42.0" layoutY="380.0" opacity="0.66" prefHeight="229.0" prefWidth="506.0" style="-fx-background-color: #000f32;" stylesheets="@TableView.css">
-         <columnResizePolicy>
-            <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
-         </columnResizePolicy>
-         <columns>
-            <TableColumn editable="false" prefWidth="75.0" sortable="false" style="-fx-background-color: #000f32;" text="订单ID" />
-            <TableColumn editable="false" prefWidth="75.0" sortable="false" style="-fx-background-color: #000f32;" text="创建时间" />
-            <TableColumn editable="false" prefWidth="157.0" sortable="false" style="-fx-background-color: #000f32;" text="订单状态" />
-            <TableColumn editable="false" prefWidth="75.0" sortable="false" style="-fx-background-color: #000f32;" text="总价" />
-         </columns>
-      </TableView>
       <Button layoutX="419.0" layoutY="615.0" mnemonicParsing="false" onAction="#onOrderInformation" prefHeight="34.0" prefWidth="119.0" style="-fx-background-color: #6B6BCF;" text="订单详情" textFill="WHITE">
          <font>
             <Font name="Microsoft YaHei Bold" size="14.0" />
@@ -160,5 +149,16 @@
          </font>
       </Label>
       <DatePicker fx:id="outTimeInHistory" editable="false" layoutX="778.0" layoutY="97.0" />
+      <TableView fx:id="table" layoutX="42.0" layoutY="380.0" opacity="0.66" prefHeight="229.0" prefWidth="506.0" style="-fx-background-color: #000f32;" stylesheets="@TableView.css">
+         <columnResizePolicy>
+            <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+         </columnResizePolicy>
+         <columns>
+            <TableColumn editable="false" prefWidth="166.0" sortable="false" style="-fx-background-color: #000f32;" text="订单ID" />
+            <TableColumn editable="false" prefWidth="120.0" sortable="false" style="-fx-background-color: #000f32;" text="创建时间" />
+            <TableColumn editable="false" prefWidth="127.0" sortable="false" style="-fx-background-color: #000f32;" text="订单状态" />
+            <TableColumn editable="false" prefWidth="83.0" sortable="false" style="-fx-background-color: #000f32;" text="总价" />
+         </columns>
+      </TableView>
    </children>
 </AnchorPane>

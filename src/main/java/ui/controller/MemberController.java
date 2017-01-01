@@ -896,7 +896,7 @@ public class MemberController{
         DatePicker outTime = (DatePicker)root.lookup("#outTime");
         search.setCity(city.getSelectionModel().getSelectedItem().toString());
         search.setDistrict(district.getSelectionModel().getSelectedItem().toString());
-        if(roomTypeInsearch.getEditor().getText().toString().equals("")){
+        if(roomTypeInsearch.getSelectionModel().getSelectedItem()==null){
             search.setRoomType(null);
         }else{
             search.setRoomType(roomTypeInsearch.getSelectionModel().getSelectedItem().toRoomType());
@@ -931,7 +931,7 @@ public class MemberController{
         }else {
             search.setUpperScore(Double.parseDouble(highScore.getText().toString()));
         }
-        if(level.getEditor().getText().toString().equals("")){
+        if(level.getSelectionModel().getSelectedItem()==null){
              search.setLevel(0);
         }else {
             search.setLevel(Integer.parseInt(level.getSelectionModel().getSelectedItem().toString()));
