@@ -241,7 +241,12 @@ public class ManagerController{
 			saler.setName(salerName.getText().toString());
 			saler.setPassword(tel.getText().toString());
 			manager.addSaler(saler);
-			//有东西
+			PromptStage = new Stage();
+			new ManagerPrompt2UI().start(PromptStage);
+			Label message = (Label) PromptRoot.lookup("#Message");
+			Label m = (Label) PromptRoot.lookup("#m");
+			message.setText("您的ID为：");
+			m.setText(saler.getUserID());
 		}
 
 	}
@@ -322,6 +327,12 @@ public class ManagerController{
 		hotel.setManagerName(hotelManagerName.getText());
 		hotel.setManagerTel(tel.getText());
 		manager.addHotel(hotel);
+		PromptStage = new Stage();
+		new ManagerPrompt2UI().start(PromptStage);
+		Label message = (Label) PromptRoot.lookup("#Message");
+		Label m = (Label) PromptRoot.lookup("#m");
+		message.setText("您的ID为：");
+		m.setText(hotel.getUserID());
 	}
 	/**
 	 *
