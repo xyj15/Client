@@ -90,6 +90,7 @@ public class RemoteHelper {
 			remoteHelper.setRemote(Naming.lookup("rmi://localhost:3304/RemoteDataService"));
 //			remoteHelper.setRemote(Naming.lookup("rmi://172.28.151.24:3304/RemoteDataService"));
 			connected = true;
+			System.out.println("连接到服务器成功");
 			return true;
 		} catch (RemoteException e) {
 			e.printStackTrace();
