@@ -227,7 +227,7 @@ public class Order implements OrderBLService {
 			orderVO.setMemberVO(member.getMemberInformation());
 			orderList.add(orderVO);
 		}
-		updateAbnormalOrder();
+//		updateAbnormalOrder();
 		return true;
 	}
 	
@@ -414,6 +414,9 @@ public class Order implements OrderBLService {
 	public void updateAbnormalOrder() {
 		for(int i=0; i<orderList.size(); i++) {
 			OrderVO orderVO = orderList.get(i);
+			if(orderVO.getOrderStatus()==OrderStatus.Abnormal) {
+				continue;
+			}
 			if(orderVO.getLatestCheckinTime().before(new Date())) {
 				orderVO.setOrderStatus(OrderStatus.Abnormal);
 				try {
@@ -451,16 +454,13 @@ public class Order implements OrderBLService {
 		if(orderVO==null) {
 			return false;
 		}
-		orderVO.setActualCheckinTime(new Date());
-		orderVO.setOrderStatus(OrderStatus.Executed);
-		orderVO.setOrderStatus(OrderStatus.Executed);
+		orderVO.setActualCheckoutTime(new Date());
 		return updateOrderToFile(orderVO);
 	}
 	
 	public boolean updateOrderToFile(OrderVO orderVO) {
 		try {
-			orderDataService.updateOrder(orderVOtoPO(orderVO));
-			return true;
+			return orderDataService.updateOrder(orderVOtoPO(orderVO));
 		} catch (RemoteException e) {
 			e.printStackTrace();
 			return false;
