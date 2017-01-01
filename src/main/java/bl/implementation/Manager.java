@@ -87,7 +87,7 @@ public class Manager implements ManagerBLService {
 	@Override
 	public boolean addHotel(HotelVO hotelVO) {
 		hotel = new Hotel(hotelVO);
-		return hotel.updateDateToFile();
+		return true;
 	}
 	
 	/**
