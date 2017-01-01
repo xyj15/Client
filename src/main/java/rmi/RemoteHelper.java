@@ -141,6 +141,7 @@ public class RemoteHelper {
 //			System.out.println(creditChangePOList.get(0).getOrderID());
 //			System.out.println(remoteHelper.getPromotionDataService().getPromotionList().get(0).getPromotionName());
 //			System.err.println(remoteHelper.getPromotionDataService().getPromotionList().size());
+//			System.out.println(remoteHelper.getRoomDataService().getRoomsByDate(new Date(), "000000").size());
 //		} catch (RemoteException e) {
 //			e.printStackTrace();
 //		}

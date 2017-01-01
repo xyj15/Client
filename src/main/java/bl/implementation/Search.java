@@ -231,65 +231,49 @@ public class Search implements SearchBLService {
 	 * @return 符合条件的酒店列表
 	 */
 	public ArrayList<HotelVO> filterExceptDate(Date date) {
-		System.out.println("pt1");
 		ArrayList<HotelPO> hotelPOList = null;
 		try {
 			hotelPOList = searchDataService.getHotelListByCityDistrict(city, district);
-			System.out.println("hotel01: " + hotelPOList.size());
 		} catch (RemoteException e) {
 			e.printStackTrace();
 		}
 		
-		System.out.println("pt2");
 		ArrayList<HotelVO> hotelList = new ArrayList<>();
 		for(int i=0; i<hotelPOList.size(); i++) {
 			hotelList.add(Hotel.hotelPOtoVO(hotelPOList.get(i)));
 		}
-		System.out.println("hotel02: " + hotelPOList.size());
 		hotelList = updateHotelInformationByDate(hotelList, date);
-		System.out.println("hotel03: " + hotelPOList.size());
 		
-		System.out.println("pt3");
 		if(!hotelName.equals("")) {
 			hotelList = filterByhotelName(hotelList);
-			System.out.println("hotel04: " + hotelPOList.size());
 			if(hotelList.size()==0) {
 				return hotelList;
 			}
 		}
 		
-		System.out.println("pt4");
 		if(level!=0) {
 			hotelList = filterByLevel(hotelList);
-			System.out.println("hotel05: " + hotelPOList.size());
 			if(hotelList.size()==0) {
 				return hotelList;
 			}
 		}
 		
-		System.out.println("pt5");
 		if(numberOfRooms!=1) {
 			hotelList = filterByNumberOfRooms(hotelList);
-			System.out.println("hotel06: " + hotelPOList.size());
 			if(hotelList.size()==0) {
 				return hotelList;
 			}
 		}
 		
-		System.out.println("pt6");
 		if(onlyReservationBefore) {
 			hotelList = filterByReservedBefore(hotelList);
-			System.out.println("hotel07: " + hotelPOList.size());
 			if(hotelList.size()==0) {
 				return hotelList;
 			}
 		}
 		
-		System.out.println("pt7");
 		hotelList = filterByPrice(hotelList);
-		System.out.println("hotel08: " + hotelPOList.size());
 		hotelList = filterByScore(hotelList);
-		System.out.println("hotel09: " + hotelPOList.size());
 		return hotelList;
 	}
 	
