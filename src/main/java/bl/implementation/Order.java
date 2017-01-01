@@ -434,4 +434,31 @@ public class Order implements OrderBLService {
 			}
 		}
 	}
+	
+	public boolean checkin(String orderID) {
+		updateDataFromFile();
+		boolean result = false;
+		OrderVO orderVO = null;
+		for(int i=0; i<orderList.size(); i++) {
+			orderVO = orderList.get(i);
+			if(orderVO.getOrderID().equals(orderID)) {
+				result = true;
+				break;
+			}
+		}
+		
+		if(result) {
+			orderVO.setActualCheckinTime(new Date());
+			orderVO.setOrderStatus(OrderStatus.Executed);
+			try {
+				orderDataService.updateOrder(orderVOtoPO(orderVO));
+				return true;
+			} catch (RemoteException e) {
+				e.printStackTrace();
+				return false;
+			}
+		} else {
+			return false;
+		}
+	}
 }
