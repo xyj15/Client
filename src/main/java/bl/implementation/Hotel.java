@@ -40,7 +40,6 @@ public class Hotel implements HotelBLService {
 	public Hotel(HotelVO hotelVO) {
 		this.hotelVO = hotelVO;
 //		hotelDataService = new HotelDataStub();
-		RemoteHelper.getInstance().connect();
 		hotelDataService = RemoteHelper.getInstance().getHotelDataService();
 		try {
 			hotelVO.setUserID(hotelDataService.getAvailableHotelID());
@@ -61,7 +60,6 @@ public class Hotel implements HotelBLService {
 	 */
 	public Hotel(String hotelID) {
 		this.hotelID = hotelID;
-		RemoteHelper.getInstance().connect();
 		hotelDataService = RemoteHelper.getInstance().getHotelDataService();
 //		hotelDataService = new HotelDataStub();
 		updateDateFromFile();
@@ -203,17 +201,8 @@ public class Hotel implements HotelBLService {
 		}
 		orderVO.setOrderStatus(OrderStatus.Executed);
 		orderVO.setActualCheckinTime(new Date());
-		RoomVO roomVO = room.getRoomInformation(new Date(), roomID);
-		orderVO.getRoomList().add(roomVO);
-
-		roomVO.setAvailable(false);
-		roomVO.setReserved(true);
-
-		room.updateRoom(new Date(),roomVO);
-		int index = order.getOrderIndex(orderID);
-		order.getOrderList().set(index, orderVO);
 		
-		return true;
+		return room.checkin(new Date(), roomID);
 	}
 	
 	/**
