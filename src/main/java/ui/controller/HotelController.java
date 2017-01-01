@@ -57,9 +57,11 @@ public class HotelController {
     private static Stage primaryStage;              //主界面舞台
     private static Stage minPrimaryStage;           //小界面舞台
     private static Stage midPrimaryStage;           //中界面舞台
+    private static Stage promptPrimaryStage;        //提示界面
     public static void setPrimaryStage(Stage in){
         primaryStage=in;
     }
+    private static Parent promptRoot;
     private static Parent minRoot;
     private static Parent root;
     private static Parent midRoot;
@@ -90,6 +92,20 @@ public class HotelController {
         HotelController.minRoot = minRoot;
     }
 
+    public static void setPromptRoot(Parent promptRoot) {
+        HotelController.promptRoot = promptRoot;
+    }
+
+    public static void setPromptPrimaryStage(Stage promptPrimaryStage) {
+        HotelController.promptPrimaryStage = promptPrimaryStage;
+    }
+    /**
+     * 关闭提示框的响应
+     * */
+    @FXML
+    private void sure(ActionEvent E)throws Exception {
+        promptPrimaryStage.close();
+    }
     /**
      * 响应（查看）酒店基本信息
      * @param E
@@ -494,6 +510,10 @@ public class HotelController {
         temOrder = OrderList.get(table.getSelectionModel().getSelectedIndex());
         order.checkout(temOrder.getOrderID());
         onProcessedOrder(E);
+        promptPrimaryStage = new Stage();
+        new HotelPromptUI().start(promptPrimaryStage);
+        Label message = (Label) promptRoot.lookup("#Message");
+        message.setText("用户离开成功");
 //        midPrimaryStage = new Stage();
 //        new HotelRoomChoiceUI().start(midPrimaryStage);
 //        RoomList = temOrder.getRoomList();
