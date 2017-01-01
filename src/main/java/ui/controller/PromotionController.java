@@ -190,6 +190,7 @@ public class PromotionController {
                 promotion.setDistrictPromotion(district.getText(),Double.parseDouble(VipDiscount.getText()),0,0);
                 saler.createPromotion(promotion);
                 minprimaryStage.close();
+                onRank(E);
             }
         }
     }
@@ -241,7 +242,9 @@ public class PromotionController {
             promotion.setDistrict(districtUpdate.getText());
             promotion.setDiscount(Double.parseDouble(VipDiscountUpdate.getText()));
             minprimaryStage.close();
+            onRank(E);
         }
+
     }
     /**
      *
@@ -264,6 +267,7 @@ public class PromotionController {
             new SalerPromptUI().start(promptStage);
             Label message = (Label) promptroot.lookup("#Message");
             message.setText("删除成功");
+            onRank(E);
         }
     }
 
@@ -305,6 +309,7 @@ public class PromotionController {
                 creditList.add(Double.parseDouble(creditUpgrate.getText()));
                 saler.setRankInformation(creditList,discountList);
                 minprimaryStage.close();
+                onRank(E);
             }
         }
 
@@ -325,7 +330,7 @@ public class PromotionController {
         else{
             minprimaryStage = new Stage();
             new SalerUpdateRankUI().start(minprimaryStage);
-            TextField VipDiscountUpdate=(TextField)minroot.lookup("#VipDiscountUpdate");//Vip折扣
+            TextField VipDiscountUpdate=(TextField)minroot.lookup("#rankDiscountUpdate");//Vip折扣
             TextField creditUpgrateUpdate=(TextField)minroot.lookup("#creditUpgrateUpdate");//升级所需经验
             int i=rankTable.getSelectionModel().getSelectedIndex();
             ArrayList<Double> discountList = saler.getDiscountList();
@@ -357,6 +362,7 @@ public class PromotionController {
             creditList.set(i,Double.parseDouble(creditUpgrateUpdate.getText()));
             saler.setRankInformation(creditList,discountList);
             minprimaryStage.close();
+            onRank(E);
         }
     }
     /**
@@ -374,6 +380,7 @@ public class PromotionController {
         new SalerPromptUI().start(promptStage);
         Label message = (Label) promptroot.lookup("#Message");
         message.setText("删除成功");
+        onRank(E);
     }
     /**
      *
