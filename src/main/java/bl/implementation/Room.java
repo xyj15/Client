@@ -164,6 +164,7 @@ public class Room implements RoomBLService {
 	 */
 	@Override
 	public ArrayList<RoomVO> getDailyRoomList(Date date) {
+		roomDataService = RemoteHelper.getInstance().getRoomDataService();
 		ArrayList<RoomPO> roomPOList = null;
 		try {
 			roomPOList = roomDataService.getRoomsByDate(date, hotelID);
