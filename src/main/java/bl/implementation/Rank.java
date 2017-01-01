@@ -32,7 +32,6 @@ public class Rank {
 	 * @return 会员等级
 	 */
 	public int getLevel(double credit) {
-		updateDataFromFile();
 		int level;
 		for(level = 0; level<creditList.size(); level++) {
 			if(credit<creditList.get(level)) {
@@ -48,7 +47,6 @@ public class Rank {
 	 * @return 折扣
 	 */
 	public double getDiscount(double credit) {
-		updateDataFromFile();
 		int level = getLevel(credit);
 		if(level==1) {
 			return 1;
