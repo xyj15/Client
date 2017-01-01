@@ -194,14 +194,6 @@ public class Hotel implements HotelBLService {
 	 */
 	@Override
 	public boolean checkin(String orderID, String roomID) {
-		order = new Order(hotelID);
-		OrderVO orderVO = order.getOrderInformation(orderID);
-		if(orderVO==null) {
-			return false;
-		}
-		orderVO.setOrderStatus(OrderStatus.Executed);
-		orderVO.setActualCheckinTime(new Date());
-		
 		return room.checkin(new Date(), roomID);
 	}
 	
