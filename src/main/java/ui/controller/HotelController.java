@@ -384,9 +384,7 @@ public class HotelController {
                 return new checkIn();
             }
         });
-
         table.setItems(dataForH);
-
     }
 
     /**
