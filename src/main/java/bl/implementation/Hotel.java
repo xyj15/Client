@@ -194,6 +194,10 @@ public class Hotel implements HotelBLService {
 	 */
 	@Override
 	public boolean checkin(String orderID, String roomID) {
+		OrderVO orderVO = order.getOrderInformation(orderID);
+		RoomVO roomVO = room.getRoomInformation(new Date(), roomID);
+		orderVO.getRoomList().add(roomVO);
+		
 		return room.checkin(new Date(), roomID);
 	}
 	
@@ -205,14 +209,14 @@ public class Hotel implements HotelBLService {
 	 */
 	@Override
 	public boolean checkout(String orderID, String roomID) {
-		order = new Order(hotelID);
 		OrderVO orderVO = order.getOrderInformation(orderID);
-		if(orderVO==null || orderVO.getActualCheckinTime()==null) {
+		RoomVO roomVO = room.getRoomInformation(new Date(), roomID);
+		int index = orderVO.getRoomList().indexOf(roomVO);
+		if(index==-1) {
 			return false;
+		} else {
+			orderVO.getRoomList().remove(roomVO);
 		}
-		orderVO.setActualCheckoutTime(new Date());
-		int index = order.getOrderIndex(orderID);
-		order.getOrderList().set(index, orderVO);
 		
 		Credit credit = new Credit(orderVO.getMemberID());
 		double change = orderVO.getPrice();
