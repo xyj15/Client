@@ -2,6 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="533d0126-a038-48e2-95b2-ba3b8fe2c142" name="Default" comment="">
+<<<<<<< HEAD
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/bl/implementation/Hotel.java" afterPath="$PROJECT_DIR$/src/main/java/bl/implementation/Hotel.java" />
+=======
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/bl/implementation/Promotion.class" afterPath="$PROJECT_DIR$/target/classes/bl/implementation/Promotion.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/ui/controller/HotelController$3.class" afterPath="$PROJECT_DIR$/target/classes/ui/controller/HotelController$3.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/ui/controller/HotelController$checkin.class" afterPath="$PROJECT_DIR$/target/classes/ui/controller/HotelController$checkin.class" />
@@ -15,6 +19,7 @@
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/ui/controller/PromotionController.class" afterPath="$PROJECT_DIR$/target/classes/ui/controller/PromotionController.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/bl/implementation/Promotion.java" afterPath="$PROJECT_DIR$/src/main/java/bl/implementation/Promotion.java" />
+>>>>>>> xin541322049/master
     </list>
     <ignored path="Client.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -39,28 +44,49 @@
       <file leaf-file-name="RemoteHelper.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/rmi/RemoteHelper.java">
           <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
+            <state relative-caret-position="-323">
+              <caret line="233" column="2" selection-start-line="233" selection-start-column="2" selection-end-line="233" selection-end-column="2" />
+=======
             <state relative-caret-position="446">
               <caret line="153" column="9" selection-start-line="153" selection-start-column="9" selection-end-line="153" selection-end-column="9" />
+>>>>>>> xin541322049/master
               <folding />
             </state>
           </provider>
         </entry>
       </file>
+<<<<<<< HEAD
+      <file leaf-file-name="Hotel.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/java/bl/implementation/Hotel.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="532">
+              <caret line="217" column="49" selection-start-line="217" selection-start-column="49" selection-end-line="217" selection-end-column="49" />
+=======
       <file leaf-file-name="Promotion.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/bl/implementation/Promotion.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="-776">
               <caret line="211" column="34" selection-start-line="211" selection-start-column="34" selection-end-line="211" selection-end-column="34" />
+>>>>>>> xin541322049/master
               <folding />
             </state>
           </provider>
         </entry>
       </file>
+<<<<<<< HEAD
+      <file leaf-file-name="Promotion.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/bl/implementation/Promotion.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="2850">
+              <caret line="224" column="13" selection-start-line="224" selection-start-column="13" selection-end-line="224" selection-end-column="13" />
+=======
       <file leaf-file-name="PromotionController.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/ui/controller/PromotionController.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="285">
               <caret line="78" column="58" selection-start-line="78" selection-start-column="58" selection-end-line="78" selection-end-column="58" />
+>>>>>>> xin541322049/master
               <folding />
             </state>
           </provider>
@@ -88,13 +114,21 @@
         <option value="$PROJECT_DIR$/src/main/java/bl/implementation/Rank.java" />
         <option value="$PROJECT_DIR$/src/main/java/bl/implementation/Saler.java" />
         <option value="$PROJECT_DIR$/src/main/java/bl/implementation/Search.java" />
+<<<<<<< HEAD
+        <option value="$PROJECT_DIR$/src/main/java/rmi/RemoteHelper.java" />
+=======
         <option value="$PROJECT_DIR$/src/main/java/bl/implementation/Hotel.java" />
+>>>>>>> xin541322049/master
         <option value="$PROJECT_DIR$/src/main/java/bl/implementation/Room.java" />
         <option value="$PROJECT_DIR$/src/main/java/bl/service/OrderBLService.java" />
         <option value="$PROJECT_DIR$/src/main/java/bl/implementation/Order.java" />
         <option value="$PROJECT_DIR$/src/main/java/bl/stub/OrderBLStub.java" />
+<<<<<<< HEAD
+        <option value="$PROJECT_DIR$/src/main/java/bl/implementation/Hotel.java" />
+=======
         <option value="$PROJECT_DIR$/src/main/java/rmi/RemoteHelper.java" />
         <option value="$PROJECT_DIR$/src/main/java/bl/implementation/Promotion.java" />
+>>>>>>> xin541322049/master
       </list>
     </option>
   </component>
@@ -234,7 +268,11 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
+<<<<<<< HEAD
+              <option name="myItemId" value="bl" />
+=======
               <option name="myItemId" value="ui" />
+>>>>>>> xin541322049/master
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -265,6 +303,10 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="controller" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="implementation" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -783,13 +825,21 @@
       <workItem from="1482754901533" duration="714000" />
       <workItem from="1482840004380" duration="698000" />
       <workItem from="1483250883713" duration="1001000" />
+<<<<<<< HEAD
+      <workItem from="1483252016404" duration="5045000" />
+=======
       <workItem from="1483252016404" duration="3542000" />
       <workItem from="1483257759119" duration="615000" />
+>>>>>>> xin541322049/master
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
+<<<<<<< HEAD
+    <option name="totallyTimeSpent" value="8143000" />
+=======
     <option name="totallyTimeSpent" value="7255000" />
+>>>>>>> xin541322049/master
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1440" height="900" extended-state="0" />
@@ -878,9 +928,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="2790">
           <caret line="203" column="8" selection-start-line="203" selection-start-column="8" selection-end-line="203" selection-end-column="8" />
-          <folding>
-            <element signature="e#3528#3529#0" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1010,6 +1058,8 @@
         </state>
       </provider>
     </entry>
+<<<<<<< HEAD
+=======
     <entry file="file://$PROJECT_DIR$/src/main/java/bl/implementation/Hotel.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="225">
@@ -1020,6 +1070,7 @@
         </state>
       </provider>
     </entry>
+>>>>>>> xin541322049/master
     <entry file="file://$PROJECT_DIR$/src/main/java/bl/implementation/Login.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-1358">
@@ -1044,18 +1095,44 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/bl/implementation/Order.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/bl/stub/OrderBLStub.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="193">
-          <caret line="436" column="4" selection-start-line="436" selection-start-column="4" selection-end-line="436" selection-end-column="4" />
+        <state relative-caret-position="382">
+          <caret line="106" column="30" selection-start-line="106" selection-start-column="30" selection-end-line="106" selection-end-column="30" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/bl/stub/OrderBLStub.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/bl/implementation/Promotion.java">
       <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2850">
+          <caret line="224" column="13" selection-start-line="224" selection-start-column="13" selection-end-line="224" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/bl/implementation/Order.java">
+      <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
+        <state relative-caret-position="-323">
+          <caret line="233" column="2" selection-start-line="233" selection-start-column="2" selection-end-line="233" selection-end-column="2" />
+=======
+        <state relative-caret-position="193">
+          <caret line="436" column="4" selection-start-line="436" selection-start-column="4" selection-end-line="436" selection-end-column="4" />
+>>>>>>> xin541322049/master
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/bl/implementation/Hotel.java">
+      <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
+        <state relative-caret-position="532">
+          <caret line="217" column="49" selection-start-line="217" selection-start-column="49" selection-end-line="217" selection-end-column="49" />
+=======
         <state relative-caret-position="553">
           <caret line="106" column="30" selection-start-line="106" selection-start-column="30" selection-end-line="106" selection-end-column="30" />
+>>>>>>> xin541322049/master
           <folding />
         </state>
       </provider>
