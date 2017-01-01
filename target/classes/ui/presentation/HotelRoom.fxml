@@ -70,7 +70,7 @@
          </font>
       </Button>
       <Button layoutX="1080.0" layoutY="25.0" mnemonicParsing="false" onAction="#onLogOut" opacity="0.0" prefHeight="23.0" prefWidth="74.0" text="Button" />
-      <TableView fx:id="table" layoutX="330.0" layoutY="167.0" opacity="0.8" prefHeight="383.0" prefWidth="730.0" style="-fx-background-color: #000f32;" stylesheets="@TableView.css">
+      <TableView fx:id="table" layoutX="330.0" layoutY="167.0" opacity="0.8" prefHeight="383.0" prefWidth="730.0" stylesheets="@TableView.css">
         <columns>
           <TableColumn prefWidth="153.0" style="-fx-background-color: #000f32;" text="房间ID" />
             <TableColumn prefWidth="184.0" resizable="false" style="-fx-background-color: #000f32;" text="房间名字" />
