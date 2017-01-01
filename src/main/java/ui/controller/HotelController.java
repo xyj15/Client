@@ -331,6 +331,7 @@ public class HotelController {
         temOrder = OrderList.get(table.getSelectionModel().getSelectedIndex());
         midPrimaryStage = new Stage();
         new HotelRoomChoiceUI().start(midPrimaryStage);
+        count = temOrder.getRoomList().size();
         table = (TableView) midRoot.lookup("#table");
         Label totalNum = (Label) midRoot.lookup("#totalNum");
         Label unNum = (Label) midRoot.lookup("#unNum");
@@ -399,7 +400,7 @@ public class HotelController {
                 int seletedIndex=getTableRow().getIndex();
                 RoomVO tem = RoomList.get(seletedIndex);
                 hotel.checkin(temOrder.getOrderID(),tem.getRoomNumber());
-                //count++;
+                count++;
                 if(temOrder.getNumberOfRoom()!=count){
                     try{
                         midPrimaryStage.close();
@@ -447,17 +448,17 @@ public class HotelController {
                 RoomVO tem = RoomList.get(seletedIndex);
                 hotel.delay(temOrder.getOrderID(), tem.getRoomNumber());
                 count++;
-                if (temOrder.getNumberOfRoom() != count) {
+                if ( count != temOrder.getNumberOfRoom()) {
                     try {
                         midPrimaryStage.close();
                         onDelayOrder(e);
-
                     } catch (Exception E) {
                         E.printStackTrace();
                     }
                 } else {
                     try {
                         midPrimaryStage.close();
+                        order.checkin(temOrder.getOrderID());
                         onAbnormalOrder(e);
                     } catch (Exception E) {
                         E.printStackTrace();
@@ -490,12 +491,13 @@ public class HotelController {
         temOrder = OrderList.get(table.getSelectionModel().getSelectedIndex());
         midPrimaryStage = new Stage();
         new HotelRoomChoiceUI().start(midPrimaryStage);
+        RoomList = temOrder.getRoomList();
+        count = RoomList.size();
         table = (TableView) midRoot.lookup("#table");
         Label totalNum = (Label) midRoot.lookup("#totalNum");
         Label unNum = (Label) midRoot.lookup("#unNum");
         totalNum.setText(""+temOrder.getNumberOfRoom());
-        unNum.setText(""+(temOrder.getNumberOfRoom()-count));
-        RoomList = temOrder.getRoomList();
+        unNum.setText(""+count);
         ObservableList<TableData> dataForH
                 = FXCollections.observableArrayList();
         ObservableList<TableColumn> tableList = table.getColumns();
@@ -527,8 +529,8 @@ public class HotelController {
                 int seletedIndex = getTableRow().getIndex();
                 RoomVO tem = RoomList.get(seletedIndex);
                 hotel.checkout(temOrder.getOrderID(), tem.getRoomNumber());
-                count++;
-                if (temOrder.getNumberOfRoom() != count) {
+                count--;
+                if (0 != count) {
                     try {
                         midPrimaryStage.close();
                         onCheckOut(e);
@@ -538,6 +540,7 @@ public class HotelController {
                 } else {
                     try {
                         midPrimaryStage.close();
+                        order.checkout(temOrder.getOrderID());
                         onProcessedOrder(e);
                     } catch (Exception E) {
                         E.printStackTrace();
