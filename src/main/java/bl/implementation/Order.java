@@ -53,7 +53,6 @@ public class Order implements OrderBLService {
 	 */
 	@Override
 	public ArrayList<OrderVO> getOrderList() {
-		updateDataFromFile();
 		return orderList;
 	}
 	
@@ -63,7 +62,6 @@ public class Order implements OrderBLService {
 	 */
 	@Override
 	public ArrayList<OrderVO> getExcutedOrders() {
-		updateDataFromFile();
 		return filterList(orderList, OrderStatus.Executed);
 	}
 	
@@ -73,7 +71,6 @@ public class Order implements OrderBLService {
 	 */
 	@Override
 	public ArrayList<OrderVO> getUnexcutedOrders() {
-		updateDataFromFile();
 		return filterList(orderList, OrderStatus.Unexecuted);
 	}
 	
@@ -83,7 +80,6 @@ public class Order implements OrderBLService {
 	 */
 	@Override
 	public ArrayList<OrderVO> getAbnormalOrders() {
-		updateDataFromFile();
 		return filterList(orderList, OrderStatus.Abnormal);
 	}
 	
@@ -93,7 +89,6 @@ public class Order implements OrderBLService {
 	 */
 	@Override
 	public ArrayList<OrderVO> getCanceledOrders() {
-		updateDataFromFile();
 		return filterList(orderList, OrderStatus.Canceled);
 	}
 	
@@ -104,7 +99,6 @@ public class Order implements OrderBLService {
 	 */
 	@Override
 	public boolean cancelOrder(String orderID) {
-		updateDataFromFile();
 		int index = getOrderIndex(orderID);
 		if(index==-1) {
 			return false;
@@ -130,6 +124,7 @@ public class Order implements OrderBLService {
 					OrderAction.CancelOrder, creditChange, changeResult);
 			credit.addCreditChange(creditChangeVO);
 		}
+		
 		try {
 			return orderDataService.updateOrder(orderPO);
 		} catch (RemoteException e) {
@@ -147,7 +142,6 @@ public class Order implements OrderBLService {
 	 */
 	@Override
 	public boolean evaluateOrder(String orderID, double score, String comment) {
-		updateDataFromFile();
 		int index = getOrderIndex(orderID);
 		if(index==-1) {
 			return false;
@@ -158,6 +152,7 @@ public class Order implements OrderBLService {
 		orderVO.setEvaluation(comment);
 		orderList.set(index, orderVO);
 		OrderPO orderPO = orderVOtoPO(orderVO);
+		
 		try {
 			return orderDataService.updateOrder(orderPO);
 		} catch (RemoteException e) {
@@ -174,7 +169,6 @@ public class Order implements OrderBLService {
 	 */
 	@Override
 	public boolean cancelAbnormalOrder(String orderID, double recover) {
-		updateDataFromFile();
 		int index = getOrderIndex(orderID);
 		if(index==-1) {
 			return false;
@@ -185,15 +179,17 @@ public class Order implements OrderBLService {
 			return false;
 		}
 		
-		orderVO.setOrderStatus(OrderStatus.Executed);
+		orderVO.setOrderStatus(OrderStatus.Canceled);
 		orderVO.setActualCheckinTime(new Date());
 		orderVO.setRecover(recover);
 		orderList.set(index, orderVO);
 		OrderPO orderPO = orderVOtoPO(orderVO);
+		
 		try {
 			orderDataService.updateOrder(orderPO);
 		} catch (RemoteException e) {
 			e.printStackTrace();
+			return false;
 		}
 		
 		Credit credit = new Credit(orderVO.getMemberID());
@@ -207,7 +203,7 @@ public class Order implements OrderBLService {
 	/**
 	 * 从Data层更新数据
 	 */
-	public void updateDataFromFile() {
+	public boolean updateDataFromFile() {
 		ArrayList<OrderPO> orderPOArrayList = null;
 		try {
 			orderPOArrayList = orderDataService.getOrderList(userID);
@@ -220,7 +216,7 @@ public class Order implements OrderBLService {
 		Hotel hotel;
 		Member member;
 		if(orderPOArrayList==null){
-			orderPOArrayList = new ArrayList<OrderPO>();
+			return false;
 		}
 		for(int i=0; i<orderPOArrayList.size(); i++) {
 			orderPO = orderPOArrayList.get(i);
@@ -231,7 +227,8 @@ public class Order implements OrderBLService {
 			orderVO.setMemberVO(member.getMemberInformation());
 			orderList.add(orderVO);
 		}
-//		updateAbnormalOrder();
+		updateAbnormalOrder();
+		return true;
 	}
 	
 	/**
@@ -435,6 +432,7 @@ public class Order implements OrderBLService {
 		}
 	}
 	
+	@Override
 	public boolean checkin(String orderID) {
 		updateDataFromFile();
 		OrderVO orderVO = getOrderInformation(orderID);

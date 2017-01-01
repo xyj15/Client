@@ -25,6 +25,8 @@ public class Manager implements ManagerBLService {
 	private Hotel hotel;
 	private Saler saler;
 	
+	private ManagerVO managerVO;
+	
 	private ManagerDataService managerDataService;
 	
 	/**
@@ -33,6 +35,11 @@ public class Manager implements ManagerBLService {
 	public Manager() {
 //		managerDataService = new ManagerDataStub();
 		managerDataService = RemoteHelper.getInstance().getManagerDataService();
+		try {
+			managerVO = managerPOtoVO(managerDataService.getManager());
+		} catch (RemoteException e) {
+			e.printStackTrace();
+		}
 	}
 	
 	/**
@@ -176,12 +183,13 @@ public class Manager implements ManagerBLService {
 	 */
 	@Override
 	public boolean updateManagerInformation(ManagerVO managerVO) {
+		this.managerVO = managerVO;
 		try {
 			return managerDataService.updateManager(managerVOtoPO(managerVO));
 		} catch (RemoteException e) {
 			e.printStackTrace();
+			return false;
 		}
-		return false;
 	}
 	
 	/**
@@ -190,12 +198,7 @@ public class Manager implements ManagerBLService {
 	 */
 	@Override
 	public ManagerVO getManagerInformation() {
-		try {
-			return managerPOtoVO(managerDataService.getManager());
-		} catch (RemoteException e) {
-			e.printStackTrace();
-		}
-		return null;
+		return managerVO;
 	}
 	
 	/**
