@@ -49,7 +49,10 @@ public class Room implements RoomBLService {
 		}
 		ArrayList<RoomVO> roomVOArrayList = new ArrayList<>();
 		for(int i=0; i<roomPOArrayList.size(); i++) {
-			roomVOArrayList.add(roomPOtoVO(roomPOArrayList.get(i)));
+			RoomPO roomPO = roomPOArrayList.get(i);
+			if(roomPO.isAvailable()) {
+				roomVOArrayList.add(roomPOtoVO(roomPO));
+			}
 		}
 		return roomVOArrayList;
 	}
@@ -182,11 +185,12 @@ public class Room implements RoomBLService {
 	 */
 	public boolean checkin(Date date, String roomID) {
 		try {
+			System.out.println("checkin success");
 			return roomDataService.checkIn(date, roomID, hotelID);
 		} catch (RemoteException e) {
 			e.printStackTrace();
+			return false;
 		}
-		return false;
 	}
 	
 	/**

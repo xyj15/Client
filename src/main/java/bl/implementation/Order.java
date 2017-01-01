@@ -437,27 +437,34 @@ public class Order implements OrderBLService {
 	
 	public boolean checkin(String orderID) {
 		updateDataFromFile();
-		boolean result = false;
-		OrderVO orderVO = null;
-		for(int i=0; i<orderList.size(); i++) {
-			orderVO = orderList.get(i);
-			if(orderVO.getOrderID().equals(orderID)) {
-				result = true;
-				break;
-			}
+		OrderVO orderVO = getOrderInformation(orderID);
+		if(orderVO==null) {
+			return false;
 		}
-		
-		if(result) {
-			orderVO.setActualCheckinTime(new Date());
-			orderVO.setOrderStatus(OrderStatus.Executed);
-			try {
-				orderDataService.updateOrder(orderVOtoPO(orderVO));
-				return true;
-			} catch (RemoteException e) {
-				e.printStackTrace();
-				return false;
-			}
-		} else {
+		orderVO.setActualCheckinTime(new Date());
+		orderVO.setOrderStatus(OrderStatus.Executed);
+		return updateOrderToFile(orderVO);
+	}
+	
+	@Override
+	public boolean checkout(String orderID) {
+		updateDataFromFile();
+		OrderVO orderVO = getOrderInformation(orderID);
+		if(orderVO==null) {
+			return false;
+		}
+		orderVO.setActualCheckinTime(new Date());
+		orderVO.setOrderStatus(OrderStatus.Executed);
+		orderVO.setOrderStatus(OrderStatus.Executed);
+		return updateOrderToFile(orderVO);
+	}
+	
+	public boolean updateOrderToFile(OrderVO orderVO) {
+		try {
+			orderDataService.updateOrder(orderVOtoPO(orderVO));
+			return true;
+		} catch (RemoteException e) {
+			e.printStackTrace();
 			return false;
 		}
 	}

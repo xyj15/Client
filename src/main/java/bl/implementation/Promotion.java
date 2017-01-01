@@ -36,6 +36,7 @@ public class Promotion implements PromotionBLService {
 		promotionDataService = RemoteHelper.getInstance().getPromotionDataService();
 //		promotionDataService = new PromotionDataStub();
 		promotionList = getHotelPromotionList(hotelID);
+		updateDataFromFile();
 	}
 	
 	/**
@@ -45,6 +46,7 @@ public class Promotion implements PromotionBLService {
 		promotionDataService = RemoteHelper.getInstance().getPromotionDataService();
 //		promotionDataService = new PromotionDataStub();
 		promotionList = getWebPromotionList();
+		updateDataFromFile();
 	}
 	
 	/**
@@ -265,6 +267,7 @@ public class Promotion implements PromotionBLService {
 				}
 			}
 		}
+		System.err.println("Initial: "+promotionList.size());
 	}
 	
 	/**
