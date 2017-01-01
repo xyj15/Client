@@ -224,6 +224,7 @@ public class Member implements MemberBLService {
 	 */
 	public boolean updateDataToFile() {
 		MemberPO memberPO = memberVOtoPO(memberVO);
+		System.out.println("修改后用户名： "+memberVO.getName());
 		try {
 			return memberDataService.updateMember(memberPO);
 		} catch (RemoteException e) {
