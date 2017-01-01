@@ -280,7 +280,7 @@ public class HotelController {
         new HotelUnprocessedOrderUI().start(primaryStage);
         OrderList = order.getUnexcutedOrders();
         OrderTable();
-        //count=0;
+        count=0;
     }
 
     /**
@@ -317,7 +317,7 @@ public class HotelController {
         new HotelAbnormalOrderUI().start(primaryStage);
         OrderList = order.getAbnormalOrders();
         OrderTable();
-        //count=0;
+        count=0;
     }
 
     /**
@@ -332,7 +332,7 @@ public class HotelController {
         temOrder = OrderList.get(table.getSelectionModel().getSelectedIndex());
         midPrimaryStage = new Stage();
         new HotelRoomChoiceUI().start(midPrimaryStage);
-        count = temOrder.getRoomList().size();
+//        count = temOrder.getRoomList().size();
         table = (TableView) midRoot.lookup("#table");
         Label totalNum = (Label) midRoot.lookup("#totalNum");
         Label unNum = (Label) midRoot.lookup("#unNum");
@@ -367,7 +367,7 @@ public class HotelController {
         temOrder = OrderList.get(table.getSelectionModel().getSelectedIndex());
         midPrimaryStage = new Stage();
         new HotelRoomChoiceUI().start(midPrimaryStage);
-        count = temOrder.getRoomList().size();
+//        count = temOrder.getRoomList().size();
         table = (TableView) midRoot.lookup("#table");
         Label totalNum = (Label) midRoot.lookup("#totalNum");
         Label unNum = (Label) midRoot.lookup("#unNum");
@@ -492,79 +492,81 @@ public class HotelController {
         TableView table = (TableView) root.lookup("#table");
         OrderList = order.getExcutedOrders();
         temOrder = OrderList.get(table.getSelectionModel().getSelectedIndex());
-        midPrimaryStage = new Stage();
-        new HotelRoomChoiceUI().start(midPrimaryStage);
-        RoomList = temOrder.getRoomList();
-        count = RoomList.size();
-        table = (TableView) midRoot.lookup("#table");
-        Label totalNum = (Label) midRoot.lookup("#totalNum");
-        Label unNum = (Label) midRoot.lookup("#unNum");
-        totalNum.setText(""+temOrder.getNumberOfRoom());
-        unNum.setText(""+count);
-        ObservableList<TableData> dataForH
-                = FXCollections.observableArrayList();
-        ObservableList<TableColumn> tableList = table.getColumns();
-        for(int i=0;i<RoomList.size();i++){
-            dataForH.add(new TableData(RoomList.get(i).getRoomNumber(),RoomList.get(i).getRoomName()));
-        }
-        tableList.get(0).setCellValueFactory(new PropertyValueFactory("first"));
-        tableList.get(1).setCellValueFactory(new PropertyValueFactory("second"));
-        tableList.get(2).setCellFactory(new Callback<TableColumn<TableData,Boolean>, TableCell<TableData,Boolean>>() {
-            @Override
-            public TableCell call(TableColumn param) {
-                return new checkout();
-            }
-        });
-
-        table.setItems(dataForH);
+        order.checkout(temOrder.getOrderID());
+        onProcessedOrder(E);
+//        midPrimaryStage = new Stage();
+//        new HotelRoomChoiceUI().start(midPrimaryStage);
+//        RoomList = temOrder.getRoomList();
+//        count = RoomList.size();
+//        table = (TableView) midRoot.lookup("#table");
+//        Label totalNum = (Label) midRoot.lookup("#totalNum");
+//        Label unNum = (Label) midRoot.lookup("#unNum");
+//        totalNum.setText(""+temOrder.getNumberOfRoom());
+//        unNum.setText(""+count);
+//        ObservableList<TableData> dataForH
+//                = FXCollections.observableArrayList();
+//        ObservableList<TableColumn> tableList = table.getColumns();
+//        for(int i=0;i<RoomList.size();i++){
+//            dataForH.add(new TableData(RoomList.get(i).getRoomNumber(),RoomList.get(i).getRoomName()));
+//        }
+//        tableList.get(0).setCellValueFactory(new PropertyValueFactory("first"));
+//        tableList.get(1).setCellValueFactory(new PropertyValueFactory("second"));
+//        tableList.get(2).setCellFactory(new Callback<TableColumn<TableData,Boolean>, TableCell<TableData,Boolean>>() {
+//            @Override
+//            public TableCell call(TableColumn param) {
+//                return new checkout();
+//            }
+//        });
+//
+//        table.setItems(dataForH);
 
     }
 
-    /**
-     * 帮助完成客户离开操作界面的绘制，添加退房按钮动作并响应动作监听
-     */
-    class checkout extends TableCell<TableData,Boolean> {
-        private Button button = new Button("退房");
-
-        public checkout() {
-//            button.setPrefSize();
-            button.setOnAction((ActionEvent e) -> {
-                int seletedIndex = getTableRow().getIndex();
-                RoomVO tem = RoomList.get(seletedIndex);
-                hotel.checkout(temOrder.getOrderID(), tem.getRoomNumber());
-                count--;
-                if (0 != count) {
-                    try {
-                        midPrimaryStage.close();
-                        onCheckOut(e);
-                    } catch (Exception E) {
-                        E.printStackTrace();
-                    }
-                } else {
-                    try {
-                        midPrimaryStage.close();
-                        order.checkout(temOrder.getOrderID());
-                        onProcessedOrder(e);
-                    } catch (Exception E) {
-                        E.printStackTrace();
-                    }
-                }
-            });
-        }
-        @Override
-        protected void updateItem(Boolean t, boolean empty) {
-            super.updateItem(t, empty);
-            if (empty) {
-                setGraphic(null);
-                setText(null);
-            } else {
-                setGraphic(button);
-                setText(null);
-                setText(null);
-            }
-
-        }
-    }
+//    /**
+//     * 帮助完成客户离开操作界面的绘制，添加退房按钮动作并响应动作监听
+//     */
+//    class checkout extends TableCell<TableData,Boolean> {
+//        private Button button = new Button("退房");
+//
+//        public checkout() {
+////            button.setPrefSize();
+//            button.setOnAction((ActionEvent e) -> {
+//                int seletedIndex = getTableRow().getIndex();
+//                RoomVO tem = RoomList.get(seletedIndex);
+//                hotel.checkout(temOrder.getOrderID(), tem.getRoomNumber());
+//                count--;
+//                if (0 != count) {
+//                    try {
+//                        midPrimaryStage.close();
+//                        onCheckOut(e);
+//                    } catch (Exception E) {
+//                        E.printStackTrace();
+//                    }
+//                } else {
+//                    try {
+//                        midPrimaryStage.close();
+//                        order.checkout(temOrder.getOrderID());
+//                        onProcessedOrder(e);
+//                    } catch (Exception E) {
+//                        E.printStackTrace();
+//                    }
+//                }
+//            });
+//        }
+//        @Override
+//        protected void updateItem(Boolean t, boolean empty) {
+//            super.updateItem(t, empty);
+//            if (empty) {
+//                setGraphic(null);
+//                setText(null);
+//            } else {
+//                setGraphic(button);
+//                setText(null);
+//                setText(null);
+//            }
+//
+//        }
+//    }
 
     /**
      * 响应策略管理，生成策略管理界面
