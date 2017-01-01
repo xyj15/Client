@@ -17,7 +17,7 @@ public class SalerPromptUI extends Application {
     @Override
     public void start (Stage primaryStage) throws Exception {
         primaryStage.setTitle("请皇上过目");
-        Parent root = FXMLLoader.load(getClass().getResource("MemberPrompt.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("SalerPrompt.fxml"));
         PromotionController.setPromptroot(root);
         PromotionController.setPrimaryStage(primaryStage);
         Scene myScene = new Scene(root,410,193);

@@ -24,7 +24,9 @@ public class Member implements MemberBLService {
 	
 	private String memberID;
 	private MemberVO memberVO;
+	
 	private Credit credit;
+	private Order order;
 	
 	private MemberDataService memberDataService;
 	
@@ -47,7 +49,6 @@ public class Member implements MemberBLService {
 		} catch (RemoteException e) {
 			e.printStackTrace();
 		}
-		updateDataFromFile();
 		credit = new Credit(memberID);
 		credit.initialCredit();
 	}
@@ -69,7 +70,6 @@ public class Member implements MemberBLService {
 	 */
 	@Override
 	public String getName() {
-		updateDataFromFile();
 		return memberVO.getName();
 	}
 	
@@ -79,7 +79,6 @@ public class Member implements MemberBLService {
 	 */
 	@Override
 	public String getTel() {
-		updateDataFromFile();
 		return memberVO.getTel();
 	}
 	
@@ -89,7 +88,7 @@ public class Member implements MemberBLService {
 	 */
 	@Override
 	public double getCredit() {
-		updateDataFromFile();
+		credit = new Credit(memberID);
 		return credit.getCredit();
 	}
 	
@@ -99,7 +98,7 @@ public class Member implements MemberBLService {
 	 */
 	@Override
 	public ArrayList<CreditChangeVO> getCreditChangeList() {
-		updateDataFromFile();
+		credit = new Credit(memberID);
 		return credit.getCreditChangeList();
 	}
 	
@@ -109,7 +108,6 @@ public class Member implements MemberBLService {
 	 */
 	@Override
 	public int getLevel() {
-		updateDataFromFile();
 		return memberVO.getLevel();
 	}
 	
@@ -119,7 +117,6 @@ public class Member implements MemberBLService {
 	 */
 	@Override
 	public double getDiscount() {
-		updateDataFromFile();
 		return memberVO.getDiscount();
 	}
 	
@@ -129,7 +126,6 @@ public class Member implements MemberBLService {
 	 */
 	@Override
 	public MemberType getMemberType() {
-		updateDataFromFile();
 		return memberVO.getMemberType();
 	}
 	
@@ -139,7 +135,6 @@ public class Member implements MemberBLService {
 	 */
 	@Override
 	public Date getBirthday() {
-		updateDataFromFile();
 		return memberVO.getBirthday();
 	}
 	
@@ -149,7 +144,6 @@ public class Member implements MemberBLService {
 	 */
 	@Override
 	public String getEnterprise() {
-		updateDataFromFile();
 		return memberVO.getEnterprise();
 	}
 	
@@ -159,7 +153,7 @@ public class Member implements MemberBLService {
 	 */
 	@Override
 	public ArrayList<HotelVO> getReservedHotelList() {
-		Order order = new Order(memberID);
+		order = new Order(memberID);
 		ArrayList<String> hotelIDList = new ArrayList<>();
 		ArrayList<OrderVO> excutedOrderList = order.getExcutedOrders();
 		for(int i=0; i<excutedOrderList.size(); i++) {
@@ -185,7 +179,7 @@ public class Member implements MemberBLService {
 	 */
 	@Override
 	public ArrayList<OrderVO> getHotelOrderList(String hotelID) {
-		Order order = new Order(memberID);
+		order = new Order(memberID);
 		ArrayList<OrderVO> list = new ArrayList<>();
 		ArrayList<OrderVO> orderVOs = order.getOrderList();
 		for(int i=0; i<orderVOs.size(); i++) {
@@ -203,7 +197,6 @@ public class Member implements MemberBLService {
 	 */
 	@Override
 	public MemberVO getMemberInformation() {
-		updateDataFromFile();
 		return memberVO;
 	}
 	
@@ -215,22 +208,12 @@ public class Member implements MemberBLService {
 	@Override
 	public boolean updateMemberInformation(MemberVO memberVO) {
 		this.memberVO = memberVO;
-		return updateDataToFile();
-	}
-	
-	/**
-	 * 更新数据到Data层
-	 * @return 更新成功则返回true，否则返回false
-	 */
-	public boolean updateDataToFile() {
-		MemberPO memberPO = memberVOtoPO(memberVO);
-		System.out.println("修改后用户名： "+memberVO.getName());
 		try {
-			return memberDataService.updateMember(memberPO);
+			return memberDataService.updateMember(memberVOtoPO(memberVO));
 		} catch (RemoteException e) {
 			e.printStackTrace();
+			return false;
 		}
-		return false;
 	}
 	
 	/**
@@ -242,19 +225,14 @@ public class Member implements MemberBLService {
 			if(memberDataService.getMember(memberID)==null) {
 				return false;
 			}
+			memberVO = memberPOtoVO(memberDataService.getMember(memberID));
 		} catch (RemoteException e) {
 			e.printStackTrace();
 			return false;
 		}
 		
-		credit = new Credit(memberID);
-//		order = new Order(memberID);
-		try {
-			memberVO = memberPOtoVO(memberDataService.getMember(memberID));
-		} catch (RemoteException e) {
-			e.printStackTrace();
-		}
 		Rank rank = new Rank();
+		credit = new Credit(memberID);
 		int level = rank.getLevel(credit.getCredit());
 		double discount = rank.getDiscount(credit.getCredit());
 		memberVO.setLevel(level);
@@ -313,7 +291,7 @@ public class Member implements MemberBLService {
 			return memberDataService.deleteMember(memberID);
 		} catch (RemoteException e) {
 			e.printStackTrace();
+			return false;
 		}
-		return false;
 	}
 }

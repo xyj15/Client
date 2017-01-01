@@ -34,6 +34,7 @@ public class Credit implements CreditBLService {
 		this.memberID = memberID;
 //		creditDataService = new CreditDataStub();
 		creditDataService = RemoteHelper.getInstance().getCreditDataService();
+		updateDataFromFile();
     }
 	
 	/**
@@ -42,7 +43,6 @@ public class Credit implements CreditBLService {
 	 */
 	@Override
 	public ArrayList<CreditChangeVO> getCreditChangeList() {
-		updateCreditChangeFromFile();
 		return creditChangeList;
 	}
 	
@@ -52,7 +52,6 @@ public class Credit implements CreditBLService {
 	 */
 	@Override
 	public double getCredit() {
-		updateCreditFromFile();
 		return credit;
 	}
 	
@@ -110,18 +109,7 @@ public class Credit implements CreditBLService {
 	/**
 	 * 从data层更新数据
 	 */
-	public void updateCreditFromFile() {
-		try {
-			credit = creditDataService.getCredit(memberID);
-		} catch (RemoteException e) {
-			e.printStackTrace();
-		}
-	}
-	
-	/**
-	 * 从data层更新数据
-	 */
-	public void updateCreditChangeFromFile() {
+	public void updateDataFromFile() {
 		ArrayList<CreditChangePO> creditChangePOList = null;
 		try {
 			creditChangePOList = creditDataService.getCreditChange(memberID);
@@ -137,9 +125,9 @@ public class Credit implements CreditBLService {
 						orderAction, change, result);
 				creditChangeList.add(creditChangeVO);
 			}
+			credit = creditDataService.getCredit(memberID);
 		} catch (RemoteException e) {
 			e.printStackTrace();
 		}
-		
 	}
 }

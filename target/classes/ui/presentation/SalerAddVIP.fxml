@@ -49,15 +49,21 @@
                   <Font size="16.0" />
                </font>
             </Label>
-            <TextField fx:id="discount" GridPane.columnIndex="1" GridPane.rowIndex="1">
+            <TextField fx:id="VipDiscount" promptText="0~1" GridPane.columnIndex="1" GridPane.rowIndex="1">
                <GridPane.margin>
                   <Insets right="15.0" />
                </GridPane.margin>
+               <font>
+                  <Font name="Microsoft YaHei Bold" size="14.0" />
+               </font>
             </TextField>
             <TextField fx:id="district" GridPane.columnIndex="1">
                <GridPane.margin>
                   <Insets right="15.0" />
                </GridPane.margin>
+               <font>
+                  <Font name="Microsoft YaHei Bold" size="14.0" />
+               </font>
             </TextField>
          </children>
       </GridPane>

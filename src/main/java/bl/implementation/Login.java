@@ -99,8 +99,8 @@ public class Login implements LoginBLService {
 	 */
 	@Override
 	public boolean register(MemberVO memberVO) {
-		Member member = new Member(memberVO);
-		return member.updateDataToFile();
+		new Member(memberVO);
+		return true;
 	}
 	
 	/**
