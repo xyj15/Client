@@ -1,5 +1,6 @@
 package ui.controller;
 
+import bl.implementation.Order;
 import bl.service.HotelBLService;
 import bl.service.OrderBLService;
 import bl.service.PromotionBLService;
@@ -362,6 +363,7 @@ public class HotelController {
     @FXML
     private void onCheckIn() throws Exception {
         TableView table = (TableView) root.lookup("#table");
+        OrderList = order.getUnexcutedOrders();
         temOrder = OrderList.get(table.getSelectionModel().getSelectedIndex());
         midPrimaryStage = new Stage();
         new HotelRoomChoiceUI().start(midPrimaryStage);
@@ -488,6 +490,7 @@ public class HotelController {
     @FXML
     private void onCheckOut(ActionEvent E)throws Exception {
         TableView table = (TableView) root.lookup("#table");
+        OrderList = order.getExcutedOrders();
         temOrder = OrderList.get(table.getSelectionModel().getSelectedIndex());
         midPrimaryStage = new Stage();
         new HotelRoomChoiceUI().start(midPrimaryStage);

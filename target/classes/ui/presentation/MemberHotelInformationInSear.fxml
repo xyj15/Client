@@ -51,10 +51,10 @@
             <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
          </columnResizePolicy>
          <columns>
-            <TableColumn editable="false" prefWidth="75.0" sortable="false" style="-fx-background-color: #000f32;" text="订单ID" />
-            <TableColumn editable="false" prefWidth="75.0" sortable="false" style="-fx-background-color: #000f32;" text="创建时间" />
-            <TableColumn editable="false" prefWidth="157.0" sortable="false" style="-fx-background-color: #000f32;" text="订单状态" />
-            <TableColumn editable="false" prefWidth="75.0" sortable="false" style="-fx-background-color: #000f32;" text="总价" />
+            <TableColumn editable="false" prefWidth="166.0" sortable="false" style="-fx-background-color: #000f32;" text="订单ID" />
+            <TableColumn editable="false" prefWidth="120.0" sortable="false" style="-fx-background-color: #000f32;" text="创建时间" />
+            <TableColumn editable="false" prefWidth="127.0" sortable="false" style="-fx-background-color: #000f32;" text="订单状态" />
+            <TableColumn editable="false" prefWidth="83.0" sortable="false" style="-fx-background-color: #000f32;" text="总价" />
          </columns>
       </TableView>
       <AnchorPane layoutX="42.0" layoutY="129.0" opacity="0.66" prefHeight="251.0" prefWidth="506.0" style="-fx-background-color: #000f32;">
