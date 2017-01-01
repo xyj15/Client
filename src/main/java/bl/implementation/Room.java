@@ -64,7 +64,7 @@ public class Room implements RoomBLService {
 	 * @return 房间信息
 	 */
 	@Override
-	public RoomVO getRoomInformation(Date date, String roomNumber){
+	public RoomVO getRoomInformation(Date date, String roomNumber) {
 		RoomPO roomPO = null;
 		try {
 			roomPO = roomDataService.getSingleRoom(date, roomNumber, hotelID);
@@ -87,8 +87,8 @@ public class Room implements RoomBLService {
 			return roomDataService.addSingleRoom(roomPO, hotelID);
 		} catch (RemoteException e) {
 			e.printStackTrace();
+			return false;
 		}
-		return false;
 	}
 	
 	/**
@@ -102,8 +102,8 @@ public class Room implements RoomBLService {
 			return roomDataService.deleteSingleRoom(roomNumber, hotelID);
 		} catch (RemoteException e) {
 			e.printStackTrace();
+			return false;
 		}
-		return false;
 	}
 	
 	/**
@@ -119,8 +119,8 @@ public class Room implements RoomBLService {
 			return roomDataService.updateSingleRoom(date, roomPO, hotelID);
 		} catch (RemoteException e) {
 			e.printStackTrace();
+			return false;
 		}
-		return false;
 	}
 	
 	/**
@@ -185,7 +185,6 @@ public class Room implements RoomBLService {
 	 */
 	public boolean checkin(Date date, String roomID) {
 		try {
-			System.out.println("checkin success");
 			return roomDataService.checkIn(date, roomID, hotelID);
 		} catch (RemoteException e) {
 			e.printStackTrace();
@@ -204,8 +203,8 @@ public class Room implements RoomBLService {
 			return roomDataService.checkOut(date, roomID, hotelID);
 		} catch (RemoteException e) {
 			e.printStackTrace();
+			return false;
 		}
-		return false;
 	}
 	
 	/**
@@ -219,8 +218,8 @@ public class Room implements RoomBLService {
 			return roomDataService.reserveSingleRoom(date, roomID, hotelID);
 		} catch (RemoteException e) {
 			e.printStackTrace();
+			return false;
 		}
-		return false;
 	}
 }
 
