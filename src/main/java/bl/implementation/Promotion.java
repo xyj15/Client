@@ -36,17 +36,16 @@ public class Promotion implements PromotionBLService {
 		promotionDataService = RemoteHelper.getInstance().getPromotionDataService();
 //		promotionDataService = new PromotionDataStub();
 		promotionList = getHotelPromotionList(hotelID);
-		updateDataFromFile();
 	}
 	
 	/**
 	 * 网站营销策略的构造方法，获取所有营销策略
 	 */
 	public Promotion() {
+		this.hotelID = null;
 		promotionDataService = RemoteHelper.getInstance().getPromotionDataService();
 //		promotionDataService = new PromotionDataStub();
 		promotionList = getWebPromotionList();
-		updateDataFromFile();
 	}
 	
 	/**
@@ -178,6 +177,7 @@ public class Promotion implements PromotionBLService {
 	 */
 	@Override
 	public ArrayList<PromotionVO> getDistrictPromotionList() {
+		updateDataFromFile();
 		ArrayList<PromotionVO> districtPromotionList = new ArrayList<>();
 		for(int i=0; i<promotionList.size(); i++) {
 			PromotionVO promotionVO = promotionList.get(i);
@@ -194,6 +194,7 @@ public class Promotion implements PromotionBLService {
 	 */
 	@Override
 	public ArrayList<PromotionVO> getHotelDatePromotionList() {
+		updateDataFromFile();
 		ArrayList<PromotionVO> districtPromotionList = new ArrayList<>();
 		for(int i=0; i<promotionList.size(); i++) {
 			PromotionVO promotionVO = promotionList.get(i);
@@ -210,6 +211,7 @@ public class Promotion implements PromotionBLService {
 	 */
 	@Override
 	public ArrayList<PromotionVO> getWebDatePromotionList() {
+		updateDataFromFile();
 		ArrayList<PromotionVO> districtPromotionList = new ArrayList<>();
 		for(int i=0; i<promotionList.size(); i++) {
 			PromotionVO promotionVO = promotionList.get(i);
@@ -226,6 +228,7 @@ public class Promotion implements PromotionBLService {
 	 */
 	@Override
 	public ArrayList<PromotionVO> getEnterprisePromotionList() {
+		updateDataFromFile();
 		ArrayList<PromotionVO> districtPromotionList = new ArrayList<>();
 		for(int i=0; i<promotionList.size(); i++) {
 			PromotionVO promotionVO = promotionList.get(i);
@@ -252,22 +255,10 @@ public class Promotion implements PromotionBLService {
 		for(int i=0; i<promotionPOList.size(); i++) {
 			promotionPO = promotionPOList.get(i);
 			promotionVO = promotionPOtoVO(promotionPO);
-			if(hotelID==null) {
-				if(promotionVO.getRelatedHotelID()==null) {
-					promotionList.add(promotionVO);
-				} else {
-					continue;
-				}
-			} else {
-				if(promotionPO.getRelatedHotelID()==null) {
-					continue;
-				}
-				if(promotionPO.getRelatedHotelID().equals(hotelID)) {
-					promotionList.add(promotionVO);
-				}
+			if(hotelID==promotionVO.getRelatedHotelID()) {
+				promotionList.add(promotionVO);
 			}
 		}
-		System.err.println("Initial: "+promotionList.size());
 	}
 	
 	/**
