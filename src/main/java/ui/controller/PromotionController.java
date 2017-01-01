@@ -392,7 +392,7 @@ public class PromotionController {
         new SalerAddPromotionUI().start(minprimaryStage);
         DatePicker checkInDate = (DatePicker)minroot.lookup("#checkInDate");//起始时间
         DatePicker checkOutDate = (DatePicker)minroot.lookup("#checkOutDate");//结束时间
-        checkInDate.setValue(LocalDate.now());
+         checkInDate.setValue(LocalDate.now());
         checkOutDate.setDayCellFactory(dateBefore(checkInDate));
         checkOutDate.setValue(checkInDate.getValue().plusDays(1));
     }
@@ -526,6 +526,7 @@ public class PromotionController {
         else{
             int i=AbnormalOrderTable.getSelectionModel().getSelectedIndex();
             ArrayList<OrderVO> list = saler.getDailyUnexcutedOrderList();
+            System.out.print(list.get(i).getOrderID());
             saler.cancelAbnormalOrder(list.get(i).getOrderID(),0.5);
             promptStage = new Stage();
             new SalerPromptUI().start(promptStage);
