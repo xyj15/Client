@@ -23,12 +23,13 @@ import java.util.Date;
 
 public class LoginUI extends Application {
 
-    static RemoteHelper helper =RemoteHelper.getInstance();
+    static RemoteHelper helper = RemoteHelper.getInstance();
     static boolean x = helper.connect();
+    
     @Override
     public void start (Stage primaryStage) throws Exception {
            primaryStage.setTitle("食宿");
-           Parent root =FXMLLoader.load(getClass().getResource("Login.fxml"));
+           Parent root = FXMLLoader.load(getClass().getResource("Login.fxml"));
            LoginController.setRoot(root);
            LoginController.setPrimaryStage(primaryStage);
            Scene myScene = new Scene(root,318,538);
@@ -36,6 +37,7 @@ public class LoginUI extends Application {
            primaryStage.setScene(myScene);
            primaryStage.show();
     }
+    
     public static void main(String[] args) {
         new LoginUI();
         launch(args);
