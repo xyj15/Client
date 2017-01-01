@@ -526,6 +526,7 @@ public class PromotionController {
         else{
             int i=AbnormalOrderTable.getSelectionModel().getSelectedIndex();
             ArrayList<OrderVO> list = saler.getDailyUnexcutedOrderList();
+            System.out.print(list.get(i).getOrderID());
             saler.cancelAbnormalOrder(list.get(i).getOrderID(),0.5);
             promptStage = new Stage();
             new SalerPromptUI().start(promptStage);
