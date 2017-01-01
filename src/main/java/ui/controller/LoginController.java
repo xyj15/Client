@@ -53,7 +53,6 @@ public class LoginController{
             message.setText("网络连接失败");
         }
         else {
-            System.out.print(usernameForLog.getText().toString());
             if(loginBL.existUserID(usernameForLog.getText().toString())){
                 if(loginBL.login(usernameForLog.getText().toString(),passwordForLog.getText().toString())){
                     UserType userType = loginBL.getUserType(usernameForLog.getText().toString());
@@ -76,7 +75,7 @@ public class LoginController{
                         case Saler:
                             new SalerFirstUI().start(primaryStage);
                             PromotionController.setSaler(new Saler(usernameForLog.getText().toString()));
-                            PromotionController.setPromotion(new Promotion(usernameForLog.getText().toString()));
+                            PromotionController.setPromotion(new Promotion());
                             break;
                         case Manager:
                             new ManagerFirstUI().start(primaryStage);

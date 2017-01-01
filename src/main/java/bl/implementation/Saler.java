@@ -216,7 +216,7 @@ public class Saler implements SalerBLService {
 		String orderID = null;
 		OrderAction orderAction = OrderAction.RechargeCredit;
 		double creditChange = money*100;
-		double changeResult = credit.getCredit() - creditChange;
+		double changeResult = credit.getCredit() + creditChange;
 		CreditChangeVO creditChangeVO = new CreditChangeVO(date, orderID, orderAction,
 				creditChange, changeResult);
 		return credit.addCreditChange(creditChangeVO);
