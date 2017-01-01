@@ -279,7 +279,7 @@ public class HotelController {
         new HotelUnprocessedOrderUI().start(primaryStage);
         OrderList = order.getUnexcutedOrders();
         OrderTable();
-        count=0;
+        //count=0;
     }
 
     /**
@@ -316,7 +316,7 @@ public class HotelController {
         new HotelAbnormalOrderUI().start(primaryStage);
         OrderList = order.getAbnormalOrders();
         OrderTable();
-        count=0;
+        //count=0;
     }
 
     /**
@@ -364,6 +364,7 @@ public class HotelController {
         temOrder = OrderList.get(table.getSelectionModel().getSelectedIndex());
         midPrimaryStage = new Stage();
         new HotelRoomChoiceUI().start(midPrimaryStage);
+        count = temOrder.getRoomList().size();
         table = (TableView) midRoot.lookup("#table");
         Label totalNum = (Label) midRoot.lookup("#totalNum");
         Label unNum = (Label) midRoot.lookup("#unNum");
@@ -398,7 +399,7 @@ public class HotelController {
                 int seletedIndex=getTableRow().getIndex();
                 RoomVO tem = RoomList.get(seletedIndex);
                 hotel.checkin(temOrder.getOrderID(),tem.getRoomNumber());
-                count++;
+                //count++;
                 if(temOrder.getNumberOfRoom()!=count){
                     try{
                         midPrimaryStage.close();
@@ -409,6 +410,7 @@ public class HotelController {
                 }else {
                     try{
                         midPrimaryStage.close();
+                        order.checkin(temOrder.getOrderID());
                         onOrderManager(e);
                     }catch (Exception E){
                         E.printStackTrace();

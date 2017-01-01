@@ -67,6 +67,13 @@ public class PromotionController {
 
 
     /**
+     * 关闭提示框的响应
+     * */
+    @FXML
+    private void sure(ActionEvent E)throws Exception {
+        promptStage.close();
+    }
+    /**
      *
      * 营销策略界面
      */
@@ -74,18 +81,18 @@ public class PromotionController {
     private void onPromotion() throws Exception{
         new SalerPromotionUI().start(primaryStage);
         TableView promotionTable = (TableView)root.lookup("#promotionTable");//营销策略列表
-        ObservableList<TableDataForSalerPromotion> dataForSalerPromotion = FXCollections.observableArrayList();
+        ObservableList<TableData> dataForSalerPromotion = FXCollections.observableArrayList();
         ObservableList<TableColumn> tableList = promotionTable.getColumns();
         ArrayList<PromotionVO> list = promotion.getWebDatePromotionList();
         SimpleDateFormat sdf=new SimpleDateFormat("yyyy-MM-dd");
        for(int i=0;i<list.size();i++){
-            dataForSalerPromotion.add(new TableDataForSalerPromotion(list.get(i).getPromotionName(),sdf.format(list.get(i).getStartDate()),
+            dataForSalerPromotion.add(new TableData(list.get(i).getPromotionName(),sdf.format(list.get(i).getStartDate()),
                     sdf.format(list.get(i).getEndDate()),""+list.get(i).getDiscount()));
         }
-        tableList.get(0).setCellValueFactory(new PropertyValueFactory("name"));
-        tableList.get(1).setCellValueFactory(new PropertyValueFactory("startDate"));
-        tableList.get(2).setCellValueFactory(new PropertyValueFactory("endDate"));
-        tableList.get(3).setCellValueFactory(new PropertyValueFactory("discount"));
+        tableList.get(0).setCellValueFactory(new PropertyValueFactory("first"));
+        tableList.get(1).setCellValueFactory(new PropertyValueFactory("second"));
+        tableList.get(2).setCellValueFactory(new PropertyValueFactory("third"));
+        tableList.get(3).setCellValueFactory(new PropertyValueFactory("fourth"));
         promotionTable.setItems(dataForSalerPromotion);
 
     }
@@ -97,16 +104,16 @@ public class PromotionController {
     private void onAbnormal(ActionEvent E) throws Exception{
         new SalerAbnormalOrderUI().start(primaryStage);
         TableView rankTable = (TableView)root.lookup("#AbnormalOrderTable");//异常订单列表
-        ObservableList<TableDataForSalerAbnormalOrder> dataForSalerAbnormalOrder = FXCollections.observableArrayList();
+        ObservableList<TableData> dataForSalerAbnormalOrder = FXCollections.observableArrayList();
         ObservableList<TableColumn> tableList = rankTable.getColumns();
         ArrayList<OrderVO> list = saler.getDailyUnexcutedOrderList();
         for(int i=0;i<list.size();i++){
             Member member=new Member(list.get(i).getMemberID());
-            dataForSalerAbnormalOrder.add(new TableDataForSalerAbnormalOrder(list.get(i).getOrderID(),member.getName(),member.getTel()));
+            dataForSalerAbnormalOrder.add(new TableData(list.get(i).getOrderID(),member.getName(),member.getTel()));
         }
-        tableList.get(0).setCellValueFactory(new PropertyValueFactory("orderID"));
-        tableList.get(1).setCellValueFactory(new PropertyValueFactory("memberName"));
-        tableList.get(2).setCellValueFactory(new PropertyValueFactory("memberTel"));
+        tableList.get(0).setCellValueFactory(new PropertyValueFactory("first"));
+        tableList.get(1).setCellValueFactory(new PropertyValueFactory("second"));
+        tableList.get(2).setCellValueFactory(new PropertyValueFactory("third"));
         rankTable.setItems(dataForSalerAbnormalOrder);
     }
     /**
@@ -133,7 +140,7 @@ public class PromotionController {
         ObservableList<TableColumn> tableList2 = rankTable.getColumns();
         ArrayList<Double> discountList = saler.getDiscountList();
         ArrayList<Double> creditList = saler.getCreditList();
-        for(int i=0;i<list.size();i++) {
+        for(int i=0;i<creditList.size();i++) {
             dataForVip.add(new TableData("VIP"+(i+1), String.valueOf(discountList.get(i)),String.valueOf(creditList.get(i))));
         }
         tableList2.get(0).setCellValueFactory(new PropertyValueFactory("first"));
@@ -166,9 +173,25 @@ public class PromotionController {
     private void confirmAddVIP(ActionEvent E) throws Exception{
         TextField district=(TextField)minroot.lookup("#district");//商圈
         TextField VipDiscount=(TextField)minroot.lookup("#VipDiscount");//折扣
-        PromotionVO promotion=new PromotionVO(null,"", PromotionType.Discount);
-        promotion.setDistrictPromotion(district.getText(),Double.parseDouble(VipDiscount.getText()),0,0);
-        saler.createPromotion(promotion);
+        if(district.getText().toString().equals("")||VipDiscount.getText().toString().equals("")){
+            promptStage = new Stage();
+            new SalerPromptUI().start(promptStage);
+            Label message = (Label) promptroot.lookup("#Message");
+            message.setText("请输入完整的信息后再确认");
+        }else{
+            if(Double.parseDouble(VipDiscount.getText().toString())<=0||Double.parseDouble(VipDiscount.getText().toString())>1){
+                promptStage = new Stage();
+                new SalerPromptUI().start(promptStage);
+                Label message = (Label) promptroot.lookup("#Message");
+                message.setText("输入折扣信息不符合要求");
+            }
+            else{
+                PromotionVO promotion=new PromotionVO(null,"", PromotionType.Discount);
+                promotion.setDistrictPromotion(district.getText(),Double.parseDouble(VipDiscount.getText()),0,0);
+                saler.createPromotion(promotion);
+                minprimaryStage.close();
+            }
+        }
     }
     /**
      *
@@ -176,18 +199,25 @@ public class PromotionController {
      */
     @FXML
     private void onUpdateVIP(ActionEvent E) throws Exception{
-        minprimaryStage = new Stage();
-        new SalerUpdateVipUI().start(minprimaryStage);
         TableView districtTable=(TableView)root.lookup("#districtTable");//商圈列表
-        TextField districtUpdate=(TextField)minroot.lookup("#districtUpdate");//商圈
-        TextField VipDiscountUpdate=(TextField)minroot.lookup("#VipDiscountUpdate");//折扣
-        int i = districtTable.getSelectionModel().getSelectedIndex();
-        ArrayList<PromotionVO> list = promotion.getDistrictPromotionList();
+        if(districtTable.getSelectionModel().getSelectedIndex()==-1){
+            promptStage = new Stage();
+            new SalerPromptUI().start(promptStage);
+            Label message = (Label) promptroot.lookup("#Message");
+            message.setText("请先选中表格内容");
+        }
+        else{
+            minprimaryStage = new Stage();
+            new SalerUpdateVipUI().start(minprimaryStage);
 
-        PromotionVO promotion=list.get(i);
-        districtUpdate.setText(promotion.getDistrict());
-        VipDiscountUpdate.setText(String.valueOf(promotion.getDiscount()));
-
+            TextField districtUpdate=(TextField)minroot.lookup("#districtUpdate");//商圈
+            TextField VipDiscountUpdate=(TextField)minroot.lookup("#VipDiscountUpdate");//折扣
+            int i = districtTable.getSelectionModel().getSelectedIndex();
+            ArrayList<PromotionVO> list = promotion.getDistrictPromotionList();
+            PromotionVO promotion=list.get(i);
+            districtUpdate.setText(promotion.getDistrict());
+            VipDiscountUpdate.setText(String.valueOf(promotion.getDiscount()));
+        }
     }
     /**
      *
@@ -198,23 +228,43 @@ public class PromotionController {
         TableView districtTable=(TableView)root.lookup("#districtTable");//商圈列表
         TextField districtUpdate=(TextField)minroot.lookup("#districtUpdate");//商圈
         TextField VipDiscountUpdate=(TextField)minroot.lookup("#VipDiscountUpdate");//折扣
-        int i=districtTable.getSelectionModel().getSelectedIndex();
-        ArrayList<PromotionVO> list = promotion.getDistrictPromotionList();
-        PromotionVO promotion=list.get(i);
-        promotion.setDistrict(districtUpdate.getText());
-        promotion.setDiscount(Double.parseDouble(VipDiscountUpdate.getText()));
+        if(Double.parseDouble(VipDiscountUpdate.getText().toString())<=0||Double.parseDouble(VipDiscountUpdate.getText().toString())>1){
+            promptStage = new Stage();
+            new SalerPromptUI().start(promptStage);
+            Label message = (Label) promptroot.lookup("#Message");
+            message.setText("输入折扣信息不符合要求");
+        }
+        else{
+            int i=districtTable.getSelectionModel().getSelectedIndex();
+            ArrayList<PromotionVO> list = promotion.getDistrictPromotionList();
+            PromotionVO promotion=list.get(i);
+            promotion.setDistrict(districtUpdate.getText());
+            promotion.setDiscount(Double.parseDouble(VipDiscountUpdate.getText()));
+            minprimaryStage.close();
+        }
     }
     /**
      *
      * 删除商圈折扣
      */
     @FXML
-    private void onDelVIP(ActionEvent E) throws Exception{
-        TableView districtTable=(TableView)root.lookup("#districtTable");//商圈列表
-        int i=districtTable.getSelectionModel().getSelectedIndex();
-        ArrayList<PromotionVO> list = promotion.getDistrictPromotionList();
-        PromotionVO promotion=list.get(i);
-        saler.deletePromotion(promotion.getPromotionID());
+    private void onDelVIP(ActionEvent E) throws Exception {
+        TableView districtTable = (TableView) root.lookup("#districtTable");//商圈列表
+        if (districtTable.getSelectionModel().getSelectedIndex() == -1) {
+            promptStage = new Stage();
+            new SalerPromptUI().start(promptStage);
+            Label message = (Label) promptroot.lookup("#Message");
+            message.setText("请先选中表格内容");
+        } else {
+            int i = districtTable.getSelectionModel().getSelectedIndex();
+            ArrayList<PromotionVO> list = promotion.getDistrictPromotionList();
+            PromotionVO promotion = list.get(i);
+            saler.deletePromotion(promotion.getPromotionID());
+            promptStage = new Stage();
+            new SalerPromptUI().start(promptStage);
+            Label message = (Label) promptroot.lookup("#Message");
+            message.setText("删除成功");
+        }
     }
 
     /**
@@ -235,11 +285,29 @@ public class PromotionController {
     private void confirmAddRank(ActionEvent E) throws Exception{
         TextField rankDiscount=(TextField)minroot.lookup("#rankDiscount");//Vip折扣
         TextField creditUpgrate=(TextField)minroot.lookup("#creditUpgrate");//升级所需经验
-        ArrayList<Double> discountList = saler.getDiscountList();
-        ArrayList<Double> creditList = saler.getCreditList();
+        if(rankDiscount.getText().toString().equals("")||creditUpgrate.getText().toString().equals("")){
+            promptStage = new Stage();
+            new SalerPromptUI().start(promptStage);
+            Label message = (Label) promptroot.lookup("#Message");
+            message.setText("请完善信息后再确认");
+        }
+        else{
+            if(Double.parseDouble(rankDiscount.getText().toString())<=0||Double.parseDouble(rankDiscount.getText().toString())>1){
+                promptStage = new Stage();
+                new SalerPromptUI().start(promptStage);
+                Label message = (Label) promptroot.lookup("#Message");
+                message.setText("输入折扣信息不符合要求");
+            }
+            else{
+                ArrayList<Double> discountList = saler.getDiscountList();
+                ArrayList<Double> creditList = saler.getCreditList();
+                discountList.add(Double.parseDouble(rankDiscount.getText()));
+                creditList.add(Double.parseDouble(creditUpgrate.getText()));
+                saler.setRankInformation(creditList,discountList);
+                minprimaryStage.close();
+            }
+        }
 
-        discountList.add(Double.parseDouble(rankDiscount.getText()));
-        creditList.add(Double.parseDouble(creditUpgrate.getText()));
     }
     /**
      *
@@ -247,16 +315,25 @@ public class PromotionController {
      */
     @FXML
     private void onUpdateRank(ActionEvent E) throws Exception{
-        minprimaryStage = new Stage();
-        new SalerUpdateRankUI().start(minprimaryStage);
         TableView rankTable=(TableView)root.lookup("#rankTable");
-        TextField VipDiscountUpdate=(TextField)minroot.lookup("#VipDiscountUpdate");//Vip折扣
-        TextField creditUpgrateUpdate=(TextField)minroot.lookup("#creditUpgrateUpdate");//升级所需经验
-        int i=rankTable.getSelectionModel().getSelectedIndex();
-        ArrayList<Double> discountList = saler.getDiscountList();
-        ArrayList<Double> creditList = saler.getCreditList();
-        VipDiscountUpdate.setText(String.valueOf(discountList.get(i)));
-        creditUpgrateUpdate.setText(String.valueOf(creditList.get(i)));
+        if(rankTable.getSelectionModel().getSelectedIndex()==-1){
+            promptStage = new Stage();
+            new SalerPromptUI().start(promptStage);
+            Label message = (Label) promptroot.lookup("#Message");
+            message.setText("请先选中表格内容");
+        }
+        else{
+            minprimaryStage = new Stage();
+            new SalerUpdateRankUI().start(minprimaryStage);
+            TextField VipDiscountUpdate=(TextField)minroot.lookup("#VipDiscountUpdate");//Vip折扣
+            TextField creditUpgrateUpdate=(TextField)minroot.lookup("#creditUpgrateUpdate");//升级所需经验
+            int i=rankTable.getSelectionModel().getSelectedIndex();
+            ArrayList<Double> discountList = saler.getDiscountList();
+            ArrayList<Double> creditList = saler.getCreditList();
+            VipDiscountUpdate.setText(String.valueOf(discountList.get(i)));
+            creditUpgrateUpdate.setText(String.valueOf(creditList.get(i)));
+        }
+
     }
     /**
      *
@@ -267,11 +344,18 @@ public class PromotionController {
         TableView rankTable=(TableView)root.lookup("#rankTable");//vip列表
         TextField rankDiscountUpdate=(TextField)minroot.lookup("#rankDiscountUpdate");//Vip折扣
         TextField creditUpgrateUpdate=(TextField)minroot.lookup("#creditUpgrateUpdate");//升级所需经验
+        if(Double.parseDouble(rankDiscountUpdate.getText().toString())<=0||Double.parseDouble(rankDiscountUpdate.getText().toString())>1){
+            promptStage = new Stage();
+            new SalerPromptUI().start(promptStage);
+            Label message = (Label) promptroot.lookup("#Message");
+            message.setText("输入折扣信息不符合要求");
+        }
         int i=rankTable.getSelectionModel().getSelectedIndex();
         ArrayList<Double> discountList = saler.getDiscountList();
         ArrayList<Double> creditList = saler.getCreditList();
         discountList.set(i,Double.parseDouble(rankDiscountUpdate.getText()));
         creditList.set(i,Double.parseDouble(creditUpgrateUpdate.getText()));
+        saler.setRankInformation(creditList,discountList);
     }
     /**
      *
@@ -283,6 +367,7 @@ public class PromotionController {
         ArrayList<Double> creditList = saler.getCreditList();
         discountList.remove(discountList.size()-1);
         creditList.remove(creditList.size()-1);
+        saler.setRankInformation(creditList,discountList);
     }
     /**
      *
