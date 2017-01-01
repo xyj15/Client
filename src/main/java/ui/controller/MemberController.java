@@ -359,8 +359,15 @@ public class MemberController{
     @FXML
  private void onCancel(ActionEvent E)throws Exception {
      TableView table = (TableView) root.lookup("#table");
-     order.cancelOrder(OrderList.get(table.getSelectionModel().getSelectedIndex()).getOrderID());
-     onOrderInfor(E);
+        if(table.getSelectionModel().getSelectedIndex()==-1){
+            new MemberPromptUI().start(promptPrimaryStage);
+            Label message = (Label) promptRoot.lookup("#Message");
+            message.setText("请先选中表格内容");
+        }
+     else{
+            order.cancelOrder(OrderList.get(table.getSelectionModel().getSelectedIndex()).getOrderID());
+            onOrderInfor(E);
+        }
  }
 
     /**
@@ -371,6 +378,12 @@ public class MemberController{
     @FXML//实现评价
  private void onComment(ActionEvent E)throws Exception {
      TableView table = (TableView) root.lookup("#table");
+        if(table.getSelectionModel().getSelectedIndex()==-1){
+            new MemberPromptUI().start(promptPrimaryStage);
+            Label message = (Label) promptRoot.lookup("#Message");
+            message.setText("请先选中表格内容");
+        }
+        else{
      temOrder = OrderList.get(table.getSelectionModel().getSelectedIndex());
      minPrimaryStage = new Stage();
      if(temOrder.getEvaluation()==null){
@@ -385,6 +398,7 @@ public class MemberController{
          textArea.setText(temOrder.getEvaluation());
          score.setText(""+temOrder.getScore());
      }
+        }
  }
 
     /**
@@ -453,69 +467,76 @@ public class MemberController{
     @FXML
     private void onOrderInformation(ActionEvent E)throws Exception {
         TableView table = (TableView) root.lookup("#table");
-        OrderVO tem = this.OrderList.get(table.getSelectionModel().getSelectedIndex());
-        midPrimaryStage = new Stage();
-        new MemberOrderInformationUI().start(midPrimaryStage);
-        TextField name = (TextField)midRoot.lookup("#name");
-        TextField tel = (TextField)midRoot.lookup("#tel");
-        TextField hotelName = (TextField)midRoot.lookup("#hotelname");
-        TextField hotelAddress = (TextField)midRoot.lookup("#hotelAddress");
-        TextField nameOfRoom = (TextField)midRoot.lookup("#nameOfRoom");
-        TextField numOfRoom = (TextField)midRoot.lookup("#numOfRoom");
-        TextField state = (TextField)midRoot.lookup("#state");
-        TextField price = (TextField)midRoot.lookup("#price");
-        TextField expectInTime = (TextField)midRoot.lookup("#EinTime");
-        TextField actualInTime = (TextField)midRoot.lookup("#AinTime");
-        TextField expectOutTime = (TextField)midRoot.lookup("#EoutTime");
-        TextField actualOutTime = (TextField)midRoot.lookup("#AoutTime");
-        TextField createdTime = (TextField)midRoot.lookup("#CreatTime");
-        TextField CancelTime = (TextField)midRoot.lookup("#CancelTime");
-        TextField score = (TextField)midRoot.lookup("#score");
-        TextArea area = (TextArea)midRoot.lookup("#area");
-        area.setWrapText(true);
-        SimpleDateFormat sdf=new SimpleDateFormat("yyyy-MM-dd");
+        if(table.getSelectionModel().getSelectedIndex()==-1){
+            new MemberPromptUI().start(promptPrimaryStage);
+            Label message = (Label) promptRoot.lookup("#Message");
+            message.setText("请先选中表格内容");
+        }
+        else {
+            OrderVO tem = this.OrderList.get(table.getSelectionModel().getSelectedIndex());
+            midPrimaryStage = new Stage();
+            new MemberOrderInformationUI().start(midPrimaryStage);
+            TextField name = (TextField) midRoot.lookup("#name");
+            TextField tel = (TextField) midRoot.lookup("#tel");
+            TextField hotelName = (TextField) midRoot.lookup("#hotelname");
+            TextField hotelAddress = (TextField) midRoot.lookup("#hotelAddress");
+            TextField nameOfRoom = (TextField) midRoot.lookup("#nameOfRoom");
+            TextField numOfRoom = (TextField) midRoot.lookup("#numOfRoom");
+            TextField state = (TextField) midRoot.lookup("#state");
+            TextField price = (TextField) midRoot.lookup("#price");
+            TextField expectInTime = (TextField) midRoot.lookup("#EinTime");
+            TextField actualInTime = (TextField) midRoot.lookup("#AinTime");
+            TextField expectOutTime = (TextField) midRoot.lookup("#EoutTime");
+            TextField actualOutTime = (TextField) midRoot.lookup("#AoutTime");
+            TextField createdTime = (TextField) midRoot.lookup("#CreatTime");
+            TextField CancelTime = (TextField) midRoot.lookup("#CancelTime");
+            TextField score = (TextField) midRoot.lookup("#score");
+            TextArea area = (TextArea) midRoot.lookup("#area");
+            area.setWrapText(true);
+            SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
 
-        actualInTime.setText("尚未入住");
-        actualOutTime.setText("尚未退房");
-        CancelTime.setText("订单没有被取消");
+            actualInTime.setText("尚未入住");
+            actualOutTime.setText("尚未退房");
+            CancelTime.setText("订单没有被取消");
 
-        name.setText(tem.getMemberVO().getName());
-        tel.setText(tem.getMemberVO().getTel());
-        hotelName.setText(tem.getHotelVO().getName());
-        hotelAddress.setText(tem.getHotelVO().getAddress());
-        nameOfRoom.setText(tem.getRoomName());
-        numOfRoom.setText(""+tem.getNumberOfRoom());
-        state.setText(tem.getOrderStatus().toString());
-        price.setText(""+tem.getPrice());
-        if(tem.getCheckinTime()!=null){
-            expectInTime.setText(sdf.format(tem.getCheckinTime()));
-        }
-        if(tem.getActualCheckinTime()!=null){
-            actualInTime.setText(sdf.format(tem.getActualCheckinTime()));
-        }
-        if(tem.getCheckoutTime()!=null){
-            expectOutTime.setText(sdf.format(tem.getCheckoutTime()));
-        }
-        if(tem.getActualCheckoutTime()!=null){
-            actualOutTime.setText(sdf.format(tem.getActualCheckoutTime()));
-        }
-        createdTime.setText(sdf.format(tem.getCreateTime()));
-        if(tem.getCancelTime()!=null){
-            CancelTime.setText(sdf.format(tem.getCancelTime()));
-            actualInTime.setText("订单已经被取消");
-            actualOutTime.setText("订单已经被取消");
-        }
-        if(tem.getOrderStatus()==OrderStatus.Abnormal){
-            actualInTime.setText("订单异常");
-            actualOutTime.setText("订单异常");
-            CancelTime.setText("订单异常");
-        }
-        if(tem.getEvaluation()==null){
-            score.setText("无");
-            area.setText("尚未生成评价");
-        }else{
-            score.setText(""+tem.getScore());
-            area.setText(tem.getEvaluation());
+            name.setText(tem.getMemberVO().getName());
+            tel.setText(tem.getMemberVO().getTel());
+            hotelName.setText(tem.getHotelVO().getName());
+            hotelAddress.setText(tem.getHotelVO().getAddress());
+            nameOfRoom.setText(tem.getRoomName());
+            numOfRoom.setText("" + tem.getNumberOfRoom());
+            state.setText(tem.getOrderStatus().toString());
+            price.setText("" + tem.getPrice());
+            if (tem.getCheckinTime() != null) {
+                expectInTime.setText(sdf.format(tem.getCheckinTime()));
+            }
+            if (tem.getActualCheckinTime() != null) {
+                actualInTime.setText(sdf.format(tem.getActualCheckinTime()));
+            }
+            if (tem.getCheckoutTime() != null) {
+                expectOutTime.setText(sdf.format(tem.getCheckoutTime()));
+            }
+            if (tem.getActualCheckoutTime() != null) {
+                actualOutTime.setText(sdf.format(tem.getActualCheckoutTime()));
+            }
+            createdTime.setText(sdf.format(tem.getCreateTime()));
+            if (tem.getCancelTime() != null) {
+                CancelTime.setText(sdf.format(tem.getCancelTime()));
+                actualInTime.setText("订单已经被取消");
+                actualOutTime.setText("订单已经被取消");
+            }
+            if (tem.getOrderStatus() == OrderStatus.Abnormal) {
+                actualInTime.setText("订单异常");
+                actualOutTime.setText("订单异常");
+                CancelTime.setText("订单异常");
+            }
+            if (tem.getEvaluation() == null) {
+                score.setText("无");
+                area.setText("尚未生成评价");
+            } else {
+                score.setText("" + tem.getScore());
+                area.setText(tem.getEvaluation());
+            }
         }
     }
 
@@ -527,37 +548,44 @@ public class MemberController{
     @FXML
     private void onLookingInforInHistory(ActionEvent E)throws Exception {
         TableView table = (TableView) root.lookup("#table");
-        hotel = new Hotel(HotelList.get(HotelList.size()-1-table.getSelectionModel().getSelectedIndex()).getUserID());
-        room = new Room(hotel.getHotelInformation().getUserID());
-        new MemberHotelInformationInHistoryUI().start(primaryStage);
-        passOrderWithHotel();
-        TextField hotelAddress = (TextField)root.lookup("#hotelAddress");
-        TextArea serviceStub = (TextArea)root.lookup("#serviceStub");
-        serviceStub.setWrapText(true);
-        TextArea introduction = (TextArea)root.lookup("#introduct");
-        introduction.setWrapText(true);
-        TextField hotelName = (TextField)root.lookup("#hotelName");
-        TextField hotelLevel = (TextField)root.lookup("#hotelLevel");
-        TextField hotelScore = (TextField)root.lookup("#hotelScore");
-        TextField city = (TextField)root.lookup("#city");
-        TextField district = (TextField)root.lookup("#district");
-        DatePicker inTimeInHistory = (DatePicker)root.lookup("#inTimeInHistory");
-        DatePicker outTimeInHistory = (DatePicker)root.lookup("#outTimeInHistory");
-        inTimeInHistory.setValue(LocalDate.now());
-        outTimeInHistory.setValue(LocalDate.now().plusDays(1));
-        LocalDateInTime = inTimeInHistory.getValue();
-        LocalDateOutTime = outTimeInHistory.getValue();
-        DateInTime = new Date(LocalDateInTime.getYear()-1900,LocalDateInTime.getMonthValue()-1,LocalDateInTime.getDayOfMonth());
-        DateOutTime = new Date(LocalDateOutTime.getYear()-1900,LocalDateOutTime.getMonthValue()-1,LocalDateOutTime.getDayOfMonth());
-        city.setText(hotel.getCity());
-        district.setText(hotel.getDistrict());
-        hotelName.setText(hotel.getHotelName());
-        hotelLevel.setText(""+hotel.getHotelLevel());
-        hotelScore.setText(""+hotel.getHotelScore());
-        hotelAddress.setText(hotel.getHotelAddress());
-        serviceStub.setText(hotel.getHotelService());
-        introduction.setText(hotel.getHotelIntroduction());
-        roomList(E);
+        if(table.getSelectionModel().getSelectedIndex()==-1){
+            new MemberPromptUI().start(promptPrimaryStage);
+            Label message = (Label) promptRoot.lookup("#Message");
+            message.setText("请先选中表格内容");
+        }
+        else{
+            hotel = new Hotel(HotelList.get(HotelList.size()-1-table.getSelectionModel().getSelectedIndex()).getUserID());
+            room = new Room(hotel.getHotelInformation().getUserID());
+            new MemberHotelInformationInHistoryUI().start(primaryStage);
+            passOrderWithHotel();
+            TextField hotelAddress = (TextField)root.lookup("#hotelAddress");
+            TextArea serviceStub = (TextArea)root.lookup("#serviceStub");
+            serviceStub.setWrapText(true);
+            TextArea introduction = (TextArea)root.lookup("#introduct");
+            introduction.setWrapText(true);
+            TextField hotelName = (TextField)root.lookup("#hotelName");
+            TextField hotelLevel = (TextField)root.lookup("#hotelLevel");
+            TextField hotelScore = (TextField)root.lookup("#hotelScore");
+            TextField city = (TextField)root.lookup("#city");
+            TextField district = (TextField)root.lookup("#district");
+            DatePicker inTimeInHistory = (DatePicker)root.lookup("#inTimeInHistory");
+            DatePicker outTimeInHistory = (DatePicker)root.lookup("#outTimeInHistory");
+            inTimeInHistory.setValue(LocalDate.now());
+            outTimeInHistory.setValue(LocalDate.now().plusDays(1));
+            LocalDateInTime = inTimeInHistory.getValue();
+            LocalDateOutTime = outTimeInHistory.getValue();
+            DateInTime = new Date(LocalDateInTime.getYear()-1900,LocalDateInTime.getMonthValue()-1,LocalDateInTime.getDayOfMonth());
+            DateOutTime = new Date(LocalDateOutTime.getYear()-1900,LocalDateOutTime.getMonthValue()-1,LocalDateOutTime.getDayOfMonth());
+            city.setText(hotel.getCity());
+            district.setText(hotel.getDistrict());
+            hotelName.setText(hotel.getHotelName());
+            hotelLevel.setText(""+hotel.getHotelLevel());
+            hotelScore.setText(""+hotel.getHotelScore());
+            hotelAddress.setText(hotel.getHotelAddress());
+            serviceStub.setText(hotel.getHotelService());
+            introduction.setText(hotel.getHotelIntroduction());
+            roomList(E);
+        }
      }
 
     @FXML
@@ -638,37 +666,43 @@ public class MemberController{
      */
     @FXML
     private void onReserve(ActionEvent E)throws Exception {
-        reserve = new Reserve(member.getMemberInformation().getUserID(),hotel.getHotelInformation().getUserID());
         TableView table = (TableView) root.lookup("#tablePass");
-        temRoom = RoomList.get(table.getSelectionModel().getSelectedIndex());
-        PromotionList = reserve.getPromotionList();
-        midPrimaryStage = new Stage();
-        new MemberReserveUI().start(midPrimaryStage);
-        TextField name = (TextField)midRoot.lookup("#name");
-        TextField type = (TextField)midRoot.lookup("#type");
-        TextField danjia = (TextField)midRoot.lookup("#danjia");
-        TextField num = (TextField)midRoot.lookup("#num");
-        Label inTime = (Label)midRoot.lookup("#inTime");
-        Label outTime = (Label)midRoot.lookup("#outTime");
-        Label discount = (Label)midRoot.lookup("#discount") ;
-        ComboBox<roomState> discountList = (ComboBox<roomState>) midRoot.lookup("#discountList");
-        for(int i = 0 ; i < PromotionList.size() ; i++  ){
-             discountList.getItems().add(new roomState(PromotionList.get(i).getPromotionName()));
-        }
-        discountList.getSelectionModel().select(0);
-        discount.setText(""+PromotionList.get(0).getDiscount());
-        discountList.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<roomState>() {
-            @Override
-            public void changed(ObservableValue<? extends roomState> observable, roomState oldValue, roomState newValue) {
-                discount.setText(""+PromotionList.get(discountList.getSelectionModel().getSelectedIndex()).getDiscount());
+        if (table.getSelectionModel().getSelectedIndex() == -1) {
+            new MemberPromptUI().start(promptPrimaryStage);
+            Label message = (Label) promptRoot.lookup("#Message");
+            message.setText("请先选中表格内容");
+        } else {
+            reserve = new Reserve(member.getMemberInformation().getUserID(), hotel.getHotelInformation().getUserID());
+            temRoom = RoomList.get(table.getSelectionModel().getSelectedIndex());
+            PromotionList = reserve.getPromotionList();
+            midPrimaryStage = new Stage();
+            new MemberReserveUI().start(midPrimaryStage);
+            TextField name = (TextField) midRoot.lookup("#name");
+            TextField type = (TextField) midRoot.lookup("#type");
+            TextField danjia = (TextField) midRoot.lookup("#danjia");
+            TextField num = (TextField) midRoot.lookup("#num");
+            Label inTime = (Label) midRoot.lookup("#inTime");
+            Label outTime = (Label) midRoot.lookup("#outTime");
+            Label discount = (Label) midRoot.lookup("#discount");
+            ComboBox<roomState> discountList = (ComboBox<roomState>) midRoot.lookup("#discountList");
+            for (int i = 0; i < PromotionList.size(); i++) {
+                discountList.getItems().add(new roomState(PromotionList.get(i).getPromotionName()));
             }
-        });
-        name.setText(temRoom.getRoomName());
-        type.setText(""+temRoom.getRoomType());
-        inTime.setText(""+LocalDateInTime.getYear()+"-"+LocalDateInTime.getMonthValue()+"-"+LocalDateInTime.getDayOfMonth());
-        outTime.setText(""+LocalDateOutTime.getYear()+"-"+LocalDateOutTime.getMonthValue()+"-"+LocalDateOutTime.getDayOfMonth());
-        danjia.setText(""+temRoom.getPrice());
-        num.setText("1");
+            discountList.getSelectionModel().select(0);
+            discount.setText("" + PromotionList.get(0).getDiscount());
+            discountList.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<roomState>() {
+                @Override
+                public void changed(ObservableValue<? extends roomState> observable, roomState oldValue, roomState newValue) {
+                    discount.setText("" + PromotionList.get(discountList.getSelectionModel().getSelectedIndex()).getDiscount());
+                }
+            });
+            name.setText(temRoom.getRoomName());
+            type.setText("" + temRoom.getRoomType());
+            inTime.setText("" + LocalDateInTime.getYear() + "-" + LocalDateInTime.getMonthValue() + "-" + LocalDateInTime.getDayOfMonth());
+            outTime.setText("" + LocalDateOutTime.getYear() + "-" + LocalDateOutTime.getMonthValue() + "-" + LocalDateOutTime.getDayOfMonth());
+            danjia.setText("" + temRoom.getPrice());
+            num.setText("1");
+        }
     }
 
     /**
@@ -733,30 +767,38 @@ public class MemberController{
     @FXML
     private void onLookingInforInSearch(ActionEvent E)throws Exception {
         TableView table = (TableView) root.lookup("#table");
-        hotel = new Hotel(HotelList.get(table.getSelectionModel().getSelectedIndex()).getUserID());
-        room = new Room(hotel.getHotelInformation().getUserID());
-        new MemberHotelInformationInSearchUI().start(primaryStage);
-        passOrderWithHotel();
-        TextField hotelAddress = (TextField)root.lookup("#hotelAddress");
-        TextArea serviceStub = (TextArea)root.lookup("#serviceStub");
-        serviceStub.setWrapText(true);
-        TextArea introduction = (TextArea)root.lookup("#introduct");
-        introduction.setWrapText(true);
-        TextField hotelName = (TextField)root.lookup("#hotelName");
-        TextField hotelLevel = (TextField)root.lookup("#hotelLevel");
-        TextField hotelScore = (TextField)root.lookup("#hotelScore");
-        TextField city = (TextField)root.lookup("#city");
-        TextField district = (TextField)root.lookup("#district");
-        city.setText(hotel.getCity());
-        district.setText(hotel.getDistrict());
-        hotelName.setText(hotel.getHotelName());
-        hotelLevel.setText(""+hotel.getHotelLevel());
-        hotelScore.setText(""+hotel.getHotelScore());
-        hotelAddress.setText(hotel.getHotelAddress());
-        serviceStub.setText(hotel.getHotelService());
-        introduction.setText(hotel.getHotelIntroduction());
-        roomList(E);
+        if(table.getSelectionModel().getSelectedIndex()==-1){
+            new MemberPromptUI().start(promptPrimaryStage);
+            Label message = (Label) promptRoot.lookup("#Message");
+            message.setText("请先选中表格内容");
+        }
+        else{
+            hotel = new Hotel(HotelList.get(table.getSelectionModel().getSelectedIndex()).getUserID());
+            room = new Room(hotel.getHotelInformation().getUserID());
+            new MemberHotelInformationInSearchUI().start(primaryStage);
+            passOrderWithHotel();
+            TextField hotelAddress = (TextField)root.lookup("#hotelAddress");
+            TextArea serviceStub = (TextArea)root.lookup("#serviceStub");
+            serviceStub.setWrapText(true);
+            TextArea introduction = (TextArea)root.lookup("#introduct");
+            introduction.setWrapText(true);
+            TextField hotelName = (TextField)root.lookup("#hotelName");
+            TextField hotelLevel = (TextField)root.lookup("#hotelLevel");
+            TextField hotelScore = (TextField)root.lookup("#hotelScore");
+            TextField city = (TextField)root.lookup("#city");
+            TextField district = (TextField)root.lookup("#district");
+            city.setText(hotel.getCity());
+            district.setText(hotel.getDistrict());
+            hotelName.setText(hotel.getHotelName());
+            hotelLevel.setText(""+hotel.getHotelLevel());
+            hotelScore.setText(""+hotel.getHotelScore());
+            hotelAddress.setText(hotel.getHotelAddress());
+            serviceStub.setText(hotel.getHotelService());
+            introduction.setText(hotel.getHotelIntroduction());
+            roomList(E);
+        }
     }
+
 
     /**
      * 绘制用户信息更改界面
