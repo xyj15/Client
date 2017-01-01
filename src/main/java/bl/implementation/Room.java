@@ -167,6 +167,8 @@ public class Room implements RoomBLService {
 		roomDataService = RemoteHelper.getInstance().getRoomDataService();
 		ArrayList<RoomPO> roomPOList = null;
 		try {
+//			System.out.println(hotelID);
+//			System.out.println(date.toString());
 			roomPOList = roomDataService.getRoomsByDate(date, hotelID);
 		} catch (RemoteException e) {
 			e.printStackTrace();
