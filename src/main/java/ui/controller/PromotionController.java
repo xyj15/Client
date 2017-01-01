@@ -349,13 +349,15 @@ public class PromotionController {
             new SalerPromptUI().start(promptStage);
             Label message = (Label) promptroot.lookup("#Message");
             message.setText("输入折扣信息不符合要求");
+        }else{
+            int i=rankTable.getSelectionModel().getSelectedIndex();
+            ArrayList<Double> discountList = saler.getDiscountList();
+            ArrayList<Double> creditList = saler.getCreditList();
+            discountList.set(i,Double.parseDouble(rankDiscountUpdate.getText()));
+            creditList.set(i,Double.parseDouble(creditUpgrateUpdate.getText()));
+            saler.setRankInformation(creditList,discountList);
+            minprimaryStage.close();
         }
-        int i=rankTable.getSelectionModel().getSelectedIndex();
-        ArrayList<Double> discountList = saler.getDiscountList();
-        ArrayList<Double> creditList = saler.getCreditList();
-        discountList.set(i,Double.parseDouble(rankDiscountUpdate.getText()));
-        creditList.set(i,Double.parseDouble(creditUpgrateUpdate.getText()));
-        saler.setRankInformation(creditList,discountList);
     }
     /**
      *
@@ -368,6 +370,10 @@ public class PromotionController {
         discountList.remove(discountList.size()-1);
         creditList.remove(creditList.size()-1);
         saler.setRankInformation(creditList,discountList);
+        promptStage = new Stage();
+        new SalerPromptUI().start(promptStage);
+        Label message = (Label) promptroot.lookup("#Message");
+        message.setText("删除成功");
     }
     /**
      *
@@ -393,11 +399,19 @@ public class PromotionController {
         DatePicker checkInDate = (DatePicker)minroot.lookup("#checkInDate");//起始时间
         DatePicker checkOutDate = (DatePicker)minroot.lookup("#checkOutDate");//结束时间
         TextField dateDiscount=(TextField)minroot.lookup("#dateDiscount");//折扣
-        PromotionVO promotion=new PromotionVO(null,datePromotionName.getText().toString(),PromotionType.Discount);
-        Date start=new Date(checkInDate.getValue().getYear(),checkInDate.getValue().getMonthValue(),checkInDate.getValue().getDayOfMonth());
-        Date end=new Date(checkOutDate.getValue().getYear(),checkOutDate.getValue().getMonthValue(),checkOutDate.getValue().getDayOfMonth());
-        promotion.setDatePromotion(start,end,Double.parseDouble(dateDiscount.getText()),0,0);
-        saler.createPromotion(promotion);
+        if(Double.parseDouble(dateDiscount.getText().toString())<=0||Double.parseDouble(dateDiscount.getText().toString())>1){
+            promptStage = new Stage();
+            new SalerPromptUI().start(promptStage);
+            Label message = (Label) promptroot.lookup("#Message");
+            message.setText("输入折扣信息不符合要求");
+        }else{
+            PromotionVO promotion=new PromotionVO(null,datePromotionName.getText().toString(),PromotionType.Discount);
+            Date start=new Date(checkInDate.getValue().getYear()-1900,checkInDate.getValue().getMonthValue()-1,checkInDate.getValue().getDayOfMonth());
+            Date end=new Date(checkOutDate.getValue().getYear()-1900,checkOutDate.getValue().getMonthValue()-1,checkOutDate.getValue().getDayOfMonth());
+            promotion.setDatePromotion(start,end,Double.parseDouble(dateDiscount.getText()),0,0);
+            saler.createPromotion(promotion);
+            minprimaryStage.close();
+        }
     }
     /**
      *
@@ -405,22 +419,29 @@ public class PromotionController {
      */
     @FXML
     private void onUpdatePromotion(ActionEvent E) throws Exception{
+        TableView promotionTable=(TableView)root.lookup("#promotionTable") ;//营销策略名称
         minprimaryStage = new Stage();
         new SalerUpdatePromotionUI().start(minprimaryStage);
-        TableView promotionTable=(TableView)root.lookup("#promotionTable") ;//营销策略名称
         TextField datePromotionNameUpdate=(TextField)minroot.lookup("#DatePromotionNameUpdate");//营销策略名称
         DatePicker checkInDateUpdate = (DatePicker)minroot.lookup("#checkInDateUpdate");//起始时间
         DatePicker checkOutDateUpdate = (DatePicker)minroot.lookup("#checkOutDateUpdate");//结束时间
         TextField dateDiscountUpdate=(TextField)minroot.lookup("#dateDiscountUpdate");//折扣
-
-        int i = promotionTable.getSelectionModel().getSelectedIndex();
-        ArrayList<PromotionVO> list = promotion.getWebDatePromotionList();
-        PromotionVO promotion = list.get(i);
-        datePromotionNameUpdate.setText(promotion.getPromotionName());
-        checkInDateUpdate.setValue(promotion.getStartDate().toInstant().atZone(ZoneId.systemDefault()).toLocalDate());
-        dateDiscountUpdate.setText(String.valueOf(promotion.getDiscount()));
-        checkOutDateUpdate.setValue(promotion.getEndDate().toInstant().atZone(ZoneId.systemDefault()).toLocalDate());
-        checkOutDateUpdate.setDayCellFactory(dateBefore(checkInDateUpdate));
+        if(promotionTable.getSelectionModel().getSelectedIndex()==-1){
+            promptStage = new Stage();
+            new SalerPromptUI().start(promptStage);
+            Label message = (Label) promptroot.lookup("#Message");
+            message.setText("请先选中表格内容");
+        }else {
+            int i = promotionTable.getSelectionModel().getSelectedIndex();
+            ArrayList<PromotionVO> list = promotion.getWebDatePromotionList();
+            PromotionVO promotion = list.get(i);
+            datePromotionNameUpdate.setText(promotion.getPromotionName());
+            checkInDateUpdate.setValue(promotion.getStartDate().toInstant().atZone(ZoneId.systemDefault()).toLocalDate());
+            dateDiscountUpdate.setText(String.valueOf(promotion.getDiscount()));
+            checkOutDateUpdate.setValue(promotion.getEndDate().toInstant().atZone(ZoneId.systemDefault()).toLocalDate());
+            checkOutDateUpdate.setDayCellFactory(dateBefore(checkInDateUpdate));
+            minprimaryStage.close();
+         }
     }
     /**
      *
@@ -457,13 +478,22 @@ public class PromotionController {
         DatePicker checkInDate = (DatePicker)minroot.lookup("#checkInDate");//起始时间
         DatePicker checkOutDate = (DatePicker)minroot.lookup("#checkOutDate");//结束时间
         TextField dateDiscount=(TextField)minroot.lookup("#dateDiscount");//折扣
-        int i=promotionTable.getSelectionModel().getSelectedIndex();
-        ArrayList<PromotionVO> list = promotion.getWebDatePromotionList();
-        PromotionVO promotion=list.get(i);
-        Date start=new Date(checkInDate.getValue().getYear(),checkInDate.getValue().getMonthValue(),checkInDate.getValue().getDayOfMonth());
-        Date end=new Date(checkOutDate.getValue().getYear(),checkOutDate.getValue().getMonthValue(),checkOutDate.getValue().getDayOfMonth());
-        promotion.setDatePromotion(start,end,Double.parseDouble(dateDiscount.getText()),0,0);
-        saler.updatePromotion(promotion);
+        if(Double.parseDouble(dateDiscount.getText().toString())<=0||Double.parseDouble(dateDiscount.getText().toString())>1){
+            promptStage = new Stage();
+            new SalerPromptUI().start(promptStage);
+            Label message = (Label) promptroot.lookup("#Message");
+            message.setText("输入折扣信息不符合要求");
+        }
+        else{
+            int i=promotionTable.getSelectionModel().getSelectedIndex();
+            ArrayList<PromotionVO> list = promotion.getWebDatePromotionList();
+            PromotionVO promotion=list.get(i);
+            Date start=new Date(checkInDate.getValue().getYear()-1900,checkInDate.getValue().getMonthValue()-1,checkInDate.getValue().getDayOfMonth());
+            Date end=new Date(checkOutDate.getValue().getYear()-1900,checkOutDate.getValue().getMonthValue()-1,checkOutDate.getValue().getDayOfMonth());
+            promotion.setDatePromotion(start,end,Double.parseDouble(dateDiscount.getText()),0,0);
+            saler.updatePromotion(promotion);
+            minprimaryStage.close();
+        }
     }
     /**
      *
@@ -480,9 +510,22 @@ public class PromotionController {
     @FXML
     private void halfCredit(ActionEvent E) throws Exception{
         TableView AbnormalOrderTable=(TableView)root.lookup("#AbnormalOrderTable") ;//异常订单列表
-        int i=AbnormalOrderTable.getSelectionModel().getSelectedIndex();
-        ArrayList<OrderVO> list = saler.getDailyUnexcutedOrderList();
-        saler.cancelAbnormalOrder(list.get(i).getOrderID(),0.5);
+        if(AbnormalOrderTable.getSelectionModel().getSelectedIndex()==-1){
+            promptStage = new Stage();
+            new SalerPromptUI().start(promptStage);
+            Label message = (Label) promptroot.lookup("#Message");
+            message.setText("请先选中表格内容");
+        }
+        else{
+            int i=AbnormalOrderTable.getSelectionModel().getSelectedIndex();
+            ArrayList<OrderVO> list = saler.getDailyUnexcutedOrderList();
+            saler.cancelAbnormalOrder(list.get(i).getOrderID(),0.5);
+            promptStage = new Stage();
+            new SalerPromptUI().start(promptStage);
+            Label message = (Label) promptroot.lookup("#Message");
+            message.setText("恢复成功");
+            onAbnormal(E);
+        }
     }
     /**
      *
@@ -491,9 +534,29 @@ public class PromotionController {
     @FXML
     private void fullCredit(ActionEvent E) throws Exception{
         TableView AbnormalOrderTable=(TableView)root.lookup("#AbnormalOrderTable") ;//异常订单列表
-        int i=AbnormalOrderTable.getSelectionModel().getSelectedIndex();
-        ArrayList<OrderVO> list = saler.getDailyUnexcutedOrderList();
-        saler.cancelAbnormalOrder(list.get(i).getOrderID(),1);
+        if(AbnormalOrderTable.getSelectionModel().getSelectedIndex()==-1){
+            promptStage = new Stage();
+            new SalerPromptUI().start(promptStage);
+            Label message = (Label) promptroot.lookup("#Message");
+            message.setText("请先选中表格内容");
+        }
+        else{
+            int i=AbnormalOrderTable.getSelectionModel().getSelectedIndex();
+            ArrayList<OrderVO> list = saler.getDailyUnexcutedOrderList();
+            saler.cancelAbnormalOrder(list.get(i).getOrderID(),1);
+            promptStage = new Stage();
+            new SalerPromptUI().start(promptStage);
+            Label message = (Label) promptroot.lookup("#Message");
+            message.setText("恢复成功");
+            onAbnormal(E);
+        }
+    }
+    @FXML
+    private void queryCredit(ActionEvent E) throws Exception{
+        TextField memberID=(TextField)root.lookup("#memberID");             //用户ID
+        Label creditNow = (Label)root.lookup("#creditNow");                 //显示信用
+        Member tem = new Member(memberID.getText().toString());
+        creditNow.setText(""+tem.getCredit());
     }
     /**
      *
@@ -501,9 +564,14 @@ public class PromotionController {
      */
     @FXML
     private void confirmAddCredit(ActionEvent E) throws Exception{
-        TextField memberID=(TextField)minroot.lookup("#memberID");//用户ID
-        TextField credit=(TextField)minroot.lookup("#credit");//信用
+        TextField memberID = (TextField)root.lookup("#memberID");             //用户ID
+        TextField credit = (TextField)root.lookup("#credit");                 //充值信用
         saler.creditRecharge(memberID.getText(),Double.parseDouble(credit.getText()));
+        promptStage = new Stage();
+        new SalerPromptUI().start(promptStage);
+        Label message = (Label) promptroot.lookup("#Message");
+        message.setText("充值成功");
+        credit.setText("");
+        queryCredit(E);
     }
-
 }
