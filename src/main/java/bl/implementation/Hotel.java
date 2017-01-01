@@ -2,9 +2,7 @@ package bl.implementation;
 
 import data.service.HotelDataService;
 import bl.service.HotelBLService;
-import data.stub.HotelDataStub;
 import other.OrderAction;
-import other.OrderStatus;
 import other.RoomType;
 import po.HotelPO;
 import rmi.RemoteHelper;
@@ -62,7 +60,7 @@ public class Hotel implements HotelBLService {
 		this.hotelID = hotelID;
 		hotelDataService = RemoteHelper.getInstance().getHotelDataService();
 //		hotelDataService = new HotelDataStub();
-		updateDateFromFile();
+		updateDataFromFile();
 	}
 	
 	/**
@@ -71,7 +69,6 @@ public class Hotel implements HotelBLService {
 	 */
 	@Override
 	public String getHotelName() {
-		updateDateFromFile();
 		return hotelVO.getName();
 	}
 	
@@ -81,7 +78,6 @@ public class Hotel implements HotelBLService {
 	 */
 	@Override
 	public String getHotelAddress() {
-		updateDateFromFile();
 		return hotelVO.getAddress();
 	}
 	
@@ -91,7 +87,6 @@ public class Hotel implements HotelBLService {
 	 */
 	@Override
 	public String getCity() {
-		updateDateFromFile();
 		return hotelVO.getCity();
 	}
 	
@@ -101,7 +96,6 @@ public class Hotel implements HotelBLService {
 	 */
 	@Override
 	public int getHotelLevel() {
-		updateDateFromFile();
 		return hotelVO.getLevel();
 	}
 	
@@ -111,7 +105,6 @@ public class Hotel implements HotelBLService {
 	 */
 	@Override
 	public String getDistrict() {
-		updateDateFromFile();
 		return hotelVO.getDistrict();
 	}
 	
@@ -121,7 +114,6 @@ public class Hotel implements HotelBLService {
 	 */
 	@Override
 	public double getHotelScore() {
-		updateDateFromFile();
 		return hotelVO.getScore();
 	}
 	
@@ -131,7 +123,6 @@ public class Hotel implements HotelBLService {
 	 */
 	@Override
 	public String getHotelService() {
-		updateDateFromFile();
 		return hotelVO.getService();
 	}
 	
@@ -141,7 +132,6 @@ public class Hotel implements HotelBLService {
 	 */
 	@Override
 	public String getHotelIntroduction() {
-		updateDateFromFile();
 		return hotelVO.getIntroduction();
 	}
 	
@@ -151,7 +141,6 @@ public class Hotel implements HotelBLService {
 	 */
 	@Override
 	public String getHotelManagerName() {
-		updateDateFromFile();
 		return hotelVO.getManagerName();
 	}
 	
@@ -161,7 +150,6 @@ public class Hotel implements HotelBLService {
 	 */
 	@Override
 	public String getHotelManagerTel() {
-		updateDateFromFile();
 		return hotelVO.getManagerTel();
 	}
 	
@@ -173,8 +161,12 @@ public class Hotel implements HotelBLService {
 	@Override
 	public boolean setHotelInformation(HotelVO hotelInformation) {
 		this.hotelVO = hotelInformation;
-		updateDateToFile();
-		return true;
+		try {
+			return hotelDataService.updateHotel(hotelVOtoPO(hotelInformation));
+		} catch (RemoteException e) {
+			e.printStackTrace();
+			return false;
+		}
 	}
 	
 	/**
@@ -194,10 +186,11 @@ public class Hotel implements HotelBLService {
 	 */
 	@Override
 	public boolean checkin(String orderID, String roomID) {
+		order = new Order(hotelID);
+		room = new Room(hotelID);
 		OrderVO orderVO = order.getOrderInformation(orderID);
 		RoomVO roomVO = room.getRoomInformation(new Date(), roomID);
 		orderVO.getRoomList().add(roomVO);
-		
 		return room.checkin(new Date(), roomID);
 	}
 	
@@ -209,6 +202,8 @@ public class Hotel implements HotelBLService {
 	 */
 	@Override
 	public boolean checkout(String orderID, String roomID) {
+		order = new Order(hotelID);
+		room = new Room(hotelID);
 		OrderVO orderVO = order.getOrderInformation(orderID);
 		RoomVO roomVO = room.getRoomInformation(new Date(), roomID);
 		int index = orderVO.getRoomList().indexOf(roomVO);
@@ -235,6 +230,7 @@ public class Hotel implements HotelBLService {
 	 * @return 预订成功则返回true，否则返回false
 	 */
 	public boolean reserveSingleRoom(Date date, String roomName) {
+		room = new Room(hotelID);
 		ArrayList<RoomVO> roomList = room.getDailyRoomList(date);
 		RoomVO roomVO;
 		for(int i=0; i<roomList.size(); i++) {
@@ -255,6 +251,7 @@ public class Hotel implements HotelBLService {
 	@Override
 	public boolean delay(String orderID, String roomID) {
 		order = new Order(hotelID);
+		room = new Room(hotelID);
 		OrderVO orderVO = order.getOrderInformation(orderID);
 		if(orderVO==null) {
 			return false;
@@ -269,6 +266,7 @@ public class Hotel implements HotelBLService {
 	 * @param date 日期
 	 */
 	public void updateDailyInformation(Date date) {
+		room = new Room(hotelID);
 		ArrayList<RoomType> roomTypeList = new ArrayList<>();
 		ArrayList<Integer> roomNumberList = new ArrayList<>();
 		
@@ -301,35 +299,22 @@ public class Hotel implements HotelBLService {
 	/**
 	 * 从Data层更新数据
 	 */
-	public boolean updateDateFromFile() {
+	public boolean updateDataFromFile() {
 		try {
 			if(hotelDataService.getHotelByID(hotelID)==null) {
 				return false;
 			}
 		} catch (RemoteException e) {
 			e.printStackTrace();
+			return false;
 		}
 		try {
 			hotelVO = hotelPOtoVO(hotelDataService.getHotelByID(hotelID));
+			return true;
 		} catch (RemoteException e) {
 			e.printStackTrace();
+			return false;
 		}
-		room = new Room(hotelID);
-		promotion = new Promotion(hotelID);
-		return true;
-	}
-	
-	/**
-	 * 将数据更新到Data层
-	 */
-	public boolean updateDateToFile() {
-		HotelPO hotelPO = hotelVOtoPO(hotelVO);
-		try {
-			return hotelDataService.updateHotel(hotelPO);
-		} catch (RemoteException e) {
-			e.printStackTrace();
-		}
-		return false;
 	}
 	
 	/**
@@ -405,7 +390,11 @@ public class Hotel implements HotelBLService {
 	public boolean updateHotelManagerInformation(String managerName, String managerTel) {
 		hotelVO.setManagerName(managerName);
 		hotelVO.setManagerTel(managerTel);
-		updateDateToFile();
-		return true;
+		try {
+			return hotelDataService.updateHotel(hotelVOtoPO(hotelVO));
+		} catch (RemoteException e) {
+			e.printStackTrace();
+			return false;
+		}
 	}
 }

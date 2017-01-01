@@ -140,6 +140,7 @@ public class RemoteHelper {
 //			ArrayList<CreditChangePO> creditChangePOList = remoteHelper.getCreditDataService().getCreditChange("00000000");
 //			System.out.println(creditChangePOList.get(0).getOrderID());
 //			System.out.println(remoteHelper.getPromotionDataService().getPromotionList().get(0).getPromotionName());
+//			System.err.println(remoteHelper.getPromotionDataService().getPromotionList().size());
 //		} catch (RemoteException e) {
 //			e.printStackTrace();
 //		}
@@ -148,7 +149,7 @@ public class RemoteHelper {
 //			     ) {
 //				System.out.println(room.getRoomName());
 //			}
-//			System.out.println(remoteHelper.getPromotionDataService().getPromotion("00006").getPromotionName());
+//			System.out.println(remoteHelper.getPromotionDataService().getPromotionList());
 //		} catch (RemoteException e) {
 //			e.printStackTrace();
 //		}
