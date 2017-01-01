@@ -44,7 +44,7 @@
                   <Font size="16.0" />
                </font>
             </Label>
-            <TextField fx:id="VipDiscountUpdate" promptText="0~1" GridPane.columnIndex="1">
+            <TextField fx:id="rankDiscountUpdate" promptText="0~1" GridPane.columnIndex="1">
                <GridPane.margin>
                   <Insets right="15.0" />
                </GridPane.margin>
