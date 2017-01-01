@@ -231,7 +231,9 @@ public class ManagerController{
 	private void confirmAddSaler(ActionEvent E)throws Exception {
 		TextField salerName=(TextField)root.lookup("#salerName");//营销人员名字
 		TextField tel=(TextField)root.lookup("#tel");//营销人员电话
-		if(salerName.getText().toString().equals("")||tel.getText().toString().equals("")){
+		PasswordField password=(PasswordField)root.lookup("#password");
+		if(salerName.getText().toString().equals("")||tel.getText().toString().equals("")
+				||password.getText().toString().equals("")){
 			PromptStage = new Stage();
 			new ManagerPromptUI().start(PromptStage);
 			Label message = (Label)PromptRoot.lookup("#Message");
@@ -239,7 +241,8 @@ public class ManagerController{
 		}else{
 			SalerVO saler=new SalerVO();
 			saler.setName(salerName.getText().toString());
-			saler.setPassword(tel.getText().toString());
+			saler.setPassword(password.getText().toString());
+			saler.setTel(tel.getText().toString());
 			manager.addSaler(saler);
 			PromptStage = new Stage();
 			new ManagerPrompt2UI().start(PromptStage);
@@ -316,6 +319,7 @@ public class ManagerController{
 		TextArea service=(TextArea)root.lookup("#service");
 		TextField hotelManagerName=(TextField)root.lookup("#hotelManagerName");
 		TextField tel=(TextField)root.lookup("#tel");
+		PasswordField password=(PasswordField) root.lookup("#password");
 		HotelVO hotel=new HotelVO();
 		hotel.setName(hotelName.getText());
 		hotel.setAddress(address.getText());
@@ -326,6 +330,7 @@ public class ManagerController{
 		hotel.setService(service.getText());
 		hotel.setManagerName(hotelManagerName.getText());
 		hotel.setManagerTel(tel.getText());
+		hotel.setPassword(password.getText());
 		manager.addHotel(hotel);
 		PromptStage = new Stage();
 		new ManagerPrompt2UI().start(PromptStage);
