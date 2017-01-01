@@ -104,7 +104,13 @@ public class OrderBLStub implements OrderBLService {
 	
 	@Override
 	public boolean checkin(String orderID) {
-		System.out.println("订单入住成功");
+		System.out.println("客户入住成功");
+		return true;
+	}
+	
+	@Override
+	public boolean checkout(String orderID) {
+		System.out.println("客户退房成功");
 		return true;
 	}
 }
