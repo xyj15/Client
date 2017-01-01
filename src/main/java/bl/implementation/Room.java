@@ -10,6 +10,7 @@ import vo.RoomVO;
 
 import java.rmi.RemoteException;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.Date;
 
 /**
@@ -169,7 +170,15 @@ public class Room implements RoomBLService {
 		try {
 //			System.out.println(hotelID);
 //			System.out.println(date.toString());
+//			System.out.println(roomDataService.getRoomsByDate(date, hotelID).size());
+//			Calendar calendar = Calendar.getInstance();
+//			calendar.setTime(date);
+//			System.out.println(calendar.toString());
+			if(roomDataService==null) {
+				roomDataService = RemoteHelper.getInstance().getRoomDataService();
+			}
 			roomPOList = roomDataService.getRoomsByDate(date, hotelID);
+//			System.out.println(roomPOList.size());
 		} catch (RemoteException e) {
 			e.printStackTrace();
 		}
@@ -177,6 +186,7 @@ public class Room implements RoomBLService {
 		for(int i=0; i<roomPOList.size(); i++) {
 			roomVOList.add(roomPOtoVO(roomPOList.get(i)));
 		}
+//		System.out.println(roomVOList.size());
 		return roomVOList;
 	}
 	
