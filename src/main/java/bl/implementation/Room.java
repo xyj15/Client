@@ -10,6 +10,7 @@ import vo.RoomVO;
 
 import java.rmi.RemoteException;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.Date;
 
 /**
@@ -170,6 +171,9 @@ public class Room implements RoomBLService {
 //			System.out.println(hotelID);
 //			System.out.println(date.toString());
 //			System.out.println(roomDataService.getRoomsByDate(date, hotelID).size());
+//			Calendar calendar = Calendar.getInstance();
+//			calendar.setTime(date);
+//			System.out.println(calendar.toString());
 			if(roomDataService==null) {
 				roomDataService = RemoteHelper.getInstance().getRoomDataService();
 			}
