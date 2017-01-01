@@ -140,21 +140,18 @@ public class RemoteHelper {
 //			ArrayList<CreditChangePO> creditChangePOList = remoteHelper.getCreditDataService().getCreditChange("00000000");
 //			System.out.println(creditChangePOList.get(0).getOrderID());
 //			System.out.println(remoteHelper.getPromotionDataService().getPromotionList().get(0).getPromotionName());
-<<<<<<< HEAD
 //		} catch (RemoteException e) {
 //			e.printStackTrace();
 //		}
-=======
 //			ArrayList<RoomPO> roomList = remoteHelper.getRoomDataService().getRoomsByDate(new Date(), "000000");
 //			for (RoomPO room: roomList
 //			     ) {
 //				System.out.println(room.getRoomName());
 //			}
-			System.out.println(remoteHelper.getPromotionDataService().getPromotion("00006").getPromotionName());
-		} catch (RemoteException e) {
-			e.printStackTrace();
-		}
->>>>>>> xin541322049/master
+//			System.out.println(remoteHelper.getPromotionDataService().getPromotion("00006").getPromotionName());
+//		} catch (RemoteException e) {
+//			e.printStackTrace();
+//		}
 			
 //		OrderDataAbstractFactory factory = remoteHelper.getOrderDataFactory();
 //		try {
