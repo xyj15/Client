@@ -55,7 +55,6 @@ public class Promotion implements PromotionBLService {
 	 */
 	@Override
 	public PromotionVO getPromotion(String promotionID) {
-		updateDataFromFile();
 		PromotionVO promotionVO;
 		for(int i=0; i<promotionList.size(); i++) {
 			promotionVO = promotionList.get(i);
@@ -73,12 +72,13 @@ public class Promotion implements PromotionBLService {
 	 */
 	@Override
 	public boolean addPromotion(PromotionVO promotionVO) {
-		updateDataFromFile();
 		try {
 			promotionVO.setPromotionID(promotionDataService.getAvailablePromotionID());
 		} catch (RemoteException e) {
 			e.printStackTrace();
+			return false;
 		}
+		
 		promotionList.add(promotionVO);
 		PromotionPO promotionPO = promotionVOtoPO(promotionVO);
 		try {
@@ -96,7 +96,6 @@ public class Promotion implements PromotionBLService {
 	 */
 	@Override
 	public boolean deletePromotion(String promotionID) {
-		updateDataFromFile();
 		int index = -1;
 		PromotionVO promotionVO;
 		for(int i=0; i<promotionList.size(); i++) {
@@ -143,8 +142,8 @@ public class Promotion implements PromotionBLService {
 				return promotionDataService.updatePromotion(promotionPO);
 			} catch (RemoteException e) {
 				e.printStackTrace();
+				return false;
 			}
-			return false;
 		}
 	}
 	
@@ -177,7 +176,6 @@ public class Promotion implements PromotionBLService {
 	 */
 	@Override
 	public ArrayList<PromotionVO> getDistrictPromotionList() {
-		updateDataFromFile();
 		ArrayList<PromotionVO> districtPromotionList = new ArrayList<>();
 		for(int i=0; i<promotionList.size(); i++) {
 			PromotionVO promotionVO = promotionList.get(i);
@@ -194,15 +192,14 @@ public class Promotion implements PromotionBLService {
 	 */
 	@Override
 	public ArrayList<PromotionVO> getHotelDatePromotionList() {
-		updateDataFromFile();
-		ArrayList<PromotionVO> districtPromotionList = new ArrayList<>();
+		ArrayList<PromotionVO> datePromotionList = new ArrayList<>();
 		for(int i=0; i<promotionList.size(); i++) {
 			PromotionVO promotionVO = promotionList.get(i);
 			if(promotionVO.getRelatedHotelID().equals(hotelID) && promotionVO.getSaleType()==SaleType.Date) {
-				districtPromotionList.add(promotionVO);
+				datePromotionList.add(promotionVO);
 			}
 		}
-		return districtPromotionList;
+		return datePromotionList;
 	}
 	
 	/**
@@ -211,7 +208,6 @@ public class Promotion implements PromotionBLService {
 	 */
 	@Override
 	public ArrayList<PromotionVO> getWebDatePromotionList() {
-		updateDataFromFile();
 		ArrayList<PromotionVO> districtPromotionList = new ArrayList<>();
 		for(int i=0; i<promotionList.size(); i++) {
 			PromotionVO promotionVO = promotionList.get(i);
@@ -228,7 +224,6 @@ public class Promotion implements PromotionBLService {
 	 */
 	@Override
 	public ArrayList<PromotionVO> getEnterprisePromotionList() {
-		updateDataFromFile();
 		ArrayList<PromotionVO> districtPromotionList = new ArrayList<>();
 		for(int i=0; i<promotionList.size(); i++) {
 			PromotionVO promotionVO = promotionList.get(i);
@@ -242,13 +237,16 @@ public class Promotion implements PromotionBLService {
 	/**
 	 * 从Data层更新数据，hotelID为null时更新网站营销策略列表，hotelID不为null时更新酒店营销策略列表
 	 */
-	public void updateDataFromFile() {
+	public boolean updateDataFromFile() {
+		System.out.println("======");
 		promotionList = new ArrayList<>();
-		ArrayList<PromotionPO> promotionPOList = null;
+		ArrayList<PromotionPO> promotionPOList;
 		try {
 			promotionPOList = promotionDataService.getPromotionList();
+			System.out.println(promotionPOList.size());
 		} catch (RemoteException e) {
 			e.printStackTrace();
+			return false;
 		}
 		PromotionPO promotionPO;
 		PromotionVO promotionVO;
@@ -259,6 +257,9 @@ public class Promotion implements PromotionBLService {
 				promotionList.add(promotionVO);
 			}
 		}
+		System.out.println(promotionList.size());
+		System.out.println("======");
+		return true;
 	}
 	
 	/**
