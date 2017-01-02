@@ -78,7 +78,7 @@ public class PromotionController {
      * 营销策略界面
      */
     @FXML
-    private void onPromotion() throws Exception{
+    private void onPromotion(ActionEvent E) throws Exception{
         new SalerPromotionUI().start(primaryStage);
         TableView promotionTable = (TableView)root.lookup("#promotionTable");//营销策略列表
         ObservableList<TableData> dataForSalerPromotion = FXCollections.observableArrayList();
@@ -418,6 +418,7 @@ public class PromotionController {
             promotion.setDatePromotion(start,end,Double.parseDouble(dateDiscount.getText()),0,0);
             saler.createPromotion(promotion);
             minprimaryStage.close();
+            onPromotion(E);
         }
     }
     /**
@@ -447,7 +448,6 @@ public class PromotionController {
             dateDiscountUpdate.setText(String.valueOf(promotion.getDiscount()));
             checkOutDateUpdate.setValue(promotion.getEndDate().toInstant().atZone(ZoneId.systemDefault()).toLocalDate());
             checkOutDateUpdate.setDayCellFactory(dateBefore(checkInDateUpdate));
-            minprimaryStage.close();
          }
     }
     /**
@@ -482,10 +482,11 @@ public class PromotionController {
     @FXML
     private void confirmUpdatePromotion(ActionEvent E) throws Exception{
         TableView promotionTable=(TableView)root.lookup("#promotionTable") ;//营销策略名称
-        DatePicker checkInDate = (DatePicker)minroot.lookup("#checkInDate");//起始时间
-        DatePicker checkOutDate = (DatePicker)minroot.lookup("#checkOutDate");//结束时间
-        TextField dateDiscount=(TextField)minroot.lookup("#dateDiscount");//折扣
-        if(Double.parseDouble(dateDiscount.getText().toString())<=0||Double.parseDouble(dateDiscount.getText().toString())>1){
+        TextField datePromotionNameUpdate=(TextField)minroot.lookup("#DatePromotionNameUpdate");//营销策略名称
+        DatePicker checkInDateUpdate = (DatePicker)minroot.lookup("#checkInDateUpdate");//起始时间
+        DatePicker checkOutDateUpdate = (DatePicker)minroot.lookup("#checkOutDateUpdate");//结束时间
+        TextField dateDiscountUpdate=(TextField)minroot.lookup("#dateDiscountUpdate");//折扣
+        if(Double.parseDouble(dateDiscountUpdate.getText().toString())<=0||Double.parseDouble(dateDiscountUpdate.getText().toString())>1){
             promptStage = new Stage();
             new SalerPromptUI().start(promptStage);
             Label message = (Label) promptroot.lookup("#Message");
@@ -495,12 +496,40 @@ public class PromotionController {
             int i=promotionTable.getSelectionModel().getSelectedIndex();
             ArrayList<PromotionVO> list = promotion.getWebDatePromotionList();
             PromotionVO promotion=list.get(i);
-            Date start=new Date(checkInDate.getValue().getYear()-1900,checkInDate.getValue().getMonthValue()-1,checkInDate.getValue().getDayOfMonth());
-            Date end=new Date(checkOutDate.getValue().getYear()-1900,checkOutDate.getValue().getMonthValue()-1,checkOutDate.getValue().getDayOfMonth());
-            promotion.setDatePromotion(start,end,Double.parseDouble(dateDiscount.getText()),0,0);
+            Date start=new Date(checkInDateUpdate.getValue().getYear()-1900,checkInDateUpdate.getValue().getMonthValue()-1,checkInDateUpdate.getValue().getDayOfMonth());
+            Date end=new Date(checkOutDateUpdate.getValue().getYear()-1900,checkOutDateUpdate.getValue().getMonthValue()-1,checkOutDateUpdate.getValue().getDayOfMonth());
+            promotion.setDatePromotion(start,end,Double.parseDouble(dateDiscountUpdate.getText()),0,0);
             saler.updatePromotion(promotion);
             minprimaryStage.close();
+            onPromotion(E);
         }
+    }
+    /**
+     *
+     * 删除VIP等级以及升级所需经验界面
+     */
+    @FXML
+    private void onDelPromotion(ActionEvent E) throws Exception{
+        TableView promotionTable=(TableView)root.lookup("#promotionTable") ;//营销策略名称
+        if(promotionTable.getSelectionModel().getSelectedIndex()==-1){
+            promptStage = new Stage();
+            new SalerPromptUI().start(promptStage);
+            Label message = (Label) promptroot.lookup("#Message");
+            message.setText("请先选中表格内容");
+        }else {
+            int i=promotionTable.getSelectionModel().getSelectedIndex();
+            ArrayList<PromotionVO> list = promotion.getWebDatePromotionList();
+            PromotionVO promotion=list.get(i);
+            saler.deletePromotion(promotion.getPromotionID());
+            promptStage = new Stage();
+            new SalerPromptUI().start(promptStage);
+            Label message = (Label) promptroot.lookup("#Message");
+            message.setText("删除成功");
+
+            onPromotion(E);
+        }
+
+
     }
     /**
      *

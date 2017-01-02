@@ -67,8 +67,8 @@
       </Button>
       <TableView fx:id="districtTable" layoutX="343.0" layoutY="367.0" opacity="0.81" prefHeight="218.0" prefWidth="511.0" style="-fx-background-color: #000f32;" stylesheets="@TableView.css">
         <columns>
-          <TableColumn editable="false" prefWidth="75.0" sortable="false" style="-fx-background-color: #000f32;" text="商圈" />
-            <TableColumn editable="false" prefWidth="75.0" sortable="false" style="-fx-background-color: #000f32;" text="折扣" />
+          <TableColumn editable="false" prefWidth="75.0" sortable="false" text="商圈" />
+            <TableColumn editable="false" prefWidth="75.0" sortable="false" text="折扣" />
         </columns>
          <columnResizePolicy>
             <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
@@ -81,9 +81,9 @@
       </Button>
       <TableView fx:id="rankTable" layoutX="343.0" layoutY="128.0" opacity="0.81" prefHeight="218.0" prefWidth="511.0" stylesheets="@TableView.css">
          <columns>
-            <TableColumn editable="false" prefWidth="75.0" sortable="false" style="-fx-background-color: #000f32;" text="会员等级" />
-            <TableColumn editable="false" prefWidth="123.0" sortable="false" style="-fx-background-color: #000f32;" text="折扣" />
-            <TableColumn editable="false" prefWidth="223.0" sortable="false" style="-fx-background-color: #000f32;" text="升级所需信用" />
+            <TableColumn editable="false" prefWidth="75.0" sortable="false" text="会员等级" />
+            <TableColumn editable="false" prefWidth="123.0" sortable="false" text="折扣" />
+            <TableColumn editable="false" prefWidth="223.0" sortable="false" text="升级所需信用" />
          </columns>
          <columnResizePolicy>
             <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
