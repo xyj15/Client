@@ -85,6 +85,7 @@ public class PromotionController {
         ObservableList<TableColumn> tableList = promotionTable.getColumns();
         ArrayList<PromotionVO> list = promotion.getWebDatePromotionList();
         SimpleDateFormat sdf=new SimpleDateFormat("yyyy-MM-dd");
+        System.out.print(list.size());
        for(int i=0;i<list.size();i++){
             dataForSalerPromotion.add(new TableData(list.get(i).getPromotionName(),sdf.format(list.get(i).getStartDate()),
                     sdf.format(list.get(i).getEndDate()),""+list.get(i).getDiscount()));
@@ -127,6 +128,7 @@ public class PromotionController {
         ObservableList<TableData> dataForDistrict = FXCollections.observableArrayList();
         ObservableList<TableColumn> tableList = districtTable.getColumns();
         ArrayList<PromotionVO> list = promotion.getDistrictPromotionList();
+        System.out.print(list.size());
         for(int i=0;i<list.size();i++) {
             dataForDistrict.add(new TableData(list.get(i).getDistrict(), String.valueOf(list.get(i).getDiscount())));
         }

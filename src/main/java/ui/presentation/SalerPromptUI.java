@@ -19,7 +19,7 @@ public class SalerPromptUI extends Application {
         primaryStage.setTitle("请皇上过目");
         Parent root = FXMLLoader.load(getClass().getResource("SalerPrompt.fxml"));
         PromotionController.setPromptroot(root);
-        PromotionController.setPrimaryStage(primaryStage);
+        PromotionController.setPromptStage(primaryStage);
         Scene myScene = new Scene(root,410,193);
         primaryStage.setResizable(false);
         primaryStage.setScene(myScene);
