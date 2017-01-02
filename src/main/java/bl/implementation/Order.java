@@ -182,6 +182,7 @@ public class Order implements OrderBLService {
 		orderVO.setOrderStatus(OrderStatus.Canceled);
 		orderVO.setActualCheckinTime(new Date());
 		orderVO.setRecover(recover);
+		orderVO.setCancelTime(new Date());
 		orderList.set(index, orderVO);
 		OrderPO orderPO = orderVOtoPO(orderVO);
 		

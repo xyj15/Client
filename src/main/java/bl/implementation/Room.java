@@ -10,6 +10,7 @@ import vo.RoomVO;
 
 import java.rmi.RemoteException;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.Date;
 
 /**
@@ -64,7 +65,7 @@ public class Room implements RoomBLService {
 	 * @return 房间信息
 	 */
 	@Override
-	public RoomVO getRoomInformation(Date date, String roomNumber){
+	public RoomVO getRoomInformation(Date date, String roomNumber) {
 		RoomPO roomPO = null;
 		try {
 			roomPO = roomDataService.getSingleRoom(date, roomNumber, hotelID);
@@ -87,8 +88,8 @@ public class Room implements RoomBLService {
 			return roomDataService.addSingleRoom(roomPO, hotelID);
 		} catch (RemoteException e) {
 			e.printStackTrace();
+			return false;
 		}
-		return false;
 	}
 	
 	/**
@@ -102,8 +103,8 @@ public class Room implements RoomBLService {
 			return roomDataService.deleteSingleRoom(roomNumber, hotelID);
 		} catch (RemoteException e) {
 			e.printStackTrace();
+			return false;
 		}
-		return false;
 	}
 	
 	/**
@@ -119,8 +120,8 @@ public class Room implements RoomBLService {
 			return roomDataService.updateSingleRoom(date, roomPO, hotelID);
 		} catch (RemoteException e) {
 			e.printStackTrace();
+			return false;
 		}
-		return false;
 	}
 	
 	/**
@@ -164,9 +165,20 @@ public class Room implements RoomBLService {
 	 */
 	@Override
 	public ArrayList<RoomVO> getDailyRoomList(Date date) {
+		roomDataService = RemoteHelper.getInstance().getRoomDataService();
 		ArrayList<RoomPO> roomPOList = null;
 		try {
+//			System.out.println(hotelID);
+//			System.out.println(date.toString());
+//			System.out.println(roomDataService.getRoomsByDate(date, hotelID).size());
+//			Calendar calendar = Calendar.getInstance();
+//			calendar.setTime(date);
+//			System.out.println(calendar.toString());
+			if(roomDataService==null) {
+				roomDataService = RemoteHelper.getInstance().getRoomDataService();
+			}
 			roomPOList = roomDataService.getRoomsByDate(date, hotelID);
+//			System.out.println(roomPOList.size());
 		} catch (RemoteException e) {
 			e.printStackTrace();
 		}
@@ -174,6 +186,7 @@ public class Room implements RoomBLService {
 		for(int i=0; i<roomPOList.size(); i++) {
 			roomVOList.add(roomPOtoVO(roomPOList.get(i)));
 		}
+//		System.out.println(roomVOList.size());
 		return roomVOList;
 	}
 	
@@ -185,7 +198,6 @@ public class Room implements RoomBLService {
 	 */
 	public boolean checkin(Date date, String roomID) {
 		try {
-			System.out.println("checkin success");
 			return roomDataService.checkIn(date, roomID, hotelID);
 		} catch (RemoteException e) {
 			e.printStackTrace();
@@ -204,8 +216,8 @@ public class Room implements RoomBLService {
 			return roomDataService.checkOut(date, roomID, hotelID);
 		} catch (RemoteException e) {
 			e.printStackTrace();
+			return false;
 		}
-		return false;
 	}
 	
 	/**
@@ -219,8 +231,8 @@ public class Room implements RoomBLService {
 			return roomDataService.reserveSingleRoom(date, roomID, hotelID);
 		} catch (RemoteException e) {
 			e.printStackTrace();
+			return false;
 		}
-		return false;
 	}
 }
 

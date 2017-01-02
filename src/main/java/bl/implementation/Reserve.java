@@ -139,7 +139,6 @@ public class Reserve implements ReserveBLService {
 	 */
 	@Override
 	public String getHotelName() {
-		hotel.updateDataFromFile();
 		return hotel.getHotelName();
 	}
 	
@@ -149,7 +148,6 @@ public class Reserve implements ReserveBLService {
 	 */
 	@Override
 	public String getHotelAddress() {
-		hotel.updateDataFromFile();
 		return hotel.getHotelAddress();
 	}
 	
@@ -159,7 +157,6 @@ public class Reserve implements ReserveBLService {
 	 */
 	@Override
 	public int getHotelLevel() {
-		hotel.updateDataFromFile();
 		return hotel.getHotelLevel();
 	}
 	
@@ -300,7 +297,6 @@ public class Reserve implements ReserveBLService {
 	@Override
 	public boolean createOrder() {
 		Order order = new Order(memberID);
-		Hotel hotel = new Hotel(hotelID);
 		Member member = new Member(memberID);
 		hotel.reserveSingleRoom(checkinTime, roomVO.getRoomName());
 		

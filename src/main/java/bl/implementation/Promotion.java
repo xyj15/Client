@@ -238,12 +238,10 @@ public class Promotion implements PromotionBLService {
 	 * 从Data层更新数据，hotelID为null时更新网站营销策略列表，hotelID不为null时更新酒店营销策略列表
 	 */
 	public boolean updateDataFromFile() {
-		System.out.println("======");
 		promotionList = new ArrayList<>();
 		ArrayList<PromotionPO> promotionPOList;
 		try {
 			promotionPOList = promotionDataService.getPromotionList();
-			System.out.println(promotionPOList.size());
 		} catch (RemoteException e) {
 			e.printStackTrace();
 			return false;
@@ -253,12 +251,15 @@ public class Promotion implements PromotionBLService {
 		for(int i=0; i<promotionPOList.size(); i++) {
 			promotionPO = promotionPOList.get(i);
 			promotionVO = promotionPOtoVO(promotionPO);
-			if(hotelID==promotionVO.getRelatedHotelID()) {
+			String relatedID = promotionVO.getRelatedHotelID();
+			if(relatedID==null) {
+				continue;
+			}
+			
+			if(relatedID.equals(hotelID)) {
 				promotionList.add(promotionVO);
 			}
 		}
-		System.out.println(promotionList.size());
-		System.out.println("======");
 		return true;
 	}
 	
