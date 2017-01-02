@@ -82,12 +82,12 @@
       <Button layoutX="998.0" layoutY="118.0" mnemonicParsing="false" onAction="#onSortWithComment" opacity="0.0" prefHeight="32.0" prefWidth="62.0" text="Button" />
       <TableView fx:id="table" layoutX="330.0" layoutY="150.0" opacity="0.8" prefHeight="400.0" prefWidth="730.0" stylesheets="@TableView.css">
          <columns>
-            <TableColumn prefWidth="131.0" style="-fx-background-color: #000f32;" text="酒店名称" />
-            <TableColumn prefWidth="91.0" style="-fx-background-color: #000f32;" text="星级" />
-            <TableColumn prefWidth="92.0" style="-fx-background-color: #000f32;" text="价格" />
-            <TableColumn prefWidth="88.0" style="-fx-background-color: #000f32;" text="评分" />
-            <TableColumn prefWidth="141.0" style="-fx-background-color: #000f32;" text="是否预定过" />
-            <TableColumn prefWidth="176.5" style="-fx-background-color: #000f32;" text="酒店联系方式" />
+            <TableColumn prefWidth="131.0" text="酒店名称" />
+            <TableColumn prefWidth="91.0" text="星级" />
+            <TableColumn prefWidth="92.0" text="价格" />
+            <TableColumn prefWidth="88.0" text="评分" />
+            <TableColumn prefWidth="141.0" text="是否预定过" />
+            <TableColumn prefWidth="176.5" text="酒店联系方式" />
          </columns>
       </TableView>
    </children>
