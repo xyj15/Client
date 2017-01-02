@@ -90,6 +90,7 @@ public class RemoteHelper {
 			remoteHelper.setRemote(Naming.lookup("rmi://localhost:3304/RemoteDataService"));
 //			remoteHelper.setRemote(Naming.lookup("rmi://172.28.151.24:3304/RemoteDataService"));
 			connected = true;
+			System.out.println("连接到服务器成功");
 			return true;
 		} catch (RemoteException e) {
 			e.printStackTrace();
@@ -141,6 +142,7 @@ public class RemoteHelper {
 //			System.out.println(creditChangePOList.get(0).getOrderID());
 //			System.out.println(remoteHelper.getPromotionDataService().getPromotionList().get(0).getPromotionName());
 //			System.err.println(remoteHelper.getPromotionDataService().getPromotionList().size());
+//			System.out.println(remoteHelper.getRoomDataService().getRoomsByDate(new Date(), "000000").size());
 //		} catch (RemoteException e) {
 //			e.printStackTrace();
 //		}

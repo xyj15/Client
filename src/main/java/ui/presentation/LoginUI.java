@@ -23,9 +23,6 @@ import java.util.Date;
 
 public class LoginUI extends Application {
 
-    static RemoteHelper helper = RemoteHelper.getInstance();
-    static boolean x = helper.connect();
-    
     @Override
     public void start (Stage primaryStage) throws Exception {
            primaryStage.setTitle("食宿");
@@ -39,6 +36,7 @@ public class LoginUI extends Application {
     }
     
     public static void main(String[] args) {
+        RemoteHelper.getInstance().connect();
         new LoginUI();
         launch(args);
     }

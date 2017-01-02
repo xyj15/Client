@@ -67,7 +67,6 @@ public class Saler implements SalerBLService {
 	 */
 	@Override
 	public SalerVO getSalerInformation() {
-		updateDataFromFile();
 		return salerVO;
 	}
 	
@@ -84,8 +83,8 @@ public class Saler implements SalerBLService {
 			return salerDataService.updateSaler(salerPO);
 		} catch (RemoteException e) {
 			e.printStackTrace();
+			return false;
 		}
-		return false;
 	}
 	
 	/**
@@ -94,7 +93,6 @@ public class Saler implements SalerBLService {
 	 */
 	@Override
 	public ArrayList<PromotionVO> getPromotionList() {
-		updateDataFromFile();
 		return promotion.getWebPromotionList();
 	}
 	
@@ -105,7 +103,6 @@ public class Saler implements SalerBLService {
 	 */
 	@Override
 	public PromotionVO getPromotion(String promotionID) {
-		updateDataFromFile();
 		return promotion.getPromotion(promotionID);
 	}
 	
@@ -126,7 +123,6 @@ public class Saler implements SalerBLService {
 	 */
 	@Override
 	public boolean deletePromotion(String promotionID) {
-		updateDataFromFile();
 		return promotion.deletePromotion(promotionID);
 	}
 	
@@ -137,7 +133,6 @@ public class Saler implements SalerBLService {
 	 */
 	@Override
 	public boolean updatePromotion(PromotionVO promotionVO) {
-		updateDataFromFile();
 		return promotion.updatePromotion(promotionVO);
 	}
 	
@@ -149,7 +144,7 @@ public class Saler implements SalerBLService {
 	 */
 	@Override
 	public boolean setRankInformation(ArrayList<Double> creditList, ArrayList<Double> discountList) {
-		updateDataFromFile();
+		rank = new Rank();
 		return rank.setRankInformation(creditList, discountList);
 	}
 	
@@ -177,7 +172,7 @@ public class Saler implements SalerBLService {
 	 */
 	@Override
 	public ArrayList<OrderVO> getDailyUnexcutedOrderList() {
-		updateDataFromFile();
+		order = new Order(salerID);
 		ArrayList<OrderVO> orderList = new ArrayList<>();
 		ArrayList<OrderVO> dailyAbnormalOrderList = order.getAbnormalOrders();
 		ArrayList<OrderVO> dailyUnexcutedOrderList = order.getUnexcutedOrders();
@@ -194,7 +189,7 @@ public class Saler implements SalerBLService {
 	 */
 	@Override
 	public boolean cancelAbnormalOrder(String orderID, double recover) {
-		updateDataFromFile();
+		order = new Order(salerID);
 		return order.cancelAbnormalOrder(orderID, recover);
 	}
 	
@@ -232,17 +227,21 @@ public class Saler implements SalerBLService {
 			}
 		} catch (RemoteException e) {
 			e.printStackTrace();
+			return false;
 		}
+		
+		rank = new Rank();
 		promotion = new Promotion();
-		order = new Order(salerID);
 		SalerPO salerPO = null;
+		
 		try {
 			salerPO = salerDataService.getSaler(salerID);
 		} catch (RemoteException e) {
 			e.printStackTrace();
+			return false;
 		}
+		
 		salerVO = salerPOtoVO(salerPO);
-		rank = new Rank();
 		return true;
 	}
 	
@@ -287,8 +286,8 @@ public class Saler implements SalerBLService {
 		String password = salerPO.getPassword();
 		String name = salerPO.getName();
 		String tel = salerPO.getTel();
-		ArrayList<PromotionVO> promotionList = new ArrayList<PromotionVO>();
-		ArrayList<OrderVO> dailyOrderList = new ArrayList<OrderVO>();
+		ArrayList<PromotionVO> promotionList = new ArrayList<>();
+		ArrayList<OrderVO> dailyOrderList = new ArrayList<>();
 		SalerVO salerVO = new SalerVO(salerID, password, name, tel);
 		return salerVO;
 	}

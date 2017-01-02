@@ -26,7 +26,7 @@ import java.util.Date;
  */
 public class MemberController{
 
-    private Date DateInTime;
+    private Date DateInTime = new Date();
     private Date DateOutTime;
     private String[] tem;
 
